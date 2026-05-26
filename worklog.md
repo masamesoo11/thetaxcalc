@@ -286,3 +286,28 @@ Stage Summary:
 - Links are woven naturally into existing sentences — no tone changes or content rewrites
 - Pre-existing comma syntax error in calculator page fixed (was blocking app compilation)
 - Database updated via seed API
+
+---
+Task ID: 4
+Agent: breadcrumb-cookie
+Task: Add breadcrumb component & cookie consent banner
+
+Work Log:
+- Created /src/components/finance/breadcrumb.tsx: Reusable breadcrumb component with Home icon, ChevronRight separators, support for linked and current-page items, responsive (hides "Home" text on mobile)
+- Created /src/components/finance/cookie-consent.tsx: Client component with localStorage-based consent tracking, Accept/Decline buttons, slide-in animation, glass-strong styling, links to /privacy
+- Added Breadcrumb to /about/page.tsx: "Home > About" (no breadcrumb existed before)
+- Added Breadcrumb to /privacy/page.tsx: "Home > Privacy Policy" (no breadcrumb existed before)
+- Added Breadcrumb to /terms/page.tsx: "Home > Terms of Use" (no breadcrumb existed before)
+- Replaced inline breadcrumb on /blog/page.tsx with Breadcrumb component: "Home > Blog"
+- Replaced inline breadcrumb on /glossary/page.tsx with Breadcrumb component: "Home > Tax Glossary"
+- Replaced inline breadcrumb on /salary/page.tsx with Breadcrumb component: "Home > Salary After Tax"
+- Added CookieConsent to /src/app/layout.tsx: imported component, added <CookieConsent /> before </body>
+- Did NOT add breadcrumbs to calculator pages, federal-tax-brackets, or compare pages (they already have built-in breadcrumbs)
+- Build verified: next build compiles and generates all static pages successfully
+
+Stage Summary:
+- Reusable Breadcrumb component created with Home icon, chevron separators, and responsive design
+- 6 pages now use the Breadcrumb component (3 new additions: about, privacy, terms; 3 replacements: blog, glossary, salary)
+- Cookie consent banner added site-wide via layout.tsx with Accept/Decline buttons and localStorage persistence
+- All existing functionality preserved, no breaking changes
+- Production build passes successfully

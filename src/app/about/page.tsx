@@ -16,6 +16,7 @@ import {
   ChevronDown,
 } from 'lucide-react';
 import Link from 'next/link';
+import { Breadcrumb } from '@/components/finance/breadcrumb';
 
 export const metadata: Metadata = {
   title: 'About Us',
@@ -104,6 +105,9 @@ export default function AboutPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
       />
+
+      {/* Breadcrumb */}
+      <Breadcrumb items={[{ label: 'About' }]} />
 
       {/* Header */}
       <div className="mb-12 text-center">

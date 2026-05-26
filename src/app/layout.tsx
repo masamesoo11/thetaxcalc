@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { QueryProvider } from "@/components/providers/query-provider";
 import { Header } from "@/components/finance/header";
 import { Footer } from "@/components/finance/footer";
+import { CookieConsent } from '@/components/finance/cookie-consent';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -186,6 +187,7 @@ export default function RootLayout({
           </div>
           <Toaster />
         </QueryProvider>
+        <CookieConsent />
       </body>
     </html>
   );

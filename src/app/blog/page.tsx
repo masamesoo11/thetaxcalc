@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import { db } from '@/lib/db';
 import { BlogListClient } from './blog-list-client';
+import { Breadcrumb } from '@/components/finance/breadcrumb';
 
 // ─── Metadata ─────────────────────────────────────────────────────────────────
 
@@ -142,11 +143,7 @@ export default async function BlogPage() {
       />
 
       {/* Breadcrumb Navigation */}
-      <nav aria-label="Breadcrumb" className="mb-6 flex items-center gap-1.5 text-sm text-muted-foreground">
-        <a href="/" className="hover:text-foreground transition-colors">Home</a>
-        <span className="text-muted-foreground/50">/</span>
-        <span className="text-foreground font-medium">Blog</span>
-      </nav>
+      <Breadcrumb items={[{ label: 'Blog' }]} />
 
       {/* ─── Server-Rendered H1 & Intro ────────────────────── */}
       <div className="mb-8 text-center">

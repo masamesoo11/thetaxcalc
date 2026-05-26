@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import { Scale, AlertTriangle, Shield, FileText, Gavel, Mail, ExternalLink } from 'lucide-react';
 import Link from 'next/link';
+import { Breadcrumb } from '@/components/finance/breadcrumb';
 
 export const metadata: Metadata = {
   title: 'Terms of Use',
@@ -47,6 +48,9 @@ export default function TermsPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(termsJsonLd) }}
       />
+
+      {/* Breadcrumb */}
+      <Breadcrumb items={[{ label: 'Terms of Use' }]} />
 
       {/* Header */}
       <div className="mb-10">

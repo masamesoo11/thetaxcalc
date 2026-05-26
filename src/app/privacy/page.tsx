@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import { Shield, Lock, Eye, Server, UserCheck, Bell, FileText, Mail } from 'lucide-react';
 import Link from 'next/link';
+import { Breadcrumb } from '@/components/finance/breadcrumb';
 
 export const metadata: Metadata = {
   title: 'Privacy Policy',
@@ -47,6 +48,9 @@ export default function PrivacyPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(privacyJsonLd) }}
       />
+
+      {/* Breadcrumb */}
+      <Breadcrumb items={[{ label: 'Privacy Policy' }]} />
 
       {/* Header */}
       <div className="mb-10">
