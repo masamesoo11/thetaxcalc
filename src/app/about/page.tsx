@@ -21,9 +21,49 @@ export const metadata: Metadata = {
   title: 'About Us',
   description:
     'Learn about TaxYield.io — our mission to provide free, accurate tax calculators for every American. We help you understand your take-home pay after federal, FICA, and state taxes.',
+  keywords: ['about taxyield', 'tax calculator about', 'tax tool mission', 'free tax calculator', 'tax data accuracy', 'tax calculator team'],
   alternates: {
     canonical: 'https://taxyield.io/about',
+    languages: {
+      'en-US': 'https://taxyield.io/about',
+      'x-default': 'https://taxyield.io/about',
+    },
   },
+  openGraph: {
+    title: 'About TaxYield.io',
+    description:
+      'Learn about TaxYield.io — our mission to provide free, accurate tax calculators for every American.',
+    url: 'https://taxyield.io/about',
+    siteName: 'TaxYield.io',
+    type: 'website',
+    locale: 'en_US',
+  },
+};
+
+const organizationJsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Organization',
+      name: 'TaxYield.io',
+      url: 'https://taxyield.io',
+      logo: 'https://taxyield.io/opengraph-image',
+      description: 'Free tax calculators and guides to help you understand your paycheck, state taxes, and financial planning.',
+      foundingDate: '2022',
+      sameAs: [],
+      contactPoint: {
+        '@type': 'ContactPoint',
+        email: 'contact@taxyield.io',
+        contactType: 'customer support',
+      },
+    },
+    {
+      '@type': 'AboutPage',
+      name: 'About TaxYield.io',
+      description: 'Learn about TaxYield.io — our mission to provide free, accurate tax calculators for every American.',
+      url: 'https://taxyield.io/about',
+    },
+  ],
 };
 
 const VALUES = [
@@ -59,6 +99,12 @@ const TEAM_STATS = [
 export default function AboutPage() {
   return (
     <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
+      {/* JSON-LD */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+      />
+
       {/* Header */}
       <div className="mb-12 text-center">
         <div className="inline-flex items-center gap-2 rounded-full bg-emerald-500/10 border border-emerald-500/20 px-4 py-1.5 text-sm text-emerald-400 mb-6">
@@ -203,11 +249,15 @@ export default function AboutPage() {
             we&apos;ll prioritize it.
           </p>
           <p>
-            Beyond state calculators, we also built tools for mortgage amortization (with an extra
-            payments feature that shows exactly how much interest you can save), 401(k) retirement
-            projections, capital gains tax estimation, self-employment tax calculations, and a
-            relocation calculator that answers the question: &ldquo;How much would I need to earn
-            in State B to match my take-home pay in State A?&rdquo;
+            Beyond state calculators, we also built tools for{' '}
+            <Link href="/mortgage-calculator" className="text-emerald-400 hover:text-emerald-300 underline">mortgage amortization</Link>{' '}
+            (with an extra payments feature that shows exactly how much interest you can save),{' '}
+            <Link href="/401k-retirement-calculator" className="text-emerald-400 hover:text-emerald-300 underline">401(k) retirement projections</Link>,{' '}
+            <Link href="/capital-gains-calculator" className="text-emerald-400 hover:text-emerald-300 underline">capital gains tax estimation</Link>,{' '}
+            <Link href="/self-employment-tax-calculator" className="text-emerald-400 hover:text-emerald-300 underline">self-employment tax calculations</Link>, and a{' '}
+            <Link href="/relocation-calculator" className="text-emerald-400 hover:text-emerald-300 underline">relocation calculator</Link>{' '}
+            that answers the question: &ldquo;How much would I need to earn in State B to match my
+            take-home pay in State A?&rdquo;
           </p>
         </div>
       </section>
@@ -275,10 +325,17 @@ export default function AboutPage() {
             <div className="rounded-lg bg-muted/20 p-4">
               <h3 className="text-sm font-semibold text-foreground mb-2">Go Straight to the Source</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                Federal brackets come from IRS Publication 15 (Employer&apos;s Tax Guide) and
-                Publication 15-T. Not a blog post summarizing them — the actual IRS documents.
-                State rates come from each state&apos;s Department of Revenue directly. Illinois? IDOR.
-                California? FTB. New York? NYS Department of Taxation and Finance.
+                Federal brackets come from{' '}
+                <a href="https://www.irs.gov/publications/p15" target="_blank" rel="noopener noreferrer" className="text-emerald-400 hover:text-emerald-300 underline">IRS Publication 15</a>{' '}
+                (Employer&apos;s Tax Guide) and{' '}
+                <a href="https://www.irs.gov/publications/p15t" target="_blank" rel="noopener noreferrer" className="text-emerald-400 hover:text-emerald-300 underline">Publication 15-T</a>.
+                Not a blog post summarizing them — the actual IRS documents.
+                State rates come from each state&apos;s Department of Revenue directly. Illinois?{' '}
+                <a href="https://www2.illinois.gov/rev/" target="_blank" rel="noopener noreferrer" className="text-emerald-400 hover:text-emerald-300 underline">IDOR</a>.
+                California?{' '}
+                <a href="https://www.ftb.ca.gov/" target="_blank" rel="noopener noreferrer" className="text-emerald-400 hover:text-emerald-300 underline">FTB</a>.
+                New York?{' '}
+                <a href="https://www.tax.ny.gov/" target="_blank" rel="noopener noreferrer" className="text-emerald-400 hover:text-emerald-300 underline">NYS Department of Taxation and Finance</a>.
               </p>
             </div>
             <div className="rounded-lg bg-muted/20 p-4">

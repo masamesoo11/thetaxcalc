@@ -6,8 +6,34 @@ export const metadata: Metadata = {
   title: 'Terms of Use',
   description:
     'TaxYield.io Terms of Use — understand the terms and conditions for using our free tax calculators and website.',
+  keywords: ['terms of use', 'taxyield terms', 'tax calculator terms', 'usage agreement', 'legal terms', 'disclaimer'],
   alternates: {
     canonical: 'https://taxyield.io/terms',
+    languages: {
+      'en-US': 'https://taxyield.io/terms',
+      'x-default': 'https://taxyield.io/terms',
+    },
+  },
+  openGraph: {
+    title: 'Terms of Use — TaxYield.io',
+    description: 'Understand the terms and conditions for using TaxYield.io free tax calculators and website.',
+    url: 'https://taxyield.io/terms',
+    siteName: 'TaxYield.io',
+    type: 'website',
+    locale: 'en_US',
+  },
+};
+
+const termsJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: 'Terms of Use — TaxYield.io',
+  description: 'Understand the terms and conditions for using TaxYield.io free tax calculators and website.',
+  url: 'https://taxyield.io/terms',
+  isPartOf: {
+    '@type': 'WebSite',
+    name: 'TaxYield.io',
+    url: 'https://taxyield.io',
   },
 };
 
@@ -16,6 +42,12 @@ export default function TermsPage() {
 
   return (
     <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
+      {/* JSON-LD */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(termsJsonLd) }}
+      />
+
       {/* Header */}
       <div className="mb-10">
         <div className="flex items-center gap-3 mb-4">

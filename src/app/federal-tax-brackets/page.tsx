@@ -550,6 +550,41 @@ export default function FederalTaxBracketsPage() {
               Try the Paycheck Calculator
               <ArrowRight className="h-4 w-4" />
             </Link>
+
+            {/* State calculator links */}
+            <div className="mt-8 border-t border-emerald-500/20 pt-6">
+              <p className="text-sm text-muted-foreground mb-3">See how state taxes affect your take-home:</p>
+              <div className="flex flex-wrap justify-center gap-2">
+                {[
+                  { href: '/illinois-tax-calculator', label: 'Illinois' },
+                  { href: '/texas-tax-calculator', label: 'Texas' },
+                  { href: '/florida-tax-calculator', label: 'Florida' },
+                  { href: '/california-tax-calculator', label: 'California' },
+                  { href: '/new-york-tax-calculator', label: 'New York' },
+                ].map((s) => (
+                  <Link
+                    key={s.href}
+                    href={s.href}
+                    className="rounded-full border border-emerald-500/20 bg-emerald-500/10 px-3 py-1 text-sm text-emerald-400 hover:bg-emerald-500/20 transition-colors"
+                  >
+                    {s.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            {/* Other useful links */}
+            <div className="mt-4 flex flex-wrap justify-center gap-3 text-sm">
+              <Link href="/salary" className="text-muted-foreground hover:text-emerald-400 underline transition-colors">
+                Salary Explorer
+              </Link>
+              <Link href="/glossary" className="text-muted-foreground hover:text-emerald-400 underline transition-colors">
+                Tax Glossary
+              </Link>
+              <a href="https://www.irs.gov/filing/federal-income-tax-rates-and-brackets" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-emerald-400 underline transition-colors">
+                IRS Brackets Page ↗
+              </a>
+            </div>
           </div>
         </div>
       </section>

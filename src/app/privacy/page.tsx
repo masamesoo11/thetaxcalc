@@ -6,8 +6,34 @@ export const metadata: Metadata = {
   title: 'Privacy Policy',
   description:
     'TaxYield.io Privacy Policy — learn how we collect, use, and protect your personal information when using our free tax calculators.',
+  keywords: ['privacy policy', 'taxyield privacy', 'tax calculator privacy', 'data protection', 'calculator data security', 'browser calculations'],
   alternates: {
     canonical: 'https://taxyield.io/privacy',
+    languages: {
+      'en-US': 'https://taxyield.io/privacy',
+      'x-default': 'https://taxyield.io/privacy',
+    },
+  },
+  openGraph: {
+    title: 'Privacy Policy — TaxYield.io',
+    description: 'Learn how TaxYield.io collects, uses, and protects your personal information when using our free tax calculators.',
+    url: 'https://taxyield.io/privacy',
+    siteName: 'TaxYield.io',
+    type: 'website',
+    locale: 'en_US',
+  },
+};
+
+const privacyJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: 'Privacy Policy — TaxYield.io',
+  description: 'Learn how TaxYield.io collects, uses, and protects your personal information when using our free tax calculators.',
+  url: 'https://taxyield.io/privacy',
+  isPartOf: {
+    '@type': 'WebSite',
+    name: 'TaxYield.io',
+    url: 'https://taxyield.io',
   },
 };
 
@@ -16,6 +42,12 @@ export default function PrivacyPage() {
 
   return (
     <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
+      {/* JSON-LD */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(privacyJsonLd) }}
+      />
+
       {/* Header */}
       <div className="mb-10">
         <div className="flex items-center gap-3 mb-4">

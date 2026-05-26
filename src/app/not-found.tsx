@@ -50,6 +50,12 @@ export default function NotFound() {
             { href: '/mortgage-calculator', label: 'Mortgage' },
             { href: '/capital-gains-calculator', label: 'Capital Gains' },
             { href: '/401k-retirement-calculator', label: '401(k)' },
+            { href: '/blog', label: 'Blog' },
+            { href: '/glossary', label: 'Glossary' },
+            { href: '/compare', label: 'Compare States' },
+            { href: '/salary', label: 'Salary Explorer' },
+            { href: '/federal-tax-brackets', label: 'Tax Brackets' },
+            { href: '/about', label: 'About' },
           ].map((link) => (
             <Link
               key={link.href}

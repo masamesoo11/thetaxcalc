@@ -24,7 +24,7 @@ const blogPosts = [
 
 My buddy Dave called me in a panic last March. He'd just gotten a raise — from $58,000 to $62,000 — and was genuinely convinced he'd lose money because he "jumped into a higher tax bracket." Like, he was ready to turn the raise down. I'm not making this up.
 
-And honestly? I can't really blame him. The way people talk about tax brackets, you'd think the government just takes a bigger chunk of your whole paycheck the second you cross some invisible line. But that's not how it works. Not even close.
+And honestly? I can't really blame him. The way people talk about [tax brackets](/federal-tax-brackets), you'd think the government just takes a bigger chunk of your whole paycheck the second you cross some invisible line. But that's not how it works. Not even close.
 
 ## How Tax Brackets Actually Work
 
@@ -76,7 +76,7 @@ Before any brackets even apply, you get to chop a chunk off your income:
 - **Married filing jointly**: $30,000
 - **Head of household**: $22,500
 
-These numbers go up a bit every year because inflation. (The IRS adjusts them annually — small mercies, right?) Now, you can either take the standard deduction OR itemize. Most people take the standard because, frankly, it's more than what they'd get itemizing. But if you've got a big mortgage, high state/local taxes (up to $10,000 of those are deductible, thanks SALT cap), and charitable donations that add up to more than the standard amount — itemize. Run the numbers both ways.
+These numbers go up a bit every year because inflation. (The IRS adjusts them annually — small mercies, right?) Now, you can either take the standard deduction OR itemize. Most people take the standard because, frankly, it's more than what they'd get itemizing. But if you've got a big mortgage, high state/local taxes (up to $10,000 of those are deductible, thanks SALT cap), and charitable donations that add up to more than the standard amount — itemize. Run the numbers both ways, or just use our [paycheck calculator](/paycheck-calculator) to see your take-home pay after deductions.
 
 ## A Few Things Worth Knowing
 
@@ -86,7 +86,7 @@ Deductions matter more than most people realize. That $15,000 standard deduction
 
 Bracket creep is real. The brackets do get adjusted for inflation, but if your income's growing faster than inflation (good for you, by the way), you might creep into higher brackets over time. It's not the worst problem to have, but it's something to be aware of.
 
-And here's a planning tip — if you know you're right on the edge of a bracket, think about maxing out your 401(k) or timing some deductions. Sometimes deferring a little income can save you a lot. Not always, but sometimes.
+And here's a planning tip — if you know you're right on the edge of a bracket, think about maxing out your 401(k) (our [401(k) calculator](/401k-retirement-calculator) shows the impact) or timing some deductions. Sometimes deferring a little income can save you a lot. Not always, but sometimes.
 
 Use our **paycheck calculator** to see exactly how federal tax brackets affect your take-home pay based on your specific situation.`
   },
@@ -135,7 +135,7 @@ Let me walk through a real example. Say you're single, making $80,000 in federal
 - That gives you $77,225 in taxable income
 - $77,225 times 4.95% = **$3,822.64**
 
-That's it. No bracket gymnastics, no guessing. Just... math. Simple, predictable math. I'll give Illinois that much.
+That's it. No bracket gymnastics, no guessing. Just... math. Simple, predictable math. Our [Illinois paycheck calculator](/illinois-tax-calculator) does this for you automatically. I'll give Illinois that much.
 
 ## But Then There's Property Tax (Ugh)
 
@@ -158,7 +158,7 @@ The one small mercy: groceries are taxed at just 1%, and prescription meds are e
 
 ## How Do We Compare to the Neighbors?
 
-This is the part that really stings. Let me just lay it out:
+This is the part that really stings. Our [compare states tool](/compare) lays it out side by side, but here are the highlights:
 
 **Indiana** — 3.05% flat tax, 0.82% average property tax. Literally right next door and way cheaper on both fronts.
 
@@ -174,7 +174,7 @@ So yeah, our income tax is middling, but combine it with the property taxes and 
 
 ## The One Big Win: Retirement Income
 
-Here's where Illinois actually shines, and it's a big one. Illinois does **not** tax retirement income. At all. Social Security? Not taxed. Pensions? Not taxed. 401(k) distributions, IRA withdrawals — all untaxed at the state level.
+Here's where Illinois actually shines, and it's a big one. Illinois does **not** tax retirement income. At all. Social Security? Not taxed. Pensions? Not taxed. 401(k) distributions (try our [401(k) calculator](/401k-retirement-calculator) to plan yours), IRA withdrawals — all untaxed at the state level.
 
 If you're retired or close to it, that's genuinely huge. A retiree pulling $60,000 from a 401(k) in Illinois saves roughly $2,970 compared to a state that taxes it at 5%. And there are a lot of states that do.
 
@@ -194,7 +194,7 @@ Use our **Illinois paycheck calculator** to see your exact take-home pay after a
     metaDesc: 'Discover how Texas operates without a personal income tax, the trade-offs in higher property taxes, and the overall tax burden for Texas residents.',
     content: `# Why Texas Has No Income Tax
 
-My friend Rachel moved to Austin from San Francisco in 2021. She was making $185,000 at a tech company — good money, but California was taking roughly 9.3% of it in state income tax alone. When she got a remote-work option and heard Texas doesn't have income tax? She was on a plane within a month. No joke. She told me her first Texas paycheck literally made her gasp. Like, out loud, at her desk.
+My friend Rachel moved to Austin from San Francisco in 2021. She was making $185,000 at a tech company — good money, but California was taking roughly 9.3% of it in state income tax alone. When she got a remote-work option and heard Texas doesn't have income tax? She was on a plane within a month. No joke. She told me her first Texas paycheck literally made her gasp — if you want to see your own potential take-home, try our [Texas paycheck calculator](/texas-tax-calculator). Like, out loud, at her desk.
 
 And honestly, I get it. There's something deeply satisfying about looking at your pay stub and not seeing a state income tax line. But — and this is a big but — Texas isn't some tax-free paradise. The money comes from somewhere. Let me explain.
 
@@ -228,7 +228,7 @@ And fees — vehicle registration, hotel occupancy taxes, all the little charges
 
 ## Who Comes Out Ahead?
 
-Let me be straight about this. Texas' tax setup is fantastic if you're a high earner. Someone making $500,000 a year saves an absolute fortune compared to California (13.3% top rate) or New York (10.9%). We're talking tens of thousands of dollars a year. It's not even close.
+Let me be straight about this. Texas' tax setup is fantastic if you're a high earner. Someone making $500,000 a year saves an absolute fortune compared to California (13.3% top rate — see our [California calculator](/california-tax-calculator)) or New York (10.9%). We're talking tens of thousands of dollars a year. It's not even close.
 
 Retirees love it too. No tax on Social Security, pensions, 401(k) withdrawals, investment income — any of it. If you're living off retirement savings, Texas is hard to beat.
 
@@ -246,7 +246,7 @@ And then there's the services question. Texas' tax structure means less revenue 
 
 Texas' no-income-tax status is a genuine, legitimate advantage — especially for high earners, retirees, and business owners. But it's not magic. The state still collects revenue, just through different channels. Your total tax burden depends entirely on how much you make, whether you own a home, and what your spending looks like.
 
-Rachel? She's still in Austin, still happy. But she bought a house last year, and let me tell you — she's got some thoughts about those property tax bills now.
+Rachel? She's still in Austin, still happy. But she bought a house last year, and let me tell you — she's got some thoughts about those property tax bills now. If you're thinking about making a similar move, our [relocation calculator](/relocation-calculator) can show you the salary you'd need to maintain your lifestyle.
 
 Use our **Texas paycheck calculator** to see exactly how much more take-home pay you'd have in Texas compared to your current state.`
   },
@@ -278,7 +278,7 @@ So on income tax alone, these two states are dead even. If that's all you care a
 
 Okay, this is the big one. The property tax gap between these states is massive.
 
-Florida's average effective property tax rate is about **0.86%** of your home's value. Texas? Roughly **1.60%**. That's nearly double. On a $350,000 house, you're looking at around $3,010 a year in Florida versus something like $5,600 in Texas. Same house. Two thousand six hundred dollars more. Every single year.
+Florida's average effective property tax rate is about **0.86%** of your home's value (our [Florida calculator](/florida-tax-calculator) factors this in). Texas? Roughly **1.60%** (the [Texas calculator](/texas-tax-calculator) shows the full breakdown). That's nearly double. On a $350,000 house, you're looking at around $3,010 a year in Florida versus something like $5,600 in Texas. Same house. Two thousand six hundred dollars more. Every single year.
 
 And it gets worse for Texas when you dig into the details. Florida has this thing called the **homestead exemption** — it knocks $25,000 to $50,000 off your home's assessed value before they even calculate the tax. Plus Florida's "Save Our Homes" cap limits how much your assessed value can go up each year to 3% or the CPI, whichever is less. So if you buy a house and values skyrocket around you, your tax bill doesn't explode along with them.
 
@@ -306,7 +306,7 @@ Here's where it gets interesting, and where a lot of comparisons fall short.
 
 ## Housing Costs — The Other Big Difference
 
-Median home prices tell a story: roughly $390,000 in Florida versus around $305,000 in Texas. Florida's more expensive to buy into, especially anywhere near the coast. And HOA fees in Florida tend to run higher, particularly in communities with amenities (which is like... most of South Florida).
+Median home prices tell a story: roughly $390,000 in Florida versus around $305,000 in Texas. If you're financing, our [mortgage calculator](/mortgage-calculator) can show you what those payments look like. Florida's more expensive to buy into, especially anywhere near the coast. And HOA fees in Florida tend to run higher, particularly in communities with amenities (which is like... most of South Florida).
 
 So even though Florida's property tax *rate* is lower, you might be paying it on a more expensive house. The math gets complicated. Trust me.
 
@@ -336,7 +336,7 @@ Florida still comes out a bit ahead tax-wise, but the insurance situation in Flo
 
 ## So Which One?
 
-I genuinely can't give you a clean answer because it depends so much on your situation. But here's my honest take after helping several people through this:
+I genuinely can't give you a clean answer because it depends so much on your situation — our [relocation calculator](/relocation-calculator) can run the numbers for your specific scenario. But here's my honest take after helping several people through this:
 
 **Florida probably makes more sense if** you're buying a home and planning to stay (that Save Our Homes cap is incredibly valuable over time), you're a retiree (Florida doesn't tax anything and the homestead exemption is great), or you just really want to live near the ocean and don't mind the insurance costs.
 
@@ -382,7 +382,7 @@ This cap is also why FICA is somewhat regressive — high earners pay a smaller 
 
 Medicare tax is 1.45% for employees, matched by another 1.45% from your employer. But unlike Social Security, there's **no wage base limit**. Every dollar you earn gets hit with Medicare tax, whether you make $20,000 or $2 million.
 
-And if you're a higher earner, there's an extra kick: once your wages go over $200,000, you pay an **additional 0.9%** in Medicare tax. Your employer doesn't match this part — it's just on you. So above $200k, your Medicare rate jumps from 1.45% to 2.35%.
+And if you're a higher earner, there's an extra kick: once your wages go over $200,000, you pay an **additional 0.9%** in Medicare tax (high earners with investment income face the NIIT too — our [capital gains calculator](/capital-gains-calculator) covers that). Your employer doesn't match this part — it's just on you. So above $200k, your Medicare rate jumps from 1.45% to 2.35%.
 
 ## How It All Adds Up
 
@@ -413,7 +413,7 @@ Notice something? The person making $250,000 is paying roughly 6% of their incom
 
 ## Self-Employment Tax — The Double Whammy
 
-Okay, freelancers and solopreneurs, this is where it hurts. When you're self-employed, you pay **both** the employee and employer shares. It's called self-employment tax, and the rate is **15.3%** on earnings up to $176,100 (12.4% for Social Security + 2.9% for Medicare). Above that, it drops to 2.9% for Medicare, and above $200,000 it goes to 3.8%.
+Okay, freelancers and solopreneurs, this is where it hurts. When you're self-employed, you pay **both** the employee and employer shares. It's called self-employment tax (our [self-employment tax calculator](/self-employment-tax-calculator) does the math for you), and the rate is **15.3%** on earnings up to $176,100 (12.4% for Social Security + 2.9% for Medicare). Above that, it drops to 2.9% for Medicare, and above $200,000 it goes to 3.8%.
 
 Yeah. Fifteen point three percent. On top of your regular income tax. It's a lot. A LOT.
 
@@ -423,7 +423,7 @@ If you're freelancing and not setting aside money for self-employment tax throug
 
 ## Things Worth Knowing
 
-FICA isn't optional. There's no form to fill out, no deduction to claim, no loophole (for most people). It just comes out of your paycheck. Every time.
+FICA isn't optional. There's no form to fill out, no deduction to claim, no loophole (for most people — and no, [401(k) contributions](/401k-retirement-calculator) don't reduce your FICA tax, only your income tax). It just comes out of your paycheck. Every time.
 
 FICA is separate from income tax. You pay both. They're different things funding different programs. Your income tax goes to the general fund; FICA specifically funds Social Security and Medicare.
 
