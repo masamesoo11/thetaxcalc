@@ -267,8 +267,7 @@ export default async function CompareStatesPage({
           {s1.name} vs {s2.name} <span className="gradient-text">Tax Comparison</span>
         </h1>
         <p className="mt-3 max-w-3xl text-lg text-muted-foreground leading-relaxed">
-          Compare {s1.name} ({s1.incomeTaxLabel}) and {s2.name} ({s2.incomeTaxLabel}) side by side.
-          See how income tax, property tax, and sales tax affect your take-home pay at $75K and $150K salaries.
+          Look, if you're torn between {s1.name} and {s2.name}, you're probably wondering which one's going to take a bigger bite out of your paycheck. ({s1.incomeTaxLabel} vs {s2.incomeTaxLabel} — yeah, it matters.) We crunched the numbers at $75K and $150K so you don't have to. Spoiler: the difference might surprise you.
         </p>
       </section>
 
@@ -475,10 +474,10 @@ export default async function CompareStatesPage({
               <h3 className="font-semibold text-foreground">Income Tax</h3>
               <p className="text-sm text-muted-foreground mt-1">
                 {s1.incomeTaxRate < s2.incomeTaxRate
-                  ? `${s1.name} wins on income tax with ${s1.incomeTaxLabel} vs ${s2.name}'s ${s2.incomeTaxLabel}. At a $75K salary, you save approximately ${formatCurrency(Math.abs(takeHome75k_1.stateTax - takeHome75k_2.stateTax))} per year in state income tax by living in ${s1.name}.`
+                  ? `Here's where it gets real — ${s1.name} runs ${s1.incomeTaxLabel} on income tax while ${s2.name} is sitting at ${s2.incomeTaxLabel}. That's not nothing. At $75K, you'd pocket roughly ${formatCurrency(Math.abs(takeHome75k_1.stateTax - takeHome75k_2.stateTax))} more per year just by picking ${s1.name}. (That's a nice vacation. Or, you know, groceries for a few months.)`
                   : s1.incomeTaxRate > s2.incomeTaxRate
-                  ? `${s2.name} wins on income tax with ${s2.incomeTaxLabel} vs ${s1.name}'s ${s1.incomeTaxLabel}. At a $75K salary, you save approximately ${formatCurrency(Math.abs(takeHome75k_1.stateTax - takeHome75k_2.stateTax))} per year in state income tax by living in ${s2.name}.`
-                  : `Both states have the same income tax rate.`}
+                  ? `Here's where it gets real — ${s2.name} runs ${s2.incomeTaxLabel} on income tax while ${s1.name} is sitting at ${s1.incomeTaxLabel}. At $75K, that's roughly ${formatCurrency(Math.abs(takeHome75k_1.stateTax - takeHome75k_2.stateTax))} more per year staying in ${s2.name}. That stings if you were leaning the other way.`
+                  : `Honestly? Both states hit you with the same income tax rate. So at least that's one less thing to worry about.`}
               </p>
             </div>
           </div>
@@ -496,10 +495,10 @@ export default async function CompareStatesPage({
               <h3 className="font-semibold text-foreground">Property Tax</h3>
               <p className="text-sm text-muted-foreground mt-1">
                 {s1.propertyTaxRate < s2.propertyTaxRate
-                  ? `${s1.name} has lower property taxes at ${(s1.propertyTaxRate * 100).toFixed(2)}% vs ${s2.name}'s ${(s2.propertyTaxRate * 100).toFixed(2)}%. On a $350K home, that's approximately ${formatCurrency(350000 * s1.propertyTaxRate)} vs ${formatCurrency(350000 * s2.propertyTaxRate)} per year.`
+                  ? `${s1.name} property taxes sit at ${(s1.propertyTaxRate * 100).toFixed(2)}%, and ${s2.name}? ${(s2.propertyTaxRate * 100).toFixed(2)}%. On a typical $350K home, you're looking at about ${formatCurrency(350000 * s1.propertyTaxRate)} vs ${formatCurrency(350000 * s2.propertyTaxRate)} a year. That difference adds up fast — especially if you're planning to stay a while.`
                   : s1.propertyTaxRate > s2.propertyTaxRate
-                  ? `${s2.name} has lower property taxes at ${(s2.propertyTaxRate * 100).toFixed(2)}% vs ${s1.name}'s ${(s1.propertyTaxRate * 100).toFixed(2)}%. On a $350K home, that's approximately ${formatCurrency(350000 * s2.propertyTaxRate)} vs ${formatCurrency(350000 * s1.propertyTaxRate)} per year.`
-                  : `Both states have similar property tax rates.`}
+                  ? `Don't sleep on property taxes here. ${s2.name} comes in at ${(s2.propertyTaxRate * 100).toFixed(2)}% vs ${s1.name}'s ${(s1.propertyTaxRate * 100).toFixed(2)}%. On a $350K house? Roughly ${formatCurrency(350000 * s2.propertyTaxRate)} vs ${formatCurrency(350000 * s1.propertyTaxRate)} per year. Pretty wild how much that gap matters.`
+                  : `Property tax rates are pretty similar between these two. Not much to separate them here.`}
               </p>
             </div>
           </div>
@@ -517,10 +516,10 @@ export default async function CompareStatesPage({
               <h3 className="font-semibold text-foreground">Sales Tax</h3>
               <p className="text-sm text-muted-foreground mt-1">
                 {s1.salesTaxRate < s2.salesTaxRate
-                  ? `${s1.name} has lower sales tax at ${(s1.salesTaxRate * 100).toFixed(1)}% vs ${s2.name}'s ${(s2.salesTaxRate * 100).toFixed(1)}%. On $45K of annual spending, that's about ${formatCurrency(45000 * s1.salesTaxRate)} vs ${formatCurrency(45000 * s2.salesTaxRate)} per year.`
+                  ? `Day-to-day spending adds up. ${s1.name} charges ${(s1.salesTaxRate * 100).toFixed(1)}% sales tax while ${s2.name} takes ${(s2.salesTaxRate * 100).toFixed(1)}%. If you're spending around $45K a year on taxable stuff, that's ${formatCurrency(45000 * s1.salesTaxRate)} vs ${formatCurrency(45000 * s2.salesTaxRate)}. Doesn't sound huge until you realize it's every single year.`
                   : s1.salesTaxRate > s2.salesTaxRate
-                  ? `${s2.name} has lower sales tax at ${(s2.salesTaxRate * 100).toFixed(1)}% vs ${s1.name}'s ${(s1.salesTaxRate * 100).toFixed(1)}%. On $45K of annual spending, that's about ${formatCurrency(45000 * s2.salesTaxRate)} vs ${formatCurrency(45000 * s1.salesTaxRate)} per year.`
-                  : `Both states have similar sales tax rates.`}
+                  ? `This one's easy — ${s2.name} at ${(s2.salesTaxRate * 100).toFixed(1)}% beats ${s1.name}'s ${(s1.salesTaxRate * 100).toFixed(1)}% on sales tax. Spend $45K a year on taxable purchases and you're looking at about ${formatCurrency(45000 * s2.salesTaxRate)} vs ${formatCurrency(45000 * s1.salesTaxRate)}. Small percentage, real dollars.`
+                  : `Sales tax is a wash — both states are about the same. Moving on.`}
               </p>
             </div>
           </div>
@@ -533,9 +532,9 @@ export default async function CompareStatesPage({
               <Scale className="h-5 w-5 text-muted-foreground shrink-0 mt-0.5" />
               <div>
                 <h3 className="font-semibold text-foreground">Additional Considerations</h3>
-                <ul className="mt-1 space-y-1 text-sm text-muted-foreground">
-                  {s1.extraNotes && <li>&#8226; {s1.name}: {s1.extraNotes}</li>}
-                  {s2.extraNotes && <li>&#8226; {s2.name}: {s2.extraNotes}</li>}
+                <ul className="mt-1 space-y-1.5 text-sm text-muted-foreground">
+                  {s1.extraNotes && <li>&#8226; {s1.name}: {s1.extraNotes} — worth factoring in if you're on the fence.</li>}
+                  {s2.extraNotes && <li>&#8226; {s2.name}: {s2.extraNotes} Don't overlook this stuff.</li>}
                 </ul>
               </div>
             </div>
@@ -550,9 +549,7 @@ export default async function CompareStatesPage({
               Bottom Line
             </h3>
             <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
-              On a <strong className="text-foreground">$75,000</strong> salary, {betterAt75k} gives you <strong className="text-foreground">{formatCurrency(savingsAt75k)}</strong> more per year in take-home pay.
-              On a <strong className="text-foreground">$150,000</strong> salary, {betterAt150k} gives you <strong className="text-foreground">{formatCurrency(savingsAt150k)}</strong> more per year.
-              However, consider the full cost of living — housing costs, in particular, can vary dramatically between states.
+              So here's the deal. On a <strong className="text-foreground">$75K</strong> salary, {betterAt75k} puts <strong className="text-foreground">{formatCurrency(savingsAt75k)}</strong> more in your pocket each year. Bump that to <strong className="text-foreground">$150K</strong> and {betterAt150k} pulls ahead by <strong className="text-foreground">{formatCurrency(savingsAt150k)}</strong>. But — and this is a big but — don't just chase the tax savings. Housing costs, insurance, and general cost of living can flip the script entirely. Run the full numbers before you pack your bags.
             </p>
           </div>
         </div>
@@ -631,10 +628,10 @@ export default async function CompareStatesPage({
       {/* ─── Relocation CTA ────────────────────────────────────────────────── */}
       <section className="rounded-2xl border border-border/30 bg-card/50 p-8 text-center">
         <h2 className="text-2xl font-bold text-foreground">
-          Considering Moving from {s1.name} to {s2.name}?
+          Thinking About Moving from {s1.name} to {s2.name}?
         </h2>
         <p className="mt-3 text-muted-foreground max-w-xl mx-auto">
-          Our Relocation Calculator computes the equivalent salary you need in your target state to maintain the same lifestyle.
+          Before you call the movers, figure out what salary you'd actually need in {s2.name} to live the way you do now. Our Relocation Calculator does the math so you're not flying blind.
         </p>
         <Link
           href="/relocation-calculator"

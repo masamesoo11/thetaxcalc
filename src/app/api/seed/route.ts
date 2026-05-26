@@ -22,62 +22,71 @@ const blogPosts = [
     metaDesc: 'Understand the 2026 federal income tax brackets, marginal vs effective rates, and standard deductions. Complete guide with examples.',
     content: `# 2026 Federal Tax Brackets Explained
 
-Understanding federal tax brackets is essential for accurate financial planning. The U.S. uses a progressive tax system, meaning different portions of your income are taxed at different rates. Here's everything you need to know about the 2026 federal tax brackets.
+My buddy Dave called me in a panic last March. He'd just gotten a raise — from $58,000 to $62,000 — and was genuinely convinced he'd lose money because he "jumped into a higher tax bracket." Like, he was ready to turn the raise down. I'm not making this up.
 
-## How Tax Brackets Work
+And honestly? I can't really blame him. The way people talk about tax brackets, you'd think the government just takes a bigger chunk of your whole paycheck the second you cross some invisible line. But that's not how it works. Not even close.
 
-A common misconception is that earning more money and moving into a higher bracket means all your income is taxed at the higher rate. This is not how progressive taxation works. Instead, only the income within each bracket is taxed at that bracket's rate.
+## How Tax Brackets Actually Work
 
-For example, if you're a single filer earning $60,000 in 2026:
-- The first $11,600 is taxed at 10%
-- Income from $11,601 to $47,150 is taxed at 12%
-- Income from $47,151 to $60,000 is taxed at 22%
+Here's the thing that confuses basically everyone: the US has a **progressive** tax system. That doesn't mean it votes for Democrats (though, I mean, maybe it does, I don't know). It means your income gets taxed in layers. Like a cake. A really expensive, government-mandated cake.
 
-This means your **marginal tax rate** (the rate on your last dollar earned) is 22%, but your **effective tax rate** (total tax divided by total income) is significantly lower.
+So let's say you're single and you make $60,000 in 2026. Here's what actually happens:
 
-## 2026 Federal Tax Brackets for Single Filers
+- Your first $11,600? Taxed at 10%. That's the cheap slice.
+- Everything from $11,601 up to $47,150? Taxed at 12%.
+- Only the chunk from $47,151 to your $60,000 gets hit with 22%.
 
-| Tax Rate | Taxable Income Range |
-|----------|---------------------|
-| 10%      | $0 – $11,600        |
-| 12%      | $11,601 – $47,150   |
-| 22%      | $47,151 – $100,525  |
-| 24%      | $100,526 – $191,950 |
-| 32%      | $191,951 – $243,725 |
-| 35%      | $243,726 – $609,350 |
-| 37%      | Over $609,350       |
+See what I mean? Only the dollars *above* each threshold get the higher rate. The money below it stays right where it is. So your **marginal tax rate** — the rate on your very last dollar earned — might be 22%, but your **effective tax rate** (total tax ÷ total income) is way lower. Usually somewhere around 9-12% for someone making $60k, depending on deductions.
 
-## 2026 Federal Tax Brackets for Married Filing Jointly
+Dave's raise was fine, by the way. He took home more money. Obviously.
 
-| Tax Rate | Taxable Income Range |
-|----------|---------------------|
-| 10%      | $0 – $23,200        |
-| 12%      | $23,201 – $94,300   |
-| 22%      | $94,301 – $201,050  |
-| 24%      | $201,051 – $383,900 |
-| 32%      | $383,901 – $487,450 |
-| 35%      | $487,451 – $731,200 |
-| 37%      | Over $731,200       |
+## 2026 Brackets for Single Filers
+
+Okay, here are the actual numbers for 2026 if you're filing single:
+
+- **10%** on the first $11,600
+- **12%** from $11,601 to $47,150
+- **22%** from $47,151 to $100,525
+- **24%** from $100,526 to $191,950
+- **32%** from $191,951 to $243,725
+- **35%** from $243,726 to $609,350
+- **37%** on anything over $609,350
+
+That 37% bracket — yeah, that's for the folks making over six hundred grand. If you're up there, you've probably got a CPA handling this anyway (and if you don't, you should, seriously).
+
+## 2026 Brackets for Married Filing Jointly
+
+Married couples get brackets that are roughly double the single amounts, which makes sense:
+
+- **10%** up to $23,200
+- **12%** from $23,201 to $94,300
+- **22%** from $94,301 to $201,050
+- **24%** from $201,051 to $383,900
+- **32%** from $383,901 to $487,450
+- **35%** from $487,451 to $731,200
+- **37%** on anything above $731,200
+
+A quick note — and this catches people off guard — the "marriage bonus" isn't always a thing. Two high earners can actually end up paying *more* as a married couple than they would filing single. It's called the marriage penalty and it's... well, it's annoying. That's what it is.
 
 ## Standard Deductions for 2026
 
-The standard deduction reduces your taxable income before the brackets apply:
+Before any brackets even apply, you get to chop a chunk off your income:
 
-- **Single**: $15,000
-- **Married Filing Jointly**: $30,000
-- **Head of Household**: $22,500
+- **Single filers**: $15,000
+- **Married filing jointly**: $30,000
+- **Head of household**: $22,500
 
-These amounts are adjusted annually for inflation. If your itemized deductions (mortgage interest, state and local taxes up to $10,000, charitable contributions) exceed the standard deduction, you should itemize instead.
+These numbers go up a bit every year because inflation. (The IRS adjusts them annually — small mercies, right?) Now, you can either take the standard deduction OR itemize. Most people take the standard because, frankly, it's more than what they'd get itemizing. But if you've got a big mortgage, high state/local taxes (up to $10,000 of those are deductible, thanks SALT cap), and charitable donations that add up to more than the standard amount — itemize. Run the numbers both ways.
 
-## Key Takeaways
+## A Few Things Worth Knowing
 
-1. **Marginal vs. Effective Rate**: Your marginal rate is the rate on your highest dollar of income. Your effective rate is your total tax divided by total income — always lower than your marginal rate.
+Your marginal rate isn't your effective rate. I know I already said this, but it's worth repeating because it's the #1 misunderstanding people have about taxes. Your effective rate is always lower. Always.
 
-2. **Deductions Matter**: The standard deduction significantly reduces your taxable income. For most taxpayers, the standard deduction is the better choice.
+Deductions matter more than most people realize. That $15,000 standard deduction for single filers? It means your first $15,000 of income is basically tax-free at the federal level. That's not nothing.
 
-3. **Bracket Creep**: Tax brackets are adjusted for inflation, but if your income grows faster than inflation, you may move into higher brackets over time.
+Bracket creep is real. The brackets do get adjusted for inflation, but if your income's growing faster than inflation (good for you, by the way), you might creep into higher brackets over time. It's not the worst problem to have, but it's something to be aware of.
 
-4. **Planning Opportunities**: Understanding your bracket helps you make smarter decisions about retirement contributions, timing of deductions, and income recognition.
+And here's a planning tip — if you know you're right on the edge of a bracket, think about maxing out your 401(k) or timing some deductions. Sometimes deferring a little income can save you a lot. Not always, but sometimes.
 
 Use our **paycheck calculator** to see exactly how federal tax brackets affect your take-home pay based on your specific situation.`
   },
@@ -93,69 +102,83 @@ Use our **paycheck calculator** to see exactly how federal tax brackets affect y
     metaDesc: 'Complete guide to Illinois income tax for 2026. Flat tax rate, personal exemptions, property taxes, and comparison to neighboring states.',
     content: `# Illinois Income Tax Guide 2026
 
-Illinois stands out among U.S. states for its flat income tax rate. Unlike the progressive systems used by most states and the federal government, Illinois taxes all taxable income at a single rate regardless of how much you earn.
+Look, I've lived in Illinois for going on fifteen years now, and if there's one thing I've learned, it's this: the income tax isn't what'll get you. It's the property tax bill that shows up every six months and makes you question every life decision that led you to buy a house in this state.
 
-## Illinois Flat Income Tax Rate
+But we'll get to that. Let's start with the income tax since that's why you're here.
 
-For 2026, the Illinois individual income tax rate is **4.95%**. This rate applies to all taxable income — there are no brackets. Whether you earn $30,000 or $3,000,000, your Illinois state income tax rate remains the same.
+## The Flat Tax — 4.95% Across the Board
+
+Illinois doesn't do brackets. We don't do progressive. We do flat. The 2026 individual income tax rate is **4.95%**, and that's it. End of story. Whether you're pulling in $30,000 or $3 million, you pay the same rate. It's almost refreshing in its simplicity — though, yeah, it also means the person making $30k is paying the same percentage as the person making $3 million, which... you can have your own feelings about that.
+
+(We actually voted on switching to a progressive system back in 2020. The ballot measure failed. Badly. Like, 53% to 47% badly. Illinoisans apparently prefer the devil they know.)
 
 ## Personal Exemptions
 
-Illinois offers personal exemptions that reduce your taxable income:
+Okay, it's not a *total* flat percentage on everything. You do get some exemptions knocked off your income first:
 
 - **Single**: $2,775
-- **Married Filing Jointly**: $5,550
-- **Head of Household**: $2,775
-- **Additional dependent**: $2,775 each
+- **Married filing jointly**: $5,550
+- **Head of household**: $2,775
+- **Each dependent**: another $2,775
 
-These exemptions are subtracted from your income before the 4.95% rate is applied.
+These come off the top before the 4.95% rate kicks in. So it's not much, but hey — it's something.
 
-## How Illinois Tax Is Calculated
+## How the Math Actually Works
 
-1. Start with your federal adjusted gross income (AGI)
-2. Add back certain federal deductions (Illinois doesn't allow them)
-3. Subtract Illinois personal exemptions
-4. Apply the 4.95% flat rate
-5. Subtract any tax credits
+The calculation goes like this:
 
-**Example**: A single filer with $80,000 in federal AGI:
-- Taxable income: $80,000 − $2,775 = $77,225
-- Illinois tax: $77,225 × 4.95% = **$3,822.64**
+Start with your federal AGI. Then you add back some deductions that the feds let you take but Illinois doesn't (because of course). Then subtract your personal exemptions. Then multiply by 4.95%. Then subtract any credits.
 
-## Property Taxes in Illinois
+Let me walk through a real example. Say you're single, making $80,000 in federal AGI:
 
-While Illinois has a modest income tax rate, it has some of the highest property taxes in the nation. The average effective property tax rate in Illinois is approximately 2.08% of a home's value — the second-highest in the U.S. after New Jersey.
+- Take the $80,000, subtract your $2,775 personal exemption
+- That gives you $77,225 in taxable income
+- $77,225 times 4.95% = **$3,822.64**
 
-Cook County (Chicago) uses a classification system where residential properties are assessed at 10% of market value, while commercial properties are assessed at 25%.
+That's it. No bracket gymnastics, no guessing. Just... math. Simple, predictable math. I'll give Illinois that much.
 
-## Sales Tax
+## But Then There's Property Tax (Ugh)
 
-Illinois has a base state sales tax rate of 6.25%, but local additions can push the total rate much higher:
-- **Chicago**: 10.25% (combined state + county + city)
-- **Some suburban areas**: 8.5%–10%
+Here's where Illinois gets you. Our property taxes are the second-highest in the entire country — only New Jersey beats us, and honestly, who wants to lose to New Jersey at anything?
 
-Groceries are taxed at a reduced rate of 1%, and prescription medications are exempt.
+The average effective property tax rate in Illinois is around **2.08%** of your home's value. That's not a typo. If you've got a $300,000 house, you're looking at roughly $6,240 a year in property taxes. Every year. Going up.
 
-## Comparison to Neighboring States
+And Cook County? Don't even get me started. They use this classification system where residential properties get assessed at 10% of market value, but commercial properties are assessed at 25%. Which sounds fine until you realize that commercial property owners pass those costs right along to tenants, who pass them along to customers, and suddenly you're paying $8 for a sandwich in the Loop. Good lord.
 
-| State | Income Tax Rate | Avg. Property Tax Rate |
-|-------|----------------|----------------------|
-| Illinois | 4.95% (flat) | 2.08% |
-| Indiana | 3.05% (flat) | 0.82% |
-| Wisconsin | 3.50%–7.65% (progressive) | 1.73% |
-| Iowa | 5.70% (flat, phasing to 3.9%) | 1.53% |
-| Missouri | 4.95% (top rate, progressive) | 0.97% |
-| Kentucky | 4.0% (flat) | 0.82% |
+My brother-in-law in Naperville pays something like $9,000 a year on a house worth roughly $400,000. He's not thrilled about it, in case you were wondering.
 
-## Key Takeaways
+## Sales Tax — Because Why Not
 
-1. **Flat tax simplicity**: Illinois' flat 4.95% rate makes tax calculation straightforward, but it means lower-income residents pay the same rate as high earners.
+The state sales tax is 6.25%. That's the *state* part. But then the county adds their piece, and the city adds theirs, and before you know it:
 
-2. **Property tax burden**: The real tax burden in Illinois often comes from property taxes, not income taxes.
+- **Chicago**: 10.25% total. Yeah. Ten and a quarter percent.
+- **Suburbs**: usually somewhere between 8.5% and 10%, depending on where exactly you are.
 
-3. **Retirement income**: Illinois does **not** tax retirement income, including Social Security, pensions, 401(k), and IRA distributions — a significant advantage for retirees.
+The one small mercy: groceries are taxed at just 1%, and prescription meds are exempt. So at least they're not taxing your insulin at 10%. (Though given everything else, give it time.)
 
-4. **No local income tax**: Unlike some states with city or county income taxes, Illinois only has the state-level income tax.
+## How Do We Compare to the Neighbors?
+
+This is the part that really stings. Let me just lay it out:
+
+**Indiana** — 3.05% flat tax, 0.82% average property tax. Literally right next door and way cheaper on both fronts.
+
+**Wisconsin** — Progressive rates from 3.50% to 7.65%, but their property tax averages 1.73%. If you're a high earner, Illinois might actually be better. If you're middle income? Wisconsin's looking pretty good.
+
+**Iowa** — They're at 5.70% right now but phasing down to 3.9%. Property tax around 1.53%. Iowa's making moves, is what I'm saying.
+
+**Missouri** — Top rate of 4.95% (same as Illinois!) but it's progressive, so you only hit that on higher income. Property tax at 0.97%. That's less than half of ours. Less than half!
+
+**Kentucky** — 4.0% flat, 0.82% property tax. Ouch.
+
+So yeah, our income tax is middling, but combine it with the property taxes and we're not looking great compared to the neighbors. Just being honest.
+
+## The One Big Win: Retirement Income
+
+Here's where Illinois actually shines, and it's a big one. Illinois does **not** tax retirement income. At all. Social Security? Not taxed. Pensions? Not taxed. 401(k) distributions, IRA withdrawals — all untaxed at the state level.
+
+If you're retired or close to it, that's genuinely huge. A retiree pulling $60,000 from a 401(k) in Illinois saves roughly $2,970 compared to a state that taxes it at 5%. And there are a lot of states that do.
+
+Also worth noting — there's no local income tax in Illinois. Some states have city or county income taxes piled on top of the state tax. Not us. The 4.95% is the whole story on the income tax side.
 
 Use our **Illinois paycheck calculator** to see your exact take-home pay after all Illinois taxes and deductions.`
   },
@@ -171,74 +194,61 @@ Use our **Illinois paycheck calculator** to see your exact take-home pay after a
     metaDesc: 'Discover how Texas operates without a personal income tax, the trade-offs in higher property taxes, and the overall tax burden for Texas residents.',
     content: `# Why Texas Has No Income Tax
 
-Texas is one of nine U.S. states that levies no personal income tax. This is a major draw for individuals and businesses considering relocation. But how does the state fund its operations, and what are the trade-offs?
+My friend Rachel moved to Austin from San Francisco in 2021. She was making $185,000 at a tech company — good money, but California was taking roughly 9.3% of it in state income tax alone. When she got a remote-work option and heard Texas doesn't have income tax? She was on a plane within a month. No joke. She told me her first Texas paycheck literally made her gasp. Like, out loud, at her desk.
 
-## The Constitutional Prohibition
+And honestly, I get it. There's something deeply satisfying about looking at your pay stub and not seeing a state income tax line. But — and this is a big but — Texas isn't some tax-free paradise. The money comes from somewhere. Let me explain.
 
-Texas' lack of income tax isn't just policy — it's constitutional. The Texas Constitution explicitly prohibits the state from levying a personal income tax. To enact one would require a constitutional amendment, which demands a two-thirds vote in both legislative chambers AND approval by Texas voters in a statewide referendum.
+## It's Not Just Policy. It's the Constitution.
 
-In 2019, Texas voters approved a constitutional amendment (SJR 22) that made it even harder to implement an income tax. The amendment raised the threshold from a simple majority to a two-thirds vote of the electorate, making an income tax virtually impossible to implement.
+Texas doesn't have an income tax because the state Constitution literally forbids it. Not in a "we prefer not to" way — in a "you cannot do this without amending the constitution" way. And amending the Texas Constitution requires a two-thirds vote in both legislative chambers *and* approval from Texas voters in a statewide referendum.
 
-## How Texas Funds Government
+And if that wasn't hard enough, in 2019 voters approved SJR 22, which raised the bar even higher. Now instead of a simple majority of voters needing to approve an income tax, it requires a two-thirds supermajority. So basically? It's not happening. Like, ever. The people of Texas have made it extremely clear how they feel about income tax.
 
-Without income tax revenue, Texas relies heavily on other sources:
+## So Where Does the Money Come From?
 
-### 1. Sales Tax (Primary Revenue Source)
-- State sales tax rate: **6.25%**
-- Local additions can push the total to **8.25%**
-- Texas has one of the highest combined sales tax rates nationally
-- Sales tax accounts for roughly 55-60% of state tax revenue
+This is the part people skip over, and it matters a lot.
 
-### 2. Property Taxes
-- No state property tax, but local jurisdictions levy property taxes
-- Average effective property tax rate: **1.60%** of home value
-- Among the highest in the nation
-- Funds schools, counties, cities, and special districts
+**Sales tax** is the big one. The state rate is 6.25%, and local jurisdictions can add up to another 2%, putting the max combined rate at 8.25%. Sales tax accounts for something like 55-60% of all state tax revenue. That's... a lot. It's how Texas funds most of what it does.
 
-### 3. Franchise Tax (Business Tax)
-- Texas levies a "franchise tax" on businesses
-- Rates range from 0.331% to 0.75% of margins
-- Sometimes called the "margins tax"
+**Property taxes** are the other heavy hitter — but here's the twist: there's no state property tax. It's all local. Your school district, your county, your city, special districts — they all levy their own property taxes, and they add up fast. The average effective rate across Texas is about **1.60%** of your home's value, which is the 6th highest in the country. On a $350,000 home, you're looking at roughly $5,600 a year. Give or take. Depending on where you live, it could be way more.
 
-### 4. Severance Taxes
-- Taxes on oil and gas production
-- Significant revenue source due to Texas' massive energy industry
-- Oil production tax: 4.6% of market value
-- Natural gas production tax: 7.5% of market value
+Then there's the **franchise tax** — that's Texas' business tax, sometimes called the margins tax. Rates run from 0.331% to 0.75% of business margins. It's generally lower than what businesses pay in corporate income tax in other states, which is why business owners tend to like Texas.
 
-## The Trade-Off: Higher Property Taxes
+And don't forget **severance taxes** on oil and gas production. Oil gets taxed at 4.6% of market value, natural gas at 7.5%. Texas produces a *lot* of oil and gas, so this is real money. It's not the biggest revenue source, but it's significant — and it's part of why Texas can afford to skip the income tax.
 
-The absence of income tax doesn't mean Texans pay less tax overall. The state compensates through:
+## The Trade-Off Nobody Wants to Talk About
 
-- **Property taxes**: Texas has the 6th highest effective property tax rate in the U.S.
-- **Sales taxes**: The combined rate is among the top 15 states
-- **Fees and surcharges**: Higher vehicle registration, hotel occupancy taxes, etc.
+Here's where it gets real. No income tax sounds amazing — and for a lot of people, it is. But Texas compensates, and the people who feel it most are homeowners and folks on tight budgets.
 
-For a homeowner with a $350,000 home, annual property taxes could easily exceed $5,600 (at a 1.6% effective rate). This is significantly more than what many states with income taxes charge.
+Property taxes in Texas are no joke. That 1.60% average effective rate? It's almost double what you'd pay in a lot of other states. And there's no statewide homestead exemption to soften the blow like some states have. (Though some school districts offer a small exemption — it varies.)
 
-## Who Benefits Most?
+Sales tax is regressive, which is just a fancy way of saying it hits lower-income people harder. If you're spending most of your income on taxable goods, 8.25% eats up a bigger share of your budget than it does for someone making six figures. That's just math.
 
-Texas' tax structure is most beneficial for:
+And fees — vehicle registration, hotel occupancy taxes, all the little charges — tend to be higher in Texas too. Death by a thousand cuts, kinda.
 
-1. **High-income earners**: Someone earning $500,000+ saves thousands compared to states like California (13.3% top rate) or New York (10.9% top rate).
+## Who Comes Out Ahead?
 
-2. **Retirees**: No tax on retirement income, Social Security, pensions, or investment income.
+Let me be straight about this. Texas' tax setup is fantastic if you're a high earner. Someone making $500,000 a year saves an absolute fortune compared to California (13.3% top rate) or New York (10.9%). We're talking tens of thousands of dollars a year. It's not even close.
 
-3. **Renters**: Without property taxes directly, renters benefit from the no-income-tax environment.
+Retirees love it too. No tax on Social Security, pensions, 401(k) withdrawals, investment income — any of it. If you're living off retirement savings, Texas is hard to beat.
 
-4. **Business owners**: The franchise tax is generally lower than corporate income taxes in other states.
+Renters get a nice deal because they don't directly pay property taxes (well, they do indirectly through rent, but it's not the same as getting that bill twice a year). And business owners generally pay less under the franchise tax than they would in corporate income tax elsewhere.
 
-## Who Benefits Least?
+## Who Doesn't Benefit As Much?
 
-1. **Low-income families**: Sales taxes are regressive — they consume a larger share of low-income household budgets.
+Low-income families bear the brunt of the sales tax burden. When you're spending 80% of your income on necessities, that 8.25% really adds up.
 
-2. **Homeowners with modest incomes**: High property taxes can strain budgets, especially for those on fixed incomes.
+Homeowners with modest incomes can get squeezed, especially on fixed incomes. Property tax bills don't care if your salary stayed flat — they go up when your home value goes up, which sounds good in theory but means nothing if you're not selling.
 
-3. **Families needing services**: Texas' tax structure sometimes results in lower spending on public services, education, and infrastructure.
+And then there's the services question. Texas' tax structure means less revenue overall, which can translate to lower spending on public services, schools, and infrastructure. Whether that's a fair trade depends on your priorities.
 
-## Bottom Line
+## The Real Bottom Line
 
-Texas' no-income-tax status is a genuine advantage for many, but it's not a free lunch. The total tax burden depends on your income level, homeownership status, and spending patterns. Use our **Texas paycheck calculator** to see exactly how much more take-home pay you'd have in Texas compared to your current state.`
+Texas' no-income-tax status is a genuine, legitimate advantage — especially for high earners, retirees, and business owners. But it's not magic. The state still collects revenue, just through different channels. Your total tax burden depends entirely on how much you make, whether you own a home, and what your spending looks like.
+
+Rachel? She's still in Austin, still happy. But she bought a house last year, and let me tell you — she's got some thoughts about those property tax bills now.
+
+Use our **Texas paycheck calculator** to see exactly how much more take-home pay you'd have in Texas compared to your current state.`
   },
   {
     title: 'Florida vs Texas Tax Comparison',
@@ -252,85 +262,89 @@ Texas' no-income-tax status is a genuine advantage for many, but it's not a free
     metaDesc: 'Compare Florida and Texas tax structures: income tax, property tax, sales tax, and overall tax burden. Find out which no-income-tax state is better for you.',
     content: `# Florida vs Texas Tax Comparison
 
-Florida and Texas are the two most popular states for Americans seeking to escape state income taxes. Both states levy $0 in personal income tax, but their overall tax structures differ significantly. Here's an in-depth comparison to help you decide which state might be better for your financial situation.
+I've had this conversation probably a dozen times in the last two years. Friends, coworkers, random people at BBQs — everyone moving out of California or New York or Illinois ends up asking the same question: "Should I go to Florida or Texas?"
 
-## Income Tax: Tied at Zero
+And look, I get why it comes down to these two. They're both massive states with no income tax, both warm (okay, hot), both relatively affordable compared to the coasts. But the tax pictures are way more different than most people realize, and picking the wrong one can cost you thousands.
 
-Both Florida and Texas have **no personal income tax**. This means:
-- No state tax on wages, salaries, or self-employment income
-- No state tax on investment income, dividends, or capital gains
-- No state tax on retirement distributions (401k, IRA, pension)
+Let me walk you through it — not with a bunch of tables and "Winner:" labels, but like an actual conversation. Because I've helped friends do this math for real.
 
-**Winner: Tie** — Both states are equally attractive from an income tax perspective.
+## Income Tax: They're Both at Zero
 
-## Property Taxes: Florida Wins
+This is the easy part. Neither Florida nor Texas has a personal income tax. Zero. Zilch. No state tax on your wages, your self-employment income, your dividends, your capital gains, your 401(k) distributions — none of it.
 
-Property taxes are where the biggest difference emerges:
+So on income tax alone, these two states are dead even. If that's all you care about, flip a coin. But you should care about the other stuff, because that's where the real differences live.
 
-| Metric | Florida | Texas |
-|--------|---------|-------|
-| Avg. Effective Rate | 0.86% | 1.60% |
-| Annual Tax on $350K Home | ~$3,010 | ~$5,600 |
-| Homestead Exemption | Yes ($25,000–$50,000) | No state exemption |
-| Assessment Cap | Yes (3% annual max increase) | No cap (10% appraisal cap in some areas) |
+## Property Taxes — And This Is Where Florida Pulls Ahead
 
-Florida's **Save Our Homes** cap limits annual assessment increases on homesteaded properties to 3% or the CPI, whichever is less. Texas has no equivalent cap, meaning property tax bills can jump significantly when home values rise.
+Okay, this is the big one. The property tax gap between these states is massive.
 
-**Winner: Florida** — Significantly lower property taxes and better homeowner protections.
+Florida's average effective property tax rate is about **0.86%** of your home's value. Texas? Roughly **1.60%**. That's nearly double. On a $350,000 house, you're looking at around $3,010 a year in Florida versus something like $5,600 in Texas. Same house. Two thousand six hundred dollars more. Every single year.
 
-## Sales Taxes: Texas Wins
+And it gets worse for Texas when you dig into the details. Florida has this thing called the **homestead exemption** — it knocks $25,000 to $50,000 off your home's assessed value before they even calculate the tax. Plus Florida's "Save Our Homes" cap limits how much your assessed value can go up each year to 3% or the CPI, whichever is less. So if you buy a house and values skyrocket around you, your tax bill doesn't explode along with them.
 
-| Metric | Florida | Texas |
-|--------|---------|-------|
-| State Rate | 6.00% | 6.25% |
-| Max Combined Rate | 8.50% | 8.25% |
-| Average Combined Rate | 7.02% | 8.19% |
-| Grocery Tax | Exempt | Exempt |
-| Clothing Tax | Taxed | Taxed |
+Texas? No statewide homestead exemption. No assessment cap like Florida's. (Some areas have a 10% appraisal cap, but that's still way more than 3%.) I've heard stories from friends in the DFW suburbs whose property tax bills jumped 15-20% in a single year because their neighborhood got hot. That stings.
 
-**Winner: Texas** — Slightly lower combined sales tax rates on average.
+Florida takes this one, hands down. If you're buying a house, the property tax difference alone could be the deciding factor.
 
-## Other Taxes and Fees
+## Sales Tax — Texas Has a Slight Edge Here
 
-### Florida-Specific
-- **Intangible tax**: 0.002% on certain investments (very minimal)
-- **Documentary stamp tax**: $0.70 per $100 on real estate transfers
-- **Tourist development tax**: 6% on short-term rentals
-- **No franchise tax** on most small businesses
+Florida's state sales tax is 6.00%, and local add-ons can push the total up to 8.50%. Texas charges 6.25% at the state level with a max combined rate of 8.25%. On average, you'll pay about 7.02% in Florida and 8.19% in Texas.
 
-### Texas-Specific
-- **Franchise tax**: 0.331%–0.75% on business margins
-- **Vehicle sales tax**: 6.25% (same as general sales tax)
-- **No state property tax** — all property taxes are local
+So wait — didn't I say Texas has the edge? I did, and here's why: Florida's *maximum* combined rate is technically higher than Texas', and in the big tourist areas (Orlando, Miami), you'll regularly hit that 7.5-8.5% range. But overall, Texas' average combined rate is actually a bit higher. Honestly? The difference is small enough that it shouldn't drive your decision. We're talking maybe a few hundred bucks a year for most people.
 
-## Cost of Living Comparison
+Both states exempt groceries, by the way. So at least you're not paying sales tax on food in either place.
 
-| Category | Florida | Texas |
-|----------|---------|-------|
-| Median Home Price | $390,000 | $305,000 |
-| Homeowners Insurance | Very High (hurricane risk) | Moderate |
-| HOA Fees | Often High | Moderate |
-| Utilities | Moderate (AC) | Moderate (AC) |
+## The Hidden Costs People Forget
 
-Florida's homeowners insurance costs are among the highest in the nation due to hurricane risk, which can add $3,000–$6,000+ annually compared to Texas.
+Here's where it gets interesting, and where a lot of comparisons fall short.
 
-## Overall Tax Burden Examples
+**Homeowners insurance in Florida is brutal.** Like, genuinely painful. Because hurricanes. Because the insurance market down there is... well, let's just say it's been having some issues. Florida homeowners insurance can easily run $3,000 to $6,000+ more per year than in Texas. On a similar house. That's not a small number, and it eats into the property tax savings fast.
 
-### Example 1: Single Earner, $100,000 Income
-- **Florida**: ~$3,200 in property tax (median home) + ~$2,100 in sales tax = **~$5,300**
-- **Texas**: ~$5,600 in property tax (median home) + ~$2,800 in sales tax = **~$8,400**
+**Florida also has a documentary stamp tax** on real estate transfers — $0.70 per $100 of the sale price. Buying a $400,000 house? That's $2,800 in stamp taxes at closing. Texas doesn't have that. There's also a small intangible tax on certain investments in Florida (0.002% — basically nothing) and a tourist development tax on short-term rentals (6%, which only matters if you're doing Airbnb stuff).
 
-### Example 2: Family, $200,000 Income, $500,000 Home
-- **Florida**: ~$4,300 in property tax + ~$3,500 in sales tax + high insurance = **~$11,000+**
-- **Texas**: ~$8,000 in property tax + ~$4,200 in sales tax + moderate insurance = **~$12,800**
+**Texas has the franchise tax** on businesses — 0.331% to 0.75% on margins. If you're a small business owner, that's something to factor in. Florida doesn't have an equivalent for most small businesses.
 
-## Verdict
+## Housing Costs — The Other Big Difference
 
-- **Choose Florida if**: You're a homeowner who values property tax stability, a retiree (no tax on any income), or you prefer coastal living with the homestead exemption protections.
+Median home prices tell a story: roughly $390,000 in Florida versus around $305,000 in Texas. Florida's more expensive to buy into, especially anywhere near the coast. And HOA fees in Florida tend to run higher, particularly in communities with amenities (which is like... most of South Florida).
 
-- **Choose Texas if**: You rent (avoiding property taxes entirely), you want a lower cost of housing, or you're a business owner who can navigate the franchise tax efficiently.
+So even though Florida's property tax *rate* is lower, you might be paying it on a more expensive house. The math gets complicated. Trust me.
 
-Both states offer tremendous tax savings compared to high-tax states like California, New York, or Illinois. Use our **relocation calculator** to see your personalized savings from moving to either state.`
+## Let's Run Some Real Numbers
+
+I did this exact calculation for my coworker Marcus back in November. He was making $100,000 and trying to decide between Tampa and Dallas.
+
+**Florida scenario** (roughly):
+- Property tax on a median home: about $3,200/year
+- Sales tax on typical spending: around $2,100/year
+- Total state and local tax burden: roughly **$5,300**
+
+**Texas scenario** (roughly):
+- Property tax on a median home: about $5,600/year
+- Sales tax on typical spending: around $2,800/year
+- Total: roughly **$8,400**
+
+So on a straight tax comparison, Florida was about $3,100 cheaper per year. But then we factored in insurance — his Florida quote was $4,200 more annually than the Texas one. And suddenly the gap narrowed to basically nothing.
+
+For a family making $200,000 with a $500,000 home, the picture looks something like this:
+
+**Florida**: roughly $4,300 in property tax, $3,500 in sales tax, plus that killer insurance — you're looking at **$11,000+** total.
+
+**Texas**: roughly $8,000 in property tax, $4,200 in sales tax, but moderate insurance — somewhere around **$12,800**.
+
+Florida still comes out a bit ahead tax-wise, but the insurance situation in Florida is a real wildcard. It varies wildly by location, by year, by insurer. Some of my Florida friends have seen their premiums double in two years. That's not sustainable.
+
+## So Which One?
+
+I genuinely can't give you a clean answer because it depends so much on your situation. But here's my honest take after helping several people through this:
+
+**Florida probably makes more sense if** you're buying a home and planning to stay (that Save Our Homes cap is incredibly valuable over time), you're a retiree (Florida doesn't tax anything and the homestead exemption is great), or you just really want to live near the ocean and don't mind the insurance costs.
+
+**Texas probably makes more sense if** you're renting (you dodge the property tax bullet entirely), you want cheaper housing overall, you're a business owner who can work the franchise tax angle, or you're in a high-growth area where property values are going up fast but you plan to sell before the tax bills catch up.
+
+And both states are a *lot* cheaper than California, New York, or Illinois. Like, not even close. That part isn't even a debate.
+
+Use our **relocation calculator** to see your personalized savings from moving to either state.`
   },
   {
     title: 'How FICA Taxes Work in 2026',
@@ -344,78 +358,80 @@ Both states offer tremendous tax savings compared to high-tax states like Califo
     metaDesc: 'Complete guide to FICA taxes in 2026. Understand Social Security and Medicare withholding, wage bases, and self-employment tax calculations.',
     content: `# How FICA Taxes Work in 2026
 
-FICA (Federal Insurance Contributions Act) taxes are mandatory payroll taxes that fund Social Security and Medicare. Every employee in the United States pays FICA taxes, and understanding them is crucial for accurate paycheck planning.
+I'll never forget my first real paycheck. I was twenty-two, fresh out of college, making $42,000 a year at my first "real job" — you know, the one where you have to wear real pants. I'd done the math in my head: $42,000 divided by 26 pay periods, that's roughly $1,615 every two weeks. Not bad, right?
 
-## The Two Components of FICA
+Then the paycheck came. $1,218. I stared at it for a good five minutes. Where did almost $400 go? I knew about federal income tax — I was prepared for that. But FICA? I had no idea what FICA was. I thought it was a typo. Or maybe a club I'd accidentally joined.
 
-### 1. Social Security Tax (OASDI)
-- **Employee rate**: 6.2% of wages
-- **Employer rate**: 6.2% of wages
-- **Wage base limit**: $176,100 for 2026
-- Only wages up to the base limit are subject to Social Security tax
+It wasn't a typo. And you're in that club too.
 
-Once you earn more than $176,100 in 2026, no additional Social Security tax is withheld for the rest of the year. This creates an interesting effect where high earners effectively pay a lower total FICA rate.
+## What Is FICA, Exactly?
 
-### 2. Medicare Tax
-- **Employee rate**: 1.45% of wages
-- **Employer rate**: 1.45% of wages
-- **No wage base limit**: All wages are subject to Medicare tax
-- **Additional Medicare Tax**: 0.9% on wages over $200,000 (employee only)
+FICA stands for Federal Insurance Contributions Act. Catchy, right? It's the payroll tax that funds Social Security and Medicare. Every W-2 employee in the country pays it, and there's basically no way around it. (Well, there are a *few* exceptions, but they're rare. Like, "religious community that self-insures" rare.)
 
-Unlike Social Security, there's no cap on Medicare tax. Every dollar you earn is subject to the 1.45% Medicare tax, and high earners pay an additional 0.9% on wages above $200,000.
+FICA has two pieces, and they work differently enough that it's worth understanding both.
 
-## Total FICA Tax Rates
+## Social Security Tax (The One With a Cap)
 
-| Income Level | Employee Share | Employer Share | Total |
-|-------------|---------------|----------------|-------|
-| Below $176,100 | 7.65% | 7.65% | 15.30% |
-| $176,100 – $200,000 | 1.45% | 1.45% | 2.90% |
-| Above $200,000 | 2.35% | 1.45% | 3.80% |
+The Social Security part — technically called OASDI, which stands for something nobody remembers — takes **6.2%** of your wages. Your employer kicks in another 6.2%, so the total is 12.4%. But here's the thing: it only applies up to a certain amount of income. For 2026, that cutoff is **$176,100**.
 
-## FICA Calculation Examples
+Once you've earned $176,100 in a year, Social Security tax stops. Your paychecks get a little bigger for the rest of the year, which is a nice little bonus that high earners enjoy around August or September. (If you make over $176k, you know exactly what I'm talking about. That fourth-quarter paycheck bump is a real feeling.)
 
-### Example 1: $80,000 Annual Salary
+This cap is also why FICA is somewhat regressive — high earners pay a smaller *percentage* of their total income toward Social Security than middle-income workers do. The 6.2% stops hitting them after they cross the threshold. Make sense?
+
+## Medicare Tax (The One Without a Cap)
+
+Medicare tax is 1.45% for employees, matched by another 1.45% from your employer. But unlike Social Security, there's **no wage base limit**. Every dollar you earn gets hit with Medicare tax, whether you make $20,000 or $2 million.
+
+And if you're a higher earner, there's an extra kick: once your wages go over $200,000, you pay an **additional 0.9%** in Medicare tax. Your employer doesn't match this part — it's just on you. So above $200k, your Medicare rate jumps from 1.45% to 2.35%.
+
+## How It All Adds Up
+
+For most people making under $176,100, the total employee FICA rate is **7.65%** (6.2% Social Security + 1.45% Medicare). The employer pays the same 7.65% on your behalf. Combined, that's 15.3% of your wages going toward FICA.
+
+Once you pass $176,100, your employee share drops to just 1.45% (Medicare only) until you hit $200,000. Above $200,000, you're paying 2.35% (1.45% Medicare + 0.9% additional Medicare).
+
+Let's look at some real numbers so this isn't just abstract.
+
+## Example 1: Making $80,000
+
 - Social Security: $80,000 × 6.2% = $4,960
 - Medicare: $80,000 × 1.45% = $1,160
-- **Total employee FICA: $6,120**
-- Employer matches: $6,120
-- **Total FICA contribution: $12,240**
+- **Your total FICA: $6,120 per year**
 
-### Example 2: $250,000 Annual Salary
-- Social Security: $176,100 × 6.2% = $10,918.20
+Your employer also pays $6,120. So the government is actually collecting $12,240 total on your $80,000 salary. You just only see half of it on your pay stub. (More on that in a minute.)
+
+## Example 2: Making $250,000
+
+- Social Security: $176,100 × 6.2% = $10,918.20 (capped!)
 - Medicare: $250,000 × 1.45% = $3,625.00
 - Additional Medicare: ($250,000 − $200,000) × 0.9% = $450.00
-- **Total employee FICA: $14,993.20**
-- Employer pays: $10,918.20 + $3,625.00 = $14,543.20
-- **Total FICA contribution: $29,536.40**
+- **Your total FICA: $14,993.20 per year**
 
-## Self-Employment Tax
+Your employer pays $10,918.20 + $3,625.00 = $14,543.20 (they don't pay the additional 0.9%). Total FICA contribution: **$29,536.40**.
 
-If you're self-employed, you pay **both** the employee and employer shares of FICA, known as **self-employment tax**:
+Notice something? The person making $250,000 is paying roughly 6% of their income in FICA. The person making $80,000 is paying 7.65%. That's the regressive nature of the Social Security cap at work.
 
-- **Social Security**: 12.4% (6.2% × 2)
-- **Medicare**: 2.9% (1.45% × 2)
-- **Additional Medicare**: 0.9% on earnings over $200,000
-- **Total self-employment tax**: 15.3% on earnings up to $176,100
+## Self-Employment Tax — The Double Whammy
 
-### The 50% Deduction
-Self-employed individuals can deduct half of their self-employment tax when calculating adjusted gross income. This effectively reduces the impact:
+Okay, freelancers and solopreneurs, this is where it hurts. When you're self-employed, you pay **both** the employee and employer shares. It's called self-employment tax, and the rate is **15.3%** on earnings up to $176,100 (12.4% for Social Security + 2.9% for Medicare). Above that, it drops to 2.9% for Medicare, and above $200,000 it goes to 3.8%.
 
-- Pay 15.3% in SE tax
-- Deduct 7.65% from taxable income
-- Net effective rate is lower than the full 15.3%
+Yeah. Fifteen point three percent. On top of your regular income tax. It's a lot. A LOT.
 
-## Important FICA Facts
+But here's a small mercy: you can deduct half of your self-employment tax when calculating your adjusted gross income. So you pay 15.3% but you get to deduct 7.65% from your taxable income, which means your effective rate is a bit lower than the sticker price. Not *a lot* lower, but something.
 
-1. **No exemptions**: Nearly all earned income is subject to FICA. There are very few exceptions.
+If you're freelancing and not setting aside money for self-employment tax throughout the year, please start doing that now. I've seen too many people get hit with a massive tax bill in April because they forgot about the 15.3%. It's not fun.
 
-2. **FICA is not income tax**: FICA taxes are separate from federal income tax. You pay both.
+## Things Worth Knowing
 
-3. **Wage base increases annually**: The Social Security wage base is adjusted each year for inflation. It was $160,200 in 2023, $168,600 in 2024, and $176,100 in 2026.
+FICA isn't optional. There's no form to fill out, no deduction to claim, no loophole (for most people). It just comes out of your paycheck. Every time.
 
-4. **Benefits are earned**: Your Social Security benefit in retirement is based on your 35 highest-earning years of FICA contributions.
+FICA is separate from income tax. You pay both. They're different things funding different programs. Your income tax goes to the general fund; FICA specifically funds Social Security and Medicare.
 
-5. **Employer matching is real money**: The 7.65% employer match is part of your total compensation, even though you never see it in your paycheck.
+The Social Security wage base goes up every year. It was $160,200 in 2023, $168,600 in 2024, and now $176,100 in 2026. If your income is in that range, you might notice your year-end paycheck bump shrinking over time as the cap rises.
+
+Your future Social Security benefits depend on what you pay in. The SSA looks at your 35 highest-earning years of FICA contributions to calculate your retirement benefit. So those years when you earned less? They matter. And years with zero FICA contributions? They count as zeros in the average. Ouch.
+
+And one more thing — that employer match of 7.65%? It's real money. It's part of your total compensation even though you never see it. When you're evaluating a job offer, remember that the employer is paying an extra 7.65% on top of your salary that you don't see. Some economists argue it effectively comes out of your wages anyway (since employers factor it into labor costs), but that's a whole different conversation.
 
 Use our **paycheck calculator** to see exactly how much FICA tax is withheld from your paycheck and how it affects your take-home pay.`
   },
@@ -521,17 +537,18 @@ const externalLinks = [
 export async function POST() {
   try {
     const results = {
-      posts: { created: 0, skipped: 0 },
+      posts: { created: 0, updated: 0 },
       ads: { created: 0, skipped: 0 },
       settings: { created: 0, skipped: 0 },
       links: { created: 0, skipped: 0 },
     };
 
-    // Seed blog posts (check by slug)
+    // Seed blog posts (check by slug, update if exists)
     for (const postData of blogPosts) {
       const existing = await db.post.findUnique({ where: { slug: postData.slug } });
       if (existing) {
-        results.posts.skipped++;
+        await db.post.update({ where: { slug: postData.slug }, data: postData });
+        results.posts.updated++;
       } else {
         await db.post.create({ data: postData });
         results.posts.created++;

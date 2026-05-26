@@ -240,9 +240,11 @@ export default function HomePage() {
 
             {/* Subtitle */}
             <p className="mx-auto max-w-2xl text-lg text-muted-foreground leading-relaxed">
-              Compute your <strong className="text-foreground">take-home pay</strong> after federal tax, FICA, and state taxes.
-              Compare <strong className="text-foreground">Illinois (4.95%)</strong>, Texas (0%), Florida (0%),
-              California (1%–13.3%), and New York (4%–10.9%). Plus mortgage, 401(k), and capital gains calculators.
+              Ever look at your pay stub and think &ldquo;wait, they took <em>how</em> much?&rdquo; Yeah, us too.
+              We built these calculators so you can see exactly where your money goes —
+              <strong className="text-foreground"> federal tax</strong>, FICA, and
+              <strong className="text-foreground"> state taxes</strong> all broken down line by line.
+              No guesswork, no surprises.
             </p>
 
             {/* CTA Buttons */}
@@ -294,7 +296,8 @@ export default function HomePage() {
               11 Free <span className="gradient-text">Tax Calculators</span>
             </h2>
             <p className="mt-3 text-muted-foreground max-w-xl mx-auto">
-              Precision tools for paycheck, mortgage, retirement, and investment tax calculations — all updated for 2026.
+              Pick the one you need. They&apos;re all free, they all use 2026 data, and none of them will
+              ask for your email.
             </p>
           </div>
 
@@ -347,7 +350,8 @@ export default function HomePage() {
               Which State Has the <span className="gradient-text">Lowest Tax</span>?
             </h2>
             <p className="mt-3 text-muted-foreground max-w-xl mx-auto">
-              Compare take-home pay on a $75,000 salary across the five states we cover.
+              Same $75,000 salary, wildly different take-home pay. Here&apos;s what you actually keep
+              after taxes in each state.
             </p>
           </div>
 
@@ -381,18 +385,32 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ─── Trust & Accuracy ───────────────────────────────────── */}
+      {/* ─── Why We Built This ───────────────────────────────────── */}
       <section className="py-16 border-t border-border/20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-12 lg:grid-cols-2 items-center">
             <div>
               <h2 className="text-3xl font-bold text-foreground">
-                Accurate <span className="gradient-text">2026 Tax Data</span>
+                Why We Built <span className="gradient-text">TaxYield</span>
               </h2>
-              <p className="mt-4 text-muted-foreground leading-relaxed">
-                All calculations use the latest 2026 federal tax brackets, FICA rates, and state-specific
-                tax laws. We update our data as the IRS and state revenue departments publish new figures.
-              </p>
+              <div className="mt-4 text-muted-foreground leading-relaxed space-y-4">
+                <p>
+                  Honestly? We got tired of tax calculators that felt like they were designed by the IRS.
+                  You know the ones — confusing interfaces, outdated brackets, and somehow always trying
+                  to sell you something at the end.
+                </p>
+                <p>
+                  One of our team members moved from California to Texas a few years back. Same salary,
+                  same company — but his take-home jumped by over $8,700 a year. He had no idea the
+                  difference would be that big until the first paycheck hit. That&apos;s when we thought:
+                  <em> everyone should be able to see this before they make big decisions.</em>
+                </p>
+                <p>
+                  So we built the tools we wished existed. All our calculations use the latest 2026
+                  federal brackets, FICA rates, and state-specific tax laws — pulled straight from
+                  IRS publications and state revenue departments, not some third-party blog post.
+                </p>
+              </div>
               <ul className="mt-6 space-y-3">
                 {TRUST_POINTS.map((point) => (
                   <li key={point} className="flex items-start gap-3 text-sm text-muted-foreground">
@@ -452,7 +470,7 @@ export default function HomePage() {
               <h2 className="text-2xl font-bold text-foreground">
                 Latest from the <span className="text-emerald-400">Blog</span>
               </h2>
-              <p className="mt-1 text-sm text-muted-foreground">Tax guides, comparisons, and tips for 2026</p>
+              <p className="mt-1 text-sm text-muted-foreground">We do the homework so you don&apos;t have to</p>
             </div>
             <Link
               href="/blog"

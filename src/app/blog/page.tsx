@@ -151,17 +151,14 @@ export default async function BlogPage() {
       {/* ─── Server-Rendered H1 & Intro ────────────────────── */}
       <div className="mb-8 text-center">
         <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-          TaxYield <span className="text-emerald-400">Blog</span>
+          Let&apos;s Talk <span className="text-emerald-400">Taxes</span>
         </h1>
         <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground">
-          Welcome to the TaxYield.io blog — your go-to resource for expert tax guides, state-by-state
-          comparisons, and actionable financial tips. Whether you&apos;re trying to understand how state
-          income taxes affect your take-home pay, comparing tax burdens between states like Illinois,
-          Texas, Florida, California, and New York, or looking for strategies to reduce your taxable
-          income, our team breaks down complex tax topics into clear, practical advice. Updated for
-          2026 tax laws, our articles cover everything from federal tax brackets and standard deductions
-          to payroll taxes, self-employment tax, and property tax comparisons. Explore our latest
-          posts below to make smarter financial decisions and keep more of your hard-earned money.
+          Look, taxes are confusing. We&apos;ve stared at our own pay stubs and thought &ldquo;wait, they
+          took <em>how</em> much?&rdquo; That&apos;s exactly why we write these articles — to make sense of the
+          stuff the IRS makes complicated on purpose. State income tax got you down? Wondering if
+          you&apos;d save a fortune by moving to Florida or Texas? We break it all down without the
+          jargon. Updated for 2026, because yeah, the rules keep changing.
         </p>
       </div>
 
@@ -255,6 +252,35 @@ export default async function BlogPage() {
           </p>
         </div>
       )}
+
+      {/* ─── Editorial: Why Read Our Blog ──────────────────── */}
+      <section className="mx-auto mt-12 max-w-3xl border-t border-border/50 pt-10">
+        <h2 className="text-2xl font-bold tracking-tight text-foreground">
+          Why read this blog?
+        </h2>
+        <div className="mt-5 space-y-4 text-sm leading-relaxed text-muted-foreground">
+          <p>
+            Because nobody wakes up excited to read about tax brackets. We know. But here&apos;s the
+            thing — ignoring taxes doesn&apos;t make them go away. It just makes April a lot more
+            stressful than it needs to be.
+          </p>
+          <p>
+            We&apos;re not a faceless finance conglomerate. We&apos;re real people who got tired of tax
+            articles that read like IRS instruction manuals. Our promise: plain English, honest
+            opinions, and zero condescension. If a deduction is overhyped, we&apos;ll say so. If a
+            &ldquo;tax-friendly&rdquo; state isn&apos;t all it&apos;s cracked up to be, we&apos;ll tell you that too.
+          </p>
+          <p>
+            We cover the stuff that actually matters — how much you&apos;ll really take home in
+            different states, whether that &ldquo;huge&rdquo; deduction is worth the paperwork, and which
+            &ldquo;tips&rdquo; are just clickbait. We update everything for 2026 tax laws, because
+            stale advice isn&apos;t advice at all.
+          </p>
+          <p className="font-medium text-foreground">
+            Short version: we do the homework so you don&apos;t have to. Your wallet will thank you.
+          </p>
+        </div>
+      </section>
 
       {/* ─── Client Component for Interactive Search/Filter ── */}
       <BlogListClient />

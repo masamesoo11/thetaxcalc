@@ -110,27 +110,146 @@ function formatDate(date: Date): string {
 }
 
 /**
- * Convert basic Markdown to simple HTML for server-rendered content preview.
- * Handles: ## headings, **bold**, *italic*, [links](url), `code`, paragraphs.
- * This is intentionally simple — the full ReactMarkdown rendering happens client-side.
+ * Convert Markdown to HTML for server-rendered content.
+ * Handles: headings (##, ###), **bold**, *italic*, [links](url), `code`,
+ * paragraphs, unordered lists (- items), ordered lists (1. items),
+ * blockquotes (> text), horizontal rules (---), and code blocks (```).
+ * The full ReactMarkdown rendering happens client-side for interactive experience.
  */
 function simpleMarkdownToHtml(markdown: string): string {
-  return markdown
+  const lines = markdown.split('\n');
+  const htmlParts: string[] = [];
+  let i = 0;
+
+  while (i < lines.length) {
+    const line = lines[i];
+
+    // Fenced code blocks: ```
+    if (line.trimStart().startsWith('```')) {
+      const codeLines: string[] = [];
+      i++;
+      while (i < lines.length && !lines[i].trimStart().startsWith('```')) {
+        codeLines.push(lines[i]);
+        i++;
+      }
+      i++; // skip closing ```
+      htmlParts.push(`<pre><code>${codeLines.map(escapeHtml).join('\n')}</code></pre>`);
+      continue;
+    }
+
+    // Horizontal rule: --- (or ***, ___)
+    if (/^\s*([-*_])\s*\1\s*\1\s*(\1\s*)*$/.test(line)) {
+      htmlParts.push('<hr/>');
+      i++;
+      continue;
+    }
+
     // Headings: ## and ###
-    .replace(/^### (.+)$/gm, '<h3>$1</h3>')
-    .replace(/^## (.+)$/gm, '<h2>$1</h2>')
+    const h3Match = line.match(/^###\s+(.+)$/);
+    if (h3Match) {
+      htmlParts.push(`<h3>${inlineMarkdown(h3Match[1])}</h3>`);
+      i++;
+      continue;
+    }
+    const h2Match = line.match(/^##\s+(.+)$/);
+    if (h2Match) {
+      const text = inlineMarkdown(h2Match[1]);
+      const id = h2Match[1].replace(/[*_`]/g, '').trim().toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+      htmlParts.push(`<h2 id="${id}">${text}</h2>`);
+      i++;
+      continue;
+    }
+    const h1Match = line.match(/^#\s+(.+)$/);
+    if (h1Match) {
+      const text = inlineMarkdown(h1Match[1]);
+      const id = h1Match[1].replace(/[*_`]/g, '').trim().toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+      htmlParts.push(`<h1 id="${id}">${text}</h1>`);
+      i++;
+      continue;
+    }
+
+    // Blockquote: > text
+    if (/^>\s?/.test(line)) {
+      const quoteLines: string[] = [];
+      while (i < lines.length && /^>\s?/.test(lines[i])) {
+        quoteLines.push(lines[i].replace(/^>\s?/, ''));
+        i++;
+      }
+      htmlParts.push(`<blockquote>${inlineMarkdown(quoteLines.join(' '))}</blockquote>`);
+      continue;
+    }
+
+    // Unordered list: - or * items
+    if (/^\s*[-*]\s+/.test(line)) {
+      const items: string[] = [];
+      while (i < lines.length && /^\s*[-*]\s+/.test(lines[i])) {
+        items.push(lines[i].replace(/^\s*[-*]\s+/, ''));
+        i++;
+      }
+      htmlParts.push(`<ul>${items.map((item) => `<li>${inlineMarkdown(item)}</li>`).join('')}</ul>`);
+      continue;
+    }
+
+    // Ordered list: 1. items
+    if (/^\s*\d+\.\s+/.test(line)) {
+      const items: string[] = [];
+      while (i < lines.length && /^\s*\d+\.\s+/.test(lines[i])) {
+        items.push(lines[i].replace(/^\s*\d+\.\s+/, ''));
+        i++;
+      }
+      htmlParts.push(`<ol>${items.map((item) => `<li>${inlineMarkdown(item)}</li>`).join('')}</ol>`);
+      continue;
+    }
+
+    // Empty lines
+    if (line.trim() === '') {
+      i++;
+      continue;
+    }
+
+    // Paragraph: collect consecutive non-empty, non-special lines
+    const paraLines: string[] = [];
+    while (
+      i < lines.length &&
+      lines[i].trim() !== '' &&
+      !/^#{1,6}\s/.test(lines[i]) &&
+      !/^>\s?/.test(lines[i]) &&
+      !/^\s*[-*]\s+/.test(lines[i]) &&
+      !/^\s*\d+\.\s+/.test(lines[i]) &&
+      !/^\s*```/.test(lines[i]) &&
+      !/^\s*([-*_])\s*\1\s*\1/.test(lines[i])
+    ) {
+      paraLines.push(lines[i]);
+      i++;
+    }
+    if (paraLines.length > 0) {
+      htmlParts.push(`<p>${inlineMarkdown(paraLines.join(' '))}</p>`);
+    }
+  }
+
+  return htmlParts.join('');
+}
+
+/** Escape HTML special characters */
+function escapeHtml(text: string): string {
+  return text
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+/** Convert inline markdown (bold, italic, code, links) to HTML */
+function inlineMarkdown(text: string): string {
+  return text
+    // Links: [text](url) — must come before other patterns
+    .replace(/\[(.+?)\]\((.+?)\)/g, '<a href="$2" rel="noopener noreferrer">$1</a>')
     // Bold: **text**
     .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
-    // Italic: *text*
-    .replace(/\*(.+?)\*/g, '<em>$1</em>')
+    // Italic: *text* (avoid matching inside **)
+    .replace(/(?<!\*)\*(?!\*)(.+?)(?<!\*)\*(?!\*)/g, '<em>$1</em>')
     // Inline code: `text`
-    .replace(/`(.+?)`/g, '<code>$1</code>')
-    // Links: [text](url)
-    .replace(/\[(.+?)\]\((.+?)\)/g, '<a href="$2" rel="noopener noreferrer">$1</a>')
-    // Paragraphs: double newlines
-    .replace(/\n\n+/g, '</p><p>')
-    // Single newlines within paragraphs
-    .replace(/\n/g, '<br/>');
+    .replace(/`(.+?)`/g, '<code>$1</code>');
 }
 
 // ─── Page ─────────────────────────────────────────────────────────────────────
@@ -179,12 +298,10 @@ export default async function BlogDetailPage({
     ],
   };
 
-  // Prepare server-rendered content preview (first ~800 characters of content)
-  const contentPreview = post.content
-    ? post.content.slice(0, 800)
-    : '';
-  const contentPreviewHtml = contentPreview
-    ? `<p>${simpleMarkdownToHtml(contentPreview)}</p>`
+  // Prepare server-rendered full content (for Google indexing and SEO)
+  const contentFull = post.content || '';
+  const contentFullHtml = contentFull
+    ? simpleMarkdownToHtml(contentFull)
     : '';
 
   // Parse tags for server rendering
@@ -273,19 +390,12 @@ export default async function BlogDetailPage({
           </div>
         )}
 
-        {/* Content Preview — Server-Rendered (first ~800 chars) */}
-        {contentPreviewHtml && (
+        {/* Full Article Content — Server-Rendered (for Google/SEO indexing) */}
+        {contentFullHtml && (
           <div
             className="prose-container max-w-none text-muted-foreground leading-relaxed"
-            dangerouslySetInnerHTML={{ __html: contentPreviewHtml }}
+            dangerouslySetInnerHTML={{ __html: contentFullHtml }}
           />
-        )}
-
-        {/* Continue reading link — bridges to client component */}
-        {post.content && post.content.length > 800 && (
-          <p className="text-muted-foreground">
-            <em>Continue reading the full article below…</em>
-          </p>
         )}
 
         {/* Back to blog link — Server-Rendered */}

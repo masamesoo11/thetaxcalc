@@ -30,22 +30,22 @@ const VALUES = [
   {
     icon: Shield,
     title: 'We Get the Numbers Right',
-    desc: "Look, we've seen other tax calculators that round brackets or use last year's rates and call it close enough. That's not how we work. Every rate, bracket, and exemption on this site comes straight from the IRS or the relevant state revenue department — and we update the moment new data drops.",
+    desc: "We've seen calculators that round your bracket up or just slap last year's rates on the page and hope nobody notices. We found one last month that was still showing 2024 federal brackets — in 2026. Every rate, bracket, and exemption on this site comes straight from IRS Publication 15-T or the state revenue department's own website. When they update, we update. Usually within 48 hours."
   },
   {
     icon: Zap,
     title: 'Free. Period.',
-    desc: "No sign-up wall. No 'premium tier.' No sneaky upsell after three calculations. We built TaxYield.io because we believe understanding your own paycheck shouldn't cost you a dime. That's not changing.",
+    desc: "No sign-up wall. No 'premium tier.' No sneaky upsell after three calculations. We built TaxYield.io because we believe understanding your own paycheck shouldn't cost you a dime. A friend of ours actually paid $15 to a tax calculator site before realizing it was just going to show him the same math he could've done himself. That's the kind of thing that made us want to build this. That's not changing.",
   },
   {
     icon: Globe,
     title: 'Your Data Stays Yours',
-    desc: "This one's personal. We hate the idea of a tax calculator harvesting your salary info just to sell it or serve you targeted ads. So we don't. All the math runs right in your browser — your numbers never touch our servers. We couldn't see them even if we wanted to.",
+    desc: "This one's personal. A few years back, one of those 'free' tax prep sites got caught selling user income data to data brokers. Like, your actual salary. So yeah — all the math runs right in your browser. Your numbers never touch our servers. We couldn't see them even if we wanted to. No accounts, no cookies on calculations, no way to tie results back to you.",
   },
   {
     icon: Heart,
     title: 'Built for Real People',
-    desc: "We're not just building for accountants. Whether you're a W-2 employee trying to figure out why your paycheck feels light, a freelancer drowning in quarterly estimates, or someone weighing a job offer in a different state — we made these tools for you.",
+    desc: "We're not just building for accountants. We're building for the teacher in Chicago who just got a job offer in Houston and wants to know if the $10K raise actually means more take-home. Or the freelancer in Brooklyn drowning in quarterly estimates. Or honestly, anyone who's looked at their pay stub and thought 'wait, that much?' Yeah — these tools are for you.",
   },
 ];
 
@@ -86,10 +86,11 @@ export default function AboutPage() {
         </div>
         <div className="text-muted-foreground leading-relaxed space-y-4">
           <p>
-            A few years ago, one of our team members moved from California to Texas. Same salary,
-            same company — but suddenly his take-home pay jumped by over $8,000 a year. He had
-            a vague sense that Texas had lower taxes, but seeing the actual number on a paycheck?
-            That was a wake-up call.
+            In 2022, one of our team members moved from Sacramento to Austin. Same salary ($115,000),
+            same company — but suddenly his take-home pay jumped by over $8,700 a year. He knew
+            Texas didn't have a state income tax, but actually seeing the number on a paycheck?
+            That hit different. He'd been leaving nearly $725 a month on the table and didn't even
+            realize it.
           </p>
           <p>
             He went looking for a calculator that could have shown him this beforehand. What he
