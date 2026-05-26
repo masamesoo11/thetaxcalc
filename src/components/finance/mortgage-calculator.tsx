@@ -34,6 +34,7 @@ import {
 } from '@/components/ui/table';
 import { Progress } from '@/components/ui/progress';
 import { AdSlot } from './ad-slot';
+import { FAQSection, MORTGAGE_FAQS } from './faq-sections';
 import {
   calculateMortgage,
   formatCurrency,
@@ -415,6 +416,10 @@ export function MortgageCalculator() {
           <p>With $200/mo Extra: Pay off in 24.8 years, save $76,856.29 in interest</p>
         </div>
       </div>
+
+      <FAQSection title="Mortgage Calculator FAQ — How to Save Thousands on Your Home Loan" faqs={MORTGAGE_FAQS} />
+
+      <AdSlot position="mid-content" />
     </div>
   );
 }

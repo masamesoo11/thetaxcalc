@@ -24,6 +24,7 @@ import {
 } from '@/components/ui/select';
 import { Separator } from '@/components/ui/separator';
 import { AdSlot } from './ad-slot';
+import { FAQSection, FLORIDA_FAQS } from './faq-sections';
 import {
   calculatePaycheck,
   calculateFloridaCostOfLiving,
@@ -303,6 +304,10 @@ export function FloridaCalculator() {
           <p>Monthly Take-Home: $5,045.42</p>
         </div>
       </div>
+
+      <FAQSection title="Florida Tax FAQ — Is the Sunshine State Really Tax-Free?" faqs={FLORIDA_FAQS} />
+
+      <AdSlot position="mid-content" />
     </div>
   );
 }

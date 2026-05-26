@@ -38,6 +38,7 @@ import {
   TableRow,
 } from '@/components/ui/table';
 import { AdSlot } from './ad-slot';
+import { FAQSection, ILLINOIS_FAQS } from './faq-sections';
 import {
   calculatePaycheck,
   formatCurrency,
@@ -366,6 +367,10 @@ export function IllinoisCalculator() {
           <p>Monthly Take-Home: $4,747.49</p>
         </div>
       </div>
+
+      <FAQSection title="Illinois Tax FAQ — Common Questions Answered" faqs={ILLINOIS_FAQS} />
+
+      <AdSlot position="mid-content" />
     </div>
   );
 }

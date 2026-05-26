@@ -12,8 +12,11 @@ import {
   STATE_PROFILES,
   TEXAS_COST_OF_LIVING,
   FLORIDA_COST_OF_LIVING,
+  CALIFORNIA_COST_OF_LIVING,
+  NEWYORK_COST_OF_LIVING,
   type PayFrequency,
   type StateProfile,
+  type StateBracket,
 } from './tax-config';
 
 // ─── Safe Rounding ───────────────────────────────────────────────────────────
@@ -44,14 +47,19 @@ export function formatNumber(value: number, decimals = 0): string {
 
 // ─── Federal Tax Calculation ─────────────────────────────────────────────────
 
-export function calculateFederalTax(annualGross: number): number {
-  const taxableIncome = Math.max(0, annualGross - FEDERAL_TAX_2026.standardDeduction);
+export function calculateFederalTax(
+  annualGross: number,
+  filingStatus: 'single' | 'married' | 'head_of_household' = 'single'
+): number {
+  const stdDeduction = FEDERAL_TAX_2026.standardDeductionsByFiling[filingStatus] ?? FEDERAL_TAX_2026.standardDeduction;
+  const brackets = FEDERAL_TAX_2026.bracketsByFiling[filingStatus] ?? FEDERAL_TAX_2026.brackets;
+  const taxableIncome = Math.max(0, annualGross - stdDeduction);
   if (taxableIncome <= 0) return 0;
 
   let tax = 0;
   let remaining = taxableIncome;
 
-  for (const bracket of FEDERAL_TAX_2026.brackets) {
+  for (const bracket of brackets) {
     if (remaining <= 0) break;
 
     const bracketWidth = bracket.max === null ? remaining : bracket.max - bracket.min;
@@ -96,16 +104,50 @@ export function calculateFICA(annualGross: number): {
   };
 }
 
+// ─── Progressive State Tax Calculation ───────────────────────────────────────
+
+function calculateProgressiveStateTax(
+  annualGross: number,
+  brackets: StateBracket[],
+  standardDeduction: number
+): number {
+  const taxableIncome = Math.max(0, annualGross - standardDeduction);
+  if (taxableIncome <= 0) return 0;
+
+  let tax = 0;
+  let remaining = taxableIncome;
+
+  for (const bracket of brackets) {
+    if (remaining <= 0) break;
+    const bracketWidth = bracket.max === null ? remaining : bracket.max - bracket.min;
+    const taxableInBracket = Math.min(remaining, bracketWidth);
+    tax += taxableInBracket * bracket.rate;
+    remaining -= taxableInBracket;
+  }
+
+  return tax;
+}
+
 // ─── State Tax Calculation ───────────────────────────────────────────────────
 
-export function calculateStateTax(annualGross: number, stateKey: string): number {
+export function calculateStateTax(
+  annualGross: number,
+  stateKey: string,
+  filingStatus: 'single' | 'married' | 'head_of_household' = 'single'
+): number {
   const state = STATE_PROFILES[stateKey];
   if (!state || !state.hasIncomeTax) return 0;
 
   if (state.incomeTaxType === 'flat') {
     // Illinois: subtract personal exemption before applying flat rate
-    const taxableIncome = Math.max(0, annualGross - state.personalExemption);
+    const exemption = state.personalExemptionsByFiling?.[filingStatus] ?? state.personalExemption;
+    const taxableIncome = Math.max(0, annualGross - exemption);
     return taxableIncome * state.incomeTaxRate;
+  }
+
+  if (state.incomeTaxType === 'progressive' && state.brackets) {
+    const stdDeduction = state.standardDeductionsByFiling?.[filingStatus] ?? state.standardDeduction;
+    return calculateProgressiveStateTax(annualGross, state.brackets, stdDeduction);
   }
 
   if (state.incomeTaxType === 'none') {
@@ -177,23 +219,34 @@ export function calculatePaycheck(input: PaycheckInput): PaycheckResult {
   const adjustedGrossForFederal = Math.max(0, grossAnnual - pretaxDeductions);
 
   // Federal tax on adjusted gross
-  const federalTax = calculateFederalTax(adjustedGrossForFederal);
+  const federalTax = calculateFederalTax(adjustedGrossForFederal, input.filingStatus);
 
   // FICA on full gross (401k doesn't reduce FICA for employees, HSA does not either)
   const fica = calculateFICA(grossAnnual);
 
-  // State tax (IL uses personal exemption)
+  // State tax
   const stateKey = input.stateKey || 'illinois';
   const stateProfile = STATE_PROFILES[stateKey] || null;
 
   let stateTax = 0;
   if (stateProfile?.hasIncomeTax) {
-    // For Illinois: subtract pre-tax deductions AND personal exemption
-    const stateTaxableIncome = Math.max(
-      0,
-      grossAnnual - pretaxDeductions - (stateProfile.personalExemption || 0)
-    );
-    stateTax = stateTaxableIncome * stateProfile.incomeTaxRate;
+    if (stateProfile.incomeTaxType === 'flat') {
+      // For Illinois: subtract pre-tax deductions AND personal exemption
+      const exemption = stateProfile.personalExemptionsByFiling?.[input.filingStatus] ?? stateProfile.personalExemption;
+      const stateTaxableIncome = Math.max(0, grossAnnual - pretaxDeductions - exemption);
+      stateTax = stateTaxableIncome * stateProfile.incomeTaxRate;
+    } else if (stateProfile.incomeTaxType === 'progressive' && stateProfile.brackets) {
+      // For progressive states (CA, NY): subtract pre-tax deductions, then apply brackets
+      const stdDeduction = stateProfile.standardDeductionsByFiling?.[input.filingStatus] ?? stateProfile.standardDeduction;
+      const stateTaxableIncome = Math.max(0, grossAnnual - pretaxDeductions - stdDeduction);
+      stateTax = calculateProgressiveStateTax(grossAnnual - pretaxDeductions, stateProfile.brackets, stdDeduction);
+      // recalculate: actually the function already deducts, so we pass gross - pretax
+      stateTax = calculateProgressiveStateTax(
+        grossAnnual - pretaxDeductions,
+        stateProfile.brackets,
+        stdDeduction
+      );
+    }
   }
 
   const totalDeductions = federalTax + fica.total + stateTax + pretaxDeductions;
@@ -226,20 +279,162 @@ export function calculatePaycheck(input: PaycheckInput): PaycheckResult {
       ? netAnnual / 2080
       : netAnnual / periodsPerYear,
     effectiveTaxRate: grossAnnual > 0 ? (federalTax + fica.total + stateTax) / grossAnnual : 0,
-    marginalTaxRate: getMarginalRate(adjustedGrossForFederal),
+    marginalTaxRate: getMarginalRate(adjustedGrossForFederal, input.filingStatus),
     periodsPerYear,
     stateProfile,
   };
 }
 
-function getMarginalRate(taxableIncome: number): number {
-  for (let i = FEDERAL_TAX_2026.brackets.length - 1; i >= 0; i--) {
-    const bracket = FEDERAL_TAX_2026.brackets[i];
+function getMarginalRate(
+  taxableIncome: number,
+  filingStatus: 'single' | 'married' | 'head_of_household' = 'single'
+): number {
+  const brackets = FEDERAL_TAX_2026.bracketsByFiling[filingStatus] ?? FEDERAL_TAX_2026.brackets;
+  for (let i = brackets.length - 1; i >= 0; i--) {
+    const bracket = brackets[i];
     if (taxableIncome >= bracket.min) {
       return bracket.rate;
     }
   }
   return 0;
+}
+
+// ─── Salary Relocation Calculator ────────────────────────────────────────────
+
+export interface RelocationResult {
+  sourceState: string;
+  targetState: string;
+  sourceSalary: number;
+  sourceNet: number;
+  equivalentSalary: number;
+  equivalentNet: number;
+  salaryDifference: number;
+  percentDifference: number;
+  sourceStateTax: number;
+  targetStateTax: number;
+  taxSavings: number;
+}
+
+export function calculateRelocation(
+  sourceSalary: number,
+  sourceStateKey: string,
+  targetStateKey: string,
+  filingStatus: 'single' | 'married' | 'head_of_household' = 'single'
+): RelocationResult {
+  // Calculate source net
+  const sourceResult = calculatePaycheck({
+    annualSalary: sourceSalary,
+    payFrequency: 'annual',
+    hoursPerWeek: 40,
+    retirement401k: 0,
+    hsaContribution: 0,
+    stateKey: sourceStateKey,
+    filingStatus,
+  });
+
+  // Binary search for equivalent salary in target state
+  let low = 0;
+  let high = sourceSalary * 3;
+  let equivalentSalary = sourceSalary;
+
+  for (let i = 0; i < 50; i++) {
+    const mid = (low + high) / 2;
+    const targetResult = calculatePaycheck({
+      annualSalary: mid,
+      payFrequency: 'annual',
+      hoursPerWeek: 40,
+      retirement401k: 0,
+      hsaContribution: 0,
+      stateKey: targetStateKey,
+      filingStatus,
+    });
+
+    if (targetResult.netAnnual < sourceResult.netAnnual) {
+      low = mid;
+    } else {
+      high = mid;
+    }
+    equivalentSalary = mid;
+  }
+
+  const targetResult = calculatePaycheck({
+    annualSalary: equivalentSalary,
+    payFrequency: 'annual',
+    hoursPerWeek: 40,
+    retirement401k: 0,
+    hsaContribution: 0,
+    stateKey: targetStateKey,
+    filingStatus,
+  });
+
+  return {
+    sourceState: sourceResult.stateProfile?.name ?? sourceStateKey,
+    targetState: targetResult.stateProfile?.name ?? targetStateKey,
+    sourceSalary,
+    sourceNet: roundCurrency(sourceResult.netAnnual),
+    equivalentSalary: roundCurrency(equivalentSalary),
+    equivalentNet: roundCurrency(targetResult.netAnnual),
+    salaryDifference: roundCurrency(equivalentSalary - sourceSalary),
+    percentDifference: sourceSalary > 0 ? roundCurrency((equivalentSalary - sourceSalary) / sourceSalary) : 0,
+    sourceStateTax: roundCurrency(sourceResult.stateTax),
+    targetStateTax: roundCurrency(targetResult.stateTax),
+    taxSavings: roundCurrency(sourceResult.stateTax - targetResult.stateTax),
+  };
+}
+
+// ─── 401(k) Retirement Projection ───────────────────────────────────────────
+
+export interface RetirementProjection {
+  years: number[];
+  balance: number[];
+  totalContributions: number[];
+  totalGrowth: number[];
+  finalBalance: number;
+  totalContributed: number;
+  totalGrowthAmount: number;
+}
+
+export function calculateRetirementProjection(
+  annualSalary: number,
+  annual401k: number,
+  employerMatchPercent: number = 0.03,
+  annualReturnRate: number = 0.07,
+  years: number = 30
+): RetirementProjection {
+  const employerMatch = Math.min(
+    annualSalary * employerMatchPercent,
+    annual401k * 0.5 // typical 50% match up to 6%
+  );
+  const annualContribution = annual401k + employerMatch;
+
+  const yearsArr: number[] = [];
+  const balanceArr: number[] = [];
+  const contributionsArr: number[] = [];
+  const growthArr: number[] = [];
+
+  let balance = 0;
+  let totalContributed = 0;
+
+  for (let year = 1; year <= years; year++) {
+    const growth = balance * annualReturnRate;
+    balance = balance + annualContribution + growth;
+    totalContributed += annualContribution;
+
+    yearsArr.push(year);
+    balanceArr.push(roundCurrency(balance));
+    contributionsArr.push(roundCurrency(totalContributed));
+    growthArr.push(roundCurrency(balance - totalContributed));
+  }
+
+  return {
+    years: yearsArr,
+    balance: balanceArr,
+    totalContributions: contributionsArr,
+    totalGrowth: growthArr,
+    finalBalance: roundCurrency(balance),
+    totalContributed: roundCurrency(totalContributed),
+    totalGrowthAmount: roundCurrency(balance - totalContributed),
+  };
 }
 
 // ─── Mortgage Calculation ────────────────────────────────────────────────────
@@ -412,6 +607,42 @@ export function calculateFloridaCostOfLiving(
     totalMonthlyBurden: roundCurrency((annualPropertyTax + estimatedSalesTaxBurden) / 12),
     propertyTaxRate: FLORIDA_COST_OF_LIVING.averagePropertyTaxRate,
     avgHomeValue: FLORIDA_COST_OF_LIVING.averageHomeValue,
+  };
+}
+
+export function calculateCaliforniaCostOfLiving(
+  homeValue: number = CALIFORNIA_COST_OF_LIVING.averageHomeValue,
+  estimatedAnnualSpending: number = 55000
+): CostOfLivingResult {
+  const annualPropertyTax = homeValue * CALIFORNIA_COST_OF_LIVING.averagePropertyTaxRate;
+  const estimatedSalesTaxBurden = estimatedAnnualSpending * CALIFORNIA_COST_OF_LIVING.averageSalesTaxRate;
+
+  return {
+    annualPropertyTax: roundCurrency(annualPropertyTax),
+    monthlyPropertyTax: roundCurrency(annualPropertyTax / 12),
+    estimatedSalesTaxBurden: roundCurrency(estimatedSalesTaxBurden),
+    totalAnnualBurden: roundCurrency(annualPropertyTax + estimatedSalesTaxBurden),
+    totalMonthlyBurden: roundCurrency((annualPropertyTax + estimatedSalesTaxBurden) / 12),
+    propertyTaxRate: CALIFORNIA_COST_OF_LIVING.averagePropertyTaxRate,
+    avgHomeValue: CALIFORNIA_COST_OF_LIVING.averageHomeValue,
+  };
+}
+
+export function calculateNewYorkCostOfLiving(
+  homeValue: number = NEWYORK_COST_OF_LIVING.averageHomeValue,
+  estimatedAnnualSpending: number = 52000
+): CostOfLivingResult {
+  const annualPropertyTax = homeValue * NEWYORK_COST_OF_LIVING.averagePropertyTaxRate;
+  const estimatedSalesTaxBurden = estimatedAnnualSpending * NEWYORK_COST_OF_LIVING.averageSalesTaxRate;
+
+  return {
+    annualPropertyTax: roundCurrency(annualPropertyTax),
+    monthlyPropertyTax: roundCurrency(annualPropertyTax / 12),
+    estimatedSalesTaxBurden: roundCurrency(estimatedSalesTaxBurden),
+    totalAnnualBurden: roundCurrency(annualPropertyTax + estimatedSalesTaxBurden),
+    totalMonthlyBurden: roundCurrency((annualPropertyTax + estimatedSalesTaxBurden) / 12),
+    propertyTaxRate: NEWYORK_COST_OF_LIVING.averagePropertyTaxRate,
+    avgHomeValue: NEWYORK_COST_OF_LIVING.averageHomeValue,
   };
 }
 

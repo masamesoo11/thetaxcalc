@@ -23,6 +23,7 @@ import {
 } from '@/components/ui/select';
 import { Separator } from '@/components/ui/separator';
 import { AdSlot } from './ad-slot';
+import { FAQSection, TEXAS_FAQS } from './faq-sections';
 import {
   calculatePaycheck,
   calculateTexasCostOfLiving,
@@ -308,6 +309,10 @@ export function TexasCalculator() {
           <p>Bi-Weekly Take-Home: $2,328.65</p>
         </div>
       </div>
+
+      <FAQSection title="Texas Tax FAQ — No Income Tax, But What About Property & Sales Tax?" faqs={TEXAS_FAQS} />
+
+      <AdSlot position="mid-content" />
     </div>
   );
 }

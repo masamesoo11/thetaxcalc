@@ -1,0 +1,57 @@
+{
+  "name": "TaxYield.io",
+  "short_name": "TaxYield",
+  "description": "Free 2026 tax calculators — paycheck, mortgage, 401(k), capital gains, and self-employment.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0f1e",
+  "theme_color": "#0a0f1e",
+  "orientation": "portrait-primary",
+  "categories": ["finance", "utilities"],
+  "icons": [
+    {
+      "src": "/icon?s=48",
+      "sizes": "48x48",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon?s=72",
+      "sizes": "72x72",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon?s=96",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon?s=144",
+      "sizes": "144x144",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon?s=192",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon?s=256",
+      "sizes": "256x256",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon?s=384",
+      "sizes": "384x384",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon?s=512",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [],
+  "prefer_related_applications": false
+}

@@ -29,6 +29,9 @@ import {
   CollapsibleTrigger,
 } from '@/components/ui/collapsible';
 import { AdSlot } from './ad-slot';
+import { StateComparisonSection } from './state-comparison';
+import { FAQSection, HOME_FAQS } from './faq-sections';
+import { TaxBreakdownChart } from './tax-breakdown-chart';
 import {
   calculatePaycheck,
   formatCurrency,
@@ -440,6 +443,9 @@ export function PaycheckCalculator({ defaultState = 'illinois', onStateChange }:
         </div>
       </div>
 
+      {/* ─── Interactive Tax Breakdown Chart ─────────────────────── */}
+      <TaxBreakdownChart result={result} />
+
       {/* ─── Pre-Rendered Default Example for LLM/GEO Crawlers ──── */}
       <div className="mt-8 rounded-xl border border-border/30 bg-muted/10 p-6" aria-hidden="true">
         <h2 className="text-xl font-bold text-foreground">
@@ -462,6 +468,14 @@ export function PaycheckCalculator({ defaultState = 'illinois', onStateChange }:
           <p>Bi-Weekly Take-Home: $2,191.10</p>
         </div>
       </div>
+
+      {/* ─── State Comparison SEO Section ───────────────────── */}
+      <StateComparisonSection />
+
+      {/* ─── FAQ Section ────────────────────────────────────── */}
+      <FAQSection title="Frequently Asked Questions About Paycheck Calculations" faqs={HOME_FAQS} />
+
+      <AdSlot position="mid-content" />
     </div>
   );
 }

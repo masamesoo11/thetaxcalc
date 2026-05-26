@@ -1,289 +1,497 @@
-'use client';
+import { Metadata } from 'next';
+import Link from 'next/link';
+import {
+  DollarSign,
+  MapPin,
+  Home,
+  PiggyBank,
+  ArrowRightLeft,
+  TrendingUp,
+  Shield,
+  Calculator,
+  ArrowRight,
+  CheckCircle2,
+  Zap,
+  BarChart3,
+  Star,
+  Users,
+  Globe,
+} from 'lucide-react';
 
-import { useCallback } from 'react';
-import { Header } from '@/components/finance/header';
-import { Footer } from '@/components/finance/footer';
-import { PaycheckCalculator } from '@/components/finance/paycheck-calculator';
-import { IllinoisCalculator } from '@/components/finance/illinois-calculator';
-import { TexasCalculator } from '@/components/finance/texas-calculator';
-import { FloridaCalculator } from '@/components/finance/florida-calculator';
-import { MortgageCalculator } from '@/components/finance/mortgage-calculator';
-import { useHashPage } from '@/hooks/use-hash-state';
+// ─── Home Page Metadata ───────────────────────────────────────────────────────
 
-// ─── JSON-LD Schema Generators ───────────────────────────────────────────────
-
-function getHomeJsonLd() {
-  return {
-    '@context': 'https://schema.org',
-    '@graph': [
+export const metadata: Metadata = {
+  title: 'TaxYield.io — Free 2026 Paycheck & Mortgage Calculator | IL, TX, FL, CA, NY',
+  description:
+    'Instantly calculate your take-home pay after federal tax, FICA, and state income tax. Supports Illinois (4.95%), Texas (0%), Florida (0%), California (1%-13.3%), New York (4%-10.9%). Includes mortgage, 401(k), capital gains, and self-employment calculators.',
+  keywords: [
+    'paycheck calculator', 'take home pay calculator', 'salary calculator',
+    'Illinois tax calculator', 'Texas tax calculator', 'Florida tax calculator',
+    'California tax calculator', 'New York tax calculator', 'mortgage calculator',
+    'FICA calculator', '2026 tax brackets', 'federal tax calculator',
+    'state income tax', 'after tax salary', 'net pay calculator',
+  ],
+  alternates: {
+    canonical: 'https://taxyield.io',
+    languages: {
+      'en-US': 'https://taxyield.io',
+      'x-default': 'https://taxyield.io',
+    },
+    types: {
+      'application/rss+xml': 'https://taxyield.io/feed.xml',
+    },
+  },
+  openGraph: {
+    title: 'TaxYield.io — Free 2026 Paycheck & Mortgage Calculator',
+    description:
+      'Precision paycheck calculator for 2026. Compute take-home pay after federal, FICA, and state taxes for IL, TX, FL, CA, NY.',
+    url: 'https://taxyield.io',
+    siteName: 'TaxYield.io',
+    type: 'website',
+    locale: 'en_US',
+    images: [
       {
-        '@type': 'WebPage',
-        name: 'Paycheck Calculator — Federal, FICA & State Tax Take-Home Pay',
-        description:
-          'Free 2026 paycheck calculator. Instantly compute your take-home pay after federal tax, FICA (Social Security + Medicare), and state income tax deductions. Supports Illinois, Texas, and Florida.',
-        url: 'https://taxyield.io',
-        inLanguage: 'en-US',
-        dateModified: '2026-01-01',
-      },
-      {
-        '@type': 'SoftwareApplication',
-        name: 'TaxYield Paycheck Calculator',
-        applicationCategory: 'FinanceApplication',
-        operatingSystem: 'Web',
-        offers: {
-          '@type': 'Offer',
-          price: '0',
-          priceCurrency: 'USD',
-        },
-        description:
-          'A precision paycheck calculator for 2026 that computes federal tax, FICA deductions, and state-specific income tax for Illinois, Texas, and Florida. Includes 401(k) and HSA pre-tax deduction support.',
+        url: 'https://taxyield.io/opengraph-image',
+        width: 1200,
+        height: 630,
+        alt: 'TaxYield.io — Free 2026 Paycheck & Mortgage Calculator',
       },
     ],
-  };
-}
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'TaxYield.io — Free 2026 Paycheck & Mortgage Calculator',
+    description:
+      'Compute your take-home pay after federal, FICA, and state taxes. Supports IL, TX, FL, CA, NY.',
+    images: ['https://taxyield.io/opengraph-image'],
+  },
+};
 
-function getIllinoisJsonLd() {
-  return {
-    '@context': 'https://schema.org',
-    '@graph': [
-      {
-        '@type': 'WebApplication',
-        name: 'Illinois Paycheck Calculator 2026',
-        url: 'https://taxyield.io/illinois',
-        applicationCategory: 'FinanceApplication',
-        operatingSystem: 'Web',
-        offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
-      },
-      {
-        '@type': 'SoftwareApplication',
-        name: 'Illinois Tax Calculator',
-        applicationCategory: 'FinanceApplication',
-        operatingSystem: 'Web',
-        description:
-          'Calculate your Illinois take-home pay with the 4.95% flat income tax rate and $2,775 personal exemption. Includes federal tax brackets and FICA deductions.',
-      },
-      {
-        '@type': 'MathSolver',
-        name: 'Illinois Paycheck Math Solver',
-        description:
-          'Computes net take-home pay by solving: Net = Gross - Federal Tax - FICA - IL State Tax, where IL Tax = (Gross - Personal Exemption) × 4.95%',
-        mathExpression: 'Net = G - Fed(G - StdDed) - FICA(G) - (G - Exempt) × 0.0495',
-        identifier: 'illinois-paycheck-solver',
-      },
-      {
-        '@type': 'Dataset',
-        name: '2026 Illinois Tax Rates',
-        description: 'Key 2026 Illinois tax parameters for paycheck computation',
-        about: {
-          '@type': 'Thing',
-          name: 'Illinois State Income Tax 2026',
-        },
-        variableMeasured: [
-          { name: 'Illinois Flat Tax Rate', value: '4.95%' },
-          { name: 'Illinois Personal Exemption', value: '$2,775' },
-          { name: 'Federal Standard Deduction (Single)', value: '$15,000' },
-          { name: 'Social Security Tax Rate', value: '6.2%' },
-          { name: 'Medicare Tax Rate', value: '1.45%' },
-          { name: 'FICA Total Rate', value: '7.65%' },
-          { name: 'Social Security Wage Cap', value: '$176,100' },
-        ],
-      },
-      {
-        '@type': 'FAQPage',
-        mainEntity: [
-          {
-            '@type': 'Question',
-            name: 'How much is Illinois state income tax?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'Illinois has a flat state income tax rate of 4.95% as of 2026. All taxable income is subject to this single rate regardless of income level.',
-            },
-          },
-          {
-            '@type': 'Question',
-            name: 'What is the Illinois personal exemption for 2026?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'The Illinois personal exemption is $2,775 for 2026. This amount is subtracted from your gross income before the 4.95% flat tax is applied.',
-            },
-          },
-          {
-            '@type': 'Question',
-            name: 'How do I calculate my Illinois take-home pay from $75,000?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'For a $75,000 salary in Illinois: Subtract the $2,775 personal exemption to get $72,225 taxable income. Illinois tax = $72,225 × 4.95% = $3,575.14. Federal tax ≈ $8,717.50. FICA = $5,737.50. Net annual take-home ≈ $56,969.86.',
-            },
-          },
-          {
-            '@type': 'Question',
-            name: 'Does Illinois have a standard deduction?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'No, Illinois does not offer a standard deduction. Instead, it provides a personal exemption of $2,775 per person that reduces taxable income before the flat 4.95% rate is applied.',
-            },
-          },
-        ],
-      },
-    ],
-  };
-}
+// ─── Calculator Data ──────────────────────────────────────────────────────────
 
-function getTexasJsonLd() {
-  return {
-    '@context': 'https://schema.org',
-    '@graph': [
-      {
-        '@type': 'WebApplication',
-        name: 'Texas Paycheck Calculator 2026',
-        url: 'https://taxyield.io/texas',
-        applicationCategory: 'FinanceApplication',
-        operatingSystem: 'Web',
-        offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
-      },
-      {
-        '@type': 'MathSolver',
-        name: 'Texas Paycheck Math Solver',
-        description:
-          'Computes net take-home pay in Texas: Net = Gross - Federal Tax - FICA. Texas has 0% state income tax. Total cost-of-living burden adds property tax (1.71% avg) and sales tax (8.2% avg).',
-        mathExpression: 'Net = G - Fed(G - StdDed) - FICA(G); COL = PropertyTax + SalesTaxBurden',
-        identifier: 'texas-paycheck-solver',
-      },
-      {
-        '@type': 'Dataset',
-        name: '2026 Texas Tax & Cost of Living Data',
-        description: 'Texas has 0% state income tax. Key cost-of-living metrics for 2026.',
-        variableMeasured: [
-          { name: 'Texas State Income Tax Rate', value: '0%' },
-          { name: 'Texas Average Effective Property Tax Rate', value: '1.71%' },
-          { name: 'Texas State Sales Tax Rate', value: '6.25%' },
-          { name: 'Texas Average Combined Sales Tax Rate', value: '8.2%' },
-          { name: 'Texas Average Home Value', value: '$290,000' },
-          { name: 'Texas Average Annual Property Tax', value: '$4,959' },
-        ],
-      },
-    ],
-  };
-}
+const CALCULATOR_CARDS = [
+  {
+    href: '/paycheck-calculator',
+    title: 'Paycheck Calculator',
+    desc: 'Federal, FICA & state take-home pay with 401(k) and HSA deductions',
+    icon: DollarSign,
+    badge: 'Most Popular',
+    badgeColor: 'bg-emerald-500/20 text-emerald-400',
+    gradient: 'from-emerald-600/20 to-teal-600/10',
+  },
+  {
+    href: '/illinois-tax-calculator',
+    title: 'Illinois Tax Calculator',
+    desc: '4.95% flat tax with $2,775 personal exemption — IL take-home pay',
+    icon: MapPin,
+    badge: 'IL',
+    badgeColor: 'bg-blue-500/20 text-blue-400',
+    gradient: 'from-blue-600/20 to-indigo-600/10',
+  },
+  {
+    href: '/texas-tax-calculator',
+    title: 'Texas Tax Calculator',
+    desc: '0% state income tax — compute TX take-home pay with property tax analysis',
+    icon: MapPin,
+    badge: 'TX',
+    badgeColor: 'bg-red-500/20 text-red-400',
+    gradient: 'from-red-600/20 to-orange-600/10',
+  },
+  {
+    href: '/florida-tax-calculator',
+    title: 'Florida Tax Calculator',
+    desc: '0% income tax + homestead exemption — FL take-home pay & cost of living',
+    icon: MapPin,
+    badge: 'FL',
+    badgeColor: 'bg-amber-500/20 text-amber-400',
+    gradient: 'from-amber-600/20 to-yellow-600/10',
+  },
+  {
+    href: '/california-tax-calculator',
+    title: 'California Tax Calculator',
+    desc: '1%–13.3% progressive brackets — CA take-home pay with high tax burden',
+    icon: MapPin,
+    badge: 'CA',
+    badgeColor: 'bg-violet-500/20 text-violet-400',
+    gradient: 'from-violet-600/20 to-purple-600/10',
+  },
+  {
+    href: '/new-york-tax-calculator',
+    title: 'New York Tax Calculator',
+    desc: '4%–10.9% progressive + NYC tax — NY take-home pay analysis',
+    icon: MapPin,
+    badge: 'NY',
+    badgeColor: 'bg-cyan-500/20 text-cyan-400',
+    gradient: 'from-cyan-600/20 to-sky-600/10',
+  },
+  {
+    href: '/mortgage-calculator',
+    title: 'Mortgage Calculator',
+    desc: 'Monthly payment, amortization schedule & extra payment savings',
+    icon: Home,
+    badge: 'Finance',
+    badgeColor: 'bg-rose-500/20 text-rose-400',
+    gradient: 'from-rose-600/20 to-pink-600/10',
+  },
+  {
+    href: '/401k-retirement-calculator',
+    title: '401(k) Retirement Calculator',
+    desc: 'Projected balance with employer match & compound annual growth',
+    icon: PiggyBank,
+    badge: 'Planning',
+    badgeColor: 'bg-teal-500/20 text-teal-400',
+    gradient: 'from-teal-600/20 to-emerald-600/10',
+  },
+  {
+    href: '/relocation-calculator',
+    title: 'Relocation Calculator',
+    desc: 'Compare equivalent salary between states — IL, TX, FL, CA, NY',
+    icon: ArrowRightLeft,
+    badge: 'Compare',
+    badgeColor: 'bg-sky-500/20 text-sky-400',
+    gradient: 'from-sky-600/20 to-blue-600/10',
+  },
+  {
+    href: '/capital-gains-calculator',
+    title: 'Capital Gains Calculator',
+    desc: 'Short-term & long-term rates: 0%/15%/20% + 3.8% NIIT',
+    icon: TrendingUp,
+    badge: 'Invest',
+    badgeColor: 'bg-orange-500/20 text-orange-400',
+    gradient: 'from-orange-600/20 to-amber-600/10',
+  },
+  {
+    href: '/self-employment-tax-calculator',
+    title: 'Self-Employment Calculator',
+    desc: '15.3% SE tax on 92.35% of net income + half deduction + quarterly estimates',
+    icon: Shield,
+    badge: 'Business',
+    badgeColor: 'bg-lime-500/20 text-lime-400',
+    gradient: 'from-lime-600/20 to-green-600/10',
+  },
+];
 
-function getFloridaJsonLd() {
-  return {
-    '@context': 'https://schema.org',
-    '@graph': [
-      {
-        '@type': 'WebApplication',
-        name: 'Florida Paycheck Calculator 2026',
-        url: 'https://taxyield.io/florida',
-        applicationCategory: 'FinanceApplication',
-        operatingSystem: 'Web',
-        offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+const TRUST_POINTS = [
+  '2026 Federal Tax Brackets (up to 37%)',
+  'FICA: Social Security (6.2%) + Medicare (1.45%)',
+  'SS Wage Cap: $176,100 for 2026',
+  '5 State Tax Profiles: IL, TX, FL, CA, NY',
+  'Standard Deductions by Filing Status',
+  '401(k) & HSA Pre-Tax Deductions',
+];
+
+// ─── JSON-LD ──────────────────────────────────────────────────────────────────
+
+const homeJsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebSite',
+      name: 'TaxYield.io',
+      url: 'https://taxyield.io',
+      description: 'Free 2026 tax calculators — paycheck, mortgage, 401(k), capital gains, and self-employment.',
+      potentialAction: {
+        '@type': 'SearchAction',
+        target: 'https://taxyield.io/paycheck-calculator?q={search_term_string}',
+        'query-input': 'required name=search_term_string',
       },
-      {
-        '@type': 'MathSolver',
-        name: 'Florida Paycheck Math Solver',
-        description:
-          'Computes net take-home pay in Florida: Net = Gross - Federal Tax - FICA. Florida has 0% state income tax. Cost-of-living burden includes property tax (0.86% avg) and sales tax (7.0% avg).',
-        mathExpression: 'Net = G - Fed(G - StdDed) - FICA(G); COL = PropertyTax + SalesTaxBurden',
-        identifier: 'florida-paycheck-solver',
-      },
-      {
-        '@type': 'Dataset',
-        name: '2026 Florida Tax & Cost of Living Data',
-        variableMeasured: [
-          { name: 'Florida State Income Tax Rate', value: '0%' },
-          { name: 'Florida Average Effective Property Tax Rate', value: '0.86%' },
-          { name: 'Florida State Sales Tax Rate', value: '6.0%' },
-          { name: 'Florida Average Combined Sales Tax Rate', value: '7.0%' },
-          { name: 'Florida Average Home Value', value: '$395,000' },
-        ],
-      },
-    ],
-  };
-}
+    },
+    {
+      '@type': 'Organization',
+      name: 'TaxYield.io',
+      url: 'https://taxyield.io',
+    },
+    {
+      '@type': 'WebPage',
+      name: 'TaxYield.io — Free 2026 Paycheck & Mortgage Calculator',
+      description: 'Free 2026 paycheck, mortgage, and tax calculators for IL, TX, FL, CA, NY.',
+      url: 'https://taxyield.io',
+    },
+  ],
+};
 
-function getMortgageJsonLd() {
-  return {
-    '@context': 'https://schema.org',
-    '@graph': [
-      {
-        '@type': 'WebApplication',
-        name: 'Mortgage Calculator with Extra Payments',
-        url: 'https://taxyield.io/mortgage',
-        applicationCategory: 'FinanceApplication',
-        operatingSystem: 'Web',
-        offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
-      },
-      {
-        '@type': 'SoftwareApplication',
-        name: 'TaxYield Mortgage Calculator',
-        applicationCategory: 'FinanceApplication',
-        description:
-          'Calculate fixed-rate mortgage payments with amortization schedule. Simulate extra monthly payments to see total interest savings and early payoff timeline.',
-      },
-      {
-        '@type': 'MathSolver',
-        name: 'Mortgage Amortization Solver',
-        description:
-          'Computes monthly payment using the standard fixed-rate formula: M = P × [r(1+r)^n] / [(1+r)^n - 1], where P = principal, r = monthly rate, n = total payments.',
-        mathExpression: 'M = P × [r(1+r)^n] / [(1+r)^n - 1]',
-        identifier: 'mortgage-amortization-solver',
-      },
-    ],
-  };
-}
+// ─── Page Component (Server Component) ────────────────────────────────────────
 
-function getJsonLdForPage(page: string) {
-  switch (page) {
-    case 'illinois': return getIllinoisJsonLd();
-    case 'texas': return getTexasJsonLd();
-    case 'florida': return getFloridaJsonLd();
-    case 'mortgage': return getMortgageJsonLd();
-    default: return getHomeJsonLd();
-  }
-}
-
-// ─── Main Page Component ─────────────────────────────────────────────────────
-
-export default function Home() {
-  const currentPage = useHashPage();
-
-  const handleNavigate = useCallback((page: string) => {
-    window.location.hash = page;
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, []);
-
-  const jsonLd = getJsonLdForPage(currentPage);
-
-  const renderPage = () => {
-    switch (currentPage) {
-      case 'illinois':
-        return <IllinoisCalculator />;
-      case 'texas':
-        return <TexasCalculator />;
-      case 'florida':
-        return <FloridaCalculator />;
-      case 'mortgage':
-        return <MortgageCalculator />;
-      default:
-        return <PaycheckCalculator />;
-    }
-  };
-
+export default function HomePage() {
   return (
-    <div className="min-h-screen flex flex-col bg-background">
-      {/* JSON-LD Schema */}
+    <>
+      {/* JSON-LD */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(homeJsonLd) }}
       />
 
-      <Header currentPage={currentPage} onNavigate={handleNavigate} />
+      {/* ─── Hero Section ──────────────────────────────────────── */}
+      <section className="relative overflow-hidden py-16 sm:py-24 bg-mesh-hero">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center space-y-6">
+            {/* Badge */}
+            <div className="inline-flex items-center gap-2 rounded-full bg-emerald-500/10 border border-emerald-500/20 px-4 py-1.5 text-sm text-emerald-400">
+              <Zap className="h-3.5 w-3.5" />
+              Updated for 2026 Tax Year
+            </div>
 
-      <main className="flex-1 mx-auto w-full max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-        {renderPage()}
-      </main>
+            {/* Title */}
+            <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+              Free <span className="gradient-text">Tax Calculators</span>
+              <br />
+              for 2026
+            </h1>
 
-      <Footer />
-    </div>
+            {/* Subtitle */}
+            <p className="mx-auto max-w-2xl text-lg text-muted-foreground leading-relaxed">
+              Compute your <strong className="text-foreground">take-home pay</strong> after federal tax, FICA, and state taxes.
+              Compare <strong className="text-foreground">Illinois (4.95%)</strong>, Texas (0%), Florida (0%),
+              California (1%–13.3%), and New York (4%–10.9%). Plus mortgage, 401(k), and capital gains calculators.
+            </p>
+
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Link
+                href="/paycheck-calculator"
+                className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-600 to-emerald-500 px-8 py-3.5 text-base font-semibold text-white shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/30 transition-all hover:scale-[1.02]"
+              >
+                <BarChart3 className="h-5 w-5" />
+                Calculate Your Paycheck
+              </Link>
+              <Link
+                href="/relocation-calculator"
+                className="inline-flex items-center gap-2 rounded-xl border border-border/50 bg-card/50 px-8 py-3.5 text-base font-semibold text-foreground hover:bg-muted/30 transition-all"
+              >
+                <ArrowRightLeft className="h-5 w-5" />
+                Compare States
+              </Link>
+            </div>
+
+            {/* Trust Stats */}
+            <div className="flex flex-wrap items-center justify-center gap-6 pt-4 text-sm text-muted-foreground">
+              <span className="flex items-center gap-1.5">
+                <Users className="h-4 w-4 text-emerald-400" />
+                100% Free
+              </span>
+              <span className="flex items-center gap-1.5">
+                <Shield className="h-4 w-4 text-emerald-400" />
+                No Sign-Up Required
+              </span>
+              <span className="flex items-center gap-1.5">
+                <Star className="h-4 w-4 text-emerald-400" />
+                2026 Tax Data
+              </span>
+              <span className="flex items-center gap-1.5">
+                <Globe className="h-4 w-4 text-emerald-400" />
+                5 State Profiles
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── Calculator Grid ────────────────────────────────────── */}
+      <section className="py-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mb-10 text-center">
+            <h2 className="text-3xl font-bold text-foreground">
+              11 Free <span className="gradient-text">Tax Calculators</span>
+            </h2>
+            <p className="mt-3 text-muted-foreground max-w-xl mx-auto">
+              Precision tools for paycheck, mortgage, retirement, and investment tax calculations — all updated for 2026.
+            </p>
+          </div>
+
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {CALCULATOR_CARDS.map((card) => {
+              const Icon = card.icon;
+              return (
+                <Link
+                  key={card.href}
+                  href={card.href}
+                  className="group premium-card hover-lift p-6 flex flex-col gap-4"
+                >
+                  {/* Header */}
+                  <div className="flex items-start justify-between">
+                    <div className={`flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br ${card.gradient}`}>
+                      <Icon className="h-6 w-6 text-emerald-400" />
+                    </div>
+                    <span className={`text-[10px] font-semibold uppercase tracking-wider rounded-full px-2.5 py-1 ${card.badgeColor}`}>
+                      {card.badge}
+                    </span>
+                  </div>
+
+                  {/* Content */}
+                  <div>
+                    <h3 className="text-lg font-semibold text-foreground group-hover:text-emerald-400 transition-colors">
+                      {card.title}
+                    </h3>
+                    <p className="mt-1.5 text-sm text-muted-foreground leading-relaxed">
+                      {card.desc}
+                    </p>
+                  </div>
+
+                  {/* CTA */}
+                  <div className="mt-auto flex items-center gap-1.5 text-sm font-medium text-emerald-400 group-hover:gap-3 transition-all">
+                    Try Calculator
+                    <ArrowRight className="h-4 w-4" />
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* ─── State Comparison Preview ───────────────────────────── */}
+      <section className="py-16 border-t border-border/20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl font-bold text-foreground">
+              Which State Has the <span className="gradient-text">Lowest Tax</span>?
+            </h2>
+            <p className="mt-3 text-muted-foreground max-w-xl mx-auto">
+              Compare take-home pay on a $75,000 salary across the five states we cover.
+            </p>
+          </div>
+
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+            {[
+              { state: 'Florida', net: '$60,545', rate: '0%', label: 'Lowest Burden', color: 'emerald', href: '/florida-tax-calculator' },
+              { state: 'Texas', net: '$60,545', rate: '0%', label: 'No Income Tax', color: 'emerald', href: '/texas-tax-calculator' },
+              { state: 'Illinois', net: '$56,969', rate: '4.95%', label: 'Flat Rate', color: 'amber', href: '/illinois-tax-calculator' },
+              { state: 'California', net: '$57,950', rate: '1%–13.3%', label: 'Highest Rate', color: 'red', href: '/california-tax-calculator' },
+              { state: 'New York', net: '$57,686', rate: '4%–10.9%', label: '+ NYC Tax', color: 'red', href: '/new-york-tax-calculator' },
+            ].map((item) => (
+              <Link
+                key={item.state}
+                href={item.href}
+                className={`group rounded-xl border border-border/30 bg-card/50 p-5 text-center transition-all hover-lift ${
+                  item.color === 'emerald' ? 'hover:border-emerald-500/30' : item.color === 'amber' ? 'hover:border-amber-500/30' : 'hover:border-red-500/30'
+                }`}
+              >
+                <p className={`text-xs uppercase tracking-wider ${
+                  item.color === 'emerald' ? 'text-emerald-400' : item.color === 'amber' ? 'text-amber-400' : 'text-red-400'
+                }`}>
+                  {item.label}
+                </p>
+                <p className="mt-2 text-xl font-bold text-foreground">{item.state}</p>
+                <p className="mt-1 text-sm text-muted-foreground">Tax: {item.rate}</p>
+                <p className="mt-2 text-lg font-semibold text-foreground">Net: {item.net}</p>
+                <p className="mt-1 text-[11px] text-emerald-400 group-hover:underline">View Calculator →</p>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ─── Trust & Accuracy ───────────────────────────────────── */}
+      <section className="py-16 border-t border-border/20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid gap-12 lg:grid-cols-2 items-center">
+            <div>
+              <h2 className="text-3xl font-bold text-foreground">
+                Accurate <span className="gradient-text">2026 Tax Data</span>
+              </h2>
+              <p className="mt-4 text-muted-foreground leading-relaxed">
+                All calculations use the latest 2026 federal tax brackets, FICA rates, and state-specific
+                tax laws. We update our data as the IRS and state revenue departments publish new figures.
+              </p>
+              <ul className="mt-6 space-y-3">
+                {TRUST_POINTS.map((point) => (
+                  <li key={point} className="flex items-start gap-3 text-sm text-muted-foreground">
+                    <CheckCircle2 className="h-5 w-5 text-emerald-400 shrink-0 mt-0.5" />
+                    {point}
+                  </li>
+                ))}
+              </ul>
+              <Link
+                href="/paycheck-calculator"
+                className="mt-8 inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-600 to-emerald-500 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/30 transition-all"
+              >
+                <Calculator className="h-4 w-4" />
+                Start Calculating
+              </Link>
+            </div>
+            <div className="rounded-2xl border border-border/30 bg-card/50 p-8">
+              <h3 className="text-lg font-semibold text-foreground mb-4">Example: $75,000 in Illinois</h3>
+              <div className="space-y-3 text-sm">
+                <div className="flex justify-between">
+                  <span className="text-muted-foreground">Gross Annual Salary</span>
+                  <span className="font-semibold text-foreground">$75,000.00</span>
+                </div>
+                <div className="divider-glow" />
+                <div className="flex justify-between">
+                  <span className="text-muted-foreground">Federal Tax (after $15,000 std ded)</span>
+                  <span className="text-red-400">-$8,717.50</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-muted-foreground">FICA (SS + Medicare)</span>
+                  <span className="text-orange-400">-$5,737.50</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-muted-foreground">IL State Tax (4.95% on $72,225)</span>
+                  <span className="text-amber-400">-$3,575.14</span>
+                </div>
+                <div className="divider-glow" />
+                <div className="flex justify-between text-base">
+                  <span className="font-semibold text-foreground">Net Annual Take-Home</span>
+                  <span className="font-bold text-emerald-400">$56,969.86</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-muted-foreground">Effective Tax Rate</span>
+                  <span className="font-medium text-foreground">24.04%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── Blog Preview ──────────────────────────────────────── */}
+      <section className="py-16 border-t border-border/20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between mb-8">
+            <div>
+              <h2 className="text-2xl font-bold text-foreground">
+                Latest from the <span className="text-emerald-400">Blog</span>
+              </h2>
+              <p className="mt-1 text-sm text-muted-foreground">Tax guides, comparisons, and tips for 2026</p>
+            </div>
+            <Link
+              href="/blog"
+              className="hidden sm:flex items-center gap-1.5 text-sm font-medium text-emerald-400 hover:text-emerald-300 transition-colors"
+            >
+              View All
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+          <div className="grid gap-6 sm:grid-cols-3">
+            {[
+              { title: '2026 Federal Tax Brackets Explained', href: '/blog/2026-federal-tax-brackets-explained', category: 'Tax Guide' },
+              { title: 'Illinois Income Tax Guide 2026', href: '/blog/illinois-income-tax-guide-2026', category: 'State Tax' },
+              { title: 'Florida vs Texas Tax Comparison', href: '/blog/florida-vs-texas-tax-comparison', category: 'Comparison' },
+            ].map((post) => (
+              <Link
+                key={post.href}
+                href={post.href}
+                className="group rounded-xl border border-border/30 bg-card/50 p-5 transition-all hover:border-emerald-500/30 hover-lift"
+              >
+                <span className="text-[10px] font-semibold uppercase tracking-wider text-emerald-400">{post.category}</span>
+                <h3 className="mt-2 text-base font-semibold text-foreground group-hover:text-emerald-400 transition-colors leading-tight">
+                  {post.title}
+                </h3>
+                <p className="mt-3 text-xs text-emerald-400 group-hover:underline">Read Article →</p>
+              </Link>
+            ))}
+          </div>
+          <div className="mt-6 text-center sm:hidden">
+            <Link
+              href="/blog"
+              className="inline-flex items-center gap-1.5 text-sm font-medium text-emerald-400"
+            >
+              View All Articles
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+    </>
   );
 }
