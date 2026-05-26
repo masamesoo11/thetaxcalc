@@ -311,3 +311,37 @@ Stage Summary:
 - Cookie consent banner added site-wide via layout.tsx with Accept/Decline buttons and localStorage persistence
 - All existing functionality preserved, no breaking changes
 - Production build passes successfully
+
+---
+Task ID: 1
+Agent: cloudflare-deploy
+Task: Setup Cloudflare deployment for TaxYield Next.js project
+
+Work Log:
+- Read worklog.md to understand project context: TaxYield is a Next.js 16 tax calculator site with Prisma/SQLite, humanized content, SEO optimizations, breadcrumbs, and cookie consent
+- Read package.json: Next.js 16.1.1, React 19, Prisma 6.11.1, Tailwind 4, many Radix UI components
+- Read next.config.ts: had typescript.ignoreBuildErrors and reactStrictMode:false, no images config
+- Checked @cloudflare/next-on-pages was NOT installed
+- Installed @cloudflare/next-on-pages@1.13.16 as dev dependency via `bun add -D @cloudflare/next-on-pages`
+- Created wrangler.toml at project root with name="taxyield", compatibility_date="2024-09-23", compatibility_flags=["nodejs_compat"], pages_build_output_dir=".vercel/output/static"
+- Added two deploy scripts to package.json: "pages:build" and "pages:deploy"
+- Updated next.config.ts: added `images: { unoptimized: true }` for Cloudflare Pages compatibility (no built-in Next.js image optimization on CF)
+- Created comprehensive DEPLOYMENT.md with bilingual (English + Arabic) instructions covering:
+  - Prerequisites (Cloudflare account, Node.js, Git, Bun)
+  - Method 1: Deploy via Cloudflare Dashboard (connect GitHub repo) with step-by-step
+  - Method 2: Deploy via CLI (Wrangler) with step-by-step
+  - Environment variables setup (DATABASE_URL, NEXTAUTH_SECRET, NEXTAUTH_URL)
+  - Custom domain configuration with DNS instructions
+  - Edge Runtime compatibility notes (what works vs. what doesn't)
+  - Database section explaining SQLite/Prisma won't work on CF Pages, recommending Turso/PlanetScale/Neon/Supabase with migration steps for Turso
+  - Vercel deployment as easiest alternative with step-by-step
+- Ran lint: 3 pre-existing errors (2 server.js require-imports, 1 cookie-consent setState-in-effect) — no new errors introduced
+
+Stage Summary:
+- @cloudflare/next-on-pages@1.13.16 installed as dev dependency
+- wrangler.toml created with project name "taxyield" and nodejs_compat flag
+- Two deploy scripts added: `bun run pages:build` and `bun run pages:deploy`
+- next.config.ts updated with images.unoptimized=true for CF Pages compatibility
+- DEPLOYMENT.md created with comprehensive bilingual deployment guide (English + Arabic)
+- No new lint errors introduced (3 pre-existing errors remain)
+- Key caveat: SQLite database will NOT work on Cloudflare Pages — must migrate to Turso/Neon/PlanetScale/Supabase before deploying
