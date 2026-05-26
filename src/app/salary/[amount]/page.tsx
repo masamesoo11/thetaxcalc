@@ -210,12 +210,12 @@ export default async function SalaryAmountPage({
           </h1>
 
           <p className="mt-4 text-lg text-muted-foreground max-w-3xl leading-relaxed">
-            On a {calc.salaryFormatted} salary, your take-home pay ranges from{' '}
-            <strong className="text-red-400">{fmt(calc.lowestNet.netAnnual)}</strong> ({calc.lowestNet.stateName}) to{' '}
-            <strong className="text-emerald-400">{fmt(calc.highestNet.netAnnual)}</strong> ({calc.highestNet.stateName}){' '}
-            for a Single filer with the standard deduction. That&apos;s a difference of{' '}
-            <strong className="text-amber-400">{fmt(calc.highestNet.netAnnual - calc.lowestNet.netAnnual)}</strong> per year
-            depending on where you live.
+            On a {calc.salaryFormatted} salary, where you live makes a huge difference. Your take-home ranges from{' '}
+            <strong className="text-red-400">{fmt(calc.lowestNet.netAnnual)}</strong> in {calc.lowestNet.stateName} to{' '}
+            <strong className="text-emerald-400">{fmt(calc.highestNet.netAnnual)}</strong> in {calc.highestNet.stateName}{' '}
+            (Single filer, standard deduction). That\'s a{' '}
+            <strong className="text-amber-400">{fmt(calc.highestNet.netAnnual - calc.lowestNet.netAnnual)}</strong> gap
+            per year — just from choosing a different state. Wild, right?
           </p>
         </section>
 

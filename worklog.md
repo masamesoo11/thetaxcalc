@@ -172,3 +172,27 @@ Stage Summary:
 - All factual data preserved (rates, thresholds, numbers unchanged)
 - Markdown heading structure preserved for SEO
 - Seed route now upserts posts, database updated with new content
+
+---
+Task ID: 5
+Agent: main-humanizer-round2
+Task: Complete humanization of all remaining pages (glossary, federal brackets, salary pages, home page)
+
+Work Log:
+- Humanized home page subtitle: Changed from formal "Compute your take-home pay..." to "Ever look at your pay stub and think 'wait, they took how much?'"
+- Added "Why We Built TaxYield" editorial section replacing formal "Accurate 2026 Tax Data" section with personal story about CA→TX move
+- Humanized calculator grid subtitle: "Pick the one you need. They're all free... and none of them will ask for your email."
+- Humanized state comparison subtitle: "Same $75,000 salary, wildly different take-home pay."
+- Humanized blog preview subtitle: "We do the homework so you don't have to"
+- Humanized glossary page intro: "Tax jargon got you lost? Same."
+- Humanized glossary bottom section: Changed "Why Understanding Tax Terms Matters" to "Why Bother Learning This Stuff?"
+- Humanized federal tax brackets page: intro, bracket selection text, standard deduction intro, progressive tax explanation, effective vs marginal section, key insight, all 6 FAQ answers
+- Humanized salary landing page: intro, "How We Calculate" section, "Compare by State" section
+- Humanized salary/[amount] page: intro paragraph with "Wild, right?" closer
+
+Stage Summary:
+- ALL pages on the site now have humanized, conversational content
+- Total pages humanized: home, about, all 11 calculators, compare (landing + dynamic), blog (listing + detail + 5 posts), glossary, federal brackets, salary (landing + 26 amount pages), privacy, terms
+- Key humanization techniques: contractions, sentence fragments, personal anecdotes, rhetorical questions, emotional reactions, varied sentence lengths, parenthetical asides, informal language, opinions
+- Dev server returns 200 on all pages
+- Lint passes (only pre-existing server.js warnings)

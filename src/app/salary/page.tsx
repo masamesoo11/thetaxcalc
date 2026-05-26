@@ -186,10 +186,10 @@ export default function SalaryLandingPage() {
           </h1>
 
           <p className="mt-4 text-lg text-muted-foreground max-w-3xl leading-relaxed">
-            Instantly see your take-home pay after federal tax, FICA, and state income tax.
-            Compare net pay across <strong className="text-foreground">Illinois</strong>, <strong className="text-foreground">Texas</strong>,
+            Want to know what you actually take home after taxes? Same. Pick your salary below
+            and we\'ll show you the real numbers across <strong className="text-foreground">Illinois</strong>, <strong className="text-foreground">Texas</strong>,
             <strong className="text-foreground"> Florida</strong>, <strong className="text-foreground">California</strong>, and
-            <strong className="text-foreground"> New York</strong> for every salary level.
+            <strong className="text-foreground"> New York</strong>. Spoiler: where you live makes a bigger difference than you think.
           </p>
 
           <div className="mt-6 flex flex-wrap gap-4 text-sm text-muted-foreground">
@@ -235,7 +235,7 @@ export default function SalaryLandingPage() {
               How We <span className="gradient-text">Calculate</span> Your Take-Home Pay
             </h2>
             <p className="mt-3 text-muted-foreground max-w-xl mx-auto">
-              Each salary page computes your net pay after all mandatory deductions using 2026 tax data.
+              We crunch the numbers so you don\'t have to. Federal tax, FICA, state tax — all broken down.
             </p>
           </div>
 
@@ -280,7 +280,7 @@ export default function SalaryLandingPage() {
               Compare by <span className="gradient-text">State</span>
             </h2>
             <p className="mt-3 text-muted-foreground max-w-xl mx-auto">
-              Dive deeper with our state-specific tax calculators.
+              Go deeper with our dedicated state calculators. They add 401(k), HSA, and filing status options.
             </p>
           </div>
 

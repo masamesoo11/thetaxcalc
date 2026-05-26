@@ -148,27 +148,27 @@ const faqJsonLd = {
 const FAQS = [
   {
     q: 'What are the 2026 federal tax brackets?',
-    a: 'The 2026 federal income tax has seven brackets: 10%, 12%, 22%, 24%, 32%, 35%, and 37%. For single filers, the brackets range from $0–$11,925 at 10% up to over $626,350 at 37%. The bracket widths are doubled for married filing jointly. Only income within each bracket is taxed at that rate — your entire income is not taxed at the highest bracket you reach.',
+    a: 'Seven brackets for 2026: 10%, 12%, 22%, 24%, 32%, 35%, and 37%. For single filers, the ranges go from $0–$11,925 at 10% up to anything over $626,350 at 37%. Married filing jointly? The bracket widths basically double. And no — only the income within each bracket gets taxed at that rate. Your whole paycheck doesn\'t get hit with the top rate.',
   },
   {
     q: 'What is the 2026 standard deduction?',
-    a: 'The 2026 standard deduction is $15,000 for Single filers and Married Filing Separately, $30,000 for Married Filing Jointly and Surviving Spouses, and $22,500 for Head of Household. Taxpayers who are blind or age 65+ receive an additional $2,000 (single/HOH) or $1,600 per qualifying spouse (married filing jointly).',
+    a: 'For 2026: $15,000 for Single and Married Filing Separately, $30,000 for Married Filing Jointly, $22,500 for Head of Household. If you\'re 65 or older, you get an extra $2,000 (single/HOH) or $1,600 per spouse (married). Most people just take the standard deduction — it\'s simpler and usually better than itemizing unless you have a ton of mortgage interest or charitable donations.',
   },
   {
     q: 'How do progressive tax brackets work?',
-    a: 'The U.S. federal income tax is progressive — each dollar is taxed at the rate of the bracket it falls into. For a single filer with $75,000 in gross income, the standard deduction reduces taxable income to $60,000. The first $11,925 is taxed at 10%, the next $36,550 ($11,926–$48,475) at 12%, and the remaining $11,525 ($48,476–$60,000) at 22%. Your total federal tax is the sum of these, not 22% of $60,000.',
+    a: 'Progressive means your income gets taxed in layers, not all at one rate. Take a single filer making $75,000. After the $15,000 standard deduction, taxable income is $60,000. The first $11,925 gets 10%, the chunk from $11,926 to $48,475 gets 12%, and only the remaining $11,525 gets 22%. Your total federal tax is the sum of those three pieces — not 22% of the whole thing. Big difference.',
   },
   {
     q: 'What is the difference between marginal and effective tax rates?',
-    a: 'Your marginal tax rate is the rate on your last dollar of taxable income — it corresponds to your highest bracket. Your effective tax rate is your total tax divided by your total (gross) income. For example, a single filer earning $75,000 has a marginal rate of 22% but an effective federal rate of about 11.6% ($8,717.50 ÷ $75,000). The effective rate is always lower because of progressive brackets and the standard deduction.',
+    a: 'Your marginal rate is what hits your last dollar earned — it\'s your top bracket. Your effective rate is your total tax divided by your total income — the real average rate you pay. Example: a single filer at $75K has a marginal rate of 22% but an effective federal rate of about 11.6%. That\'s a massive difference, and confusing the two is why some people think a raise will cost them money. It won\'t.',
   },
   {
     q: 'Did the 2026 tax brackets change from 2025?',
-    a: 'Yes. The IRS adjusts brackets annually for inflation. For 2026, bracket thresholds increased roughly 2.8% compared to 2025. The standard deduction rose from $14,600 to $15,000 (single) and from $29,200 to $30,000 (MFJ). These adjustments prevent "bracket creep" where inflation pushes taxpayers into higher brackets without a real increase in purchasing power.',
+    a: 'Yep. The IRS adjusts for inflation every year. For 2026, bracket thresholds went up roughly 2.8% compared to 2025. Standard deduction went from $14,600 to $15,000 (single) and $29,200 to $30,000 (married). These adjustments are supposed to prevent "bracket creep" — where inflation pushes you into a higher bracket even though your purchasing power didn\'t actually improve. Doesn\'t always work perfectly, but it helps.',
   },
   {
     q: 'What is the standard deduction for someone 65 or older?',
-    a: 'For 2026, taxpayers age 65 or older can claim an additional standard deduction on top of the base amount. Single and Head of Household filers get an extra $2,000 (for a total of $17,000 or $24,500). Married filing jointly filers get an additional $1,600 per qualifying spouse — so a married couple where both are 65+ would deduct $33,200 ($30,000 + $1,600 + $1,600).',
+    a: 'For 2026, if you\'re 65+, you get an extra deduction on top of the base. Single and HOH filers get another $2,000 (so $17,000 or $24,500 total). Married filing jointly gets $1,600 per qualifying spouse — so a married couple both 65+ would deduct $33,200 ($30,000 + $1,600 + $1,600). Nice little bonus for older taxpayers.',
   },
 ];
 
@@ -220,9 +220,11 @@ export default function FederalTaxBracketsPage() {
 
           {/* Subtitle */}
           <p className="mt-4 max-w-3xl text-lg text-muted-foreground leading-relaxed">
-            Complete 2026 federal income tax brackets for all filing statuses. Understand how
-            progressive taxation works, compare marginal vs effective rates, and see a real{' '}
-            <strong className="text-foreground">$75,000 salary breakdown</strong>.
+            Look, tax brackets confuse almost everyone — and honestly, the IRS doesn&apos;t make it easy.
+            Here are the complete 2026 brackets for every filing status, explained like a friend would
+            explain them. Not a textbook. Plus a real{' '}
+            <strong className="text-foreground">$75,000 salary breakdown</strong> so you can see
+            how it actually works in practice.
           </p>
         </div>
       </section>
@@ -235,8 +237,8 @@ export default function FederalTaxBracketsPage() {
               2026 Federal <span className="gradient-text">Tax Brackets</span>
             </h2>
             <p className="mt-2 text-muted-foreground max-w-2xl">
-              Select your filing status to see the income ranges and rates that apply to you.
-              These are the official IRS brackets for the 2026 tax year.
+              Pick your filing status below. These are the official IRS numbers for 2026 —
+              not estimates, not last year&apos;s data. The real deal.
             </p>
           </div>
 
@@ -259,8 +261,8 @@ export default function FederalTaxBracketsPage() {
               2026 <span className="gradient-text">Standard Deductions</span>
             </h2>
             <p className="mt-2 text-muted-foreground max-w-2xl">
-              The standard deduction reduces your taxable income before the tax brackets are applied.
-              Most taxpayers take the standard deduction rather than itemizing.
+              The standard deduction is basically free money — it shaves thousands off your taxable income
+              before any brackets kick in. Most people take it instead of itemizing. Here are the 2026 amounts:
             </p>
           </div>
 
@@ -343,14 +345,15 @@ export default function FederalTaxBracketsPage() {
                 How <span className="gradient-text">Progressive Tax</span> Works
               </h2>
               <p className="mt-4 text-muted-foreground leading-relaxed">
-                The U.S. federal income tax is <strong className="text-foreground">progressive</strong> —
-                each dollar you earn is taxed at the rate of the bracket it falls into.
-                This means your <em>entire income is not</em> taxed at your highest bracket rate.
+                The U.S. tax system is <strong className="text-foreground">progressive</strong> — which
+                sounds like a political statement, but it just means your income gets taxed in layers.
+                Your <em>entire income is NOT</em> taxed at your highest bracket rate. That&apos;s the
+                #1 misconception we hear.
               </p>
               <p className="mt-3 text-muted-foreground leading-relaxed">
-                Think of it like buckets: you fill the 10% bucket first, then the 12% bucket,
-                then the 22% bucket, and so on. Only the dollars that overflow into a higher
-                bucket are taxed at the higher rate.
+                Think of it like buckets. You fill the 10% bucket first, then overflow goes into
+                the 12% bucket, then the 22% bucket, and so on. Only the dollars that spill into
+                a higher bucket get taxed at the higher rate. Make sense?
               </p>
               <ul className="mt-6 space-y-3">
                 {[
@@ -425,7 +428,9 @@ export default function FederalTaxBracketsPage() {
               Effective vs <span className="gradient-text">Marginal Rate</span>
             </h2>
             <p className="mt-2 text-muted-foreground max-w-2xl mx-auto">
-              Understanding the difference between these two rates is key to grasping how much tax you actually pay.
+              This trips up a LOT of people. Your marginal rate and effective rate are completely different
+              numbers — and confusing them leads to bad decisions (like turning down a raise because you
+              think you&apos;ll lose money).
             </p>
           </div>
 
@@ -439,8 +444,10 @@ export default function FederalTaxBracketsPage() {
                 <h3 className="text-lg font-semibold text-foreground">Marginal Tax Rate</h3>
               </div>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                The <strong className="text-foreground">marginal rate</strong> is the tax rate applied to your{' '}
-                <em>last dollar</em> of income — it corresponds to the highest bracket your taxable income reaches.
+                The <strong className="text-foreground">marginal rate</strong> is the tax rate on your{' '}
+                <em>last dollar</em> of income — the top bracket you reach. This is the number people
+                usually quote when they say &ldquo;I&apos;m in the 22% bracket.&rdquo; But it doesn&apos;t mean
+                all your income is taxed at 22%.
               </p>
               <div className="mt-4 p-3 rounded-lg bg-amber-500/10 border border-amber-500/15">
                 <p className="text-sm">
@@ -461,7 +468,8 @@ export default function FederalTaxBracketsPage() {
               </div>
               <p className="text-sm text-muted-foreground leading-relaxed">
                 The <strong className="text-foreground">effective rate</strong> is your total federal tax divided by
-                your <em>total (gross)</em> income. It is always lower than your marginal rate.
+                your <em>total (gross)</em> income. This is what you <em>actually</em> pay, on average.
+                It&apos;s always lower than your marginal rate — usually way lower.
               </p>
               <div className="mt-4 p-3 rounded-lg bg-emerald-500/10 border border-emerald-500/15">
                 <p className="text-sm">
@@ -478,10 +486,11 @@ export default function FederalTaxBracketsPage() {
             <div className="flex items-start gap-3">
               <Info className="h-5 w-5 text-emerald-400 shrink-0 mt-0.5" />
               <div className="text-sm text-muted-foreground leading-relaxed">
-                <strong className="text-foreground">Key Insight:</strong> A raise that pushes you into the next bracket
-                only affects the dollars <em>above</em> the threshold. If you are a single filer at $48,000 and get a
-                $2,000 raise, only the $475 above the 12% bracket limit ($48,475) is taxed at 22%. The rest is still
-                taxed at 10% and 12%. You never lose money by earning more.
+                <strong className="text-foreground">Key Insight:</strong> Getting a raise that pushes you into
+                the next bracket only affects the dollars <em>above</em> the threshold. If you&apos;re a single
+                filer at $48,000 and get a $2,000 raise, only the $475 above the 12% bracket limit ($48,475)
+                is taxed at 22%. The rest is still at 10% and 12%. You <em>never</em> lose money by earning more.
+                We can&apos;t believe we still have to say this, but here we are.
               </div>
             </div>
           </div>

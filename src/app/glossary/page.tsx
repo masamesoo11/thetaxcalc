@@ -143,10 +143,11 @@ export default function GlossaryPage() {
         </h1>
 
         <p className="mt-4 mx-auto max-w-2xl text-lg text-muted-foreground leading-relaxed">
-          Clear definitions for common U.S. tax terms — from <strong className="text-foreground">FICA</strong> and{' '}
-          <strong className="text-foreground">standard deduction</strong> to{' '}
-          <strong className="text-foreground">marginal tax rate</strong> and{' '}
-          <strong className="text-foreground">capital gains brackets</strong>. All figures updated for the 2026 tax year.
+          Tax jargon got you lost? Same. We broke down the terms that actually matter —{' '}
+          <strong className="text-foreground">FICA</strong>,{' '}
+          <strong className="text-foreground">standard deduction</strong>,{' '}
+          <strong className="text-foreground">marginal rate</strong>, and more — in plain English,
+          with real 2026 numbers. No accounting degree required.
         </p>
 
         {/* Quick Stats */}
@@ -205,22 +206,21 @@ export default function GlossaryPage() {
       <section className="mt-16 border-t border-border/20 pt-10">
         <div className="glass-emerald p-6 sm:p-8 rounded-2xl">
           <h2 className="text-lg font-bold text-foreground mb-3">
-            Why Understanding Tax Terms Matters in 2026
+            Why Bother Learning This Stuff?
           </h2>
           <div className="space-y-3 text-sm text-muted-foreground leading-relaxed">
             <p>
-              Tax laws change every year, and 2026 brings updated federal tax brackets, a Social Security wage cap of $176,100,
-              and standard deductions of $15,000 (single), $30,000 (married filing jointly), and $22,500 (head of household).
-              Understanding key terms like <strong className="text-foreground">FICA</strong>,{' '}
-              <strong className="text-foreground">marginal tax rate</strong>, and{' '}
-              <strong className="text-foreground">taxable income</strong> helps you make informed financial decisions
-              and avoid overpaying on taxes.
+              Here&apos;s the thing — tax laws change every single year, and 2026 is no exception. New brackets.
+              A Social Security wage cap of $176,100. Standard deductions at $15,000 (single), $30,000 (married),
+              $22,500 (HOH). If you don&apos;t know what these numbers mean, you&apos;re basically guessing at your own
+              finances. And guessing with the IRS? Not a great strategy.
             </p>
             <p>
-              Whether you are a W-2 employee trying to understand your paycheck deductions, a self-employed freelancer
-              calculating quarterly estimated taxes, or an investor planning capital gains strategies, our glossary
-              provides clear, actionable definitions with real 2026 figures. Each term includes links to our free
-              calculators so you can apply what you learn immediately.
+              Whether you&apos;re a W-2 employee staring at your pay stub trying to figure out where all the money went,
+              a freelancer drowning in quarterly estimates, or an investor trying not to get killed on capital gains —
+              these terms matter. We defined them in plain language with real 2026 figures, and we linked each one
+              to a calculator so you can actually use what you learn. Knowledge is power. Especially when the IRS
+              is involved.
             </p>
           </div>
         </div>
