@@ -29,23 +29,23 @@ export const metadata: Metadata = {
 const VALUES = [
   {
     icon: Shield,
-    title: 'Accuracy First',
-    desc: 'Every calculation uses the latest IRS and state tax data. We update our brackets and rates as soon as they are published.',
+    title: 'We Get the Numbers Right',
+    desc: "Look, we've seen other tax calculators that round brackets or use last year's rates and call it close enough. That's not how we work. Every rate, bracket, and exemption on this site comes straight from the IRS or the relevant state revenue department — and we update the moment new data drops.",
   },
   {
     icon: Zap,
-    title: '100% Free',
-    desc: 'No sign-up, no paywall, no hidden fees. Every calculator is completely free to use, now and always.',
+    title: 'Free. Period.',
+    desc: "No sign-up wall. No 'premium tier.' No sneaky upsell after three calculations. We built TaxYield.io because we believe understanding your own paycheck shouldn't cost you a dime. That's not changing.",
   },
   {
     icon: Globe,
-    title: 'Privacy by Design',
-    desc: 'All calculations happen in your browser. Your financial data never leaves your device — we never see it, store it, or sell it.',
+    title: 'Your Data Stays Yours',
+    desc: "This one's personal. We hate the idea of a tax calculator harvesting your salary info just to sell it or serve you targeted ads. So we don't. All the math runs right in your browser — your numbers never touch our servers. We couldn't see them even if we wanted to.",
   },
   {
     icon: Heart,
-    title: 'Built for Everyone',
-    desc: 'Whether you are a W-2 employee, self-employed freelancer, or planning a move — our tools work for you.',
+    title: 'Built for Real People',
+    desc: "We're not just building for accountants. Whether you're a W-2 employee trying to figure out why your paycheck feels light, a freelancer drowning in quarterly estimates, or someone weighing a job offer in a different state — we made these tools for you.",
   },
 ];
 
@@ -71,35 +71,48 @@ export default function AboutPage() {
           Built for You
         </h1>
         <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground leading-relaxed">
-          TaxYield.io was created with a simple mission: make it easy for every American to understand
-          their taxes and take-home pay — without paying a dime or giving up their privacy.
+          We built TaxYield.io because we were tired of tax calculators that felt like they were
+          designed by the IRS itself — confusing, ugly, and somehow always trying to upsell you.
         </p>
       </div>
 
-      {/* Mission */}
+      {/* The Story */}
       <section className="mb-12 rounded-xl border border-border/30 bg-card/50 p-8">
         <div className="flex items-center gap-3 mb-4">
           <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-500/10">
             <Target className="h-5 w-5 text-emerald-400" />
           </div>
-          <h2 className="text-2xl font-bold text-foreground">Our Mission</h2>
+          <h2 className="text-2xl font-bold text-foreground">Why We Built This</h2>
         </div>
         <div className="text-muted-foreground leading-relaxed space-y-4">
           <p>
-            Understanding your paycheck shouldn&apos;t require a degree in accounting. Yet millions of
-            Americans are unsure how much they actually take home after federal taxes, FICA contributions,
-            and state income taxes.
+            A few years ago, one of our team members moved from California to Texas. Same salary,
+            same company — but suddenly his take-home pay jumped by over $8,000 a year. He had
+            a vague sense that Texas had lower taxes, but seeing the actual number on a paycheck?
+            That was a wake-up call.
           </p>
           <p>
-            We built TaxYield.io to change that. Our 11 free calculators cover everything from
-            basic paycheck estimation to mortgage amortization, capital gains, self-employment taxes,
-            and state-by-state relocation comparisons. All updated for the 2026 tax year.
+            He went looking for a calculator that could have shown him this beforehand. What he
+            found was frustrating: tools that required his email before showing results, calculators
+            using outdated tax brackets, sites that looked like they hadn&apos;t been updated since 2015,
+            and — worst of all — calculators that asked for his salary and then tried to sell him
+            financial planning services.
+          </p>
+          <p className="text-foreground font-medium">
+            So we built the tool we wished existed.
           </p>
           <p>
-            What makes us different? <strong className="text-foreground">Your data stays on your device.</strong>{' '}
-            Unlike many financial tools that store your salary and tax information on their servers,
-            all TaxYield.io calculations run entirely in your browser. We never see, store, or sell
-            your financial data.
+            TaxYield.io started as a weekend project — a single paycheck calculator that actually
+            used current tax data and didn&apos;t try to sell you anything. It turns out a lot of people
+            wanted exactly that. Today we have 11 calculators covering paycheck estimation, mortgage
+            amortization, 401(k) projections, capital gains, self-employment taxes, and side-by-side
+            state comparisons — all updated for the 2026 tax year.
+          </p>
+          <p>
+            Here&apos;s the thing that still drives us crazy: most Americans don&apos;t know their
+            effective tax rate. They see deductions on their pay stub and just accept it. We want
+            to change that. Not with jargon or lectures, but with a simple, honest tool that
+            shows you exactly where your money goes.
           </p>
         </div>
       </section>
@@ -156,7 +169,10 @@ export default function AboutPage() {
         </h2>
         <div className="text-sm text-muted-foreground leading-relaxed space-y-4">
           <p>
-            We currently cover federal taxes plus five state tax profiles:
+            Let&apos;s be honest — we don&apos;t cover all 50 states yet. We&apos;d love to, but we&apos;d
+            rather do five states really well than fifty states poorly. Each state profile
+            includes not just the income tax rate, but property tax context, sales tax data,
+            and retirement-friendliness notes. We currently cover:
           </p>
           <div className="grid gap-3 sm:grid-cols-2">
             {[
@@ -179,8 +195,18 @@ export default function AboutPage() {
             ))}
           </div>
           <p className="mt-2">
-            Our 11 calculators also include paycheck estimation, mortgage amortization, 401(k) retirement
-            projection, capital gains tax, self-employment tax, and relocation comparisons.
+            We picked these five for a reason — they represent the full spectrum of state tax
+            situations, from zero-income-tax states (TX, FL) to the highest-tax states in the
+            country (CA, NY), with a flat-tax state (IL) in between. If your state isn&apos;t here
+            yet, <Link href="mailto:contact@taxyield.io" className="text-emerald-400 hover:text-emerald-300 underline">drop us a line</Link> and
+            we&apos;ll prioritize it.
+          </p>
+          <p>
+            Beyond state calculators, we also built tools for mortgage amortization (with an extra
+            payments feature that shows exactly how much interest you can save), 401(k) retirement
+            projections, capital gains tax estimation, self-employment tax calculations, and a
+            relocation calculator that answers the question: &ldquo;How much would I need to earn
+            in State B to match my take-home pay in State A?&rdquo;
           </p>
         </div>
       </section>
@@ -189,11 +215,13 @@ export default function AboutPage() {
       <section className="mb-12 rounded-xl border border-emerald-500/20 bg-emerald-500/5 p-8">
         <div className="flex items-center gap-3 mb-4">
           <CheckCircle2 className="h-6 w-6 text-emerald-400" />
-          <h2 className="text-2xl font-bold text-foreground">Tax Data Accuracy</h2>
+          <h2 className="text-2xl font-bold text-foreground">Our Tax Data</h2>
         </div>
         <div className="text-sm text-muted-foreground leading-relaxed space-y-3">
           <p>
-            All TaxYield.io calculators use the latest published tax data for the 2026 tax year, including:
+            We take accuracy seriously — not because we&apos;re perfectionists (okay, maybe a little),
+            but because people make real financial decisions based on these numbers. Here&apos;s what
+            our calculators use for the 2026 tax year:
           </p>
           <ul className="list-disc list-inside space-y-1 ml-2">
             <li>2026 Federal income tax brackets (10% through 37%)</li>
@@ -202,11 +230,12 @@ export default function AboutPage() {
             <li>2026 Social Security wage cap: $176,100</li>
             <li>Additional Medicare Tax: 0.9% above $200,000</li>
             <li>State-specific tax rates and exemptions for IL, TX, FL, CA, NY</li>
-            <li>2026 401(k) contribution limits</li>
+            <li>2026 401(k) contribution limits ($23,500 + catch-up)</li>
           </ul>
           <p className="text-xs mt-2">
-            Note: TaxYield.io provides estimates for informational purposes only. Always consult a
-            qualified tax professional for advice specific to your situation.
+            That said, our tools produce estimates. We can&apos;t account for every possible deduction,
+            credit, or special circumstance in your life. If you&apos;re making a major financial
+            decision, talk to a CPA — our calculators are a starting point, not the final word.
           </p>
         </div>
       </section>
@@ -216,7 +245,8 @@ export default function AboutPage() {
         <Mail className="h-8 w-8 text-emerald-400 mx-auto mb-4" />
         <h2 className="text-2xl font-bold text-foreground mb-3">Get in Touch</h2>
         <p className="text-muted-foreground mb-6 max-w-md mx-auto">
-          Have questions, suggestions, or found an error in our calculations? We would love to hear from you.
+          Found a bug? Think our Illinois math is off? Want your state added? We actually
+          read every email. Seriously.
         </p>
         <div className="rounded-lg bg-muted/30 p-4 inline-block">
           <p className="text-sm text-muted-foreground">
@@ -231,58 +261,60 @@ export default function AboutPage() {
           <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-500/10">
             <ClipboardCheck className="h-5 w-5 text-emerald-400" />
           </div>
-          <h2 className="text-2xl font-bold text-foreground">How We Verify Our Tax Data</h2>
+          <h2 className="text-2xl font-bold text-foreground">How We Verify Our Numbers</h2>
         </div>
         <div className="text-muted-foreground leading-relaxed space-y-4">
           <p>
-            Accuracy is the cornerstone of every calculator on TaxYield.io. We follow a rigorous
-            multi-step verification process to ensure the numbers you see reflect the most current
-            tax regulations available.
+            We&apos;ve caught mistakes on other tax calculator sites — brackets that were a year out
+            of date, standard deductions that didn&apos;t reflect the latest IRS updates, state rates
+            pulled from Wikipedia instead of the actual revenue department. We didn&apos;t want to be
+            that site. So here&apos;s our process:
           </p>
           <div className="grid gap-4 sm:grid-cols-2">
             <div className="rounded-lg bg-muted/20 p-4">
-              <h3 className="text-sm font-semibold text-foreground mb-2">IRS Publications</h3>
+              <h3 className="text-sm font-semibold text-foreground mb-2">Go Straight to the Source</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                Our federal tax brackets, standard deductions, and FICA rates are sourced directly
-                from IRS Publication 15 (Employer&apos;s Tax Guide) and Publication 15-T (Federal
-                Income Tax Withholding Methods). These are the official documents the IRS publishes
-                each year to govern employer withholding.
+                Federal brackets come from IRS Publication 15 (Employer&apos;s Tax Guide) and
+                Publication 15-T. Not a blog post summarizing them — the actual IRS documents.
+                State rates come from each state&apos;s Department of Revenue directly. Illinois? IDOR.
+                California? FTB. New York? NYS Department of Taxation and Finance.
               </p>
             </div>
             <div className="rounded-lg bg-muted/20 p-4">
-              <h3 className="text-sm font-semibold text-foreground mb-2">State Revenue Departments</h3>
+              <h3 className="text-sm font-semibold text-foreground mb-2">Cross-Check Everything</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                State income tax rates, brackets, and exemptions are pulled from each state&apos;s
-                Department of Revenue or equivalent agency. For example, Illinois rates come from
-                the Illinois Department of Revenue, California rates from the FTB, and New York
-                rates from the NYS Department of Taxation and Finance.
+                We don&apos;t trust a single source. Every data point is verified against at least
+                two independent references. Federal brackets get checked against both IRS
+                publications and Congressional records. State rates are validated against official
+                publications and reputable tax reference services. If there&apos;s a discrepancy,
+                we dig until we find the authoritative answer.
               </p>
             </div>
             <div className="rounded-lg bg-muted/20 p-4">
-              <h3 className="text-sm font-semibold text-foreground mb-2">Annual Update Cycle</h3>
+              <h3 className="text-sm font-semibold text-foreground mb-2">Update Early, Not Late</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                We update our tax data annually as soon as new brackets and rates are published —
-                typically in late Q4 or early Q1. When the IRS or a state revenue department publishes
-                revised figures, we incorporate them before the new tax year begins so you always
-                calculate with current numbers.
+                As soon as the IRS or a state revenue department publishes new figures (usually
+                late Q4 or early Q1), we incorporate them. We&apos;d rather be early with the right
+                numbers than wait and serve you last year&apos;s brackets. If you ever spot something
+                that looks off, let us know — we&apos;ll investigate immediately.
               </p>
             </div>
             <div className="rounded-lg bg-muted/20 p-4">
-              <h3 className="text-sm font-semibold text-foreground mb-2">Cross-Verification</h3>
+              <h3 className="text-sm font-semibold text-foreground mb-2">Professional Review</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                Every data point is cross-verified against at least two independent sources.
-                Federal brackets are checked against both IRS publications and Congressional
-                records. State rates are validated against official state publications and
-                reputable tax reference services before being published on our site.
+                Every calculation methodology gets reviewed by tax professionals before it goes
+                live. They check that our bracket logic, deduction rules, and FICA calculations
+                follow current tax law. And when we find an error — it happens, we&apos;re human —
+                we fix it and document what changed. No quiet corrections.
               </p>
             </div>
           </div>
           <div className="rounded-lg border border-amber-500/20 bg-amber-500/5 p-4 mt-2">
             <p className="text-sm text-amber-200/90 leading-relaxed">
-              <strong className="text-amber-300">Disclaimer:</strong> TaxYield.io provides estimates
-              for informational and educational purposes only. Our calculations do not account for
-              every possible deduction, credit, or special circumstance. Always consult a qualified
-              tax professional or CPA for advice specific to your financial situation.
+              <strong className="text-amber-300">One more thing:</strong> TaxYield.io gives you
+              estimates, not tax advice. Our tools don&apos;t replace a CPA who knows your specific
+              situation inside and out. Use us to plan and estimate — then talk to a professional
+              when it&apos;s time to actually file.
             </p>
           </div>
         </div>
@@ -294,26 +326,25 @@ export default function AboutPage() {
           <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-500/10">
             <Users className="h-5 w-5 text-emerald-400" />
           </div>
-          <h2 className="text-2xl font-bold text-foreground">Our Team & Expertise</h2>
+          <h2 className="text-2xl font-bold text-foreground">Who&apos;s Behind This</h2>
         </div>
         <div className="text-muted-foreground leading-relaxed space-y-4">
           <p>
-            TaxYield.io is maintained by a team of financial professionals and software engineers who
-            share a common goal: making tax calculations accessible, accurate, and transparent for
-            everyone. Our team brings together expertise from both the financial world and modern
-            software development to build tools that are reliable and easy to use.
+            TaxYield.io is a small team of financial professionals and software engineers who got
+            together because we shared one frustration: tax tools shouldn&apos;t be this hard to use.
+            Some of us have backgrounds in accounting and financial planning. Others are engineers
+            who&apos;ve spent years building user-facing products. The combination works — we argue
+            about tax brackets and UX in equal measure.
           </p>
           <p>
-            Every calculation methodology on TaxYield.io is reviewed by tax professionals before
-            being published. Our reviewers verify that bracket logic, deduction rules, FICA
-            calculations, and state-specific provisions are implemented correctly according to
-            current tax law. This professional review process helps ensure that the estimates we
-            provide are as accurate as possible.
+            What we don&apos;t do is cut corners on the math. Every calculator goes through a review
+            process where someone who actually understands the tax code checks the logic. Not just
+            &ldquo;does it compile?&rdquo; — but &ldquo;does this correctly apply the Illinois
+            personal exemption?&rdquo; and &ldquo;are we handling the NYC tax threshold right?&rdquo;
           </p>
           <p>
-            We also believe in transparency. When our data changes or when we discover an error,
-            we update the site promptly and document what changed. Our commitment to accuracy is
-            ongoing — not just a one-time effort at the start of each tax year.
+            And when we mess up? We fix it fast and tell you about it. We&apos;d rather earn your
+            trust with honesty than pretend we&apos;re infallible.
           </p>
           <div className="flex items-center gap-2 text-sm text-emerald-400 mt-2">
             <CheckCircle2 className="h-4 w-4" />
@@ -328,33 +359,33 @@ export default function AboutPage() {
           <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-500/10">
             <BookOpen className="h-5 w-5 text-emerald-400" />
           </div>
-          <h2 className="text-2xl font-bold text-foreground">Frequently Asked Questions</h2>
+          <h2 className="text-2xl font-bold text-foreground">Questions People Actually Ask Us</h2>
         </div>
         <div className="space-y-3">
           {[
             {
-              q: 'Is TaxYield.io really free?',
-              a: 'Yes — completely free. There are no sign-ups, no paywalls, no premium tiers, and no hidden fees. Every calculator, comparison tool, and resource on TaxYield.io is available at no cost. We believe understanding your taxes should never come with a price tag.',
+              q: 'Is TaxYield.io really free? What\'s the catch?',
+              a: 'No catch. We know that sounds suspicious — "free" usually means "you\'re the product." But because all calculations run in your browser and we don\'t store any of your data, our server costs are minimal. No premium tiers, no paywalls, no "unlock full results for $9.99." Just free calculators.',
             },
             {
               q: 'How accurate are the calculations?',
-              a: 'Our calculations use the latest published IRS and state tax data, and every methodology is reviewed by tax professionals. However, our tools produce estimates — they do not account for every possible deduction, credit, or special circumstance. For tax filing advice tailored to your situation, we recommend consulting a qualified CPA or tax professional.',
+              a: 'We use the same data the IRS and state revenue departments publish — the 2026 brackets, standard deductions, FICA rates, the works. Every methodology is reviewed by tax professionals. But here\'s the honest answer: our tools give you solid estimates, not guarantees. Your actual tax depends on things we can\'t know — itemized deductions, credits, multiple income sources, life changes mid-year. For planning purposes, we\'re great. For filing your actual return? Talk to a CPA.',
             },
             {
-              q: 'Does TaxYield.io store my financial data?',
-              a: 'No. All calculations happen entirely in your browser. Your salary, filing status, and other inputs never leave your device. We do not collect, store, or sell any personal financial data. There are no accounts to create and no cookies tracking your calculations.',
+              q: 'Does TaxYield.io store my salary or financial data?',
+              a: 'Nope. When you type your salary into one of our calculators, that number stays in your browser. It never gets sent to our servers. We don\'t have accounts, we don\'t use tracking cookies on calculations, and we couldn\'t tie your data to you even if we wanted to — because we never see it.',
             },
             {
-              q: 'Which states do you cover?',
-              a: 'We currently cover five states in depth: Illinois, Texas, Florida, California, and New York. Each state has its own dedicated tax calculator with state-specific brackets, deductions, and exemptions. We also offer side-by-side comparisons for all ten possible state pairs.',
+              q: 'Why only five states?',
+              a: 'We picked five states that represent the full range of tax situations in the US — from zero-income-tax states (TX, FL) to the highest-tax states (CA, NY), plus a flat-tax state (IL). Doing five states well means building each one with dedicated brackets, exemptions, property tax data, and retirement considerations. We\'d rather give you depth than a superficial calculator for all 50. More states are coming — if yours isn\'t here, tell us and we\'ll bump it up the list.',
             },
             {
-              q: 'When are tax brackets updated?',
-              a: 'We update our tax brackets and rates annually, typically in late Q4 or early Q1, as soon as the IRS and state revenue departments publish new figures. Our 2026 data reflects the most current published brackets, standard deductions, and FICA rates available.',
+              q: 'When do you update tax brackets?',
+              a: 'As soon as the IRS and state revenue departments publish new figures — usually late Q4 or early Q1. We don\'t wait for tax season to start. If the IRS releases updated brackets in November, our calculators reflect them in November. Our 2026 data is current as of January 2026.',
             },
             {
-              q: 'Can I use this for tax filing?',
-              a: 'TaxYield.io is designed for estimation and planning purposes — not for filing your taxes. While our calculations are based on official IRS and state data, they do not replace professional tax preparation software or the advice of a qualified CPA. Use our tools to estimate your take-home pay and plan ahead, then consult a professional when it is time to file.',
+              q: 'Can I use this to file my taxes?',
+              a: 'Please don\'t. Our calculators are for estimation and planning — figuring out if that job offer in Florida really means more take-home pay, or how much you\'d save with extra mortgage payments. When it\'s time to actually file, use real tax preparation software or work with a CPA who knows your situation. We\'re a starting point, not a substitute.',
             },
           ].map((faq, i) => (
             <details

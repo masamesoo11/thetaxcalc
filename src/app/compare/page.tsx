@@ -94,8 +94,9 @@ export default function CompareLandingPage() {
             State vs State <span className="gradient-text">Tax Comparison</span>
           </h1>
           <p className="mt-4 max-w-2xl text-lg text-muted-foreground leading-relaxed">
-            Compare income tax, property tax, sales tax, and take-home pay across the five states we cover.
-            See which state keeps more money in your pocket on $75K and $150K salaries.
+            We crunched the numbers so you don&apos;t have to. Income tax, property tax, sales tax, and
+            actual take-home pay — side by side for every state pair we cover. See which one keeps
+            more money in your pocket at $75K and $150K salaries.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <span className="flex items-center gap-1.5 text-sm text-muted-foreground">
@@ -175,9 +176,10 @@ export default function CompareLandingPage() {
         </div>
         <div className="text-muted-foreground leading-relaxed space-y-4">
           <p>
-            When evaluating which state is more tax-friendly, it is tempting to look only at income tax rates.
-            But the full picture is more nuanced — here are the key factors that influence your actual
-            tax burden and take-home pay.
+            Look, we get it. When someone says &ldquo;Texas has no income tax,&rdquo; your ears perk up.
+            But &ldquo;no income tax&rdquo; doesn&apos;t mean &ldquo;no taxes.&rdquo; The full picture is messier
+            — and more interesting — than a single rate. Here&apos;s what actually matters when you
+            compare states.
           </p>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             <div className="rounded-lg bg-muted/20 p-4">
@@ -186,9 +188,9 @@ export default function CompareLandingPage() {
                 <h3 className="text-sm font-semibold text-foreground">Income Tax Rates</h3>
               </div>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                This is the most visible difference between states. A state with 0% income tax
-                (like Texas or Florida) can save you thousands compared to a high-tax state like
-                California (up to 13.3%). But income tax is just one piece of the puzzle.
+                This is the sexy number everyone talks about. And sure, 0% income tax in Texas or Florida
+                can save you thousands versus California&apos;s 13.3% top rate. But it&apos;s just one piece
+                of the puzzle — and sometimes a misleading one.
               </p>
             </div>
             <div className="rounded-lg bg-muted/20 p-4">
@@ -197,10 +199,11 @@ export default function CompareLandingPage() {
                 <h3 className="text-sm font-semibold text-foreground">Property Tax Burden</h3>
               </div>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                States with no income tax often compensate with higher property taxes.
-                Texas, for example, has some of the highest property tax rates in the country
-                (averaging ~1.6%), while California&apos;s Proposition 13 caps rates much lower.
-                If you own a home, property tax can offset income tax savings significantly.
+                States with no income tax don&apos;t just magically have lower taxes — they get their money
+                somewhere else. Texas, for example, hits you with some of the highest property tax rates
+                in the country (averaging ~1.71%). California&apos;s Proposition 13 caps rates much lower (~0.71%),
+                but the homes cost three times as much. It&apos;s a trade-off, and whether you win or lose
+                depends heavily on whether you rent or own.
               </p>
             </div>
             <div className="rounded-lg bg-muted/20 p-4">
@@ -209,9 +212,10 @@ export default function CompareLandingPage() {
                 <h3 className="text-sm font-semibold text-foreground">Sales Tax Impact</h3>
               </div>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                Combined state and local sales taxes vary widely. Louisiana and Tennessee
-                can exceed 9%, while states like Oregon and Montana have no state sales tax
-                at all. Sales tax affects your cost of living daily, especially on big purchases.
+                You pay sales tax every day — at the grocery store, the gas pump, online. Combined
+                rates vary wildly: Louisiana and Tennessee can exceed 9%, while Oregon and Montana
+                have zero state sales tax. Among the states we cover, combined rates range from 7% (Florida)
+                to 8.86% (Illinois). It adds up quietly.
               </p>
             </div>
             <div className="rounded-lg bg-muted/20 p-4">
@@ -220,10 +224,10 @@ export default function CompareLandingPage() {
                 <h3 className="text-sm font-semibold text-foreground">Cost of Living Differences</h3>
               </div>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                A lower tax rate does not guarantee more disposable income if the cost of living
-                is higher. Housing, groceries, transportation, and healthcare costs can vary
-                dramatically. Always compare take-home pay in the context of what things actually
-                cost in each state.
+                Here&apos;s the trap: a lower tax rate doesn&apos;t guarantee more money in your pocket if
+                everything costs more. A $100,000 salary goes a lot further in Houston than in San Francisco,
+                even before taxes. Housing is the big one — it can easily eat 30–50% of your take-home pay
+                in high-cost cities. Always compare after-tax income against actual living costs.
               </p>
             </div>
             <div className="rounded-lg bg-muted/20 p-4">
@@ -232,10 +236,10 @@ export default function CompareLandingPage() {
                 <h3 className="text-sm font-semibold text-foreground">Tax Credits & Exemptions</h3>
               </div>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                Some states offer generous credits — for child dependents, earned income,
-                property tax relief, or senior exemptions. A higher-rate state with robust
-                credits can sometimes result in a lower effective tax bill than a flat-rate
-                state with fewer deductions.
+                Don&apos;t overlook credits and exemptions. Some states are generous — child dependent
+                credits, earned income credits, property tax relief, senior exemptions. A state with
+                a higher headline rate but robust credits can actually leave you with a lower effective
+                tax bill than a flat-rate state with barely any deductions. The devil is in the details.
               </p>
             </div>
             <div className="rounded-lg bg-muted/20 p-4">
@@ -244,10 +248,10 @@ export default function CompareLandingPage() {
                 <h3 className="text-sm font-semibold text-foreground">Overall Tax Burden vs Take-Home</h3>
               </div>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                The most meaningful number is your actual take-home pay after all taxes are
-                accounted for — federal, state, FICA, property, and sales. That single figure
-                tells you more than any individual rate. Our comparison pages calculate take-home
-                at $75K and $150K to give you that bottom-line answer.
+                At the end of the day, one number matters most: your actual take-home pay after all
+                taxes. Not the rate, not the bracket — the real dollars in your checking account.
+                That&apos;s why our comparison pages show take-home pay at $75K and $150K. It cuts through
+                the noise and gives you the bottom line.
               </p>
             </div>
           </div>
@@ -266,23 +270,23 @@ export default function CompareLandingPage() {
           {[
             {
               q: 'Which state has the lowest taxes?',
-              a: 'Among the states we cover, Texas and Florida have no state income tax, giving them the lowest income tax burden. However, Texas has significantly higher property taxes than Florida. When you factor in all taxes — income, property, and sales — Florida generally has the lowest overall tax burden for most income levels. Wyoming, Alaska, and Nevada (not yet covered) also rank among the lowest-tax states nationally.',
+              a: 'Among the states we cover, Texas and Florida have no state income tax, so they win on that front. But here\'s the thing: Texas has much higher property taxes than Florida. When you factor in all taxes — income, property, and sales — Florida generally comes out ahead for most income levels. That said, Wyoming, Alaska, and Nevada (which we don\'t cover yet) rank among the lowest-tax states nationally. For the five states we do cover, Florida is usually the winner.',
             },
             {
               q: 'Should I move to a state with no income tax?',
-              a: 'It depends on your full financial picture. States with no income tax often make up revenue through higher property taxes, sales taxes, or fees. Texas, for example, has no income tax but some of the highest property taxes in the US. Consider your homeownership status, spending habits, and overall cost of living — not just the income tax rate — before making a relocation decision.',
+              a: 'It depends on your full financial picture — and we mean full. States with no income tax make up the revenue elsewhere: higher property taxes, sales taxes, or fees. Texas has no income tax but hits you with some of the highest property taxes in the US. If you\'re a renter with a good salary, Texas or Florida is very attractive. If you own an expensive home, the property tax bill might offset your income tax savings. Run the numbers for your specific situation before making any decisions.',
             },
             {
               q: 'How do property taxes compare across states?',
-              a: 'Property tax rates vary enormously. Among our five states, Texas has the highest effective rate at roughly 1.6% of home value, while California has a lower effective rate (~0.75%) due to Proposition 13 caps. Illinois also has high property taxes (~2.08%). Florida and New York fall in between. Keep in mind that a lower rate on a more expensive home can still result in a larger property tax bill.',
+              a: 'They vary enormously. Among our five states, Texas has the highest effective rate at roughly 1.71% of home value. Illinois isn\'t far behind at around 2.08%. California has a lower effective rate (~0.75%) thanks to Proposition 13 caps, but when homes cost $800,000+, the dollar amount is still huge. Florida and New York fall in between. Pro tip: a lower rate on a more expensive home can still cost you more in actual dollars than a higher rate on a cheaper home.',
             },
             {
               q: 'What is the total tax burden by state?',
-              a: 'Total tax burden includes income tax, property tax, and sales tax combined. Among the states we cover, California and New York have the highest total tax burden (often 10–13% of income for mid-to-high earners), while Texas and Florida have the lowest (roughly 6–8% depending on homeownership). Illinois falls in the middle due to its flat income tax and high property taxes. Our comparison pages show take-home pay at common salary levels so you can see the real impact.',
+              a: 'Total tax burden = income tax + property tax + sales tax combined. Among our five states, California and New York carry the highest total burden (often 10–13% of income for mid-to-high earners), while Texas and Florida have the lowest (roughly 6–8% depending on whether you own a home). Illinois sits in the middle — its flat income tax isn\'t terrible, but those property taxes really add up. Our comparison pages show take-home pay at $75K and $150K so you can see the real dollar impact, not just percentages.',
             },
             {
               q: 'Does a 0% income tax mean I pay no state taxes?',
-              a: 'No. Even in states with no income tax (like Texas and Florida), you still pay other state and local taxes. Property taxes, sales taxes, fuel taxes, and various fees all contribute to your state tax burden. In fact, Texas has among the highest property tax rates in the nation, which can cost homeowners thousands per year. Always look at the complete tax picture, not just income tax.',
+              a: 'Absolutely not. Even in Texas and Florida, you\'re still paying state and local taxes — just not on your wages. Property taxes, sales taxes, fuel taxes, hotel taxes, various fees... they all add up. In fact, Texas has among the highest property tax rates in the nation, which can cost homeowners $5,000–$10,000+ per year. The 0% income tax is real and valuable, but it\'s not the whole story. That\'s why we show you the full picture on our comparison pages.',
             },
           ].map((faq, i) => (
             <details

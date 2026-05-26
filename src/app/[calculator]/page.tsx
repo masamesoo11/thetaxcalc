@@ -349,10 +349,10 @@ function getCalculatorContent(type: string): CalculatorContent {
     case 'home':
       return {
         howItWorks: [
-          'This paycheck calculator computes your net take-home pay after all mandatory deductions. It starts with your gross salary and applies the federal progressive tax brackets (10% through 37%) based on your filing status and the 2026 standard deductions ($15,000 for single, $30,000 for married filing jointly).',
-          'Next, FICA taxes are calculated: Social Security at 6.2% on income up to the $176,100 wage cap, and Medicare at 1.45% on all wages. If your income exceeds $200,000, an Additional Medicare Tax of 0.9% applies to the excess amount.',
-          'State income tax is then applied based on the state you select. You can choose from five states: Illinois (4.95% flat), Texas (0%), Florida (0%), California (1%–13.3% progressive), and New York (4%–10.9% progressive plus potential NYC tax). Pre-tax deductions like 401(k) and HSA contributions reduce your federal and state taxable income before those taxes are calculated.',
-          'The final result shows your net take-home pay broken down by deduction type, your effective tax rate, and your marginal tax rate — giving you a complete picture of where your money goes.',
+          'Ever look at your pay stub and wonder where all the money went? That\'s exactly why we built this calculator. It starts with your gross salary and works through every deduction — federal tax, FICA, state tax — until it reaches the number that actually hits your bank account.',
+          'Here\'s how the math works. First, we apply the 2026 federal progressive tax brackets (10% through 37%) based on your filing status and the standard deductions ($15,000 for single filers, $30,000 for married filing jointly). Then FICA kicks in: Social Security takes 6.2% on income up to the $176,100 wage cap, and Medicare takes 1.45% on everything. Earning over $200,000? There\'s an extra 0.9% Medicare surtax on the amount above that threshold.',
+          'Next comes state income tax, and this is where things get interesting — because the state you live in can mean thousands of dollars difference in take-home pay on the exact same salary. We cover five states: Illinois (4.95% flat — simple but not cheap), Texas (0% — yes, really), Florida (also 0%), California (1%–13.3% progressive — ouch), and New York (4%–10.9% plus a potential NYC tax on top). The good news: pre-tax deductions like 401(k) and HSA contributions reduce your taxable income before these taxes are calculated, so you save at every level.',
+          'The bottom line? You\'ll see your net take-home pay broken down by every deduction, your effective tax rate (what you actually pay as a percentage), and your marginal rate (the rate on your next dollar earned). Most people are surprised by their effective rate — it\'s usually lower than they think.',
         ],
         keyRates: [
           { label: 'Federal Tax Brackets', value: '10% – 37%' },
@@ -371,10 +371,10 @@ function getCalculatorContent(type: string): CalculatorContent {
     case 'illinois':
       return {
         howItWorks: [
-          'The Illinois paycheck calculator computes your take-home pay after the Illinois 4.95% flat state income tax, federal tax, and FICA deductions. Unlike most states with progressive brackets, Illinois applies a single 4.95% rate to all taxable income regardless of how much you earn.',
-          'Illinois provides a personal exemption of $2,775 per person for 2026, which is subtracted from your gross income before the flat tax is applied. For example, on a $75,000 salary: $75,000 minus $2,775 equals $72,225 in taxable income, resulting in Illinois state tax of $3,575.14.',
-          'Your federal tax is calculated separately using the progressive bracket system with the standard deduction. FICA taxes (Social Security + Medicare) are applied to your gross income. Pre-tax deductions like 401(k) contributions reduce both your federal and Illinois taxable income.',
-          'Note that Illinois does not have a standard deduction — only the personal exemption. However, Illinois does not tax Social Security benefits, 401(k) distributions, IRA withdrawals, or pension income, making it relatively favorable for retirees despite the high property taxes.',
+          'Illinois keeps things simple — one flat rate for everyone. Whether you make $30,000 or $300,000, the state takes 4.95% of your taxable income. No brackets, no guessing which rate applies to you. It\'s refreshingly straightforward, even if the rate itself isn\'t the lowest.',
+          'The one break you get is the personal exemption: $2,775 per person for 2026. It comes right off the top before the 4.95% is applied. So on a $75,000 salary, you\'re taxed on $72,225 ($75,000 minus $2,775), which works out to $3,575.14 in Illinois state tax. Not nothing, but at least the math is easy to verify.',
+          'On top of that, you\'ve got federal tax (progressive brackets with the standard deduction) and FICA (7.65% combined for Social Security and Medicare). Pre-tax deductions like 401(k) contributions help here because they reduce your taxable income at both the federal and state level — it\'s like getting a discount on your taxes.',
+          'One thing that catches people off guard about Illinois: there\'s no state standard deduction, just that personal exemption. But here\'s a silver lining, especially if you\'re approaching retirement — Illinois doesn\'t tax Social Security benefits, 401(k) distributions, IRA withdrawals, or pension income. The property taxes are brutal, sure, but for retirees, the income tax picture is surprisingly decent.',
         ],
         keyRates: [
           { label: 'Illinois Flat Tax Rate', value: '4.95%' },
@@ -393,10 +393,10 @@ function getCalculatorContent(type: string): CalculatorContent {
     case 'texas':
       return {
         howItWorks: [
-          'The Texas paycheck calculator computes your take-home pay after federal tax and FICA deductions — with zero state income tax. Texas is one of nine U.S. states that does not levy a personal income tax on wages, which is enshrined in the Texas Constitution.',
-          'Since there is no state income tax, your take-home pay in Texas is higher than in most other states at the same salary level. The calculation applies federal progressive tax brackets (10%–37%), the 2026 standard deductions, and FICA taxes (6.2% Social Security + 1.45% Medicare).',
-          'However, Texas compensates for the lack of income tax with some of the highest property taxes in the nation. The average effective property tax rate is approximately 1.71%, meaning a $300,000 home generates about $5,130 per year in property taxes. Texas also has a state sales tax of 6.25% (combined with local taxes, averaging 8.2%).',
-          'This calculator also shows the property tax and sales tax context for Texas, so you can evaluate your true total tax burden — not just the income tax savings. For renters or those with modest homes, Texas is very tax-efficient. For homeowners with expensive properties, the savings from 0% income tax may be partially offset by high property taxes.',
+          'Zero. That\'s the Texas state income tax rate, and it\'s not changing anytime soon — a state income tax is actually banned by the Texas Constitution. So if you\'re a wage earner in Texas, your only deductions are federal tax and FICA. That\'s it.',
+          'The result? Your take-home pay in Texas is higher than in most other states on the exact same salary. The calculation is straightforward: federal progressive brackets (10%–37%), the 2026 standard deductions, and FICA taxes (6.2% Social Security + 1.45% Medicare). No state tax line item on your pay stub at all.',
+          'But — and this is a big but — Texas gets its money somewhere. Property taxes here are among the highest in the country, averaging about 1.71% of your home\'s value. On a $300,000 house, that\'s roughly $5,130 per year. The state sales tax is 6.25%, and combined with local add-ons, you\'re typically paying around 8.2% at the register. So the income tax savings are real, but the full picture is more nuanced.',
+          'We show you the property tax and sales tax context right alongside the income tax savings because that\'s what actually matters. If you\'re renting or own a modest home, Texas is incredibly tax-efficient. But if you\'re in a $600,000 house? The property tax bill might eat into those income tax savings more than you\'d expect. Run the numbers — that\'s what this calculator is for.',
         ],
         keyRates: [
           { label: 'Texas State Income Tax', value: '0%' },
@@ -415,10 +415,10 @@ function getCalculatorContent(type: string): CalculatorContent {
     case 'florida':
       return {
         howItWorks: [
-          'The Florida paycheck calculator computes your take-home pay after federal tax and FICA deductions — with zero state income tax. Like Texas, Florida does not levy a personal income tax, making it one of the most tax-friendly states for wage earners.',
-          'Since there is no state income tax, your only deductions are federal income tax (using the progressive bracket system with 2026 rates and standard deductions) and FICA taxes (7.65% combined for Social Security and Medicare). This results in a higher net take-home pay compared to states like Illinois, California, or New York.',
-          'Florida also offers the Homestead Exemption, which reduces the assessed value of a primary residence by up to $50,000 for property tax purposes. Combined with a relatively low average effective property tax rate of 0.86%, Florida has a significantly lower overall tax burden than Texas for homeowners, despite both states having 0% income tax.',
-          'Florida relies on a 6% state sales tax (averaging 7% combined with local surtaxes) and tourism-related taxes to fund government services. There is no estate tax or inheritance tax, and retirement income including Social Security, 401(k), IRA, and pension income is not taxed.',
+          'Florida and Texas both have 0% state income tax, but here\'s where they diverge: Florida\'s property taxes are roughly half of Texas\'. For homeowners, that can make Florida the better deal overall, even though both states leave your paycheck alone at the state level.',
+          'Your only deductions in Florida are federal income tax (using the 2026 progressive brackets and standard deductions) and FICA taxes (7.65% combined). No state tax, no local wage tax, nothing. Compared to what someone making the same salary pays in Illinois, California, or New York, the difference is thousands of dollars per year.',
+          'Florida also has something Texas doesn\'t: the Homestead Exemption. It knocks up to $50,000 off your home\'s assessed value for property tax purposes. Combined with an average effective property tax rate of just 0.86%, a Florida homeowner pays significantly less in property tax than a Texas homeowner with the same house value. For a $300,000 home, that\'s roughly $2,580 in Florida versus $5,130 in Texas.',
+          'Florida funds its government through a 6% state sales tax (averaging 7% with local surtaxes) and tourism-related taxes — which visitors pay a lot of. There\'s no estate tax, no inheritance tax, and retirement income (Social Security, 401(k), IRA, pension) is completely tax-free. If you\'re retiring and comparing Florida versus Texas, Florida often comes out ahead on total tax burden.',
         ],
         keyRates: [
           { label: 'Florida State Income Tax', value: '0%' },
@@ -437,10 +437,10 @@ function getCalculatorContent(type: string): CalculatorContent {
     case 'california':
       return {
         howItWorks: [
-          'The California paycheck calculator computes your take-home pay after California\'s progressive state income tax (1%–13.3%), federal tax, and FICA deductions. California has the highest top marginal state income tax rate in the nation at 13.3%, which applies to taxable income above $698,271 for single filers.',
-          'California uses a progressive bracket system with 9 tax brackets. For 2026, the California standard deduction is $6,083 for single filers and $12,166 for married filing jointly. Your taxable income after the standard deduction is run through the brackets, with each portion taxed at its corresponding rate.',
-          'Your federal tax is calculated separately using the federal progressive brackets and standard deduction ($15,000 single / $30,000 married). FICA taxes (7.65%) apply to your gross income. Pre-tax deductions like 401(k) contributions reduce both your federal and California taxable income.',
-          'Despite the high income tax rates, California has a relatively low average effective property tax rate (~0.71%) thanks to Proposition 13, which caps annual assessed value increases at 2%. However, the high cost of housing in California means the dollar amount paid in property taxes is still significant. California does not tax Social Security benefits.',
+          'Let\'s just say it: California has the highest state income tax rate in the country. The top rate is 13.3%, and it kicks in at $698,271 of taxable income for single filers. Even at more modest salaries, you\'re likely paying 6%–9.3% in state tax alone. It hurts, but at least you get great weather.',
+          'California uses a progressive bracket system with 9 — count them, nine — tax brackets. The standard deduction for 2026 is $6,083 (single) or $12,166 (married). After subtracting the standard deduction, each slice of your income gets taxed at a different rate, from 1% on the first $10,099 up to 13.3% on income over $698,271. It\'s a lot of brackets, but the principle is the same as the federal system: only the income within each bracket gets taxed at that rate.',
+          'On top of state tax, you\'ve got the federal progressive brackets ($15,000 standard deduction for single filers) and FICA (7.65%). Pre-tax deductions like 401(k) contributions are especially valuable in California because they reduce your taxable income at both the federal and state level — and at 13.3% for high earners, that state-level deduction really adds up.',
+          'Here\'s something people don\'t always realize: California\'s property taxes are actually relatively low, with an average effective rate around 0.71%. Proposition 13 caps annual assessed value increases at 2%, which protects homeowners from spiraling tax bills even as home prices soar. Of course, when the median home costs $800,000, even a low rate produces a hefty bill. And at least California doesn\'t tax your Social Security benefits.',
         ],
         keyRates: [
           { label: 'CA Tax Brackets', value: '1% – 13.3% (9 brackets)' },
@@ -459,10 +459,10 @@ function getCalculatorContent(type: string): CalculatorContent {
     case 'newyork':
       return {
         howItWorks: [
-          'The New York paycheck calculator computes your take-home pay after New York\'s progressive state income tax (4%–10.9%), potential NYC income tax (3.078%–3.876%), federal tax, and FICA deductions. New York has one of the highest combined state and local income tax burdens in the nation.',
-          'New York uses a progressive bracket system with 9 tax brackets. For 2026, the New York standard deduction is $8,100 for single filers and $16,200 for married filing jointly — higher than California\'s standard deduction. The top marginal rate of 10.9% applies to taxable income above $25,000,000.',
-          'If you live in New York City, you pay an additional city income tax ranging from 3.078% to 3.876% depending on your income level. This calculator includes the NYC tax as an option. For a $100,000 salary, a NYC resident would pay approximately $3,400 in city tax on top of the state tax, resulting in the highest combined state + local income tax burden in the United States.',
-          'Your federal tax is calculated separately using the progressive brackets and standard deduction. FICA taxes (7.65%) apply to gross income. New York does not tax Social Security benefits and excludes up to $20,000 of qualified retirement income from taxation for taxpayers aged 59½ and older.',
+          'New York State takes a lot out of your paycheck. The state income tax runs from 4% to 10.9% across nine brackets, and if you live in New York City, there\'s an additional city tax on top (3.078%–3.876%). Add it all up, and NYC residents face the highest combined state and local income tax burden in the entire United States.',
+          'The math: New York\'s standard deduction is $8,100 for single filers and $16,200 for married filing jointly — actually higher than California\'s, which is a small consolation. After the deduction, your income runs through the nine state brackets, with each portion taxed at its own rate. The top 10.9% rate doesn\'t kick in until $25,000,000 of taxable income, so most people are paying somewhere in the 6%–8% range.',
+          'Now, about that NYC tax. If you live within the five boroughs, the city takes an additional 3.078%–3.876% of your income. On a $100,000 salary, that\'s roughly $3,400 that New Yorkers pay and residents of most other cities don\'t. We include the NYC tax as a toggle in this calculator because it makes a huge difference — we\'ve seen people reconsider a job offer once they factored in the city tax.',
+          'One bright spot for older New Yorkers: the state doesn\'t tax Social Security benefits, and it excludes up to $20,000 of qualified retirement income (pensions, 401(k), IRA) for taxpayers aged 59½ and older. Property taxes average around 1.62%, and the combined sales tax runs about 8.52%. Not great, but not the worst part of living in New York.',
         ],
         keyRates: [
           { label: 'NY Tax Brackets', value: '4% – 10.9% (9 brackets)' },
@@ -481,10 +481,10 @@ function getCalculatorContent(type: string): CalculatorContent {
     case 'mortgage':
       return {
         howItWorks: [
-          'This mortgage calculator uses the standard amortization formula: M = P × [r(1+r)^n] / [(1+r)^n - 1], where P is the loan principal, r is the monthly interest rate (annual rate ÷ 12), and n is the total number of monthly payments (loan term in years × 12). This formula produces a fixed monthly payment that ensures the loan is fully paid off by the end of the term.',
-          'In the early years of a mortgage, most of your payment goes toward interest rather than principal. For example, on a 30-year $280,000 loan at 6.5%, your first payment allocates approximately 85.7% to interest and only 14.3% to principal. This ratio gradually shifts over the life of the loan — by year 15, it is roughly 50/50.',
-          'The extra payments feature shows how additional monthly payments accelerate your payoff timeline and reduce total interest. Extra payments go directly toward reducing principal, which means every dollar saves you interest for the remaining life of the loan. Adding $200/month extra on a $280,000 loan at 6.5% can save approximately $76,856 in interest and pay off the loan 5+ years early.',
-          'The amortization schedule provides a month-by-month breakdown of each payment, showing how much goes to principal vs. interest, and the remaining balance after each payment. This helps you understand exactly where your money goes over the life of the loan.',
+          'The math behind your monthly mortgage payment isn\'t complicated, but it\'s not obvious either. We use the standard amortization formula: M = P × [r(1+r)^n] / [(1+r)^n - 1], where P is your loan amount, r is the monthly interest rate (your annual rate divided by 12), and n is the total number of payments (years × 12). The result is a fixed monthly payment that pays off every penny by the end of the term.',
+          'Here\'s the part that surprises people: in the early years, most of your payment goes straight to interest. On a 30-year, $280,000 loan at 6.5%, your first payment is roughly 86% interest and only 14% principal. It feels like you\'re making no progress. But stick with it — by year 15, the split is about 50/50, and by the final years, almost all of your payment goes toward principal.',
+          'The extra payments feature is where things get exciting (yes, we find mortgage math exciting). Extra payments go 100% toward principal, which means every dollar you add saves you interest for the rest of the loan. Adding just $200/month extra on that $280,000 loan at 6.5%? You\'d save roughly $76,856 in interest and pay off the loan more than 5 years early. That\'s the power of compound interest working in your favor for once.',
+          'We also generate a full amortization schedule so you can see exactly where every dollar goes — month by month, principal vs. interest, remaining balance. It\'s eye-opening to see the numbers laid out, especially in those first few years. Knowledge is power, and in this case, it might save you tens of thousands of dollars.',
         ],
         keyRates: [
           { label: 'Formula', value: 'M = P × [r(1+r)^n] / [(1+r)^n - 1]' },
@@ -503,10 +503,10 @@ function getCalculatorContent(type: string): CalculatorContent {
     case 'retirement':
       return {
         howItWorks: [
-          'This 401(k) retirement projection calculator estimates your account balance at retirement based on your annual contributions, employer match percentage, expected annual return, and time horizon. It uses compound annual growth to project how your savings will accumulate over time.',
-          'The core calculation uses the future value of a series: each year\'s contribution grows at the assumed annual rate for the remaining years until retirement. For example, a contribution made in year 1 grows for the full period, while a contribution made in year 10 grows for fewer years. The sum of all these future values gives your projected balance.',
-          'Employer matching is a critical component. A common match structure is 50% of employee contributions up to 6% of salary. For a $100,000 salary with 6% employee contribution ($6,000), the employer adds $3,000 — essentially free money. Always contribute at least enough to capture the full employer match.',
-          'The 2026 401(k) contribution limit is $23,500, with an additional $7,500 catch-up contribution for those aged 50+, and an extra $11,250 catch-up for ages 60-63. The calculator assumes a default 7% annual return, which is a common long-term stock market average, but actual returns will vary year to year.',
+          'If you\'re not thinking about retirement yet, you should be — and this calculator makes it painless. We estimate your 401(k) balance at retirement based on your annual contributions, employer match, expected annual return, and how many years you have left to save. The earlier you start, the less you have to contribute each year. It\'s not magic, it\'s compound growth.',
+          'The core math is the future value of a series: each year\'s contribution grows at your assumed annual rate for every remaining year until retirement. Your year-1 contribution grows for the full period. Your year-10 contribution grows for 10 fewer years. Add them all up and you get your projected balance. Simple in concept, powerful in practice.',
+          'Don\'t sleep on the employer match — it\'s literally free money. A typical structure is 50% of your contributions up to 6% of salary. So if you make $100,000 and contribute 6% ($6,000), your employer adds $3,000. If you\'re not contributing enough to capture the full match, you\'re leaving thousands of dollars on the table every year. We can\'t stress this enough: max out the match first, then worry about everything else.',
+          'For 2026, you can contribute up to $23,500 to your 401(k). If you\'re 50 or older, you can add another $7,500 as a catch-up. Ages 60-63 get an even bigger catch-up of $11,250. The calculator defaults to a 7% annual return, which is a reasonable long-term average for a diversified stock portfolio. Your actual returns will bounce around — some years up 20%, some years down 15% — but 7% is a solid planning assumption over decades.',
         ],
         keyRates: [
           { label: '2026 Contribution Limit', value: '$23,500' },
@@ -525,10 +525,10 @@ function getCalculatorContent(type: string): CalculatorContent {
     case 'relocation':
       return {
         howItWorks: [
-          'The salary relocation calculator helps you determine the equivalent salary you need in a new state to maintain the same take-home pay you currently earn. It accounts for differences in state income tax rates, standard deductions, and FICA taxes between your current and target state.',
-          'The calculation works in two steps. First, it computes your current take-home pay after federal tax, FICA, and your current state\'s income tax. Then, it determines what gross salary in the target state would produce the same net take-home pay, factoring in that state\'s income tax rates and deductions.',
-          'For example, if you earn $100,000 in Texas (0% state tax, net take-home ~$79,000), the calculator determines you would need approximately $120,000–$125,000 in California to achieve the same take-home pay, because California\'s progressive income tax (1%–13.3%) takes an additional $5,000–$8,000 from your paycheck compared to Texas.',
-          'This tool focuses on income tax differences. For a complete relocation decision, you should also consider property taxes, sales taxes, cost of living differences (especially housing), and quality of life factors. Our state comparison pages provide side-by-side analyses of these additional factors.',
+          'Got a job offer in another state? Before you pack your bags, run the numbers here. This calculator tells you the salary you\'d need in the new state to match your current take-home pay — because a $100,000 salary in Texas and a $100,000 salary in California are very different things when taxes come out.',
+          'The calculation is straightforward but important. Step one: we figure out your current take-home pay after federal tax, FICA, and your state\'s income tax. Step two: we calculate what gross salary in the target state would give you the same net pay, accounting for that state\'s tax rates and deductions.',
+          'Let\'s make it real. If you earn $100,000 in Texas (0% state tax, take-home roughly $79,000), you\'d need to earn about $120,000–$125,000 in California to end up with the same amount in your bank account. Why? Because California\'s progressive income tax takes an extra $5,000–$8,000 from your paycheck that Texas doesn\'t. That\'s not a small difference — it\'s a car payment. Or a nice vacation. Or a decent chunk of retirement savings.',
+          'Fair warning: this tool focuses on income tax differences, which is just one piece of the relocation puzzle. You should also look at property taxes (Texas is brutal, California is surprisingly mild), sales taxes, and — the big one — housing costs. A $1,500/month apartment in Houston might cost $3,000 in San Francisco. Our state comparison pages break down these additional factors side by side.',
         ],
         keyRates: [
           { label: 'States Covered', value: 'IL, TX, FL, CA, NY' },
@@ -547,10 +547,10 @@ function getCalculatorContent(type: string): CalculatorContent {
     case 'capital-gains':
       return {
         howItWorks: [
-          'The capital gains tax calculator determines your tax liability on investment gains, distinguishing between short-term and long-term capital gains. Short-term gains (assets held for one year or less) are taxed at your ordinary income tax rate (up to 37%), while long-term gains (assets held for more than one year) benefit from preferential rates of 0%, 15%, or 20%.',
-          'For 2026, the 0% long-term capital gains rate applies to taxable income up to $47,025 for single filers ($94,050 married). The 15% rate applies up to $518,900 (single) or $583,750 (married). Above those thresholds, the 20% rate applies. These brackets are based on your total taxable income, not just your capital gains.',
-          'The calculator also accounts for the Net Investment Income Tax (NIIT), an additional 3.8% tax on net investment income when your modified adjusted gross income exceeds $200,000 (single) or $250,000 (married). This effectively raises the top long-term capital gains rate from 20% to 23.8%.',
-          'The calculator factors in your ordinary income to determine which capital gains bracket you fall into. It also shows tax-saving strategies like tax-loss harvesting, holding periods for preferential rates, and charitable giving of appreciated assets.',
+          'Here\'s the deal with capital gains: how long you hold an investment makes a massive difference in how much tax you pay. Sell after a year or less? That\'s a short-term gain, taxed at your ordinary income rate — up to 37%. Hold for more than a year? That\'s a long-term gain, and you qualify for preferential rates of 0%, 15%, or 20%. The difference on a $50,000 gain can be thousands of dollars.',
+          'For 2026, the 0% rate applies if your total taxable income (including the gain) is under $47,025 for single filers or $94,050 for married couples. The 15% rate covers most people, up to $518,900 (single) or $583,750 (married). Above that, it\'s 20%. Important: these brackets are based on your total taxable income, not just the gain itself. So your salary pushes you into a higher capital gains bracket.',
+          'Then there\'s the Net Investment Income Tax (NIIT) — an extra 3.8% that kicks in when your modified adjusted gross income exceeds $200,000 (single) or $250,000 (married). It applies on top of the regular capital gains rate, so the effective top rate on long-term gains is actually 23.8%, not 20%. Most calculators forget to mention this. We don\'t.',
+          'We also factor in your ordinary income to figure out which bracket your gains fall into, and we\'ll show you some common tax-saving strategies: tax-loss harvesting (offsetting gains with losses), holding periods (waiting that extra week for the long-term rate), and charitable giving of appreciated assets (you deduct the full value and never pay capital gains on it). Small decisions, big savings.',
         ],
         keyRates: [
           { label: 'Short-Term Rate', value: 'Ordinary income (up to 37%)' },
@@ -569,10 +569,10 @@ function getCalculatorContent(type: string): CalculatorContent {
     case 'self-employment':
       return {
         howItWorks: [
-          'The self-employment tax calculator computes your total tax obligation as a self-employed individual, including the 15.3% self-employment tax, federal income tax, and applicable state income tax. The SE tax covers both the employer and employee portions of Social Security (12.4%) and Medicare (2.9%).',
-          'Self-employment tax is calculated on 92.35% of your net business income — not 100%. This adjustment approximates the employer-half deduction that W-2 employees receive automatically. For example, on $100,000 of net SE income, the SE tax base is $92,350, resulting in SE tax of approximately $14,130.',
-          'You can deduct half of your self-employment tax as an above-the-line deduction, which reduces your adjusted gross income (AGI) and lowers your federal and state income tax. On $14,130 of SE tax, you can deduct $7,065 from your income before calculating income tax.',
-          'The calculator also estimates quarterly tax payments (due April 15, June 15, September 15, and January 15), which self-employed individuals must make to avoid underpayment penalties. To avoid penalties, you must pay at least 100% of your prior-year tax (110% if AGI exceeded $150,000) or 90% of your current-year tax.',
+          'If you\'re self-employed, you already know the sticker shock: that 15.3% self-employment tax on top of regular income tax. It covers both halves of Social Security (12.4%) and Medicare (2.9%) — the half your employer used to pay for you, plus the half that always came out of your paycheck. Welcome to self-employment.',
+          'Here\'s a detail that catches people off guard: you don\'t pay the 15.3% on 100% of your income. It\'s calculated on 92.35% of your net business income — this adjustment approximates the employer-half deduction that W-2 employees get automatically. So on $100,000 of net SE income, the SE tax base is $92,350, and the tax comes out to roughly $14,130. Still painful, but slightly less than you might have feared.',
+          'The good news: you can deduct half of your self-employment tax as an above-the-line deduction. On $14,130 of SE tax, that\'s a $7,065 deduction from your income before you calculate your income tax. It doesn\'t reduce the SE tax itself, but it lowers your AGI, which means less federal and state income tax. Every bit helps.',
+          'One more thing that trips up new freelancers: quarterly estimated tax payments. You need to send the IRS money four times a year (April 15, June 15, September 15, and January 15) or face underpayment penalties. The safe harbor is paying at least 100% of last year\'s tax (110% if your AGI was over $150,000) or 90% of this year\'s tax. We estimate these quarterly amounts for you so there are no surprises come April.',
         ],
         keyRates: [
           { label: 'SE Tax Rate', value: '15.3% on 92.35% of net income' },
@@ -591,7 +591,7 @@ function getCalculatorContent(type: string): CalculatorContent {
     default:
       return {
         howItWorks: [
-          'This calculator computes your take-home pay after federal tax, FICA, and state income tax deductions. Enter your gross salary, select your state and filing status, and optionally add pre-tax deductions like 401(k) and HSA contributions.',
+          'This calculator figures out your take-home pay after federal tax, FICA, and state income tax. Just enter your gross salary, pick your state and filing status, and — if you have them — add any pre-tax deductions like 401(k) or HSA contributions. The results show you exactly where your money goes.',
         ],
         keyRates: [],
         faqs: HOME_FAQS,

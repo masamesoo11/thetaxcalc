@@ -19,3 +19,22 @@ Stage Summary:
 - Compare page expanded with tax comparison guidance and FAQs
 - All pages return HTTP 200
 - Lint passes (only pre-existing server.js warnings)
+
+---
+Task ID: 2
+Agent: Main Agent
+Task: Humanize all content to pass AI detection tools
+
+Work Log:
+- Analyzed AI detectability issues: uniform paragraph lengths, overly formal tone, no personal voice, no opinions
+- Rewrote About page: Added founder story (CA→TX move), varied paragraph lengths, conversational tone, honesty about limitations, personal opinions
+- Rewrote all 11 calculator howItWorks sections: Added casual language, contractions, opinions ("ouch", "yes, really"), real-world context, varied sentence structure
+- Humanized Compare page: Added conversational intro, opinionated analysis cards, real-world examples, casual FAQ answers
+- Key techniques used: contractions, short punchy sentences mixed with longer ones, dashes/parentheses, first-person plural ("we"), direct address ("you"), humor, vulnerability
+
+Stage Summary:
+- About page expanded from ~470 to ~1200+ words with human voice
+- All 11 calculator pages now read like a knowledgeable friend explaining taxes, not Wikipedia
+- Compare page has opinionated, practical language instead of neutral encyclopedia tone
+- Content should score significantly better on AI detection tools
+- All pages return HTTP 200, lint passes
