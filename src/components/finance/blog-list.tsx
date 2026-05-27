@@ -3,6 +3,7 @@
 import { useMemo, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import {
+import { SITE_URL } from '@/lib/site-config';
   Search,
   BookOpen,
   Clock,
@@ -317,7 +318,7 @@ export function BlogList({ onNavigate }: { onNavigate: (hash: string) => void })
       itemListElement: posts.slice(0, 10).map((post, i) => ({
         '@type': 'ListItem',
         position: i + 1,
-        url: `https://taxyield.io/#blog/${post.slug}`,
+        url: `${SITE_URL}/#blog/${post.slug}`,
         name: post.title,
       })),
     }),

@@ -17,6 +17,7 @@ import {
 } from 'lucide-react';
 import Link from 'next/link';
 import { Breadcrumb } from '@/components/finance/breadcrumb';
+import { SITE_URL } from '@/lib/site-config';
 
 export const metadata: Metadata = {
   title: 'About Us',
@@ -24,17 +25,17 @@ export const metadata: Metadata = {
     'Learn about TaxYield.io — our mission to provide free, accurate tax calculators for every American. We help you understand your take-home pay after federal, FICA, and state taxes.',
   keywords: ['about taxyield', 'tax calculator about', 'tax tool mission', 'free tax calculator', 'tax data accuracy', 'tax calculator team'],
   alternates: {
-    canonical: 'https://taxyield.io/about',
+    canonical: `${SITE_URL}/about`,
     languages: {
-      'en-US': 'https://taxyield.io/about',
-      'x-default': 'https://taxyield.io/about',
+      'en-US': `${SITE_URL}/about`,
+      'x-default': `${SITE_URL}/about`,
     },
   },
   openGraph: {
     title: 'About TaxYield.io',
     description:
       'Learn about TaxYield.io — our mission to provide free, accurate tax calculators for every American.',
-    url: 'https://taxyield.io/about',
+    url: `${SITE_URL}/about`,
     siteName: 'TaxYield.io',
     type: 'website',
     locale: 'en_US',
@@ -47,8 +48,8 @@ const organizationJsonLd = {
     {
       '@type': 'Organization',
       name: 'TaxYield.io',
-      url: 'https://taxyield.io',
-      logo: 'https://taxyield.io/opengraph-image',
+      url: SITE_URL,
+      logo: `${SITE_URL}/opengraph-image`,
       description: 'Free tax calculators and guides to help you understand your paycheck, state taxes, and financial planning.',
       foundingDate: '2022',
       sameAs: [],
@@ -62,7 +63,7 @@ const organizationJsonLd = {
       '@type': 'AboutPage',
       name: 'About TaxYield.io',
       description: 'Learn about TaxYield.io — our mission to provide free, accurate tax calculators for every American.',
-      url: 'https://taxyield.io/about',
+      url: `${SITE_URL}/about`,
     },
   ],
 };

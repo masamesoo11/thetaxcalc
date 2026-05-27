@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import { Shield, Lock, Eye, Server, UserCheck, Bell, FileText, Mail } from 'lucide-react';
 import Link from 'next/link';
 import { Breadcrumb } from '@/components/finance/breadcrumb';
+import { SITE_URL } from '@/lib/site-config';
 
 export const metadata: Metadata = {
   title: 'Privacy Policy',
@@ -9,16 +10,16 @@ export const metadata: Metadata = {
     'TaxYield.io Privacy Policy — learn how we collect, use, and protect your personal information when using our free tax calculators.',
   keywords: ['privacy policy', 'taxyield privacy', 'tax calculator privacy', 'data protection', 'calculator data security', 'browser calculations'],
   alternates: {
-    canonical: 'https://taxyield.io/privacy',
+    canonical: `${SITE_URL}/privacy`,
     languages: {
-      'en-US': 'https://taxyield.io/privacy',
-      'x-default': 'https://taxyield.io/privacy',
+      'en-US': `${SITE_URL}/privacy`,
+      'x-default': `${SITE_URL}/privacy`,
     },
   },
   openGraph: {
     title: 'Privacy Policy — TaxYield.io',
     description: 'Learn how TaxYield.io collects, uses, and protects your personal information when using our free tax calculators.',
-    url: 'https://taxyield.io/privacy',
+    url: `${SITE_URL}/privacy`,
     siteName: 'TaxYield.io',
     type: 'website',
     locale: 'en_US',
@@ -30,11 +31,11 @@ const privacyJsonLd = {
   '@type': 'WebPage',
   name: 'Privacy Policy — TaxYield.io',
   description: 'Learn how TaxYield.io collects, uses, and protects your personal information when using our free tax calculators.',
-  url: 'https://taxyield.io/privacy',
+  url: `${SITE_URL}/privacy`,
   isPartOf: {
     '@type': 'WebSite',
     name: 'TaxYield.io',
-    url: 'https://taxyield.io',
+    url: SITE_URL,
   },
 };
 
@@ -268,7 +269,7 @@ export default function PrivacyPage() {
             <div className="mt-3 rounded-lg bg-muted/30 p-4">
               <p className="font-semibold text-foreground">TaxYield.io</p>
               <p>Email: privacy@taxyield.io</p>
-              <p>Website: https://taxyield.io</p>
+              <p>Website: {SITE_URL}</p>
             </div>
           </div>
         </section>

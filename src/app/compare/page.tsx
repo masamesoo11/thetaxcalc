@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowRightLeft, ArrowRight, Zap, TrendingDown, Scale, BookOpen, ChevronDown, AlertTriangle, Home, Receipt, PiggyBank, DollarSign, Percent } from 'lucide-react';
 import { getAllCompareConfigs } from '@/lib/compare-config';
+import { SITE_URL } from '@/lib/site-config';
 
 // ─── Metadata ────────────────────────────────────────────────────────────────
 
@@ -15,17 +16,17 @@ export const metadata: Metadata = {
     'best state for taxes', 'lowest tax state', 'relocate for lower taxes',
   ],
   alternates: {
-    canonical: 'https://taxyield.io/compare',
+    canonical: `${SITE_URL}/compare`,
     languages: {
-      'en-US': 'https://taxyield.io/compare',
-      'x-default': 'https://taxyield.io/compare',
+      'en-US': `${SITE_URL}/compare`,
+      'x-default': `${SITE_URL}/compare`,
     },
   },
   openGraph: {
     title: 'State vs State Tax Comparison 2026 — IL, TX, FL, CA, NY',
     description:
       'Compare state taxes side by side. Income tax, property tax, sales tax, and take-home pay on $75K and $150K salaries. Free 2026 comparison tool.',
-    url: 'https://taxyield.io/compare',
+    url: `${SITE_URL}/compare`,
     siteName: 'TaxYield.io',
     type: 'website',
     locale: 'en_US',
@@ -46,15 +47,15 @@ const compareListingJsonLd = {
     {
       '@type': 'BreadcrumbList',
       itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://taxyield.io' },
-        { '@type': 'ListItem', position: 2, name: 'State Tax Comparisons', item: 'https://taxyield.io/compare' },
+        { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+        { '@type': 'ListItem', position: 2, name: 'State Tax Comparisons', item: `${SITE_URL}/compare` },
       ],
     },
     {
       '@type': 'CollectionPage',
       name: 'State vs State Tax Comparisons',
       description: 'Side-by-side tax comparisons for Illinois, Texas, Florida, California, and New York.',
-      url: 'https://taxyield.io/compare',
+      url: `${SITE_URL}/compare`,
       about: {
         '@type': 'Thing',
         name: 'State Income Tax Comparison',

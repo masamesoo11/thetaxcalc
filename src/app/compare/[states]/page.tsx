@@ -14,6 +14,7 @@ import {
   AlertTriangle,
   ChevronRight,
 } from 'lucide-react';
+import { SITE_URL } from '@/lib/site-config';
 import {
   COMPARISON_SLUGS,
   getCompareConfig,
@@ -41,7 +42,7 @@ export async function generateMetadata({
     return { title: 'Comparison Not Found | TaxYield.io' };
   }
 
-  const baseUrl = 'https://taxyield.io';
+  const baseUrl = SITE_URL;
   const canonicalPath = `/compare/${states}`;
 
   return {
@@ -105,7 +106,7 @@ function buildJsonLd(
   s2: CompareStateData,
   faqs: { question: string; answer: string }[]
 ) {
-  const baseUrl = 'https://taxyield.io';
+  const baseUrl = SITE_URL;
   const canonicalPath = `/compare/${slug}`;
 
   return {

@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import {
+import { SITE_URL } from '@/lib/site-config';
   DollarSign,
   TrendingUp,
   Calculator,
@@ -38,17 +39,17 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: 'TaxYield.io' }],
   alternates: {
-    canonical: 'https://taxyield.io/federal-tax-brackets',
+    canonical: `${SITE_URL}/federal-tax-brackets`,
     languages: {
-      'en-US': 'https://taxyield.io/federal-tax-brackets',
-      'x-default': 'https://taxyield.io/federal-tax-brackets',
+      'en-US': `${SITE_URL}/federal-tax-brackets`,
+      'x-default': `${SITE_URL}/federal-tax-brackets`,
     },
   },
   openGraph: {
     title: '2026 Federal Tax Brackets — Rates, Standard Deductions & Examples',
     description:
       'Complete 2026 federal tax brackets for all filing statuses. Standard deductions, progressive tax explanation, and effective vs marginal rates.',
-    url: 'https://taxyield.io/federal-tax-brackets',
+    url: `${SITE_URL}/federal-tax-brackets`,
     siteName: 'TaxYield.io',
     type: 'website',
     locale: 'en_US',
@@ -69,12 +70,12 @@ const faqJsonLd = {
     {
       '@type': 'BreadcrumbList',
       itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://taxyield.io' },
+        { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
         {
           '@type': 'ListItem',
           position: 2,
           name: '2026 Federal Tax Brackets',
-          item: 'https://taxyield.io/federal-tax-brackets',
+          item: `${SITE_URL}/federal-tax-brackets`,
         },
       ],
     },

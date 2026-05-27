@@ -1,11 +1,12 @@
 import { CALCULATOR_ROUTES } from '@/lib/calculator-routes';
 import { db } from '@/lib/db';
+import { SITE_URL } from '@/lib/site-config';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 3600;
 
 export async function GET() {
-  const baseUrl = 'https://taxyield.io';
+  const baseUrl = SITE_URL;
   const now = new Date().toISOString();
 
   // Fetch blog posts

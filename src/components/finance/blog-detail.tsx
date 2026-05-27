@@ -4,6 +4,7 @@ import { useMemo } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import ReactMarkdown from 'react-markdown';
 import {
+import { SITE_URL } from '@/lib/site-config';
   ArrowLeft,
   Calendar,
   Clock,
@@ -173,7 +174,7 @@ function BlogDetailSkeleton() {
 // ─── Share Buttons ────────────────────────────────────────────────────────────
 
 function ShareButtons({ title, slug }: { title: string; slug: string }) {
-  const url = `https://taxyield.io/#blog/${slug}`;
+  const url = `${SITE_URL}/#blog/${slug}`;
   const encodedUrl = encodeURIComponent(url);
   const encodedTitle = encodeURIComponent(title);
 
@@ -333,20 +334,20 @@ export function BlogDetail({
             author: {
               '@type': 'Organization',
               name: 'TaxYield.io',
-              url: 'https://taxyield.io',
+              url: SITE_URL,
             },
             publisher: {
               '@type': 'Organization',
               name: 'TaxYield.io',
-              url: 'https://taxyield.io',
+              url: SITE_URL,
               logo: {
                 '@type': 'ImageObject',
-                url: 'https://taxyield.io/logo.png',
+                url: `${SITE_URL}/logo.png`,
               },
             },
             mainEntityOfPage: {
               '@type': 'WebPage',
-              '@id': `https://taxyield.io/#blog/${post.slug}`,
+              '@id': `${SITE_URL}/#blog/${post.slug}`,
             },
             keywords: post.tags || post.category,
             articleSection: CATEGORY_LABELS[post.category] || post.category,
@@ -363,13 +364,13 @@ export function BlogDetail({
             '@context': 'https://schema.org',
             '@type': 'BreadcrumbList',
             itemListElement: [
-              { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://taxyield.io' },
-              { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://taxyield.io/#blog' },
+              { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+              { '@type': 'ListItem', position: 2, name: 'Blog', item: `${SITE_URL}/#blog` },
               {
                 '@type': 'ListItem',
                 position: 3,
                 name: post.title,
-                item: `https://taxyield.io/#blog/${post.slug}`,
+                item: `${SITE_URL}/#blog/${post.slug}`,
               },
             ],
           }

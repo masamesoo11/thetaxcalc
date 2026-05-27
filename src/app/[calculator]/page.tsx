@@ -22,6 +22,7 @@ import {
 } from '@/lib/faq-data';
 import { CalculatorClientPage } from './calculator-client-page';
 import { db } from '@/lib/db';
+import { SITE_URL } from '@/lib/site-config';
 
 // ─── Static Params for Build ─────────────────────────────────────────────────
 
@@ -43,7 +44,7 @@ export async function generateMetadata({
     return { title: 'Calculator Not Found | TaxYield.io' };
   }
 
-  const baseUrl = 'https://taxyield.io';
+  const baseUrl = SITE_URL;
 
   return {
     title: config.metaTitle,
@@ -109,14 +110,14 @@ function getHomeJsonLd() {
         name: 'Paycheck Calculator — Federal, FICA & State Tax Take-Home Pay',
         description:
           'Free 2026 paycheck calculator. Instantly compute your take-home pay after federal tax, FICA (Social Security + Medicare), and state income tax deductions.',
-        url: 'https://taxyield.io/paycheck-calculator',
+        url: `${SITE_URL}/paycheck-calculator`,
         inLanguage: 'en-US',
         dateModified: '2026-01-01',
         breadcrumb: {
           '@type': 'BreadcrumbList',
           itemListElement: [
-            { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://taxyield.io' },
-            { '@type': 'ListItem', position: 2, name: 'Paycheck Calculator', item: 'https://taxyield.io/paycheck-calculator' },
+            { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+            { '@type': 'ListItem', position: 2, name: 'Paycheck Calculator', item: `${SITE_URL}/paycheck-calculator` },
           ],
         },
       },
@@ -148,10 +149,10 @@ function getIllinoisJsonLd() {
     '@context': 'https://schema.org',
     '@graph': [
       { '@type': 'BreadcrumbList', itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://taxyield.io' },
-        { '@type': 'ListItem', position: 2, name: 'Illinois Paycheck Calculator', item: 'https://taxyield.io/illinois-tax-calculator' },
+        { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+        { '@type': 'ListItem', position: 2, name: 'Illinois Paycheck Calculator', item: `${SITE_URL}/illinois-tax-calculator` },
       ]},
-      { '@type': 'WebApplication', name: 'Illinois Paycheck Calculator 2026', url: 'https://taxyield.io/illinois-tax-calculator', applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
+      { '@type': 'WebApplication', name: 'Illinois Paycheck Calculator 2026', url: `${SITE_URL}/illinois-tax-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
       { '@type': 'MathSolver', name: 'Illinois Paycheck Math Solver', description: 'Computes net take-home pay: Net = Gross - Federal Tax - FICA - IL State Tax, where IL Tax = (Gross - Personal Exemption) × 4.95%', mathExpression: 'Net = G - Fed(G - StdDed) - FICA(G) - (G - Exempt) × 0.0495' },
       { '@type': 'Dataset', name: '2026 Illinois Tax Rates', variableMeasured: [
         { name: 'Illinois Flat Tax Rate', value: '4.95%' },
@@ -169,10 +170,10 @@ function getTexasJsonLd() {
     '@context': 'https://schema.org',
     '@graph': [
       { '@type': 'BreadcrumbList', itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://taxyield.io' },
-        { '@type': 'ListItem', position: 2, name: 'Texas Paycheck Calculator', item: 'https://taxyield.io/texas-tax-calculator' },
+        { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+        { '@type': 'ListItem', position: 2, name: 'Texas Paycheck Calculator', item: `${SITE_URL}/texas-tax-calculator` },
       ]},
-      { '@type': 'WebApplication', name: 'Texas Paycheck Calculator 2026', url: 'https://taxyield.io/texas-tax-calculator', applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
+      { '@type': 'WebApplication', name: 'Texas Paycheck Calculator 2026', url: `${SITE_URL}/texas-tax-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
       { '@type': 'MathSolver', name: 'Texas Paycheck Math Solver', description: 'Computes net take-home pay in Texas: Net = Gross - Federal Tax - FICA. Texas has 0% state income tax.', mathExpression: 'Net = G - Fed(G - StdDed) - FICA(G)' },
       { '@type': 'Dataset', name: '2026 Texas Tax & Cost of Living Data', variableMeasured: [
         { name: 'Texas State Income Tax Rate', value: '0%' },
@@ -189,10 +190,10 @@ function getFloridaJsonLd() {
     '@context': 'https://schema.org',
     '@graph': [
       { '@type': 'BreadcrumbList', itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://taxyield.io' },
-        { '@type': 'ListItem', position: 2, name: 'Florida Paycheck Calculator', item: 'https://taxyield.io/florida-tax-calculator' },
+        { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+        { '@type': 'ListItem', position: 2, name: 'Florida Paycheck Calculator', item: `${SITE_URL}/florida-tax-calculator` },
       ]},
-      { '@type': 'WebApplication', name: 'Florida Paycheck Calculator 2026', url: 'https://taxyield.io/florida-tax-calculator', applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
+      { '@type': 'WebApplication', name: 'Florida Paycheck Calculator 2026', url: `${SITE_URL}/florida-tax-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
       { '@type': 'Dataset', name: '2026 Florida Tax & Cost of Living Data', variableMeasured: [
         { name: 'Florida State Income Tax Rate', value: '0%' },
         { name: 'Florida Average Effective Property Tax Rate', value: '0.86%' },
@@ -208,10 +209,10 @@ function getCaliforniaJsonLd() {
     '@context': 'https://schema.org',
     '@graph': [
       { '@type': 'BreadcrumbList', itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://taxyield.io' },
-        { '@type': 'ListItem', position: 2, name: 'California Paycheck Calculator', item: 'https://taxyield.io/california-tax-calculator' },
+        { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+        { '@type': 'ListItem', position: 2, name: 'California Paycheck Calculator', item: `${SITE_URL}/california-tax-calculator` },
       ]},
-      { '@type': 'WebApplication', name: 'California Paycheck Calculator 2026', url: 'https://taxyield.io/california-tax-calculator', applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
+      { '@type': 'WebApplication', name: 'California Paycheck Calculator 2026', url: `${SITE_URL}/california-tax-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
       { '@type': 'MathSolver', name: 'California Paycheck Math Solver', description: 'Computes net take-home pay with CA progressive tax brackets 1%-13.3%.', mathExpression: 'Net = G - Fed(G - StdDed) - FICA(G) - CA_Progressive(G - StdDed_CA)' },
       { '@type': 'Dataset', name: '2026 California Tax Rates', variableMeasured: [
         { name: 'California Top Marginal Tax Rate', value: '13.3%' },
@@ -228,10 +229,10 @@ function getNewYorkJsonLd() {
     '@context': 'https://schema.org',
     '@graph': [
       { '@type': 'BreadcrumbList', itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://taxyield.io' },
-        { '@type': 'ListItem', position: 2, name: 'New York Paycheck Calculator', item: 'https://taxyield.io/new-york-tax-calculator' },
+        { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+        { '@type': 'ListItem', position: 2, name: 'New York Paycheck Calculator', item: `${SITE_URL}/new-york-tax-calculator` },
       ]},
-      { '@type': 'WebApplication', name: 'New York Paycheck Calculator 2026', url: 'https://taxyield.io/new-york-tax-calculator', applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
+      { '@type': 'WebApplication', name: 'New York Paycheck Calculator 2026', url: `${SITE_URL}/new-york-tax-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
       { '@type': 'MathSolver', name: 'New York Paycheck Math Solver', description: 'Computes net take-home pay with NY progressive tax brackets 4%-10.9% plus potential NYC tax.', mathExpression: 'Net = G - Fed(G - StdDed) - FICA(G) - NY_Progressive(G - StdDed_NY) - NYC_Tax' },
       { '@type': 'Dataset', name: '2026 New York Tax Rates', variableMeasured: [
         { name: 'New York Top Marginal Tax Rate', value: '10.9%' },
@@ -248,10 +249,10 @@ function getMortgageJsonLd() {
     '@context': 'https://schema.org',
     '@graph': [
       { '@type': 'BreadcrumbList', itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://taxyield.io' },
-        { '@type': 'ListItem', position: 2, name: 'Mortgage Calculator', item: 'https://taxyield.io/mortgage-calculator' },
+        { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+        { '@type': 'ListItem', position: 2, name: 'Mortgage Calculator', item: `${SITE_URL}/mortgage-calculator` },
       ]},
-      { '@type': 'WebApplication', name: 'Mortgage Calculator with Extra Payments', url: 'https://taxyield.io/mortgage-calculator', applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
+      { '@type': 'WebApplication', name: 'Mortgage Calculator with Extra Payments', url: `${SITE_URL}/mortgage-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
       { '@type': 'MathSolver', name: 'Mortgage Amortization Solver', description: 'Computes monthly payment using M = P × [r(1+r)^n] / [(1+r)^n - 1]', mathExpression: 'M = P × [r(1+r)^n] / [(1+r)^n - 1]' },
       faqsToJsonLd(MORTGAGE_FAQS),
     ],
@@ -263,10 +264,10 @@ function getRetirementJsonLd() {
     '@context': 'https://schema.org',
     '@graph': [
       { '@type': 'BreadcrumbList', itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://taxyield.io' },
-        { '@type': 'ListItem', position: 2, name: '401(k) Retirement Projection', item: 'https://taxyield.io/401k-retirement-calculator' },
+        { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+        { '@type': 'ListItem', position: 2, name: '401(k) Retirement Projection', item: `${SITE_URL}/401k-retirement-calculator` },
       ]},
-      { '@type': 'WebApplication', name: '401(k) Retirement Projection Calculator 2026', url: 'https://taxyield.io/401k-retirement-calculator', applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
+      { '@type': 'WebApplication', name: '401(k) Retirement Projection Calculator 2026', url: `${SITE_URL}/401k-retirement-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
       { '@type': 'MathSolver', name: '401(k) Compound Growth Solver', description: 'Computes projected 401(k) balance using annual contributions + employer match with compound annual growth.', mathExpression: 'B(n) = Σ C_annual × (1 + r)^(n-i)' },
       faqsToJsonLd(RETIREMENT_FAQS),
     ],
@@ -278,10 +279,10 @@ function getRelocationJsonLd() {
     '@context': 'https://schema.org',
     '@graph': [
       { '@type': 'BreadcrumbList', itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://taxyield.io' },
-        { '@type': 'ListItem', position: 2, name: 'Salary Relocation Calculator', item: 'https://taxyield.io/relocation-calculator' },
+        { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+        { '@type': 'ListItem', position: 2, name: 'Salary Relocation Calculator', item: `${SITE_URL}/relocation-calculator` },
       ]},
-      { '@type': 'WebApplication', name: 'Salary Relocation Calculator 2026', url: 'https://taxyield.io/relocation-calculator', applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
+      { '@type': 'WebApplication', name: 'Salary Relocation Calculator 2026', url: `${SITE_URL}/relocation-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
       faqsToJsonLd(RELOCATION_FAQS),
     ],
   };
@@ -292,10 +293,10 @@ function getCapitalGainsJsonLd() {
     '@context': 'https://schema.org',
     '@graph': [
       { '@type': 'BreadcrumbList', itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://taxyield.io' },
-        { '@type': 'ListItem', position: 2, name: 'Capital Gains Tax Calculator', item: 'https://taxyield.io/capital-gains-calculator' },
+        { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+        { '@type': 'ListItem', position: 2, name: 'Capital Gains Tax Calculator', item: `${SITE_URL}/capital-gains-calculator` },
       ]},
-      { '@type': 'WebApplication', name: 'Capital Gains Tax Calculator 2026', url: 'https://taxyield.io/capital-gains-calculator', applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
+      { '@type': 'WebApplication', name: 'Capital Gains Tax Calculator 2026', url: `${SITE_URL}/capital-gains-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
       { '@type': 'FAQPage', mainEntity: [
         { '@type': 'Question', name: "What's the difference between short-term and long-term capital gains?", acceptedAnswer: { '@type': 'Answer', text: 'Short-term gains (held ≤ 1 year) are taxed as ordinary income up to 37%. Long-term gains (held > 1 year) are taxed at preferential rates of 0%, 15%, or 20%.' } },
         { '@type': 'Question', name: 'What is the Net Investment Income Tax?', acceptedAnswer: { '@type': 'Answer', text: 'The NIIT is an additional 3.8% tax on investment income when MAGI exceeds $200,000 (single) or $250,000 (married).' } },
@@ -310,10 +311,10 @@ function getSelfEmploymentJsonLd() {
     '@context': 'https://schema.org',
     '@graph': [
       { '@type': 'BreadcrumbList', itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://taxyield.io' },
-        { '@type': 'ListItem', position: 2, name: 'Self-Employment Tax Calculator', item: 'https://taxyield.io/self-employment-tax-calculator' },
+        { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+        { '@type': 'ListItem', position: 2, name: 'Self-Employment Tax Calculator', item: `${SITE_URL}/self-employment-tax-calculator` },
       ]},
-      { '@type': 'WebApplication', name: 'Self-Employment Tax Calculator 2026', url: 'https://taxyield.io/self-employment-tax-calculator', applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
+      { '@type': 'WebApplication', name: 'Self-Employment Tax Calculator 2026', url: `${SITE_URL}/self-employment-tax-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
       { '@type': 'FAQPage', mainEntity: [
         { '@type': 'Question', name: 'What is the self-employment tax rate for 2026?', acceptedAnswer: { '@type': 'Answer', text: 'The self-employment tax rate is 15.3% on 92.35% of net business income: 12.4% for Social Security and 2.9% for Medicare.' } },
       ]},

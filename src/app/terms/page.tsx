@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import { Scale, AlertTriangle, Shield, FileText, Gavel, Mail, ExternalLink } from 'lucide-react';
 import Link from 'next/link';
 import { Breadcrumb } from '@/components/finance/breadcrumb';
+import { SITE_URL } from '@/lib/site-config';
 
 export const metadata: Metadata = {
   title: 'Terms of Use',
@@ -9,16 +10,16 @@ export const metadata: Metadata = {
     'TaxYield.io Terms of Use — understand the terms and conditions for using our free tax calculators and website.',
   keywords: ['terms of use', 'taxyield terms', 'tax calculator terms', 'usage agreement', 'legal terms', 'disclaimer'],
   alternates: {
-    canonical: 'https://taxyield.io/terms',
+    canonical: `${SITE_URL}/terms`,
     languages: {
-      'en-US': 'https://taxyield.io/terms',
-      'x-default': 'https://taxyield.io/terms',
+      'en-US': `${SITE_URL}/terms`,
+      'x-default': `${SITE_URL}/terms`,
     },
   },
   openGraph: {
     title: 'Terms of Use — TaxYield.io',
     description: 'Understand the terms and conditions for using TaxYield.io free tax calculators and website.',
-    url: 'https://taxyield.io/terms',
+    url: `${SITE_URL}/terms`,
     siteName: 'TaxYield.io',
     type: 'website',
     locale: 'en_US',
@@ -30,11 +31,11 @@ const termsJsonLd = {
   '@type': 'WebPage',
   name: 'Terms of Use — TaxYield.io',
   description: 'Understand the terms and conditions for using TaxYield.io free tax calculators and website.',
-  url: 'https://taxyield.io/terms',
+  url: `${SITE_URL}/terms`,
   isPartOf: {
     '@type': 'WebSite',
     name: 'TaxYield.io',
-    url: 'https://taxyield.io',
+    url: SITE_URL,
   },
 };
 
@@ -318,7 +319,7 @@ export default function TermsPage() {
             <div className="mt-3 rounded-lg bg-muted/30 p-4">
               <p className="font-semibold text-foreground">TaxYield.io</p>
               <p>Email: legal@taxyield.io</p>
-              <p>Website: https://taxyield.io</p>
+              <p>Website: {SITE_URL}</p>
             </div>
           </div>
         </section>

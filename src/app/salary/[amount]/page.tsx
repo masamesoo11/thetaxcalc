@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import {
+import { SITE_URL } from '@/lib/site-config';
   SALARY_AMOUNTS,
   calculateSalaryTakeHome,
   generateFAQs,
@@ -52,7 +53,7 @@ export async function generateMetadata({
   if (!salary) return { title: 'Salary Not Found | TaxYield.io' };
 
   const formatted = formatSalary(salary);
-  const baseUrl = 'https://taxyield.io';
+  const baseUrl = SITE_URL;
   const path = `/salary/${amountStr}`;
 
   const title = `${formatted} After Tax in 2026 — Take-Home Pay by State`;
@@ -113,16 +114,16 @@ function generateJsonLd(salary: number) {
       {
         '@type': 'BreadcrumbList',
         itemListElement: [
-          { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://taxyield.io' },
-          { '@type': 'ListItem', position: 2, name: 'Salary After Tax', item: 'https://taxyield.io/salary' },
-          { '@type': 'ListItem', position: 3, name: `${formatted} After Tax`, item: `https://taxyield.io${path}` },
+          { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+          { '@type': 'ListItem', position: 2, name: 'Salary After Tax', item: `${SITE_URL}/salary` },
+          { '@type': 'ListItem', position: 3, name: `${formatted} After Tax`, item: `${SITE_URL}${path}` },
         ],
       },
       {
         '@type': 'WebPage',
         name: `${formatted} After Tax in 2026 — Take-Home Pay by State`,
         description: `Calculate your take-home pay on a ${formatted} salary in 2026. Compare net pay across IL, TX, FL, CA, and NY.`,
-        url: `https://taxyield.io${path}`,
+        url: `${SITE_URL}${path}`,
         inLanguage: 'en-US',
         dateModified: '2026-01-01',
       },

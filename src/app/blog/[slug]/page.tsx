@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { db } from '@/lib/db';
 import { BlogDetailClient } from './blog-detail-client';
+import { SITE_URL } from '@/lib/site-config';
 
 // ─── Metadata ─────────────────────────────────────────────────────────────────
 
@@ -35,23 +36,23 @@ export async function generateMetadata({
     description: metaDesc,
     keywords: post.tags ? post.tags.split(',').map((t) => t.trim()) : [],
     alternates: {
-      canonical: `https://taxyield.io/blog/${slug}`,
+      canonical: `${SITE_URL}/blog/${slug}`,
       languages: {
-        'en-US': `https://taxyield.io/blog/${slug}`,
-        'x-default': `https://taxyield.io/blog/${slug}`,
+        'en-US': `${SITE_URL}/blog/${slug}`,
+        'x-default': `${SITE_URL}/blog/${slug}`,
       },
     },
     openGraph: {
       title: metaTitle,
       description: metaDesc,
-      url: `https://taxyield.io/blog/${slug}`,
+      url: `${SITE_URL}/blog/${slug}`,
       siteName: 'TaxYield.io',
       type: 'article',
       publishedTime: post.createdAt?.toISOString(),
       modifiedTime: post.updatedAt?.toISOString(),
       images: [
         {
-          url: 'https://taxyield.io/opengraph-image',
+          url: `${SITE_URL}/opengraph-image`,
           width: 1200,
           height: 630,
           alt: metaTitle,
@@ -62,7 +63,7 @@ export async function generateMetadata({
       card: 'summary_large_image',
       title: metaTitle,
       description: metaDesc,
-      images: ['https://taxyield.io/opengraph-image'],
+      images: [`${SITE_URL}/opengraph-image`],
     },
   };
 }
@@ -281,9 +282,9 @@ export default async function BlogDetailPage({
     description: post.excerpt || post.metaDesc || '',
     datePublished: post.createdAt?.toISOString(),
     dateModified: post.updatedAt?.toISOString(),
-    author: { '@type': 'Organization', name: 'TaxYield.io', url: 'https://taxyield.io' },
-    publisher: { '@type': 'Organization', name: 'TaxYield.io', url: 'https://taxyield.io' },
-    mainEntityOfPage: { '@type': 'WebPage', '@id': `https://taxyield.io/blog/${slug}` },
+    author: { '@type': 'Organization', name: 'TaxYield.io', url: SITE_URL },
+    publisher: { '@type': 'Organization', name: 'TaxYield.io', url: SITE_URL },
+    mainEntityOfPage: { '@type': 'WebPage', '@id': `${SITE_URL}/blog/${slug}` },
     keywords: post.tags || '',
     articleSection: CATEGORY_LABELS[post.category] || post.category,
   };
@@ -292,9 +293,9 @@ export default async function BlogDetailPage({
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://taxyield.io' },
-      { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://taxyield.io/blog' },
-      { '@type': 'ListItem', position: 3, name: post.title, item: `https://taxyield.io/blog/${slug}` },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+      { '@type': 'ListItem', position: 2, name: 'Blog', item: `${SITE_URL}/blog` },
+      { '@type': 'ListItem', position: 3, name: post.title, item: `${SITE_URL}/blog/${slug}` },
     ],
   };
 

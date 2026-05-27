@@ -4,6 +4,7 @@ import { BookOpen, ArrowRight, Calculator, Search } from 'lucide-react';
 import { GLOSSARY_TERMS, FAQ_TERMS, getGlossaryLetters } from '@/lib/glossary-data';
 import { GlossaryClient } from './glossary-client';
 import { Breadcrumb } from '@/components/finance/breadcrumb';
+import { SITE_URL } from '@/lib/site-config';
 
 // ─── Page Metadata ────────────────────────────────────────────────────────────
 
@@ -23,17 +24,17 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: 'TaxYield.io' }],
   alternates: {
-    canonical: 'https://taxyield.io/glossary',
+    canonical: `${SITE_URL}/glossary`,
     languages: {
-      'en-US': 'https://taxyield.io/glossary',
-      'x-default': 'https://taxyield.io/glossary',
+      'en-US': `${SITE_URL}/glossary`,
+      'x-default': `${SITE_URL}/glossary`,
     },
   },
   openGraph: {
     title: 'Tax Glossary — 2026 Tax Terms Explained',
     description:
       '25+ tax terms explained for 2026: FICA, standard deduction, marginal tax rate, AGI, capital gains brackets, and more. Free, accurate tax definitions.',
-    url: 'https://taxyield.io/glossary',
+    url: `${SITE_URL}/glossary`,
     siteName: 'TaxYield.io',
     type: 'website',
     locale: 'en_US',
@@ -69,8 +70,8 @@ function getGlossaryJsonLd() {
       {
         '@type': 'BreadcrumbList',
         itemListElement: [
-          { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://taxyield.io' },
-          { '@type': 'ListItem', position: 2, name: 'Tax Glossary', item: 'https://taxyield.io/glossary' },
+          { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+          { '@type': 'ListItem', position: 2, name: 'Tax Glossary', item: `${SITE_URL}/glossary` },
         ],
       },
       {
@@ -78,7 +79,7 @@ function getGlossaryJsonLd() {
         name: 'Tax Glossary — 2026 Tax Terms Explained',
         description:
           'Comprehensive tax glossary with 25+ terms explained for 2026. Understand FICA, standard deduction, marginal tax rate, and more.',
-        url: 'https://taxyield.io/glossary',
+        url: `${SITE_URL}/glossary`,
         inLanguage: 'en-US',
         dateModified: '2026-01-01',
       },

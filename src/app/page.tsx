@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import { SITE_URL } from '@/lib/site-config';
 import {
   DollarSign,
   MapPin,
@@ -32,26 +33,26 @@ export const metadata: Metadata = {
     'state income tax', 'after tax salary', 'net pay calculator',
   ],
   alternates: {
-    canonical: 'https://taxyield.io',
+    canonical: SITE_URL,
     languages: {
-      'en-US': 'https://taxyield.io',
-      'x-default': 'https://taxyield.io',
+      'en-US': SITE_URL,
+      'x-default': SITE_URL,
     },
     types: {
-      'application/rss+xml': 'https://taxyield.io/feed.xml',
+      'application/rss+xml': `${SITE_URL}/feed.xml`,
     },
   },
   openGraph: {
     title: 'TaxYield.io — Free 2026 Paycheck & Mortgage Calculator',
     description:
       'Precision paycheck calculator for 2026. Compute take-home pay after federal, FICA, and state taxes for IL, TX, FL, CA, NY.',
-    url: 'https://taxyield.io',
+    url: SITE_URL,
     siteName: 'TaxYield.io',
     type: 'website',
     locale: 'en_US',
     images: [
       {
-        url: 'https://taxyield.io/opengraph-image',
+        url: `${SITE_URL}/opengraph-image`,
         width: 1200,
         height: 630,
         alt: 'TaxYield.io — Free 2026 Paycheck & Mortgage Calculator',
@@ -63,7 +64,7 @@ export const metadata: Metadata = {
     title: 'TaxYield.io — Free 2026 Paycheck & Mortgage Calculator',
     description:
       'Compute your take-home pay after federal, FICA, and state taxes. Supports IL, TX, FL, CA, NY.',
-    images: ['https://taxyield.io/opengraph-image'],
+    images: [`${SITE_URL}/opengraph-image`],
   },
 };
 
@@ -188,24 +189,24 @@ const homeJsonLd = {
     {
       '@type': 'WebSite',
       name: 'TaxYield.io',
-      url: 'https://taxyield.io',
+      url: SITE_URL,
       description: 'Free 2026 tax calculators — paycheck, mortgage, 401(k), capital gains, and self-employment.',
       potentialAction: {
         '@type': 'SearchAction',
-        target: 'https://taxyield.io/paycheck-calculator?q={search_term_string}',
+        target: `${SITE_URL}/paycheck-calculator?q={search_term_string}`,
         'query-input': 'required name=search_term_string',
       },
     },
     {
       '@type': 'Organization',
       name: 'TaxYield.io',
-      url: 'https://taxyield.io',
+      url: SITE_URL,
     },
     {
       '@type': 'WebPage',
       name: 'TaxYield.io — Free 2026 Paycheck & Mortgage Calculator',
       description: 'Free 2026 paycheck, mortgage, and tax calculators for IL, TX, FL, CA, NY.',
-      url: 'https://taxyield.io',
+      url: SITE_URL,
     },
   ],
 };

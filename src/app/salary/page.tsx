@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import {
+import { SITE_URL } from '@/lib/site-config';
   SALARY_AMOUNTS,
   calculateSalaryTakeHome,
   getGroupedSalaries,
@@ -35,17 +36,17 @@ export const metadata: Metadata = {
     'take home pay calculator', 'after tax income',
   ],
   alternates: {
-    canonical: 'https://taxyield.io/salary',
+    canonical: `${SITE_URL}/salary`,
     languages: {
-      'en-US': 'https://taxyield.io/salary',
-      'x-default': 'https://taxyield.io/salary',
+      'en-US': `${SITE_URL}/salary`,
+      'x-default': `${SITE_URL}/salary`,
     },
   },
   openGraph: {
     title: 'Salary After Tax Calculator 2026 — Take-Home Pay by State',
     description:
       'See your take-home pay for every salary from $30K to $500K. Compare after-tax income across IL, TX, FL, CA, NY.',
-    url: 'https://taxyield.io/salary',
+    url: `${SITE_URL}/salary`,
     siteName: 'TaxYield.io',
     type: 'website',
     locale: 'en_US',
@@ -66,15 +67,15 @@ const salaryPageJsonLd = {
     {
       '@type': 'BreadcrumbList',
       itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://taxyield.io' },
-        { '@type': 'ListItem', position: 2, name: 'Salary After Tax', item: 'https://taxyield.io/salary' },
+        { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+        { '@type': 'ListItem', position: 2, name: 'Salary After Tax', item: `${SITE_URL}/salary` },
       ],
     },
     {
       '@type': 'WebPage',
       name: 'Salary After Tax Calculator 2026 — Take-Home Pay by State',
       description: 'See your take-home pay for every salary from $30K to $500K. Compare after-tax income across IL, TX, FL, CA, NY.',
-      url: 'https://taxyield.io/salary',
+      url: `${SITE_URL}/salary`,
       inLanguage: 'en-US',
       dateModified: '2026-01-01',
     },
@@ -82,11 +83,11 @@ const salaryPageJsonLd = {
       '@type': 'CollectionPage',
       name: 'Salary After Tax Pages',
       description: 'Programmatic salary pages showing after-tax take-home pay for salaries from $30,000 to $500,000 across 5 states.',
-      url: 'https://taxyield.io/salary',
+      url: `${SITE_URL}/salary`,
       hasPart: SALARY_AMOUNTS.map((amount) => ({
         '@type': 'WebPage',
         name: `$${amount.toLocaleString()} After Tax in 2026`,
-        url: `https://taxyield.io/salary/${amount}`,
+        url: `${SITE_URL}/salary/${amount}`,
       })),
     },
   ],

@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { db } from '@/lib/db';
 import { BlogListClient } from './blog-list-client';
 import { Breadcrumb } from '@/components/finance/breadcrumb';
+import { SITE_URL } from '@/lib/site-config';
 
 // ─── Metadata ─────────────────────────────────────────────────────────────────
 
@@ -15,21 +16,21 @@ export const metadata: Metadata = {
     'state tax comparison', 'tax planning', 'financial tips',
   ],
   alternates: {
-    canonical: 'https://taxyield.io/blog',
+    canonical: `${SITE_URL}/blog`,
     languages: {
-      'en-US': 'https://taxyield.io/blog',
-      'x-default': 'https://taxyield.io/blog',
+      'en-US': `${SITE_URL}/blog`,
+      'x-default': `${SITE_URL}/blog`,
     },
   },
   openGraph: {
     title: 'TaxYield Blog — Expert Tax Guides & Tips',
     description: 'Expert tax guides, state-by-state comparisons, and financial tips for 2026.',
-    url: 'https://taxyield.io/blog',
+    url: `${SITE_URL}/blog`,
     siteName: 'TaxYield.io',
     type: 'website',
     images: [
       {
-        url: 'https://taxyield.io/opengraph-image',
+        url: `${SITE_URL}/opengraph-image`,
         width: 1200,
         height: 630,
         alt: 'TaxYield Blog — Expert Tax Guides & Tips',
@@ -109,11 +110,11 @@ export default async function BlogPage() {
     '@type': 'Blog',
     name: 'TaxYield Blog',
     description: 'Expert tax guides, state-by-state comparisons, and financial tips from TaxYield.io.',
-    url: 'https://taxyield.io/blog',
+    url: `${SITE_URL}/blog`,
     publisher: {
       '@type': 'Organization',
       name: 'TaxYield.io',
-      url: 'https://taxyield.io',
+      url: SITE_URL,
     },
   };
 
@@ -126,7 +127,7 @@ export default async function BlogPage() {
     itemListElement: posts.slice(0, 10).map((post, i) => ({
       '@type': 'ListItem',
       position: i + 1,
-      url: `https://taxyield.io/blog/${post.slug}`,
+      url: `${SITE_URL}/blog/${post.slug}`,
       name: post.title,
     })),
   };

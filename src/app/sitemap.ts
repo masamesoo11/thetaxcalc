@@ -3,9 +3,10 @@ import { CALCULATOR_ROUTES } from '@/lib/calculator-routes';
 import { SALARY_AMOUNTS } from '@/lib/salary-calculations';
 import { COMPARISON_SLUGS } from '@/lib/compare-config';
 import { db } from '@/lib/db';
+import { SITE_URL } from '@/lib/site-config';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = 'https://taxyield.io';
+  const baseUrl = SITE_URL;
   const now = new Date().toISOString();
 
   // Home page
