@@ -1,5 +1,7 @@
 # TaxYield Deployment Guide
 
+> **⚠️ WordPress is NOT an option for this project.** TaxYield is built with Next.js 16 — a React-based framework that requires a Node.js runtime or edge-compatible hosting. WordPress is a PHP-based CMS and cannot run Next.js applications. If you need a CMS, consider headless options like Sanity, Strapi, or Contentful — but never WordPress for hosting a Next.js app.
+
 ---
 
 ## English
@@ -15,7 +17,105 @@ Before deploying TaxYield, make sure you have:
 
 ---
 
-### Method 1: Deploy via Cloudflare Dashboard (Recommended for Beginners)
+### Database Migration: SQLite → Turso (Required for Cloudflare Pages)
+
+TaxYield currently uses Prisma with a local SQLite database. **SQLite will NOT work on Cloudflare Pages** (or any serverless/edge platform) because there is no persistent filesystem. You **must** migrate to Turso before deploying.
+
+Turso is a SQLite-compatible edge database powered by LibSQL — it's the easiest migration because it requires minimal code changes (the Prisma schema stays almost the same).
+
+#### Step-by-step Turso Migration
+
+1. **Create a Turso account** — Go to [turso.tech](https://turso.tech/) and sign up (free tier: 9GB storage, 1 billion reads/month)
+
+2. **Install the Turso CLI**
+   ```bash
+   curl -sSfL https://get.turso.tech | bash
+   ```
+
+3. **Authenticate with Turso**
+   ```bash
+   turso auth login
+   ```
+
+4. **Create your database**
+   ```bash
+   turso db create taxyield
+   ```
+
+5. **Get your connection URL** — This becomes your `TURSO_DATABASE_URL`
+   ```bash
+   turso db show taxyield --url
+   ```
+   Output looks like: `libsql://taxyield-YourOrg.aws-eu-west-1.turso.io`
+
+6. **Create an auth token** — This becomes your `TURSO_AUTH_TOKEN`
+   ```bash
+   turso db tokens create taxyield
+   ```
+   Output is a long JWT string like `eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9...`
+
+7. **Update Prisma schema** — Change the datasource provider and add the `directUrl`:
+   ```prisma
+   datasource db {
+     provider  = "sqlite"
+     url       = env("TURSO_DATABASE_URL")
+     directUrl = env("DATABASE_URL")
+   }
+   ```
+   - `TURSO_DATABASE_URL` — The LibSQL connection string (e.g., `libsql://taxyield-...turso.io`) used at runtime
+   - `DATABASE_URL` — A local SQLite file path (e.g., `file:./dev.db`) used by Prisma CLI for migrations locally
+
+8. **Install the LibSQL adapter for Prisma**
+   ```bash
+   bun add @prisma/adapter-libsql @libsql/client
+   ```
+
+9. **Update `src/lib/db.ts`** to use the LibSQL adapter:
+   ```typescript
+   import { PrismaClient } from '@prisma/client'
+   import { PrismaLibSQL } from '@prisma/adapter-libsql'
+   import { createClient } from '@libsql/client'
+
+   const libsql = createClient({
+     url: process.env.TURSO_DATABASE_URL!,
+     authToken: process.env.TURSO_AUTH_TOKEN!,
+   })
+
+   const adapter = new PrismaLibSQL(libsql)
+
+   const globalForPrisma = globalThis as unknown as {
+     prisma: PrismaClient | undefined
+   }
+
+   export const db =
+     globalForPrisma.prisma ??
+     new PrismaClient({
+       adapter,
+     })
+
+   if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = db
+   ```
+
+10. **Push your schema to Turso**
+    ```bash
+    DATABASE_URL="file:./dev.db" bun run db:push
+    ```
+
+11. **Seed the database** — Visit `/api/seed` after deployment to populate blog posts and initial data
+
+#### Required Environment Variables for Turso
+
+| Variable | Description | Example |
+|---|---|---|
+| `TURSO_DATABASE_URL` | LibSQL connection string from Turso | `libsql://taxyield-YourOrg.aws-eu-west-1.turso.io` |
+| `TURSO_AUTH_TOKEN` | Authentication token from Turso | `eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9...` |
+| `DATABASE_URL` | Local SQLite path (for Prisma CLI only) | `file:./dev.db` |
+
+> **Note:** The `DATABASE_URL` is still needed for local development and Prisma CLI commands. On the deployment platform, `TURSO_DATABASE_URL` and `TURSO_AUTH_TOKEN` are what the running app actually uses.
+
+---
+
+### Method 1: Deploy to Cloudflare Pages via Dashboard (Recommended for Beginners)
 
 This method connects your GitHub repository directly to Cloudflare Pages for automatic deployments on every push.
 
@@ -48,7 +148,7 @@ This method connects your GitHub repository directly to Cloudflare Pages for aut
 
 ---
 
-### Method 2: Deploy via CLI (Wrangler)
+### Method 2: Deploy to Cloudflare Pages via CLI (Wrangler)
 
 This method uses the Wrangler CLI to build and deploy from your local machine.
 
@@ -73,7 +173,7 @@ This method uses the Wrangler CLI to build and deploy from your local machine.
    ```bash
    bun run pages:deploy
    ```
-   Or deploy manually:
+   This builds and deploys in one step. Or deploy manually:
    ```bash
    wrangler pages deploy .vercel/output/static --project-name=taxyield
    ```
@@ -84,25 +184,26 @@ This method uses the Wrangler CLI to build and deploy from your local machine.
 
 ---
 
-### Environment Variables
+### Environment Variables (Cloudflare Pages)
 
 Set these in the Cloudflare Dashboard under **Pages → taxyield → Settings → Environment variables**, or via CLI:
 
 ```bash
-wrangler pages secret put DATABASE_URL --project-name taxyield
+wrangler pages secret put TURSO_DATABASE_URL --project-name taxyield
+wrangler pages secret put TURSO_AUTH_TOKEN --project-name taxyield
 ```
 
 | Variable | Description | Required |
 |---|---|---|
-| `DATABASE_URL` | Connection string for your database | Yes |
+| `TURSO_DATABASE_URL` | LibSQL connection string for Turso database | Yes |
+| `TURSO_AUTH_TOKEN` | Turso authentication token | Yes |
+| `DATABASE_URL` | Local SQLite path (used by Prisma CLI during build) | Yes |
 | `NEXTAUTH_SECRET` | Secret for NextAuth.js authentication | Yes |
 | `NEXTAUTH_URL` | Your site's URL (e.g., `https://taxyield.io`) | Yes |
 
-> **Important:** For Cloudflare Pages, you must use an external database service (see Database section below). Set the `DATABASE_URL` to point to your external database.
-
 ---
 
-### Custom Domain Configuration
+### Custom Domain Configuration (Cloudflare)
 
 1. Go to **Cloudflare Dashboard → Pages → taxyield → Custom domains**
 2. Click **"Set up a custom domain"**
@@ -130,34 +231,6 @@ Cloudflare Pages runs on V8 isolates (the same engine as Chrome), not Node.js. T
 
 ---
 
-### Database: SQLite/Prisma Won't Work on Cloudflare Pages
-
-TaxYield uses Prisma with SQLite (a local file-based database). **SQLite will NOT work on Cloudflare Pages** because:
-
-- Cloudflare Workers/Pages have no persistent filesystem
-- Each request may run on a different isolate
-- There's no way to store a `.db` file that persists between requests
-
-**Recommended alternatives:**
-
-| Service | Type | Free Tier | Notes |
-|---|---|---|---|
-| **[Turso](https://turso.tech/)** | SQLite-compatible edge database | 9GB storage, 1B reads/mo | Best choice — LibSQL is SQLite-compatible, works with Prisma |
-| **[PlanetScale](https://planetscale.com/)** | MySQL-compatible serverless | Paid plans only | Great for MySQL, but no free tier anymore |
-| **[Neon](https://neon.tech/)** | PostgreSQL serverless | 3GB storage, 100M reads/mo | Good PostgreSQL option, works with Prisma |
-| **[Supabase](https://supabase.com/)** | PostgreSQL + extras | 500MB storage, 50K MAU | Full backend-as-a-service with auth |
-
-**Migrating to Turso (recommended for least code changes):**
-
-1. Install the Turso CLI: `curl -sSfL https://get.turso.tech | bash`
-2. Create a database: `turso db create taxyield`
-3. Get the connection URL: `turso db show taxyield --url`
-4. Update your Prisma schema to use `@libsql` provider or use the `@prisma/adapter-libsql` package
-5. Set `DATABASE_URL` in Cloudflare to the Turso connection string
-6. Run `prisma db push` to sync your schema
-
----
-
 ### Deploying to Vercel (Easiest Alternative)
 
 Vercel is the platform built by the creators of Next.js and provides the smoothest deployment experience.
@@ -170,6 +243,8 @@ Vercel is the platform built by the creators of Next.js and provides the smoothe
    - Vercel auto-detects Next.js — no configuration needed
 
 3. **Set environment variables** in the Vercel dashboard:
+   - `TURSO_DATABASE_URL`
+   - `TURSO_AUTH_TOKEN`
    - `DATABASE_URL`
    - `NEXTAUTH_SECRET`
    - `NEXTAUTH_URL`
@@ -180,7 +255,7 @@ Vercel is the platform built by the creators of Next.js and provides the smoothe
 - Native Next.js support (all features work out of the box)
 - Image optimization works automatically
 - Serverless functions support Node.js APIs
-- Prisma with SQLite works with Vercel Postgres or external DB
+- No need for `@cloudflare/next-on-pages` or special build configuration
 - Automatic HTTPS, previews for every PR, and instant rollbacks
 - Free tier: 100GB bandwidth, unlimited sites
 
@@ -188,26 +263,89 @@ Vercel is the platform built by the creators of Next.js and provides the smoothe
 - The `sharp` package works natively on Vercel (image optimization)
 - All Next.js API routes work as serverless functions
 - Server-side rendering works without any Edge Runtime restrictions
-- For the database, you still need an external service (Vercel Postgres, Turso, Neon, etc.) unless using Vercel's built-in storage
+- You still need Turso (or another external DB) since Vercel doesn't provide persistent filesystem either
 
 ---
 
 ## دليل النشر - بالعربية
 
-### المتطلبات الأساسية
+### ⚠️ ووردبريس ليس خياراً لمشروع Next.js
 
-قبل نشر TaxYield، تأكد من وجود:
-
-- **حساب Cloudflare** (الخطة المجانية كافية) — [تسجيل](https://dash.cloudflare.com/sign-up)
-- **Node.js 18+** مثبت (يُنصح بـ 20+)
-- **Git** مثبت ومشروعك في مستودع GitHub
-- **مدير حزم Bun** مثبت (`curl -fsSL https://bun.sh/install | bash`)
+**الخلاصة: ووردبريس لا يعمل لمشروع Next.js.** مشروع TaxYield مبني بإطار Next.js 16 وهو إطار عمل يعتمد على React ويحتاج إلى بيئة Node.js أو بيئة Edge متوافقة. ووردبريس هو نظام إدارة محتوى مبني على PHP ولا يمكنه تشغيل تطبيقات Next.js. إذا كنت بحاجة إلى نظام إدارة محتوى، استخدم أنظمة Headless مثل Sanity أو Strapi أو Contentful — لكن أبداً ووردبريس.
 
 ---
 
-### الطريقة 1: النشر عبر لوحة تحكم Cloudflare (موصى بها للمبتدئين)
+### الانتقال إلى Turso (مطلوب قبل النشر)
 
-هذه الطريقة تربط مستودع GitHub الخاص بك مباشرةً بـ Cloudflare Pages للنشر التلقائي عند كل دفعة.
+مشروع TaxYield يستخدم حالياً قاعدة بيانات SQLite المحلية. **SQLite لن يعمل على Cloudflare Pages أو أي منصة بدون خادم** لأنه لا يوجد نظام ملفات دائم. **يجب** الانتقال إلى Turso قبل النشر.
+
+#### خطوات الانتقال إلى Turso
+
+1. **أنشئ حساب على Turso** — اذهب إلى [turso.tech](https://turso.tech/) وسجّل (الخطة المجانية: 9GB تخزين، مليار قراءة/شهر)
+
+2. **ثبّت Turso CLI**
+   ```bash
+   curl -sSfL https://get.turso.tech | bash
+   ```
+
+3. **سجّل الدخول**
+   ```bash
+   turso auth login
+   ```
+
+4. **أنشئ قاعدة البيانات**
+   ```bash
+   turso db create taxyield
+   ```
+
+5. **احصل على رابط الاتصال** — هذا سيكون `TURSO_DATABASE_URL`
+   ```bash
+   turso db show taxyield --url
+   ```
+   المخرجات تشبه: `libsql://taxyield-YourOrg.aws-eu-west-1.turso.io`
+
+6. **أنشئ رمز المصادقة** — هذا سيكون `TURSO_AUTH_TOKEN`
+   ```bash
+   turso db tokens create taxyield
+   ```
+   المخرجات سلسلة طويلة مثل: `eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9...`
+
+7. **حدّث مخطط Prisma** — غيّر مصدر البيانات:
+   ```prisma
+   datasource db {
+     provider  = "sqlite"
+     url       = env("TURSO_DATABASE_URL")
+     directUrl = env("DATABASE_URL")
+   }
+   ```
+
+8. **ثبّت محول LibSQL**
+   ```bash
+   bun add @prisma/adapter-libsql @libsql/client
+   ```
+
+9. **حدّث `src/lib/db.ts`** لاستخدام المحول الجديد (انظر القسم الإنجليزي أعلاه للكود)
+
+10. **ارفع المخطط إلى Turso**
+    ```bash
+    DATABASE_URL="file:./dev.db" bun run db:push
+    ```
+
+11. **بذر قاعدة البيانات** — زر `/api/seed` بعد النشر لتعبئة المقالات والبيانات الأولية
+
+#### متغيرات البيئة المطلوبة لـ Turso
+
+| المتغير | الوصف | مثال |
+|---|---|---|
+| `TURSO_DATABASE_URL` | سلسلة اتصال LibSQL من Turso | `libsql://taxyield-YourOrg.aws-eu-west-1.turso.io` |
+| `TURSO_AUTH_TOKEN` | رمز المصادقة من Turso | `eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9...` |
+| `DATABASE_URL` | مسار SQLite محلي (لأوامر Prisma فقط) | `file:./dev.db` |
+
+---
+
+### النشر على Cloudflare Pages
+
+#### الطريقة 1: عبر لوحة تحكم Cloudflare (للمبتدئين)
 
 1. **ارفع الكود إلى GitHub**
    ```bash
@@ -230,148 +368,97 @@ Vercel is the platform built by the creators of Next.js and provides the smoothe
    - **مجلد المخرجات:** `.vercel/output/static`
    - **إصدار Node.js:** 20 (عبر متغير البيئة `NODE_VERSION=20`)
 
-4. **تعيين متغيرات البيئة** (انظر قسم متغيرات البيئة أدناه)
+4. **أضف متغيرات البيئة:**
+   - `TURSO_DATABASE_URL` — رابط اتصال Turso
+   - `TURSO_AUTH_TOKEN` — رمز المصادقة من Turso
+   - `DATABASE_URL` — `file:./dev.db` (للبناء فقط)
+   - `NEXTAUTH_SECRET` — سر المصادقة
+   - `NEXTAUTH_URL` — عنوان موقعك (مثال: `https://taxyield.io`)
 
 5. **اضغط "Save and Deploy"** — ستقوم Cloudflare بالبناء والنشر تلقائياً
 
 6. **النشر التلقائي:** كل دفعة إلى فرع `main` ستؤدي إلى نشر جديد
 
----
+#### الطريقة 2: عبر سطر الأوامر (Wrangler)
 
-### الطريقة 2: النشر عبر سطر الأوامر (Wrangler)
-
-هذه الطريقة تستخدم Wrangler CLI للبناء والنشر من جهازك المحلي.
-
-1. **تثبيت Wrangler عالمياً**
+1. **ثبّت Wrangler**
    ```bash
    npm install -g wrangler
    ```
 
-2. **تسجيل الدخول إلى Cloudflare**
+2. **سجّل الدخول**
    ```bash
    wrangler login
    ```
-   سيفتح هذا نافذة المتصفح للمصادقة مع حساب Cloudflare الخاص بك.
 
-3. **بناء المشروع**
+3. **ابنِ المشروع**
    ```bash
    bun run pages:build
    ```
-   هذا يشغل `npx @cloudflare/next-on-pages` الذي يبني تطبيق Next.js لـ Cloudflare Pages.
+   هذا يشغّل `npx @cloudflare/next-on-pages` الذي يبني التطبيق لـ Cloudflare Pages.
 
-4. **النشر**
+4. **انشر**
    ```bash
    bun run pages:deploy
    ```
-   أو النشر يدوياً:
+   هذا يبني وينشر في خطوة واحدة. أو انشر يدوياً:
    ```bash
    wrangler pages deploy .vercel/output/static --project-name=taxyield
    ```
 
 5. **النشر الأول** — سيطلب منك Wrangler إنشاء المشروع. أكد بـ "y".
 
-6. **النشرات اللاحقة** — فقط شغّل `bun run pages:deploy` بعد البناء.
+6. **النشرات اللاحقة** — فقط شغّل `bun run pages:deploy`.
 
 ---
 
-### متغيرات البيئة
+### أو النشر على Vercel (الأسهل)
 
-عيّن هذه في لوحة تحكم Cloudflare تحت **Pages → taxyield → Settings → Environment variables**، أو عبر سطر الأوامر:
+Vercel أسهل لأنه منصة صنّاع Next.js نفسهم — كل شيء يعمل تلقائياً بدون إعدادات خاصة.
 
-```bash
-wrangler pages secret put DATABASE_URL --project-name taxyield
-```
+1. **ارفع إلى GitHub** (نفس الخطوة أعلاه)
 
-| المتغير | الوصف | مطلوب |
-|---|---|---|
-| `DATABASE_URL` | سلسلة الاتصال بقاعدة البيانات | نعم |
-| `NEXTAUTH_SECRET` | سر المصادقة لـ NextAuth.js | نعم |
-| `NEXTAUTH_URL` | عنوان URL لموقعك (مثال: `https://taxyield.io`) | نعم |
+2. **اذهب إلى [vercel.com/new](https://vercel.com/new)**
 
-> **مهم:** لـ Cloudflare Pages، يجب استخدام خدمة قاعدة بيانات خارجية (انظر قسم قاعدة البيانات أدناه).
+3. **استورد المستودع** — اختر مستودع taxyield من GitHub
 
----
+4. **أضف متغيرات البيئة:**
+   - `TURSO_DATABASE_URL` — رابط اتصال Turso
+   - `TURSO_AUTH_TOKEN` — رمز المصادقة من Turso
+   - `DATABASE_URL` — `file:./dev.db`
+   - `NEXTAUTH_SECRET` — سر المصادقة
+   - `NEXTAUTH_URL` — عنوان موقعك
 
-### إعداد النطاق المخصص
+5. **اضغط Deploy** — هذا كل شيء!
 
-1. اذهب إلى **لوحة تحكم Cloudflare → Pages → taxyield → Custom domains**
-2. اضغط **"Set up a custom domain"**
-3. أدخل نطاقك (مثال: `taxyield.io`)
-4. اتبع تعليمات DNS:
-   - إذا كان نطاقك على Cloudflare بالفعل، ستتم إضافة سجل CNAME تلقائياً
-   - إذا كان نطاقك في مكان آخر، أضف سجل CNAME يشير إلى `taxyield.pages.dev`
-5. ستوفر Cloudflare شهادة SSL تلقائياً
-
----
-
-### توافق بيئة التشغيل Edge
-
-Cloudflare Pages يعمل على معزولات V8 (نفس محرك Chrome)، وليس Node.js. هذا يعني:
-
-- **يعمل:** Fetch API، Web Streams، WebCrypto، URL، TextEncoder/Decoder، setTimeout، console
-- **لا يعمل:** وحدة `fs` الخاصة بـ Node.js، `net`، `child_process`، الإضافات الأصلية، `sharp` (معالجة الصور الأصلية)
-- تم تعيين `images.unoptimized = true` في `next.config.ts` لأن Cloudflare Pages لا يدعم تحسين الصور المدمج في Next.js
-- الكود من جانب الخادم يجب أن يستخدم واجهات برمجة تطبيقات متوافقة مع Edge Runtime
-- بعض حزم npm التي تعتمد على واجهات Node.js لن تعمل
-
----
-
-### قاعدة البيانات: SQLite/Prisma لن يعمل على Cloudflare Pages
-
-TaxYield يستخدم Prisma مع SQLite (قاعدة بيانات محلية قائمة على الملفات). **SQLite لن يعمل على Cloudflare Pages** لأن:
-
-- Cloudflare Workers/Pages ليس لديه نظام ملفات دائم
-- كل طلب قد يعمل على معزل مختلف
-- لا توجد طريقة لتخزين ملف `.db` يستمر بين الطلبات
-
-**البدائل الموصى بها:**
-
-| الخدمة | النوع | الخطة المجانية | ملاحظات |
-|---|---|---|---|
-| **[Turso](https://turso.tech/)** | قاعدة بيانات Edge متوافقة مع SQLite | 9GB تخزين، 1B قراءة/شهر | الخيار الأفضل — LibSQL متوافق مع SQLite |
-| **[PlanetScale](https://planetscale.com/)** | MySQL متوافق بدون خادم | خطط مدفوعة فقط | ممتاز لـ MySQL، لكن لا توجد خطة مجانية |
-| **[Neon](https://neon.tech/)** | PostgreSQL بدون خادم | 3GB تخزين، 100M قراءة/شهر | خيار PostgreSQL جيد |
-| **[Supabase](https://supabase.com/)** | PostgreSQL + إضافات | 500MB تخزين، 50K مستخدم نشط | منصة كاملة مع المصادقة |
-
-**الانتقال إلى Turso (موصى به لأقل تغييرات في الكود):**
-
-1. ثبّت Turso CLI: `curl -sSfL https://get.turso.tech | bash`
-2. أنشئ قاعدة بيانات: `turso db create taxyield`
-3. احصل على رابط الاتصال: `turso db show taxyield --url`
-4. حدّث مخطط Prisma لاستخدام مزوّد `@libsql` أو حزمة `@prisma/adapter-libsql`
-5. عيّن `DATABASE_URL` في Cloudflare إلى سلسلة اتصال Turso
-6. شغّل `prisma db push` لمزامنة المخطط
-
----
-
-### النشر على Vercel (الأسهل)
-
-Vercel هي المنصة التي بناها صنّاع Next.js وتوفر أسهل تجربة نشر.
-
-1. **ارفع إلى GitHub** (نفس الخطوة 1 أعلاه)
-
-2. **استورد إلى Vercel**
-   - اذهب إلى [vercel.com/new](https://vercel.com/new)
-   - استورد مستودع GitHub الخاص بك
-   - يكتشف Vercel Next.js تلقائياً — لا حاجة لإعدادات
-
-3. **عيّن متغيرات البيئة** في لوحة تحكم Vercel:
-   - `DATABASE_URL`
-   - `NEXTAUTH_SECRET`
-   - `NEXTAUTH_URL`
-
-4. **اضغط Deploy** — هذا كل شيء!
-
-**لماذا Vercel أسهل:**
-- دعم أصلي لـ Next.js (جميع الميزات تعمل فوراً)
+**مميزات Vercel:**
+- دعم أصلي لـ Next.js (كل الميزات تعمل فوراً)
 - تحسين الصور يعمل تلقائياً
-- الدوال بدون خادم تدعم واجهات Node.js
-- Prisma مع SQLite يعمل مع Vercel Postgres أو قاعدة بيانات خارجية
-- HTTPS تلقائي، معاينات لكل طلب سحب، واسترجاع فوري
+- لا حاجة لـ `@cloudflare/next-on-pages` أو إعدادات بناء خاصة
+- HTTPS تلقائي ومعاينات لكل طلب سحب
 - الخطة المجانية: 100GB عرض نطاق، مواقع غير محدودة
 
-**ملاحظات خاصة بـ Vercel:**
-- حزمة `sharp` تعمل أصلياً على Vercel (تحسين الصور)
-- جميع مسارات API في Next.js تعمل كدوال بدون خادم
-- العرض من جانب الخادم يعمل بدون أي قيود على Edge Runtime
-- لقاعدة البيانات، لا تزال بحاجة إلى خدمة خارجية (Vercel Postgres، Turso، Neon، إلخ)
+> **ملاحظة:** حتى على Vercel، تحتاج Turso (أو قاعدة بيانات خارجية أخرى) لأن Vercel أيضاً لا يوفر نظام ملفات دائم.
+
+---
+
+### ملخص سريع
+
+| المنصة | الصعوبة | ملاحظات |
+|---|---|---|
+| **Vercel** | ⭐ سهل | أسهل خيار — كل شيء يعمل تلقائياً |
+| **Cloudflare Pages** | ⭐⭐ متوسط | يحتاج `@cloudflare/next-on-pages` وإعدادات خاصة |
+| **WordPress** | ❌ لا يعمل | ووردبريس مبني على PHP ولا يمكنه تشغيل Next.js |
+
+### أوامر البناء والنشر السريعة
+
+```bash
+# بناء لـ Cloudflare Pages
+bun run pages:build
+
+# بناء ونشر لـ Cloudflare Pages
+bun run pages:deploy
+
+# بناء عادي (لـ Vercel أو الاستضافة الذاتية)
+bun run build
+```

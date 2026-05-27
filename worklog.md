@@ -345,3 +345,62 @@ Stage Summary:
 - DEPLOYMENT.md created with comprehensive bilingual deployment guide (English + Arabic)
 - No new lint errors introduced (3 pre-existing errors remain)
 - Key caveat: SQLite database will NOT work on Cloudflare Pages — must migrate to Turso/Neon/PlanetScale/Supabase before deploying
+
+---
+Task ID: 3
+Agent: deployment-docs-updater
+Task: Update DEPLOYMENT.md with Turso migration steps and Arabic guide
+
+Work Log:
+- Read worklog.md to understand previous agents' work (Tasks 1-6 covering content, SEO, deployment setup)
+- Read current DEPLOYMENT.md: had basic Cloudflare/Vercel instructions but lacked TURSO_DATABASE_URL/TURSO_AUTH_TOKEN vars and detailed Turso migration steps
+- Read package.json: confirmed pages:build and pages:deploy scripts exist, @cloudflare/next-on-pages@1.13.16 installed
+- Read prisma/schema.prisma: confirmed SQLite datasource with DATABASE_URL env var
+- Read src/lib/db.ts: confirmed basic PrismaClient setup without LibSQL adapter
+- Rewrote DEPLOYMENT.md completely with the following updates:
+  - Added prominent warning at top: WordPress is NOT an option for Next.js projects
+  - Added detailed Turso migration section (11 steps) with TURSO_DATABASE_URL and TURSO_AUTH_TOKEN
+  - Included code examples for updating prisma/schema.prisma (adding directUrl) and src/lib/db.ts (using @prisma/adapter-libsql)
+  - Updated environment variables table to include all 5 required vars: TURSO_DATABASE_URL, TURSO_AUTH_TOKEN, DATABASE_URL, NEXTAUTH_SECRET, NEXTAUTH_URL
+  - Added complete Arabic section with:
+    - WordPress warning in Arabic (ووردبريس لا يعمل لمشروع Next.js)
+    - Turso migration steps in Arabic (11 steps with same detail)
+    - Cloudflare Pages deployment steps in Arabic (both Dashboard and CLI methods)
+    - Vercel deployment steps in Arabic (5 simple steps)
+    - Quick summary table comparing platforms (Vercel=easy, Cloudflare=medium, WordPress=doesn't work)
+    - Quick command reference for pages:build and pages:deploy
+  - Maintained all existing content (Edge Runtime compatibility, custom domain config, etc.)
+
+Stage Summary:
+- DEPLOYMENT.md fully updated with Turso-specific environment variables (TURSO_DATABASE_URL, TURSO_AUTH_TOKEN)
+- Clear WordPress warning in both English and Arabic
+- Both Cloudflare Pages and Vercel deployment options documented
+- Arabic step-by-step guide matches all specified content points
+- pages:build and pages:deploy commands documented
+- Code examples provided for Prisma schema update and db.ts adapter setup
+
+---
+Task ID: 2
+Agent: turso-migration
+Task: Migrate Prisma/SQLite to Turso (libSQL) for Cloudflare Pages compatibility
+
+Work Log:
+- Read worklog.md to understand previous agents' work (Tasks 1-6 covering content, SEO, deployment setup)
+- Read current files: prisma/schema.prisma (provider=sqlite), src/lib/db.ts (basic PrismaClient), next.config.ts (images.unoptimized), wrangler.toml (already correct)
+- Installed @libsql/client@0.17.3 and @prisma/adapter-libsql@7.8.0 via `bun add`
+- Updated src/lib/db.ts: Added PrismaLibSQL and createClient imports, created createPrismaClient() factory that detects TURSO_DATABASE_URL env var and uses libSQL adapter when present, falls back to regular SQLite PrismaClient for local dev
+- Updated next.config.ts: Added experimental.serverComponentsExternalPackages for Cloudflare Pages compatibility
+- Created .env.example with local SQLite DATABASE_URL, commented-out TURSO_DATABASE_URL and TURSO_AUTH_TOKEN, NextAuth vars, and optional Google Analytics/Search Console vars
+- Verified Prisma schema: kept provider="sqlite" (Turso is SQLite-compatible, no schema changes needed)
+- Verified wrangler.toml: already correct with nodejs_compat flag and .vercel/output/static build dir
+- Ran prisma generate: Prisma Client v6.19.2 generated successfully
+- Ran lint: 3 pre-existing errors only (2 server.js require-imports, 1 cookie-consent setState-in-effect), no new errors
+
+Stage Summary:
+- Turso/libSQL migration complete: app uses libSQL adapter when TURSO_DATABASE_URL is set, regular SQLite otherwise
+- Packages installed: @libsql/client@0.17.3, @prisma/adapter-libsql@7.8.0
+- src/lib/db.ts updated with smart connection factory (Turso for production, SQLite for local dev)
+- next.config.ts updated with experimental section for Cloudflare Pages
+- .env.example created documenting all required and optional environment variables
+- No Prisma schema changes needed (SQLite-compatible)
+- No new lint errors introduced
