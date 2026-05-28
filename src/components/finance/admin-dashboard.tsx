@@ -152,6 +152,7 @@ export function AdminDashboard() {
         size="sm"
         className="fixed top-20 left-4 z-50 lg:hidden bg-background/80 backdrop-blur-sm border border-border/50"
         onClick={() => setSidebarOpen(!sidebarOpen)}
+        aria-label={sidebarOpen ? 'Close sidebar menu' : 'Open sidebar menu'}
       >
         {sidebarOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
       </Button>

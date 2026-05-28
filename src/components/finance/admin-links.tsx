@@ -290,6 +290,7 @@ export function AdminLinks() {
                         size="sm"
                         onClick={() => openEdit(link)}
                         className="gap-1 text-xs h-8"
+                        aria-label="Edit link"
                       >
                         <Pencil className="h-3.5 w-3.5" />
                       </Button>
@@ -298,6 +299,7 @@ export function AdminLinks() {
                         size="sm"
                         onClick={() => setDeleteTarget(link)}
                         className="gap-1 text-xs text-red-400 hover:text-red-300 hover:bg-red-500/10 h-8"
+                        aria-label="Delete link"
                       >
                         <Trash2 className="h-3.5 w-3.5" />
                       </Button>

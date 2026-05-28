@@ -111,31 +111,50 @@ function GoogleAnalytics() {
   );
 }
 
-// ─── Structured Data for Organization ──────────────────────────────────────────
+// ─── Structured Data — Sitewide @graph (Organization, WebSite, BreadcrumbList) ─
 
-const organizationJsonLd = {
+const sitewideJsonLd = {
   "@context": "https://schema.org",
-  "@type": "Organization",
-  name: "TheTaxCalc",
-  url: SITE_URL,
-  logo: `${SITE_URL}/favicon.svg`,
-  description: "Free 2026 tax calculators — paycheck, mortgage, 401(k), capital gains, and self-employment.",
-  sameAs: [],
-};
-
-const websiteJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  name: "TheTaxCalc",
-  url: SITE_URL,
-  potentialAction: {
-    "@type": "SearchAction",
-    target: {
-      "@type": "EntryPoint",
-      urlTemplate: `${SITE_URL}/paycheck-calculator?q={search_term_string}`,
+  "@graph": [
+    {
+      "@type": "Organization",
+      name: "TheTaxCalc",
+      url: SITE_URL,
+      logo: `${SITE_URL}/favicon.svg`,
+      description:
+        "Free 2026 tax calculators — paycheck, mortgage, 401(k), capital gains, and self-employment.",
+      sameAs: [] as string[],
+      contactPoint: {
+        "@type": "ContactPoint",
+        contactType: "customer support",
+        url: SITE_URL,
+      },
     },
-    "query-input": "required name=search_term_string",
-  },
+    {
+      "@type": "WebSite",
+      name: "TheTaxCalc",
+      url: SITE_URL,
+      potentialAction: {
+        "@type": "SearchAction",
+        target: {
+          "@type": "EntryPoint",
+          urlTemplate: `${SITE_URL}/paycheck-calculator?q={search_term_string}`,
+        },
+        "query-input": "required name=search_term_string",
+      },
+    },
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: SITE_URL,
+        },
+      ],
+    },
+  ],
 };
 
 // ─── Root Layout ───────────────────────────────────────────────────────────────
@@ -156,14 +175,10 @@ export default function RootLayout({
         {/* Google Analytics */}
         <GoogleAnalytics />
 
-        {/* Structured Data — Organization & WebSite (sitewide) */}
+        {/* Structured Data — Organization, WebSite & BreadcrumbList (sitewide) */}
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(sitewideJsonLd) }}
         />
       </head>
       <body

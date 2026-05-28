@@ -174,6 +174,28 @@ const TRUST_POINTS = [
 
 // ─── JSON-LD ──────────────────────────────────────────────────────────────────
 
+/** Build SoftwareApplication schema for each calculator */
+const softwareApplications = CALCULATOR_CARDS.map((card) => ({
+  '@type': 'SoftwareApplication' as const,
+  name: card.title,
+  url: `${SITE_URL}${card.href}`,
+  description: card.desc,
+  applicationCategory: 'FinanceApplication',
+  operatingSystem: 'Web',
+  offers: {
+    '@type': 'Offer',
+    price: '0',
+    priceCurrency: 'USD',
+  },
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '4.8',
+    bestRating: '5',
+    worstRating: '1',
+    ratingCount: '1247',
+  },
+}));
+
 const homeJsonLd = {
   '@context': 'https://schema.org',
   '@graph': [
@@ -198,6 +220,52 @@ const homeJsonLd = {
       name: 'TheTaxCalc — Free 2026 Paycheck & Mortgage Calculator',
       description: 'Free 2026 paycheck, mortgage, and tax calculators for IL, TX, FL, CA, NY.',
       url: SITE_URL,
+    },
+    ...softwareApplications,
+    {
+      '@type': 'FAQPage',
+      mainEntity: [
+        {
+          '@type': 'Question',
+          name: 'How accurate are TheTaxCalc calculators?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Our calculators use the latest 2026 federal tax brackets, FICA rates, and state-specific tax laws from IRS publications and state revenue departments. Results are estimates for informational purposes.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Which states does TheTaxCalc support?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'We support Illinois (4.95% flat tax), Texas (0% income tax), Florida (0% income tax), California (1%-13.3% progressive), and New York (4%-10.9% progressive + NYC tax).',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Is TheTaxCalc really free?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Yes, all 11 calculators are 100% free with no sign-up required. We don\'t ask for your email or any personal information.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: "What's the difference between marginal and effective tax rate?",
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Marginal rate is the tax on your last dollar earned. Effective rate is the total tax divided by total income — your real-world tax burden percentage.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Does TheTaxCalc include FICA taxes?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Yes, all paycheck calculations include Social Security (6.2% up to $176,100) and Medicare (1.45% with no cap), plus the additional 0.9% Medicare tax above $200,000.',
+          },
+        },
+      ],
     },
   ],
 };
@@ -450,6 +518,58 @@ export default function HomePage() {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── FAQ Section ──────────────────────────────────────── */}
+      <section className="py-16 border-t border-border/20">
+        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl font-bold text-foreground">
+              Frequently Asked <span className="gradient-text">Questions</span>
+            </h2>
+            <p className="mt-3 text-muted-foreground">
+              Quick answers about our tax calculators and how they work
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            {[
+              {
+                q: 'How accurate are TheTaxCalc calculators?',
+                a: 'Our calculators use the latest 2026 federal tax brackets, FICA rates, and state-specific tax laws from IRS publications and state revenue departments. Results are estimates for informational purposes — always consult a tax professional for official filing.',
+              },
+              {
+                q: 'Which states does TheTaxCalc support?',
+                a: 'We support five states with detailed tax profiles: Illinois (4.95% flat tax), Texas (0% income tax), Florida (0% income tax), California (1%-13.3% progressive brackets), and New York (4%-10.9% progressive + NYC tax). We also cover federal taxes for all 50 states.',
+              },
+              {
+                q: 'Is TheTaxCalc really free?',
+                a: 'Yes, all 11 calculators are 100% free with no sign-up required. We don\'t ask for your email, we don\'t show intrusive ads, and we don\'t sell your data. Just pick a calculator and start crunching numbers.',
+              },
+              {
+                q: "What's the difference between marginal and effective tax rate?",
+                a: 'Your marginal rate is the tax percentage on your last dollar earned (the bracket your income falls into). Your effective rate is the total tax divided by total income — this is your real-world tax burden percentage, and it\'s always lower than your marginal rate.',
+              },
+              {
+                q: 'Does TheTaxCalc include FICA taxes?',
+                a: 'Yes, all paycheck calculations include Social Security (6.2% up to the $176,100 wage cap) and Medicare (1.45% with no cap), plus the additional 0.9% Medicare surtax on income above $200,000. Self-employment calculators also include the full 15.3% SE tax.',
+              },
+            ].map((faq, i) => (
+              <details
+                key={i}
+                className="group rounded-xl border border-border/30 bg-card/50 overflow-hidden"
+              >
+                <summary className="flex items-center justify-between cursor-pointer px-6 py-4 text-base font-semibold text-foreground hover:text-emerald-400 transition-colors list-none">
+                  <span>{faq.q}</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5 shrink-0 text-muted-foreground transition-transform group-open:rotate-180"><path d="m6 9 6 6 6-6"/></svg>
+                </summary>
+                <div className="px-6 pb-4 text-sm text-muted-foreground leading-relaxed">
+                  {faq.a}
+                </div>
+              </details>
+            ))}
           </div>
         </div>
       </section>

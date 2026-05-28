@@ -275,6 +275,7 @@ export function AdminBlogList({ onEdit, onNew }: AdminBlogListProps) {
                         size="sm"
                         onClick={() => setDeleteTarget(post)}
                         className="gap-1 text-xs text-red-400 hover:text-red-300 hover:bg-red-500/10"
+                        aria-label="Delete post"
                       >
                         <Trash2 className="h-3.5 w-3.5" />
                       </Button>
