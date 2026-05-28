@@ -1,0 +1,17 @@
+# === Allow indexing on all pages ===
+/*
+  X-Robots-Tag: all
+
+# === Static assets caching ===
+/_next/static/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# === Block indexing of API and admin routes ===
+/api/*
+  X-Robots-Tag: noindex, nofollow
+
+/admin
+  X-Robots-Tag: noindex, nofollow
+
+/admin/*
+  X-Robots-Tag: noindex, nofollow
