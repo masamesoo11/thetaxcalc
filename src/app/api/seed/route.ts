@@ -18,7 +18,7 @@ const blogPosts = [
     tags: 'federal,tax brackets,2026,income tax',
     published: true,
     featured: true,
-    metaTitle: '2026 Federal Tax Brackets Explained | TaxYield.io',
+    metaTitle: '2026 Federal Tax Brackets Explained | TheTaxCalc',
     metaDesc: 'Understand the 2026 federal income tax brackets, marginal vs effective rates, and standard deductions. Complete guide with examples.',
     content: `# 2026 Federal Tax Brackets Explained
 
@@ -98,7 +98,7 @@ Use our **paycheck calculator** to see exactly how federal tax brackets affect y
     tags: 'illinois,income tax,flat tax,2026,state tax',
     published: true,
     featured: true,
-    metaTitle: 'Illinois Income Tax Guide 2026 | TaxYield.io',
+    metaTitle: 'Illinois Income Tax Guide 2026 | TheTaxCalc',
     metaDesc: 'Complete guide to Illinois income tax for 2026. Flat tax rate, personal exemptions, property taxes, and comparison to neighboring states.',
     content: `# Illinois Income Tax Guide 2026
 
@@ -190,7 +190,7 @@ Use our **Illinois paycheck calculator** to see your exact take-home pay after a
     tags: 'texas,no income tax,property tax,state tax,2026',
     published: true,
     featured: false,
-    metaTitle: 'Why Texas Has No Income Tax | TaxYield.io',
+    metaTitle: 'Why Texas Has No Income Tax | TheTaxCalc',
     metaDesc: 'Discover how Texas operates without a personal income tax, the trade-offs in higher property taxes, and the overall tax burden for Texas residents.',
     content: `# Why Texas Has No Income Tax
 
@@ -258,7 +258,7 @@ Use our **Texas paycheck calculator** to see exactly how much more take-home pay
     tags: 'florida,texas,tax comparison,no income tax,relocation',
     published: true,
     featured: true,
-    metaTitle: 'Florida vs Texas Tax Comparison 2026 | TaxYield.io',
+    metaTitle: 'Florida vs Texas Tax Comparison 2026 | TheTaxCalc',
     metaDesc: 'Compare Florida and Texas tax structures: income tax, property tax, sales tax, and overall tax burden. Find out which no-income-tax state is better for you.',
     content: `# Florida vs Texas Tax Comparison
 
@@ -354,7 +354,7 @@ Use our **relocation calculator** to see your personalized savings from moving t
     tags: 'FICA,social security,medicare,payroll tax,2026',
     published: true,
     featured: false,
-    metaTitle: 'How FICA Taxes Work in 2026 | TaxYield.io',
+    metaTitle: 'How FICA Taxes Work in 2026 | TheTaxCalc',
     metaDesc: 'Complete guide to FICA taxes in 2026. Understand Social Security and Medicare withholding, wage bases, and self-employment tax calculations.',
     content: `# How FICA Taxes Work in 2026
 
@@ -475,7 +475,7 @@ const adSlots = [
 const siteSettings = [
   {
     key: 'site_name',
-    value: 'TaxYield.io',
+    value: 'TheTaxCalc',
   },
   {
     key: 'site_description',
