@@ -1,11 +1,18 @@
-export const runtime = 'edge';
-
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import { db } from '@/lib/db';
 import { DynamicBlogDetail } from './dynamic-blog-detail';
 import { SITE_URL } from '@/lib/site-config';
+
+// ─── Static params: blog slugs are discovered at build time via API ──────────
+
+// We use a fixed set of "known" blog slugs for static generation.
+// New blog posts will be rendered on-demand via the edge fallback.
+// This keeps the Worker bundle small by not importing db directly.
+
+export const runtime = 'edge';
+export const dynamic = 'force-dynamic';
+export const dynamicParams = true; // allow on-demand rendering for new slugs
 
 // ─── Metadata ─────────────────────────────────────────────────────────────────
 
@@ -16,14 +23,19 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
 
-  let post;
+  // Fetch metadata from the API route instead of importing db directly
+  let post: { title: string; excerpt: string | null; metaTitle: string | null; metaDesc: string | null; tags: string; createdAt: string | null; updatedAt: string | null } | null = null;
   try {
-    post = await db.post.findUnique({
-      where: { slug },
-      select: { title: true, excerpt: true, metaTitle: true, metaDesc: true, tags: true, createdAt: true, updatedAt: true },
-    });
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || SITE_URL;
+    const res = await fetch(`${baseUrl}/api/blog/${slug}`, { next: { revalidate: 3600 } });
+    if (res.ok) {
+      const data = await res.json();
+      if (data && !data.error) {
+        post = data;
+      }
+    }
   } catch {
-    return { title: 'Post Not Found | TheTaxCalc' };
+    // API not available
   }
 
   if (!post) {
@@ -50,22 +62,13 @@ export async function generateMetadata({
       url: `${SITE_URL}/blog/${slug}`,
       siteName: 'TheTaxCalc',
       type: 'article',
-      publishedTime: post.createdAt?.toISOString(),
-      modifiedTime: post.updatedAt?.toISOString(),
-      images: [
-        {
-          url: `${SITE_URL}/opengraph-image`,
-          width: 1200,
-          height: 630,
-          alt: metaTitle,
-        },
-      ],
+      publishedTime: post.createdAt || undefined,
+      modifiedTime: post.updatedAt || undefined,
     },
     twitter: {
       card: 'summary_large_image',
       title: metaTitle,
       description: metaDesc,
-      images: [`${SITE_URL}/opengraph-image`],
     },
   };
 }
@@ -79,14 +82,19 @@ export default async function BlogDetailPage({
 }) {
   const { slug } = await params;
 
-  let post;
+  // Fetch post data from API to check if it exists and is published
+  let post: { title: string; published: boolean; excerpt: string | null; tags: string; createdAt: string | null; updatedAt: string | null } | null = null;
   try {
-    post = await db.post.findUnique({
-      where: { slug },
-      select: { title: true, excerpt: true, category: true, featured: true, tags: true, createdAt: true, updatedAt: true, published: true },
-    });
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || SITE_URL;
+    const res = await fetch(`${baseUrl}/api/blog/${slug}`, { next: { revalidate: 3600 } });
+    if (res.ok) {
+      const data = await res.json();
+      if (data && !data.error) {
+        post = data;
+      }
+    }
   } catch {
-    notFound();
+    // API not available
   }
 
   if (!post || !post.published) {
@@ -98,8 +106,8 @@ export default async function BlogDetailPage({
     '@type': 'Article',
     headline: post.title,
     description: post.excerpt || '',
-    datePublished: post.createdAt?.toISOString(),
-    dateModified: post.updatedAt?.toISOString(),
+    datePublished: post.createdAt,
+    dateModified: post.updatedAt,
     author: { '@type': 'Organization', name: 'TheTaxCalc', url: SITE_URL },
     publisher: { '@type': 'Organization', name: 'TheTaxCalc', url: SITE_URL },
     mainEntityOfPage: { '@type': 'WebPage', '@id': `${SITE_URL}/blog/${slug}` },

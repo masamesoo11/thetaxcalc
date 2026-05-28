@@ -1,13 +1,14 @@
-export const runtime = 'edge';
-
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { ChevronRight } from 'lucide-react';
 import { SITE_URL } from '@/lib/site-config';
-import {
-  getCompareConfig,
-} from '@/lib/compare-config';
+import { COMPARISON_SLUGS, getCompareConfig } from '@/lib/compare-config';
 import { DynamicComparePage } from './dynamic-compare-page';
+
+// ─── Static Generation ────────────────────────────────────────────────────────
+
+export function generateStaticParams() {
+  return COMPARISON_SLUGS.map((states) => ({ states }));
+}
 
 // ─── Per-Page Metadata ───────────────────────────────────────────────────────
 
@@ -73,9 +74,9 @@ export default async function CompareStatesPage({
       {/* Breadcrumb */}
       <nav aria-label="Breadcrumb" className="mb-6 flex items-center gap-1.5 text-sm text-muted-foreground">
         <a href="/" className="hover:text-foreground transition-colors">Home</a>
-        <ChevronRight className="h-3.5 w-3.5 text-muted-foreground/40" />
+        <span className="text-muted-foreground/50">/</span>
         <a href="/compare" className="hover:text-foreground transition-colors">Comparisons</a>
-        <ChevronRight className="h-3.5 w-3.5 text-muted-foreground/40" />
+        <span className="text-muted-foreground/50">/</span>
         <span className="text-foreground font-medium">{config.state1.name} vs {config.state2.name}</span>
       </nav>
 

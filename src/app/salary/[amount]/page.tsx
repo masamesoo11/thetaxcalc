@@ -1,14 +1,19 @@
-export const runtime = 'edge';
-
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { SITE_URL } from '@/lib/site-config';
 import {
+  SALARY_AMOUNTS,
   isValidSalaryAmount,
   slugToSalary,
   formatSalary,
 } from '@/lib/salary-calculations';
 import { DynamicSalaryPage } from './dynamic-salary-page';
+
+// ─── Static Generation ────────────────────────────────────────────────────────
+
+export function generateStaticParams() {
+  return SALARY_AMOUNTS.map((amount) => ({ amount: String(amount) }));
+}
 
 // ─── Per-Page Metadata ────────────────────────────────────────────────────────
 

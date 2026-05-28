@@ -1,10 +1,14 @@
-export const runtime = 'edge';
-
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { SLUG_TO_CONFIG } from '@/lib/calculator-routes';
+import { SLUG_TO_CONFIG, getCalculatorSlugs } from '@/lib/calculator-routes';
 import { DynamicCalculatorPage } from './dynamic-calculator-page';
 import { SITE_URL } from '@/lib/site-config';
+
+// ─── Static Generation ────────────────────────────────────────────────────────
+
+export function generateStaticParams() {
+  return getCalculatorSlugs().map((slug) => ({ calculator: slug }));
+}
 
 // ─── Per-Page Metadata ────────────────────────────────────────────────────────
 
@@ -41,20 +45,11 @@ export async function generateMetadata({
       siteName: 'TheTaxCalc',
       type: 'website',
       locale: 'en_US',
-      images: [
-        {
-          url: `${baseUrl}${config.canonicalPath}/opengraph-image`,
-          width: 1200,
-          height: 630,
-          alt: config.ogTitle,
-        },
-      ],
     },
     twitter: {
       card: 'summary_large_image',
       title: config.ogTitle,
       description: config.ogDescription,
-      images: [`${baseUrl}${config.canonicalPath}/opengraph-image`],
     },
   };
 }

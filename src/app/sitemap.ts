@@ -1,5 +1,3 @@
-export const runtime = 'edge';
-
 import { MetadataRoute } from 'next';
 import { CALCULATOR_ROUTES } from '@/lib/calculator-routes';
 import { SALARY_AMOUNTS } from '@/lib/salary-calculations';
@@ -7,11 +5,12 @@ import { COMPARISON_SLUGS } from '@/lib/compare-config';
 import { db } from '@/lib/db';
 import { SITE_URL } from '@/lib/site-config';
 
+export const runtime = 'edge';
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = SITE_URL;
   const now = new Date().toISOString();
 
-  // Home page
   const entries: MetadataRoute.Sitemap = [
     {
       url: baseUrl,
@@ -21,7 +20,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
   ];
 
-  // Calculator pages — real URL paths, no hash fragments
+  // Calculator pages
   for (const route of CALCULATOR_ROUTES) {
     const priority = route.category === 'paycheck' ? 0.95 : route.category === 'mortgage' ? 0.9 : 0.85;
     entries.push({
@@ -40,7 +39,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.9,
   });
 
-  // Individual salary pages — programmatic SEO
+  // Individual salary pages
   for (const amount of SALARY_AMOUNTS) {
     entries.push({
       url: `${baseUrl}/salary/${amount}`,
