@@ -50,21 +50,12 @@ export const metadata: Metadata = {
     siteName: 'TheTaxCalc',
     type: 'website',
     locale: 'en_US',
-    images: [
-      {
-        url: `${SITE_URL}/opengraph-image`,
-        width: 1200,
-        height: 630,
-        alt: 'TheTaxCalc — Free 2026 Paycheck & Mortgage Calculator',
-      },
-    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'TheTaxCalc — Free 2026 Paycheck & Mortgage Calculator',
     description:
       'Compute your take-home pay after federal, FICA, and state taxes. Supports IL, TX, FL, CA, NY.',
-    images: [`${SITE_URL}/opengraph-image`],
   },
 };
 

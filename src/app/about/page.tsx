@@ -49,7 +49,7 @@ const organizationJsonLd = {
       '@type': 'Organization',
       name: 'TheTaxCalc',
       url: SITE_URL,
-      logo: `${SITE_URL}/opengraph-image`,
+      logo: `${SITE_URL}/favicon.svg`,
       description: 'Free tax calculators and guides to help you understand your paycheck, state taxes, and financial planning.',
       foundingDate: '2022',
       sameAs: [],

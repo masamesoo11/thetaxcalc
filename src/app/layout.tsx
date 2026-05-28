@@ -47,21 +47,12 @@ export const metadata: Metadata = {
     siteName: "TheTaxCalc",
     type: "website",
     locale: "en_US",
-    images: [
-      {
-        url: `${SITE_URL}/opengraph-image`,
-        width: 1200,
-        height: 630,
-        alt: "TheTaxCalc — Free 2026 Paycheck & Mortgage Calculator",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "TheTaxCalc — Free 2026 Paycheck & Mortgage Calculator",
     description:
       "Compute your take-home pay after federal, FICA, and state taxes. Supports IL, TX, FL, CA, NY.",
-    images: [`${SITE_URL}/opengraph-image`],
   },
   robots: {
     index: true,
@@ -84,10 +75,8 @@ export const metadata: Metadata = {
       "application/rss+xml": `${SITE_URL}/feed.xml`,
     },
   },
-  // NOTE: Replace "your-verification-code" with your actual Google Search Console verification code
-  // Or set NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION env variable and use generateMetadata() instead
   verification: {
-    google: "your-verification-code",
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || undefined,
   },
   category: "finance",
   classification: "Tax Calculator",
@@ -129,7 +118,7 @@ const organizationJsonLd = {
   "@type": "Organization",
   name: "TheTaxCalc",
   url: SITE_URL,
-  logo: `${SITE_URL}/icon`,
+  logo: `${SITE_URL}/favicon.svg`,
   description: "Free 2026 tax calculators — paycheck, mortgage, 401(k), capital gains, and self-employment.",
   sameAs: [],
 };

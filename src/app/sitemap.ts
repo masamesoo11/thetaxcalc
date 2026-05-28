@@ -2,10 +2,7 @@ import { MetadataRoute } from 'next';
 import { CALCULATOR_ROUTES } from '@/lib/calculator-routes';
 import { SALARY_AMOUNTS } from '@/lib/salary-calculations';
 import { COMPARISON_SLUGS } from '@/lib/compare-config';
-import { db } from '@/lib/db';
 import { SITE_URL } from '@/lib/site-config';
-
-export const runtime = 'edge';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = SITE_URL;
@@ -103,6 +100,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   // Individual blog posts — dynamically fetched from database
   try {
+    const { db } = await import('@/lib/db');
     const posts = await db.post.findMany({
       where: { published: true },
       select: { slug: true, updatedAt: true, createdAt: true },

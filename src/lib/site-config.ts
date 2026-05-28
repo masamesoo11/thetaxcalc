@@ -1,7 +1,7 @@
 /**
  * Centralized site configuration.
  * Change NEXT_PUBLIC_SITE_URL in your .env to update the domain everywhere.
- * Defaults to https://thetaxcalc.com for local development.
+ * Defaults to https://thetaxcalc.com for production.
  */
 
 export const SITE_URL =
