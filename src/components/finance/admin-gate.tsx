@@ -1,73 +1,87 @@
 'use client';
 
-import { useState, useSyncExternalStore } from 'react';
-import { Shield, Lock, Eye, EyeOff, AlertTriangle, DollarSign } from 'lucide-react';
+import { useState, useEffect, useCallback } from 'react';
+import { Shield, Lock, Eye, EyeOff, AlertTriangle, DollarSign, Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 
-// ─── Admin Password ──────────────────────────────────────────────────────────
-// Change this to your desired admin password.
-// For production, use an environment variable: process.env.NEXT_PUBLIC_ADMIN_PASSWORD
-const ADMIN_PASSWORD = 'thetaxcalc2026';
-
-const SESSION_KEY = 'thetaxcalc_admin_auth';
-
-// ─── Session Storage Helpers (useSyncExternalStore compatible) ────────────────
-
-function subscribe(callback: () => void) {
-  window.addEventListener('storage', callback);
-  return () => window.removeEventListener('storage', callback);
-}
-
-function getSnapshot(): string {
-  try {
-    return sessionStorage.getItem(SESSION_KEY) || '';
-  } catch {
-    return '';
-  }
-}
-
-function getServerSnapshot(): string {
-  return '';
-}
+// ─── Server-Side Auth via API ────────────────────────────────────────────────
+// Authentication is now handled server-side via /api/auth/login
+// Password is NEVER exposed to the client
 
 export function AdminGate({ children }: { children: React.ReactNode }) {
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
-  const [unlocked, setUnlocked] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isChecking, setIsChecking] = useState(true);
 
-  // Read session auth via useSyncExternalStore
-  const sessionAuth = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
-  const isAuthenticated = unlocked || sessionAuth === 'authenticated';
+  // Check existing session on mount
+  useEffect(() => {
+    async function checkSession() {
+      try {
+        const res = await fetch('/api/auth/verify');
+        if (res.ok) {
+          const data = await res.json();
+          setIsAuthenticated(data.authenticated === true);
+        } else {
+          setIsAuthenticated(false);
+        }
+      } catch {
+        setIsAuthenticated(false);
+      } finally {
+        setIsChecking(false);
+      }
+    }
+    checkSession();
+  }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = useCallback(async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
+    setIsLoading(true);
 
-    const adminPass = process.env.NEXT_PUBLIC_ADMIN_PASSWORD || ADMIN_PASSWORD;
-
-    if (password === adminPass) {
-      setUnlocked(true);
-      try {
-        sessionStorage.setItem(SESSION_KEY, 'authenticated');
-      } catch {
-        // sessionStorage not available
-      }
-    } else {
-      setError('Incorrect password. Please try again.');
-    }
-  };
-
-  const handleLogout = () => {
-    setUnlocked(false);
-    setPassword('');
     try {
-      sessionStorage.removeItem(SESSION_KEY);
+      const res = await fetch('/api/auth/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ password }),
+      });
+
+      const data = await res.json();
+
+      if (res.ok && data.success) {
+        setIsAuthenticated(true);
+        setPassword('');
+      } else {
+        setError(data.error || 'Invalid password. Please try again.');
+      }
     } catch {
-      // sessionStorage not available
+      setError('Connection error. Please try again.');
+    } finally {
+      setIsLoading(false);
     }
-  };
+  }, [password]);
+
+  const handleLogout = useCallback(async () => {
+    try {
+      await fetch('/api/auth/logout', { method: 'POST' });
+    } catch {
+      // Ignore errors on logout
+    }
+    setIsAuthenticated(false);
+    setPassword('');
+  }, []);
+
+  // Loading state — checking existing session
+  if (isChecking) {
+    return (
+      <div className="flex items-center justify-center min-h-[70vh]">
+        <Loader2 className="h-8 w-8 animate-spin text-emerald-500" />
+      </div>
+    );
+  }
 
   // Authenticated — show admin dashboard
   if (isAuthenticated) {
@@ -123,6 +137,7 @@ export function AdminGate({ children }: { children: React.ReactNode }) {
                 }}
                 className="pl-10 pr-10 bg-background/50 border-border/30"
                 autoFocus
+                disabled={isLoading}
               />
               <button
                 type="button"
@@ -143,16 +158,24 @@ export function AdminGate({ children }: { children: React.ReactNode }) {
 
             <Button
               type="submit"
+              disabled={isLoading}
               className="w-full bg-gradient-to-r from-emerald-600 to-emerald-500 text-white hover:from-emerald-500 hover:to-emerald-400"
             >
-              Unlock Dashboard
+              {isLoading ? (
+                <>
+                  <Loader2 className="h-4 w-4 animate-spin mr-2" />
+                  Authenticating...
+                </>
+              ) : (
+                'Unlock Dashboard'
+              )}
             </Button>
           </form>
 
-          {/* Hint */}
+          {/* Security notice */}
           <div className="mt-6 rounded-lg bg-muted/30 p-3 text-xs text-muted-foreground text-center">
-            <p>Default password: <code className="text-emerald-400 font-mono">thetaxcalc2026</code></p>
-            <p className="mt-1">Change it in <code className="text-muted-foreground/80">src/components/finance/admin-gate.tsx</code></p>
+            <p>Secured with server-side authentication</p>
+            <p className="mt-1">Sessions expire after 24 hours</p>
           </div>
         </div>
 
