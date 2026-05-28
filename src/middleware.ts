@@ -26,7 +26,7 @@ const PUBLIC_API_ROUTES = [
   '/api/seed',
 ];
 
-export async function proxy(request: NextRequest) {
+export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   // Skip static files, Next.js internals, and non-API/public routes
