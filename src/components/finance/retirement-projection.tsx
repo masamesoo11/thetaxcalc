@@ -48,7 +48,7 @@ import {
   type RetirementProjection,
 } from '@/lib/finance-utils';
 import { MORTGAGE_DEFAULTS } from '@/lib/tax-config';
-import { useHashParams, updateHashState } from '@/hooks/use-hash-state';
+import { useUrlParams, updateUrlState, migrateHashUrl } from '@/hooks/use-url-state';
 
 // ─── Constants ────────────────────────────────────────────────────────────────
 
@@ -124,7 +124,8 @@ function CustomTooltipContent({ active, payload, label }: {
 // ─── Component ────────────────────────────────────────────────────────────────
 
 export function RetirementProjection() {
-  const hashParams = useHashParams();
+  migrateHashUrl();
+  const hashParams = useUrlParams();
 
   const [annualSalary, setAnnualSalary] = useState<number>(() =>
     hashParams.salary ? Number(hashParams.salary) : DEFAULT_SALARY
@@ -144,7 +145,7 @@ export function RetirementProjection() {
 
   // Persist state to URL hash
   useEffect(() => {
-    updateHashState('retirement', {
+    updateUrlState({
       salary: annualSalary,
       k401: annual401k,
       match: employerMatchPct,

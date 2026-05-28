@@ -40,7 +40,7 @@ import {
   formatPercent,
   roundCurrency,
 } from '@/lib/finance-utils';
-import { useHashParams, updateHashState } from '@/hooks/use-hash-state';
+import { useUrlParams, updateUrlState, migrateHashUrl } from '@/hooks/use-url-state';
 
 // ─── US State Sales Tax Data (Average Combined Rates) ────────────────────────
 
@@ -153,7 +153,8 @@ function CustomTooltip({ active, payload }: { active?: boolean; payload?: Toolti
 // ─── Main Component ──────────────────────────────────────────────────────────
 
 export function SalesTaxCalculator() {
-  const hashParams = useHashParams();
+  migrateHashUrl();
+  const hashParams = useUrlParams();
 
   const [purchasePrice, setPurchasePrice] = useState<number>(
     () => hashParams.price ? Number(hashParams.price) : 100
@@ -188,7 +189,7 @@ export function SalesTaxCalculator() {
 
   // Persist to hash
   useEffect(() => {
-    updateHashState('sales-tax', {
+    updateUrlState({
       price: purchasePrice,
       state: stateKey,
       rate: customRate,
@@ -852,16 +853,16 @@ export function SalesTaxCalculator() {
         <CardContent>
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {[
-              { page: 'home', label: 'Paycheck Calculator', desc: 'Calculate your take-home pay after all taxes' },
-              { page: 'self-employment', label: 'Self-Employment Tax', desc: 'Estimate your SE tax and quarterly payments' },
-              { page: 'capital-gains', label: 'Capital Gains Tax', desc: 'Calculate tax on investment gains' },
-              { page: 'relocation', label: 'Salary Relocation Calculator', desc: 'Compare take-home pay across states' },
-              { page: 'mortgage', label: 'Mortgage Calculator', desc: 'Calculate monthly payments and amortization' },
-              { page: 'retirement', label: '401(k) Retirement Projection', desc: 'Project your retirement savings growth' },
+              { href: '/paycheck-calculator', label: 'Paycheck Calculator', desc: 'Calculate your take-home pay after all taxes' },
+              { href: '/self-employment-tax-calculator', label: 'Self-Employment Tax', desc: 'Estimate your SE tax and quarterly payments' },
+              { href: '/capital-gains-calculator', label: 'Capital Gains Tax', desc: 'Calculate tax on investment gains' },
+              { href: '/relocation-calculator', label: 'Salary Relocation Calculator', desc: 'Compare take-home pay across states' },
+              { href: '/mortgage-calculator', label: 'Mortgage Calculator', desc: 'Calculate monthly payments and amortization' },
+              { href: '/401k-retirement-calculator', label: '401(k) Retirement Projection', desc: 'Project your retirement savings growth' },
             ].map((link) => (
-              <button
-                key={link.page}
-                onClick={() => { window.location.hash = link.page; window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+              <a
+                key={link.href}
+                href={link.href}
                 className="flex items-start gap-2 rounded-lg border border-border/50 bg-muted/20 p-3 text-left transition-colors hover:border-emerald-500/30 hover:bg-emerald-500/5"
               >
                 <ArrowRight className="mt-0.5 h-4 w-4 shrink-0 text-emerald-400" />
@@ -869,7 +870,7 @@ export function SalesTaxCalculator() {
                   <p className="text-sm font-medium text-foreground">{link.label}</p>
                   <p className="text-xs text-muted-foreground">{link.desc}</p>
                 </div>
-              </button>
+              </a>
             ))}
           </div>
         </CardContent>

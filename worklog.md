@@ -97,3 +97,45 @@ Stage Summary:
 - Schema types now present: Organization, WebSite, WebPage, BreadcrumbList, 11x SoftwareApplication, FAQPage
 - Accessibility: 7 icon-only buttons now have aria-labels
 - Server-side auth: Admin panel protected with JWT + HTTP-only cookies
+
+---
+Task ID: 2
+Agent: URL Refactor Agent
+Task: Refactor Calculator URL Structure from Hash Fragments to Query Parameters
+
+Work Log:
+- Created `src/hooks/use-url-state.ts` — new hook using `window.location.search` + `useSyncExternalStore` with `popstate` subscription
+- Exports: `useUrlParams()`, `useUrlParam()`, `useUrlNumber()`, `updateUrlState()`, `migrateHashUrl()`, `parseSearchString()`
+- `updateUrlState()` no longer takes a `page` parameter (page name removed from URL)
+- `migrateHashUrl()` provides backward compatibility: detects old `#page?param=value` hash URLs and converts them to `?param=value` query params using `replaceState`
+- Updated all 11 calculator components to import from `@/hooks/use-url-state` instead of `@/hooks/use-hash-state`
+- Removed the page name parameter from all `updateHashState('page', {...})` → `updateUrlState({...})` calls
+- Added `migrateHashUrl()` call on mount in each calculator component
+- Updated internal navigation links in capital-gains, self-employment, and sales-tax calculators: replaced `window.location.hash = link.page` with proper `<a href="/paycheck-calculator">` links
+- Added `@deprecated` JSDoc to `use-hash-state.ts` and all legacy hash functions in `finance-utils.ts`
+- ESLint passes on all 13 modified files with zero errors
+
+Stage Summary:
+- Calculator URLs now use clean query params: `/paycheck-calculator?salary=75000&state=illinois` instead of `/paycheck-calculator#home?salary=75000&state=illinois`
+- Old hash-based URLs are automatically migrated to query param format for backward compatibility
+- Admin dashboard still uses hash-based routing (unchanged, separate concern)
+- All internal navigation links updated to use proper URL paths
+
+---
+Task ID: 5
+Agent: Main Agent
+Task: Fix PayFrequency export + server.js keep-alive + verify production build
+
+Work Log:
+- Fixed `PayFrequency` type not being exported from `@/lib/finance-utils` — added `export type { PayFrequency, StateProfile, StateBracket }` re-export
+- Fixed `server.js` — removed `Connection: close` header and aggressive keep-alive timeouts that were killing the server after one request
+- Ran `npx next build` — successful with all 15 calculator routes generated as static HTML (● SSG)
+- Verified all static HTML files contain full SEO content: JSON-LD schema, FAQ sections, How It Works, Breadcrumbs, optimized titles
+- All new calculators confirmed working: sales-tax-calculator, tax-refund-calculator, income-tax-calculator, tax-calculator
+- Dev server running on port 3000
+
+Stage Summary:
+- Production build passes cleanly with zero errors
+- All 15 calculator pages are pre-rendered as static HTML with complete SEO content
+- PayFrequency type export fixed — 6 calculator components that imported it from finance-utils now work
+- URL structure: clean query params (?salary=75000&state=illinois) with backward compatibility for old hash URLs

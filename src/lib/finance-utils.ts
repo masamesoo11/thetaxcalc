@@ -19,6 +19,9 @@ import {
   type StateBracket,
 } from './tax-config';
 
+// Re-export types for convenience
+export type { PayFrequency, StateProfile, StateBracket };
+
 // ─── Safe Rounding ───────────────────────────────────────────────────────────
 
 export function roundCurrency(value: number): number {
@@ -646,8 +649,13 @@ export function calculateNewYorkCostOfLiving(
   };
 }
 
-// ─── URL Hash State Management ───────────────────────────────────────────────
+// ─── URL Hash State Management (DEPRECATED) ──────────────────────────────────
+//
+// These functions are kept for backward compatibility only.
+// New code should use `useUrlParams` / `updateUrlState` from `@/hooks/use-url-state`.
+// The admin dashboard may still reference these functions.
 
+/** @deprecated Use `updateUrlState` from `@/hooks/use-url-state` instead */
 export function serializeToHash(params: Record<string, string | number | boolean>): string {
   const searchParams = new URLSearchParams();
   Object.entries(params).forEach(([key, value]) => {
@@ -658,6 +666,7 @@ export function serializeToHash(params: Record<string, string | number | boolean
   return searchParams.toString();
 }
 
+/** @deprecated Use `useUrlParams` from `@/hooks/use-url-state` instead */
 export function parseHashParams(): Record<string, string> {
   const hash = window.location.hash;
   const params: Record<string, string> = {};
@@ -674,6 +683,7 @@ export function parseHashParams(): Record<string, string> {
   return params;
 }
 
+/** @deprecated No longer needed — calculator pages now have dedicated routes */
 export function getPageFromHash(): string {
   const hash = window.location.hash;
   if (!hash || hash === '#' || hash === '#/') return 'home';
@@ -681,6 +691,7 @@ export function getPageFromHash(): string {
   return page || 'home';
 }
 
+/** @deprecated Use `updateUrlState` from `@/hooks/use-url-state` instead */
 export function updateHash(page: string, params: Record<string, string | number | boolean>) {
   const query = serializeToHash(params);
   const newHash = query ? `#${page}?${query}` : `#${page}`;
