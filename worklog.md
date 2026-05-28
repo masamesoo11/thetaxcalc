@@ -54,3 +54,26 @@ Stage Summary:
 - Custom domain thetaxcalc.com is fully working (DNS was already set up)
 - Google Search Console verification is ready via NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION env var
 - Remaining: User needs to add thetaxcalc.com property in Google Search Console and set verification code
+
+---
+Task ID: 3
+Agent: Main Agent
+Task: Fix persistent "Not indexable" issue - add X-Robots-Tag header
+
+Work Log:
+- Investigated HTTP response headers on both thetaxcalc.com and thetaxcalc.pages.dev
+- No x-robots-tag: noindex found in headers, but no positive signal either
+- Searched web for Cloudflare Pages indexing issues - found known issue with .pages.dev domains
+- Created public/_headers file with explicit X-Robots-Tag: all for all pages
+- Added X-Robots-Tag: noindex, nofollow for /api/* and /admin routes
+- Attempted Cloudflare Transform Rule for .pages.dev noindex (API token lacks permission)
+- Rebuilt and redeployed with _headers file
+- Verified X-Robots-Tag: all is now in response headers for thetaxcalc.com
+- All SEO signals are now correct: HTTP header + meta tag + canonical + robots.txt + sitemap.xml
+
+Stage Summary:
+- X-Robots-Tag: all now explicitly set in HTTP response headers
+- Site is fully SEO-compliant for Google indexing
+- Google Search Console may take days to re-crawl and update status
+- User needs to request re-indexing in Google Search Console or wait for natural re-crawl
+- Recommendation: Add thetaxcalc.com as a new property in GSC (not just thetaxcalc.pages.dev)
