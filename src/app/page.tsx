@@ -17,20 +17,26 @@ import {
   Star,
   Users,
   Globe,
+  Receipt,
+  Landmark,
+  Banknote,
+  Percent,
 } from 'lucide-react';
 
 // ─── Home Page Metadata ───────────────────────────────────────────────────────
 
 export const metadata: Metadata = {
-  title: 'TheTaxCalc — Free 2026 Paycheck & Mortgage Calculator | IL, TX, FL, CA, NY',
+  title: 'TheTaxCalc — Free 2026 Tax, Paycheck & Mortgage Calculator | All 50 States',
   description:
-    'Instantly calculate your take-home pay after federal tax, FICA, and state income tax. Supports Illinois (4.95%), Texas (0%), Florida (0%), California (1%-13.3%), New York (4%-10.9%). Includes mortgage, 401(k), capital gains, and self-employment calculators.',
+    'Free 2026 tax calculators: paycheck calculator, income tax calculator, sales tax calculator, tax refund estimator, mortgage calculator. Federal & state taxes for IL, TX, FL, CA, NY. 15+ free tools, no sign-up required.',
   keywords: [
-    'paycheck calculator', 'take home pay calculator', 'salary calculator',
-    'Illinois tax calculator', 'Texas tax calculator', 'Florida tax calculator',
-    'California tax calculator', 'New York tax calculator', 'mortgage calculator',
-    'FICA calculator', '2026 tax brackets', 'federal tax calculator',
-    'state income tax', 'after tax salary', 'net pay calculator',
+    'tax calculator', 'paycheck calculator', 'income tax calculator',
+    'sales tax calculator', 'tax refund calculator', 'take home pay calculator',
+    'salary calculator', 'Illinois tax calculator', 'Texas tax calculator',
+    'Florida tax calculator', 'California tax calculator', 'New York tax calculator',
+    'mortgage calculator', 'FICA calculator', '2026 tax brackets',
+    'federal tax calculator', 'state income tax', 'after tax salary',
+    'net pay calculator', 'tax estimator',
   ],
   alternates: {
     canonical: SITE_URL,
@@ -43,9 +49,9 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'TheTaxCalc — Free 2026 Paycheck & Mortgage Calculator',
+    title: 'TheTaxCalc — Free 2026 Tax, Paycheck & Mortgage Calculator',
     description:
-      'Precision paycheck calculator for 2026. Compute take-home pay after federal, FICA, and state taxes for IL, TX, FL, CA, NY.',
+      '15+ free tax calculators for 2026. Paycheck, income tax, sales tax, refund estimator, mortgage, 401(k), and more. Federal & state taxes for IL, TX, FL, CA, NY.',
     url: SITE_URL,
     siteName: 'TheTaxCalc',
     type: 'website',
@@ -53,9 +59,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'TheTaxCalc — Free 2026 Paycheck & Mortgage Calculator',
+    title: 'TheTaxCalc — Free 2026 Tax, Paycheck & Mortgage Calculator',
     description:
-      'Compute your take-home pay after federal, FICA, and state taxes. Supports IL, TX, FL, CA, NY.',
+      '15+ free tax calculators for 2026. Paycheck, income tax, sales tax, refund, mortgage, and more.',
   },
 };
 
@@ -70,6 +76,42 @@ const CALCULATOR_CARDS = [
     badge: 'Most Popular',
     badgeColor: 'bg-emerald-500/20 text-emerald-400',
     gradient: 'from-emerald-600/20 to-teal-600/10',
+  },
+  {
+    href: '/tax-calculator',
+    title: 'Tax Calculator',
+    desc: 'Federal, state & FICA tax estimator — total tax burden for 2026',
+    icon: Landmark,
+    badge: 'Popular',
+    badgeColor: 'bg-emerald-500/20 text-emerald-400',
+    gradient: 'from-emerald-600/20 to-green-600/10',
+  },
+  {
+    href: '/income-tax-calculator',
+    title: 'Income Tax Calculator',
+    desc: 'Federal income tax brackets, deductions & take-home pay by state',
+    icon: Banknote,
+    badge: 'Popular',
+    badgeColor: 'bg-emerald-500/20 text-emerald-400',
+    gradient: 'from-emerald-600/20 to-lime-600/10',
+  },
+  {
+    href: '/sales-tax-calculator',
+    title: 'Sales Tax Calculator',
+    desc: 'Calculate sales tax for all 50 states + reverse sales tax lookup',
+    icon: Percent,
+    badge: 'New',
+    badgeColor: 'bg-amber-500/20 text-amber-400',
+    gradient: 'from-amber-600/20 to-yellow-600/10',
+  },
+  {
+    href: '/tax-refund-calculator',
+    title: 'Tax Refund Calculator',
+    desc: 'Estimate your federal & state refund or amount owed for 2026',
+    icon: Receipt,
+    badge: 'New',
+    badgeColor: 'bg-amber-500/20 text-amber-400',
+    gradient: 'from-amber-600/20 to-orange-600/10',
   },
   {
     href: '/illinois-tax-calculator',
@@ -167,7 +209,7 @@ const TRUST_POINTS = [
   '2026 Federal Tax Brackets (up to 37%)',
   'FICA: Social Security (6.2%) + Medicare (1.45%)',
   'SS Wage Cap: $176,100 for 2026',
-  '5 State Tax Profiles: IL, TX, FL, CA, NY',
+  'Sales Tax Rates for All 50 States',
   'Standard Deductions by Filing Status',
   '401(k) & HSA Pre-Tax Deductions',
 ];
@@ -203,7 +245,7 @@ const homeJsonLd = {
       '@type': 'WebSite',
       name: 'TheTaxCalc',
       url: SITE_URL,
-      description: 'Free 2026 tax calculators — paycheck, mortgage, 401(k), capital gains, and self-employment.',
+      description: 'Free 2026 tax calculators — paycheck, income tax, sales tax, refund, mortgage, 401(k), capital gains, and self-employment.',
       potentialAction: {
         '@type': 'SearchAction',
         target: `${SITE_URL}/paycheck-calculator?q={search_term_string}`,
@@ -217,8 +259,8 @@ const homeJsonLd = {
     },
     {
       '@type': 'WebPage',
-      name: 'TheTaxCalc — Free 2026 Paycheck & Mortgage Calculator',
-      description: 'Free 2026 paycheck, mortgage, and tax calculators for IL, TX, FL, CA, NY.',
+      name: 'TheTaxCalc — Free 2026 Tax, Paycheck & Mortgage Calculator',
+      description: 'Free 2026 tax calculators — paycheck, income tax, sales tax, refund, mortgage, 401(k), and more.',
       url: SITE_URL,
     },
     ...softwareApplications,
@@ -246,7 +288,7 @@ const homeJsonLd = {
           name: 'Is TheTaxCalc really free?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Yes, all 11 calculators are 100% free with no sign-up required. We don\'t ask for your email or any personal information.',
+            text: 'Yes, all 15 calculators are 100% free with no sign-up required. We don\'t ask for your email or any personal information.',
           },
         },
         {
@@ -341,7 +383,7 @@ export default function HomePage() {
               </span>
               <span className="flex items-center gap-1.5">
                 <Globe className="h-4 w-4 text-emerald-400" />
-                5 State Profiles
+                All 50 States
               </span>
             </div>
           </div>
@@ -353,7 +395,7 @@ export default function HomePage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-10 text-center">
             <h2 className="text-3xl font-bold text-foreground">
-              11 Free <span className="gradient-text">Tax Calculators</span>
+              15 Free <span className="gradient-text">Tax Calculators</span>
             </h2>
             <p className="mt-3 text-muted-foreground max-w-xl mx-auto">
               Pick the one you need. They&apos;re all free, they all use 2026 data, and none of them will
@@ -546,7 +588,7 @@ export default function HomePage() {
               },
               {
                 q: 'Is TheTaxCalc really free?',
-                a: 'Yes, all 11 calculators are 100% free with no sign-up required. We don\'t ask for your email, we don\'t show intrusive ads, and we don\'t sell your data. Just pick a calculator and start crunching numbers.',
+                a: 'Yes, all 15 calculators are 100% free with no sign-up required. We don\'t ask for your email, we don\'t show intrusive ads, and we don\'t sell your data. Just pick a calculator and start crunching numbers.',
               },
               {
                 q: "What's the difference between marginal and effective tax rate?",

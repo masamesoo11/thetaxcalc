@@ -1,6 +1,6 @@
-'use client';
+// ─── Calculator Content Data for Server & Client Components ────────────────────
+// This file has NO 'use client' so it can be imported by both Server and Client components.
 
-import Link from 'next/link';
 import {
   HOME_FAQS,
   ILLINOIS_FAQS,
@@ -13,321 +13,25 @@ import {
   SELF_EMPLOYMENT_FAQS,
   RETIREMENT_FAQS,
   RELOCATION_FAQS,
+  SALES_TAX_FAQS,
   INCOME_TAX_FAQS,
   TAX_CALC_FAQS,
+  TAX_REFUND_FAQS,
   FAQItem,
 } from '@/lib/faq-data';
-import { SITE_URL } from '@/lib/site-config';
 
-// ─── JSON-LD FAQ Helper ─────────────────────────────────────────────────────────
+// ─── Types ────────────────────────────────────────────────────────────────────
 
-function faqsToJsonLd(faqs: { question: string; answer: string }[]) {
-  return {
-    '@type': 'FAQPage' as const,
-    mainEntity: faqs.map((faq) => ({
-      '@type': 'Question',
-      name: faq.question,
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: faq.answer,
-      },
-    })),
-  };
-}
-
-// ─── JSON-LD Schema Generators ───────────────────────────────────────────────
-
-function getHomeJsonLd() {
-  return {
-    '@context': 'https://schema.org',
-    '@graph': [
-      {
-        '@type': 'WebPage',
-        name: 'Paycheck Calculator — Federal, FICA & State Tax Take-Home Pay',
-        description:
-          'Free 2026 paycheck calculator. Instantly compute your take-home pay after federal tax, FICA (Social Security + Medicare), and state income tax deductions.',
-        url: `${SITE_URL}/paycheck-calculator`,
-        inLanguage: 'en-US',
-        dateModified: '2026-01-01',
-        breadcrumb: {
-          '@type': 'BreadcrumbList',
-          itemListElement: [
-            { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
-            { '@type': 'ListItem', position: 2, name: 'Paycheck Calculator', item: `${SITE_URL}/paycheck-calculator` },
-          ],
-        },
-      },
-      {
-        '@type': 'SoftwareApplication',
-        name: 'TheTaxCalc Paycheck Calculator',
-        applicationCategory: 'FinanceApplication',
-        operatingSystem: 'Web',
-        offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
-      },
-      {
-        '@type': 'HowTo',
-        name: 'How to Calculate Your Take-Home Pay',
-        step: [
-          { '@type': 'HowToStep', name: 'Enter Gross Salary', text: 'Input your annual, monthly, bi-weekly, weekly, or hourly salary' },
-          { '@type': 'HowToStep', name: 'Select State', text: 'Choose IL (4.95%), TX (0%), FL (0%), CA (1%–13.3%), or NY (4%–10.9%)' },
-          { '@type': 'HowToStep', name: 'Choose Filing Status', text: 'Select Single, Married, or Head of Household' },
-          { '@type': 'HowToStep', name: 'Add Pre-Tax Deductions', text: 'Enter 401(k) and HSA contributions' },
-          { '@type': 'HowToStep', name: 'View Instant Results', text: 'See your net take-home pay, effective tax rate, and full deduction breakdown' },
-        ],
-      },
-      faqsToJsonLd(HOME_FAQS),
-    ],
-  };
-}
-
-function getIllinoisJsonLd() {
-  return {
-    '@context': 'https://schema.org',
-    '@graph': [
-      { '@type': 'BreadcrumbList', itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
-        { '@type': 'ListItem', position: 2, name: 'Illinois Paycheck Calculator', item: `${SITE_URL}/illinois-tax-calculator` },
-      ]},
-      { '@type': 'WebApplication', name: 'Illinois Paycheck Calculator 2026', url: `${SITE_URL}/illinois-tax-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
-      { '@type': 'MathSolver', name: 'Illinois Paycheck Math Solver', description: 'Computes net take-home pay: Net = Gross - Federal Tax - FICA - IL State Tax, where IL Tax = (Gross - Personal Exemption) × 4.95%', mathExpression: 'Net = G - Fed(G - StdDed) - FICA(G) - (G - Exempt) × 0.0495' },
-      { '@type': 'Dataset', name: '2026 Illinois Tax Rates', variableMeasured: [
-        { name: 'Illinois Flat Tax Rate', value: '4.95%' },
-        { name: 'Illinois Personal Exemption', value: '$2,775' },
-        { name: 'Federal Standard Deduction (Single)', value: '$15,000' },
-        { name: 'Social Security Wage Cap', value: '$176,100' },
-      ]},
-      faqsToJsonLd(ILLINOIS_FAQS),
-    ],
-  };
-}
-
-function getTexasJsonLd() {
-  return {
-    '@context': 'https://schema.org',
-    '@graph': [
-      { '@type': 'BreadcrumbList', itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
-        { '@type': 'ListItem', position: 2, name: 'Texas Paycheck Calculator', item: `${SITE_URL}/texas-tax-calculator` },
-      ]},
-      { '@type': 'WebApplication', name: 'Texas Paycheck Calculator 2026', url: `${SITE_URL}/texas-tax-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
-      { '@type': 'MathSolver', name: 'Texas Paycheck Math Solver', description: 'Computes net take-home pay in Texas: Net = Gross - Federal Tax - FICA. Texas has 0% state income tax.', mathExpression: 'Net = G - Fed(G - StdDed) - FICA(G)' },
-      { '@type': 'Dataset', name: '2026 Texas Tax & Cost of Living Data', variableMeasured: [
-        { name: 'Texas State Income Tax Rate', value: '0%' },
-        { name: 'Texas Average Effective Property Tax Rate', value: '1.71%' },
-        { name: 'Texas Average Combined Sales Tax Rate', value: '8.2%' },
-      ]},
-      faqsToJsonLd(TEXAS_FAQS),
-    ],
-  };
-}
-
-function getFloridaJsonLd() {
-  return {
-    '@context': 'https://schema.org',
-    '@graph': [
-      { '@type': 'BreadcrumbList', itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
-        { '@type': 'ListItem', position: 2, name: 'Florida Paycheck Calculator', item: `${SITE_URL}/florida-tax-calculator` },
-      ]},
-      { '@type': 'WebApplication', name: 'Florida Paycheck Calculator 2026', url: `${SITE_URL}/florida-tax-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
-      { '@type': 'Dataset', name: '2026 Florida Tax & Cost of Living Data', variableMeasured: [
-        { name: 'Florida State Income Tax Rate', value: '0%' },
-        { name: 'Florida Average Effective Property Tax Rate', value: '0.86%' },
-        { name: 'Florida Average Combined Sales Tax Rate', value: '7.0%' },
-      ]},
-      faqsToJsonLd(FLORIDA_FAQS),
-    ],
-  };
-}
-
-function getCaliforniaJsonLd() {
-  return {
-    '@context': 'https://schema.org',
-    '@graph': [
-      { '@type': 'BreadcrumbList', itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
-        { '@type': 'ListItem', position: 2, name: 'California Paycheck Calculator', item: `${SITE_URL}/california-tax-calculator` },
-      ]},
-      { '@type': 'WebApplication', name: 'California Paycheck Calculator 2026', url: `${SITE_URL}/california-tax-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
-      { '@type': 'MathSolver', name: 'California Paycheck Math Solver', description: 'Computes net take-home pay with CA progressive tax brackets 1%-13.3%.', mathExpression: 'Net = G - Fed(G - StdDed) - FICA(G) - CA_Progressive(G - StdDed_CA)' },
-      { '@type': 'Dataset', name: '2026 California Tax Rates', variableMeasured: [
-        { name: 'California Top Marginal Tax Rate', value: '13.3%' },
-        { name: 'California Standard Deduction (Single)', value: '$6,083' },
-        { name: 'California Average Combined Sales Tax', value: '8.82%' },
-      ]},
-      faqsToJsonLd(CALIFORNIA_FAQS),
-    ],
-  };
-}
-
-function getNewYorkJsonLd() {
-  return {
-    '@context': 'https://schema.org',
-    '@graph': [
-      { '@type': 'BreadcrumbList', itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
-        { '@type': 'ListItem', position: 2, name: 'New York Paycheck Calculator', item: `${SITE_URL}/new-york-tax-calculator` },
-      ]},
-      { '@type': 'WebApplication', name: 'New York Paycheck Calculator 2026', url: `${SITE_URL}/new-york-tax-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
-      { '@type': 'MathSolver', name: 'New York Paycheck Math Solver', description: 'Computes net take-home pay with NY progressive tax brackets 4%-10.9% plus potential NYC tax.', mathExpression: 'Net = G - Fed(G - StdDed) - FICA(G) - NY_Progressive(G - StdDed_NY) - NYC_Tax' },
-      { '@type': 'Dataset', name: '2026 New York Tax Rates', variableMeasured: [
-        { name: 'New York Top Marginal Tax Rate', value: '10.9%' },
-        { name: 'New York Standard Deduction (Single)', value: '$8,100' },
-        { name: 'NYC Income Tax Rate Range', value: '3.078% - 3.876%' },
-      ]},
-      faqsToJsonLd(NEWYORK_FAQS),
-    ],
-  };
-}
-
-function getMortgageJsonLd() {
-  return {
-    '@context': 'https://schema.org',
-    '@graph': [
-      { '@type': 'BreadcrumbList', itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
-        { '@type': 'ListItem', position: 2, name: 'Mortgage Calculator', item: `${SITE_URL}/mortgage-calculator` },
-      ]},
-      { '@type': 'WebApplication', name: 'Mortgage Calculator with Extra Payments', url: `${SITE_URL}/mortgage-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
-      { '@type': 'MathSolver', name: 'Mortgage Amortization Solver', description: 'Computes monthly payment using M = P × [r(1+r)^n] / [(1+r)^n - 1]', mathExpression: 'M = P × [r(1+r)^n] / [(1+r)^n - 1]' },
-      faqsToJsonLd(MORTGAGE_FAQS),
-    ],
-  };
-}
-
-function getRetirementJsonLd() {
-  return {
-    '@context': 'https://schema.org',
-    '@graph': [
-      { '@type': 'BreadcrumbList', itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
-        { '@type': 'ListItem', position: 2, name: '401(k) Retirement Projection', item: `${SITE_URL}/401k-retirement-calculator` },
-      ]},
-      { '@type': 'WebApplication', name: '401(k) Retirement Projection Calculator 2026', url: `${SITE_URL}/401k-retirement-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
-      { '@type': 'MathSolver', name: '401(k) Compound Growth Solver', description: 'Computes projected 401(k) balance using annual contributions + employer match with compound annual growth.', mathExpression: 'B(n) = Σ C_annual × (1 + r)^(n-i)' },
-      faqsToJsonLd(RETIREMENT_FAQS),
-    ],
-  };
-}
-
-function getRelocationJsonLd() {
-  return {
-    '@context': 'https://schema.org',
-    '@graph': [
-      { '@type': 'BreadcrumbList', itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
-        { '@type': 'ListItem', position: 2, name: 'Salary Relocation Calculator', item: `${SITE_URL}/relocation-calculator` },
-      ]},
-      { '@type': 'WebApplication', name: 'Salary Relocation Calculator 2026', url: `${SITE_URL}/relocation-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
-      faqsToJsonLd(RELOCATION_FAQS),
-    ],
-  };
-}
-
-function getCapitalGainsJsonLd() {
-  return {
-    '@context': 'https://schema.org',
-    '@graph': [
-      { '@type': 'BreadcrumbList', itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
-        { '@type': 'ListItem', position: 2, name: 'Capital Gains Tax Calculator', item: `${SITE_URL}/capital-gains-calculator` },
-      ]},
-      { '@type': 'WebApplication', name: 'Capital Gains Tax Calculator 2026', url: `${SITE_URL}/capital-gains-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
-      { '@type': 'FAQPage', mainEntity: [
-        { '@type': 'Question', name: "What's the difference between short-term and long-term capital gains?", acceptedAnswer: { '@type': 'Answer', text: 'Short-term gains (held ≤ 1 year) are taxed as ordinary income up to 37%. Long-term gains (held > 1 year) are taxed at preferential rates of 0%, 15%, or 20%.' } },
-        { '@type': 'Question', name: 'What is the Net Investment Income Tax?', acceptedAnswer: { '@type': 'Answer', text: 'The NIIT is an additional 3.8% tax on investment income when MAGI exceeds $200,000 (single) or $250,000 (married).' } },
-      ]},
-      faqsToJsonLd(CAPITAL_GAINS_FAQS),
-    ],
-  };
-}
-
-function getSelfEmploymentJsonLd() {
-  return {
-    '@context': 'https://schema.org',
-    '@graph': [
-      { '@type': 'BreadcrumbList', itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
-        { '@type': 'ListItem', position: 2, name: 'Self-Employment Tax Calculator', item: `${SITE_URL}/self-employment-tax-calculator` },
-      ]},
-      { '@type': 'WebApplication', name: 'Self-Employment Tax Calculator 2026', url: `${SITE_URL}/self-employment-tax-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
-      { '@type': 'FAQPage', mainEntity: [
-        { '@type': 'Question', name: 'What is the self-employment tax rate for 2026?', acceptedAnswer: { '@type': 'Answer', text: 'The self-employment tax rate is 15.3% on 92.35% of net business income: 12.4% for Social Security and 2.9% for Medicare.' } },
-      ]},
-      faqsToJsonLd(SELF_EMPLOYMENT_FAQS),
-    ],
-  };
-}
-
-function getIncomeTaxJsonLd() {
-  return {
-    '@context': 'https://schema.org',
-    '@graph': [
-      { '@type': 'BreadcrumbList', itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
-        { '@type': 'ListItem', position: 2, name: 'Income Tax Calculator', item: `${SITE_URL}/income-tax-calculator` },
-      ]},
-      { '@type': 'WebApplication', name: 'Income Tax Calculator 2026', url: `${SITE_URL}/income-tax-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
-      { '@type': 'MathSolver', name: 'Income Tax Math Solver', description: 'Computes income tax liability using progressive federal brackets, FICA, and state tax rates.', mathExpression: 'Tax = Fed(G - StdDed) + FICA(G) + State(G - StateDed)' },
-      { '@type': 'Dataset', name: '2026 Federal Income Tax Brackets', variableMeasured: [
-        { name: 'Lowest Federal Bracket', value: '10%' },
-        { name: 'Highest Federal Bracket', value: '37%' },
-        { name: 'Standard Deduction (Single)', value: '$15,000' },
-        { name: 'Social Security Wage Cap', value: '$176,100' },
-      ]},
-      faqsToJsonLd(INCOME_TAX_FAQS),
-    ],
-  };
-}
-
-function getTaxCalcJsonLd() {
-  return {
-    '@context': 'https://schema.org',
-    '@graph': [
-      { '@type': 'BreadcrumbList', itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
-        { '@type': 'ListItem', position: 2, name: 'Tax Calculator', item: `${SITE_URL}/tax-calculator` },
-      ]},
-      { '@type': 'WebApplication', name: 'Tax Calculator 2026', url: `${SITE_URL}/tax-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
-      { '@type': 'MathSolver', name: 'Tax Estimator Solver', description: 'Computes total tax liability including federal income tax, FICA, and state income tax for 5 states.', mathExpression: 'TotalTax = Fed(G - StdDed) + FICA(G) + State(G - StateDed)' },
-      { '@type': 'Dataset', name: '2026 Tax Rates', variableMeasured: [
-        { name: 'Federal Tax Brackets', value: '10% - 37%' },
-        { name: 'FICA Rate', value: '7.65%' },
-        { name: 'States Covered', value: 'IL, TX, FL, CA, NY' },
-      ]},
-      faqsToJsonLd(TAX_CALC_FAQS),
-    ],
-  };
-}
-
-function getJsonLdForType(type: string) {
-  switch (type) {
-    case 'illinois': return getIllinoisJsonLd();
-    case 'texas': return getTexasJsonLd();
-    case 'florida': return getFloridaJsonLd();
-    case 'california': return getCaliforniaJsonLd();
-    case 'newyork': return getNewYorkJsonLd();
-    case 'mortgage': return getMortgageJsonLd();
-    case 'retirement': return getRetirementJsonLd();
-    case 'relocation': return getRelocationJsonLd();
-    case 'capital-gains': return getCapitalGainsJsonLd();
-    case 'self-employment': return getSelfEmploymentJsonLd();
-    case 'income-tax': return getIncomeTaxJsonLd();
-    case 'tax-calc': return getTaxCalcJsonLd();
-    default: return getHomeJsonLd();
-  }
-}
-
-// ─── Calculator Content Data ──────────────────────────────────────────────────
-
-interface CalculatorContent {
+export interface CalculatorContentData {
   howItWorks: string[];
   keyRates: { label: string; value: string }[];
   faqs: FAQItem[];
   relatedCalculators: { slug: string; label: string }[];
 }
 
-function getCalculatorContent(type: string): CalculatorContent {
+// ─── Content Data ─────────────────────────────────────────────────────────────
+
+export function getCalculatorContent(type: string): CalculatorContentData {
   switch (type) {
     case 'home':
       return {
@@ -578,48 +282,96 @@ function getCalculatorContent(type: string): CalculatorContent {
           { slug: '401k-retirement-calculator', label: '401(k) Calculator' },
         ],
       };
+    case 'sales-tax':
+      return {
+        howItWorks: [
+          'Sales tax is a consumption tax added to the price of goods and certain services at the point of sale. The rate you pay is the <strong>combined rate</strong> — the state base rate plus any local taxes from your county, city, or special district. This calculator uses average combined rates for all 50 US states.',
+          'The formula is straightforward: <strong>Tax = Purchase Price × Tax Rate</strong>. A $100 purchase at 8.25% combined rate = $8.25 in sales tax, for a total of $108.25. Four states — Delaware, Montana, New Hampshire, and Oregon — charge 0% state sales tax. Alaska has no state sales tax but allows local taxes.',
+          'Need to work backwards? The <strong>reverse sales tax formula</strong> divides the total by (1 + tax rate) to find the original price. A $108.25 total with 8.25% tax = $108.25 ÷ 1.0825 = $100.00 original price. This is essential for expense reports and bookkeeping.',
+          'Rates vary dramatically by state. Louisiana and Tennessee have the highest average combined rates at 9.56%, while four states charge nothing at all. Some cities — particularly in California, Louisiana, and Alabama — push past 10% when all local taxes are combined. The average combined rate across the US is about 6.6%.',
+          'Since the 2018 Supreme Court decision in <a href="https://www.supremecourt.gov/opinions/17pdf/17-494_4g15.pdf" target="_blank" rel="noopener noreferrer">South Dakota v. Wayfair</a>, states can require online retailers to collect sales tax regardless of physical presence. Most online purchases now include sales tax based on the buyer\'s location.',
+        ],
+        keyRates: [
+          { label: 'Highest State (LA, TN)', value: '9.56% combined' },
+          { label: 'Lowest (excl. 0%)', value: 'AK 1.82% combined' },
+          { label: 'No Sales Tax States', value: 'DE, MT, NH, OR' },
+          { label: 'US Average Combined Rate', value: '~6.6%' },
+          { label: 'CA Combined Rate', value: '8.82%' },
+        ],
+        faqs: SALES_TAX_FAQS,
+        relatedCalculators: [
+          { slug: 'paycheck-calculator', label: 'Paycheck Calculator' },
+          { slug: 'capital-gains-calculator', label: 'Capital Gains Calculator' },
+          { slug: 'self-employment-tax-calculator', label: 'Self-Employment Calculator' },
+        ],
+      };
     case 'income-tax':
       return {
         howItWorks: [
-          'Income tax is the biggest chunk taken out of your paycheck, and it works differently than most people think. The US uses a progressive bracket system — your first dollars are taxed at 10%, and only the income above each bracket threshold gets the higher rate. For 2026, brackets range from 10% to 37%. The standard deduction ($15,000 single / $30,000 married) comes off the top before any brackets apply.',
-          'On top of federal income tax, you\'re paying <a href="https://www.irs.gov/taxtopics/tc751" target="_blank" rel="noopener noreferrer">FICA</a>: 6.2% for Social Security (up to $176,100) and 1.45% for Medicare (no cap), plus 0.9% additional Medicare above $200K. That\'s 7.65% minimum coming off the top. Then state income tax varies wildly — from 0% in Texas and Florida to over 13% in California at the top.',
-          'Here\'s what catches people off guard: your marginal rate (the bracket your top dollar falls into) is NOT your effective rate. A single filer making $75,000 has a marginal rate of 22%, but after the standard deduction and progressive brackets, the effective federal rate is only about 11.6%. The difference between what people think they pay and what they actually pay is significant.',
-          'Pre-tax contributions are your best friend for reducing income tax. Every dollar in a traditional 401(k) lowers your taxable income by a dollar for federal and state purposes. HSA contributions do the same. At the 22% bracket, putting $10,000 in a 401(k) saves you $2,200 in federal income tax alone — plus whatever state tax you\'d save.',
+          'Federal income tax in the US uses a progressive bracket system — your income is divided into chunks, and each chunk is taxed at a different rate. For 2026, the brackets range from 10% on your first dollars earned up to 37% on income above $609,350 (single). The key thing to understand: only the income within each bracket gets that rate. A $75,000 earner doesn\'t pay 22% on everything — they pay 10% on the first $11,600, 12% on the next chunk, and 22% only on the amount above $47,150. That\'s why your effective rate is always lower than your marginal rate.',
+          'Before the brackets apply, you get the standard deduction: $15,000 for single filers, $30,000 for married filing jointly, or $22,500 for head of household. This comes off the top of your gross income. So a single person making $75,000 is only taxed on $60,000. Pre-tax deductions like 401(k) contributions and HSA deposits further reduce your taxable income — every dollar you contribute saves you at your marginal rate.',
+          'On top of federal income tax, there\'s FICA: 6.2% for Social Security (up to the $176,100 wage cap) and 1.45% for Medicare (no cap). Add 0.9% more Medicare if you earn above $200,000. That\'s 7.65% total for most earners, and it\'s calculated on your gross income before any deductions — including 401(k) contributions.',
+          'Then there\'s state income tax, which varies wildly. Texas and Florida: 0%. Illinois: 4.95% flat. California: 1%–13.3% progressive. New York: 4%–10.9% progressive, plus NYC residents pay an additional 3.078%–3.876% city tax. The state you live in can easily mean thousands of dollars difference on the same salary. This calculator handles all five states plus the federal calculation.',
+          'The bottom line: your income tax burden depends on three big factors — your filing status, your state of residence, and your pre-tax deductions. Use this calculator to see the full picture: federal tax, FICA, state tax, and your actual take-home pay.',
         ],
         keyRates: [
-          { label: 'Federal Tax Brackets', value: '10% – 37%' },
+          { label: 'Federal Brackets', value: '10% – 37% (7 brackets)' },
           { label: 'Standard Deduction (Single)', value: '$15,000' },
           { label: 'Standard Deduction (Married)', value: '$30,000' },
-          { label: 'FICA Rate', value: '7.65%' },
-          { label: 'Social Security Cap', value: '$176,100' },
+          { label: 'FICA Rate', value: '7.65% (up to $176,100)' },
+          { label: 'Additional Medicare', value: '0.9% (above $200K)' },
         ],
         faqs: INCOME_TAX_FAQS,
         relatedCalculators: [
-          { slug: 'tax-calculator', label: 'Tax Calculator' },
           { slug: 'paycheck-calculator', label: 'Paycheck Calculator' },
-          { slug: 'self-employment-tax-calculator', label: 'Self-Employment Calculator' },
+          { slug: 'tax-calculator', label: 'Tax Calculator' },
+          { slug: 'sales-tax-calculator', label: 'Sales Tax Calculator' },
         ],
       };
     case 'tax-calc':
       return {
         howItWorks: [
-          'This tax calculator estimates your total tax burden for 2026 — federal income tax, FICA, and state income tax all rolled together. It uses the official IRS progressive brackets (10%–37%), current FICA rates, and state-specific tax laws for five states. All calculations follow <a href="https://www.irs.gov/publications/p15t" target="_blank" rel="noopener noreferrer">IRS Publication 15-T</a> methodology.',
-          'Federal tax uses progressive brackets with standard deductions of $15,000 (single) or $30,000 (married). <a href="https://www.irs.gov/taxtopics/tc751" target="_blank" rel="noopener noreferrer">FICA</a> adds 7.65% on top (6.2% Social Security up to $176,100 + 1.45% Medicare, plus 0.9% additional Medicare above $200K). State tax depends on where you live — we cover Illinois at 4.95% flat, Texas and Florida at 0%, California at 1%–13.3% progressive, and New York at 4%–10.9% plus potential NYC tax.',
-          'The calculator also factors in pre-tax deductions. Traditional 401(k) contributions reduce your taxable income for federal and state income tax (but not FICA). HSA contributions work the same way. These deductions can meaningfully lower your tax bill — especially in high-tax states like California where a 401(k) contribution saves you both federal and state tax.',
-          'Your results show the full breakdown: federal tax, FICA, state tax, and your take-home pay. You\'ll also see your effective tax rate (total tax ÷ gross income) and marginal rate (the bracket your top dollar falls into). Most people are surprised that their effective rate is significantly lower than their marginal rate.',
+          'This tax calculator estimates your total federal and state tax burden for 2026. It accounts for income tax, FICA payroll taxes, and state-specific tax rules — everything that comes out of your paycheck before you see it.',
+          'Federal income tax uses progressive brackets (10%–37%). You subtract the standard deduction first — $15,000 for single filers — then each bracket applies only to the income within that range. Your effective tax rate (total tax ÷ gross income) is always lower than your marginal rate (the bracket your last dollar falls into). Most people overestimate their effective rate.',
+          'FICA adds another 7.65% on top: 6.2% for Social Security (capped at $176,100 in earnings) and 1.45% for Medicare (no cap). Earn over $200,000 and there\'s an extra 0.9% Medicare surcharge. Unlike income tax, FICA is calculated on gross pay before deductions — 401(k) contributions don\'t reduce it.',
+          'State tax is where things get interesting. We cover five states with very different approaches: Illinois charges a flat 4.95% with a small personal exemption. Texas and Florida charge 0% income tax (they fund government through property and sales taxes instead). California runs progressive brackets from 1% to 13.3%. New York does 4% to 10.9% progressive, and NYC residents pay an additional city tax. The difference between the highest and lowest state tax on the same salary can be $8,000+ per year.',
+          'Pre-tax deductions are your friend. 401(k) contributions (up to $23,500 in 2026) and HSA contributions reduce your taxable income for federal and state income tax — but not for FICA. At a 22% marginal rate, every $1,000 in 401(k) contributions saves you $220 in federal tax plus whatever your state charges.',
         ],
         keyRates: [
           { label: 'Federal Tax Brackets', value: '10% – 37%' },
-          { label: 'FICA (Employee)', value: '7.65%' },
           { label: 'Standard Deduction (Single)', value: '$15,000' },
-          { label: 'Social Security Wage Cap', value: '$176,100' },
-          { label: 'Additional Medicare Threshold', value: '$200,000' },
+          { label: 'FICA (SS + Medicare)', value: '7.65%' },
+          { label: 'SS Wage Cap', value: '$176,100' },
+          { label: '401(k) Limit', value: '$23,500' },
         ],
         faqs: TAX_CALC_FAQS,
         relatedCalculators: [
           { slug: 'income-tax-calculator', label: 'Income Tax Calculator' },
+          { slug: 'sales-tax-calculator', label: 'Sales Tax Calculator' },
+          { slug: 'self-employment-tax-calculator', label: 'Self-Employment Calculator' },
+        ],
+      };
+    case 'tax-refund':
+      return {
+        howItWorks: [
+          'Your tax refund is simply the difference between what was withheld from your paychecks throughout the year and what you actually owe in taxes. If your employer withheld more than your total tax bill, the government sends you a refund. If they withheld less, you write a check. This calculator helps you figure out which scenario you\'re looking at before you file.',
+          'The calculation goes like this: start with your total income, subtract deductions (standard or itemized) to get taxable income, apply the federal tax brackets, subtract any credits you qualify for, and that\'s your federal tax owed. Compare it to what was already withheld. The difference is your refund — or your balance due.',
+          'The standard deduction for 2026 is $15,000 (single), $30,000 (married filing jointly), or $22,500 (head of household). Most people take the standard — about 90% of taxpayers. But if you have significant mortgage interest, charitable donations, or state/local taxes (SALT, capped at $10,000), itemizing might save you more. This calculator lets you try both.',
+          'Tax credits are better than deductions — they reduce your tax bill dollar for dollar, while deductions only reduce your taxable income. The Child Tax Credit gives you $2,000 per qualifying child (up to $1,700 refundable). The Earned Income Credit can be worth up to $7,430 for families with three or more children. These credits can turn a small refund into a big one.',
+          'A quick note on refund timing: if you e-file and choose direct deposit, most refunds arrive within 21 days. Paper returns take 6-8 weeks. The IRS typically starts accepting returns in late January, and filing early usually means faster processing. Just make sure you have all your documents (W-2, 1099, etc.) before you file.',
+        ],
+        keyRates: [
+          { label: 'Standard Deduction (Single)', value: '$15,000' },
+          { label: 'Standard Deduction (Married)', value: '$30,000' },
+          { label: 'Child Tax Credit', value: '$2,000/child' },
+          { label: 'Refundable Portion', value: 'Up to $1,700' },
+          { label: 'EIC Max (3+ children)', value: '$7,430' },
+        ],
+        faqs: TAX_REFUND_FAQS,
+        relatedCalculators: [
           { slug: 'paycheck-calculator', label: 'Paycheck Calculator' },
-          { slug: 'capital-gains-calculator', label: 'Capital Gains Calculator' },
+          { slug: 'income-tax-calculator', label: 'Income Tax Calculator' },
+          { slug: 'self-employment-tax-calculator', label: 'Self-Employment Calculator' },
         ],
       };
     default:
@@ -630,119 +382,4 @@ function getCalculatorContent(type: string): CalculatorContent {
         relatedCalculators: [],
       };
   }
-}
-
-// ─── Client Component ──────────────────────────────────────────────────────
-
-interface CalculatorContentClientProps {
-  jsonLdType: string;
-}
-
-export function CalculatorContentClient({ jsonLdType }: CalculatorContentClientProps) {
-  const jsonLd = getJsonLdForType(jsonLdType);
-  const content = getCalculatorContent(jsonLdType);
-
-  if (!content.howItWorks.length) return null;
-
-  return (
-    <div className="mt-12 space-y-10">
-      {/* JSON-LD Structured Data */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-
-      {/* How This Calculator Works */}
-      <section className="rounded-xl border border-border/30 bg-card/50 p-6 sm:p-8">
-        <h2 className="text-2xl font-bold text-foreground mb-4">
-          How This Calculator Works
-        </h2>
-        <div className="space-y-4">
-          {content.howItWorks.map((paragraph, i) => (
-            <p key={i} className="text-muted-foreground leading-relaxed" dangerouslySetInnerHTML={{ __html: paragraph.replace(/\n/g, '<br/>') }} />
-          ))}
-        </div>
-      </section>
-
-      {/* Key Rates & Data */}
-      {content.keyRates.length > 0 && (
-        <section className="rounded-xl border border-emerald-500/20 bg-emerald-500/5 p-6 sm:p-8">
-          <h2 className="text-2xl font-bold text-foreground mb-4">
-            Key Rates & Data for 2026
-          </h2>
-          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {content.keyRates.map((rate) => (
-              <div
-                key={rate.label}
-                className="rounded-lg border border-border/30 bg-card/60 p-4"
-              >
-                <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-1">
-                  {rate.label}
-                </p>
-                <p className="text-base font-bold text-foreground">
-                  {rate.value}
-                </p>
-              </div>
-            ))}
-          </div>
-        </section>
-      )}
-
-      {/* Frequently Asked Questions */}
-      {content.faqs.length > 0 && (
-        <section>
-          <h2 className="text-2xl font-bold text-foreground mb-6">
-            Frequently Asked Questions
-          </h2>
-          <div className="space-y-3">
-            {content.faqs.map((faq, i) => (
-              <details
-                key={i}
-                className="group rounded-xl border border-border/30 bg-card/50 overflow-hidden"
-              >
-                <summary className="flex cursor-pointer items-center justify-between gap-3 p-5 text-left font-medium text-foreground hover:bg-muted/10 transition-colors">
-                  <h3 className="text-sm sm:text-base">{faq.question}</h3>
-                  <svg
-                    className="h-4 w-4 shrink-0 text-muted-foreground transition-transform group-open:rotate-180"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-                  </svg>
-                </summary>
-                <div className="px-5 pb-5 text-sm text-muted-foreground leading-relaxed">
-                  {faq.answer}
-                </div>
-              </details>
-            ))}
-          </div>
-        </section>
-      )}
-
-      {/* Related Calculators */}
-      {content.relatedCalculators.length > 0 && (
-        <section className="rounded-xl border border-border/30 bg-card/50 p-6 sm:p-8">
-          <h2 className="text-lg font-semibold text-foreground mb-4">
-            Related Calculators
-          </h2>
-          <div className="flex flex-wrap gap-3">
-            {content.relatedCalculators.map((calc) => (
-              <Link
-                key={calc.slug}
-                href={`/${calc.slug}`}
-                className="inline-flex items-center gap-1.5 rounded-lg border border-emerald-500/30 bg-emerald-500/5 px-4 py-2 text-sm font-medium text-emerald-400 hover:bg-emerald-500/10 hover:border-emerald-500/50 transition-all"
-              >
-                <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                </svg>
-                {calc.label}
-              </Link>
-            ))}
-          </div>
-        </section>
-      )}
-    </div>
-  );
 }

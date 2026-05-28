@@ -20,17 +20,19 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "TheTaxCalc — Free 2026 Paycheck & Mortgage Calculator | IL, TX, FL, CA, NY",
+    default: "TheTaxCalc — Free 2026 Tax, Paycheck & Mortgage Calculator | All 50 States",
     template: "%s | TheTaxCalc",
   },
   description:
-    "Instantly calculate your take-home pay after federal tax, FICA, and state income tax. Supports Illinois (4.95%), Texas (0%), Florida (0%), California (1%-13.3%), New York (4%-10.9%). Includes mortgage, 401(k), capital gains, and self-employment calculators.",
+    "Free 2026 tax calculators: paycheck, income tax, sales tax, tax refund, mortgage. Federal & state taxes for IL, TX, FL, CA, NY and all 50 states for sales tax. 15+ free tools, no sign-up required.",
   keywords: [
-    "paycheck calculator", "take home pay calculator", "salary calculator",
-    "Illinois tax calculator", "Texas tax calculator", "Florida tax calculator",
-    "California tax calculator", "New York tax calculator", "mortgage calculator",
-    "FICA calculator", "2026 tax brackets", "federal tax calculator",
-    "state income tax", "after tax salary", "net pay calculator",
+    "paycheck calculator", "tax calculator", "income tax calculator",
+    "sales tax calculator", "tax refund calculator", "take home pay calculator",
+    "salary calculator", "Illinois tax calculator", "Texas tax calculator",
+    "Florida tax calculator", "California tax calculator", "New York tax calculator",
+    "mortgage calculator", "FICA calculator", "2026 tax brackets",
+    "federal tax calculator", "state income tax", "after tax salary",
+    "net pay calculator", "tax estimator",
   ],
   authors: [{ name: "TheTaxCalc" }],
   creator: "TheTaxCalc",
@@ -40,9 +42,9 @@ export const metadata: Metadata = {
     apple: "/apple-touch-icon.png",
   },
   openGraph: {
-    title: "TheTaxCalc — Free 2026 Paycheck & Mortgage Calculator",
+    title: "TheTaxCalc — Free 2026 Tax, Paycheck & Mortgage Calculator",
     description:
-      "Precision paycheck calculator for 2026. Compute take-home pay after federal, FICA, and state taxes for IL, TX, FL, CA, NY.",
+      "15+ free tax calculators for 2026. Paycheck, income tax, sales tax, refund estimator, mortgage, 401(k), and more. Federal & state taxes for IL, TX, FL, CA, NY.",
     url: SITE_URL,
     siteName: "TheTaxCalc",
     type: "website",

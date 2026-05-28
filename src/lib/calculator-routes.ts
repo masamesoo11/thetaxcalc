@@ -275,6 +275,89 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     canonicalPath: '/self-employment-tax-calculator',
     jsonLdType: 'self-employment',
   },
+  {
+    slug: 'sales-tax-calculator',
+    title: 'Sales Tax Calculator 2026 — Calculate Sales Tax by State',
+    description:
+      'Free sales tax calculator. Calculate sales tax for any US state with local rates. Includes reverse sales tax calculator to find original price from total.',
+    h1: 'Sales Tax Calculator',
+    metaTitle: 'Free Sales Tax Calculator 2026 | All 50 States + Reverse',
+    metaDesc:
+      'Calculate sales tax for any US state. Free 2026 sales tax calculator with all 50 states, local rates, and reverse tax calculator. Find original price from total.',
+    keywords: [
+      'sales tax calculator', 'calculate sales tax', 'sales tax by state',
+      'reverse sales tax calculator', 'sales tax rate', 'state sales tax',
+      'tax on purchase calculator',
+    ],
+    componentKey: 'sales-tax',
+    category: 'paycheck' as const,
+    breadcrumbLabel: 'Sales Tax',
+    ogTitle: 'Free Sales Tax Calculator 2026 — All 50 States + Reverse',
+    ogDescription:
+      'Calculate sales tax for any US state with local rates. Free calculator includes reverse tax lookup.',
+    canonicalPath: '/sales-tax-calculator',
+    jsonLdType: 'sales-tax',
+  },
+  {
+    slug: 'income-tax-calculator',
+    title: 'Free Income Tax Calculator 2026 — Federal & State Income Tax',
+    description:
+      'Calculate your income tax for 2026. Free income tax calculator with federal brackets, state taxes for IL, TX, FL, CA, NY, FICA, and standard deductions. Estimate your tax liability.',
+    h1: 'Income Tax Calculator',
+    metaTitle: 'Free Income Tax Calculator 2026 | Federal & State Tax',
+    metaDesc:
+      'Calculate your 2026 income tax with federal brackets, FICA, and state taxes for IL, TX, FL, CA, NY. Free income tax calculator with standard deductions and 401(k).',
+    keywords: [
+      'income tax calculator', 'federal income tax calculator', 'state income tax calculator',
+      'income tax estimator', 'tax liability calculator', '2026 income tax', 'income tax brackets',
+    ],
+    componentKey: 'home',
+    category: 'paycheck' as const,
+    breadcrumbLabel: 'Income Tax',
+    ogTitle: 'Free Income Tax Calculator 2026 — Federal & State Tax',
+    ogDescription:
+      'Calculate your 2026 income tax with federal brackets and state taxes. Free calculator for IL, TX, FL, CA, NY.',
+    canonicalPath: '/income-tax-calculator',
+    jsonLdType: 'income-tax',
+  },
+  {
+    slug: 'tax-calculator',
+    title: 'Free Tax Calculator 2026 — Federal, State & FICA Tax Estimator',
+    description:
+      'Free tax calculator for 2026. Estimate your federal tax, state tax, FICA, and take-home pay. Supports all filing statuses and 5 state tax profiles. Accurate 2026 brackets.',
+    h1: 'Tax Calculator',
+    metaTitle: 'Free Tax Calculator 2026 | Federal, State & FICA Tax',
+    metaDesc:
+      'Free 2026 tax calculator. Estimate federal tax, FICA, and state taxes for IL, TX, FL, CA, NY. Includes 401(k) and HSA deductions. Accurate 2026 tax brackets.',
+    keywords: [
+      'tax calculator', 'federal tax calculator', 'tax estimator',
+      '2026 tax calculator', 'tax bracket calculator', 'tax withholding calculator', 'free tax calculator',
+    ],
+    componentKey: 'home',
+    category: 'paycheck' as const,
+    breadcrumbLabel: 'Tax Calculator',
+    ogTitle: 'Free Tax Calculator 2026 — Federal, State & FICA',
+    ogDescription:
+      'Estimate your 2026 tax with federal brackets, FICA, and state taxes. Free calculator for IL, TX, FL, CA, NY.',
+    canonicalPath: '/tax-calculator',
+    jsonLdType: 'tax-calc',
+  },
+  {
+    slug: 'tax-refund-calculator',
+    title: 'Tax Refund Calculator 2026 — Estimate Your Federal & State Refund',
+    description: 'Free tax refund calculator for 2026. Estimate your federal and state tax refund or amount owed. Includes standard/itemized deductions, child tax credit, and EIC.',
+    h1: 'Tax Refund Calculator',
+    metaTitle: 'Free Tax Refund Calculator 2026 | Federal & State Refund',
+    metaDesc: 'Estimate your 2026 tax refund or amount owed. Free calculator with federal and state refund estimates, standard/itemized deductions, and child tax credit.',
+    keywords: ['tax refund calculator', 'tax refund estimator', 'tax return calculator', 'federal refund calculator', 'state refund calculator', '2026 tax refund', 'tax refund estimate'],
+    componentKey: 'tax-refund',
+    category: 'paycheck' as const,
+    breadcrumbLabel: 'Tax Refund',
+    ogTitle: 'Free Tax Refund Calculator 2026 — Federal & State Refund',
+    ogDescription: 'Estimate your 2026 federal and state tax refund. Free calculator with deductions and credits.',
+    canonicalPath: '/tax-refund-calculator',
+    jsonLdType: 'tax-refund',
+  },
 ];
 
 /** Map from componentKey (old hash key) to slug (new route) */

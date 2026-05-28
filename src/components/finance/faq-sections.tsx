@@ -16,6 +16,9 @@ export {
   MORTGAGE_FAQS,
   CAPITAL_GAINS_FAQS,
   SELF_EMPLOYMENT_FAQS,
+  INCOME_TAX_FAQS,
+  TAX_CALC_FAQS,
+  SALES_TAX_FAQS,
 } from '@/lib/faq-data';
 
 interface FAQSectionProps {
