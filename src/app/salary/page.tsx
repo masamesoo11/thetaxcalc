@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import {
 import { SITE_URL } from '@/lib/site-config';
+import {
   SALARY_AMOUNTS,
   calculateSalaryTakeHome,
   getGroupedSalaries,
@@ -26,7 +26,7 @@ import { Breadcrumb } from '@/components/finance/breadcrumb';
 // ─── Page Metadata ─────────────────────────────────────────────────────────────
 
 export const metadata: Metadata = {
-  title: 'Salary After Tax Calculator 2026 — Take-Home Pay by State | TaxYield.io',
+  title: 'Salary After Tax Calculator 2026 — Take-Home Pay by State | TheTaxCalc',
   description:
     'See your take-home pay for every salary from $30K to $500K. Compare after-tax income across Illinois, Texas, Florida, California, and New York for 2026.',
   keywords: [
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     description:
       'See your take-home pay for every salary from $30K to $500K. Compare after-tax income across IL, TX, FL, CA, NY.',
     url: `${SITE_URL}/salary`,
-    siteName: 'TaxYield.io',
+    siteName: 'TheTaxCalc',
     type: 'website',
     locale: 'en_US',
   },

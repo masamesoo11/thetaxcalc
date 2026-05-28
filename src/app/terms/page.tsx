@@ -7,7 +7,7 @@ import { SITE_URL } from '@/lib/site-config';
 export const metadata: Metadata = {
   title: 'Terms of Use',
   description:
-    'TaxYield.io Terms of Use — understand the terms and conditions for using our free tax calculators and website.',
+    'TheTaxCalc Terms of Use — understand the terms and conditions for using our free tax calculators and website.',
   keywords: ['terms of use', 'taxyield terms', 'tax calculator terms', 'usage agreement', 'legal terms', 'disclaimer'],
   alternates: {
     canonical: `${SITE_URL}/terms`,
@@ -17,10 +17,10 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'Terms of Use — TaxYield.io',
-    description: 'Understand the terms and conditions for using TaxYield.io free tax calculators and website.',
+    title: 'Terms of Use — TheTaxCalc',
+    description: 'Understand the terms and conditions for using TheTaxCalc free tax calculators and website.',
     url: `${SITE_URL}/terms`,
-    siteName: 'TaxYield.io',
+    siteName: 'TheTaxCalc',
     type: 'website',
     locale: 'en_US',
   },
@@ -29,12 +29,12 @@ export const metadata: Metadata = {
 const termsJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'WebPage',
-  name: 'Terms of Use — TaxYield.io',
-  description: 'Understand the terms and conditions for using TaxYield.io free tax calculators and website.',
+  name: 'Terms of Use — TheTaxCalc',
+  description: 'Understand the terms and conditions for using TheTaxCalc free tax calculators and website.',
   url: `${SITE_URL}/terms`,
   isPartOf: {
     '@type': 'WebSite',
-    name: 'TaxYield.io',
+    name: 'TheTaxCalc',
     url: SITE_URL,
   },
 };
@@ -65,8 +65,8 @@ export default function TermsPage() {
           </div>
         </div>
         <p className="text-muted-foreground leading-relaxed">
-          These Terms of Use (&quot;Terms&quot;) govern your access to and use of the TaxYield.io website
-          and all related services. By accessing or using TaxYield.io, you agree to be bound by these
+          These Terms of Use (&quot;Terms&quot;) govern your access to and use of the TheTaxCalc website
+          and all related services. By accessing or using TheTaxCalc, you agree to be bound by these
           Terms. If you do not agree, please do not use our website.
         </p>
       </div>
@@ -78,7 +78,7 @@ export default function TermsPage() {
           <div>
             <h2 className="text-lg font-semibold text-foreground mb-2">Important Disclaimer</h2>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              TaxYield.io provides <strong className="text-foreground">estimates for informational purposes only</strong>.
+              TheTaxCalc provides <strong className="text-foreground">estimates for informational purposes only</strong>.
               Our calculators are not a substitute for professional tax, accounting, or financial advice.
               Tax laws are complex and subject to change. Always consult a qualified tax professional
               or CPA for advice specific to your financial situation. We make no guarantees about the
@@ -98,7 +98,7 @@ export default function TermsPage() {
           </div>
           <div className="text-sm text-muted-foreground leading-relaxed space-y-3">
             <p>
-              By accessing and using TaxYield.io, you acknowledge that you have read, understood, and
+              By accessing and using TheTaxCalc, you acknowledge that you have read, understood, and
               agree to be bound by these Terms of Use and our{' '}
               <Link href="/privacy" className="text-emerald-400 hover:text-emerald-300 underline">
                 Privacy Policy
@@ -120,7 +120,7 @@ export default function TermsPage() {
             <h2 className="text-xl font-semibold text-foreground">2. Use of Our Services</h2>
           </div>
           <div className="text-sm text-muted-foreground leading-relaxed space-y-3">
-            <p>TaxYield.io provides free, web-based tax calculators for informational purposes. You agree to:</p>
+            <p>TheTaxCalc provides free, web-based tax calculators for informational purposes. You agree to:</p>
             <ul className="list-disc list-inside space-y-1 ml-2">
               <li>Use our calculators only for personal, non-commercial informational purposes</li>
               <li>Not attempt to reverse engineer, decompile, or otherwise access the source code</li>
@@ -140,7 +140,7 @@ export default function TermsPage() {
           </div>
           <div className="text-sm text-muted-foreground leading-relaxed space-y-3">
             <p>
-              While we strive for accuracy, TaxYield.io provides <strong className="text-foreground">estimates only</strong>.
+              While we strive for accuracy, TheTaxCalc provides <strong className="text-foreground">estimates only</strong>.
               Our calculations are based on:
             </p>
             <ul className="list-disc list-inside space-y-1 ml-2">
@@ -168,7 +168,7 @@ export default function TermsPage() {
           </div>
           <div className="text-sm text-muted-foreground leading-relaxed space-y-3">
             <p>
-              The content on TaxYield.io, including calculator results, blog articles, and guides, is
+              The content on TheTaxCalc, including calculator results, blog articles, and guides, is
               provided for general informational purposes only. Nothing on this website constitutes:
             </p>
             <ul className="list-disc list-inside space-y-1 ml-2">
@@ -192,8 +192,8 @@ export default function TermsPage() {
           </div>
           <div className="text-sm text-muted-foreground leading-relaxed space-y-3">
             <p>
-              All content on TaxYield.io, including but not limited to text, graphics, logos, icons,
-              images, code, and the overall design of the website, is the property of TaxYield.io
+              All content on TheTaxCalc, including but not limited to text, graphics, logos, icons,
+              images, code, and the overall design of the website, is the property of TheTaxCalc
               and is protected by applicable intellectual property laws.
             </p>
             <p>
@@ -216,7 +216,7 @@ export default function TermsPage() {
           </div>
           <div className="text-sm text-muted-foreground leading-relaxed space-y-3">
             <p>
-              TaxYield.io may contain links to third-party websites and display advertisements from
+              TheTaxCalc may contain links to third-party websites and display advertisements from
               third-party networks. We are not responsible for the content, accuracy, or practices
               of any third-party websites. Your interactions with third-party sites are governed by
               their own terms and privacy policies.
@@ -239,7 +239,7 @@ export default function TermsPage() {
             <p>To the fullest extent permitted by law:</p>
             <ul className="list-disc list-inside space-y-1 ml-2">
               <li>
-                TaxYield.io is provided &quot;as is&quot; and &quot;as available&quot; without warranties
+                TheTaxCalc is provided &quot;as is&quot; and &quot;as available&quot; without warranties
                 of any kind, either express or implied
               </li>
               <li>
@@ -255,7 +255,7 @@ export default function TermsPage() {
               </li>
               <li>
                 We are not liable for any decisions you make based on information provided by
-                TaxYield.io
+                TheTaxCalc
               </li>
             </ul>
           </div>
@@ -269,7 +269,7 @@ export default function TermsPage() {
           </div>
           <div className="text-sm text-muted-foreground leading-relaxed">
             <p>
-              You agree to indemnify and hold harmless TaxYield.io, its owners, operators, and
+              You agree to indemnify and hold harmless TheTaxCalc, its owners, operators, and
               contributors from any claims, damages, losses, or expenses (including reasonable
               attorney fees) arising from your use of our website or violation of these Terms.
             </p>
@@ -300,7 +300,7 @@ export default function TermsPage() {
           <div className="text-sm text-muted-foreground leading-relaxed">
             <p>
               These Terms shall be governed by and construed in accordance with the laws of the
-              United States. Any disputes arising from these Terms or your use of TaxYield.io
+              United States. Any disputes arising from these Terms or your use of TheTaxCalc
               shall be resolved in the appropriate courts.
             </p>
           </div>
@@ -317,7 +317,7 @@ export default function TermsPage() {
               If you have questions about these Terms of Use, please contact us at:
             </p>
             <div className="mt-3 rounded-lg bg-muted/30 p-4">
-              <p className="font-semibold text-foreground">TaxYield.io</p>
+              <p className="font-semibold text-foreground">TheTaxCalc</p>
               <p>Email: legal@taxyield.io</p>
               <p>Website: {SITE_URL}</p>
             </div>

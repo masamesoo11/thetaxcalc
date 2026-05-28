@@ -162,7 +162,7 @@ export function AdminGate({ children }: { children: React.ReactNode }) {
             <div className="flex h-5 w-5 items-center justify-center rounded-md bg-gradient-to-br from-emerald-500 to-emerald-600">
               <DollarSign className="h-3 w-3 text-white" />
             </div>
-            TaxYield.io
+            TheTaxCalc
           </div>
         </div>
       </div>

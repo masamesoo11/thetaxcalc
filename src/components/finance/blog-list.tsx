@@ -2,8 +2,8 @@
 
 import { useMemo, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
-import {
 import { SITE_URL } from '@/lib/site-config';
+import {
   Search,
   BookOpen,
   Clock,
@@ -311,9 +311,9 @@ export function BlogList({ onNavigate }: { onNavigate: (hash: string) => void })
     () => ({
       '@context': 'https://schema.org',
       '@type': 'ItemList',
-      name: 'TaxYield Blog — Tax Guides, Tips & News',
+      name: 'TheTaxCalc Blog — Tax Guides, Tips & News',
       description:
-        'Expert tax guides, state-by-state comparisons, and financial tips from TaxYield.io.',
+        'Expert tax guides, state-by-state comparisons, and financial tips from TheTaxCalc.',
       numberOfItems: posts.length,
       itemListElement: posts.slice(0, 10).map((post, i) => ({
         '@type': 'ListItem',
@@ -336,7 +336,7 @@ export function BlogList({ onNavigate }: { onNavigate: (hash: string) => void })
       {/* ─── Page Header ──────────────────────────────────── */}
       <div className="text-center">
         <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-          TaxYield <span className="text-emerald-400">Blog</span>
+          TheTaxCalc <span className="text-emerald-400">Blog</span>
         </h2>
         <p className="mt-2 text-muted-foreground">
           Expert tax guides, state-by-state comparisons, and financial tips to help you keep more of your money.

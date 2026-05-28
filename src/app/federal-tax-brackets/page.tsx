@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import {
 import { SITE_URL } from '@/lib/site-config';
+import {
   DollarSign,
   TrendingUp,
   Calculator,
@@ -17,7 +17,7 @@ import { BracketsTabs } from './brackets-tabs';
 // ─── Page Metadata ──────────────────────────────────────────────────────────────
 
 export const metadata: Metadata = {
-  title: '2026 Federal Tax Brackets — Rates, Standard Deductions & Examples | TaxYield.io',
+  title: '2026 Federal Tax Brackets — Rates, Standard Deductions & Examples | TheTaxCalc',
   description:
     'Complete 2026 federal income tax brackets for Single, Married Filing Jointly, and Head of Household. Includes standard deductions, progressive tax explanation, effective vs marginal rates, and a $75,000 salary breakdown example.',
   keywords: [
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     'tax bracket calculator',
     'how federal tax brackets work',
   ],
-  authors: [{ name: 'TaxYield.io' }],
+  authors: [{ name: 'TheTaxCalc' }],
   alternates: {
     canonical: `${SITE_URL}/federal-tax-brackets`,
     languages: {
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     description:
       'Complete 2026 federal tax brackets for all filing statuses. Standard deductions, progressive tax explanation, and effective vs marginal rates.',
     url: `${SITE_URL}/federal-tax-brackets`,
-    siteName: 'TaxYield.io',
+    siteName: 'TheTaxCalc',
     type: 'website',
     locale: 'en_US',
   },

@@ -9,7 +9,7 @@ import { SITE_URL } from '@/lib/site-config';
 // ─── Page Metadata ────────────────────────────────────────────────────────────
 
 export const metadata: Metadata = {
-  title: 'Tax Glossary — 2026 Tax Terms Explained | TaxYield.io',
+  title: 'Tax Glossary — 2026 Tax Terms Explained | TheTaxCalc',
   description:
     'Comprehensive tax glossary with 25+ terms explained for 2026. Understand FICA, standard deduction, marginal tax rate, AGI, capital gains brackets, self-employment tax, and more. Free, accurate, and easy to understand.',
   keywords: [
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     'estate tax exemption 2026', 'state income tax rates',
     'payroll tax explained', '2026 tax terms',
   ],
-  authors: [{ name: 'TaxYield.io' }],
+  authors: [{ name: 'TheTaxCalc' }],
   alternates: {
     canonical: `${SITE_URL}/glossary`,
     languages: {
@@ -35,13 +35,13 @@ export const metadata: Metadata = {
     description:
       '25+ tax terms explained for 2026: FICA, standard deduction, marginal tax rate, AGI, capital gains brackets, and more. Free, accurate tax definitions.',
     url: `${SITE_URL}/glossary`,
-    siteName: 'TaxYield.io',
+    siteName: 'TheTaxCalc',
     type: 'website',
     locale: 'en_US',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Tax Glossary — 2026 Tax Terms Explained | TaxYield.io',
+    title: 'Tax Glossary — 2026 Tax Terms Explained | TheTaxCalc',
     description:
       '25+ tax terms explained for 2026: FICA, standard deduction, marginal tax rate, AGI, and more.',
   },

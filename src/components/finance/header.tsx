@@ -104,7 +104,7 @@ export function Header() {
             <div className="absolute inset-0 rounded-xl bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity" />
           </div>
           <span className="text-lg font-bold tracking-tight text-foreground">
-            TaxYield<span className="gradient-text">.io</span>
+            TheTaxCalc<span className="gradient-text">.io</span>
           </span>
         </Link>
 

@@ -41,7 +41,7 @@ export async function generateMetadata({
   const config = SLUG_TO_CONFIG[calculator];
 
   if (!config) {
-    return { title: 'Calculator Not Found | TaxYield.io' };
+    return { title: 'Calculator Not Found | TheTaxCalc' };
   }
 
   const baseUrl = SITE_URL;
@@ -50,7 +50,7 @@ export async function generateMetadata({
     title: config.metaTitle,
     description: config.metaDesc,
     keywords: config.keywords,
-    authors: [{ name: 'TaxYield.io' }],
+    authors: [{ name: 'TheTaxCalc' }],
     alternates: {
       canonical: `${baseUrl}${config.canonicalPath}`,
       languages: {
@@ -62,7 +62,7 @@ export async function generateMetadata({
       title: config.ogTitle,
       description: config.ogDescription,
       url: `${baseUrl}${config.canonicalPath}`,
-      siteName: 'TaxYield.io',
+      siteName: 'TheTaxCalc',
       type: 'website',
       locale: 'en_US',
       images: [
@@ -123,7 +123,7 @@ function getHomeJsonLd() {
       },
       {
         '@type': 'SoftwareApplication',
-        name: 'TaxYield Paycheck Calculator',
+        name: 'TheTaxCalc Paycheck Calculator',
         applicationCategory: 'FinanceApplication',
         operatingSystem: 'Web',
         offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },

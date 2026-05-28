@@ -3,8 +3,8 @@
 import { useMemo } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import ReactMarkdown from 'react-markdown';
-import {
 import { SITE_URL } from '@/lib/site-config';
+import {
   ArrowLeft,
   Calendar,
   Clock,
@@ -333,12 +333,12 @@ export function BlogDetail({
             dateModified: post.updatedAt,
             author: {
               '@type': 'Organization',
-              name: 'TaxYield.io',
+              name: 'TheTaxCalc',
               url: SITE_URL,
             },
             publisher: {
               '@type': 'Organization',
-              name: 'TaxYield.io',
+              name: 'TheTaxCalc',
               url: SITE_URL,
               logo: {
                 '@type': 'ImageObject',
@@ -486,7 +486,7 @@ export function BlogDetail({
             <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
               <span className="flex items-center gap-1.5">
                 <User className="h-4 w-4" />
-                TaxYield Team
+                TheTaxCalc Team
               </span>
               <span className="flex items-center gap-1.5">
                 <Calendar className="h-4 w-4" />

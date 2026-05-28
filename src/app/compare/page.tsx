@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     description:
       'Compare state taxes side by side. Income tax, property tax, sales tax, and take-home pay on $75K and $150K salaries. Free 2026 comparison tool.',
     url: `${SITE_URL}/compare`,
-    siteName: 'TaxYield.io',
+    siteName: 'TheTaxCalc',
     type: 'website',
     locale: 'en_US',
   },

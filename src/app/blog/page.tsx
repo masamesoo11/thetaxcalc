@@ -8,7 +8,7 @@ import { SITE_URL } from '@/lib/site-config';
 // ─── Metadata ─────────────────────────────────────────────────────────────────
 
 export const metadata: Metadata = {
-  title: 'Tax Blog — Guides, Tips & News | TaxYield.io',
+  title: 'Tax Blog — Guides, Tips & News | TheTaxCalc',
   description:
     'Expert tax guides, state-by-state comparisons, and financial tips to help you keep more of your money. Updated for 2026 tax laws.',
   keywords: [
@@ -23,17 +23,17 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'TaxYield Blog — Expert Tax Guides & Tips',
+    title: 'TheTaxCalc Blog — Expert Tax Guides & Tips',
     description: 'Expert tax guides, state-by-state comparisons, and financial tips for 2026.',
     url: `${SITE_URL}/blog`,
-    siteName: 'TaxYield.io',
+    siteName: 'TheTaxCalc',
     type: 'website',
     images: [
       {
         url: `${SITE_URL}/opengraph-image`,
         width: 1200,
         height: 630,
-        alt: 'TaxYield Blog — Expert Tax Guides & Tips',
+        alt: 'TheTaxCalc Blog — Expert Tax Guides & Tips',
       },
     ],
   },
@@ -108,12 +108,12 @@ export default async function BlogPage() {
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Blog',
-    name: 'TaxYield Blog',
-    description: 'Expert tax guides, state-by-state comparisons, and financial tips from TaxYield.io.',
+    name: 'TheTaxCalc Blog',
+    description: 'Expert tax guides, state-by-state comparisons, and financial tips from TheTaxCalc.',
     url: `${SITE_URL}/blog`,
     publisher: {
       '@type': 'Organization',
-      name: 'TaxYield.io',
+      name: 'TheTaxCalc',
       url: SITE_URL,
     },
   };
@@ -121,8 +121,8 @@ export default async function BlogPage() {
   const itemListJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: 'TaxYield Blog — Tax Guides, Tips & News',
-    description: 'Expert tax guides, state-by-state comparisons, and financial tips from TaxYield.io.',
+    name: 'TheTaxCalc Blog — Tax Guides, Tips & News',
+    description: 'Expert tax guides, state-by-state comparisons, and financial tips from TheTaxCalc.',
     numberOfItems: posts.length,
     itemListElement: posts.slice(0, 10).map((post, i) => ({
       '@type': 'ListItem',

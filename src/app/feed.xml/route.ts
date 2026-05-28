@@ -21,7 +21,7 @@ export async function GET() {
 
     for (const post of posts) {
       const pubDate = (post.updatedAt || post.createdAt || new Date()).toISOString();
-      const description = post.excerpt || `Read ${post.title} on TaxYield.io`;
+      const description = post.excerpt || `Read ${post.title} on TheTaxCalc`;
       blogItems += `
     <item>
       <title><![CDATA[${post.title}]]></title>
@@ -51,15 +51,15 @@ export async function GET() {
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>TaxYield.io — Free 2026 Tax Calculators</title>
+    <title>TheTaxCalc — Free 2026 Tax Calculators</title>
     <link>${baseUrl}</link>
     <description>Free 2026 paycheck, mortgage, 401(k), capital gains, and self-employment tax calculators for IL, TX, FL, CA, NY.</description>
     <language>en-us</language>
     <lastBuildDate>${now}</lastBuildDate>
     <atom:link href="${baseUrl}/feed.xml" rel="self" type="application/rss+xml" />
-    <copyright>Copyright ${new Date().getFullYear()} TaxYield.io</copyright>
-    <managingEditor>info@taxyield.io (TaxYield.io)</managingEditor>
-    <webMaster>info@taxyield.io (TaxYield.io)</webMaster>${blogItems}${calcItems}
+    <copyright>Copyright ${new Date().getFullYear()} TheTaxCalc</copyright>
+    <managingEditor>info@taxyield.io (TheTaxCalc)</managingEditor>
+    <webMaster>info@taxyield.io (TheTaxCalc)</webMaster>${blogItems}${calcItems}
   </channel>
 </rss>`;
 

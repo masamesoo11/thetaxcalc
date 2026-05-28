@@ -7,7 +7,7 @@ import { SITE_URL } from '@/lib/site-config';
 export const metadata: Metadata = {
   title: 'Privacy Policy',
   description:
-    'TaxYield.io Privacy Policy — learn how we collect, use, and protect your personal information when using our free tax calculators.',
+    'TheTaxCalc Privacy Policy — learn how we collect, use, and protect your personal information when using our free tax calculators.',
   keywords: ['privacy policy', 'taxyield privacy', 'tax calculator privacy', 'data protection', 'calculator data security', 'browser calculations'],
   alternates: {
     canonical: `${SITE_URL}/privacy`,
@@ -17,10 +17,10 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'Privacy Policy — TaxYield.io',
-    description: 'Learn how TaxYield.io collects, uses, and protects your personal information when using our free tax calculators.',
+    title: 'Privacy Policy — TheTaxCalc',
+    description: 'Learn how TheTaxCalc collects, uses, and protects your personal information when using our free tax calculators.',
     url: `${SITE_URL}/privacy`,
-    siteName: 'TaxYield.io',
+    siteName: 'TheTaxCalc',
     type: 'website',
     locale: 'en_US',
   },
@@ -29,12 +29,12 @@ export const metadata: Metadata = {
 const privacyJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'WebPage',
-  name: 'Privacy Policy — TaxYield.io',
-  description: 'Learn how TaxYield.io collects, uses, and protects your personal information when using our free tax calculators.',
+  name: 'Privacy Policy — TheTaxCalc',
+  description: 'Learn how TheTaxCalc collects, uses, and protects your personal information when using our free tax calculators.',
   url: `${SITE_URL}/privacy`,
   isPartOf: {
     '@type': 'WebSite',
-    name: 'TaxYield.io',
+    name: 'TheTaxCalc',
     url: SITE_URL,
   },
 };
@@ -65,9 +65,9 @@ export default function PrivacyPage() {
           </div>
         </div>
         <p className="text-muted-foreground leading-relaxed">
-          At TaxYield.io, we are committed to protecting your privacy. This Privacy Policy explains how we
+          At TheTaxCalc, we are committed to protecting your privacy. This Privacy Policy explains how we
           collect, use, disclose, and safeguard your information when you visit our website and use our
-          tax calculators. Please read this policy carefully. By using TaxYield.io, you agree to the
+          tax calculators. Please read this policy carefully. By using TheTaxCalc, you agree to the
           practices described in this Privacy Policy.
         </p>
       </div>
@@ -233,7 +233,7 @@ export default function PrivacyPage() {
           </div>
           <div className="text-sm text-muted-foreground leading-relaxed">
             <p>
-              TaxYield.io is not directed at children under 13. We do not knowingly collect personal
+              TheTaxCalc is not directed at children under 13. We do not knowingly collect personal
               information from children under 13. If we become aware that we have collected such
               information, we will take steps to delete it promptly.
             </p>
@@ -250,7 +250,7 @@ export default function PrivacyPage() {
             <p>
               We may update this Privacy Policy from time to time. We will notify you of any changes by
               posting the new Privacy Policy on this page and updating the &quot;Last updated&quot; date.
-              Your continued use of TaxYield.io after any changes constitutes your acceptance of the
+              Your continued use of TheTaxCalc after any changes constitutes your acceptance of the
               updated policy.
             </p>
           </div>
@@ -267,7 +267,7 @@ export default function PrivacyPage() {
               If you have questions or concerns about this Privacy Policy, please contact us at:
             </p>
             <div className="mt-3 rounded-lg bg-muted/30 p-4">
-              <p className="font-semibold text-foreground">TaxYield.io</p>
+              <p className="font-semibold text-foreground">TheTaxCalc</p>
               <p>Email: privacy@taxyield.io</p>
               <p>Website: {SITE_URL}</p>
             </div>

@@ -22,7 +22,7 @@ import { SITE_URL } from '@/lib/site-config';
 export const metadata: Metadata = {
   title: 'About Us',
   description:
-    'Learn about TaxYield.io — our mission to provide free, accurate tax calculators for every American. We help you understand your take-home pay after federal, FICA, and state taxes.',
+    'Learn about TheTaxCalc — our mission to provide free, accurate tax calculators for every American. We help you understand your take-home pay after federal, FICA, and state taxes.',
   keywords: ['about taxyield', 'tax calculator about', 'tax tool mission', 'free tax calculator', 'tax data accuracy', 'tax calculator team'],
   alternates: {
     canonical: `${SITE_URL}/about`,
@@ -32,11 +32,11 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'About TaxYield.io',
+    title: 'About TheTaxCalc',
     description:
-      'Learn about TaxYield.io — our mission to provide free, accurate tax calculators for every American.',
+      'Learn about TheTaxCalc — our mission to provide free, accurate tax calculators for every American.',
     url: `${SITE_URL}/about`,
-    siteName: 'TaxYield.io',
+    siteName: 'TheTaxCalc',
     type: 'website',
     locale: 'en_US',
   },
@@ -47,7 +47,7 @@ const organizationJsonLd = {
   '@graph': [
     {
       '@type': 'Organization',
-      name: 'TaxYield.io',
+      name: 'TheTaxCalc',
       url: SITE_URL,
       logo: `${SITE_URL}/opengraph-image`,
       description: 'Free tax calculators and guides to help you understand your paycheck, state taxes, and financial planning.',
@@ -61,8 +61,8 @@ const organizationJsonLd = {
     },
     {
       '@type': 'AboutPage',
-      name: 'About TaxYield.io',
-      description: 'Learn about TaxYield.io — our mission to provide free, accurate tax calculators for every American.',
+      name: 'About TheTaxCalc',
+      description: 'Learn about TheTaxCalc — our mission to provide free, accurate tax calculators for every American.',
       url: `${SITE_URL}/about`,
     },
   ],
@@ -77,7 +77,7 @@ const VALUES = [
   {
     icon: Zap,
     title: 'Free. Period.',
-    desc: "No sign-up wall. No 'premium tier.' No sneaky upsell after three calculations. We built TaxYield.io because we believe understanding your own paycheck shouldn't cost you a dime. A friend of ours actually paid $15 to a tax calculator site before realizing it was just going to show him the same math he could've done himself. That's the kind of thing that made us want to build this. That's not changing.",
+    desc: "No sign-up wall. No 'premium tier.' No sneaky upsell after three calculations. We built TheTaxCalc because we believe understanding your own paycheck shouldn't cost you a dime. A friend of ours actually paid $15 to a tax calculator site before realizing it was just going to show him the same math he could've done himself. That's the kind of thing that made us want to build this. That's not changing.",
   },
   {
     icon: Globe,
@@ -114,7 +114,7 @@ export default function AboutPage() {
       <div className="mb-12 text-center">
         <div className="inline-flex items-center gap-2 rounded-full bg-emerald-500/10 border border-emerald-500/20 px-4 py-1.5 text-sm text-emerald-400 mb-6">
           <Users className="h-3.5 w-3.5" />
-          About TaxYield.io
+          About TheTaxCalc
         </div>
         <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
           Free <span className="gradient-text">Tax Calculators</span>
@@ -122,7 +122,7 @@ export default function AboutPage() {
           Built for You
         </h1>
         <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground leading-relaxed">
-          We built TaxYield.io because we were tired of tax calculators that felt like they were
+          We built TheTaxCalc because we were tired of tax calculators that felt like they were
           designed by the IRS itself — confusing, ugly, and somehow always trying to upsell you.
         </p>
       </div>
@@ -154,7 +154,7 @@ export default function AboutPage() {
             So we built the tool we wished existed.
           </p>
           <p>
-            TaxYield.io started as a weekend project — a single paycheck calculator that actually
+            TheTaxCalc started as a weekend project — a single paycheck calculator that actually
             used current tax data and didn&apos;t try to sell you anything. It turns out a lot of people
             wanted exactly that. Today we have 11 calculators covering paycheck estimation, mortgage
             amortization, 401(k) projections, capital gains, self-employment taxes, and side-by-side
@@ -374,7 +374,7 @@ export default function AboutPage() {
           </div>
           <div className="rounded-lg border border-amber-500/20 bg-amber-500/5 p-4 mt-2">
             <p className="text-sm text-amber-200/90 leading-relaxed">
-              <strong className="text-amber-300">One more thing:</strong> TaxYield.io gives you
+              <strong className="text-amber-300">One more thing:</strong> TheTaxCalc gives you
               estimates, not tax advice. Our tools don&apos;t replace a CPA who knows your specific
               situation inside and out. Use us to plan and estimate — then talk to a professional
               when it&apos;s time to actually file.
@@ -393,7 +393,7 @@ export default function AboutPage() {
         </div>
         <div className="text-muted-foreground leading-relaxed space-y-4">
           <p>
-            TaxYield.io is a small team of financial professionals and software engineers who got
+            TheTaxCalc is a small team of financial professionals and software engineers who got
             together because we shared one frustration: tax tools shouldn&apos;t be this hard to use.
             Some of us have backgrounds in accounting and financial planning. Others are engineers
             who&apos;ve spent years building user-facing products. The combination works — we argue
@@ -427,7 +427,7 @@ export default function AboutPage() {
         <div className="space-y-3">
           {[
             {
-              q: 'Is TaxYield.io really free? What\'s the catch?',
+              q: 'Is TheTaxCalc really free? What\'s the catch?',
               a: 'No catch. We know that sounds suspicious — "free" usually means "you\'re the product." But because all calculations run in your browser and we don\'t store any of your data, our server costs are minimal. No premium tiers, no paywalls, no "unlock full results for $9.99." Just free calculators.',
             },
             {
@@ -435,7 +435,7 @@ export default function AboutPage() {
               a: 'We use the same data the IRS and state revenue departments publish — the 2026 brackets, standard deductions, FICA rates, the works. Every methodology is reviewed by tax professionals. But here\'s the honest answer: our tools give you solid estimates, not guarantees. Your actual tax depends on things we can\'t know — itemized deductions, credits, multiple income sources, life changes mid-year. For planning purposes, we\'re great. For filing your actual return? Talk to a CPA.',
             },
             {
-              q: 'Does TaxYield.io store my salary or financial data?',
+              q: 'Does TheTaxCalc store my salary or financial data?',
               a: 'Nope. When you type your salary into one of our calculators, that number stays in your browser. It never gets sent to our servers. We don\'t have accounts, we don\'t use tracking cookies on calculations, and we couldn\'t tie your data to you even if we wanted to — because we never see it.',
             },
             {

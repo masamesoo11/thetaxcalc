@@ -21,15 +21,15 @@ export async function generateMetadata({
       select: { title: true, excerpt: true, metaTitle: true, metaDesc: true, tags: true, createdAt: true, updatedAt: true },
     });
   } catch {
-    return { title: 'Post Not Found | TaxYield.io' };
+    return { title: 'Post Not Found | TheTaxCalc' };
   }
 
   if (!post) {
-    return { title: 'Post Not Found | TaxYield.io' };
+    return { title: 'Post Not Found | TheTaxCalc' };
   }
 
-  const metaTitle = post.metaTitle || `${post.title} | TaxYield.io`;
-  const metaDesc = post.metaDesc || post.excerpt || `Read ${post.title} on TaxYield.io — expert tax guides and financial tips.`;
+  const metaTitle = post.metaTitle || `${post.title} | TheTaxCalc`;
+  const metaDesc = post.metaDesc || post.excerpt || `Read ${post.title} on TheTaxCalc — expert tax guides and financial tips.`;
 
   return {
     title: metaTitle,
@@ -46,7 +46,7 @@ export async function generateMetadata({
       title: metaTitle,
       description: metaDesc,
       url: `${SITE_URL}/blog/${slug}`,
-      siteName: 'TaxYield.io',
+      siteName: 'TheTaxCalc',
       type: 'article',
       publishedTime: post.createdAt?.toISOString(),
       modifiedTime: post.updatedAt?.toISOString(),
@@ -282,8 +282,8 @@ export default async function BlogDetailPage({
     description: post.excerpt || post.metaDesc || '',
     datePublished: post.createdAt?.toISOString(),
     dateModified: post.updatedAt?.toISOString(),
-    author: { '@type': 'Organization', name: 'TaxYield.io', url: SITE_URL },
-    publisher: { '@type': 'Organization', name: 'TaxYield.io', url: SITE_URL },
+    author: { '@type': 'Organization', name: 'TheTaxCalc', url: SITE_URL },
+    publisher: { '@type': 'Organization', name: 'TheTaxCalc', url: SITE_URL },
     mainEntityOfPage: { '@type': 'WebPage', '@id': `${SITE_URL}/blog/${slug}` },
     keywords: post.tags || '',
     articleSection: CATEGORY_LABELS[post.category] || post.category,
@@ -361,7 +361,7 @@ export default async function BlogDetailPage({
         {/* Meta info — Server-Rendered */}
         <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
           <span>
-            By TaxYield Team
+            By TheTaxCalc Team
           </span>
           <span>
             <time dateTime={post.createdAt?.toISOString()}>

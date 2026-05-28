@@ -97,7 +97,7 @@ export function Footer() {
                 <DollarSign className="h-4 w-4 text-white" />
               </div>
               <span className="text-lg font-bold tracking-tight text-foreground">
-                TaxYield<span className="gradient-text">.io</span>
+                TheTaxCalc<span className="gradient-text">.io</span>
               </span>
             </Link>
             <p className="text-sm text-muted-foreground leading-relaxed">
@@ -225,7 +225,7 @@ export function Footer() {
         <div className="mx-auto max-w-7xl px-4 py-5 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center gap-3 sm:flex-row sm:justify-between">
             <p className="text-center text-xs text-muted-foreground">
-              © {new Date().getFullYear()} TaxYield.io — Precision paycheck & mortgage calculators.
+              © {new Date().getFullYear()} TheTaxCalc — Precision paycheck & mortgage calculators.
               All calculations are estimates for informational purposes only.
             </p>
             <div className="flex items-center gap-4 text-xs text-muted-foreground">

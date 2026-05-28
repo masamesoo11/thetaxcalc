@@ -7,7 +7,7 @@
 export const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL || 'https://taxyield.io';
 
-export const SITE_NAME = 'TaxYield.io';
+export const SITE_NAME = 'TheTaxCalc';
 
 export const SITE_DESCRIPTION =
   'Free 2026 tax calculators — paycheck, mortgage, 401(k), capital gains, and self-employment.';

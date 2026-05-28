@@ -172,7 +172,7 @@ export function AdminDashboard() {
               </div>
               <div>
                 <h2 className="font-bold text-sm">Admin Panel</h2>
-                <p className="text-xs text-muted-foreground">TaxYield.io</p>
+                <p className="text-xs text-muted-foreground">TheTaxCalc</p>
               </div>
             </div>
           </div>

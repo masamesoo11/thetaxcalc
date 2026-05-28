@@ -2,7 +2,7 @@ import { ImageResponse } from 'next/og';
 import { SLUG_TO_CONFIG } from '@/lib/calculator-routes';
 
 // Image metadata
-export const alt = 'TaxYield.io Calculator';
+export const alt = 'TheTaxCalc Calculator';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 
@@ -16,7 +16,7 @@ export default async function Image({
   const config = SLUG_TO_CONFIG[calculator];
 
   const title = config?.h1 || 'Tax Calculator';
-  const description = config?.metaDesc?.split('.')[0] || 'Free 2026 tax calculator by TaxYield.io';
+  const description = config?.metaDesc?.split('.')[0] || 'Free 2026 tax calculator by TheTaxCalc';
   const category = config?.category || 'finance';
   const categoryLabel = category === 'paycheck' ? 'PAYCHECK' : category === 'mortgage' ? 'MORTGAGE' : category === 'retirement' ? 'RETIREMENT' : category === 'investment' ? 'INVESTMENT' : category === 'business' ? 'BUSINESS' : 'FINANCE';
 
@@ -112,7 +112,7 @@ export default async function Image({
             </span>
           </div>
           <span style={{ color: '#10b981', fontSize: 20, fontWeight: 700, fontFamily: 'sans-serif' }}>
-            TaxYield.io
+            TheTaxCalc
           </span>
         </div>
 

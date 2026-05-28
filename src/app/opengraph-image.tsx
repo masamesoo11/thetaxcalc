@@ -4,7 +4,7 @@ import { ImageResponse } from 'next/og';
 export const runtime = 'edge';
 
 // Image metadata
-export const alt = 'TaxYield.io — Free 2026 Paycheck & Mortgage Calculator';
+export const alt = 'TheTaxCalc — Free 2026 Paycheck & Mortgage Calculator';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 
@@ -52,7 +52,7 @@ export default async function Image() {
             </span>
           </div>
           <span style={{ color: '#10b981', fontSize: 32, fontWeight: 700, fontFamily: 'sans-serif' }}>
-            TaxYield.io
+            TheTaxCalc
           </span>
         </div>
 

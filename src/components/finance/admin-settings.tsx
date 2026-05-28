@@ -15,7 +15,7 @@ interface SettingItem {
 }
 
 const COMMON_SETTINGS = [
-  { key: 'site_name', label: 'Site Name', placeholder: 'TaxYield.io' },
+  { key: 'site_name', label: 'Site Name', placeholder: 'TheTaxCalc' },
   { key: 'site_description', label: 'Site Description', placeholder: 'Free paycheck & tax calculator' },
   { key: 'ga_tracking_id', label: 'Google Analytics ID', placeholder: 'G-XXXXXXXXXX' },
   { key: 'adsense_client_id', label: 'AdSense Client ID', placeholder: 'ca-pub-XXXXXXXXXX' },

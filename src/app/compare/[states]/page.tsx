@@ -39,7 +39,7 @@ export async function generateMetadata({
   const config = getCompareConfig(states);
 
   if (!config) {
-    return { title: 'Comparison Not Found | TaxYield.io' };
+    return { title: 'Comparison Not Found | TheTaxCalc' };
   }
 
   const baseUrl = SITE_URL;
@@ -49,7 +49,7 @@ export async function generateMetadata({
     title: config.metaTitle,
     description: config.metaDesc,
     keywords: config.keywords,
-    authors: [{ name: 'TaxYield.io' }],
+    authors: [{ name: 'TheTaxCalc' }],
     alternates: {
       canonical: `${baseUrl}${canonicalPath}`,
       languages: {
@@ -61,7 +61,7 @@ export async function generateMetadata({
       title: config.ogTitle,
       description: config.ogDescription,
       url: `${baseUrl}${canonicalPath}`,
-      siteName: 'TaxYield.io',
+      siteName: 'TheTaxCalc',
       type: 'website',
       locale: 'en_US',
     },
