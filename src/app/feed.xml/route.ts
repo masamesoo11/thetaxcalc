@@ -1,3 +1,5 @@
+export const runtime = 'edge';
+
 import { CALCULATOR_ROUTES } from '@/lib/calculator-routes';
 import { db } from '@/lib/db';
 import { SITE_URL } from '@/lib/site-config';

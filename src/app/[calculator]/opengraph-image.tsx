@@ -1,3 +1,5 @@
+export const runtime = 'edge';
+
 import { ImageResponse } from 'next/og';
 import { SLUG_TO_CONFIG } from '@/lib/calculator-routes';
 
