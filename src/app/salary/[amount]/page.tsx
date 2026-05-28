@@ -1,3 +1,4 @@
+export const runtime = 'edge';
 
 import { Metadata } from 'next';
 import Link from 'next/link';
@@ -35,12 +36,6 @@ const STATE_KEY_TO_SLUG: Record<string, string> = {
   california: '/california-tax-calculator',
   newyork: '/new-york-tax-calculator',
 };
-
-// ─── Static Params for Build ─────────────────────────────────────────────────
-
-export function generateStaticParams(): { amount: string }[] {
-  return SALARY_AMOUNTS.map((amount) => ({ amount: String(amount) }));
-}
 
 // ─── Per-Page Metadata ────────────────────────────────────────────────────────
 

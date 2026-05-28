@@ -8,9 +8,9 @@ import { Input } from '@/components/ui/input';
 // ─── Admin Password ──────────────────────────────────────────────────────────
 // Change this to your desired admin password.
 // For production, use an environment variable: process.env.NEXT_PUBLIC_ADMIN_PASSWORD
-const ADMIN_PASSWORD = 'taxyield2026';
+const ADMIN_PASSWORD = 'thetaxcalc2026';
 
-const SESSION_KEY = 'taxyield_admin_auth';
+const SESSION_KEY = 'thetaxcalc_admin_auth';
 
 // ─── Session Storage Helpers (useSyncExternalStore compatible) ────────────────
 
@@ -151,7 +151,7 @@ export function AdminGate({ children }: { children: React.ReactNode }) {
 
           {/* Hint */}
           <div className="mt-6 rounded-lg bg-muted/30 p-3 text-xs text-muted-foreground text-center">
-            <p>Default password: <code className="text-emerald-400 font-mono">taxyield2026</code></p>
+            <p>Default password: <code className="text-emerald-400 font-mono">thetaxcalc2026</code></p>
             <p className="mt-1">Change it in <code className="text-muted-foreground/80">src/components/finance/admin-gate.tsx</code></p>
           </div>
         </div>

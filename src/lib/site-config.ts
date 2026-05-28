@@ -1,11 +1,11 @@
 /**
  * Centralized site configuration.
  * Change NEXT_PUBLIC_SITE_URL in your .env to update the domain everywhere.
- * Defaults to https://taxyield.io for local development.
+ * Defaults to https://thetaxcalc.com for local development.
  */
 
 export const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL || 'https://taxyield.io';
+  process.env.NEXT_PUBLIC_SITE_URL || 'https://thetaxcalc.com';
 
 export const SITE_NAME = 'TheTaxCalc';
 

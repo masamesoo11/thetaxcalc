@@ -351,7 +351,7 @@ export function BlogEditor({ editSlug, onNavigate }: BlogEditorProps) {
                       </label>
                     </div>
                     <div className="flex items-center gap-2">
-                      <span className="text-xs text-muted-foreground whitespace-nowrap">taxyield.io/#blog/</span>
+                      <span className="text-xs text-muted-foreground whitespace-nowrap">thetaxcalc.com/#blog/</span>
                       <Input
                         id="post-slug"
                         value={form.slug}

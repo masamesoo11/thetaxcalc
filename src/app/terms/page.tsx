@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: 'Terms of Use',
   description:
     'TheTaxCalc Terms of Use — understand the terms and conditions for using our free tax calculators and website.',
-  keywords: ['terms of use', 'taxyield terms', 'tax calculator terms', 'usage agreement', 'legal terms', 'disclaimer'],
+  keywords: ['terms of use', 'thetaxcalc terms', 'tax calculator terms', 'usage agreement', 'legal terms', 'disclaimer'],
   alternates: {
     canonical: `${SITE_URL}/terms`,
     languages: {
@@ -318,7 +318,7 @@ export default function TermsPage() {
             </p>
             <div className="mt-3 rounded-lg bg-muted/30 p-4">
               <p className="font-semibold text-foreground">TheTaxCalc</p>
-              <p>Email: legal@taxyield.io</p>
+              <p>Email: legal@thetaxcalc.com</p>
               <p>Website: {SITE_URL}</p>
             </div>
           </div>

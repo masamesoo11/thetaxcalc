@@ -60,8 +60,8 @@ export async function GET() {
     <lastBuildDate>${now}</lastBuildDate>
     <atom:link href="${baseUrl}/feed.xml" rel="self" type="application/rss+xml" />
     <copyright>Copyright ${new Date().getFullYear()} TheTaxCalc</copyright>
-    <managingEditor>info@taxyield.io (TheTaxCalc)</managingEditor>
-    <webMaster>info@taxyield.io (TheTaxCalc)</webMaster>${blogItems}${calcItems}
+    <managingEditor>info@thetaxcalc.com (TheTaxCalc)</managingEditor>
+    <webMaster>info@thetaxcalc.com (TheTaxCalc)</webMaster>${blogItems}${calcItems}
   </channel>
 </rss>`;
 

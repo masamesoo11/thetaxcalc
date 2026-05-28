@@ -7,19 +7,19 @@ export function CookieConsent() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const consent = localStorage.getItem('taxyield-cookie-consent');
+    const consent = localStorage.getItem('thetaxcalc-cookie-consent');
     if (!consent) {
       setVisible(true);
     }
   }, []);
 
   const accept = () => {
-    localStorage.setItem('taxyield-cookie-consent', 'accepted');
+    localStorage.setItem('thetaxcalc-cookie-consent', 'accepted');
     setVisible(false);
   };
 
   const decline = () => {
-    localStorage.setItem('taxyield-cookie-consent', 'declined');
+    localStorage.setItem('thetaxcalc-cookie-consent', 'declined');
     setVisible(false);
   };
 

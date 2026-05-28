@@ -1,3 +1,4 @@
+export const runtime = 'edge';
 
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
@@ -67,20 +68,6 @@ export async function generateMetadata({
       images: [`${SITE_URL}/opengraph-image`],
     },
   };
-}
-
-// ─── Static Params ────────────────────────────────────────────────────────────
-
-export async function generateStaticParams(): Promise<{ slug: string }[]> {
-  try {
-    const posts = await db.post.findMany({
-      where: { published: true },
-      select: { slug: true },
-    });
-    return posts.map((p) => ({ slug: p.slug }));
-  } catch {
-    return [];
-  }
 }
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────

@@ -1,10 +1,11 @@
+export const runtime = 'edge';
+
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import {
   CALCULATOR_ROUTES,
   SLUG_TO_CONFIG,
-  getCalculatorSlugs,
 } from '@/lib/calculator-routes';
 import {
   HOME_FAQS,
@@ -23,12 +24,6 @@ import {
 import { CalculatorClientPage } from './calculator-client-page';
 import { db } from '@/lib/db';
 import { SITE_URL } from '@/lib/site-config';
-
-// ─── Static Params for Build ─────────────────────────────────────────────────
-
-export function generateStaticParams(): { calculator: string }[] {
-  return getCalculatorSlugs().map((slug) => ({ calculator: slug }));
-}
 
 // ─── Per-Page Metadata ────────────────────────────────────────────────────────
 

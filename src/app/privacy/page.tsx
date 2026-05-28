@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: 'Privacy Policy',
   description:
     'TheTaxCalc Privacy Policy — learn how we collect, use, and protect your personal information when using our free tax calculators.',
-  keywords: ['privacy policy', 'taxyield privacy', 'tax calculator privacy', 'data protection', 'calculator data security', 'browser calculations'],
+  keywords: ['privacy policy', 'thetaxcalc privacy', 'tax calculator privacy', 'data protection', 'calculator data security', 'browser calculations'],
   alternates: {
     canonical: `${SITE_URL}/privacy`,
     languages: {
@@ -268,7 +268,7 @@ export default function PrivacyPage() {
             </p>
             <div className="mt-3 rounded-lg bg-muted/30 p-4">
               <p className="font-semibold text-foreground">TheTaxCalc</p>
-              <p>Email: privacy@taxyield.io</p>
+              <p>Email: privacy@thetaxcalc.com</p>
               <p>Website: {SITE_URL}</p>
             </div>
           </div>

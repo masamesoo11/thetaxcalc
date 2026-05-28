@@ -1,3 +1,5 @@
+export const runtime = 'edge';
+
 import { MetadataRoute } from 'next';
 import { CALCULATOR_ROUTES } from '@/lib/calculator-routes';
 import { SALARY_AMOUNTS } from '@/lib/salary-calculations';

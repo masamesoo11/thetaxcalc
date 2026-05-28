@@ -1,3 +1,4 @@
+export const runtime = 'edge';
 
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
@@ -17,17 +18,10 @@ import {
 } from 'lucide-react';
 import { SITE_URL } from '@/lib/site-config';
 import {
-  COMPARISON_SLUGS,
   getCompareConfig,
   type CompareStateData,
 } from '@/lib/compare-config';
 import { calculatePaycheck, formatCurrency } from '@/lib/finance-utils';
-
-// ─── Static Params ───────────────────────────────────────────────────────────
-
-export function generateStaticParams(): { states: string }[] {
-  return COMPARISON_SLUGS.map((slug) => ({ states: slug }));
-}
 
 // ─── Per-Page Metadata ───────────────────────────────────────────────────────
 

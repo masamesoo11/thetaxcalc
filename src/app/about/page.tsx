@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   title: 'About Us',
   description:
     'Learn about TheTaxCalc — our mission to provide free, accurate tax calculators for every American. We help you understand your take-home pay after federal, FICA, and state taxes.',
-  keywords: ['about taxyield', 'tax calculator about', 'tax tool mission', 'free tax calculator', 'tax data accuracy', 'tax calculator team'],
+  keywords: ['about thetaxcalc', 'tax calculator about', 'tax tool mission', 'free tax calculator', 'tax data accuracy', 'tax calculator team'],
   alternates: {
     canonical: `${SITE_URL}/about`,
     languages: {
@@ -55,7 +55,7 @@ const organizationJsonLd = {
       sameAs: [],
       contactPoint: {
         '@type': 'ContactPoint',
-        email: 'contact@taxyield.io',
+        email: 'contact@thetaxcalc.com',
         contactType: 'customer support',
       },
     },
@@ -250,7 +250,7 @@ export default function AboutPage() {
             We picked these five for a reason — they represent the full spectrum of state tax
             situations, from zero-income-tax states (TX, FL) to the highest-tax states in the
             country (CA, NY), with a flat-tax state (IL) in between. If your state isn&apos;t here
-            yet, <Link href="mailto:contact@taxyield.io" className="text-emerald-400 hover:text-emerald-300 underline">drop us a line</Link> and
+            yet, <Link href="mailto:contact@thetaxcalc.com" className="text-emerald-400 hover:text-emerald-300 underline">drop us a line</Link> and
             we&apos;ll prioritize it.
           </p>
           <p>
@@ -306,7 +306,7 @@ export default function AboutPage() {
         </p>
         <div className="rounded-lg bg-muted/30 p-4 inline-block">
           <p className="text-sm text-muted-foreground">
-            Email: <span className="text-emerald-400">contact@taxyield.io</span>
+            Email: <span className="text-emerald-400">contact@thetaxcalc.com</span>
           </p>
         </div>
       </section>
