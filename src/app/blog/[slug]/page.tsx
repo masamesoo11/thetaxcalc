@@ -323,7 +323,7 @@ export default async function BlogDetailPage({
 
       {/* Internal Links: Try Our Calculators */}
       <section className="mb-8 rounded-xl border border-emerald-500/20 bg-emerald-500/5 p-6">
-        <h2 className="text-lg font-bold text-foreground mb-3">Try Our Tax Calculators</h2>
+        <p className="text-lg font-bold text-foreground mb-3">Try Our Tax Calculators</p>
         <p className="text-sm text-muted-foreground mb-4">See exactly how much you&apos;ll take home after all taxes and deductions.</p>
         <div className="flex flex-wrap gap-3">
           <Link href="/paycheck-calculator" className="inline-flex items-center gap-1.5 rounded-lg bg-emerald-600 px-4 py-2 text-sm font-medium text-white hover:bg-emerald-700 transition-colors">Paycheck Calculator</Link>
@@ -341,7 +341,7 @@ export default async function BlogDetailPage({
 
       {/* Popular Salary Calculations */}
       <section className="mb-8 rounded-xl border border-border/50 bg-muted/30 p-6">
-        <h2 className="text-lg font-bold text-foreground mb-3">Popular Salary Calculations</h2>
+        <p className="text-lg font-bold text-foreground mb-3">Popular Salary Calculations</p>
         <p className="text-sm text-muted-foreground mb-4">Quick access to take-home pay estimates for common salary levels.</p>
         <div className="flex flex-wrap gap-3">
           {[
@@ -365,7 +365,7 @@ export default async function BlogDetailPage({
       {/* Related Articles */}
       {relatedPosts.length > 0 && (
         <section className="mb-8">
-          <h2 className="text-lg font-bold text-foreground mb-4">Related Articles</h2>
+          <p className="text-lg font-bold text-foreground mb-4">Related Articles</p>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {relatedPosts.map((rp) => {
               const rpTagList = rp.tags ? rp.tags.split(',').map((t) => t.trim()).filter(Boolean) : [];

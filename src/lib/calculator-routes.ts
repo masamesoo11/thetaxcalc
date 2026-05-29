@@ -51,7 +51,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     description:
       'Calculate your Illinois take-home pay after 4.95% flat state income tax, $2,775 personal exemption, federal tax, and FICA. Free IL paycheck calculator for 2026.',
     h1: 'Illinois Paycheck Calculator',
-    metaTitle: 'IL Paycheck Calculator 2026 | 4.95% Flat Tax',
+    metaTitle: 'IL Paycheck Calculator 2026 | 4.95%',
     metaDesc:
       'Calculate Illinois take-home pay after 4.95% flat tax and $2,775 exemption. Free 2026 IL paycheck calculator with 401(k) and HSA.',
     keywords: [
@@ -74,9 +74,9 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     description:
       'Calculate your Texas take-home pay with 0% state income tax. Includes federal tax, FICA, property tax burden analysis, and cost-of-living comparison. Free TX calculator for 2026.',
     h1: 'Texas Paycheck Calculator',
-    metaTitle: 'TX Paycheck Calculator 2026 | 0% Income Tax',
+    metaTitle: 'TX Paycheck Calculator 2026 | 0% Tax',
     metaDesc:
-      'Calculate Texas take-home pay with 0% state income tax. Free 2026 TX paycheck calculator includes property tax analysis and cost-of-living comparison.',
+      'Calculate Texas take-home pay with 0% state income tax. Free 2026 TX paycheck calculator with property tax analysis.',
     keywords: [
       'Texas tax calculator', 'TX paycheck calculator', 'Texas no income tax',
       'Texas take home pay', 'Texas salary calculator', 'Texas property tax',
@@ -97,9 +97,9 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     description:
       'Calculate your Florida take-home pay with 0% state income tax. Includes federal tax, FICA, homestead exemption, and cost-of-living analysis. Free FL calculator for 2026.',
     h1: 'Florida Paycheck Calculator',
-    metaTitle: 'FL Paycheck Calculator 2026 | 0% Income Tax',
+    metaTitle: 'FL Paycheck Calculator 2026 | 0% Tax',
     metaDesc:
-      'Calculate Florida take-home pay with 0% state income tax and homestead exemption. Free 2026 FL paycheck calculator includes cost-of-living analysis.',
+      'Calculate Florida take-home pay with 0% state income tax and homestead exemption. Free 2026 FL calculator.',
     keywords: [
       'Florida tax calculator', 'FL paycheck calculator', 'Florida no income tax',
       'Florida take home pay', 'Florida salary calculator', 'Florida homestead exemption',
@@ -120,9 +120,9 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     description:
       'Calculate your California take-home pay after progressive state income tax (1%–13.3%), federal tax, and FICA. Free CA paycheck calculator for 2026 with 401(k) and HSA.',
     h1: 'California Paycheck Calculator',
-    metaTitle: 'CA Paycheck Calculator 2026 | 1%-13.3% Tax',
+    metaTitle: 'CA Paycheck Calculator 2026 | 1-13.3%',
     metaDesc:
-      'Calculate California take-home pay after progressive state tax (1%–13.3%). Free 2026 CA paycheck calculator with 401(k) and HSA deductions.',
+      'Calculate California take-home pay after progressive state tax (1%–13.3%). Free 2026 CA paycheck calculator.',
     keywords: [
       'California tax calculator', 'CA paycheck calculator', 'California income tax',
       'California 13.3% tax', 'California take home pay', 'California salary calculator',
@@ -143,7 +143,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     description:
       'Calculate your New York take-home pay after progressive state tax (4%–10.9%), potential NYC tax, federal tax, and FICA. Free NY paycheck calculator for 2026.',
     h1: 'New York Paycheck Calculator',
-    metaTitle: 'NY Paycheck Calculator 2026 | 4%-10.9% + NYC',
+    metaTitle: 'NY Paycheck Calculator 2026 | 4-10.9%',
     metaDesc:
       'Calculate New York take-home pay after progressive state tax (4%–10.9%) and NYC tax. Free 2026 NY paycheck calculator with 401(k).',
     keywords: [
@@ -168,7 +168,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     h1: 'Mortgage Calculator',
     metaTitle: '2026 Mortgage Calculator | Amortization',
     metaDesc:
-      'Free mortgage calculator with extra payments, full amortization schedule, and payoff comparison. Calculate monthly payment, total interest, and years saved.',
+      'Free mortgage calculator with extra payments, amortization schedule, and payoff comparison. Calculate monthly payment and interest.',
     keywords: [
       'mortgage calculator', 'home loan calculator', 'amortization calculator',
       'mortgage payment calculator', 'extra payment calculator', 'mortgage payoff',
@@ -189,9 +189,9 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     description:
       'Project your 401(k) balance at retirement with employer match, compound growth, and annual contributions. Free retirement calculator for 2026 with visual charts.',
     h1: '401(k) Retirement Calculator',
-    metaTitle: '401(k) Calculator 2026 | Projection & Growth',
+    metaTitle: '401(k) Calculator 2026 | Projections',
     metaDesc:
-      'Project your 401(k) balance at retirement with employer match and compound growth. Free 2026 retirement calculator with visual projection charts.',
+      'Project your 401(k) balance at retirement with employer match and compound growth. Free 2026 retirement calculator.',
     keywords: [
       '401k calculator', 'retirement calculator', '401k projection',
       'retirement savings calculator', '401k growth calculator', 'employer match calculator',
@@ -212,9 +212,9 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     description:
       'Calculate equivalent salary between states. Compare take-home pay in IL, TX, FL, CA, NY to find the salary you need to maintain your lifestyle after relocation.',
     h1: 'Salary Relocation Calculator',
-    metaTitle: 'Relocation Calculator 2026 | Compare Pay',
+    metaTitle: 'Relocation Calculator 2026 | Compare',
     metaDesc:
-      'Calculate equivalent salary between states. Compare take-home pay in IL, TX, FL, CA, NY. Free relocation calculator to find your needed salary after moving.',
+      'Calculate equivalent salary between states. Compare take-home pay in IL, TX, FL, CA, NY. Free relocation calculator.',
     keywords: [
       'relocation calculator', 'salary comparison by state', 'cost of living calculator',
       'move calculator', 'salary equivalent calculator', 'state tax comparison',
@@ -235,9 +235,9 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     description:
       'Calculate capital gains tax: short-term (ordinary income rates up to 37%) and long-term (0%, 15%, 20% + 3.8% NIIT). Free 2026 capital gains calculator with FAQ.',
     h1: 'Capital Gains Tax Calculator',
-    metaTitle: '2026 Capital Gains Calculator | Short & Long',
+    metaTitle: 'Capital Gains Calculator 2026 | Rates',
     metaDesc:
-      'Calculate capital gains tax for 2026. Short-term (up to 37%) and long-term (0%/15%/20% + NIIT). Free calculator with tax-saving strategies and FAQ.',
+      'Calculate capital gains tax for 2026. Short-term (up to 37%) and long-term (0%/15%/20% + NIIT). Free calculator with strategies.',
     keywords: [
       'capital gains calculator', 'capital gains tax', 'long term capital gains',
       'short term capital gains', 'NIIT calculator', 'investment tax calculator',
@@ -260,7 +260,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     h1: 'Self-Employment Tax Calculator',
     metaTitle: 'SE Tax Calculator 2026 | 15.3% Rate',
     metaDesc:
-      'Calculate self-employment tax at 15.3% on 92.35% of net income. Free 2026 SE calculator includes half deduction, quarterly estimates, and state tax.',
+      'Calculate self-employment tax at 15.3% on 92.35% of net income. Free 2026 SE calculator with half deduction and quarterly estimates.',
     keywords: [
       'self employment tax calculator', 'SE tax calculator', 'self employed tax',
       '15.3% self employment tax', 'quarterly estimated tax', 'freelance tax calculator',

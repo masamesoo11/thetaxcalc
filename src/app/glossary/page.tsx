@@ -210,9 +210,9 @@ export default function GlossaryPage() {
 
       {/* ─── Salary & Resources Quick Links ────────────────────────────────── */}
       <section className="mt-12 border-t border-border/20 pt-10">
-        <h2 className="text-lg font-bold text-foreground mb-6">
+        <p className="text-lg font-bold text-foreground mb-6">
           Quick Links — <span className="text-emerald-400">Salary, Comparisons & Guides</span>
-        </h2>
+        </p>
         <div className="grid gap-6 lg:grid-cols-3">
           {/* Popular Salary Pages */}
           <div className="rounded-xl border border-border/30 bg-card/50 p-5">

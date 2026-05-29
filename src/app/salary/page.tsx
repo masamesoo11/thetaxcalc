@@ -334,9 +334,9 @@ export default function SalaryLandingPage() {
 
         {/* ─── Related Tools & Resources ──────────────────────────────── */}
         <section className="py-12 border-t border-border/20">
-          <h2 className="text-lg font-bold text-foreground mb-6">
+          <p className="text-lg font-bold text-foreground mb-6">
             Salary & Tax Resources
-          </h2>
+          </p>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {/* Tax Calculators */}
             <div className="rounded-xl border border-border/30 bg-card/50 p-5">

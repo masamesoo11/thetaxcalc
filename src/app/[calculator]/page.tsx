@@ -814,9 +814,9 @@ export default async function CalculatorPage({
 
       {/* Next Steps */}
       <section className="mt-8 rounded-xl border border-emerald-500/20 bg-emerald-500/5 p-6 sm:p-8">
-        <h2 className="text-lg font-semibold text-foreground mb-3">
+        <p className="text-lg font-semibold text-foreground mb-3">
           What Else Would You Like to Calculate?
-        </h2>
+        </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
           {getNextSteps(config.componentKey).map((step) => (
             <Link
@@ -839,7 +839,7 @@ export default async function CalculatorPage({
         {/* How This Calculator Works */}
         <section className="rounded-xl border border-border/30 bg-card/50 p-6 sm:p-8">
           <h2 className="text-2xl font-bold text-foreground mb-4">
-            How This Calculator Works
+            How the {config.h1} Works
           </h2>
           <div className="space-y-4">
             {content.howItWorks.map((paragraph, i) => (
@@ -852,7 +852,7 @@ export default async function CalculatorPage({
         {content.keyRates.length > 0 && (
           <section className="rounded-xl border border-emerald-500/20 bg-emerald-500/5 p-6 sm:p-8">
             <h2 className="text-2xl font-bold text-foreground mb-4">
-              Key Rates & Data for 2026
+              {config.h1} — Key Rates & Data for 2026
             </h2>
             <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
               {content.keyRates.map((rate) => (
@@ -908,9 +908,9 @@ export default async function CalculatorPage({
         {/* Related Articles */}
         {relatedPosts.length > 0 && (
           <section className="rounded-xl border border-border/30 bg-card/50 p-6 sm:p-8">
-            <h2 className="text-lg font-semibold text-foreground mb-4">
+            <p className="text-lg font-semibold text-foreground mb-4">
               Related Articles
-            </h2>
+            </p>
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {relatedPosts.map((post) => (
                 <Link
@@ -935,9 +935,9 @@ export default async function CalculatorPage({
         {/* Related Calculators */}
         {content.relatedCalculators.length > 0 && (
           <section className="rounded-xl border border-border/30 bg-card/50 p-6 sm:p-8">
-            <h2 className="text-lg font-semibold text-foreground mb-4">
+            <p className="text-lg font-semibold text-foreground mb-4">
               Related Calculators
-            </h2>
+            </p>
             <div className="flex flex-wrap gap-3">
               {content.relatedCalculators.map((calc) => (
                 <Link
@@ -958,9 +958,9 @@ export default async function CalculatorPage({
         {/* Compare with Other States */}
         {['illinois', 'texas', 'florida', 'california', 'newyork'].includes(config.componentKey) && (
           <section className="rounded-xl border border-border/30 bg-card/50 p-6 sm:p-8">
-            <h2 className="text-lg font-semibold text-foreground mb-4">
+            <p className="text-lg font-semibold text-foreground mb-4">
               Compare with Other States
-            </h2>
+            </p>
             <div className="flex flex-wrap gap-2">
               {getOtherStates(config.componentKey).map((state) => (
                 <Link
@@ -984,9 +984,9 @@ export default async function CalculatorPage({
 
         {/* Next Steps — contextual CTAs linking to salary and other tools */}
         <section className="rounded-xl border border-emerald-500/20 bg-gradient-to-br from-emerald-600/5 to-teal-600/5 p-6 sm:p-8">
-          <h2 className="text-lg font-semibold text-foreground mb-4">
+          <p className="text-lg font-semibold text-foreground mb-4">
             Next Steps
-          </h2>
+          </p>
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             <Link href="/salary" className="group flex items-start gap-3 rounded-lg border border-border/50 p-4 hover:border-emerald-500/30 hover:bg-emerald-500/5 transition-all">
               <span className="text-lg">💰</span>
@@ -1035,9 +1035,9 @@ export default async function CalculatorPage({
 
         {/* Explore More Tools */}
         <section className="rounded-xl border border-border/30 bg-card/50 p-6 sm:p-8">
-          <h2 className="text-lg font-semibold text-foreground mb-4">
+          <p className="text-lg font-semibold text-foreground mb-4">
             Explore More Tools
-          </h2>
+          </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
             <Link href="/compare" className="flex items-center gap-2 rounded-lg border border-border/50 p-3 hover:bg-accent/50 transition-colors">
               <span className="text-sm font-medium">📊 Compare States</span>

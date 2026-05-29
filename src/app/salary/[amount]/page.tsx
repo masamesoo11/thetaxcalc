@@ -57,7 +57,7 @@ export async function generateMetadata({
   const baseUrl = SITE_URL;
   const path = `/salary/${amountStr}`;
 
-  const title = `${formatted} After Tax 2026 — Take-Home by State`;
+  const title = `${formatted} After Tax 2026 — Take-Home Pay`;
   const description = `See your take-home pay on a ${formatted} salary in 2026. Compare net pay across IL, TX, FL, CA, NY after federal, FICA, and state tax.`;
 
   return {
@@ -421,7 +421,7 @@ export default async function SalaryAmountPage({
                 <HelpCircle className="h-5 w-5 text-emerald-400" />
               </div>
               <h2 className="text-2xl font-bold text-foreground">
-                Salary Tax FAQ
+                {calc.salaryFormatted} Salary Tax FAQ
               </h2>
             </div>
 
@@ -476,9 +476,9 @@ export default async function SalaryAmountPage({
 
         {/* ─── More Tools ──────────────────────────────────────────── */}
         <section className="py-8 border-t border-border/20">
-          <h2 className="text-lg font-semibold text-foreground mb-4">
+          <p className="text-lg font-semibold text-foreground mb-4">
             Related Calculators & Tools
-          </h2>
+          </p>
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             <Link
               href="/401k-retirement-calculator"
@@ -559,9 +559,9 @@ export default async function SalaryAmountPage({
             <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-emerald-600/20 to-teal-600/10">
               <ExternalLink className="h-5 w-5 text-emerald-400" />
             </div>
-            <h2 className="text-2xl font-bold text-foreground">
+            <p className="text-2xl font-bold text-foreground">
               Salary Details & Tax Resources
-            </h2>
+            </p>
           </div>
 
           <div className="grid gap-6 lg:grid-cols-2">

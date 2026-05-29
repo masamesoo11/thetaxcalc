@@ -54,7 +54,7 @@ export const BLOG_INDEX: BlogPostMeta[] = [
     "coverImage": "",
     "published": true,
     "featured": true,
-    "metaTitle": "DoorDash Taxes 2026: Complete Guide for Drivers",
+    "metaTitle": "DoorDash Taxes 2026: Driver Guide",
     "metaDesc": "DoorDash driver taxes for 2026. Self-employment tax, deductions, quarterly payments, and filing tips for gig workers.",
     "createdAt": "2026-05-28T12:00:00.000Z",
     "updatedAt": "2026-05-28T12:00:00.000Z"

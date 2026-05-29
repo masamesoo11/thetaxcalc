@@ -324,8 +324,7 @@ export function getCalculatorContent(type: string): CalculatorContentData {
         faqs: INCOME_TAX_FAQS,
         relatedCalculators: [
           { slug: 'paycheck-calculator', label: 'Paycheck Calculator' },
-          { slug: 'tax-calculator', label: 'Tax Calculator' },
-          { slug: 'sales-tax-calculator', label: 'Sales Tax Calculator' },
+          { slug: 'mortgage-calculator', label: 'Mortgage Calculator' },
         ],
       };
     case 'tax-calc':
@@ -346,8 +345,8 @@ export function getCalculatorContent(type: string): CalculatorContentData {
         ],
         faqs: TAX_CALC_FAQS,
         relatedCalculators: [
-          { slug: 'income-tax-calculator', label: 'Income Tax Calculator' },
-          { slug: 'sales-tax-calculator', label: 'Sales Tax Calculator' },
+          { slug: 'paycheck-calculator', label: 'Paycheck Calculator' },
+          { slug: 'capital-gains-calculator', label: 'Capital Gains Calculator' },
           { slug: 'self-employment-tax-calculator', label: 'Self-Employment Calculator' },
         ],
       };
@@ -370,7 +369,7 @@ export function getCalculatorContent(type: string): CalculatorContentData {
         faqs: TAX_REFUND_FAQS,
         relatedCalculators: [
           { slug: 'paycheck-calculator', label: 'Paycheck Calculator' },
-          { slug: 'income-tax-calculator', label: 'Income Tax Calculator' },
+          { slug: '401k-retirement-calculator', label: '401(k) Calculator' },
           { slug: 'self-employment-tax-calculator', label: 'Self-Employment Calculator' },
         ],
       };

@@ -18,9 +18,9 @@ export function SeoNavigation() {
   return (
     <nav aria-label="Site navigation" className="border-t border-border/20 bg-muted/10">
       <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-        <h2 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-6">
+        <p className="text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-6">
           Explore TheTaxCalc — All Tools, Resources & Guides
-        </h2>
+        </p>
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {/* Column 1: Tax Calculators */}

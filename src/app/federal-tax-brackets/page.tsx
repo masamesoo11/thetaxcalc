@@ -594,9 +594,9 @@ export default function FederalTaxBracketsPage() {
       {/* ─── Related Tools & Resources ─────────────────────────────────── */}
       <section className="py-12 sm:py-16 border-t border-border/20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-lg font-bold text-foreground mb-6">
+          <p className="text-lg font-bold text-foreground mb-6">
             Tax Bracket Resources
-          </h2>
+          </p>
           <div className="grid gap-6 lg:grid-cols-3">
             {/* State Calculators */}
             <div className="rounded-xl border border-border/30 bg-card/50 p-5">

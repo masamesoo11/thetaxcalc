@@ -327,9 +327,9 @@ export default function CompareLandingPage() {
 
       {/* ─── Related Tools & Resources ─────────────────────────────────── */}
       <section className="mt-12 border-t border-border/20 pt-10">
-        <h2 className="text-lg font-bold text-foreground mb-6">
+        <p className="text-lg font-bold text-foreground mb-6">
           State Comparison Resources
-        </h2>
+        </p>
         <div className="grid gap-6 lg:grid-cols-3">
           {/* State Calculators */}
           <div className="rounded-xl border border-border/30 bg-card/50 p-5">

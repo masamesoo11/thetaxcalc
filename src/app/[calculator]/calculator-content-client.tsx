@@ -265,9 +265,9 @@ function getIncomeTaxJsonLd() {
     '@graph': [
       { '@type': 'BreadcrumbList', itemListElement: [
         { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
-        { '@type': 'ListItem', position: 2, name: 'Income Tax Calculator', item: `${SITE_URL}/income-tax-calculator` },
+        { '@type': 'ListItem', position: 2, name: 'Paycheck Calculator', item: `${SITE_URL}/paycheck-calculator` },
       ]},
-      { '@type': 'WebApplication', name: 'Income Tax Calculator 2026', url: `${SITE_URL}/income-tax-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
+      { '@type': 'WebApplication', name: 'Income Tax Calculator 2026', url: `${SITE_URL}/paycheck-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
       { '@type': 'MathSolver', name: 'Income Tax Math Solver', description: 'Computes income tax liability using progressive federal brackets, FICA, and state tax rates.', mathExpression: 'Tax = Fed(G - StdDed) + FICA(G) + State(G - StateDed)' },
       { '@type': 'Dataset', name: '2026 Federal Income Tax Brackets', variableMeasured: [
         { name: 'Lowest Federal Bracket', value: '10%' },
@@ -286,9 +286,9 @@ function getTaxCalcJsonLd() {
     '@graph': [
       { '@type': 'BreadcrumbList', itemListElement: [
         { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
-        { '@type': 'ListItem', position: 2, name: 'Tax Calculator', item: `${SITE_URL}/tax-calculator` },
+        { '@type': 'ListItem', position: 2, name: 'Paycheck Calculator', item: `${SITE_URL}/paycheck-calculator` },
       ]},
-      { '@type': 'WebApplication', name: 'Tax Calculator 2026', url: `${SITE_URL}/tax-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
+      { '@type': 'WebApplication', name: 'Tax Calculator 2026', url: `${SITE_URL}/paycheck-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
       { '@type': 'MathSolver', name: 'Tax Estimator Solver', description: 'Computes total tax liability including federal income tax, FICA, and state income tax for 5 states.', mathExpression: 'TotalTax = Fed(G - StdDed) + FICA(G) + State(G - StateDed)' },
       { '@type': 'Dataset', name: '2026 Tax Rates', variableMeasured: [
         { name: 'Federal Tax Brackets', value: '10% - 37%' },
@@ -595,8 +595,8 @@ function getCalculatorContent(type: string): CalculatorContent {
         ],
         faqs: INCOME_TAX_FAQS,
         relatedCalculators: [
-          { slug: 'tax-calculator', label: 'Tax Calculator' },
           { slug: 'paycheck-calculator', label: 'Paycheck Calculator' },
+          { slug: '401k-retirement-calculator', label: '401(k) Calculator' },
           { slug: 'self-employment-tax-calculator', label: 'Self-Employment Calculator' },
         ],
       };
@@ -617,8 +617,8 @@ function getCalculatorContent(type: string): CalculatorContent {
         ],
         faqs: TAX_CALC_FAQS,
         relatedCalculators: [
-          { slug: 'income-tax-calculator', label: 'Income Tax Calculator' },
           { slug: 'paycheck-calculator', label: 'Paycheck Calculator' },
+          { slug: 'mortgage-calculator', label: 'Mortgage Calculator' },
           { slug: 'capital-gains-calculator', label: 'Capital Gains Calculator' },
         ],
       };
@@ -675,9 +675,9 @@ export function CalculatorContentClient({ jsonLdType }: CalculatorContentClientP
 
       {/* How This Calculator Works */}
       <section className="rounded-xl border border-border/30 bg-card/50 p-6 sm:p-8">
-        <h2 className="text-2xl font-bold text-foreground mb-4">
+        <p className="text-2xl font-bold text-foreground mb-4">
           How This Calculator Works
-        </h2>
+        </p>
         <div className="space-y-4">
           {content.howItWorks.map((paragraph, i) => (
             <p key={i} className="text-muted-foreground leading-relaxed" dangerouslySetInnerHTML={{ __html: paragraph.replace(/\n/g, '<br/>') }} />
@@ -688,9 +688,9 @@ export function CalculatorContentClient({ jsonLdType }: CalculatorContentClientP
       {/* Key Rates & Data */}
       {content.keyRates.length > 0 && (
         <section className="rounded-xl border border-emerald-500/20 bg-emerald-500/5 p-6 sm:p-8">
-          <h2 className="text-2xl font-bold text-foreground mb-4">
+          <p className="text-2xl font-bold text-foreground mb-4">
             Key Rates & Data for 2026
-          </h2>
+          </p>
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {content.keyRates.map((rate) => (
               <div
@@ -712,9 +712,9 @@ export function CalculatorContentClient({ jsonLdType }: CalculatorContentClientP
       {/* Frequently Asked Questions */}
       {content.faqs.length > 0 && (
         <section>
-          <h2 className="text-2xl font-bold text-foreground mb-6">
+          <p className="text-2xl font-bold text-foreground mb-6">
             {getFaqHeading(jsonLdType)}
-          </h2>
+          </p>
           <div className="space-y-3">
             {content.faqs.map((faq, i) => (
               <details
@@ -745,9 +745,9 @@ export function CalculatorContentClient({ jsonLdType }: CalculatorContentClientP
       {/* Related Calculators */}
       {content.relatedCalculators.length > 0 && (
         <section className="rounded-xl border border-border/30 bg-card/50 p-6 sm:p-8">
-          <h2 className="text-lg font-semibold text-foreground mb-4">
+          <p className="text-lg font-semibold text-foreground mb-4">
             Related Calculators
-          </h2>
+          </p>
           <div className="flex flex-wrap gap-3">
             {content.relatedCalculators.map((calc) => (
               <Link

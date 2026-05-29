@@ -18,10 +18,10 @@ export default function NotFound() {
         </div>
 
         {/* 404 */}
-        <h1 className="text-8xl font-black tracking-tighter text-foreground/20">404</h1>
+        <p className="text-8xl font-black tracking-tighter text-foreground/20" aria-hidden="true">404</p>
 
         {/* Message */}
-        <h2 className="mt-4 text-2xl font-bold text-foreground">Page Not Found</h2>
+        <h1 className="mt-4 text-2xl font-bold text-foreground">Page Not Found</h1>
         <p className="mt-3 text-muted-foreground leading-relaxed">
           The page you&apos;re looking for doesn&apos;t exist or has been moved.
           Try one of our free tax calculators instead.

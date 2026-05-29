@@ -19,7 +19,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "TheTaxCalc — Free 2026 Tax, Paycheck & Mortgage Calculator | All 50 States",
+    default: "TheTaxCalc — Free 2026 Tax & Paycheck Calculator",
     template: "%s | TheTaxCalc",
   },
   description:

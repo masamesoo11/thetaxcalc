@@ -163,7 +163,7 @@ export default async function BlogPage() {
 
       {/* Internal Links: Calculator CTA */}
       <section className="mt-12 rounded-xl border border-emerald-500/20 bg-emerald-500/5 p-6">
-        <h2 className="text-xl font-bold text-foreground mb-2">Use Our Free Tax Calculators</h2>
+        <p className="text-xl font-bold text-foreground mb-2">Use Our Free Tax Calculators</p>
         <p className="text-sm text-muted-foreground mb-4">Our blog explains the rules. Our calculators show you the numbers.</p>
         <div className="flex flex-wrap gap-3">
           <Link href="/paycheck-calculator" className="inline-flex items-center gap-1.5 rounded-lg bg-emerald-600 px-4 py-2 text-sm font-medium text-white hover:bg-emerald-700 transition-colors">Paycheck Calculator</Link>
@@ -179,9 +179,9 @@ export default async function BlogPage() {
 
       {/* Related Tools & Resources */}
       <section className="mt-12 border-t border-border/20 pt-10">
-        <h2 className="text-lg font-bold text-foreground mb-6">
+        <p className="text-lg font-bold text-foreground mb-6">
           Tax Blog Resources
-        </h2>
+        </p>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {/* Calculators */}
           <div className="rounded-xl border border-border/30 bg-card/50 p-5">
