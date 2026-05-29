@@ -223,7 +223,7 @@ export function SalaryClientPage({ amountStr }: SalaryClientPageProps) {
               <TrendingUp className="h-5 w-5 text-emerald-400" />
             </div>
             <h2 className="text-2xl font-bold text-foreground">
-              Detailed Breakdown by State
+              {calc.salaryFormatted} — Detailed Breakdown by State
             </h2>
           </div>
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">

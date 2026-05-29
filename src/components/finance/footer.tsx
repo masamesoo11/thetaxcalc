@@ -23,7 +23,7 @@ const CALCULATOR_LINKS = [
 const RESOURCE_LINKS = [
   { label: 'IRS Official Site', url: 'https://www.irs.gov/', category: 'government' },
   { label: 'Tax Foundation', url: 'https://taxfoundation.org/', category: 'resource' },
-  { label: 'IL Revenue Dept', url: 'https://www2.illinois.gov/rev/', category: 'government' },
+  { label: 'IL Revenue Dept', url: 'https://revenue.illinois.gov/', category: 'government' },
   { label: 'TX Comptroller', url: 'https://comptroller.texas.gov/', category: 'government' },
   { label: 'FL Revenue Dept', url: 'https://floridarevenue.com/', category: 'government' },
   { label: 'CA FTB', url: 'https://www.ftb.ca.gov/', category: 'government' },

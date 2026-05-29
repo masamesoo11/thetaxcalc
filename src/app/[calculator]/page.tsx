@@ -20,8 +20,40 @@ import {
   RELOCATION_FAQS,
   FAQItem,
 } from '@/lib/faq-data';
-import { CalculatorClientPage } from './calculator-client-page';
+import dynamic from 'next/dynamic';
+import { Skeleton } from '@/components/ui/skeleton';
 import { getAllPosts } from '@/lib/blog-db';
+
+const CalculatorClientPage = dynamic(
+  () => import('./calculator-client-page').then((m) => ({ default: m.CalculatorClientPage })),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="space-y-6">
+        <div className="grid gap-6 lg:grid-cols-5">
+          <div className="space-y-4 lg:col-span-3">
+            <div className="rounded-xl border border-border/30 bg-card/50 p-6">
+              <Skeleton className="h-6 w-40 mb-4" />
+              <div className="space-y-4">
+                <Skeleton className="h-10 w-full" />
+                <Skeleton className="h-10 w-full" />
+                <Skeleton className="h-10 w-2/3" />
+              </div>
+            </div>
+          </div>
+          <div className="lg:col-span-2">
+            <div className="rounded-xl border border-border/30 bg-card/50 p-6">
+              <Skeleton className="h-6 w-32 mb-4" />
+              <Skeleton className="h-20 w-full mb-4" />
+              <Skeleton className="h-4 w-full" />
+              <Skeleton className="h-4 w-3/4" />
+            </div>
+          </div>
+        </div>
+      </div>
+    ),
+  }
+);
 import { SITE_URL } from '@/lib/site-config';
 
 export function generateStaticParams() {
@@ -369,7 +401,7 @@ function getCalculatorContent(type: string): CalculatorContent {
     case 'illinois':
       return {
         howItWorks: [
-          '<a href="https://www2.illinois.gov/rev/" target="_blank" rel="noopener noreferrer nofollow">4.95%</a>. That\'s it. One flat rate for every Illinois resident, whether you pull in $30K or $300K. No brackets to figure out, no guessing which rate applies. Honestly, it\'s kinda nice not having to navigate a bracket system — even if 4.95% isn\'t exactly cheap compared to the zero-tax states. You get a $2,775 personal exemption for 2026 that comes off the top, so on a $75,000 salary you\'re taxed on $72,225, which comes out to $3,575.14 in state tax. The math is easy to check. My cousin moved from Chicago to Austin last year and he said the <a href="/relocation-calculator">state tax savings alone covered his moving costs</a> within about 8 months.',
+          '<a href="https://revenue.illinois.gov/" target="_blank" rel="noopener noreferrer nofollow">4.95%</a>. That\'s it. One flat rate for every Illinois resident, whether you pull in $30K or $300K. No brackets to figure out, no guessing which rate applies. Honestly, it\'s kinda nice not having to navigate a bracket system — even if 4.95% isn\'t exactly cheap compared to the zero-tax states. You get a $2,775 personal exemption for 2026 that comes off the top, so on a $75,000 salary you\'re taxed on $72,225, which comes out to $3,575.14 in state tax. The math is easy to check. My cousin moved from Chicago to Austin last year and he said the <a href="/relocation-calculator">state tax savings alone covered his moving costs</a> within about 8 months.',
           'On top of Illinois tax you\'ve got the federal progressive brackets with the standard deduction, plus FICA at 7.65% combined. <a href="/401k-retirement-calculator">401(k) contributions</a> are your friend here — they reduce taxable income at both the federal and state level, so every dollar you put in saves you money twice.',
           'One thing people don\'t expect: Illinois has no state standard deduction, just that personal exemption. But there\'s a real silver lining if you\'re anywhere near retirement. Illinois doesn\'t touch Social Security benefits, 401(k) distributions, IRA withdrawals, or pension income. The property taxes are brutal — no argument there — but for retirees specifically, the income tax picture is honestly pretty decent.',
         ],
@@ -509,7 +541,7 @@ function getCalculatorContent(type: string): CalculatorContent {
         howItWorks: [
           'Your monthly mortgage payment comes from a formula: M = P × [r(1+r)^n] / [(1+r)^n - 1]. P is the loan amount, r is the monthly rate (annual rate ÷ 12), and n is total payments (years × 12). It spits out a fixed payment that pays off every penny by the end of the term. Simple enough. What surprises people is how that payment breaks down. On a 30-year, $280,000 loan at 6.5%, your first payment is roughly 86% interest and only 14% principal. You feel like you\'re treading water. By year 15 it\'s about 50/50, and in the final years nearly everything goes to principal. My brother bought his first house in 2019 and called me panicked after seeing his first amortization statement — "I\'m basically just paying interest!" Yeah. That\'s how it works at first. Stick with it.',
           'Extra payments go 100% toward principal. Every dollar you add saves you interest for the remaining life of the loan. Adding $200/month extra on that $280K loan at 6.5% saves roughly $76,856 in interest and pays it off more than 5 years early. Compound interest working for you instead of against you, for once.',
-          'We generate a full amortization schedule — month by month, principal vs interest, remaining balance. For a detailed walkthrough, check the <a href="https://www.consumerfinance.gov/owning-a-home/mortgage-closing-checklist/" target="_blank" rel="noopener noreferrer nofollow">CFPB mortgage closing checklist</a>. Key things to keep in mind:\n- Recommended housing cost ratio: no more than 28% of gross income\n- 20% down payment avoids PMI entirely\n- Common loan terms are 15, 20, or 30 years\n- Even small extra payments make a big difference over 30 years',
+          'We generate a full amortization schedule — month by month, principal vs interest, remaining balance. For a detailed walkthrough, check the <a href="https://www.consumerfinance.gov/owning-a-home/mortgage-closing/" target="_blank" rel="noopener noreferrer nofollow">CFPB mortgage closing checklist</a>. Key things to keep in mind:\n- Recommended housing cost ratio: no more than 28% of gross income\n- 20% down payment avoids PMI entirely\n- Common loan terms are 15, 20, or 30 years\n- Even small extra payments make a big difference over 30 years',
         ],
         keyRates: [
           { label: 'Formula', value: 'M = P × [r(1+r)^n] / [(1+r)^n - 1]' },
@@ -534,7 +566,7 @@ function getCalculatorContent(type: string): CalculatorContent {
           'Start early. That\'s the whole game with retirement savings. This calculator estimates your 401(k) balance at retirement based on contributions, employer match, expected returns, and years left to save. The earlier you begin, the less you need to put in each year.',
           'The math is future value of a series. Each year\'s contribution grows at your assumed annual return for every remaining year until retirement. Year 1 grows for the full period. Year 10 grows for 10 fewer years. Add it all up — that\'s your projected balance. The concept is straightforward. The results can be surprising. Someone who starts at 25 and contributes $500/month with a 7% return ends up with roughly $1.2 million by 65. Start at 35 with the same contributions? About $567,000. Ten years of delay costs you over $600K. That\'s compound growth for you — brutal if you\'re late, powerful if you\'re early.',
           'The employer match is free money. Typical structure: 50% match up to 6% of salary. Make $100K, contribute 6% ($6,000), employer adds $3,000. If you\'re not contributing enough to get the full match, you\'re throwing away thousands every year.',
-          'For 2026, the <a href="https://www.irs.gov/retirement-plans/401k-plans-403b-plans-and-other-qualified-plans" target="_blank" rel="noopener noreferrer nofollow">401(k) contribution limit is $23,500</a>. Catch-up contribution for ages 50+ is another $7,500. Ages 60-63 get an even bigger catch-up of $11,250. The calculator defaults to 7% annual return, which is a reasonable long-term assumption for a diversified stock portfolio. Real returns bounce around — up 20% some years, down 15% others — but 7% is a solid planning number over decades.',
+          'For 2026, the <a href="https://www.irs.gov/retirement-plans/plan-participant-employee/retirement-topics-401k-and-profit-sharing-plan-contribution-limits" target="_blank" rel="noopener noreferrer nofollow">401(k) contribution limit is $23,500</a>. Catch-up contribution for ages 50+ is another $7,500. Ages 60-63 get an even bigger catch-up of $11,250. The calculator defaults to 7% annual return, which is a reasonable long-term assumption for a diversified stock portfolio. Real returns bounce around — up 20% some years, down 15% others — but 7% is a solid planning number over decades.',
           'RMD age is 73. That\'s when the IRS makes you start withdrawing. But that\'s a problem for future you.',
         ],
         keyRates: [
@@ -814,9 +846,9 @@ export default async function CalculatorPage({
 
       {/* Next Steps */}
       <section className="mt-8 rounded-xl border border-emerald-500/20 bg-emerald-500/5 p-6 sm:p-8">
-        <p className="text-lg font-semibold text-foreground mb-3">
-          What Else Would You Like to Calculate?
-        </p>
+        <h3 className="text-lg font-semibold text-foreground mb-3">
+          More {config.h1} Tools &amp; Resources
+        </h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
           {getNextSteps(config.componentKey).map((step) => (
             <Link

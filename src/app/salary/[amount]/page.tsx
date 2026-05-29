@@ -299,7 +299,7 @@ export default async function SalaryAmountPage({
               <TrendingUp className="h-5 w-5 text-emerald-400" />
             </div>
             <h2 className="text-2xl font-bold text-foreground">
-              Detailed Breakdown by State
+              {calc.salaryFormatted} — Detailed Breakdown by State
             </h2>
           </div>
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -448,9 +448,9 @@ export default async function SalaryAmountPage({
         <section className="py-12 border-t border-border/20">
           <div className="rounded-2xl border border-emerald-500/20 bg-gradient-to-br from-emerald-600/10 to-teal-600/5 p-8 sm:p-12 text-center">
             <Calculator className="h-10 w-10 text-emerald-400 mx-auto mb-4" />
-            <h2 className="text-2xl font-bold text-foreground mb-3">
+            <h3 className="text-2xl font-bold text-foreground mb-3">
               Calculate Your Exact Take-Home Pay
-            </h2>
+            </h3>
             <p className="text-muted-foreground max-w-lg mx-auto mb-6">
               Our paycheck calculator lets you add 401(k), HSA, and other pre-tax deductions
               to get a precise number for your situation.

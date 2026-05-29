@@ -20,7 +20,7 @@ import { Breadcrumb } from '@/components/finance/breadcrumb';
 import { SITE_URL } from '@/lib/site-config';
 
 export const metadata: Metadata = {
-  title: 'About TheTaxCalc — Free 2026 Tax Calculators',
+  title: 'About TheTaxCalc — Free 2026 Calculators',
   description:
     'Learn about TheTaxCalc — our mission to provide free, accurate tax calculators. Understand your take-home pay after federal, FICA, and state taxes.',
   keywords: ['about thetaxcalc', 'tax calculator about', 'tax tool mission', 'free tax calculator', 'tax data accuracy', 'tax calculator team'],
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'About TheTaxCalc — Free 2026 Tax Calculators',
+    title: 'About TheTaxCalc — Free 2026 Calculators',
     description:
       'Learn about TheTaxCalc — our mission to provide free, accurate tax calculators for every American.',
     url: `${SITE_URL}/about`,
@@ -337,7 +337,7 @@ export default function AboutPage() {
                 <a href="https://www.irs.gov/publications/p15t" target="_blank" rel="noopener noreferrer nofollow" className="text-emerald-400 hover:text-emerald-300 underline">Publication 15-T</a>.
                 Not a blog post summarizing them — the actual IRS documents.
                 State rates come from each state&apos;s Department of Revenue directly. Illinois?{' '}
-                <a href="https://www2.illinois.gov/rev/" target="_blank" rel="noopener noreferrer nofollow" className="text-emerald-400 hover:text-emerald-300 underline">IDOR</a>.
+                <a href="https://revenue.illinois.gov/" target="_blank" rel="noopener noreferrer nofollow" className="text-emerald-400 hover:text-emerald-300 underline">IDOR</a>.
                 California?{' '}
                 <a href="https://www.ftb.ca.gov/" target="_blank" rel="noopener noreferrer nofollow" className="text-emerald-400 hover:text-emerald-300 underline">FTB</a>.
                 New York?{' '}

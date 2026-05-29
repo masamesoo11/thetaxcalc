@@ -310,9 +310,9 @@ export default function CompareLandingPage() {
 
       {/* Bottom CTA */}
       <section className="mt-16 rounded-2xl border border-border/30 bg-card/50 p-8 text-center">
-        <h2 className="text-2xl font-bold text-foreground">
+        <h3 className="text-2xl font-bold text-foreground">
           Need a Personalized <span className="gradient-text">Salary Comparison</span>?
-        </h2>
+        </h3>
         <p className="mt-3 text-muted-foreground max-w-xl mx-auto">
           Our Relocation Calculator computes equivalent salaries between states, factoring in all taxes and deductions.
         </p>

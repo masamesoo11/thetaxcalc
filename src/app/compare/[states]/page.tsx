@@ -380,7 +380,7 @@ export default async function CompareStatesPage({
       {/* ─── Detailed Take-Home Breakdown ─────────────────────────────────── */}
       <section className="mb-12">
         <h2 className="text-2xl font-bold text-foreground mb-6">
-          Take-Home Pay <span className="gradient-text">Breakdown</span>
+          {s1.name} vs {s2.name} — Take-Home Pay <span className="gradient-text">Breakdown</span>
         </h2>
         <div className="grid gap-6 md:grid-cols-2">
           {/* $75K Breakdown */}
@@ -460,7 +460,7 @@ export default async function CompareStatesPage({
       {/* ─── Which State Is Better For You? ────────────────────────────────── */}
       <section className="mb-12">
         <h2 className="text-2xl font-bold text-foreground mb-6">
-          Which State Is <span className="gradient-text">Better for You</span>?
+          Which State <span className="gradient-text">Saves You More</span>: {s1.name} or {s2.name}?
         </h2>
         <div className="premium-card p-6 space-y-4">
           {/* Income Tax Analysis */}
@@ -558,7 +558,7 @@ export default async function CompareStatesPage({
       {/* ─── FAQ Section ───────────────────────────────────────────────────── */}
       <section className="mb-12">
         <h2 className="text-2xl font-bold text-foreground mb-6">
-          State Tax <span className="gradient-text">FAQ</span>
+          {s1.name} vs {s2.name} Tax <span className="gradient-text">FAQ</span>
         </h2>
         <div className="space-y-4">
           {faqs.map((faq, i) => (
@@ -581,9 +581,9 @@ export default async function CompareStatesPage({
 
       {/* ─── CTA: State Calculator Links ───────────────────────────────────── */}
       <section className="mb-12">
-        <h2 className="text-2xl font-bold text-foreground mb-6">
+        <h3 className="text-2xl font-bold text-foreground mb-6">
           Calculate Your <span className="gradient-text">Exact Take-Home Pay</span>
-        </h2>
+        </h3>
         <div className="grid gap-5 sm:grid-cols-2">
           <Link
             href={s1.calculatorSlug}

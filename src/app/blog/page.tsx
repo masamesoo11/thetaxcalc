@@ -2,7 +2,29 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import { getPublishedPostsMeta } from '@/lib/blog-index';
 import { BLOG_CONTENT } from '@/lib/blog-content';
-import { BlogListClient } from './blog-list-client';
+import dynamic from 'next/dynamic';
+import { Skeleton } from '@/components/ui/skeleton';
+
+const BlogListClient = dynamic(
+  () => import('./blog-list-client').then((m) => ({ default: m.BlogListClient })),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="space-y-4 mt-8">
+        <Skeleton className="h-6 w-40" />
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {Array.from({ length: 3 }).map((_, i) => (
+            <div key={i} className="rounded-xl border border-border/30 bg-card/50 p-4 space-y-3">
+              <Skeleton className="h-4 w-20" />
+              <Skeleton className="h-5 w-full" />
+              <Skeleton className="h-4 w-3/4" />
+            </div>
+          ))}
+        </div>
+      </div>
+    ),
+  }
+);
 import { Breadcrumb } from '@/components/finance/breadcrumb';
 import { SITE_URL } from '@/lib/site-config';
 
@@ -152,7 +174,7 @@ export default async function BlogPage() {
       )}
 
       <section className="mx-auto mt-12 max-w-3xl border-t border-border/50 pt-10">
-        <h2 className="text-2xl font-bold tracking-tight text-foreground">Why read this blog?</h2>
+        <h3 className="text-2xl font-bold tracking-tight text-foreground">Why read this blog?</h3>
         <div className="mt-5 space-y-4 text-sm leading-relaxed text-muted-foreground">
           <p>Because nobody wakes up excited to read about tax brackets. We know. But here&apos;s the thing — ignoring taxes doesn&apos;t make them go away. It just makes April a lot more stressful than it needs to be.</p>
           <p>We&apos;re not a faceless finance conglomerate. We&apos;re real people who got tired of tax articles that read like IRS instruction manuals. Our promise: plain English, honest opinions, and zero condescension.</p>

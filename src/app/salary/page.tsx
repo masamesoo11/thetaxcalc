@@ -26,7 +26,7 @@ import { Breadcrumb } from '@/components/finance/breadcrumb';
 // ─── Page Metadata ─────────────────────────────────────────────────────────────
 
 export const metadata: Metadata = {
-  title: 'Salary After Tax 2026 — Take-Home Pay by State',
+  title: 'Salary After Tax 2026 — Take-Home Pay',
   description:
     'See your take-home pay for every salary from $30K to $500K. Compare after-tax income across Illinois, Texas, Florida, California, and New York for 2026.',
   keywords: [
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'Salary After Tax 2026 — Take-Home Pay by State',
+    title: 'Salary After Tax 2026 — Take-Home Pay',
     description:
       'See your take-home pay for every salary from $30K to $500K. Compare after-tax income across IL, TX, FL, CA, NY.',
     url: `${SITE_URL}/salary`,
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Salary After Tax 2026 — Take-Home Pay by State',
+    title: 'Salary After Tax 2026 — Take-Home Pay',
     description:
       'See your take-home pay for every salary from $30K to $500K. Compare after-tax income across IL, TX, FL, CA, NY.',
   },
@@ -315,9 +315,9 @@ export default function SalaryLandingPage() {
         <section className="py-12 border-t border-border/20">
           <div className="rounded-2xl border border-emerald-500/20 bg-gradient-to-br from-emerald-600/10 to-teal-600/5 p-8 sm:p-12 text-center">
             <Calculator className="h-10 w-10 text-emerald-400 mx-auto mb-4" />
-            <h2 className="text-2xl font-bold text-foreground mb-3">
+            <h3 className="text-2xl font-bold text-foreground mb-3">
               Need a More Precise Calculation?
-            </h2>
+            </h3>
             <p className="text-muted-foreground max-w-lg mx-auto mb-6">
               Our paycheck calculator supports 401(k), HSA, different filing statuses,
               and all 5 states with detailed breakdowns.

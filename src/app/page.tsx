@@ -32,7 +32,7 @@ import {
 export const metadata: Metadata = {
   title: '2026 Paycheck & Mortgage Calculator',
   description:
-    'Free 2026 paycheck calculator. Compute take-home pay after federal, FICA, and state taxes for IL, TX, FL, CA, NY. Mortgage, 401(k) and SE calculators included.',
+    'Free 2026 paycheck calculator. Compute take-home pay after federal, FICA, and state taxes for IL, TX, FL, CA, NY. Mortgage, 401(k) & SE calculators.',
   keywords: [
     'paycheck calculator', 'take home pay calculator', 'salary calculator',
     'Illinois tax calculator', 'Texas tax calculator', 'Florida tax calculator',

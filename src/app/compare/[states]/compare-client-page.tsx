@@ -288,7 +288,7 @@ export function CompareClientPage({ states }: CompareClientPageProps) {
       {/* Detailed Take-Home Breakdown */}
       <section className="mb-12">
         <h2 className="text-2xl font-bold text-foreground mb-6">
-          Take-Home Pay <span className="gradient-text">Breakdown</span>
+          {s1.name} vs {s2.name} — Take-Home Pay <span className="gradient-text">Breakdown</span>
         </h2>
         <div className="grid gap-6 md:grid-cols-2">
           <div className="premium-card p-6">
@@ -329,7 +329,7 @@ export function CompareClientPage({ states }: CompareClientPageProps) {
       {/* Which State Is Better For You? */}
       <section className="mb-12">
         <h2 className="text-2xl font-bold text-foreground mb-6">
-          Which State Is <span className="gradient-text">Better for You</span>?
+          Which State <span className="gradient-text">Saves You More</span>: {s1.name} or {s2.name}?
         </h2>
         <div className="premium-card p-6 space-y-4">
           <div className="flex items-start gap-3">

@@ -32,7 +32,7 @@ export default function BlogError({
             />
           </svg>
         </div>
-        <h2 className="text-2xl font-bold text-foreground">Something went wrong</h2>
+        <h1 className="text-2xl font-bold text-foreground">Something went wrong</h1>
         <p className="mt-3 text-sm text-muted-foreground">
           We couldn&apos;t load the blog content. This might be a temporary issue.
         </p>
