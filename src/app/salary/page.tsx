@@ -26,7 +26,7 @@ import { Breadcrumb } from '@/components/finance/breadcrumb';
 // ─── Page Metadata ─────────────────────────────────────────────────────────────
 
 export const metadata: Metadata = {
-  title: 'Salary After Tax Calculator 2026 — Take-Home Pay by State | TheTaxCalc',
+  title: 'Salary After Tax Calculator 2026 — Take-Home Pay by State',
   description:
     'See your take-home pay for every salary from $30K to $500K. Compare after-tax income across Illinois, Texas, Florida, California, and New York for 2026.',
   keywords: [
@@ -50,6 +50,7 @@ export const metadata: Metadata = {
     siteName: 'TheTaxCalc',
     type: 'website',
     locale: 'en_US',
+    images: [{ url: `${SITE_URL}/opengraph-image.png`, width: 1200, height: 630, alt: 'Salary After Tax Calculator 2026 — TheTaxCalc' }],
   },
   twitter: {
     card: 'summary_large_image',

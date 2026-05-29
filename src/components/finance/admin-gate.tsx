@@ -115,6 +115,7 @@ export function AdminGate({ children }: { children: React.ReactNode }) {
               </div>
               <Input
                 type={showPassword ? 'text' : 'password'}
+                aria-label="Admin password"
                 placeholder="Admin password"
                 value={password}
                 onChange={(e) => {

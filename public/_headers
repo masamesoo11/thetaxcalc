@@ -1,10 +1,19 @@
 # === Allow indexing on all pages ===
 /*
   X-Robots-Tag: all
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
+  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
 
 # === Static assets caching ===
 /_next/static/*
   Cache-Control: public, max-age=31536000, immutable
+
+# === Image caching ===
+/_next/image/*
+  Cache-Control: public, max-age=86400, stale-while-revalidate=31536000
 
 # === Block indexing of API and admin routes ===
 /api/*

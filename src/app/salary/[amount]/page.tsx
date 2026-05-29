@@ -51,7 +51,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { amount: amountStr } = await params;
   const salary = slugToSalary(amountStr);
-  if (!salary) return { title: 'Salary Not Found | TheTaxCalc' };
+  if (!salary) return { title: 'Salary Not Found' };
 
   const formatted = formatSalary(salary);
   const baseUrl = SITE_URL;

@@ -37,10 +37,10 @@ export async function generateMetadata({
   const post = getStaticPost(slug);
 
   if (!post) {
-    return { title: 'Post Not Found | TheTaxCalc' };
+    return { title: 'Post Not Found' };
   }
 
-  const metaTitle = post.metaTitle || `${post.title} | TheTaxCalc`;
+  const metaTitle = post.metaTitle || post.title;
   const metaDesc = post.metaDesc || post.excerpt || `Read ${post.title} on TheTaxCalc — expert tax guides and financial tips.`;
 
   return {

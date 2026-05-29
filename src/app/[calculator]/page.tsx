@@ -39,7 +39,7 @@ export async function generateMetadata({
   const config = SLUG_TO_CONFIG[calculator];
 
   if (!config) {
-    return { title: 'Calculator Not Found | TheTaxCalc' };
+    return { title: 'Calculator Not Found' };
   }
 
   const baseUrl = SITE_URL;

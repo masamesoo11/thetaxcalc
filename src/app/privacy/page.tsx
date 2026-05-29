@@ -23,6 +23,7 @@ export const metadata: Metadata = {
     siteName: 'TheTaxCalc',
     type: 'website',
     locale: 'en_US',
+    images: [{ url: `${SITE_URL}/opengraph-image.png`, width: 1200, height: 630, alt: 'Privacy Policy — TheTaxCalc' }],
   },
 };
 

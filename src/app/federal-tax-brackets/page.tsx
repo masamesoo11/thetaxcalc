@@ -17,7 +17,7 @@ import { BracketsTabs } from './brackets-tabs';
 // ─── Page Metadata ──────────────────────────────────────────────────────────────
 
 export const metadata: Metadata = {
-  title: '2026 Federal Tax Brackets — Rates, Standard Deductions & Examples | TheTaxCalc',
+  title: '2026 Federal Tax Brackets — Rates, Standard Deductions & Examples',
   description:
     'Complete 2026 federal income tax brackets for Single, Married Filing Jointly, and Head of Household. Includes standard deductions, progressive tax explanation, effective vs marginal rates, and a $75,000 salary breakdown example.',
   keywords: [
@@ -53,6 +53,7 @@ export const metadata: Metadata = {
     siteName: 'TheTaxCalc',
     type: 'website',
     locale: 'en_US',
+    images: [{ url: `${SITE_URL}/opengraph-image.png`, width: 1200, height: 630, alt: '2026 Federal Tax Brackets — TheTaxCalc' }],
   },
   twitter: {
     card: 'summary_large_image',

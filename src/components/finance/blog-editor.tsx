@@ -544,6 +544,7 @@ export function BlogEditor({ editSlug, onNavigate }: BlogEditorProps) {
                 </CardHeader>
                 <CardContent className="pt-0">
                   <Input
+                    aria-label="Tags"
                     value={form.tags}
                     onChange={(e) => updateField('tags', e.target.value)}
                     placeholder="tax, illinois, calculator"
@@ -578,6 +579,7 @@ export function BlogEditor({ editSlug, onNavigate }: BlogEditorProps) {
                 </CardHeader>
                 <CardContent className="pt-0">
                   <Input
+                    aria-label="Cover image URL"
                     value={form.coverImage}
                     onChange={(e) => updateField('coverImage', e.target.value)}
                     placeholder="https://example.com/image.jpg"

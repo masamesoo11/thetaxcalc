@@ -9,7 +9,7 @@ import { SITE_URL } from '@/lib/site-config';
 // ─── Page Metadata ────────────────────────────────────────────────────────────
 
 export const metadata: Metadata = {
-  title: 'Tax Glossary — 2026 Tax Terms Explained | TheTaxCalc',
+  title: 'Tax Glossary — 2026 Tax Terms Explained',
   description:
     'Comprehensive tax glossary with 25+ terms explained for 2026. Understand FICA, standard deduction, marginal tax rate, AGI, capital gains brackets, self-employment tax, and more. Free, accurate, and easy to understand.',
   keywords: [
@@ -38,10 +38,11 @@ export const metadata: Metadata = {
     siteName: 'TheTaxCalc',
     type: 'website',
     locale: 'en_US',
+    images: [{ url: `${SITE_URL}/opengraph-image.png`, width: 1200, height: 630, alt: 'Tax Glossary 2026 — TheTaxCalc' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Tax Glossary — 2026 Tax Terms Explained | TheTaxCalc',
+    title: 'Tax Glossary — 2026 Tax Terms Explained',
     description:
       '25+ tax terms explained for 2026: FICA, standard deduction, marginal tax rate, AGI, and more.',
   },

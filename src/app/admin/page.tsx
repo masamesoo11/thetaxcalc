@@ -3,7 +3,7 @@ import { AdminGate } from '@/components/finance/admin-gate';
 import { AdminDashboard } from '@/components/finance/admin-dashboard';
 
 export const metadata: Metadata = {
-  title: 'Admin Dashboard | TheTaxCalc',
+  title: 'Admin Dashboard',
   description: 'TheTaxCalc admin dashboard for managing blog posts, ads, and site settings.',
   robots: { index: false, follow: false },
 };

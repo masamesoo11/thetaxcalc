@@ -38,7 +38,7 @@ export async function generateMetadata({
   const config = getCompareConfig(states);
 
   if (!config) {
-    return { title: 'Comparison Not Found | TheTaxCalc' };
+    return { title: 'Comparison Not Found' };
   }
 
   const baseUrl = SITE_URL;

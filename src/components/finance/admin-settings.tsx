@@ -169,6 +169,7 @@ export function AdminSettings() {
             <div key={setting.key} className="grid gap-2 sm:grid-cols-[200px_1fr_auto] sm:items-center">
               <Label className="text-sm font-mono truncate">{setting.key}</Label>
               <Input
+                aria-label={`Value for ${setting.key}`}
                 value={setting.value}
                 onChange={(e) => handleValueChange(setting.key, e.target.value)}
                 className="bg-background"
@@ -196,12 +197,14 @@ export function AdminSettings() {
             <div className="text-sm font-medium mb-3">Add New Setting</div>
             <div className="grid gap-2 sm:grid-cols-[200px_1fr_auto] sm:items-center">
               <Input
+                aria-label="New setting key"
                 value={newKey}
                 onChange={(e) => setNewKey(e.target.value)}
                 placeholder="setting_key"
                 className="bg-background font-mono text-sm"
               />
               <Input
+                aria-label="New setting value"
                 value={newValue}
                 onChange={(e) => setNewValue(e.target.value)}
                 placeholder="Value"
