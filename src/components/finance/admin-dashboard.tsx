@@ -2,6 +2,7 @@
 
 import { useMemo, useState, useCallback, useEffect } from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
+import dynamic from 'next/dynamic';
 import {
   LayoutDashboard,
   FileText,
@@ -13,20 +14,23 @@ import {
   TrendingUp,
   FileBarChart,
   ToggleLeft,
-  Eye,
   BarChart3,
+  Database,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Switch } from '@/components/ui/switch';
 import { ScrollArea } from '@/components/ui/scroll-area';
-import { AdminBlogList } from '@/components/finance/admin-blog-list';
-import { AdminAds } from '@/components/finance/admin-ads';
-import { AdminSettings } from '@/components/finance/admin-settings';
-import { AdminLinks } from '@/components/finance/admin-links';
-import { BlogEditor } from '@/components/finance/blog-editor';
 import { toast } from 'sonner';
+
+// Lazy-load heavy admin components to reduce initial bundle size
+const AdminBlogList = dynamic(() => import('@/components/finance/admin-blog-list').then(m => ({ default: m.AdminBlogList })), { ssr: false });
+const AdminAds = dynamic(() => import('@/components/finance/admin-ads').then(m => ({ default: m.AdminAds })), { ssr: false });
+const AdminSettings = dynamic(() => import('@/components/finance/admin-settings').then(m => ({ default: m.AdminSettings })), { ssr: false });
+const AdminLinks = dynamic(() => import('@/components/finance/admin-links').then(m => ({ default: m.AdminLinks })), { ssr: false });
+const BlogEditor = dynamic(() => import('@/components/finance/blog-editor').then(m => ({ default: m.BlogEditor })), { ssr: false });
+const DatabaseClient = dynamic(() => import('@/components/finance/database-client').then(m => ({ default: m.DatabaseClient })), { ssr: false });
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -56,6 +60,7 @@ const NAV_ITEMS = [
   { key: 'overview', label: 'Overview', icon: LayoutDashboard },
   { key: 'blog', label: 'Blog Posts', icon: FileText },
   { key: 'ads', label: 'Ad Management', icon: Megaphone },
+  { key: 'database', label: 'Database', icon: Database },
   { key: 'settings', label: 'Settings', icon: Settings },
   { key: 'links', label: 'External Links', icon: Link2 },
 ];
@@ -95,33 +100,29 @@ export function AdminDashboard() {
     const clean = hash.replace(/^#/, '');
     const parts = clean.split('/');
 
-    // #admin → overview
     if (parts[0] === 'admin' && (parts.length === 1 || !parts[1])) {
       return { section: 'overview', sub: '', slug: '' };
     }
-    // #admin/blog → blog list
     if (parts[0] === 'admin' && parts[1] === 'blog' && parts.length === 2) {
       return { section: 'blog', sub: 'list', slug: '' };
     }
-    // #admin/blog/new → new blog post
     if (parts[0] === 'admin' && parts[1] === 'blog' && parts[2] === 'new') {
       return { section: 'blog', sub: 'new', slug: '' };
     }
-    // #admin/blog/edit/slug → edit blog post
     if (parts[0] === 'admin' && parts[1] === 'blog' && parts[2] === 'edit' && parts[3]) {
       return { section: 'blog', sub: 'edit', slug: parts[3] };
     }
-    // #admin/ads → ads
     if (parts[0] === 'admin' && parts[1] === 'ads') {
       return { section: 'ads', sub: '', slug: '' };
     }
-    // #admin/settings → settings
     if (parts[0] === 'admin' && parts[1] === 'settings') {
       return { section: 'settings', sub: '', slug: '' };
     }
-    // #admin/links → links
     if (parts[0] === 'admin' && parts[1] === 'links') {
       return { section: 'links', sub: '', slug: '' };
+    }
+    if (parts[0] === 'admin' && parts[1] === 'database') {
+      return { section: 'database', sub: '', slug: '' };
     }
 
     return { section: 'overview', sub: '', slug: '' };
@@ -140,10 +141,6 @@ export function AdminDashboard() {
     window.location.hash = `#admin/blog/edit/${slug}`;
   }, []);
 
-  const navigateToBlogList = useCallback(() => {
-    window.location.hash = '#admin/blog';
-  }, []);
-
   return (
     <div className="min-h-[calc(100vh-8rem)] flex rounded-xl border border-border/50 bg-muted/20 overflow-hidden">
       {/* Mobile Sidebar Toggle */}
@@ -152,7 +149,7 @@ export function AdminDashboard() {
         size="sm"
         className="fixed top-20 left-4 z-50 lg:hidden bg-background/80 backdrop-blur-sm border border-border/50"
         onClick={() => setSidebarOpen(!sidebarOpen)}
-        aria-label={sidebarOpen ? 'Close sidebar menu' : 'Open sidebar menu'}
+        aria-label="Toggle sidebar"
       >
         {sidebarOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
       </Button>
@@ -165,7 +162,6 @@ export function AdminDashboard() {
         `}
       >
         <div className="flex flex-col h-full">
-          {/* Admin Header */}
           <div className="p-4 border-b border-border/30">
             <div className="flex items-center gap-2">
               <div className="h-8 w-8 rounded-lg bg-emerald-500/20 flex items-center justify-center">
@@ -178,7 +174,6 @@ export function AdminDashboard() {
             </div>
           </div>
 
-          {/* Navigation */}
           <ScrollArea className="flex-1 py-2">
             <nav className="space-y-1 px-2">
               {NAV_ITEMS.map((item) => {
@@ -191,11 +186,7 @@ export function AdminDashboard() {
                     onClick={() => navigateTo(item.key)}
                     className={`
                       w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all
-                      ${
-                        isActive
-                          ? 'bg-emerald-500/15 text-emerald-400'
-                          : 'text-muted-foreground hover:bg-muted/50 hover:text-foreground'
-                      }
+                      ${isActive ? 'bg-emerald-500/15 text-emerald-400' : 'text-muted-foreground hover:bg-muted/50 hover:text-foreground'}
                     `}
                   >
                     <Icon className="h-4 w-4 shrink-0" />
@@ -206,12 +197,9 @@ export function AdminDashboard() {
             </nav>
           </ScrollArea>
 
-          {/* Back to Site */}
           <div className="p-3 border-t border-border/30">
             <button
-              onClick={() => {
-                window.location.hash = '#home';
-              }}
+              onClick={() => { window.location.hash = '#home'; }}
               className="w-full flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-muted-foreground hover:bg-muted/50 hover:text-foreground transition-all"
             >
               <TrendingUp className="h-4 w-4" />
@@ -221,34 +209,26 @@ export function AdminDashboard() {
         </div>
       </aside>
 
-      {/* Overlay for mobile sidebar */}
       {sidebarOpen && (
-        <div
-          className="fixed inset-0 z-30 bg-black/50 lg:hidden"
-          onClick={() => setSidebarOpen(false)}
-        />
+        <div className="fixed inset-0 z-30 bg-black/50 lg:hidden" onClick={() => setSidebarOpen(false)} />
       )}
 
-      {/* Main Content */}
       <main className="flex-1 min-w-0">
         <div className="p-4 sm:p-6 lg:p-8">
-          {/* Content header */}
           <div className="mb-6">
             <h1 className="text-xl font-bold text-foreground">
               {adminSection.section === 'blog' && adminSection.sub === 'new' && 'New Blog Post'}
               {adminSection.section === 'blog' && adminSection.sub === 'edit' && 'Edit Blog Post'}
               {adminSection.section === 'blog' && adminSection.sub === 'list' && 'Blog Management'}
               {adminSection.section === 'ads' && 'Ad Management'}
+              {adminSection.section === 'database' && 'Database Setup'}
               {adminSection.section === 'settings' && 'Site Settings'}
               {adminSection.section === 'links' && 'External Links'}
               {adminSection.section === 'overview' && 'Dashboard Overview'}
             </h1>
           </div>
 
-          {/* Render section */}
-          {adminSection.section === 'overview' && (
-            <AdminOverview />
-          )}
+          {adminSection.section === 'overview' && <AdminOverview />}
           {adminSection.section === 'blog' && adminSection.sub === 'list' && (
             <AdminBlogList onEdit={navigateToBlogEdit} onNew={navigateToBlogNew} />
           )}
@@ -259,6 +239,7 @@ export function AdminDashboard() {
             <BlogEditor editSlug={adminSection.slug} onNavigate={(hash: string) => { window.location.hash = `#${hash === 'blog' ? 'admin/blog' : hash}`; }} />
           )}
           {adminSection.section === 'ads' && <AdminAds />}
+          {adminSection.section === 'database' && <DatabaseClient />}
           {adminSection.section === 'settings' && <AdminSettings />}
           {adminSection.section === 'links' && <AdminLinks />}
         </div>
@@ -281,7 +262,6 @@ function AdminOverview() {
     },
   });
 
-  // Toggle publish mutation for recent posts
   const toggleMutation = useMutation({
     mutationFn: async ({ slug, published }: { slug: string; published: boolean }) => {
       const res = await fetch(`/api/blog/${slug}`, {
@@ -314,58 +294,21 @@ function AdminOverview() {
   }
 
   if (!stats) {
-    return (
-      <div className="text-center py-12 text-muted-foreground">
-        Failed to load dashboard stats
-      </div>
-    );
+    return <div className="text-center py-12 text-muted-foreground">Failed to load dashboard stats</div>;
   }
 
   const statCards = [
-    {
-      label: 'Total Posts',
-      value: stats.totalPosts,
-      icon: FileText,
-      color: 'text-emerald-400',
-      bgColor: 'bg-emerald-500/15',
-    },
-    {
-      label: 'Published',
-      value: stats.publishedPosts,
-      icon: FileBarChart,
-      color: 'text-blue-400',
-      bgColor: 'bg-blue-500/15',
-    },
-    {
-      label: 'Total Ads',
-      value: stats.totalAds,
-      icon: Megaphone,
-      color: 'text-amber-400',
-      bgColor: 'bg-amber-500/15',
-    },
-    {
-      label: 'Active Ads',
-      value: stats.activeAds,
-      icon: ToggleLeft,
-      color: 'text-purple-400',
-      bgColor: 'bg-purple-500/15',
-    },
-    {
-      label: 'Calculator Uses',
-      value: stats.totalCalculations,
-      icon: BarChart3,
-      color: 'text-rose-400',
-      bgColor: 'bg-rose-500/15',
-    },
+    { label: 'Total Posts', value: stats.totalPosts, icon: FileText, color: 'text-emerald-400', bgColor: 'bg-emerald-500/15' },
+    { label: 'Published', value: stats.publishedPosts, icon: FileBarChart, color: 'text-blue-400', bgColor: 'bg-blue-500/15' },
+    { label: 'Total Ads', value: stats.totalAds, icon: Megaphone, color: 'text-amber-400', bgColor: 'bg-amber-500/15' },
+    { label: 'Active Ads', value: stats.activeAds, icon: ToggleLeft, color: 'text-purple-400', bgColor: 'bg-purple-500/15' },
+    { label: 'Calculator Uses', value: stats.totalCalculations, icon: BarChart3, color: 'text-rose-400', bgColor: 'bg-rose-500/15' },
   ];
 
-  const maxUsage = stats.topCalculators.length > 0
-    ? Math.max(...stats.topCalculators.map((c) => c.totalUsage))
-    : 1;
+  const maxUsage = stats.topCalculators.length > 0 ? Math.max(...stats.topCalculators.map((c) => c.totalUsage)) : 1;
 
   return (
     <div className="space-y-6">
-      {/* Stats Cards */}
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
         {statCards.map((card) => {
           const Icon = card.icon;
@@ -388,51 +331,26 @@ function AdminOverview() {
       </div>
 
       <div className="grid gap-6 lg:grid-cols-2">
-        {/* Recent Posts */}
         <Card className="border-border/50">
-          <CardHeader className="pb-3">
-            <CardTitle className="text-base">Recent Posts</CardTitle>
-          </CardHeader>
+          <CardHeader className="pb-3"><CardTitle className="text-base">Recent Posts</CardTitle></CardHeader>
           <CardContent>
             {stats.recentPosts.length === 0 ? (
-              <div className="text-sm text-muted-foreground py-4">
-                No posts yet
-              </div>
+              <div className="text-sm text-muted-foreground py-4">No posts yet</div>
             ) : (
               <div className="space-y-3">
                 {stats.recentPosts.map((post) => (
-                  <div
-                    key={post.id}
-                    className="flex items-center justify-between gap-3 py-2"
-                  >
+                  <div key={post.id} className="flex items-center justify-between gap-3 py-2">
                     <div className="min-w-0 flex-1">
                       <div className="text-sm font-medium truncate">{post.title}</div>
                       <div className="text-xs text-muted-foreground mt-0.5">
-                        {post.category} &middot;{' '}
-                        {new Date(post.createdAt).toLocaleDateString('en-US', {
-                          month: 'short',
-                          day: 'numeric',
-                        })}
+                        {post.category} &middot; {new Date(post.createdAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
                       </div>
                     </div>
                     <div className="flex items-center gap-2 shrink-0">
-                      <Badge
-                        variant="outline"
-                        className={
-                          post.published
-                            ? 'text-xs bg-emerald-500/15 text-emerald-400 border-emerald-500/30'
-                            : 'text-xs bg-muted text-muted-foreground'
-                        }
-                      >
+                      <Badge variant="outline" className={post.published ? 'text-xs bg-emerald-500/15 text-emerald-400 border-emerald-500/30' : 'text-xs bg-muted text-muted-foreground'}>
                         {post.published ? 'Live' : 'Draft'}
                       </Badge>
-                      <Switch
-                        checked={post.published}
-                        onCheckedChange={(checked) =>
-                          toggleMutation.mutate({ slug: post.slug, published: checked })
-                        }
-                        disabled={toggleMutation.isPending}
-                      />
+                      <Switch checked={post.published} onCheckedChange={(checked) => toggleMutation.mutate({ slug: post.slug, published: checked })} disabled={toggleMutation.isPending} />
                     </div>
                   </div>
                 ))}
@@ -441,35 +359,23 @@ function AdminOverview() {
           </CardContent>
         </Card>
 
-        {/* Top Calculators */}
         <Card className="border-border/50">
-          <CardHeader className="pb-3">
-            <CardTitle className="text-base">Top Calculators</CardTitle>
-          </CardHeader>
+          <CardHeader className="pb-3"><CardTitle className="text-base">Top Calculators</CardTitle></CardHeader>
           <CardContent>
             {stats.topCalculators.length === 0 ? (
-              <div className="text-sm text-muted-foreground py-4">
-                No calculator usage data yet
-              </div>
+              <div className="text-sm text-muted-foreground py-4">No calculator usage data yet</div>
             ) : (
               <div className="space-y-3">
-                {stats.topCalculators.map((calc, index) => {
+                {stats.topCalculators.map((calc) => {
                   const percentage = maxUsage > 0 ? (calc.totalUsage / maxUsage) * 100 : 0;
                   return (
                     <div key={calc.calculator} className="space-y-1.5">
                       <div className="flex items-center justify-between text-sm">
-                        <span className="font-medium">
-                          {CALCULATOR_NAMES[calc.calculator] || calc.calculator}
-                        </span>
-                        <span className="text-muted-foreground">
-                          {calc.totalUsage.toLocaleString()} uses
-                        </span>
+                        <span className="font-medium">{CALCULATOR_NAMES[calc.calculator] || calc.calculator}</span>
+                        <span className="text-muted-foreground">{calc.totalUsage.toLocaleString()} uses</span>
                       </div>
                       <div className="h-2 rounded-full bg-muted overflow-hidden">
-                        <div
-                          className="h-full rounded-full bg-emerald-500 transition-all duration-500"
-                          style={{ width: `${percentage}%` }}
-                        />
+                        <div className="h-full rounded-full bg-emerald-500 transition-all duration-500" style={{ width: `${percentage}%` }} />
                       </div>
                     </div>
                   );

@@ -1,74 +1,34 @@
+import { NextResponse } from 'next/server';
+import { getBlogStats } from '@/lib/blog-db';
+
 export const runtime = 'edge';
 
-import { NextResponse } from 'next/server';
-import { db } from '@/lib/db';
+// API routes use Edge runtime for Cloudflare Pages compatibility
 
 /**
  * GET /api/admin/stats
- * Return admin dashboard statistics including:
- * - totalPosts, publishedPosts
- * - totalAds, activeAds
- * - totalCalculations
- * - recentPosts (last 5)
- * - topCalculators
+ * Return admin dashboard statistics.
+ * Uses Turso database for blog data, with JSON fallback for local dev.
  */
 export async function GET() {
   try {
-    // Run all count queries in parallel for performance
-    const [
-      totalPosts,
-      publishedPosts,
-      totalAds,
-      activeAds,
-      recentPosts,
-      topCalculators,
-      totalCalculationsResult,
-    ] = await Promise.all([
-      db.post.count(),
-      db.post.count({ where: { published: true } }),
-      db.adSlot.count(),
-      db.adSlot.count({ where: { isActive: true } }),
-      db.post.findMany({
-        orderBy: { createdAt: 'desc' },
-        take: 5,
-        select: {
-          id: true,
-          title: true,
-          slug: true,
-          category: true,
-          published: true,
-          createdAt: true,
-        },
-      }),
-      // Get top calculators by total usage count
-      db.calculatorUsage.groupBy({
-        by: ['calculator'],
-        _sum: { count: true },
-        orderBy: { _sum: { count: 'desc' } },
-        take: 10,
-      }),
-      // Get total calculation count
-      db.calculatorUsage.aggregate({
-        _sum: { count: true },
-      }),
-    ]);
-
-    const totalCalculations = totalCalculationsResult._sum.count || 0;
-
-    // Format top calculators for cleaner response
-    const formattedTopCalculators = topCalculators.map((item) => ({
-      calculator: item.calculator,
-      totalUsage: item._sum.count || 0,
-    }));
+    const stats = await getBlogStats();
 
     return NextResponse.json({
-      totalPosts,
-      publishedPosts,
-      totalAds,
-      activeAds,
-      totalCalculations,
-      recentPosts,
-      topCalculators: formattedTopCalculators,
+      totalPosts: stats.totalPosts,
+      publishedPosts: stats.publishedPosts,
+      totalAds: 0,
+      activeAds: 0,
+      totalCalculations: 0,
+      recentPosts: stats.recentPosts.map((p) => ({
+        id: p.id,
+        title: p.title,
+        slug: p.slug,
+        category: p.category,
+        published: p.published,
+        createdAt: p.createdAt,
+      })),
+      topCalculators: [],
     });
   } catch (error) {
     console.error('Error fetching admin stats:', error);

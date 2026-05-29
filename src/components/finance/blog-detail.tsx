@@ -174,7 +174,7 @@ function BlogDetailSkeleton() {
 // ─── Share Buttons ────────────────────────────────────────────────────────────
 
 function ShareButtons({ title, slug }: { title: string; slug: string }) {
-  const url = `${SITE_URL}/#blog/${slug}`;
+  const url = `${SITE_URL}/blog/${slug}`;
   const encodedUrl = encodeURIComponent(url);
   const encodedTitle = encodeURIComponent(title);
 
@@ -347,7 +347,7 @@ export function BlogDetail({
             },
             mainEntityOfPage: {
               '@type': 'WebPage',
-              '@id': `${SITE_URL}/#blog/${post.slug}`,
+              '@id': `${SITE_URL}/blog/${post.slug}`,
             },
             keywords: post.tags || post.category,
             articleSection: CATEGORY_LABELS[post.category] || post.category,
@@ -365,12 +365,12 @@ export function BlogDetail({
             '@type': 'BreadcrumbList',
             itemListElement: [
               { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
-              { '@type': 'ListItem', position: 2, name: 'Blog', item: `${SITE_URL}/#blog` },
+              { '@type': 'ListItem', position: 2, name: 'Blog', item: `${SITE_URL}/blog` },
               {
                 '@type': 'ListItem',
                 position: 3,
                 name: post.title,
-                item: `${SITE_URL}/#blog/${post.slug}`,
+                item: `${SITE_URL}/blog/${post.slug}`,
               },
             ],
           }

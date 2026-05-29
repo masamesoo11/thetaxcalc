@@ -50,14 +50,13 @@ import {
   type PaycheckInput,
 } from '@/lib/finance-utils';
 import { FICA_2026, STATE_PROFILES, NEWYORK_COST_OF_LIVING } from '@/lib/tax-config';
-import { useUrlParams, updateUrlState, migrateHashUrl } from '@/hooks/use-url-state';
+import { useHashParams, updateHashState } from '@/hooks/use-hash-state';
 
 export function NewYorkCalculator() {
   const stateKey = 'newyork';
   const stateProfile = STATE_PROFILES.newyork;
 
-  migrateHashUrl();
-  const hashParams = useUrlParams();
+  const hashParams = useHashParams();
   const [salary, setSalary] = useState<number>(() => hashParams.salary ? Number(hashParams.salary) : 100000);
   const [payFrequency, setPayFrequency] = useState<PayFrequency>(() => (hashParams.frequency as PayFrequency) || 'annual');
   const [hoursPerWeek, setHoursPerWeek] = useState<number>(() => hashParams.hours ? Number(hashParams.hours) : 40);
@@ -69,7 +68,7 @@ export function NewYorkCalculator() {
   const [annualSpending, setAnnualSpending] = useState<number>(() => hashParams.spending ? Number(hashParams.spending) : 52000);
 
   useEffect(() => {
-    updateUrlState({
+    updateHashState('newyork', {
       salary,
       frequency: payFrequency,
       hours: hoursPerWeek,

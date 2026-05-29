@@ -318,7 +318,7 @@ export function BlogList({ onNavigate }: { onNavigate: (hash: string) => void })
       itemListElement: posts.slice(0, 10).map((post, i) => ({
         '@type': 'ListItem',
         position: i + 1,
-        url: `${SITE_URL}/#blog/${post.slug}`,
+        url: `${SITE_URL}/blog/${post.slug}`,
         name: post.title,
       })),
     }),

@@ -32,12 +32,11 @@ import {
   type PayFrequency,
 } from '@/lib/finance-utils';
 import { TEXAS_COST_OF_LIVING } from '@/lib/tax-config';
-import { useUrlParams, updateUrlState, migrateHashUrl } from '@/hooks/use-url-state';
+import { useHashParams, updateHashState } from '@/hooks/use-hash-state';
 
 export function TexasCalculator() {
   const stateKey = 'texas';
-  migrateHashUrl();
-  const hashParams = useUrlParams();
+  const hashParams = useHashParams();
 
   const [salary, setSalary] = useState<number>(() => hashParams.salary ? Number(hashParams.salary) : 75000);
   const [payFrequency, setPayFrequency] = useState<PayFrequency>(() => (hashParams.frequency as PayFrequency) || 'annual');
@@ -49,7 +48,7 @@ export function TexasCalculator() {
   const [annualSpending, setAnnualSpending] = useState<number>(() => hashParams.spending ? Number(hashParams.spending) : 45000);
 
   useEffect(() => {
-    updateUrlState({
+    updateHashState('texas', {
       salary,
       frequency: payFrequency,
       hours: hoursPerWeek,

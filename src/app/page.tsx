@@ -1,6 +1,9 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { SITE_URL } from '@/lib/site-config';
+import { SALARY_AMOUNTS, formatSalaryCompact } from '@/lib/salary-calculations';
+import { getPublishedPostsMeta } from '@/lib/blog-index';
+import { COMPARISON_SLUGS, COMPARE_STATES, parseComparisonSlug } from '@/lib/compare-config';
 import {
   DollarSign,
   MapPin,
@@ -17,26 +20,25 @@ import {
   Star,
   Users,
   Globe,
-  Receipt,
-  Landmark,
-  Banknote,
-  Percent,
+  Compass,
+  BookOpen,
+  Scale,
+  FileText,
+  Map,
 } from 'lucide-react';
 
 // ─── Home Page Metadata ───────────────────────────────────────────────────────
 
 export const metadata: Metadata = {
-  title: 'TheTaxCalc — Free 2026 Tax, Paycheck & Mortgage Calculator | All 50 States',
+  title: 'TheTaxCalc — Free 2026 Paycheck & Mortgage Calculator | IL, TX, FL, CA, NY',
   description:
-    'Free 2026 tax calculators: paycheck calculator, income tax calculator, sales tax calculator, tax refund estimator, mortgage calculator. Federal & state taxes for IL, TX, FL, CA, NY. 15+ free tools, no sign-up required.',
+    'Instantly calculate your take-home pay after federal tax, FICA, and state income tax. Supports Illinois (4.95%), Texas (0%), Florida (0%), California (1%-13.3%), New York (4%-10.9%). Includes mortgage, 401(k), capital gains, and self-employment calculators.',
   keywords: [
-    'tax calculator', 'paycheck calculator', 'income tax calculator',
-    'sales tax calculator', 'tax refund calculator', 'take home pay calculator',
-    'salary calculator', 'Illinois tax calculator', 'Texas tax calculator',
-    'Florida tax calculator', 'California tax calculator', 'New York tax calculator',
-    'mortgage calculator', 'FICA calculator', '2026 tax brackets',
-    'federal tax calculator', 'state income tax', 'after tax salary',
-    'net pay calculator', 'tax estimator',
+    'paycheck calculator', 'take home pay calculator', 'salary calculator',
+    'Illinois tax calculator', 'Texas tax calculator', 'Florida tax calculator',
+    'California tax calculator', 'New York tax calculator', 'mortgage calculator',
+    'FICA calculator', '2026 tax brackets', 'federal tax calculator',
+    'state income tax', 'after tax salary', 'net pay calculator',
   ],
   alternates: {
     canonical: SITE_URL,
@@ -49,19 +51,28 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'TheTaxCalc — Free 2026 Tax, Paycheck & Mortgage Calculator',
+    title: 'TheTaxCalc — Free 2026 Paycheck & Mortgage Calculator',
     description:
-      '15+ free tax calculators for 2026. Paycheck, income tax, sales tax, refund estimator, mortgage, 401(k), and more. Federal & state taxes for IL, TX, FL, CA, NY.',
+      'Precision paycheck calculator for 2026. Compute take-home pay after federal, FICA, and state taxes for IL, TX, FL, CA, NY.',
     url: SITE_URL,
     siteName: 'TheTaxCalc',
     type: 'website',
     locale: 'en_US',
+    images: [
+      {
+        url: `${SITE_URL}/opengraph-image.png`,
+        width: 1200,
+        height: 630,
+        alt: 'TheTaxCalc — Free 2026 Paycheck & Mortgage Calculator',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'TheTaxCalc — Free 2026 Tax, Paycheck & Mortgage Calculator',
+    title: 'TheTaxCalc — Free 2026 Paycheck & Mortgage Calculator',
     description:
-      '15+ free tax calculators for 2026. Paycheck, income tax, sales tax, refund, mortgage, and more.',
+      'Compute your take-home pay after federal, FICA, and state taxes. Supports IL, TX, FL, CA, NY.',
+    images: [`${SITE_URL}/opengraph-image.png`],
   },
 };
 
@@ -76,42 +87,6 @@ const CALCULATOR_CARDS = [
     badge: 'Most Popular',
     badgeColor: 'bg-emerald-500/20 text-emerald-400',
     gradient: 'from-emerald-600/20 to-teal-600/10',
-  },
-  {
-    href: '/tax-calculator',
-    title: 'Tax Calculator',
-    desc: 'Federal, state & FICA tax estimator — total tax burden for 2026',
-    icon: Landmark,
-    badge: 'Popular',
-    badgeColor: 'bg-emerald-500/20 text-emerald-400',
-    gradient: 'from-emerald-600/20 to-green-600/10',
-  },
-  {
-    href: '/income-tax-calculator',
-    title: 'Income Tax Calculator',
-    desc: 'Federal income tax brackets, deductions & take-home pay by state',
-    icon: Banknote,
-    badge: 'Popular',
-    badgeColor: 'bg-emerald-500/20 text-emerald-400',
-    gradient: 'from-emerald-600/20 to-lime-600/10',
-  },
-  {
-    href: '/sales-tax-calculator',
-    title: 'Sales Tax Calculator',
-    desc: 'Calculate sales tax for all 50 states + reverse sales tax lookup',
-    icon: Percent,
-    badge: 'New',
-    badgeColor: 'bg-amber-500/20 text-amber-400',
-    gradient: 'from-amber-600/20 to-yellow-600/10',
-  },
-  {
-    href: '/tax-refund-calculator',
-    title: 'Tax Refund Calculator',
-    desc: 'Estimate your federal & state refund or amount owed for 2026',
-    icon: Receipt,
-    badge: 'New',
-    badgeColor: 'bg-amber-500/20 text-amber-400',
-    gradient: 'from-amber-600/20 to-orange-600/10',
   },
   {
     href: '/illinois-tax-calculator',
@@ -209,34 +184,12 @@ const TRUST_POINTS = [
   '2026 Federal Tax Brackets (up to 37%)',
   'FICA: Social Security (6.2%) + Medicare (1.45%)',
   'SS Wage Cap: $176,100 for 2026',
-  'Sales Tax Rates for All 50 States',
+  '5 State Tax Profiles: IL, TX, FL, CA, NY',
   'Standard Deductions by Filing Status',
   '401(k) & HSA Pre-Tax Deductions',
 ];
 
 // ─── JSON-LD ──────────────────────────────────────────────────────────────────
-
-/** Build SoftwareApplication schema for each calculator */
-const softwareApplications = CALCULATOR_CARDS.map((card) => ({
-  '@type': 'SoftwareApplication' as const,
-  name: card.title,
-  url: `${SITE_URL}${card.href}`,
-  description: card.desc,
-  applicationCategory: 'FinanceApplication',
-  operatingSystem: 'Web',
-  offers: {
-    '@type': 'Offer',
-    price: '0',
-    priceCurrency: 'USD',
-  },
-  aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: '4.8',
-    bestRating: '5',
-    worstRating: '1',
-    ratingCount: '1247',
-  },
-}));
 
 const homeJsonLd = {
   '@context': 'https://schema.org',
@@ -245,7 +198,7 @@ const homeJsonLd = {
       '@type': 'WebSite',
       name: 'TheTaxCalc',
       url: SITE_URL,
-      description: 'Free 2026 tax calculators — paycheck, income tax, sales tax, refund, mortgage, 401(k), capital gains, and self-employment.',
+      description: 'Free 2026 tax calculators — paycheck, mortgage, 401(k), capital gains, and self-employment.',
       potentialAction: {
         '@type': 'SearchAction',
         target: `${SITE_URL}/paycheck-calculator?q={search_term_string}`,
@@ -259,55 +212,9 @@ const homeJsonLd = {
     },
     {
       '@type': 'WebPage',
-      name: 'TheTaxCalc — Free 2026 Tax, Paycheck & Mortgage Calculator',
-      description: 'Free 2026 tax calculators — paycheck, income tax, sales tax, refund, mortgage, 401(k), and more.',
+      name: 'TheTaxCalc — Free 2026 Paycheck & Mortgage Calculator',
+      description: 'Free 2026 paycheck, mortgage, and tax calculators for IL, TX, FL, CA, NY.',
       url: SITE_URL,
-    },
-    ...softwareApplications,
-    {
-      '@type': 'FAQPage',
-      mainEntity: [
-        {
-          '@type': 'Question',
-          name: 'How accurate are TheTaxCalc calculators?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: 'Our calculators use the latest 2026 federal tax brackets, FICA rates, and state-specific tax laws from IRS publications and state revenue departments. Results are estimates for informational purposes.',
-          },
-        },
-        {
-          '@type': 'Question',
-          name: 'Which states does TheTaxCalc support?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: 'We support Illinois (4.95% flat tax), Texas (0% income tax), Florida (0% income tax), California (1%-13.3% progressive), and New York (4%-10.9% progressive + NYC tax).',
-          },
-        },
-        {
-          '@type': 'Question',
-          name: 'Is TheTaxCalc really free?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: 'Yes, all 15 calculators are 100% free with no sign-up required. We don\'t ask for your email or any personal information.',
-          },
-        },
-        {
-          '@type': 'Question',
-          name: "What's the difference between marginal and effective tax rate?",
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: 'Marginal rate is the tax on your last dollar earned. Effective rate is the total tax divided by total income — your real-world tax burden percentage.',
-          },
-        },
-        {
-          '@type': 'Question',
-          name: 'Does TheTaxCalc include FICA taxes?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: 'Yes, all paycheck calculations include Social Security (6.2% up to $176,100) and Medicare (1.45% with no cap), plus the additional 0.9% Medicare tax above $200,000.',
-          },
-        },
-      ],
     },
   ],
 };
@@ -383,7 +290,7 @@ export default function HomePage() {
               </span>
               <span className="flex items-center gap-1.5">
                 <Globe className="h-4 w-4 text-emerald-400" />
-                All 50 States
+                5 State Profiles
               </span>
             </div>
           </div>
@@ -395,7 +302,7 @@ export default function HomePage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-10 text-center">
             <h2 className="text-3xl font-bold text-foreground">
-              15 Free <span className="gradient-text">Tax Calculators</span>
+              11 Free <span className="gradient-text">Tax Calculators</span>
             </h2>
             <p className="mt-3 text-muted-foreground max-w-xl mx-auto">
               Pick the one you need. They&apos;re all free, they all use 2026 data, and none of them will
@@ -487,6 +394,54 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ─── Salary After Tax Guide ──────────────────────────────── */}
+      <section className="py-16 border-t border-border/20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl font-bold text-foreground">
+              What&apos;s Your <span className="gradient-text">Take-Home Pay</span> After Taxes?
+            </h2>
+            <p className="mt-3 text-muted-foreground max-w-xl mx-auto">
+              Select your salary to see exact take-home pay across all 5 states — Illinois, Texas, Florida, California, and New York.
+            </p>
+          </div>
+
+          <div className="flex flex-wrap justify-center gap-3">
+            {[
+              { amount: 50000, label: '$50K' },
+              { amount: 60000, label: '$60K' },
+              { amount: 75000, label: '$75K' },
+              { amount: 80000, label: '$80K' },
+              { amount: 100000, label: '$100K' },
+              { amount: 120000, label: '$120K' },
+              { amount: 150000, label: '$150K' },
+              { amount: 200000, label: '$200K' },
+              { amount: 250000, label: '$250K' },
+              { amount: 300000, label: '$300K' },
+            ].map((item) => (
+              <Link
+                key={item.amount}
+                href={`/salary/${item.amount}`}
+                className="group inline-flex items-center gap-1.5 rounded-xl border border-border/30 bg-card/50 px-5 py-3 text-sm font-semibold text-foreground transition-all hover:border-emerald-500/30 hover:bg-emerald-500/5 hover:text-emerald-400"
+              >
+                {item.label}
+                <ArrowRight className="h-3.5 w-3.5 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+              </Link>
+            ))}
+          </div>
+
+          <div className="mt-8 text-center">
+            <Link
+              href="/salary"
+              className="inline-flex items-center gap-2 text-sm font-medium text-emerald-400 hover:text-emerald-300 transition-colors"
+            >
+              View all 26 salary levels
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* ─── Why We Built This ───────────────────────────────────── */}
       <section className="py-16 border-t border-border/20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -564,54 +519,177 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ─── FAQ Section ──────────────────────────────────────── */}
+      {/* ─── Explore All Tools & Resources ─────────────────────── */}
       <section className="py-16 border-t border-border/20">
-        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
+            <div className="inline-flex items-center gap-2 rounded-full bg-emerald-500/10 border border-emerald-500/20 px-4 py-1.5 text-sm text-emerald-400 mb-4">
+              <Compass className="h-3.5 w-3.5" />
+              Complete Site Directory
+            </div>
             <h2 className="text-3xl font-bold text-foreground">
-              Frequently Asked <span className="gradient-text">Questions</span>
+              Explore All <span className="gradient-text">Tools & Resources</span>
             </h2>
-            <p className="mt-3 text-muted-foreground">
-              Quick answers about our tax calculators and how they work
+            <p className="mt-3 text-muted-foreground max-w-2xl mx-auto">
+              Every calculator, salary breakdown, blog article, and state comparison — all in one place.
             </p>
           </div>
 
-          <div className="space-y-4">
-            {[
-              {
-                q: 'How accurate are TheTaxCalc calculators?',
-                a: 'Our calculators use the latest 2026 federal tax brackets, FICA rates, and state-specific tax laws from IRS publications and state revenue departments. Results are estimates for informational purposes — always consult a tax professional for official filing.',
-              },
-              {
-                q: 'Which states does TheTaxCalc support?',
-                a: 'We support five states with detailed tax profiles: Illinois (4.95% flat tax), Texas (0% income tax), Florida (0% income tax), California (1%-13.3% progressive brackets), and New York (4%-10.9% progressive + NYC tax). We also cover federal taxes for all 50 states.',
-              },
-              {
-                q: 'Is TheTaxCalc really free?',
-                a: 'Yes, all 15 calculators are 100% free with no sign-up required. We don\'t ask for your email, we don\'t show intrusive ads, and we don\'t sell your data. Just pick a calculator and start crunching numbers.',
-              },
-              {
-                q: "What's the difference between marginal and effective tax rate?",
-                a: 'Your marginal rate is the tax percentage on your last dollar earned (the bracket your income falls into). Your effective rate is the total tax divided by total income — this is your real-world tax burden percentage, and it\'s always lower than your marginal rate.',
-              },
-              {
-                q: 'Does TheTaxCalc include FICA taxes?',
-                a: 'Yes, all paycheck calculations include Social Security (6.2% up to the $176,100 wage cap) and Medicare (1.45% with no cap), plus the additional 0.9% Medicare surtax on income above $200,000. Self-employment calculators also include the full 15.3% SE tax.',
-              },
-            ].map((faq, i) => (
-              <details
-                key={i}
-                className="group rounded-xl border border-border/30 bg-card/50 overflow-hidden"
-              >
-                <summary className="flex items-center justify-between cursor-pointer px-6 py-4 text-base font-semibold text-foreground hover:text-emerald-400 transition-colors list-none">
-                  <span>{faq.q}</span>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5 shrink-0 text-muted-foreground transition-transform group-open:rotate-180"><path d="m6 9 6 6 6-6"/></svg>
-                </summary>
-                <div className="px-6 pb-4 text-sm text-muted-foreground leading-relaxed">
-                  {faq.a}
+          <div className="grid gap-6 lg:grid-cols-3">
+            {/* ── Column 1: Calculators ── */}
+            <div className="rounded-xl border border-border/30 bg-card/50 p-5">
+              <div className="flex items-center gap-2 mb-4">
+                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-emerald-500/10">
+                  <Calculator className="h-4 w-4 text-emerald-400" />
                 </div>
-              </details>
-            ))}
+                <h3 className="text-base font-semibold text-foreground">Tax Calculators</h3>
+                <span className="ml-auto text-[10px] font-semibold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 rounded-full px-2 py-0.5">11 Tools</span>
+              </div>
+              <ul className="space-y-2">
+                {CALCULATOR_CARDS.map((card) => (
+                  <li key={card.href}>
+                    <Link
+                      href={card.href}
+                      className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-400 transition-colors py-0.5"
+                    >
+                      <span className="h-1 w-1 rounded-full bg-emerald-500/40 shrink-0 group-hover:bg-emerald-400 transition-colors" />
+                      {card.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* ── Column 2: Salary After Tax ── */}
+            <div className="rounded-xl border border-border/30 bg-card/50 p-5">
+              <div className="flex items-center gap-2 mb-4">
+                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-emerald-500/10">
+                  <DollarSign className="h-4 w-4 text-emerald-400" />
+                </div>
+                <h3 className="text-base font-semibold text-foreground">Salary After Tax</h3>
+                <span className="ml-auto text-[10px] font-semibold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 rounded-full px-2 py-0.5">26 Levels</span>
+              </div>
+              <div className="flex flex-wrap gap-1.5">
+                {SALARY_AMOUNTS.map((amount) => (
+                  <Link
+                    key={amount}
+                    href={`/salary/${amount}`}
+                    className="inline-flex items-center rounded-md border border-border/30 bg-background/50 px-2.5 py-1 text-xs font-medium text-muted-foreground hover:border-emerald-500/30 hover:text-emerald-400 hover:bg-emerald-500/5 transition-all"
+                  >
+                    {formatSalaryCompact(amount)}
+                  </Link>
+                ))}
+              </div>
+              <div className="mt-3 pt-3 border-t border-border/20">
+                <Link
+                  href="/salary"
+                  className="inline-flex items-center gap-1.5 text-xs font-medium text-emerald-400 hover:text-emerald-300 transition-colors"
+                >
+                  View all salary pages
+                  <ArrowRight className="h-3 w-3" />
+                </Link>
+              </div>
+            </div>
+
+            {/* ── Column 3: Blog & Guides ── */}
+            <div className="rounded-xl border border-border/30 bg-card/50 p-5">
+              <div className="flex items-center gap-2 mb-4">
+                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-emerald-500/10">
+                  <BookOpen className="h-4 w-4 text-emerald-400" />
+                </div>
+                <h3 className="text-base font-semibold text-foreground">Blog & Guides</h3>
+                <span className="ml-auto text-[10px] font-semibold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 rounded-full px-2 py-0.5">8 Articles</span>
+              </div>
+              <ul className="space-y-2">
+                <li>
+                  <Link
+                    href="/blog"
+                    className="group flex items-center gap-2 text-sm font-medium text-emerald-400 hover:text-emerald-300 transition-colors py-0.5"
+                  >
+                    <span className="h-1 w-1 rounded-full bg-emerald-400 shrink-0" />
+                    All Blog Articles
+                  </Link>
+                </li>
+                {getPublishedPostsMeta().map((post) => (
+                  <li key={post.slug}>
+                    <Link
+                      href={`/blog/${post.slug}`}
+                      className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-400 transition-colors py-0.5"
+                    >
+                      <span className="h-1 w-1 rounded-full bg-emerald-500/40 shrink-0 group-hover:bg-emerald-400 transition-colors" />
+                      <span className="line-clamp-1">{post.title}</span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          {/* ── Second Row: Resources & State Comparisons ── */}
+          <div className="grid gap-6 lg:grid-cols-2 mt-6">
+            {/* ── Resources ── */}
+            <div className="rounded-xl border border-border/30 bg-card/50 p-5">
+              <div className="flex items-center gap-2 mb-4">
+                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-emerald-500/10">
+                  <FileText className="h-4 w-4 text-emerald-400" />
+                </div>
+                <h3 className="text-base font-semibold text-foreground">Resources</h3>
+              </div>
+              <div className="grid gap-3 sm:grid-cols-3">
+                {[
+                  { href: '/federal-tax-brackets', label: 'Federal Tax Brackets', desc: '2026 brackets & rates', icon: Scale },
+                  { href: '/glossary', label: 'Tax Glossary', desc: 'Key terms explained', icon: BookOpen },
+                  { href: '/compare', label: 'State Comparisons', desc: 'Side-by-side analysis', icon: Map },
+                ].map((res) => {
+                  const ResIcon = res.icon;
+                  return (
+                    <Link
+                      key={res.href}
+                      href={res.href}
+                      className="group flex items-start gap-3 rounded-lg border border-border/20 bg-background/30 p-3 hover:border-emerald-500/30 hover:bg-emerald-500/5 transition-all"
+                    >
+                      <ResIcon className="h-4 w-4 text-emerald-400 mt-0.5 shrink-0" />
+                      <div>
+                        <p className="text-sm font-medium text-foreground group-hover:text-emerald-400 transition-colors">{res.label}</p>
+                        <p className="text-[11px] text-muted-foreground">{res.desc}</p>
+                      </div>
+                    </Link>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* ── State Comparisons ── */}
+            <div className="rounded-xl border border-border/30 bg-card/50 p-5">
+              <div className="flex items-center gap-2 mb-4">
+                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-emerald-500/10">
+                  <ArrowRightLeft className="h-4 w-4 text-emerald-400" />
+                </div>
+                <h3 className="text-base font-semibold text-foreground">State Tax Comparisons</h3>
+                <span className="ml-auto text-[10px] font-semibold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 rounded-full px-2 py-0.5">10 Matchups</span>
+              </div>
+              <div className="grid gap-2 sm:grid-cols-2">
+                {COMPARISON_SLUGS.map((slug) => {
+                  const parsed = parseComparisonSlug(slug);
+                  if (!parsed) return null;
+                  const [key1, key2] = parsed;
+                  const s1 = COMPARE_STATES[key1];
+                  const s2 = COMPARE_STATES[key2];
+                  return (
+                    <Link
+                      key={slug}
+                      href={`/compare/${slug}`}
+                      className="group flex items-center gap-2 rounded-md border border-border/20 bg-background/30 px-3 py-2 text-sm text-muted-foreground hover:border-emerald-500/30 hover:text-emerald-400 hover:bg-emerald-500/5 transition-all"
+                    >
+                      <span className="text-xs font-semibold text-foreground/70 group-hover:text-emerald-400 transition-colors">{s1.abbreviation}</span>
+                      <span className="text-[10px] text-emerald-500/60">vs</span>
+                      <span className="text-xs font-semibold text-foreground/70 group-hover:text-emerald-400 transition-colors">{s2.abbreviation}</span>
+                      <span className="ml-auto text-[11px] text-muted-foreground/50 group-hover:text-emerald-400/70 transition-colors hidden sm:inline">{s1.name} vs {s2.name}</span>
+                    </Link>
+                  );
+                })}
+              </div>
+            </div>
           </div>
         </div>
       </section>

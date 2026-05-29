@@ -1,23 +1,11 @@
 'use client';
 
-import { useMemo, useSyncExternalStore } from 'react';
-
-/**
- * @deprecated This module is deprecated. Use `@/hooks/use-url-state` instead.
- *
- * The new hook uses standard query parameters (?key=value) instead of
- * hash fragments (#page?key=value), producing cleaner URLs and better SEO.
- *
- * This file is kept only because the admin dashboard still uses hash-based
- * routing internally. Do NOT use this for new calculator components.
- */
+import { useCallback, useMemo, useSyncExternalStore } from 'react';
 
 /**
  * React 19-compliant URL hash state management.
  * Uses useSyncExternalStore to subscribe to hash changes
  * and derive state without calling setState in effects.
- *
- * @deprecated Use `useUrlParams` / `updateUrlState` from `@/hooks/use-url-state` instead.
  */
 
 // ─── Subscribe to hash changes ───────────────────────────────────────────────

@@ -33,12 +33,11 @@ import {
   type PayFrequency,
 } from '@/lib/finance-utils';
 import { FLORIDA_COST_OF_LIVING } from '@/lib/tax-config';
-import { useUrlParams, updateUrlState, migrateHashUrl } from '@/hooks/use-url-state';
+import { useHashParams, updateHashState } from '@/hooks/use-hash-state';
 
 export function FloridaCalculator() {
   const stateKey = 'florida';
-  migrateHashUrl();
-  const hashParams = useUrlParams();
+  const hashParams = useHashParams();
 
   const [salary, setSalary] = useState<number>(() => hashParams.salary ? Number(hashParams.salary) : 75000);
   const [payFrequency, setPayFrequency] = useState<PayFrequency>(() => (hashParams.frequency as PayFrequency) || 'annual');
@@ -50,7 +49,7 @@ export function FloridaCalculator() {
   const [annualSpending, setAnnualSpending] = useState<number>(() => hashParams.spending ? Number(hashParams.spending) : 48000);
 
   useEffect(() => {
-    updateUrlState({
+    updateHashState('florida', {
       salary,
       frequency: payFrequency,
       hours: hoursPerWeek,

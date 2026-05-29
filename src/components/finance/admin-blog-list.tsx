@@ -63,7 +63,8 @@ export function AdminBlogList({ onEdit, onNew }: AdminBlogListProps) {
     queryFn: async () => {
       const res = await fetch('/api/blog?all=true');
       if (!res.ok) throw new Error('Failed to fetch posts');
-      return res.json();
+      const data = await res.json();
+      return data.posts || [];
     },
   });
 

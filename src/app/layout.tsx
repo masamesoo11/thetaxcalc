@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { QueryProvider } from "@/components/providers/query-provider";
 import { Header } from "@/components/finance/header";
 import { Footer } from "@/components/finance/footer";
+import { SeoNavigation } from '@/components/finance/seo-navigation';
 import { CookieConsent } from '@/components/finance/cookie-consent';
 import { SITE_URL } from '@/lib/site-config';
 
@@ -24,15 +25,13 @@ export const metadata: Metadata = {
     template: "%s | TheTaxCalc",
   },
   description:
-    "Free 2026 tax calculators: paycheck, income tax, sales tax, tax refund, mortgage. Federal & state taxes for IL, TX, FL, CA, NY and all 50 states for sales tax. 15+ free tools, no sign-up required.",
+    "Instantly calculate your take-home pay after federal tax, FICA, and state income tax. Supports Illinois (4.95%), Texas (0%), Florida (0%), California (1%-13.3%), New York (4%-10.9%). Includes mortgage, 401(k), capital gains, and self-employment calculators.",
   keywords: [
-    "paycheck calculator", "tax calculator", "income tax calculator",
-    "sales tax calculator", "tax refund calculator", "take home pay calculator",
-    "salary calculator", "Illinois tax calculator", "Texas tax calculator",
-    "Florida tax calculator", "California tax calculator", "New York tax calculator",
-    "mortgage calculator", "FICA calculator", "2026 tax brackets",
-    "federal tax calculator", "state income tax", "after tax salary",
-    "net pay calculator", "tax estimator",
+    "paycheck calculator", "take home pay calculator", "salary calculator",
+    "Illinois tax calculator", "Texas tax calculator", "Florida tax calculator",
+    "California tax calculator", "New York tax calculator", "mortgage calculator",
+    "FICA calculator", "2026 tax brackets", "federal tax calculator",
+    "state income tax", "after tax salary", "net pay calculator",
   ],
   authors: [{ name: "TheTaxCalc" }],
   creator: "TheTaxCalc",
@@ -44,17 +43,26 @@ export const metadata: Metadata = {
   openGraph: {
     title: "TheTaxCalc — Free 2026 Tax, Paycheck & Mortgage Calculator",
     description:
-      "15+ free tax calculators for 2026. Paycheck, income tax, sales tax, refund estimator, mortgage, 401(k), and more. Federal & state taxes for IL, TX, FL, CA, NY.",
+      "Precision paycheck calculator for 2026. Compute take-home pay after federal, FICA, and state taxes for IL, TX, FL, CA, NY.",
     url: SITE_URL,
     siteName: "TheTaxCalc",
     type: "website",
     locale: "en_US",
+    images: [
+      {
+        url: `${SITE_URL}/opengraph-image.png`,
+        width: 1200,
+        height: 630,
+        alt: "TheTaxCalc — Free 2026 Paycheck & Mortgage Calculator",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "TheTaxCalc — Free 2026 Paycheck & Mortgage Calculator",
     description:
       "Compute your take-home pay after federal, FICA, and state taxes. Supports IL, TX, FL, CA, NY.",
+    images: [`${SITE_URL}/opengraph-image.png`],
   },
   robots: {
     index: true,
@@ -69,10 +77,6 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: SITE_URL,
-    languages: {
-      "en-US": SITE_URL,
-      "x-default": SITE_URL,
-    },
     types: {
       "application/rss+xml": `${SITE_URL}/feed.xml`,
     },
@@ -113,50 +117,31 @@ function GoogleAnalytics() {
   );
 }
 
-// ─── Structured Data — Sitewide @graph (Organization, WebSite, BreadcrumbList) ─
+// ─── Structured Data for Organization ──────────────────────────────────────────
 
-const sitewideJsonLd = {
+const organizationJsonLd = {
   "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Organization",
-      name: "TheTaxCalc",
-      url: SITE_URL,
-      logo: `${SITE_URL}/favicon.svg`,
-      description:
-        "Free 2026 tax calculators — paycheck, mortgage, 401(k), capital gains, and self-employment.",
-      sameAs: [] as string[],
-      contactPoint: {
-        "@type": "ContactPoint",
-        contactType: "customer support",
-        url: SITE_URL,
-      },
+  "@type": "Organization",
+  name: "TheTaxCalc",
+  url: SITE_URL,
+  logo: `${SITE_URL}/icon.png`,
+  description: "Free 2026 tax calculators — paycheck, mortgage, 401(k), capital gains, and self-employment.",
+  sameAs: [],
+};
+
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "TheTaxCalc",
+  url: SITE_URL,
+  potentialAction: {
+    "@type": "SearchAction",
+    target: {
+      "@type": "EntryPoint",
+      urlTemplate: `${SITE_URL}/paycheck-calculator?q={search_term_string}`,
     },
-    {
-      "@type": "WebSite",
-      name: "TheTaxCalc",
-      url: SITE_URL,
-      potentialAction: {
-        "@type": "SearchAction",
-        target: {
-          "@type": "EntryPoint",
-          urlTemplate: `${SITE_URL}/paycheck-calculator?q={search_term_string}`,
-        },
-        "query-input": "required name=search_term_string",
-      },
-    },
-    {
-      "@type": "BreadcrumbList",
-      itemListElement: [
-        {
-          "@type": "ListItem",
-          position: 1,
-          name: "Home",
-          item: SITE_URL,
-        },
-      ],
-    },
-  ],
+    "query-input": "required name=search_term_string",
+  },
 };
 
 // ─── Root Layout ───────────────────────────────────────────────────────────────
@@ -177,10 +162,14 @@ export default function RootLayout({
         {/* Google Analytics */}
         <GoogleAnalytics />
 
-        {/* Structured Data — Organization, WebSite & BreadcrumbList (sitewide) */}
+        {/* Structured Data — Organization & WebSite (sitewide) */}
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(sitewideJsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
         />
       </head>
       <body
@@ -190,6 +179,7 @@ export default function RootLayout({
           <div className="min-h-screen flex flex-col bg-background bg-mesh">
             <Header />
             <main className="flex-1">{children}</main>
+            <SeoNavigation />
             <Footer />
           </div>
           <Toaster />

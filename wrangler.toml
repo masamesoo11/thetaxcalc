@@ -2,3 +2,8 @@ name = "thetaxcalc"
 compatibility_date = "2024-09-23"
 compatibility_flags = ["nodejs_compat"]
 pages_build_output_dir = ".vercel/output/static"
+
+[[kv_namespaces]]
+binding = "BLOG_KV"
+id = "b188ee44437c4909b366b47e7a6a4eee"
+preview_id = "55826597bd5c42fd9501ebec421a9d10"

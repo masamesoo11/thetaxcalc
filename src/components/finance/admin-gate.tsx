@@ -1,87 +1,73 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
-import { Shield, Lock, Eye, EyeOff, AlertTriangle, DollarSign, Loader2 } from 'lucide-react';
+import { useState, useSyncExternalStore } from 'react';
+import { Shield, Lock, Eye, EyeOff, AlertTriangle, DollarSign } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 
-// ─── Server-Side Auth via API ────────────────────────────────────────────────
-// Authentication is now handled server-side via /api/auth/login
-// Password is NEVER exposed to the client
+// ─── Admin Password ──────────────────────────────────────────────────────────
+// Change this to your desired admin password.
+// For production, use an environment variable: process.env.NEXT_PUBLIC_ADMIN_PASSWORD
+const ADMIN_PASSWORD = 'thetaxcalc2026';
+
+const SESSION_KEY = 'thetaxcalc_admin_auth';
+
+// ─── Session Storage Helpers (useSyncExternalStore compatible) ────────────────
+
+function subscribe(callback: () => void) {
+  window.addEventListener('storage', callback);
+  return () => window.removeEventListener('storage', callback);
+}
+
+function getSnapshot(): string {
+  try {
+    return sessionStorage.getItem(SESSION_KEY) || '';
+  } catch {
+    return '';
+  }
+}
+
+function getServerSnapshot(): string {
+  return '';
+}
 
 export function AdminGate({ children }: { children: React.ReactNode }) {
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [isChecking, setIsChecking] = useState(true);
+  const [unlocked, setUnlocked] = useState(false);
 
-  // Check existing session on mount
-  useEffect(() => {
-    async function checkSession() {
-      try {
-        const res = await fetch('/api/auth/verify');
-        if (res.ok) {
-          const data = await res.json();
-          setIsAuthenticated(data.authenticated === true);
-        } else {
-          setIsAuthenticated(false);
-        }
-      } catch {
-        setIsAuthenticated(false);
-      } finally {
-        setIsChecking(false);
-      }
-    }
-    checkSession();
-  }, []);
+  // Read session auth via useSyncExternalStore
+  const sessionAuth = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
+  const isAuthenticated = unlocked || sessionAuth === 'authenticated';
 
-  const handleSubmit = useCallback(async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
-    setIsLoading(true);
 
-    try {
-      const res = await fetch('/api/auth/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ password }),
-      });
+    const adminPass = process.env.NEXT_PUBLIC_ADMIN_PASSWORD || ADMIN_PASSWORD;
 
-      const data = await res.json();
-
-      if (res.ok && data.success) {
-        setIsAuthenticated(true);
-        setPassword('');
-      } else {
-        setError(data.error || 'Invalid password. Please try again.');
+    if (password === adminPass) {
+      setUnlocked(true);
+      try {
+        sessionStorage.setItem(SESSION_KEY, 'authenticated');
+      } catch {
+        // sessionStorage not available
       }
-    } catch {
-      setError('Connection error. Please try again.');
-    } finally {
-      setIsLoading(false);
+    } else {
+      setError('Incorrect password. Please try again.');
     }
-  }, [password]);
+  };
 
-  const handleLogout = useCallback(async () => {
-    try {
-      await fetch('/api/auth/logout', { method: 'POST' });
-    } catch {
-      // Ignore errors on logout
-    }
-    setIsAuthenticated(false);
+  const handleLogout = () => {
+    setUnlocked(false);
     setPassword('');
-  }, []);
-
-  // Loading state — checking existing session
-  if (isChecking) {
-    return (
-      <div className="flex items-center justify-center min-h-[70vh]">
-        <Loader2 className="h-8 w-8 animate-spin text-emerald-500" />
-      </div>
-    );
-  }
+    try {
+      sessionStorage.removeItem(SESSION_KEY);
+    } catch {
+      // sessionStorage not available
+    }
+  };
 
   // Authenticated — show admin dashboard
   if (isAuthenticated) {
@@ -137,13 +123,12 @@ export function AdminGate({ children }: { children: React.ReactNode }) {
                 }}
                 className="pl-10 pr-10 bg-background/50 border-border/30"
                 autoFocus
-                disabled={isLoading}
               />
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
                 className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
-                aria-label={showPassword ? 'Hide password' : 'Show password'}
+                aria-label="Toggle password visibility"
               >
                 {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
               </button>
@@ -159,24 +144,16 @@ export function AdminGate({ children }: { children: React.ReactNode }) {
 
             <Button
               type="submit"
-              disabled={isLoading}
               className="w-full bg-gradient-to-r from-emerald-600 to-emerald-500 text-white hover:from-emerald-500 hover:to-emerald-400"
             >
-              {isLoading ? (
-                <>
-                  <Loader2 className="h-4 w-4 animate-spin mr-2" />
-                  Authenticating...
-                </>
-              ) : (
-                'Unlock Dashboard'
-              )}
+              Unlock Dashboard
             </Button>
           </form>
 
-          {/* Security notice */}
+          {/* Hint */}
           <div className="mt-6 rounded-lg bg-muted/30 p-3 text-xs text-muted-foreground text-center">
-            <p>Secured with server-side authentication</p>
-            <p className="mt-1">Sessions expire after 24 hours</p>
+            <p>Default password: <code className="text-emerald-400 font-mono">thetaxcalc2026</code></p>
+            <p className="mt-1">Change it in <code className="text-muted-foreground/80">src/components/finance/admin-gate.tsx</code></p>
           </div>
         </div>
 

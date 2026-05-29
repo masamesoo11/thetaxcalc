@@ -282,6 +282,7 @@ export function AdminLinks() {
                         target="_blank"
                         rel="noopener noreferrer"
                         className="p-1.5 rounded-md hover:bg-muted transition-colors"
+                        aria-label="Visit link"
                       >
                         <ExternalLink className="h-3.5 w-3.5 text-muted-foreground" />
                       </a>

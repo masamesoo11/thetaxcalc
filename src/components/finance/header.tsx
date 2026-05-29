@@ -104,7 +104,7 @@ export function Header() {
             <div className="absolute inset-0 rounded-xl bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity" />
           </div>
           <span className="text-lg font-bold tracking-tight text-foreground">
-            TheTaxCalc<span className="gradient-text">.io</span>
+            TheTaxCalc<span className="gradient-text">.com</span>
           </span>
         </Link>
 
@@ -239,7 +239,7 @@ export function Header() {
             size="sm"
             className="lg:hidden text-muted-foreground hover:text-foreground"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+            aria-label="Toggle mobile menu"
           >
             {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </Button>

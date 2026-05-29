@@ -330,6 +330,100 @@ export default function SalaryLandingPage() {
             </Link>
           </div>
         </section>
+
+        {/* ─── Related Tools & Resources ──────────────────────────────── */}
+        <section className="py-12 border-t border-border/20">
+          <h2 className="text-lg font-bold text-foreground mb-6">
+            Related Tools & Resources
+          </h2>
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {/* Tax Calculators */}
+            <div className="rounded-xl border border-border/30 bg-card/50 p-5">
+              <h3 className="text-base font-semibold text-foreground mb-3">Tax Calculators</h3>
+              <div className="space-y-2">
+                {[
+                  { href: '/paycheck-calculator', label: 'Paycheck Calculator' },
+                  { href: '/mortgage-calculator', label: 'Mortgage Calculator' },
+                  { href: '/401k-retirement-calculator', label: '401(k) Retirement Calculator' },
+                  { href: '/capital-gains-calculator', label: 'Capital Gains Calculator' },
+                  { href: '/self-employment-tax-calculator', label: 'Self-Employment Tax' },
+                  { href: '/relocation-calculator', label: 'Relocation Calculator' },
+                ].map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-400 transition-colors"
+                  >
+                    <span className="h-1 w-1 rounded-full bg-emerald-500/40 shrink-0 group-hover:bg-emerald-400 transition-colors" />
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            {/* State Calculators */}
+            <div className="rounded-xl border border-border/30 bg-card/50 p-5">
+              <h3 className="text-base font-semibold text-foreground mb-3">State Tax Calculators</h3>
+              <div className="space-y-2">
+                {[
+                  { href: '/illinois-tax-calculator', label: 'Illinois (4.95% flat)' },
+                  { href: '/texas-tax-calculator', label: 'Texas (0% income tax)' },
+                  { href: '/florida-tax-calculator', label: 'Florida (0% income tax)' },
+                  { href: '/california-tax-calculator', label: 'California (1%–13.3%)' },
+                  { href: '/new-york-tax-calculator', label: 'New York (4%–10.9%)' },
+                ].map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-400 transition-colors"
+                  >
+                    <span className="h-1 w-1 rounded-full bg-emerald-500/40 shrink-0 group-hover:bg-emerald-400 transition-colors" />
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            {/* Salary Quick Links & Guides */}
+            <div className="rounded-xl border border-border/30 bg-card/50 p-5">
+              <h3 className="text-base font-semibold text-foreground mb-3">Salary & Guides</h3>
+              <div className="flex flex-wrap gap-2">
+                {[
+                  { href: '/salary/50000', label: '$50K' },
+                  { href: '/salary/75000', label: '$75K' },
+                  { href: '/salary/100000', label: '$100K' },
+                  { href: '/salary/150000', label: '$150K' },
+                ].map((s) => (
+                  <Link
+                    key={s.href}
+                    href={s.href}
+                    className="inline-flex items-center rounded-lg border border-border/50 bg-muted/20 px-3 py-1.5 text-xs font-medium text-foreground hover:border-emerald-500/30 hover:text-emerald-400 transition-all"
+                  >
+                    {s.label}
+                  </Link>
+                ))}
+              </div>
+              <div className="mt-3 space-y-2">
+                <Link href="/compare" className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-400 transition-colors">
+                  <span className="h-1 w-1 rounded-full bg-emerald-500/40 shrink-0 group-hover:bg-emerald-400 transition-colors" />
+                  Compare State Taxes
+                </Link>
+                <Link href="/federal-tax-brackets" className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-400 transition-colors">
+                  <span className="h-1 w-1 rounded-full bg-emerald-500/40 shrink-0 group-hover:bg-emerald-400 transition-colors" />
+                  2026 Federal Tax Brackets
+                </Link>
+                <Link href="/glossary" className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-400 transition-colors">
+                  <span className="h-1 w-1 rounded-full bg-emerald-500/40 shrink-0 group-hover:bg-emerald-400 transition-colors" />
+                  Tax Glossary
+                </Link>
+                <Link href="/blog" className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-400 transition-colors">
+                  <span className="h-1 w-1 rounded-full bg-emerald-500/40 shrink-0 group-hover:bg-emerald-400 transition-colors" />
+                  Blog
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
     </>
   );

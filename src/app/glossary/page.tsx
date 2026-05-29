@@ -108,6 +108,13 @@ const RELATED_CALCULATORS = [
   { href: '/capital-gains-calculator', label: 'Capital Gains Calculator', desc: 'Short & long-term rates + NIIT' },
   { href: '/self-employment-tax-calculator', label: 'Self-Employment Calculator', desc: '15.3% SE tax + deductions' },
   { href: '/mortgage-calculator', label: 'Mortgage Calculator', desc: 'Monthly payment & amortization' },
+  { href: '/401k-retirement-calculator', label: '401(k) Calculator', desc: 'Retirement projection with match' },
+  { href: '/relocation-calculator', label: 'Relocation Calculator', desc: 'Compare equivalent salary by state' },
+  { href: '/illinois-tax-calculator', label: 'Illinois Calculator', desc: '4.95% flat tax take-home pay' },
+  { href: '/texas-tax-calculator', label: 'Texas Calculator', desc: '0% income tax take-home pay' },
+  { href: '/florida-tax-calculator', label: 'Florida Calculator', desc: '0% income tax + homestead' },
+  { href: '/california-tax-calculator', label: 'California Calculator', desc: '1%–13.3% progressive brackets' },
+  { href: '/new-york-tax-calculator', label: 'New York Calculator', desc: '4%–10.9% + NYC tax' },
 ];
 
 // ─── Server Component Page ────────────────────────────────────────────────────
@@ -197,6 +204,83 @@ export default function GlossaryPage() {
               </div>
             </Link>
           ))}
+        </div>
+      </section>
+
+      {/* ─── Salary & Resources Quick Links ────────────────────────────────── */}
+      <section className="mt-12 border-t border-border/20 pt-10">
+        <h2 className="text-lg font-bold text-foreground mb-6">
+          Quick Links — <span className="text-emerald-400">Salary, Comparisons & Guides</span>
+        </h2>
+        <div className="grid gap-6 lg:grid-cols-3">
+          {/* Popular Salary Pages */}
+          <div className="rounded-xl border border-border/30 bg-card/50 p-5">
+            <h3 className="text-base font-semibold text-foreground mb-3">Popular Salary Calculations</h3>
+            <div className="flex flex-wrap gap-2">
+              {[
+                { href: '/salary/50000', label: '$50K' },
+                { href: '/salary/75000', label: '$75K' },
+                { href: '/salary/100000', label: '$100K' },
+                { href: '/salary/150000', label: '$150K' },
+                { href: '/salary/200000', label: '$200K' },
+              ].map((s) => (
+                <Link
+                  key={s.href}
+                  href={s.href}
+                  className="inline-flex items-center rounded-lg border border-border/50 bg-muted/20 px-3 py-1.5 text-xs font-medium text-foreground hover:border-emerald-500/30 hover:text-emerald-400 transition-all"
+                >
+                  {s.label} After Tax
+                </Link>
+              ))}
+            </div>
+            <Link href="/salary" className="mt-3 inline-flex items-center gap-1 text-xs text-emerald-400 hover:text-emerald-300 transition-colors">
+              View all 26 salary levels <ArrowRight className="h-3 w-3" />
+            </Link>
+          </div>
+
+          {/* State Comparisons */}
+          <div className="rounded-xl border border-border/30 bg-card/50 p-5">
+            <h3 className="text-base font-semibold text-foreground mb-3">Compare State Taxes</h3>
+            <div className="space-y-2">
+              {[
+                { href: '/compare', label: 'All State Comparisons' },
+                { href: '/federal-tax-brackets', label: '2026 Federal Tax Brackets' },
+                { href: '/relocation-calculator', label: 'Relocation Calculator' },
+              ].map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-400 transition-colors"
+                >
+                  <span className="h-1 w-1 rounded-full bg-emerald-500/40 shrink-0 group-hover:bg-emerald-400 transition-colors" />
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* Blog & Guides */}
+          <div className="rounded-xl border border-border/30 bg-card/50 p-5">
+            <h3 className="text-base font-semibold text-foreground mb-3">Tax Guides & Blog</h3>
+            <div className="space-y-2">
+              {[
+                { href: '/blog', label: 'All Blog Articles' },
+                { href: '/blog/2026-federal-tax-brackets-explained', label: '2026 Tax Brackets Explained' },
+                { href: '/blog/florida-vs-texas-tax-comparison', label: 'Florida vs Texas Comparison' },
+                { href: '/blog/illinois-income-tax-guide-2026', label: 'Illinois Tax Guide 2026' },
+                { href: '/blog/how-fica-taxes-work-2026', label: 'How FICA Taxes Work' },
+              ].map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-400 transition-colors"
+                >
+                  <span className="h-1 w-1 rounded-full bg-emerald-500/40 shrink-0 group-hover:bg-emerald-400 transition-colors" />
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 

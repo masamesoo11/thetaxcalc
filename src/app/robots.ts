@@ -1,20 +1,27 @@
 import { MetadataRoute } from 'next';
 import { SITE_URL } from '@/lib/site-config';
 
+// Force static generation at build time for static export
+export const dynamic = 'force-static';
+
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
       {
+        // Googlebot: allow everything EXCEPT private paths
+        // CRITICAL: must include disallow here — specific user-agent groups
+        // override the wildcard (*) group entirely per Google's spec
         userAgent: 'Googlebot',
         allow: '/',
-        crawlDelay: 1,
+        disallow: ['/api/', '/admin/'],
       },
       {
         userAgent: 'Bingbot',
         allow: '/',
-        crawlDelay: 2,
+        disallow: ['/api/', '/admin/'],
       },
       {
+        // AI crawlers — allow full access for now (generates backlinks/mentions)
         userAgent: 'GPTBot',
         allow: '/',
       },
@@ -47,6 +54,7 @@ export default function robots(): MetadataRoute.Robots {
         allow: '/',
       },
       {
+        // Social media crawlers — need full access for link previews
         userAgent: 'Twitterbot',
         allow: '/',
       },
@@ -55,9 +63,10 @@ export default function robots(): MetadataRoute.Robots {
         allow: '/',
       },
       {
+        // Catch-all for all other bots
         userAgent: '*',
         allow: '/',
-        disallow: ['/api/', '/admin'],
+        disallow: ['/api/', '/admin/'],
       },
     ],
     sitemap: `${SITE_URL}/sitemap.xml`,

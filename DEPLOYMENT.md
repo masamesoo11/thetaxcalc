@@ -1,6 +1,6 @@
-# TaxYield Deployment Guide
+# TheTaxCalc Deployment Guide
 
-> **⚠️ WordPress is NOT an option for this project.** TaxYield is built with Next.js 16 — a React-based framework that requires a Node.js runtime or edge-compatible hosting. WordPress is a PHP-based CMS and cannot run Next.js applications.
+> **⚠️ WordPress is NOT an option for this project.** TheTaxCalc is built with Next.js 16 — a React-based framework that requires a Node.js runtime or edge-compatible hosting. WordPress is a PHP-based CMS and cannot run Next.js applications.
 
 ---
 
@@ -16,7 +16,7 @@
 2. سجّل حساب جديد (مجاني)
 3. من القائمة الجانبية اضغط **Domain Registration**
 4. اضغط **Register Domains**
-5. اكتب الدومين المطلوب مثل `taxyield.io`
+5. اكتب الدومين المطلوب مثل `thetaxcalc.com`
 6. إذا كان متاحاً → اضغط **Purchase**
 7. أدخل بيانات الدفع (بطاقة ائتمان)
 8. ✅ الدومين جاهز! — لا تحتاج أي إعدادات DNS لأنه على Cloudflare مباشرة
@@ -57,15 +57,15 @@
 
 ### الخطوة 2: أنشئ قاعدة بيانات
 1. من لوحة تحكم Turso، اضغط **Create Database**
-2. اسم قاعدة البيانات: `taxyield`
+2. اسم قاعدة البيانات: `thetaxcalc`
 3. اختر المنطقة الأقرب لمستخدميك (مثلاً `aws-us-east-1`)
 4. اضغط **Create**
 
 ### الخطوة 3: انسخ بيانات الاتصال
-1. اضغط على قاعدة البيانات `taxyield`
+1. اضغط على قاعدة البيانات `thetaxcalc`
 2. انسخ **URL** — يبدو مثل:
    ```
-   libsql://taxyield-yourname-aws-us-east-1.turso.io
+   libsql://thetaxcalc-yourname-aws-us-east-1.turso.io
    ```
    هذا هو `TURSO_DATABASE_URL`
 
@@ -86,11 +86,11 @@ curl -sSfL https://get.turso.tech | bash
 turso auth login
 
 # أنشئ قاعدة البيانات (إذا لم تنشئها من الموقع)
-turso db create taxyield
+turso db create thetaxcalc
 
 # ارفع المخطط
-DATABASE_URL="libsql://taxyield-yourname-aws-us-east-1.turso.io" \
-TURSO_DATABASE_URL="libsql://taxyield-yourname-aws-us-east-1.turso.io" \
+DATABASE_URL="libsql://thetaxcalc-yourname-aws-us-east-1.turso.io" \
+TURSO_DATABASE_URL="libsql://thetaxcalc-yourname-aws-us-east-1.turso.io" \
 TURSO_AUTH_TOKEN="eyJhbGciOiJFZERTQSI..." \
 bun run db:push
 ```
@@ -101,7 +101,7 @@ bun run db:push
 
 ### الخطوة 1: أنشئ مستودع على GitHub
 1. اذهب إلى **[github.com/new](https://github.com/new)**
-2. اسم المستودع: `taxyield`
+2. اسم المستودع: `thetaxcalc`
 3. اختر **Private** أو **Public**
 4. ❌ لا تختر "Add a README" أو ".gitignore"
 5. اضغط **Create repository**
@@ -109,17 +109,17 @@ bun run db:push
 ### الخطوة 2: ارفع الكود
 على جهازك المحلي:
 ```bash
-cd /path/to/taxyield
+cd /path/to/thetaxcalc
 
 # أضف الملفات
 git init
 git add .
 
 # التزم
-git commit -m "TaxYield.io - Initial commit"
+git commit -m "TheTaxCalc.io - Initial commit"
 
 # اربط بـ GitHub
-git remote add origin https://github.com/YOUR_USERNAME/taxyield.git
+git remote add origin https://github.com/YOUR_USERNAME/thetaxcalc.git
 
 # ارفع
 git push -u origin main
@@ -137,7 +137,7 @@ git push -u origin main
 3. اضغط **Create application**
 4. اضغط **Pages** ثم **Connect to Git**
 5. اضغط **Connect GitHub** — اسمح لـ Cloudflare بالوصول إلى حسابك
-6. اختر مستودع **taxyield**
+6. اختر مستودع **thetaxcalc**
 7. اضغط **Begin setup**
 
 ### الخطوة 2: إعدادات البناء
@@ -154,24 +154,24 @@ git push -u origin main
 
 | المتغير | القيمة | أين تجدها |
 |---------|--------|-----------|
-| `TURSO_DATABASE_URL` | `libsql://taxyield-...turso.io` | من لوحة تحكم Turso |
+| `TURSO_DATABASE_URL` | `libsql://thetaxcalc-...turso.io` | من لوحة تحكم Turso |
 | `TURSO_AUTH_TOKEN` | `eyJhbGciOiJFZERTQSI...` | من لوحة تحكم Turso |
 | `DATABASE_URL` | `file:./dev.db` | ثابت |
 | `NEXTAUTH_SECRET` | سلسلة عشوائية طويلة | [أنشئ واحدة](https://generate-secret.vercel.app/32) |
-| `NEXTAUTH_URL` | `https://taxyield.io` | دومينك |
-| `NEXT_PUBLIC_SITE_URL` | `https://taxyield.io` | دومينك (⭐ مهم!) |
+| `NEXTAUTH_URL` | `https://thetaxcalc.com` | دومينك |
+| `NEXT_PUBLIC_SITE_URL` | `https://thetaxcalc.com` | دومينك (⭐ مهم!) |
 | `NODE_VERSION` | `20` | ثابت |
 
-> ⚠️ **`NEXT_PUBLIC_SITE_URL` مهم جداً!** هذا المتغير يتحكم في كل روابط الموقع (canonical، sitemap، JSON-LD، Open Graph). بدونها ستستخدم القيمة الافتراضية `https://taxyield.io`.
+> ⚠️ **`NEXT_PUBLIC_SITE_URL` مهم جداً!** هذا المتغير يتحكم في كل روابط الموقع (canonical، sitemap، JSON-LD، Open Graph). بدونها ستستخدم القيمة الافتراضية `https://thetaxcalc.com`.
 
 ### الخطوة 4: انشر!
 1. اضغط **Save and Deploy**
 2. انتظر حتى ينتهي البناء (3-5 دقائق)
-3. ✅ ستحصل على رابط مثل: `taxyield.pages.dev`
+3. ✅ ستحصل على رابط مثل: `thetaxcalc.pages.dev`
 
 ### الخطوة 5: بذر قاعدة البيانات
 بعد نجاح النشر:
-1. افتح `https://taxyield.pages.dev/api/seed`
+1. افتح `https://thetaxcalc.pages.dev/api/seed`
 2. هذا سيعبئ المقالات والبيانات الأولية
 
 ---
@@ -182,17 +182,17 @@ git push -u origin main
 
 ### الخطوة 1: أضف الدومين للمشروع
 1. اذهب إلى **dash.cloudflare.com** → **Workers & Pages**
-2. اختر مشروع **taxyield**
+2. اختر مشروع **thetaxcalc**
 3. اضغط **Custom domains**
 4. اضغط **Set up a custom domain**
-5. اكتب `taxyield.io`
+5. اكتب `thetaxcalc.com`
 6. Cloudflare سيضيف سجل CNAME تلقائياً ✅
 7. اضغط **Activate domain**
-8. كرر نفس الخطوات لإضافة `www.taxyield.io`
+8. كرر نفس الخطوات لإضافة `www.thetaxcalc.com`
 
 ### الخطوة 2: انتظر
 - SSL يُفعّل تلقائياً خلال 5-15 دقيقة
-- الموقع سيكون متاحاً على `https://taxyield.io` 🎉
+- الموقع سيكون متاحاً على `https://thetaxcalc.com` 🎉
 
 ---
 
@@ -202,7 +202,7 @@ git push -u origin main
 
 1. اذهب إلى **dash.cloudflare.com**
 2. اضغط **Add a site**
-3. اكتب دومينك `taxyield.io`
+3. اكتب دومينك `thetaxcalc.com`
 4. اختر الخطة **Free**
 5. Cloudflare سيعطيك **سجلي Nameserver** مثل:
    ```
@@ -235,18 +235,18 @@ git push -u origin main
 
 | النوع | الاسم | المحتوى | Proxy | TTL |
 |-------|-------|---------|-------|-----|
-| **CNAME** | `@` | `taxyield.pages.dev` | ✅ Proxied | Auto |
-| **CNAME** | `www` | `taxyield.pages.dev` | ✅ Proxied | Auto |
+| **CNAME** | `@` | `thetaxcalc.pages.dev` | ✅ Proxied | Auto |
+| **CNAME** | `www` | `thetaxcalc.pages.dev` | ✅ Proxied | Auto |
 
 > ⚠️ تأكد أن **Proxy status** = **Proxied** (السحابة البرتقالية) وليس DNS only
 
 ### الخطوة 5: أضف الدومين لمشروع Pages
 
-1. اذهب إلى **Workers & Pages** → **taxyield** → **Custom domains**
+1. اذهب إلى **Workers & Pages** → **thetaxcalc** → **Custom domains**
 2. اضغط **Set up a custom domain**
-3. اكتب `taxyield.io` → اضغط Continue
+3. اكتب `thetaxcalc.com` → اضغط Continue
 4. Cloudflare سيتأكد من سجل DNS → اضغط **Activate domain**
-5. كرر لإضافة `www.taxyield.io`
+5. كرر لإضافة `www.thetaxcalc.com`
 
 ---
 
@@ -260,11 +260,11 @@ git push -u origin main
 
 | النوع | Host | Value | TTL |
 |-------|------|-------|-----|
-| **CNAME** | `@` | `taxyield.pages.dev` | Automatic |
-| **CNAME** | `www` | `taxyield.pages.dev` | Automatic |
+| **CNAME** | `@` | `thetaxcalc.pages.dev` | Automatic |
+| **CNAME** | `www` | `thetaxcalc.pages.dev` | Automatic |
 
-4. اذهب إلى Cloudflare Pages → taxyield → Custom domains
-5. أضف `taxyield.io`
+4. اذهب إلى Cloudflare Pages → thetaxcalc → Custom domains
+5. أضف `thetaxcalc.com`
 6. Cloudflare سيقوم بتفعيل SSL تلقائياً
 
 > ⚠️ بدون Cloudflare Proxy، لن تحصل على حماية DDoS أو CDN العالمي
@@ -289,8 +289,8 @@ git push -u origin main
 1. اضغط **Rules** → **Redirect Rules**
 2. اضغط **Create rule**
 3. الاسم: `Redirect www to apex`
-4. إذا كان الطلب = `www.taxyield.io/*`
-5. تحويل إلى `https://taxyield.io/$1`
+4. إذا كان الطلب = `www.thetaxcalc.com/*`
+5. تحويل إلى `https://thetaxcalc.com/$1`
 6. نوع التحويل: **301 (Permanent)**
 7. اضغط **Deploy**
 
@@ -301,7 +301,7 @@ git push -u origin main
 ### الخطوة 1: Google Search Console
 1. اذهب إلى **[search.google.com/search-console](https://search.google.com/search-console)**
 2. اضغط **Add Property**
-3. اكتب `https://taxyield.io`
+3. اكتب `https://thetaxcalc.com`
 4. اختر طريقة التحقق: **HTML Tag**
 5. ستحصل على رمز مثل: `<meta name="google-site-verification" content="abc123..." />`
 6. انسخ القيمة `abc123...`
@@ -312,7 +312,7 @@ git push -u origin main
 ### الخطوة 2: قدّم sitemap
 1. في Google Search Console
 2. اضغط **Sitemaps**
-3. اكتب `https://taxyield.io/sitemap.xml`
+3. اكتب `https://thetaxcalc.com/sitemap.xml`
 4. اضغط **Submit**
 
 ### الخطوة 3: Google Analytics (اختياري)
@@ -331,15 +331,15 @@ git push -u origin main
 
 | # | الفحص | كيف تتحقق | النتيجة المتوقعة |
 |---|-------|----------|-----------------|
-| 1 | الموقع يفتح | افتح `https://taxyield.io` | الصفحة الرئيسية تظهر |
-| 2 | www يحوّل | افتح `https://www.taxyield.io` | يحوّل إلى `https://taxyield.io` |
+| 1 | الموقع يفتح | افتح `https://thetaxcalc.com` | الصفحة الرئيسية تظهر |
+| 2 | www يحوّل | افتح `https://www.thetaxcalc.com` | يحوّل إلى `https://thetaxcalc.com` |
 | 3 | SSL يعمل | تحقق من 🔒 في المتصفح | 🔒 أخضر |
-| 4 | sitemap | افتح `https://taxyield.io/sitemap.xml` | قائمة بكل الصفحات |
-| 5 | robots.txt | افتح `https://taxyield.io/robots.txt` | يسمح بكل الصفحات |
-| 6 | صفحة 404 | افتح `https://taxyield.io/nonexistent` | صفحة مخصصة مع روابط |
-| 7 | صفحة الآلة الحاسبة | افتح `https://taxyield.io/paycheck-calculator` | الآلة تعمل |
-| 8 | المدونة | افتح `https://taxyield.io/blog` | قائمة المقالات |
-| 9 | المقارنة | افتح `https://taxyield.io/compare` | جدول المقارنة |
+| 4 | sitemap | افتح `https://thetaxcalc.com/sitemap.xml` | قائمة بكل الصفحات |
+| 5 | robots.txt | افتح `https://thetaxcalc.com/robots.txt` | يسمح بكل الصفحات |
+| 6 | صفحة 404 | افتح `https://thetaxcalc.com/nonexistent` | صفحة مخصصة مع روابط |
+| 7 | صفحة الآلة الحاسبة | افتح `https://thetaxcalc.com/paycheck-calculator` | الآلة تعمل |
+| 8 | المدونة | افتح `https://thetaxcalc.com/blog` | قائمة المقالات |
+| 9 | المقارنة | افتح `https://thetaxcalc.com/compare` | جدول المقارنة |
 | 10 | سرعة التحميل | استخدم [PageSpeed Insights](https://pagespeed.web.dev/) | أخضر (>90) |
 
 ---
@@ -354,28 +354,28 @@ git push -u origin main
 ### الخطوة 2: استورد في Vercel
 1. اذهب إلى **[vercel.com/new](https://vercel.com/new)**
 2. سجّل باستخدام GitHub
-3. اختر مستودع **taxyield**
+3. اختر مستودع **thetaxcalc**
 4. Vercel يكتشف Next.js تلقائياً ✅
 
 ### الخطوة 3: أضف متغيرات البيئة
 | المتغير | القيمة |
 |---------|--------|
-| `TURSO_DATABASE_URL` | `libsql://taxyield-...turso.io` |
+| `TURSO_DATABASE_URL` | `libsql://thetaxcalc-...turso.io` |
 | `TURSO_AUTH_TOKEN` | `eyJhbGciOiJFZERTQSI...` |
 | `DATABASE_URL` | `file:./dev.db` |
 | `NEXTAUTH_SECRET` | سلسلة عشوائية |
-| `NEXTAUTH_URL` | `https://taxyield.io` |
-| `NEXT_PUBLIC_SITE_URL` | `https://taxyield.io` |
+| `NEXTAUTH_URL` | `https://thetaxcalc.com` |
+| `NEXT_PUBLIC_SITE_URL` | `https://thetaxcalc.com` |
 
 ### الخطوة 4: Deploy
 اضغط **Deploy** — انتهى! 🎉
 
 ### الخطوة 5: ربط الدومين في Vercel
 1. اذهب إلى **Project Settings** → **Domains**
-2. اكتب `taxyield.io`
+2. اكتب `thetaxcalc.com`
 3. أضف سجل CNAME عند مزوّد الدومين:
    - `CNAME @ → cname.vercel-dns.com`
-4. أضف `www.taxyield.io` أيضاً
+4. أضف `www.thetaxcalc.com` أيضاً
 5. Vercel يفعّل SSL تلقائياً ✅
 
 ---

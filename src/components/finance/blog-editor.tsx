@@ -122,7 +122,8 @@ export function BlogEditor({ editSlug, onNavigate }: BlogEditorProps) {
     queryFn: async () => {
       const res = await fetch(`/api/blog/${editSlug}`);
       if (!res.ok) throw new Error('Post not found');
-      return res.json();
+      const data = await res.json();
+      return data.post || data;
     },
     enabled: !!editSlug,
   });

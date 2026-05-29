@@ -1,123 +1,51 @@
+import { NextRequest, NextResponse } from 'next/server';
+import { getAllPosts, getAllPostsIncludingDrafts, createPost } from '@/lib/blog-db';
+
 export const runtime = 'edge';
 
-import { NextRequest, NextResponse } from 'next/server';
-import { db } from '@/lib/db';
-
-/**
- * GET /api/blog
- * List blog posts with optional filters.
- * Query params:
- *   - published=true (default): return only published posts
- *   - all=true: return all posts (for admin)
- *   - category=xxx: filter by category
- */
+// GET /api/blog — list all posts
+// ?all=true — include drafts (for admin panel)
 export async function GET(request: NextRequest) {
   try {
-    const { searchParams } = new URL(request.url);
-    const all = searchParams.get('all') === 'true';
-    const category = searchParams.get('category');
-
-    // Build where clause
-    const where: Record<string, unknown> = {};
-
-    // If not requesting all, default to published only
-    if (!all) {
-      where.published = true;
-    }
-
-    // Optional category filter
-    if (category) {
-      where.category = category;
-    }
-
-    const posts = await db.post.findMany({
-      where,
-      orderBy: { createdAt: 'desc' },
-      select: {
-        id: true,
-        title: true,
-        slug: true,
-        excerpt: true,
-        category: true,
-        tags: true,
-        coverImage: true,
-        published: true,
-        featured: true,
-        authorId: true,
-        metaTitle: true,
-        metaDesc: true,
-        createdAt: true,
-        updatedAt: true,
-        // Omit content for list view to reduce payload
-      },
-    });
-
-    return NextResponse.json(posts);
+    const all = request.nextUrl.searchParams.get('all') === 'true';
+    const posts = all ? await getAllPostsIncludingDrafts() : await getAllPosts();
+    return NextResponse.json({ posts });
   } catch (error) {
-    console.error('Error fetching blog posts:', error);
-    return NextResponse.json(
-      { error: 'Failed to fetch blog posts' },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: 'Failed to fetch posts' }, { status: 500 });
   }
 }
 
-/**
- * POST /api/blog
- * Create a new blog post.
- * Auto-generates slug from title if not provided.
- */
+// POST /api/blog — create a new post
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { title, slug, excerpt, content, category, tags, coverImage, published, featured, authorId, metaTitle, metaDesc } = body;
+    const { title, slug, excerpt, content, category, tags, metaTitle, metaDesc, featured } = body;
 
-    // Validate required fields
-    if (!title || !content) {
-      return NextResponse.json(
-        { error: 'Title and content are required' },
-        { status: 400 }
-      );
+    if (!title || !slug || !content) {
+      return NextResponse.json({ error: 'title, slug, and content are required' }, { status: 400 });
     }
 
-    // Auto-generate slug from title if not provided
-    const generatedSlug = slug || title
-      .toLowerCase()
-      .replace(/[^a-z0-9]+/g, '-')
-      .replace(/^-|-$/g, '');
+    const post = {
+      id: crypto.randomUUID(),
+      title,
+      slug,
+      excerpt: excerpt || '',
+      content,
+      category: category || 'tax-guide',
+      tags: tags || '',
+      coverImage: '',
+      published: true,
+      featured: featured || false,
+      metaTitle: metaTitle || '',
+      metaDesc: metaDesc || '',
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
+    };
 
-    // Check for slug uniqueness
-    const existing = await db.post.findUnique({ where: { slug: generatedSlug } });
-    if (existing) {
-      return NextResponse.json(
-        { error: `A post with slug "${generatedSlug}" already exists` },
-        { status: 400 }
-      );
-    }
-
-    const post = await db.post.create({
-      data: {
-        title,
-        slug: generatedSlug,
-        excerpt: excerpt || null,
-        content,
-        category: category || 'tax-guide',
-        tags: tags || '',
-        coverImage: coverImage || null,
-        published: published ?? false,
-        featured: featured ?? false,
-        authorId: authorId || null,
-        metaTitle: metaTitle || null,
-        metaDesc: metaDesc || null,
-      },
-    });
-
-    return NextResponse.json(post, { status: 201 });
-  } catch (error) {
-    console.error('Error creating blog post:', error);
-    return NextResponse.json(
-      { error: 'Failed to create blog post' },
-      { status: 500 }
-    );
+    const created = await createPost(post);
+    return NextResponse.json({ post: created }, { status: 201 });
+  } catch (error: unknown) {
+    const message = error instanceof Error ? error.message : 'Failed to create post';
+    return NextResponse.json({ error: message }, { status: 500 });
   }
 }

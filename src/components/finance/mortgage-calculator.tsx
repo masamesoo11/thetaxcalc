@@ -41,11 +41,10 @@ import {
   formatNumber,
 } from '@/lib/finance-utils';
 import { MORTGAGE_DEFAULTS } from '@/lib/tax-config';
-import { useUrlParams, updateUrlState, migrateHashUrl } from '@/hooks/use-url-state';
+import { useHashParams, updateHashState } from '@/hooks/use-hash-state';
 
 export function MortgageCalculator() {
-  migrateHashUrl();
-  const hashParams = useUrlParams();
+  const hashParams = useHashParams();
 
   const [homePrice, setHomePrice] = useState<number>(() => hashParams.price ? Number(hashParams.price) : MORTGAGE_DEFAULTS.homePrice);
   const [downPayment, setDownPayment] = useState<number>(() => hashParams.down ? Number(hashParams.down) : MORTGAGE_DEFAULTS.downPayment);
@@ -54,7 +53,7 @@ export function MortgageCalculator() {
   const [extraPayment, setExtraPayment] = useState<number>(() => hashParams.extra ? Number(hashParams.extra) : 0);
 
   useEffect(() => {
-    updateUrlState({
+    updateHashState('mortgage', {
       price: homePrice,
       down: downPayment,
       rate: interestRate,

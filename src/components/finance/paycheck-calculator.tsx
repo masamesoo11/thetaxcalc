@@ -40,7 +40,7 @@ import {
   type PaycheckInput,
 } from '@/lib/finance-utils';
 import { STATE_PROFILES } from '@/lib/tax-config';
-import { useUrlParams, updateUrlState, migrateHashUrl } from '@/hooks/use-url-state';
+import { useHashParams, updateHashState } from '@/hooks/use-hash-state';
 
 interface PaycheckCalculatorProps {
   defaultState?: string;
@@ -48,11 +48,8 @@ interface PaycheckCalculatorProps {
 }
 
 export function PaycheckCalculator({ defaultState = 'illinois', onStateChange }: PaycheckCalculatorProps) {
-  // Migrate old hash-based URLs on mount
-  migrateHashUrl();
-
-  // Read initial values from URL query params using useSyncExternalStore-backed hooks
-  const hashParams = useUrlParams();
+  // Read initial values from URL hash using useSyncExternalStore-backed hooks
+  const hashParams = useHashParams();
   const [salary, setSalary] = useState<number>(() => hashParams.salary ? Number(hashParams.salary) : 75000);
   const [payFrequency, setPayFrequency] = useState<PayFrequency>(() => (hashParams.frequency as PayFrequency) || 'annual');
   const [hoursPerWeek, setHoursPerWeek] = useState<number>(() => hashParams.hours ? Number(hashParams.hours) : 40);
@@ -64,7 +61,7 @@ export function PaycheckCalculator({ defaultState = 'illinois', onStateChange }:
 
   // Sync state to URL hash whenever inputs change (side-effect only, no setState)
   useEffect(() => {
-    updateUrlState({
+    updateHashState('home', {
       salary,
       frequency: payFrequency,
       hours: hoursPerWeek,

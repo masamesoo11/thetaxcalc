@@ -97,7 +97,7 @@ export function Footer() {
                 <DollarSign className="h-4 w-4 text-white" />
               </div>
               <span className="text-lg font-bold tracking-tight text-foreground">
-                TheTaxCalc<span className="gradient-text">.io</span>
+                TheTaxCalc<span className="gradient-text">.com</span>
               </span>
             </Link>
             <p className="text-sm text-muted-foreground leading-relaxed">
@@ -186,6 +186,38 @@ export function Footer() {
               </li>
               <li>
                 <Link
+                  href="/salary/50000"
+                  className="flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-emerald-400 pl-5"
+                >
+                  $50K After Tax
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/salary/75000"
+                  className="flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-emerald-400 pl-5"
+                >
+                  $75K After Tax
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/salary/100000"
+                  className="flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-emerald-400 pl-5"
+                >
+                  $100K After Tax
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/salary/150000"
+                  className="flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-emerald-400 pl-5"
+                >
+                  $150K After Tax
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/blog"
                   className="flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-emerald-400"
                 >
@@ -225,7 +257,7 @@ export function Footer() {
         <div className="mx-auto max-w-7xl px-4 py-5 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center gap-3 sm:flex-row sm:justify-between">
             <p className="text-center text-xs text-muted-foreground">
-              © {new Date().getFullYear()} TheTaxCalc — Precision paycheck & mortgage calculators.
+              © {new Date().getFullYear()} TheTaxCalc.com — Free 2026 paycheck & mortgage calculators.
               All calculations are estimates for informational purposes only.
             </p>
             <div className="flex items-center gap-4 text-xs text-muted-foreground">
