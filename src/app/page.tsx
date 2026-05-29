@@ -30,9 +30,9 @@ import {
 // ─── Home Page Metadata ───────────────────────────────────────────────────────
 
 export const metadata: Metadata = {
-  title: 'TheTaxCalc — Free 2026 Paycheck & Mortgage Calculator | IL, TX, FL, CA, NY',
+  title: '2026 Paycheck & Mortgage Calculator',
   description:
-    'Instantly calculate your take-home pay after federal tax, FICA, and state income tax. Supports Illinois (4.95%), Texas (0%), Florida (0%), California (1%-13.3%), New York (4%-10.9%). Includes mortgage, 401(k), capital gains, and self-employment calculators.',
+    'Free 2026 paycheck calculator. Compute take-home pay after federal, FICA, and state taxes for IL, TX, FL, CA, NY. Mortgage, 401(k) and SE calculators included.',
   keywords: [
     'paycheck calculator', 'take home pay calculator', 'salary calculator',
     'Illinois tax calculator', 'Texas tax calculator', 'Florida tax calculator',
@@ -51,9 +51,9 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'TheTaxCalc — Free 2026 Paycheck & Mortgage Calculator',
+    title: 'TheTaxCalc — 2026 Paycheck & Mortgage Calculator',
     description:
-      'Precision paycheck calculator for 2026. Compute take-home pay after federal, FICA, and state taxes for IL, TX, FL, CA, NY.',
+      'Free 2026 paycheck calculator. Compute take-home pay after federal, FICA, and state taxes for IL, TX, FL, CA, NY.',
     url: SITE_URL,
     siteName: 'TheTaxCalc',
     type: 'website',
@@ -63,15 +63,15 @@ export const metadata: Metadata = {
         url: `${SITE_URL}/opengraph-image.png`,
         width: 1200,
         height: 630,
-        alt: 'TheTaxCalc — Free 2026 Paycheck & Mortgage Calculator',
+        alt: 'TheTaxCalc — 2026 Paycheck & Mortgage Calculator',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'TheTaxCalc — Free 2026 Paycheck & Mortgage Calculator',
+    title: 'TheTaxCalc — 2026 Paycheck & Mortgage Calculator',
     description:
-      'Compute your take-home pay after federal, FICA, and state taxes. Supports IL, TX, FL, CA, NY.',
+      'Free 2026 paycheck calculator. Compute take-home pay after federal, FICA, and state taxes for IL, TX, FL, CA, NY.',
     images: [`${SITE_URL}/opengraph-image.png`],
   },
 };

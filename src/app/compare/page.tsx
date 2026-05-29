@@ -7,9 +7,9 @@ import { SITE_URL } from '@/lib/site-config';
 // ─── Metadata ────────────────────────────────────────────────────────────────
 
 export const metadata: Metadata = {
-  title: 'State vs State Tax Comparison — Illinois, Texas, Florida, California, New York',
+  title: 'State Tax Comparison 2026 — IL, TX, FL, CA, NY',
   description:
-    'Compare state taxes side by side: Illinois vs Texas, Florida vs California, and more. See income tax, property tax, sales tax, and take-home pay at $75K and $150K. Free 2026 state tax comparison tool.',
+    'Compare state taxes side by side. Income tax, property tax, sales tax, and take-home pay at $75K and $150K. Free 2026 comparison tool for IL, TX, FL, CA, NY.',
   keywords: [
     'state tax comparison', 'illinois vs texas taxes', 'florida vs california taxes',
     'texas vs florida taxes', 'compare state income tax', 'state tax rates comparison',
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'State vs State Tax Comparison 2026 — IL, TX, FL, CA, NY',
+    title: 'State Tax Comparison 2026 — IL, TX, FL, CA, NY',
     description:
       'Compare state taxes side by side. Income tax, property tax, sales tax, and take-home pay on $75K and $150K salaries. Free 2026 comparison tool.',
     url: `${SITE_URL}/compare`,
@@ -266,7 +266,7 @@ export default function CompareLandingPage() {
           <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-500/10">
             <BookOpen className="h-5 w-5 text-emerald-400" />
           </div>
-          <h2 className="text-2xl font-bold text-foreground">Frequently Asked Questions</h2>
+          <h2 className="text-2xl font-bold text-foreground">State Tax Comparison FAQ</h2>
         </div>
         <div className="space-y-3">
           {[
@@ -327,7 +327,7 @@ export default function CompareLandingPage() {
       {/* ─── Related Tools & Resources ─────────────────────────────────── */}
       <section className="mt-12 border-t border-border/20 pt-10">
         <h2 className="text-lg font-bold text-foreground mb-6">
-          Related Tools & Resources
+          State Comparison Resources
         </h2>
         <div className="grid gap-6 lg:grid-cols-3">
           {/* State Calculators */}

@@ -342,7 +342,7 @@ export function SalaryClientPage({ amountStr }: SalaryClientPageProps) {
                 <HelpCircle className="h-5 w-5 text-emerald-400" />
               </div>
               <h2 className="text-2xl font-bold text-foreground">
-                Frequently Asked Questions
+                Salary Tax FAQ
               </h2>
             </div>
             <div className="space-y-4">

@@ -5,7 +5,7 @@ import { Breadcrumb } from '@/components/finance/breadcrumb';
 import { SITE_URL } from '@/lib/site-config';
 
 export const metadata: Metadata = {
-  title: 'Terms of Use',
+  title: 'Terms of Use — TheTaxCalc Tax Calculators',
   description:
     'TheTaxCalc Terms of Use — understand the terms and conditions for using our free tax calculators and website.',
   keywords: ['terms of use', 'thetaxcalc terms', 'tax calculator terms', 'usage agreement', 'legal terms', 'disclaimer'],
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'Terms of Use — TheTaxCalc',
+    title: 'Terms of Use — TheTaxCalc Tax Calculators',
     description: 'Understand the terms and conditions for using TheTaxCalc free tax calculators and website.',
     url: `${SITE_URL}/terms`,
     siteName: 'TheTaxCalc',
@@ -329,7 +329,7 @@ export default function TermsPage() {
       {/* Related Tools & Resources */}
       <section className="mt-12 border-t border-border/20 pt-10">
         <h2 className="text-lg font-bold text-foreground mb-6">
-          Related Tools & Resources
+          Tax Calculator Resources
         </h2>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {/* Calculators */}

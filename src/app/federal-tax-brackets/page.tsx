@@ -17,9 +17,9 @@ import { BracketsTabs } from './brackets-tabs';
 // ─── Page Metadata ──────────────────────────────────────────────────────────────
 
 export const metadata: Metadata = {
-  title: '2026 Federal Tax Brackets — Rates, Standard Deductions & Examples',
+  title: '2026 Federal Tax Brackets — Rates & Deductions',
   description:
-    'Complete 2026 federal income tax brackets for Single, Married Filing Jointly, and Head of Household. Includes standard deductions, progressive tax explanation, effective vs marginal rates, and a $75,000 salary breakdown example.',
+    'Complete 2026 federal tax brackets for all filing statuses. Standard deductions, progressive tax explanation, and effective vs marginal rates.',
   keywords: [
     '2026 federal tax brackets',
     '2026 tax brackets',
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: '2026 Federal Tax Brackets — Rates, Standard Deductions & Examples',
+    title: '2026 Federal Tax Brackets — Rates & Deductions',
     description:
       'Complete 2026 federal tax brackets for all filing statuses. Standard deductions, progressive tax explanation, and effective vs marginal rates.',
     url: `${SITE_URL}/federal-tax-brackets`,
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: '2026 Federal Tax Brackets — Rates, Standard Deductions & Examples',
+    title: '2026 Federal Tax Brackets — Rates & Deductions',
     description:
       'Complete 2026 federal tax brackets for all filing statuses. Standard deductions, progressive tax explanation, and effective vs marginal rates.',
   },
@@ -583,7 +583,7 @@ export default function FederalTaxBracketsPage() {
               <Link href="/glossary" className="text-muted-foreground hover:text-emerald-400 underline transition-colors">
                 Tax Glossary
               </Link>
-              <a href="https://www.irs.gov/filing/federal-income-tax-rates-and-brackets" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-emerald-400 underline transition-colors">
+              <a href="https://www.irs.gov/filing/federal-income-tax-rates-and-brackets" target="_blank" rel="noopener noreferrer nofollow" className="text-muted-foreground hover:text-emerald-400 underline transition-colors">
                 IRS Brackets Page ↗
               </a>
             </div>
@@ -595,7 +595,7 @@ export default function FederalTaxBracketsPage() {
       <section className="py-12 sm:py-16 border-t border-border/20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-lg font-bold text-foreground mb-6">
-            Related Tools & Resources
+            Tax Bracket Resources
           </h2>
           <div className="grid gap-6 lg:grid-cols-3">
             {/* State Calculators */}

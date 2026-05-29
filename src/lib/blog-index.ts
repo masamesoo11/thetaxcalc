@@ -24,7 +24,7 @@ export const BLOG_INDEX: BlogPostMeta[] = [
     "coverImage": "",
     "published": true,
     "featured": true,
-    "metaTitle": "1099 Taxes Guide 2026: How Much Freelancers Really Pay",
+    "metaTitle": "1099 Taxes 2026: How Much Freelancers Pay",
     "metaDesc": "Complete guide to 1099 taxes for self-employed workers in 2026. Calculate your tax bill, find deductions, and learn quarterly payment deadlines. Free guide.",
     "createdAt": "2026-05-28T12:00:00.000Z",
     "updatedAt": "2026-05-28T12:00:00.000Z"
@@ -114,7 +114,7 @@ export const BLOG_INDEX: BlogPostMeta[] = [
     "coverImage": "",
     "published": true,
     "featured": false,
-    "metaTitle": "SEP IRA vs Solo 401k: Contribution Limits & Comparison 2026",
+    "metaTitle": "SEP IRA vs Solo 401k: Comparison 2026",
     "metaDesc": "Compare SEP IRA vs Solo 401k for 2026: contribution limits, tax deductions, eligibility, and which is better for self-employed freelancers and contractors.",
     "createdAt": "2026-05-28T12:00:00.000Z",
     "updatedAt": "2026-05-28T12:00:00.000Z"

@@ -558,7 +558,7 @@ export default async function CompareStatesPage({
       {/* ─── FAQ Section ───────────────────────────────────────────────────── */}
       <section className="mb-12">
         <h2 className="text-2xl font-bold text-foreground mb-6">
-          Frequently Asked <span className="gradient-text">Questions</span>
+          State Tax <span className="gradient-text">FAQ</span>
         </h2>
         <div className="space-y-4">
           {faqs.map((faq, i) => (

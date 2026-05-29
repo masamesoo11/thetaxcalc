@@ -20,9 +20,9 @@ import { Breadcrumb } from '@/components/finance/breadcrumb';
 import { SITE_URL } from '@/lib/site-config';
 
 export const metadata: Metadata = {
-  title: 'About Us',
+  title: 'About TheTaxCalc — Free 2026 Tax Calculators',
   description:
-    'Learn about TheTaxCalc — our mission to provide free, accurate tax calculators for every American. We help you understand your take-home pay after federal, FICA, and state taxes.',
+    'Learn about TheTaxCalc — our mission to provide free, accurate tax calculators. Understand your take-home pay after federal, FICA, and state taxes.',
   keywords: ['about thetaxcalc', 'tax calculator about', 'tax tool mission', 'free tax calculator', 'tax data accuracy', 'tax calculator team'],
   alternates: {
     canonical: `${SITE_URL}/about`,
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'About TheTaxCalc',
+    title: 'About TheTaxCalc — Free 2026 Tax Calculators',
     description:
       'Learn about TheTaxCalc — our mission to provide free, accurate tax calculators for every American.',
     url: `${SITE_URL}/about`,
@@ -332,16 +332,16 @@ export default function AboutPage() {
               <h3 className="text-sm font-semibold text-foreground mb-2">Go Straight to the Source</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">
                 Federal brackets come from{' '}
-                <a href="https://www.irs.gov/publications/p15" target="_blank" rel="noopener noreferrer" className="text-emerald-400 hover:text-emerald-300 underline">IRS Publication 15</a>{' '}
+                <a href="https://www.irs.gov/publications/p15" target="_blank" rel="noopener noreferrer nofollow" className="text-emerald-400 hover:text-emerald-300 underline">IRS Publication 15</a>{' '}
                 (Employer&apos;s Tax Guide) and{' '}
-                <a href="https://www.irs.gov/publications/p15t" target="_blank" rel="noopener noreferrer" className="text-emerald-400 hover:text-emerald-300 underline">Publication 15-T</a>.
+                <a href="https://www.irs.gov/publications/p15t" target="_blank" rel="noopener noreferrer nofollow" className="text-emerald-400 hover:text-emerald-300 underline">Publication 15-T</a>.
                 Not a blog post summarizing them — the actual IRS documents.
                 State rates come from each state&apos;s Department of Revenue directly. Illinois?{' '}
-                <a href="https://www2.illinois.gov/rev/" target="_blank" rel="noopener noreferrer" className="text-emerald-400 hover:text-emerald-300 underline">IDOR</a>.
+                <a href="https://www2.illinois.gov/rev/" target="_blank" rel="noopener noreferrer nofollow" className="text-emerald-400 hover:text-emerald-300 underline">IDOR</a>.
                 California?{' '}
-                <a href="https://www.ftb.ca.gov/" target="_blank" rel="noopener noreferrer" className="text-emerald-400 hover:text-emerald-300 underline">FTB</a>.
+                <a href="https://www.ftb.ca.gov/" target="_blank" rel="noopener noreferrer nofollow" className="text-emerald-400 hover:text-emerald-300 underline">FTB</a>.
                 New York?{' '}
-                <a href="https://www.tax.ny.gov/" target="_blank" rel="noopener noreferrer" className="text-emerald-400 hover:text-emerald-300 underline">NYS Department of Taxation and Finance</a>.
+                <a href="https://www.tax.ny.gov/" target="_blank" rel="noopener noreferrer nofollow" className="text-emerald-400 hover:text-emerald-300 underline">NYS Department of Taxation and Finance</a>.
               </p>
             </div>
             <div className="rounded-lg bg-muted/20 p-4">
@@ -471,7 +471,7 @@ export default function AboutPage() {
       {/* Related Tools & Resources */}
       <section className="mb-12 border-t border-border/20 pt-10">
         <h2 className="text-lg font-bold text-foreground mb-6">
-          Related Tools & Resources
+          Tax Calculator Resources
         </h2>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {/* Calculators */}

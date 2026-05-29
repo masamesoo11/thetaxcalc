@@ -57,8 +57,8 @@ export async function generateMetadata({
   const baseUrl = SITE_URL;
   const path = `/salary/${amountStr}`;
 
-  const title = `${formatted} After Tax in 2026 — Take-Home Pay by State`;
-  const description = `See your take-home pay on a ${formatted} salary in 2026. Compare net pay across Illinois, Texas, Florida, California, and New York after federal tax, FICA, and state income tax.`;
+  const title = `${formatted} After Tax 2026 — Take-Home by State`;
+  const description = `See your take-home pay on a ${formatted} salary in 2026. Compare net pay across IL, TX, FL, CA, NY after federal, FICA, and state tax.`;
 
   return {
     title,
@@ -421,7 +421,7 @@ export default async function SalaryAmountPage({
                 <HelpCircle className="h-5 w-5 text-emerald-400" />
               </div>
               <h2 className="text-2xl font-bold text-foreground">
-                Frequently Asked Questions
+                Salary Tax FAQ
               </h2>
             </div>
 
@@ -560,7 +560,7 @@ export default async function SalaryAmountPage({
               <ExternalLink className="h-5 w-5 text-emerald-400" />
             </div>
             <h2 className="text-2xl font-bold text-foreground">
-              Related Tools & Resources
+              Salary & Tax Resources
             </h2>
           </div>
 

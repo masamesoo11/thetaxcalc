@@ -5,7 +5,7 @@ import { Breadcrumb } from '@/components/finance/breadcrumb';
 import { SITE_URL } from '@/lib/site-config';
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy',
+  title: 'Privacy Policy — TheTaxCalc Tax Calculators',
   description:
     'TheTaxCalc Privacy Policy — learn how we collect, use, and protect your personal information when using our free tax calculators.',
   keywords: ['privacy policy', 'thetaxcalc privacy', 'tax calculator privacy', 'data protection', 'calculator data security', 'browser calculations'],
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'Privacy Policy — TheTaxCalc',
+    title: 'Privacy Policy — TheTaxCalc Tax Calculators',
     description: 'Learn how TheTaxCalc collects, uses, and protects your personal information when using our free tax calculators.',
     url: `${SITE_URL}/privacy`,
     siteName: 'TheTaxCalc',
@@ -171,7 +171,7 @@ export default function PrivacyPage() {
                 <a
                   href="https://policies.google.com/privacy"
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener noreferrer nofollow"
                   className="text-emerald-400 hover:text-emerald-300 underline"
                 >
                   Google&apos;s Privacy Policy
@@ -279,7 +279,7 @@ export default function PrivacyPage() {
       {/* Related Tools & Resources */}
       <section className="mt-12 border-t border-border/20 pt-10">
         <h2 className="text-lg font-bold text-foreground mb-6">
-          Related Tools & Resources
+          Tax Calculator Resources
         </h2>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {/* Calculators */}

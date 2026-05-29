@@ -142,8 +142,8 @@ function buildCompareConfig(slug: string): CompareConfig | null {
     slug,
     state1: s1,
     state2: s2,
-    metaTitle: `${s1.name} vs ${s2.name} Taxes — Income, Property & Take-Home Pay Comparison`,
-    metaDesc: `Compare ${s1.name} vs ${s2.name} taxes side by side. See income tax rates, property tax, sales tax, and take-home pay on $75K and $150K salaries. Free 2026 state tax comparison.`,
+    metaTitle: `${s1.name} vs ${s2.name} Tax Comparison 2026`,
+    metaDesc: `Compare ${s1.name} vs ${s2.name} taxes. Income tax, property tax, sales tax, and take-home pay at $75K and $150K. Free 2026 comparison.`,
     h1: `${s1.name} vs ${s2.name} Tax Comparison`,
     keywords: [
       `${s1.name.toLowerCase()} vs ${s2.name.toLowerCase()} taxes`,
@@ -156,7 +156,7 @@ function buildCompareConfig(slug: string): CompareConfig | null {
       `relocate ${s1.name} to ${s2.name} salary`,
     ],
     ogTitle: `${s1.name} vs ${s2.name} Tax Comparison 2026`,
-    ogDescription: `Side-by-side comparison of ${s1.name} and ${s2.name} taxes. Income tax, property tax, sales tax, and take-home pay on $75K and $150K.`,
+    ogDescription: `Compare ${s1.name} vs ${s2.name} taxes. Income tax, property tax, sales tax, and take-home pay at $75K and $150K.`,
     faqs: buildFaqs(s1, s2),
   };
 }

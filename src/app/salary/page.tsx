@@ -26,7 +26,7 @@ import { Breadcrumb } from '@/components/finance/breadcrumb';
 // ─── Page Metadata ─────────────────────────────────────────────────────────────
 
 export const metadata: Metadata = {
-  title: 'Salary After Tax Calculator 2026 — Take-Home Pay by State',
+  title: 'Salary After Tax 2026 — Take-Home Pay by State',
   description:
     'See your take-home pay for every salary from $30K to $500K. Compare after-tax income across Illinois, Texas, Florida, California, and New York for 2026.',
   keywords: [
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'Salary After Tax Calculator 2026 — Take-Home Pay by State',
+    title: 'Salary After Tax 2026 — Take-Home Pay by State',
     description:
       'See your take-home pay for every salary from $30K to $500K. Compare after-tax income across IL, TX, FL, CA, NY.',
     url: `${SITE_URL}/salary`,
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Salary After Tax Calculator 2026 — Take-Home Pay by State',
+    title: 'Salary After Tax 2026 — Take-Home Pay by State',
     description:
       'See your take-home pay for every salary from $30K to $500K. Compare after-tax income across IL, TX, FL, CA, NY.',
   },
@@ -335,7 +335,7 @@ export default function SalaryLandingPage() {
         {/* ─── Related Tools & Resources ──────────────────────────────── */}
         <section className="py-12 border-t border-border/20">
           <h2 className="text-lg font-bold text-foreground mb-6">
-            Related Tools & Resources
+            Salary & Tax Resources
           </h2>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {/* Tax Calculators */}
