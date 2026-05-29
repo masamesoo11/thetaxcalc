@@ -1,12 +1,14 @@
 import { NextResponse } from 'next/server';
-import { seedFromJsonFiles } from '@/lib/blog-db';
+import { upsertPost } from '@/lib/blog-db';
+import { getPublishedPostsMeta, type BlogPostMeta } from '@/lib/blog-index';
+import { BLOG_CONTENT } from '@/lib/blog-content';
 
 export const runtime = 'edge';
 
 /**
  * POST /api/admin/seed-db
- * Seeds the Turso database from JSON files in content/blog/.
- * Uses seedFromJsonFiles from @/lib/blog-db which fetches JSON via HTTP in edge runtime.
+ * Seeds the Turso database from embedded static content.
+ * Uses blog-index.ts + blog-content.ts which are edge-safe (no fs/path).
  */
 
 interface SeedDbResponse {
@@ -36,18 +38,24 @@ export async function POST() {
     );
   }
 
-  // Use the seedFromJsonFiles function which handles both edge and node runtimes
-  try {
-    const seedResult = await seedFromJsonFiles();
-    result.success = seedResult.success;
-    result.seeded = seedResult.seeded;
-    result.errors = seedResult.errors;
-    result.totalInDb = seedResult.totalInDb;
-  } catch (error: unknown) {
-    const message =
-      error instanceof Error ? error.message : String(error);
-    result.errors.push(`Seeding failed: ${message}`);
+  // Seed from embedded static content
+  const metas = getPublishedPostsMeta();
+  let seededCount = 0;
+
+  for (const meta of metas) {
+    try {
+      const content = BLOG_CONTENT[meta.slug] || '';
+      const post = { ...meta, content };
+      await upsertPost(post);
+      seededCount++;
+    } catch (error: unknown) {
+      const message = error instanceof Error ? error.message : String(error);
+      result.errors.push(`${meta.slug}: ${message}`);
+    }
   }
+
+  result.seeded = seededCount;
+  result.success = seededCount > 0;
 
   return NextResponse.json(result);
 }

@@ -1,26 +1,15 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import { getPostBySlug, getAllSlugs, getAllPosts } from '@/lib/blog-db';
+import { getPostBySlug, getAllPosts } from '@/lib/blog-db';
 import { BlogDetailClient } from './blog-detail-client';
 import { SITE_URL } from '@/lib/site-config';
 
 // Edge runtime for Cloudflare Pages compatibility
 export const runtime = 'edge';
 
-// Dynamic params: new blog posts appear immediately (no rebuild needed when using Turso)
+// Dynamic params: new blog posts appear immediately (no rebuild needed)
 export const dynamicParams = true;
-
-// Pre-render known blog posts at build time
-export async function generateStaticParams() {
-  try {
-    const slugs = await getAllSlugs();
-    return slugs.map((slug) => ({ slug }));
-  } catch (error) {
-    console.error('Failed to generate static params for blog:', error);
-    return [];
-  }
-}
 
 // ─── Metadata ─────────────────────────────────────────────────────────────────
 

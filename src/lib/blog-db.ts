@@ -3,10 +3,13 @@
  *
  * Data source priority:
  * 1. Turso/libSQL database (production) — HTTP-based SQLite-compatible DB
- * 2. JSON files (Node.js local dev) — reads content/blog/*.json via fs
- * 3. Static embedded index (edge runtime fallback) — works without fs or DB
- *    - blog-index.ts: Lightweight metadata (7KB) for listing pages
- *    - For full content: fetches from internal /api/blog/[slug] endpoint
+ * 2. Static embedded index (edge runtime fallback) — works without fs or DB
+ *    - blog-index.ts: Lightweight metadata for listing pages
+ *    - blog-content.ts: Full article content embedded in the bundle
+ *
+ * NOTE: This module is EDGE-SAFE. No Node.js fs/path modules are used.
+ * The JSON file fallback has been moved to scripts/seed-blog-db.ts
+ * for local development seeding only.
  *
  * Setup:
  * 1. Create a Turso database: https://turso.tech
@@ -17,32 +20,8 @@
  */
 
 import { createClient, type Client } from '@libsql/client';
-import { getPublishedPostsMeta, getPostMeta, getPublishedSlugs, metaToPost, type BlogPostMeta } from './blog-index';
+import { getPublishedPostsMeta, getPostMeta, getPublishedSlugs, type BlogPostMeta } from './blog-index';
 import { BLOG_CONTENT } from './blog-content';
-
-// Dynamic imports for Node.js-only modules — avoids edge runtime crashes
-// fs and path are only used for JSON fallback (local dev without Turso)
-let fs: typeof import('fs') | null = null;
-let pathModule: typeof import('path') | null = null;
-let _nodeModulesLoaded = false;
-
-async function loadNodeModules(): Promise<void> {
-  if (_nodeModulesLoaded) return;
-  _nodeModulesLoaded = true;
-  try {
-    fs = await import('fs');
-    pathModule = await import('path');
-  } catch {
-    // Not available in edge runtime — that's fine
-    fs = null;
-    pathModule = null;
-  }
-}
-
-async function isNodeAvailable(): Promise<boolean> {
-  await loadNodeModules();
-  return fs !== null && pathModule !== null;
-}
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -171,68 +150,9 @@ function postToRow(post: Partial<BlogPost>): Record<string, unknown> {
   };
 }
 
-// ─── JSON Fallback (Node.js only — reads from content/blog/*.json) ────────────
-
-async function getPostsFromJson(): Promise<BlogPost[]> {
-  try {
-    await loadNodeModules();
-    if (!fs || !pathModule) return [];
-    const BLOG_DIR = pathModule!.join(process.cwd(), 'content', 'blog');
-    const files = fs!.readdirSync(BLOG_DIR).filter((f: string) => f.endsWith('.json'));
-    const posts = files.map((file: string) => {
-      const raw = fs!.readFileSync(pathModule!.join(BLOG_DIR, file), 'utf-8');
-      return JSON.parse(raw) as BlogPost;
-    });
-    return posts
-      .filter((p) => p.published)
-      .sort((a, b) => {
-        if (a.featured !== b.featured) return a.featured ? -1 : 1;
-        return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
-      });
-  } catch {
-    return [];
-  }
-}
-
-async function getSlugFromJson(slug: string): Promise<BlogPost | null> {
-  try {
-    await loadNodeModules();
-    if (!fs || !pathModule) return null;
-    const filePath = pathModule!.join(process.cwd(), 'content', 'blog', `${slug}.json`);
-    if (!fs!.existsSync(filePath)) return null;
-    const raw = fs!.readFileSync(filePath, 'utf-8');
-    const post = JSON.parse(raw) as BlogPost;
-    return post.published ? post : null;
-  } catch {
-    return null;
-  }
-}
-
-async function getSlugsFromJson(): Promise<string[]> {
-  try {
-    await loadNodeModules();
-    if (!fs || !pathModule) return [];
-    const BLOG_DIR = pathModule!.join(process.cwd(), 'content', 'blog');
-    const files = fs!.readdirSync(BLOG_DIR).filter((f: string) => f.endsWith('.json'));
-    return files
-      .map((file: string) => {
-        const raw = fs!.readFileSync(pathModule!.join(BLOG_DIR, file), 'utf-8');
-        const post = JSON.parse(raw) as BlogPost;
-        return post.published ? post.slug : null;
-      })
-      .filter(Boolean) as string[];
-  } catch {
-    return [];
-  }
-}
-
 // ─── Static Fallback (works in edge runtime without fs or DB) ────────────────
 // Uses lightweight blog-index.ts (metadata) + blog-content.ts (full content)
 // This is the ULTIMATE fallback — always works, even without Turso or fs
-
-function getStaticSlugs(): string[] {
-  return getPublishedSlugs();
-}
 
 /** Convert BlogPostMeta to BlogPost with embedded content from blog-content.ts */
 function metaToPostWithContent(meta: BlogPostMeta): BlogPost {
@@ -261,12 +181,6 @@ export async function getAllPosts(): Promise<BlogPost[]> {
       }
     }
 
-    // Fallback: JSON files (Node.js only)
-    if (await isNodeAvailable()) {
-      const jsonPosts = await getPostsFromJson();
-      if (jsonPosts.length > 0) return jsonPosts;
-    }
-
     // Fallback: Embedded content (always works — edge-safe, no fs/DB needed)
     return getPublishedPostsMeta().map(metaToPostWithContent);
   } catch (error) {
@@ -289,10 +203,6 @@ export async function getAllPostsIncludingDrafts(): Promise<BlogPost[]> {
     } catch (error) {
       console.error('Failed to fetch posts from database:', error);
     }
-  }
-
-  if (await isNodeAvailable()) {
-    return getPostsFromJson();
   }
 
   // Static fallback (only published posts available)
@@ -320,12 +230,6 @@ export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
       } catch (error) {
         console.error('Failed to fetch post from database:', error);
       }
-    }
-
-    // Fallback: JSON files (Node.js only)
-    if (await isNodeAvailable()) {
-      const jsonPost = await getSlugFromJson(slug);
-      if (jsonPost) return jsonPost;
     }
 
     // Fallback: Embedded content (always works — edge-safe, no fs/DB needed)
@@ -361,10 +265,6 @@ export async function getPostBySlugIncludingDraft(slug: string): Promise<BlogPos
     }
   }
 
-  if (await isNodeAvailable()) {
-    return getSlugFromJson(slug);
-  }
-
   // Static fallback with embedded content
   const meta = getPostMeta(slug);
   if (meta) return metaToPostWithContent(meta);
@@ -388,12 +288,7 @@ export async function getAllSlugs(): Promise<string[]> {
     }
   }
 
-  if (await isNodeAvailable()) {
-    const jsonSlugs = await getSlugsFromJson();
-    if (jsonSlugs.length > 0) return jsonSlugs;
-  }
-
-  return getStaticSlugs();
+  return getPublishedSlugs();
 }
 
 /** Get posts by category */
@@ -411,11 +306,6 @@ export async function getPostsByCategory(category: string): Promise<BlogPost[]> 
     } catch (error) {
       console.error('Failed to fetch posts by category:', error);
     }
-  }
-
-  if (await isNodeAvailable()) {
-    const posts = await getPostsFromJson();
-    return posts.filter((p) => p.category === category);
   }
 
   return getPublishedPostsMeta().filter((m) => m.category === category).map(metaToPostWithContent);
@@ -446,16 +336,6 @@ export async function getRelatedPosts(tags: string, currentSlug: string, limit =
     } catch (error) {
       console.error('Failed to fetch related posts:', error);
     }
-  }
-
-  if (await isNodeAvailable()) {
-    const allPosts = (await getPostsFromJson()).filter((p) => p.slug !== currentSlug);
-    return allPosts
-      .filter((p) => {
-        const postTags = p.tags.split(',').map((t) => t.trim());
-        return tagList.some((tag) => postTags.includes(tag));
-      })
-      .slice(0, limit);
   }
 
   return getPublishedPostsMeta()
@@ -587,17 +467,6 @@ export async function getBlogStats(): Promise<{
     }
   }
 
-  if (await isNodeAvailable()) {
-    const posts = await getPostsFromJson();
-    return {
-      totalPosts: posts.length,
-      publishedPosts: posts.length,
-      draftPosts: 0,
-      featuredPosts: posts.filter((p) => p.featured).length,
-      recentPosts: posts.slice(0, 5),
-    };
-  }
-
   const metas = getPublishedPostsMeta();
   return {
     totalPosts: metas.length,
@@ -646,81 +515,4 @@ export async function upsertPost(post: BlogPost): Promise<void> {
     const message = error instanceof Error ? error.message : String(error);
     throw new Error(`Failed to upsert post: ${message}`);
   }
-}
-
-/** Seed database from JSON files — works in both Node.js and edge runtime */
-export async function seedFromJsonFiles(): Promise<{
-  success: boolean;
-  seeded: number;
-  errors: string[];
-  totalInDb: number;
-}> {
-  const result = {
-    success: false,
-    seeded: 0,
-    errors: [] as string[],
-    totalInDb: 0,
-  };
-
-  await loadNodeModules();
-
-  if (!fs || !pathModule) {
-    result.errors.push('File system not available in this runtime. Use the CLI seed script instead: bun run seed:blog');
-    return result;
-  }
-
-  const BLOG_DIR = pathModule.join(process.cwd(), 'content', 'blog');
-
-  if (!fs.existsSync(BLOG_DIR)) {
-    result.errors.push(`Content directory not found: ${BLOG_DIR}`);
-    return result;
-  }
-
-  let files: string[];
-  try {
-    files = fs.readdirSync(BLOG_DIR).filter((f: string) => f.endsWith('.json'));
-  } catch (readError: unknown) {
-    const message = readError instanceof Error ? readError.message : String(readError);
-    result.errors.push(`Failed to read content directory: ${message}`);
-    return result;
-  }
-
-  if (files.length === 0) {
-    result.errors.push('No JSON files found in content/blog/');
-    return result;
-  }
-
-  let seededCount = 0;
-
-  for (const file of files) {
-    try {
-      const filePath = pathModule.join(BLOG_DIR, file);
-      const raw = fs.readFileSync(filePath, 'utf-8');
-      const post = JSON.parse(raw) as BlogPost;
-
-      if (!post.id || !post.slug || !post.title) {
-        result.errors.push(`${file}: Missing required fields (id, slug, or title)`);
-        continue;
-      }
-
-      await upsertPost(post);
-      seededCount++;
-    } catch (error: unknown) {
-      const message = error instanceof Error ? error.message : String(error);
-      result.errors.push(`${file}: ${message}`);
-    }
-  }
-
-  result.seeded = seededCount;
-
-  try {
-    const allPosts = await getAllPosts();
-    result.totalInDb = allPosts.length;
-  } catch (countError: unknown) {
-    const message = countError instanceof Error ? countError.message : String(countError);
-    result.errors.push(`Failed to count posts after seeding: ${message}`);
-  }
-
-  result.success = seededCount > 0;
-  return result;
 }

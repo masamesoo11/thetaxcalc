@@ -8,21 +8,48 @@ const globalForPrisma = globalThis as unknown as {
 
 function createPrismaClient() {
   // If Turso credentials are provided, use the libSQL adapter (for Cloudflare Pages)
-  if (process.env.TURSO_DATABASE_URL) {
-    const libsql = createClient({
-      url: process.env.TURSO_DATABASE_URL,
-      authToken: process.env.TURSO_AUTH_TOKEN,
-    })
-    const adapter = new PrismaLibSql(libsql)
-    return new PrismaClient({ adapter })
+  const tursoUrl = process.env.TURSO_DATABASE_URL;
+  const tursoToken = process.env.TURSO_AUTH_TOKEN;
+
+  if (tursoUrl) {
+    try {
+      const libsql = createClient({
+        url: tursoUrl,
+        authToken: tursoToken || undefined,
+      })
+      const adapter = new PrismaLibSql(libsql)
+      return new PrismaClient({ adapter })
+    } catch (error) {
+      console.error('Failed to create Turso-backed Prisma client:', error);
+      // Fall through to SQLite
+    }
   }
 
   // Otherwise, use regular SQLite for local development
   return new PrismaClient({
-    log: ['query'],
+    log: process.env.NODE_ENV === 'development' ? ['query'] : [],
   })
 }
 
-export const db = globalForPrisma.prisma ?? createPrismaClient()
+// Lazy initialization — only create the client when first accessed
+let _db: PrismaClient | undefined;
 
-if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = db
+export function getDb(): PrismaClient {
+  if (!_db) {
+    _db = globalForPrisma.prisma ?? createPrismaClient();
+    if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = _db;
+  }
+  return _db;
+}
+
+// Keep the `db` export for backward compatibility — lazily initialized via getter
+export const db = new Proxy({} as PrismaClient, {
+  get(_target, prop, receiver) {
+    const realDb = getDb();
+    const value = Reflect.get(realDb, prop, receiver);
+    if (typeof value === 'function') {
+      return value.bind(realDb);
+    }
+    return value;
+  },
+});
