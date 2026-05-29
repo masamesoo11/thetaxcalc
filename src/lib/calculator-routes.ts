@@ -30,7 +30,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     h1: 'Paycheck Calculator',
     metaTitle: '2026 Paycheck Calculator — FICA & State Tax',
     metaDesc:
-      'Calculate your take-home pay after federal tax, FICA, and state taxes. Free 2026 paycheck calculator supports IL, TX, FL, CA, NY. Includes 401(k) and HSA deductions.',
+      'Calculate your take-home pay after federal tax, FICA, and state taxes. Free 2026 paycheck calculator for IL, TX, FL, CA, NY.',
     keywords: [
       'paycheck calculator', 'take home pay calculator', 'salary calculator',
       'after tax salary', 'net pay calculator', '2026 paycheck calculator',
@@ -53,7 +53,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     h1: 'Illinois Paycheck Calculator',
     metaTitle: 'IL Paycheck Calculator 2026 | 4.95% Flat Tax',
     metaDesc:
-      'Calculate Illinois take-home pay after 4.95% flat tax, $2,775 personal exemption, federal tax, and FICA. Free 2026 IL paycheck calculator with 401(k) and HSA.',
+      'Calculate Illinois take-home pay after 4.95% flat tax and $2,775 exemption. Free 2026 IL paycheck calculator with 401(k) and HSA.',
     keywords: [
       'Illinois tax calculator', 'IL paycheck calculator', 'Illinois income tax',
       'Illinois 4.95% tax', 'Illinois take home pay', 'Illinois personal exemption',
@@ -122,7 +122,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     h1: 'California Paycheck Calculator',
     metaTitle: 'CA Paycheck Calculator 2026 | 1%-13.3% Tax',
     metaDesc:
-      'Calculate California take-home pay after progressive state tax (1%–13.3%). Free 2026 CA paycheck calculator with federal tax, FICA, 401(k), and HSA deductions.',
+      'Calculate California take-home pay after progressive state tax (1%–13.3%). Free 2026 CA paycheck calculator with 401(k) and HSA deductions.',
     keywords: [
       'California tax calculator', 'CA paycheck calculator', 'California income tax',
       'California 13.3% tax', 'California take home pay', 'California salary calculator',
@@ -145,7 +145,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     h1: 'New York Paycheck Calculator',
     metaTitle: 'NY Paycheck Calculator 2026 | 4%-10.9% + NYC',
     metaDesc:
-      'Calculate New York take-home pay after progressive state tax (4%–10.9%) and NYC tax. Free 2026 NY paycheck calculator with federal tax, FICA, and 401(k).',
+      'Calculate New York take-home pay after progressive state tax (4%–10.9%) and NYC tax. Free 2026 NY paycheck calculator with 401(k).',
     keywords: [
       'New York tax calculator', 'NY paycheck calculator', 'New York income tax',
       'NYC tax calculator', 'New York take home pay', 'New York salary calculator',

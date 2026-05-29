@@ -471,7 +471,7 @@ export default function AboutPage() {
       {/* Related Tools & Resources */}
       <section className="mb-12 border-t border-border/20 pt-10">
         <h2 className="text-lg font-bold text-foreground mb-6">
-          Tax Calculator Resources
+          About TheTaxCalc — Resources
         </h2>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {/* Calculators */}

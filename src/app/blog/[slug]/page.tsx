@@ -148,9 +148,8 @@ function simpleMarkdownToHtml(markdown: string): string {
     }
     const h1Match = line.match(/^#\s+(.+)$/);
     if (h1Match) {
-      const text = inlineMarkdown(h1Match[1]);
-      const id = h1Match[1].replace(/[*_`]/g, '').trim().toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
-      htmlParts.push(`<h1 id="${id}">${text}</h1>`);
+      // Skip H1 from markdown — the page template already renders the title as H1.
+      // This prevents duplicate H1 headings on the page.
       i++; continue;
     }
 
@@ -196,7 +195,11 @@ function escapeHtml(text: string): string {
 
 function inlineMarkdown(text: string): string {
   return text
-    .replace(/\[(.+?)\]\((.+?)\)/g, '<a href="$2" rel="noopener noreferrer">$1</a>')
+    .replace(/\[(.+?)\]\((.+?)\)/g, (match, text, url) => {
+        const isExternal = url.startsWith('http');
+        const rel = isExternal ? 'noopener noreferrer nofollow' : '';
+        return `<a href="${url}"${rel ? ` rel="${rel}"` : ''}>${text}</a>`;
+      })
     .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
     .replace(/(?<!\*)\*(?!\*)(.+?)(?<!\*)\*(?!\*)/g, '<em>$1</em>')
     .replace(/`(.+?)`/g, '<code>$1</code>');
@@ -398,7 +401,6 @@ export default async function BlogDetailPage({
         </section>
       )}
 
-      <BlogDetailClient slug={slug} />
     </div>
   );
 }

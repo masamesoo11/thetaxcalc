@@ -329,7 +329,7 @@ export default function TermsPage() {
       {/* Related Tools & Resources */}
       <section className="mt-12 border-t border-border/20 pt-10">
         <h2 className="text-lg font-bold text-foreground mb-6">
-          Tax Calculator Resources
+          Terms — Tax Resources
         </h2>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {/* Calculators */}

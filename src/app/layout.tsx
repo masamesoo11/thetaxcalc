@@ -1,25 +1,11 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import dynamic from 'next/dynamic';
 import { QueryProvider } from "@/components/providers/query-provider";
+import { DynamicProviders } from "@/components/providers/dynamic-providers";
 import { Header } from "@/components/finance/header";
 import { Footer } from "@/components/finance/footer";
 import { SITE_URL } from '@/lib/site-config';
-
-// Lazy-load non-critical components to reduce initial JS bundle
-const Toaster = dynamic(
-  () => import('@/components/ui/toaster').then((m) => ({ default: m.Toaster })),
-  { ssr: false }
-);
-const SeoNavigation = dynamic(
-  () => import('@/components/finance/seo-navigation').then((m) => ({ default: m.SeoNavigation })),
-  { ssr: false }
-);
-const CookieConsent = dynamic(
-  () => import('@/components/finance/cookie-consent').then((m) => ({ default: m.CookieConsent })),
-  { ssr: false }
-);
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -194,12 +180,10 @@ export default function RootLayout({
             </a>
             <Header />
             <main id="main-content" className="flex-1">{children}</main>
-            <SeoNavigation />
             <Footer />
           </div>
-          <Toaster />
+          <DynamicProviders />
         </QueryProvider>
-        <CookieConsent />
       </body>
     </html>
   );

@@ -560,7 +560,7 @@ export default async function SalaryAmountPage({
               <ExternalLink className="h-5 w-5 text-emerald-400" />
             </div>
             <h2 className="text-2xl font-bold text-foreground">
-              Salary & Tax Resources
+              Salary Details & Tax Resources
             </h2>
           </div>
 

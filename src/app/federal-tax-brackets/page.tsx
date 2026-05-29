@@ -17,9 +17,9 @@ import { BracketsTabs } from './brackets-tabs';
 // ─── Page Metadata ──────────────────────────────────────────────────────────────
 
 export const metadata: Metadata = {
-  title: '2026 Federal Tax Brackets — Rates & Deductions',
+  title: '2026 Federal Tax Brackets — Rates',
   description:
-    'Complete 2026 federal tax brackets for all filing statuses. Standard deductions, progressive tax explanation, and effective vs marginal rates.',
+    '2026 federal tax brackets for all filing statuses. Standard deductions, progressive rates, and effective vs marginal rates explained.',
   keywords: [
     '2026 federal tax brackets',
     '2026 tax brackets',
@@ -46,9 +46,9 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: '2026 Federal Tax Brackets — Rates & Deductions',
+    title: '2026 Federal Tax Brackets — Rates',
     description:
-      'Complete 2026 federal tax brackets for all filing statuses. Standard deductions, progressive tax explanation, and effective vs marginal rates.',
+      '2026 federal tax brackets for all filing statuses. Standard deductions, progressive rates, and effective vs marginal rates explained.',
     url: `${SITE_URL}/federal-tax-brackets`,
     siteName: 'TheTaxCalc',
     type: 'website',
@@ -57,9 +57,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: '2026 Federal Tax Brackets — Rates & Deductions',
+    title: '2026 Federal Tax Brackets — Rates',
     description:
-      'Complete 2026 federal tax brackets for all filing statuses. Standard deductions, progressive tax explanation, and effective vs marginal rates.',
+      '2026 federal tax brackets for all filing statuses. Standard deductions, progressive rates, and effective vs marginal rates explained.',
   },
 };
 

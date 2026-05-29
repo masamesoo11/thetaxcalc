@@ -7,9 +7,9 @@ import { SITE_URL } from '@/lib/site-config';
 // ─── Metadata ────────────────────────────────────────────────────────────────
 
 export const metadata: Metadata = {
-  title: 'State Tax Comparison 2026 — IL, TX, FL, CA, NY',
+  title: 'State Tax Comparison 2026 — 5 States',
   description:
-    'Compare state taxes side by side. Income tax, property tax, sales tax, and take-home pay at $75K and $150K. Free 2026 comparison tool for IL, TX, FL, CA, NY.',
+    'Compare state taxes side by side. Income tax, property tax, sales tax, and take-home pay at $75K and $150K for IL, TX, FL, CA, NY.',
   keywords: [
     'state tax comparison', 'illinois vs texas taxes', 'florida vs california taxes',
     'texas vs florida taxes', 'compare state income tax', 'state tax rates comparison',
@@ -23,9 +23,9 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'State Tax Comparison 2026 — IL, TX, FL, CA, NY',
+    title: 'State Tax Comparison 2026 — 5 States',
     description:
-      'Compare state taxes side by side. Income tax, property tax, sales tax, and take-home pay on $75K and $150K salaries. Free 2026 comparison tool.',
+      'Compare state taxes side by side. Income tax, property tax, sales tax, and take-home pay at $75K and $150K for IL, TX, FL, CA, NY.',
     url: `${SITE_URL}/compare`,
     siteName: 'TheTaxCalc',
     type: 'website',
@@ -119,6 +119,7 @@ export default function CompareLandingPage() {
 
       {/* Comparison Cards Grid */}
       <section>
+        <h2 className="text-2xl font-bold text-foreground mb-6">Compare State Taxes Side by Side</h2>
         <div className="grid gap-5 sm:grid-cols-2">
           {comparisons.map((comp) => (
             <Link
@@ -133,9 +134,9 @@ export default function CompareLandingPage() {
                     <ArrowRightLeft className="h-6 w-6 text-emerald-400" />
                   </div>
                   <div>
-                    <h2 className="text-lg font-semibold text-foreground group-hover:text-emerald-400 transition-colors">
+                    <h3 className="text-lg font-semibold text-foreground group-hover:text-emerald-400 transition-colors">
                       {comp.state1.name} vs {comp.state2.name}
-                    </h2>
+                    </h3>
                     <p className="text-xs text-muted-foreground">
                       {comp.state1.abbreviation} vs {comp.state2.abbreviation} Taxes
                     </p>

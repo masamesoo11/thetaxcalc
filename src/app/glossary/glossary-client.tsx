@@ -214,13 +214,13 @@ export function GlossaryClient() {
 function GlossaryCard({ item }: { item: GlossaryTerm }) {
   return (
     <div className="group glass-card p-5 transition-all hover:border-emerald-500/20 hover:shadow-lg hover:shadow-emerald-500/5">
-      {/* Term name as H3 */}
-      <h3
+      {/* Term name as H2 (direct child of page H1) */}
+      <h2
         id={`term-${item.slug}`}
         className="text-base font-semibold text-foreground group-hover:text-emerald-400 transition-colors"
       >
         {item.term}
-      </h3>
+      </h2>
 
       {/* Definition */}
       <p className="mt-2.5 text-sm text-muted-foreground leading-relaxed">

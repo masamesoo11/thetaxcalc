@@ -25,7 +25,7 @@ export const BLOG_INDEX: BlogPostMeta[] = [
     "published": true,
     "featured": true,
     "metaTitle": "1099 Taxes 2026: How Much Freelancers Pay",
-    "metaDesc": "Complete guide to 1099 taxes for self-employed workers in 2026. Calculate your tax bill, find deductions, and learn quarterly payment deadlines. Free guide.",
+    "metaDesc": "Guide to 1099 taxes for self-employed workers in 2026. Calculate your tax bill, find deductions, and learn quarterly payment deadlines.",
     "createdAt": "2026-05-28T12:00:00.000Z",
     "updatedAt": "2026-05-28T12:00:00.000Z"
   },
@@ -55,7 +55,7 @@ export const BLOG_INDEX: BlogPostMeta[] = [
     "published": true,
     "featured": true,
     "metaTitle": "DoorDash Taxes 2026: Complete Guide for Drivers",
-    "metaDesc": "How much do DoorDash drivers pay in taxes? Complete 2026 guide covering self-employment tax, deductions, quarterly payments, and filing tips for gig workers.",
+    "metaDesc": "DoorDash driver taxes for 2026. Self-employment tax, deductions, quarterly payments, and filing tips for gig workers.",
     "createdAt": "2026-05-28T12:00:00.000Z",
     "updatedAt": "2026-05-28T12:00:00.000Z"
   },
@@ -70,7 +70,7 @@ export const BLOG_INDEX: BlogPostMeta[] = [
     "published": true,
     "featured": true,
     "metaTitle": "Florida vs Texas Tax Comparison 2026",
-    "metaDesc": "Compare Florida and Texas tax structures: income tax, property tax, sales tax, and overall tax burden. Find out which no-income-tax state is better for you.",
+    "metaDesc": "Compare Florida and Texas tax structures: income tax, property tax, sales tax, and overall burden. Which no-income-tax state is better?",
     "createdAt": "2026-05-26T06:59:34.069Z",
     "updatedAt": "2026-05-26T20:31:33.169Z"
   },
@@ -84,8 +84,8 @@ export const BLOG_INDEX: BlogPostMeta[] = [
     "coverImage": "",
     "published": true,
     "featured": false,
-    "metaTitle": "How FICA Taxes Work in 2026",
-    "metaDesc": "Complete guide to FICA taxes in 2026. Understand Social Security and Medicare withholding, wage bases, and self-employment tax calculations.",
+    "metaTitle": "How FICA Taxes Work 2026 — Full Guide",
+    "metaDesc": "Complete guide to FICA taxes in 2026. Social Security and Medicare withholding, wage bases, and self-employment tax.",
     "createdAt": "2026-05-26T06:59:34.072Z",
     "updatedAt": "2026-05-26T20:31:33.172Z"
   },
@@ -99,8 +99,8 @@ export const BLOG_INDEX: BlogPostMeta[] = [
     "coverImage": "",
     "published": true,
     "featured": true,
-    "metaTitle": "Illinois Income Tax Guide 2026",
-    "metaDesc": "Complete guide to Illinois income tax for 2026. Flat tax rate, personal exemptions, property taxes, and comparison to neighboring states.",
+    "metaTitle": "Illinois Income Tax 2026 — 4.95% Guide",
+    "metaDesc": "Complete guide to Illinois income tax for 2026. Flat rate, personal exemptions, property taxes, and neighboring state comparison.",
     "createdAt": "2026-05-26T06:59:34.065Z",
     "updatedAt": "2026-05-26T20:31:33.164Z"
   },
@@ -115,7 +115,7 @@ export const BLOG_INDEX: BlogPostMeta[] = [
     "published": true,
     "featured": false,
     "metaTitle": "SEP IRA vs Solo 401k: Comparison 2026",
-    "metaDesc": "Compare SEP IRA vs Solo 401k for 2026: contribution limits, tax deductions, eligibility, and which is better for self-employed freelancers and contractors.",
+    "metaDesc": "SEP IRA vs Solo 401k for 2026: contribution limits, tax deductions, eligibility, and which is better for self-employed workers.",
     "createdAt": "2026-05-28T12:00:00.000Z",
     "updatedAt": "2026-05-28T12:00:00.000Z"
   },
@@ -129,8 +129,8 @@ export const BLOG_INDEX: BlogPostMeta[] = [
     "coverImage": "",
     "published": true,
     "featured": false,
-    "metaTitle": "Why Texas Has No Income Tax",
-    "metaDesc": "Discover how Texas operates without a personal income tax, the trade-offs in higher property taxes, and the overall tax burden for Texas residents.",
+    "metaTitle": "Why Texas Has No Income Tax — Full Breakdown",
+    "metaDesc": "How Texas funds government without personal income tax, higher property tax trade-offs, and the overall tax burden for residents.",
     "createdAt": "2026-05-26T06:59:34.067Z",
     "updatedAt": "2026-05-26T20:31:33.167Z"
   }

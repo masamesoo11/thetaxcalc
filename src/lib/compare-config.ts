@@ -143,7 +143,7 @@ function buildCompareConfig(slug: string): CompareConfig | null {
     state1: s1,
     state2: s2,
     metaTitle: `${s1.name} vs ${s2.name} Tax Comparison 2026`,
-    metaDesc: `Compare ${s1.name} vs ${s2.name} taxes. Income tax, property tax, sales tax, and take-home pay at $75K and $150K. Free 2026 comparison.`,
+    metaDesc: `Compare ${s1.name} vs ${s2.name} taxes. Income tax, property tax, sales tax, and take-home pay at $75K and $150K for 2026.`,
     h1: `${s1.name} vs ${s2.name} Tax Comparison`,
     keywords: [
       `${s1.name.toLowerCase()} vs ${s2.name.toLowerCase()} taxes`,

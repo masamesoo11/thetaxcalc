@@ -1,5 +1,12 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { FileQuestion, Home, Calculator, ArrowRight } from 'lucide-react';
+
+export const metadata: Metadata = {
+  title: 'Page Not Found (404)',
+  description: 'The page you are looking for does not exist. Try our free tax calculators instead.',
+  robots: { index: false, follow: false },
+};
 
 export default function NotFound() {
   return (

@@ -301,7 +301,7 @@ function SetupInstructionsCard() {
                       <a
                         href={step.link.href}
                         target="_blank"
-                        rel="noopener noreferrer"
+                        rel="noopener noreferrer nofollow"
                         className="inline-flex items-center gap-1 text-emerald-400 hover:text-emerald-300 underline underline-offset-2"
                       >
                         {step.link.label}
@@ -540,7 +540,7 @@ function TroubleshootingCard({ error }: { error?: string }) {
                 <a
                   href="https://turso.tech/app"
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener noreferrer nofollow"
                   className="text-emerald-400 hover:text-emerald-300 underline underline-offset-2 inline-flex items-center gap-1"
                 >
                   turso.tech/app
