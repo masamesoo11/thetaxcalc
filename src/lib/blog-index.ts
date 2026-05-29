@@ -24,7 +24,7 @@ export const BLOG_INDEX: BlogPostMeta[] = [
     "coverImage": "",
     "published": true,
     "featured": true,
-    "metaTitle": "1099 Taxes Guide 2026: How Much Freelancers Really Pay | TheTaxCalc",
+    "metaTitle": "1099 Taxes Guide 2026: How Much Freelancers Really Pay",
     "metaDesc": "Complete guide to 1099 taxes for self-employed workers in 2026. Calculate your tax bill, find deductions, and learn quarterly payment deadlines. Free guide.",
     "createdAt": "2026-05-28T12:00:00.000Z",
     "updatedAt": "2026-05-28T12:00:00.000Z"
@@ -39,7 +39,7 @@ export const BLOG_INDEX: BlogPostMeta[] = [
     "coverImage": "",
     "published": true,
     "featured": true,
-    "metaTitle": "2026 Federal Tax Brackets Explained | TheTaxCalc",
+    "metaTitle": "2026 Federal Tax Brackets Explained",
     "metaDesc": "Understand the 2026 federal income tax brackets, marginal vs effective rates, and standard deductions. Complete guide with examples.",
     "createdAt": "2026-05-26T06:59:34.062Z",
     "updatedAt": "2026-05-26T20:31:33.161Z"
@@ -54,7 +54,7 @@ export const BLOG_INDEX: BlogPostMeta[] = [
     "coverImage": "",
     "published": true,
     "featured": true,
-    "metaTitle": "DoorDash Taxes 2026: Complete Guide for Drivers | TheTaxCalc",
+    "metaTitle": "DoorDash Taxes 2026: Complete Guide for Drivers",
     "metaDesc": "How much do DoorDash drivers pay in taxes? Complete 2026 guide covering self-employment tax, deductions, quarterly payments, and filing tips for gig workers.",
     "createdAt": "2026-05-28T12:00:00.000Z",
     "updatedAt": "2026-05-28T12:00:00.000Z"
@@ -69,7 +69,7 @@ export const BLOG_INDEX: BlogPostMeta[] = [
     "coverImage": "",
     "published": true,
     "featured": true,
-    "metaTitle": "Florida vs Texas Tax Comparison 2026 | TheTaxCalc",
+    "metaTitle": "Florida vs Texas Tax Comparison 2026",
     "metaDesc": "Compare Florida and Texas tax structures: income tax, property tax, sales tax, and overall tax burden. Find out which no-income-tax state is better for you.",
     "createdAt": "2026-05-26T06:59:34.069Z",
     "updatedAt": "2026-05-26T20:31:33.169Z"
@@ -84,7 +84,7 @@ export const BLOG_INDEX: BlogPostMeta[] = [
     "coverImage": "",
     "published": true,
     "featured": false,
-    "metaTitle": "How FICA Taxes Work in 2026 | TheTaxCalc",
+    "metaTitle": "How FICA Taxes Work in 2026",
     "metaDesc": "Complete guide to FICA taxes in 2026. Understand Social Security and Medicare withholding, wage bases, and self-employment tax calculations.",
     "createdAt": "2026-05-26T06:59:34.072Z",
     "updatedAt": "2026-05-26T20:31:33.172Z"
@@ -99,7 +99,7 @@ export const BLOG_INDEX: BlogPostMeta[] = [
     "coverImage": "",
     "published": true,
     "featured": true,
-    "metaTitle": "Illinois Income Tax Guide 2026 | TheTaxCalc",
+    "metaTitle": "Illinois Income Tax Guide 2026",
     "metaDesc": "Complete guide to Illinois income tax for 2026. Flat tax rate, personal exemptions, property taxes, and comparison to neighboring states.",
     "createdAt": "2026-05-26T06:59:34.065Z",
     "updatedAt": "2026-05-26T20:31:33.164Z"
@@ -114,7 +114,7 @@ export const BLOG_INDEX: BlogPostMeta[] = [
     "coverImage": "",
     "published": true,
     "featured": false,
-    "metaTitle": "SEP IRA vs Solo 401k: Contribution Limits & Comparison 2026 | TheTaxCalc",
+    "metaTitle": "SEP IRA vs Solo 401k: Contribution Limits & Comparison 2026",
     "metaDesc": "Compare SEP IRA vs Solo 401k for 2026: contribution limits, tax deductions, eligibility, and which is better for self-employed freelancers and contractors.",
     "createdAt": "2026-05-28T12:00:00.000Z",
     "updatedAt": "2026-05-28T12:00:00.000Z"
@@ -129,7 +129,7 @@ export const BLOG_INDEX: BlogPostMeta[] = [
     "coverImage": "",
     "published": true,
     "featured": false,
-    "metaTitle": "Why Texas Has No Income Tax | TheTaxCalc",
+    "metaTitle": "Why Texas Has No Income Tax",
     "metaDesc": "Discover how Texas operates without a personal income tax, the trade-offs in higher property taxes, and the overall tax burden for Texas residents.",
     "createdAt": "2026-05-26T06:59:34.067Z",
     "updatedAt": "2026-05-26T20:31:33.167Z"
