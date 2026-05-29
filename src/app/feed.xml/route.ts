@@ -1,29 +1,20 @@
 import { CALCULATOR_ROUTES } from '@/lib/calculator-routes';
-import { db } from '@/lib/db';
+import { getPublishedPostsMeta } from '@/lib/blog-index';
 import { SITE_URL } from '@/lib/site-config';
 
 export const runtime = 'edge';
-export const dynamic = 'force-dynamic';
-export const revalidate = 3600;
 
 export async function GET() {
   const baseUrl = SITE_URL;
   const now = new Date().toISOString();
 
-  // Fetch blog posts
+  // Fetch blog posts from static index
   let blogItems = '';
-  try {
-    const posts = await db.post.findMany({
-      where: { published: true },
-      select: { slug: true, title: true, excerpt: true, createdAt: true, updatedAt: true },
-      orderBy: { createdAt: 'desc' },
-      take: 20,
-    });
-
-    for (const post of posts) {
-      const pubDate = (post.updatedAt || post.createdAt || new Date()).toISOString();
-      const description = post.excerpt || `Read ${post.title} on TheTaxCalc`;
-      blogItems += `
+  const posts = getPublishedPostsMeta();
+  for (const post of posts) {
+    const pubDate = (post.updatedAt || post.createdAt || new Date()).toISOString();
+    const description = post.excerpt || `Read ${post.title} on TheTaxCalc`;
+    blogItems += `
     <item>
       <title><![CDATA[${post.title}]]></title>
       <link>${baseUrl}/blog/${post.slug}</link>
@@ -31,9 +22,6 @@ export async function GET() {
       <description><![CDATA[${description}]]></description>
       <pubDate>${pubDate}</pubDate>
     </item>`;
-    }
-  } catch {
-    // Database not available — skip blog posts
   }
 
   // Calculator items

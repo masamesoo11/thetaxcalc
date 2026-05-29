@@ -1,12 +1,12 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { getAllPosts } from '@/lib/blog-db';
+import { getPublishedPostsMeta } from '@/lib/blog-index';
+import { BLOG_CONTENT } from '@/lib/blog-content';
 import { BlogListClient } from './blog-list-client';
 import { Breadcrumb } from '@/components/finance/breadcrumb';
 import { SITE_URL } from '@/lib/site-config';
 
-// Edge runtime for Cloudflare Pages compatibility
-export const runtime = 'edge';
+
 
 // ─── Metadata ─────────────────────────────────────────────────────────────────
 
@@ -45,14 +45,15 @@ function formatDate(dateStr: string): string {
 
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
+function getStaticPosts() {
+  return getPublishedPostsMeta().map(meta => ({
+    ...meta,
+    content: BLOG_CONTENT[meta.slug] || '',
+  }));
+}
+
 export default async function BlogPage() {
-  let posts;
-  try {
-    posts = await getAllPosts();
-  } catch (error) {
-    console.error('Blog page: Failed to load posts:', error);
-    posts = [];
-  }
+  const posts = getStaticPosts();
 
   const featuredPosts = posts.filter((p) => p.featured);
   const regularPosts = posts.filter((p) => !p.featured);

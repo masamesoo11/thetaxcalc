@@ -1,8 +1,14 @@
-import type { BlogPost } from "./blog-db";
-
 export interface BlogPostMeta {
   id: string; title: string; slug: string; excerpt: string;
   category: string; tags: string; coverImage: string;
+  published: boolean; featured: boolean; metaTitle: string; metaDesc: string;
+  createdAt: string; updatedAt: string;
+}
+
+/** Full blog post including content — independent of any DB client */
+export interface BlogPost {
+  id: string; title: string; slug: string; excerpt: string;
+  content: string; category: string; tags: string; coverImage: string;
   published: boolean; featured: boolean; metaTitle: string; metaDesc: string;
   createdAt: string; updatedAt: string;
 }

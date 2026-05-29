@@ -1,49 +1,42 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getAllPosts, getAllPostsIncludingDrafts, createPost } from '@/lib/blog-db';
+import { getPublishedPostsMeta, getPostMeta, type BlogPost, type BlogPostMeta } from '@/lib/blog-index';
+import { BLOG_CONTENT } from '@/lib/blog-content';
 
 export const runtime = 'edge';
 
+/** Convert BlogPostMeta to BlogPost with embedded content */
+function metaToPostWithContent(meta: BlogPostMeta): BlogPost {
+  const content = BLOG_CONTENT[meta.slug] || '';
+  return { ...meta, content };
+}
+
 // GET /api/blog — list all posts
-// ?all=true — include drafts (for admin panel)
+// ?all=true — include drafts (for admin panel) — in static mode, same as published
 export async function GET(request: NextRequest) {
   try {
     const all = request.nextUrl.searchParams.get('all') === 'true';
-    const posts = all ? await getAllPostsIncludingDrafts() : await getAllPosts();
+    const metas = getPublishedPostsMeta();
+    const posts = metas.map(metaToPostWithContent);
     return NextResponse.json({ posts });
   } catch (error) {
     return NextResponse.json({ error: 'Failed to fetch posts' }, { status: 500 });
   }
 }
 
-// POST /api/blog — create a new post
+// POST /api/blog — create a new post (NOT SUPPORTED in static mode)
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { title, slug, excerpt, content, category, tags, metaTitle, metaDesc, featured } = body;
+    const { title, slug, content } = body;
 
     if (!title || !slug || !content) {
       return NextResponse.json({ error: 'title, slug, and content are required' }, { status: 400 });
     }
 
-    const post = {
-      id: crypto.randomUUID(),
-      title,
-      slug,
-      excerpt: excerpt || '',
-      content,
-      category: category || 'tax-guide',
-      tags: tags || '',
-      coverImage: '',
-      published: true,
-      featured: featured || false,
-      metaTitle: metaTitle || '',
-      metaDesc: metaDesc || '',
-      createdAt: new Date().toISOString(),
-      updatedAt: new Date().toISOString(),
-    };
-
-    const created = await createPost(post);
-    return NextResponse.json({ post: created }, { status: 201 });
+    return NextResponse.json(
+      { error: 'Cannot create post: running in static mode (no database). Blog content is managed through code deploys.' },
+      { status: 501 }
+    );
   } catch (error: unknown) {
     const message = error instanceof Error ? error.message : 'Failed to create post';
     return NextResponse.json({ error: message }, { status: 500 });

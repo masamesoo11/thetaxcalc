@@ -1,14 +1,15 @@
-import { ImageResponse } from 'next/og';
+import { NextResponse } from 'next/server';
 import { SLUG_TO_CONFIG } from '@/lib/calculator-routes';
 
+// Route segment config
 export const runtime = 'edge';
 
 // Image metadata
 export const alt = 'TheTaxCalc Calculator';
 export const size = { width: 1200, height: 630 };
-export const contentType = 'image/png';
+export const contentType = 'image/svg+xml';
 
-// Image generation
+// Image generation — lightweight SVG (no @vercel/og WASM dependency)
 export default async function Image({
   params,
 }: {
@@ -22,115 +23,52 @@ export default async function Image({
   const category = config?.category || 'finance';
   const categoryLabel = category === 'paycheck' ? 'PAYCHECK' : category === 'mortgage' ? 'MORTGAGE' : category === 'retirement' ? 'RETIREMENT' : category === 'investment' ? 'INVESTMENT' : category === 'business' ? 'BUSINESS' : 'FINANCE';
 
-  return new ImageResponse(
-    (
-      <div
-        style={{
-          height: '100%',
-          width: '100%',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'center',
-          backgroundColor: '#0a0f1e',
-          backgroundImage: 'radial-gradient(ellipse at 50% 0%, rgba(16,185,129,0.15) 0%, transparent 60%)',
-          padding: 60,
-        }}
-      >
-        {/* Category badge */}
-        <div
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            padding: '6px 20px',
-            borderRadius: 999,
-            border: '1px solid rgba(16,185,129,0.4)',
-            background: 'rgba(16,185,129,0.1)',
-            color: '#10b981',
-            fontSize: 14,
-            fontWeight: 700,
-            letterSpacing: 2,
-            fontFamily: 'sans-serif',
-            marginBottom: 24,
-          }}
-        >
-          {categoryLabel}
-        </div>
+  // Truncate title for SVG display
+  const displayTitle = title.length > 40 ? title.substring(0, 37) + '...' : title;
+  const displayDesc = description.length > 70 ? description.substring(0, 67) + '...' : description;
 
-        {/* Main Heading */}
-        <div
-          style={{
-            fontSize: 56,
-            fontWeight: 900,
-            color: '#ffffff',
-            textAlign: 'center',
-            lineHeight: 1.2,
-            marginBottom: 16,
-            fontFamily: 'sans-serif',
-            maxWidth: 1000,
-          }}
-        >
-          {title}
-        </div>
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+    <defs>
+      <radialGradient id="glow" cx="50%" cy="0%" r="60%">
+        <stop offset="0%" style="stop-color:rgba(16,185,129,0.15)"/>
+        <stop offset="100%" style="stop-color:transparent"/>
+      </radialGradient>
+    </defs>
+    <rect width="1200" height="630" fill="#0a0f1e"/>
+    <rect width="1200" height="630" fill="url(#glow)"/>
 
-        {/* Description */}
-        <div
-          style={{
-            fontSize: 22,
-            color: 'rgba(255,255,255,0.65)',
-            textAlign: 'center',
-            lineHeight: 1.5,
-            maxWidth: 800,
-            fontFamily: 'sans-serif',
-          }}
-        >
-          {description}
-        </div>
+    <!-- Category badge -->
+    <rect x="490" y="80" width="220" height="40" rx="20" fill="rgba(16,185,129,0.1)" stroke="rgba(16,185,129,0.4)" stroke-width="1"/>
+    <text x="600" y="106" text-anchor="middle" fill="#10b981" font-family="sans-serif" font-weight="700" font-size="14" letter-spacing="2">${categoryLabel}</text>
 
-        {/* Brand */}
-        <div
-          style={{
-            marginTop: 40,
-            display: 'flex',
-            alignItems: 'center',
-            gap: 12,
-          }}
-        >
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              width: 36,
-              height: 36,
-              borderRadius: 8,
-              border: '1px solid rgba(16,185,129,0.4)',
-              background: 'rgba(16,185,129,0.1)',
-            }}
-          >
-            <span style={{ color: '#10b981', fontSize: 20, fontWeight: 900, fontFamily: 'sans-serif' }}>
-              T
-            </span>
-          </div>
-          <span style={{ color: '#10b981', fontSize: 20, fontWeight: 700, fontFamily: 'sans-serif' }}>
-            TheTaxCalc
-          </span>
-        </div>
+    <!-- Main Heading -->
+    <text x="600" y="240" text-anchor="middle" fill="#ffffff" font-family="sans-serif" font-weight="900" font-size="56">${escapeXml(displayTitle)}</text>
 
-        {/* Bottom tagline */}
-        <div
-          style={{
-            marginTop: 24,
-            fontSize: 16,
-            color: 'rgba(255,255,255,0.35)',
-            fontFamily: 'sans-serif',
-          }}
-        >
-          100% Free · Updated for 2026
-        </div>
-      </div>
-    ),
-    { ...size }
-  );
+    <!-- Description -->
+    <text x="600" y="310" text-anchor="middle" fill="rgba(255,255,255,0.65)" font-family="sans-serif" font-weight="400" font-size="22">${escapeXml(displayDesc)}</text>
+
+    <!-- Brand -->
+    <rect x="536" y="390" width="36" height="36" rx="8" fill="rgba(16,185,129,0.1)" stroke="rgba(16,185,129,0.4)" stroke-width="1"/>
+    <text x="554" y="416" text-anchor="middle" fill="#10b981" font-family="sans-serif" font-weight="900" font-size="20">T</text>
+    <text x="590" y="414" fill="#10b981" font-family="sans-serif" font-weight="700" font-size="20">TheTaxCalc</text>
+
+    <!-- Bottom tagline -->
+    <text x="600" y="480" text-anchor="middle" fill="rgba(255,255,255,0.35)" font-family="sans-serif" font-weight="400" font-size="16">100% Free · Updated for 2026</text>
+  </svg>`;
+
+  return new NextResponse(svg, {
+    headers: {
+      'Content-Type': 'image/svg+xml',
+      'Cache-Control': 'public, max-age=86400',
+    },
+  });
+}
+
+function escapeXml(str: string): string {
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&apos;');
 }

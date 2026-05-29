@@ -2,12 +2,10 @@ import { MetadataRoute } from 'next';
 import { CALCULATOR_ROUTES } from '@/lib/calculator-routes';
 import { SALARY_AMOUNTS } from '@/lib/salary-calculations';
 import { COMPARISON_SLUGS } from '@/lib/compare-config';
-import { getAllPosts } from '@/lib/blog-db';
+import { getPublishedPostsMeta } from '@/lib/blog-index';
 import { SITE_URL } from '@/lib/site-config';
 
-// Edge runtime for Cloudflare Pages compatibility
-export const runtime = 'edge';
-export const dynamic = 'force-dynamic';
+
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = SITE_URL;
@@ -43,19 +41,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   entries.push({ url: `${baseUrl}/blog`, lastModified: now, changeFrequency: 'weekly', priority: 0.8 });
 
-  // Blog posts from KV database
-  try {
-    const posts = await getAllPosts();
-    for (const post of posts) {
-      entries.push({
-        url: `${baseUrl}/blog/${post.slug}`,
-        lastModified: post.updatedAt || post.createdAt || now,
-        changeFrequency: 'monthly',
-        priority: 0.7,
-      });
-    }
-  } catch {
-    // KV not available — skip blog posts
+  // Blog posts from static index
+  const posts = getPublishedPostsMeta();
+  for (const post of posts) {
+    entries.push({
+      url: `${baseUrl}/blog/${post.slug}`,
+      lastModified: post.updatedAt || post.createdAt || now,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    });
   }
 
   return entries;

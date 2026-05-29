@@ -1,15 +1,29 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import { getPostBySlug, getAllPosts } from '@/lib/blog-db';
+import { getPublishedPostsMeta, getPostMeta, getPublishedSlugs } from '@/lib/blog-index';
+import { BLOG_CONTENT } from '@/lib/blog-content';
 import { BlogDetailClient } from './blog-detail-client';
 import { SITE_URL } from '@/lib/site-config';
 
-// Edge runtime for Cloudflare Pages compatibility
-export const runtime = 'edge';
+export function generateStaticParams() {
+  return getPublishedSlugs().map(slug => ({ slug }));
+}
 
-// Dynamic params: new blog posts appear immediately (no rebuild needed)
-export const dynamicParams = true;
+// ─── Static Data Helpers ────────────────────────────────────────────────────────
+
+function getStaticPost(slug: string) {
+  const meta = getPostMeta(slug);
+  if (!meta) return null;
+  return { ...meta, content: BLOG_CONTENT[meta.slug] || '' };
+}
+
+function getStaticPosts() {
+  return getPublishedPostsMeta().map(meta => ({
+    ...meta,
+    content: BLOG_CONTENT[meta.slug] || '',
+  }));
+}
 
 // ─── Metadata ─────────────────────────────────────────────────────────────────
 
@@ -20,13 +34,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
 
-  let post;
-  try {
-    post = await getPostBySlug(slug);
-  } catch (error) {
-    console.error('Failed to generate metadata for blog post:', error);
-    return { title: 'Post Not Found | TheTaxCalc' };
-  }
+  const post = getStaticPost(slug);
 
   if (!post) {
     return { title: 'Post Not Found | TheTaxCalc' };
@@ -203,14 +211,7 @@ export default async function BlogDetailPage({
 }) {
   const { slug } = await params;
 
-  let post;
-  try {
-    post = await getPostBySlug(slug);
-  } catch (error) {
-    console.error('Blog detail: Failed to load post:', error);
-    notFound();
-  }
-
+  const post = getStaticPost(slug);
   if (!post) {
     notFound();
   }
@@ -242,13 +243,8 @@ export default async function BlogDetailPage({
   const contentFullHtml = post.content ? simpleMarkdownToHtml(post.content) : '';
   const tagList = post.tags ? post.tags.split(',').map((t) => t.trim()).filter(Boolean) : [];
 
-  // Fetch all posts for related articles
-  let allPosts: Awaited<ReturnType<typeof getAllPosts>> = [];
-  try {
-    allPosts = await getAllPosts();
-  } catch {
-    allPosts = [];
-  }
+  // All posts for related articles
+  const allPosts = getStaticPosts();
 
   // Determine related posts: match by category or tags, then fallback to most recent
   const otherPosts = allPosts.filter((p) => p.slug !== slug);
