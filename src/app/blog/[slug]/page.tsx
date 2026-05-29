@@ -3,25 +3,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { getPublishedPostsMeta, getPostMeta, getPublishedSlugs } from '@/lib/blog-index';
 import { BLOG_CONTENT } from '@/lib/blog-content';
-import dynamic from 'next/dynamic';
-import { Skeleton } from '@/components/ui/skeleton';
-
-const BlogDetailClient = dynamic(
-  () => import('./blog-detail-client').then((m) => ({ default: m.BlogDetailClient })),
-  {
-    ssr: false,
-    loading: () => (
-      <div className="space-y-4 mt-8">
-        <Skeleton className="h-6 w-40" />
-        <div className="rounded-xl border border-border/30 bg-card/50 p-6 space-y-4">
-          <Skeleton className="h-5 w-full" />
-          <Skeleton className="h-4 w-3/4" />
-          <Skeleton className="h-4 w-1/2" />
-        </div>
-      </div>
-    ),
-  }
-);
+import { BlogDetailClient } from './blog-detail-client';
 import { SITE_URL } from '@/lib/site-config';
 
 export function generateStaticParams() {

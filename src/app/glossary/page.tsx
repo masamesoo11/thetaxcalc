@@ -2,38 +2,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import { BookOpen, ArrowRight, Calculator, Search } from 'lucide-react';
 import { GLOSSARY_TERMS, FAQ_TERMS, getGlossaryLetters } from '@/lib/glossary-data';
-import dynamic from 'next/dynamic';
-import { Skeleton } from '@/components/ui/skeleton';
-
-const GlossaryClient = dynamic(
-  () => import('./glossary-client').then((m) => ({ default: m.GlossaryClient })),
-  {
-    ssr: false,
-    loading: () => (
-      <div className="space-y-6">
-        <div className="mb-8 space-y-4">
-          <div className="relative max-w-xl mx-auto">
-            <Skeleton className="h-12 w-full rounded-xl" />
-          </div>
-        </div>
-        <div className="mb-10 flex flex-wrap items-center justify-center gap-1.5">
-          {Array.from({ length: 18 }).map((_, i) => (
-            <Skeleton key={i} className="h-9 w-9 rounded-lg" />
-          ))}
-        </div>
-        <div className="grid gap-4 sm:grid-cols-2">
-          {Array.from({ length: 6 }).map((_, i) => (
-            <div key={i} className="rounded-xl border border-border/30 bg-card/50 p-5 space-y-3">
-              <Skeleton className="h-5 w-32" />
-              <Skeleton className="h-4 w-full" />
-              <Skeleton className="h-4 w-3/4" />
-            </div>
-          ))}
-        </div>
-      </div>
-    ),
-  }
-);
+import { GlossaryClient } from './glossary-client';
 import { Breadcrumb } from '@/components/finance/breadcrumb';
 import { SITE_URL } from '@/lib/site-config';
 

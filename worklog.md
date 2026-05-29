@@ -226,3 +226,28 @@ Stage Summary:
   - Illinois revenue dept (no response/timeout) → updated to revenue.illinois.gov
 - All external links already have rel="noopener noreferrer nofollow" attributes
 - Lint passes with zero errors
+
+---
+Task ID: 5
+Agent: Main Agent
+Task: Fix critical regression — dynamic imports with ssr: false in Server Components causing 500 errors
+
+Work Log:
+- Discovered that Task ID 4 (dynamic-import-agent) introduced `next/dynamic` with `ssr: false` in 4 Server Components, which is not allowed in Next.js
+- Server Components cannot use `dynamic()` with `ssr: false` — this caused 500 errors on calculator, blog, glossary, and about pages
+- Reverted all 4 files to use static imports:
+  1. `src/app/[calculator]/page.tsx`: Changed `dynamic(() => import(...), { ssr: false })` back to `import { CalculatorClientPage } from './calculator-client-page'`
+  2. `src/app/blog/page.tsx`: Changed `dynamic(() => import(...), { ssr: false })` back to `import { BlogListClient } from './blog-list-client'`
+  3. `src/app/glossary/page.tsx`: Changed `dynamic(() => import(...), { ssr: false })` back to `import { GlossaryClient } from './glossary-client'`
+  4. `src/app/blog/[slug]/page.tsx`: Changed `dynamic(() => import(...), { ssr: false })` back to `import { BlogDetailClient } from './blog-detail-client'`
+- Removed unused `import dynamic from 'next/dynamic'` and `import { Skeleton }` from all 4 files
+- Lint passes with zero errors
+- Verified all 11+ pages return 200 OK
+
+Stage Summary:
+- Critical regression fixed: 4 files reverted from broken dynamic imports to static imports
+- Calculator pages (paycheck, mortgage, illinois, texas, florida, california, new-york, 401k, capital-gains, self-employment, relocation) — all return 200
+- Blog pages (listing + detail) — return 200
+- Glossary page — returns 200
+- Salary, compare, about, federal-tax-brackets pages — all return 200
+- Note: The "reduce unused JS" optimization from Task 4 is not applicable to Server Components. The internal calculator components already use dynamic imports with ssr: false correctly inside the client component itself

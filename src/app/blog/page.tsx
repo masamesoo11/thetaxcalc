@@ -2,29 +2,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import { getPublishedPostsMeta } from '@/lib/blog-index';
 import { BLOG_CONTENT } from '@/lib/blog-content';
-import dynamic from 'next/dynamic';
-import { Skeleton } from '@/components/ui/skeleton';
-
-const BlogListClient = dynamic(
-  () => import('./blog-list-client').then((m) => ({ default: m.BlogListClient })),
-  {
-    ssr: false,
-    loading: () => (
-      <div className="space-y-4 mt-8">
-        <Skeleton className="h-6 w-40" />
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {Array.from({ length: 3 }).map((_, i) => (
-            <div key={i} className="rounded-xl border border-border/30 bg-card/50 p-4 space-y-3">
-              <Skeleton className="h-4 w-20" />
-              <Skeleton className="h-5 w-full" />
-              <Skeleton className="h-4 w-3/4" />
-            </div>
-          ))}
-        </div>
-      </div>
-    ),
-  }
-);
+import { BlogListClient } from './blog-list-client';
 import { Breadcrumb } from '@/components/finance/breadcrumb';
 import { SITE_URL } from '@/lib/site-config';
 
