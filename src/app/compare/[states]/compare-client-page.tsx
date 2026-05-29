@@ -402,7 +402,7 @@ export function CompareClientPage({ states }: CompareClientPageProps) {
       {/* FAQ Section */}
       <section className="mb-12">
         <h2 className="text-2xl font-bold text-foreground mb-6">
-          State Tax <span className="gradient-text">FAQ</span>
+          {s1.name} vs {s2.name} Tax <span className="gradient-text">FAQ</span>
         </h2>
         <div className="space-y-4">
           {faqs.map((faq, i) => (
@@ -421,9 +421,9 @@ export function CompareClientPage({ states }: CompareClientPageProps) {
 
       {/* CTA: State Calculator Links */}
       <section className="mb-12">
-        <h2 className="text-2xl font-bold text-foreground mb-6">
+        <h3 className="text-2xl font-bold text-foreground mb-6">
           Calculate Your <span className="gradient-text">Exact Take-Home Pay</span>
-        </h2>
+        </h3>
         <div className="grid gap-5 sm:grid-cols-2">
           <Link href={s1.calculatorSlug} className="group premium-card hover-lift p-6 flex flex-col items-center gap-3 text-center">
             <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-emerald-600/20 to-teal-600/10">
@@ -452,9 +452,9 @@ export function CompareClientPage({ states }: CompareClientPageProps) {
 
       {/* Relocation CTA */}
       <section className="rounded-2xl border border-border/30 bg-card/50 p-8 text-center">
-        <h2 className="text-2xl font-bold text-foreground">
+        <h3 className="text-2xl font-bold text-foreground">
           Thinking About Moving from {s1.name} to {s2.name}?
-        </h2>
+        </h3>
         <p className="mt-3 text-muted-foreground max-w-xl mx-auto">
           Before you call the movers, figure out what salary you'd actually need in {s2.name} to live the way you do now.
         </p>

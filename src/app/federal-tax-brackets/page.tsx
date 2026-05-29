@@ -537,9 +537,9 @@ export default function FederalTaxBracketsPage() {
       <section className="py-12 sm:py-16 border-t border-border/20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="glass-emerald p-8 sm:p-12 text-center">
-            <h2 className="text-2xl sm:text-3xl font-bold text-foreground">
+            <h3 className="text-2xl sm:text-3xl font-bold text-foreground">
               Calculate Your <span className="gradient-text">Take-Home Pay</span>
-            </h2>
+            </h3>
             <p className="mt-3 text-muted-foreground max-w-xl mx-auto">
               Now that you understand how federal tax brackets work, use our paycheck calculator
               to see your actual take-home pay after federal tax, FICA, and state income tax.

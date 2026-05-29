@@ -211,9 +211,9 @@ export default function SalaryLandingPage() {
         {groups.map((group) => (
           <section key={group.label} className="mb-14">
             <div className="flex items-center gap-3 mb-6">
-              <h2 className="text-2xl font-bold text-foreground">
+              <h3 className="text-2xl font-bold text-foreground">
                 {group.label}
-              </h2>
+              </h3>
               <span className="text-xs font-medium text-muted-foreground bg-muted/20 rounded-full px-3 py-1">
                 {group.range}
               </span>

@@ -627,9 +627,9 @@ export default async function CompareStatesPage({
 
       {/* ─── Relocation CTA ────────────────────────────────────────────────── */}
       <section className="rounded-2xl border border-border/30 bg-card/50 p-8 text-center">
-        <h2 className="text-2xl font-bold text-foreground">
+        <h3 className="text-2xl font-bold text-foreground">
           Thinking About Moving from {s1.name} to {s2.name}?
-        </h2>
+        </h3>
         <p className="mt-3 text-muted-foreground max-w-xl mx-auto">
           Before you call the movers, figure out what salary you'd actually need in {s2.name} to live the way you do now. Our Relocation Calculator does the math so you're not flying blind.
         </p>

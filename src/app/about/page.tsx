@@ -300,7 +300,7 @@ export default function AboutPage() {
       {/* Contact */}
       <section className="mb-12 rounded-xl border border-border/30 bg-card/50 p-8 text-center">
         <Mail className="h-8 w-8 text-emerald-400 mx-auto mb-4" />
-        <h2 className="text-2xl font-bold text-foreground mb-3">Get in Touch</h2>
+        <h3 className="text-2xl font-bold text-foreground mb-3">Get in Touch</h3>
         <p className="text-muted-foreground mb-6 max-w-md mx-auto">
           Found a bug? Think our Illinois math is off? Want your state added? We actually
           read every email. Seriously.

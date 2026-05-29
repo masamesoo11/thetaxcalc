@@ -298,9 +298,9 @@ export default async function SalaryAmountPage({
             <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-emerald-600/20 to-teal-600/10">
               <TrendingUp className="h-5 w-5 text-emerald-400" />
             </div>
-            <h2 className="text-2xl font-bold text-foreground">
+            <h3 className="text-2xl font-bold text-foreground">
               {calc.salaryFormatted} — Detailed Breakdown by State
-            </h2>
+            </h3>
           </div>
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {calc.states.map((state) => {

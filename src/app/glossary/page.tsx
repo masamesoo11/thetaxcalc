@@ -178,9 +178,9 @@ export default function GlossaryPage() {
       {/* ─── Related Calculators CTA ──────────────────────────────────────── */}
       <section className="mt-16 border-t border-border/20 pt-12">
         <div className="text-center mb-8">
-          <h2 className="text-2xl font-bold text-foreground">
+          <h3 className="text-2xl font-bold text-foreground">
             Try Our <span className="gradient-text">Tax Calculators</span>
-          </h2>
+          </h3>
           <p className="mt-2 text-sm text-muted-foreground max-w-lg mx-auto">
             Put these terms into practice with our free 2026 calculators — accurate, private, and no sign-up required.
           </p>
