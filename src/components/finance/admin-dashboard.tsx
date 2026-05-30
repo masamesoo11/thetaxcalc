@@ -1,8 +1,7 @@
 'use client';
 
-import { useMemo, useState, useCallback, useEffect } from 'react';
+import { useMemo, useState, useCallback, useEffect, lazy, Suspense, ComponentType } from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import dynamic from 'next/dynamic';
 import {
   LayoutDashboard,
   FileText,
@@ -16,6 +15,7 @@ import {
   ToggleLeft,
   BarChart3,
   Database,
+  Loader2,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -24,17 +24,29 @@ import { Switch } from '@/components/ui/switch';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { toast } from 'sonner';
 
-// Import AdminSettings directly — dynamic import with ssr:false breaks input events on Cloudflare Pages
-import { AdminSettings } from '@/components/finance/admin-settings';
+// ─── Lazy-loaded section components ────────────────────────────────────
+// Using React.lazy() instead of next/dynamic to avoid Turbopack
+// pre-compiling all modules. These are only loaded when the user
+// navigates to each section.
 
-// Lazy-load heavy admin components to reduce initial bundle size
-const AdminBlogList = dynamic(() => import('@/components/finance/admin-blog-list').then(m => ({ default: m.AdminBlogList })), { ssr: false });
-const AdminAds = dynamic(() => import('@/components/finance/admin-ads').then(m => ({ default: m.AdminAds })), { ssr: false });
-const AdminLinks = dynamic(() => import('@/components/finance/admin-links').then(m => ({ default: m.AdminLinks })), { ssr: false });
-const BlogEditor = dynamic(() => import('@/components/finance/blog-editor').then(m => ({ default: m.BlogEditor })), { ssr: false });
-const DatabaseClient = dynamic(() => import('@/components/finance/database-client').then(m => ({ default: m.DatabaseClient })), { ssr: false });
+const AdminBlogList = lazy(() => import('@/components/finance/admin-blog-list').then(m => ({ default: m.AdminBlogList })));
+const AdminAds = lazy(() => import('@/components/finance/admin-ads').then(m => ({ default: m.AdminAds })));
+const AdminSettings = lazy(() => import('@/components/finance/admin-settings').then(m => ({ default: m.AdminSettings })));
+const AdminLinks = lazy(() => import('@/components/finance/admin-links').then(m => ({ default: m.AdminLinks })));
+const BlogEditor = lazy(() => import('@/components/finance/blog-editor').then(m => ({ default: m.BlogEditor })));
+const DatabaseClient = lazy(() => import('@/components/finance/database-client').then(m => ({ default: m.DatabaseClient })));
 
-// ─── Types ────────────────────────────────────────────────────────────────────
+// ─── Loading fallback ────────────────────────────────────────────────────
+
+function SectionLoader() {
+  return (
+    <div className="flex items-center justify-center py-20">
+      <Loader2 className="h-8 w-8 animate-spin text-emerald-500" />
+    </div>
+  );
+}
+
+// ─── Types ────────────────────────────────────────────────────────────
 
 interface AdminStats {
   totalPosts: number;
@@ -56,7 +68,7 @@ interface AdminStats {
   }[];
 }
 
-// ─── Navigation Items ─────────────────────────────────────────────────────────
+// ─── Navigation Items ──────────────────────────────────────────────────
 
 const NAV_ITEMS = [
   { key: 'overview', label: 'Overview', icon: LayoutDashboard },
@@ -67,7 +79,7 @@ const NAV_ITEMS = [
   { key: 'links', label: 'External Links', icon: Link2 },
 ];
 
-// ─── Calculator Name Map ──────────────────────────────────────────────────────
+// ─── Calculator Name Map ──────────────────────────────────────────────
 
 const CALCULATOR_NAMES: Record<string, string> = {
   paycheck: 'Paycheck Calculator',
@@ -81,7 +93,7 @@ const CALCULATOR_NAMES: Record<string, string> = {
   relocation: 'Relocation Calculator',
 };
 
-// ─── Main Dashboard Component ─────────────────────────────────────────────────
+// ─── Main Dashboard Component ─────────────────────────────────────────
 
 export function AdminDashboard() {
   const queryClient = useQueryClient();
@@ -232,25 +244,47 @@ export function AdminDashboard() {
 
           {adminSection.section === 'overview' && <AdminOverview />}
           {adminSection.section === 'blog' && adminSection.sub === 'list' && (
-            <AdminBlogList onEdit={navigateToBlogEdit} onNew={navigateToBlogNew} />
+            <Suspense fallback={<SectionLoader />}>
+              <AdminBlogList onEdit={navigateToBlogEdit} onNew={navigateToBlogNew} />
+            </Suspense>
           )}
           {adminSection.section === 'blog' && adminSection.sub === 'new' && (
-            <BlogEditor onNavigate={(hash: string) => { window.location.hash = `#${hash === 'blog' ? 'admin/blog' : hash}`; }} />
+            <Suspense fallback={<SectionLoader />}>
+              <BlogEditor onNavigate={(hash: string) => { window.location.hash = `#${hash === 'blog' ? 'admin/blog' : hash}`; }} />
+            </Suspense>
           )}
           {adminSection.section === 'blog' && adminSection.sub === 'edit' && (
-            <BlogEditor editSlug={adminSection.slug} onNavigate={(hash: string) => { window.location.hash = `#${hash === 'blog' ? 'admin/blog' : hash}`; }} />
+            <Suspense fallback={<SectionLoader />}>
+              <BlogEditor editSlug={adminSection.slug} onNavigate={(hash: string) => { window.location.hash = `#${hash === 'blog' ? 'admin/blog' : hash}`; }} />
+            </Suspense>
           )}
-          {adminSection.section === 'ads' && <AdminAds />}
-          {adminSection.section === 'database' && <DatabaseClient />}
-          {adminSection.section === 'settings' && <AdminSettings />}
-          {adminSection.section === 'links' && <AdminLinks />}
+          {adminSection.section === 'ads' && (
+            <Suspense fallback={<SectionLoader />}>
+              <AdminAds />
+            </Suspense>
+          )}
+          {adminSection.section === 'database' && (
+            <Suspense fallback={<SectionLoader />}>
+              <DatabaseClient />
+            </Suspense>
+          )}
+          {adminSection.section === 'settings' && (
+            <Suspense fallback={<SectionLoader />}>
+              <AdminSettings />
+            </Suspense>
+          )}
+          {adminSection.section === 'links' && (
+            <Suspense fallback={<SectionLoader />}>
+              <AdminLinks />
+            </Suspense>
+          )}
         </div>
       </main>
     </div>
   );
 }
 
-// ─── Overview Section ─────────────────────────────────────────────────────────
+// ─── Overview Section ────────────────────────────────────────────────
 
 function AdminOverview() {
   const queryClient = useQueryClient();

@@ -1,12 +1,13 @@
-import { Metadata } from 'next';
-import { AdminGate } from '@/components/finance/admin-gate';
-import { AdminDashboard } from '@/components/finance/admin-dashboard';
+'use client';
 
-export const metadata: Metadata = {
-  title: 'Admin Dashboard',
-  description: 'TheTaxCalc admin dashboard for managing blog posts, ads, and site settings.',
-  robots: { index: false, follow: false },
-};
+import dynamic from 'next/dynamic';
+
+// Lazy-load admin components entirely on the client side.
+// The admin page requires authentication and is entirely client-rendered.
+// Using dynamic() with ssr:false for each component to avoid OOM during
+// server-side compilation of the heavy admin dashboard.
+const AdminGate = dynamic(() => import('@/components/finance/admin-gate').then(m => ({ default: m.AdminGate })), { ssr: false });
+const AdminDashboard = dynamic(() => import('@/components/finance/admin-dashboard').then(m => ({ default: m.AdminDashboard })), { ssr: false });
 
 export default function AdminPage() {
   return (
