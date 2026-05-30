@@ -249,7 +249,7 @@ Use our **Texas paycheck calculator** to see exactly how much more take-home pay
     published: true,
     featured: true,
     metaTitle: 'Florida vs Texas Tax Comparison 2026',
-    metaDesc: 'Compare Florida and Texas tax structures: income tax, property tax, sales tax, and overall tax burden. Find out which no-income-tax state is better for you.',
+    metaDesc: 'Compare Florida and Texas tax structures: income tax, property tax, sales tax, and overall burden. Which no-income-tax state is better?',
     content: `# Florida vs Texas Tax Comparison
 
 I've had this conversation probably a dozen times in the last two years. Friends, coworkers, random people at BBQs — everyone moving out of California or New York or Illinois ends up asking the same question: "Should I go to Florida or Texas?"

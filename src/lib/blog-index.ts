@@ -16,7 +16,7 @@ export interface BlogPost {
 export const BLOG_INDEX: BlogPostMeta[] = [
   {
     "id": "1099-tax-guide-self-employed-2026",
-    "title": "1099 Taxes Explained: How Much You Really Owe as a Freelancer in 2026",
+    "title": "1099 Taxes: How Much Freelancers Really Owe in 2026",
     "slug": "1099-tax-guide-self-employed-2026",
     "excerpt": "The complete guide to 1099 taxes for self-employed freelancers and contractors in 2026. Learn how to calculate your tax bill, maximize deductions, and avoid penalties.",
     "category": "tax-guide",
@@ -106,7 +106,7 @@ export const BLOG_INDEX: BlogPostMeta[] = [
   },
   {
     "id": "sep-ira-solo-401k-2026-guide",
-    "title": "SEP IRA vs Solo 401k: Which Is Better for Self-Employed in 2026?",
+    "title": "SEP IRA vs Solo 401k: Best for Self-Employed in 2026",
     "slug": "sep-ira-solo-401k-guide-2026",
     "excerpt": "Complete comparison of SEP IRA and Solo 401k contribution limits, rules, and tax benefits for self-employed workers in 2026. Find out which retirement plan saves you more.",
     "category": "tax-guide",
