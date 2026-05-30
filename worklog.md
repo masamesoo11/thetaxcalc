@@ -282,3 +282,22 @@ Stage Summary:
 - All meta descriptions verified under 155 chars
 - All security headers verified complete
 - All external links verified with proper rel attributes
+
+---
+Task ID: 7
+Agent: Main Agent
+Task: Fix internal 4xx error caused by Cloudflare email obfuscation (/cdn-cgi/l/email-protection)
+
+Work Log:
+- Identified root cause: Cloudflare's email obfuscation feature rewrites `mailto:` links and plain-text email addresses in HTML into `/cdn-cgi/l/email-protection#...` links, which return 404 when crawled by Screaming Frog
+- Found `mailto:contact@thetaxcalc.com` link in about/page.tsx line 254
+- Found plain-text email addresses in about/page.tsx line 310, terms/page.tsx line 322, privacy/page.tsx line 272
+- Removed the `mailto:contact@thetaxcalc.com` Link and replaced with HTML-entity-encoded email text
+- Replaced all plain-text email addresses with HTML entity encoding (`@` → `&#64;`, `.` → `&#46;`) to prevent Cloudflare from detecting and obfuscating them
+- Committed and pushed to GitHub to trigger Cloudflare Pages auto-deployment
+- Lint passes with zero errors
+
+Stage Summary:
+- Internal 4xx error (`/cdn-cgi/l/email-protection`) fixed by eliminating all mailto: links and obfuscating email addresses with HTML entities
+- 3 files modified: about/page.tsx, privacy/page.tsx, terms/page.tsx
+- All 16 original SEO audit issues are now resolved
