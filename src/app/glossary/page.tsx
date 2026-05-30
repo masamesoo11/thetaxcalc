@@ -216,7 +216,7 @@ export default function GlossaryPage() {
         <div className="grid gap-6 lg:grid-cols-3">
           {/* Popular Salary Pages */}
           <div className="rounded-xl border border-border/30 bg-card/50 p-5">
-            <h2 className="text-base font-semibold text-foreground mb-3">Popular Salary Calculations</h2>
+            <h3 className="text-base font-semibold text-foreground mb-3">Popular Salary Calculations</h3>
             <div className="flex flex-wrap gap-2">
               {[
                 { href: '/salary/50000', label: '$50K' },
@@ -241,7 +241,7 @@ export default function GlossaryPage() {
 
           {/* State Comparisons */}
           <div className="rounded-xl border border-border/30 bg-card/50 p-5">
-            <h2 className="text-base font-semibold text-foreground mb-3">Compare State Taxes</h2>
+            <h3 className="text-base font-semibold text-foreground mb-3">Compare State Taxes</h3>
             <div className="space-y-2">
               {[
                 { href: '/compare', label: 'All State Comparisons' },
@@ -262,7 +262,7 @@ export default function GlossaryPage() {
 
           {/* Blog & Guides */}
           <div className="rounded-xl border border-border/30 bg-card/50 p-5">
-            <h2 className="text-base font-semibold text-foreground mb-3">Tax Guides & Blog</h2>
+            <h3 className="text-base font-semibold text-foreground mb-3">Tax Guides & Blog</h3>
             <div className="space-y-2">
               {[
                 { href: '/blog', label: 'All Blog Articles' },

@@ -63,11 +63,13 @@ export async function generateMetadata({
       siteName: 'TheTaxCalc',
       type: 'website',
       locale: 'en_US',
+      images: [{ url: `${baseUrl}/opengraph-image.png`, width: 1200, height: 630, alt: `${config.ogTitle} — TheTaxCalc` }],
     },
     twitter: {
       card: 'summary_large_image',
       title: config.ogTitle,
       description: config.ogDescription,
+      images: [`${baseUrl}/opengraph-image.png`],
     },
   };
 }

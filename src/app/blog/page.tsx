@@ -11,7 +11,7 @@ import { SITE_URL } from '@/lib/site-config';
 
 export const metadata: Metadata = {
   title: 'Tax Blog — 2026 Guides, Tips & News',
-  description: 'Expert tax guides, state-by-state comparisons, and financial tips to help you keep more of your money. Updated for 2026 tax laws with clear explanations and free calculators.',
+  description: 'Expert tax guides, state comparisons, and financial tips updated for 2026. Clear explanations and free calculators to help you keep more of your money.',
   keywords: ['tax blog', 'tax tips', 'tax guide', 'tax news', 'state tax comparison', 'tax planning', 'financial tips'],
   alternates: {
     canonical: `${SITE_URL}/blog`,

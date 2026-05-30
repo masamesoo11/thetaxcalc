@@ -92,11 +92,13 @@ export async function generateMetadata({
       siteName: 'TheTaxCalc',
       type: 'website',
       locale: 'en_US',
+      images: [{ url: `${baseUrl}/opengraph-image.png`, width: 1200, height: 630, alt: `${formatted} After Tax 2026 — TheTaxCalc` }],
     },
     twitter: {
       card: 'summary_large_image',
       title,
       description,
+      images: [`${baseUrl}/opengraph-image.png`],
     },
   };
 }
