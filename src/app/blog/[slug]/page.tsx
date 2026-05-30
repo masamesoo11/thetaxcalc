@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { getPublishedPostsMeta, getPostMeta, getPublishedSlugs } from '@/lib/blog-index';
 import { BLOG_CONTENT } from '@/lib/blog-content';
 import { SITE_URL } from '@/lib/site-config';
+import { BlogTableOfContents, type TocEntry } from './blog-toc';
 
 export function generateStaticParams() {
   return getPublishedSlugs().map(slug => ({ slug }));
@@ -136,12 +137,21 @@ function parseTableRow(line: string): string[] {
 }
 
 /**
- * Convert Markdown to HTML for server-rendered content.
- * Supports: headings, tables, blockquotes, lists, code blocks, bold, italic, links, inline code, hr
+ * Generate a URL-safe heading ID from text
  */
-function simpleMarkdownToHtml(markdown: string): string {
+function headingId(text: string): string {
+  return text.replace(/[*_`]/g, '').trim().toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+}
+
+/**
+ * Convert Markdown to HTML for server-rendered content.
+ * Supports: headings (with IDs), tables, blockquotes, lists, code blocks, bold, italic, links, inline code, hr
+ * Also returns a Table of Contents for sidebar navigation.
+ */
+function simpleMarkdownToHtml(markdown: string): { html: string; toc: TocEntry[] } {
   const lines = markdown.split('\n');
   const htmlParts: string[] = [];
+  const toc: TocEntry[] = [];
   let i = 0;
 
   while (i < lines.length) {
@@ -167,13 +177,22 @@ function simpleMarkdownToHtml(markdown: string): string {
       continue;
     }
 
-    // Headings (process H3 before H2 before H1)
+    // Headings — process H3 before H2 before H1
     const h3Match = line.match(/^###\s+(.+)$/);
-    if (h3Match) { htmlParts.push(`<h3>${inlineMarkdown(h3Match[1])}</h3>`); i++; continue; }
+    if (h3Match) {
+      const rawText = h3Match[1].replace(/[*_`]/g, '').trim();
+      const id = headingId(h3Match[1]);
+      const text = inlineMarkdown(h3Match[1]);
+      toc.push({ id, text: rawText, level: 3 });
+      htmlParts.push(`<h3 id="${id}">${text}</h3>`);
+      i++; continue;
+    }
     const h2Match = line.match(/^##\s+(.+)$/);
     if (h2Match) {
+      const rawText = h2Match[1].replace(/[*_`]/g, '').trim();
+      const id = headingId(h2Match[1]);
       const text = inlineMarkdown(h2Match[1]);
-      const id = h2Match[1].replace(/[*_`]/g, '').trim().toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+      toc.push({ id, text: rawText, level: 2 });
       htmlParts.push(`<h2 id="${id}">${text}</h2>`);
       i++; continue;
     }
@@ -248,7 +267,7 @@ function simpleMarkdownToHtml(markdown: string): string {
     }
   }
 
-  return htmlParts.join('');
+  return { html: htmlParts.join(''), toc };
 }
 
 function escapeHtml(text: string): string {
@@ -305,8 +324,12 @@ export default async function BlogDetailPage({
     ],
   };
 
-  const contentFullHtml = post.content ? simpleMarkdownToHtml(post.content) : '';
+  const { html: contentFullHtml, toc } = post.content ? simpleMarkdownToHtml(post.content) : { html: '', toc: [] };
   const tagList = post.tags ? post.tags.split(',').map((t) => t.trim()).filter(Boolean) : [];
+
+  // Estimate reading time (avg 200 words/min)
+  const wordCount = post.content ? post.content.split(/\s+/).filter(Boolean).length : 0;
+  const readingTime = Math.max(1, Math.ceil(wordCount / 200));
 
   // All posts for related articles
   const allPosts = getStaticPosts();
@@ -368,6 +391,7 @@ export default async function BlogDetailPage({
             {post.updatedAt && post.updatedAt !== post.createdAt && (
               <span>Updated <time dateTime={post.updatedAt}>{formatDate(post.updatedAt)}</time></span>
             )}
+            <span>{readingTime} min read</span>
           </div>
 
           {tagList.length > 0 && (
@@ -379,10 +403,22 @@ export default async function BlogDetailPage({
           )}
         </div>
 
-        {/* Article Content — centered, readable width */}
+        {/* Article Body — TOC sidebar on desktop, content centered */}
         {contentFullHtml && (
-          <div className="mx-auto max-w-3xl">
-            <div className="prose-container" dangerouslySetInnerHTML={{ __html: contentFullHtml }} />
+          <div className="mx-auto max-w-5xl lg:flex lg:gap-8">
+            {/* Table of Contents — sticky sidebar on desktop */}
+            {toc.length > 2 && (
+              <aside className="hidden lg:block lg:w-64 lg:shrink-0">
+                <div className="sticky top-24">
+                  <BlogTableOfContents entries={toc} />
+                </div>
+              </aside>
+            )}
+
+            {/* Main content */}
+            <div className="mx-auto max-w-3xl lg:mx-0 lg:flex-1">
+              <div className="prose-container" dangerouslySetInnerHTML={{ __html: contentFullHtml }} />
+            </div>
           </div>
         )}
 

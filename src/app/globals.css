@@ -422,65 +422,98 @@ html {
 
 /* ─── Blog Article / Prose Typography ───────────────────────────────── */
 .prose-container {
-  font-size: 1rem;
-  line-height: 1.8;
+  font-size: 1.0625rem;
+  line-height: 1.85;
   color: var(--muted-foreground);
+  letter-spacing: -0.005em;
 }
 
 .prose-container > *:first-child {
   margin-top: 0;
 }
 
-/* Headings */
+/* Headings — SEO-optimized hierarchy with anchor link styling */
 .prose-container h2 {
-  font-size: 1.5rem;
+  font-size: 1.625rem;
   font-weight: 700;
   line-height: 1.3;
   color: var(--foreground);
-  margin-top: 2.5rem;
+  margin-top: 2.75rem;
   margin-bottom: 1rem;
   padding-bottom: 0.5rem;
   border-bottom: 1px solid oklch(0.55 0.15 160 / 15%);
   scroll-margin-top: 5rem;
+  letter-spacing: -0.015em;
 }
 
 .prose-container h3 {
-  font-size: 1.25rem;
+  font-size: 1.3rem;
   font-weight: 600;
   line-height: 1.4;
   color: var(--foreground);
   margin-top: 2rem;
   margin-bottom: 0.75rem;
   scroll-margin-top: 5rem;
+  letter-spacing: -0.01em;
+}
+
+/* Heading anchor links — visible on hover for deep linking */
+.prose-container h2[id]::after,
+.prose-container h3[id]::after {
+  content: '#';
+  margin-left: 0.4em;
+  font-weight: 400;
+  color: oklch(0.55 0.15 160 / 0%);
+  transition: color 0.2s ease;
+  font-size: 0.75em;
+  vertical-align: middle;
+}
+
+.prose-container h2[id]:hover::after,
+.prose-container h3[id]:hover::after {
+  color: oklch(0.55 0.15 160 / 60%);
 }
 
 /* Paragraphs */
 .prose-container p {
   margin-top: 0;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.35rem;
 }
 
 .prose-container p:last-child {
   margin-bottom: 0;
 }
 
-/* Links */
+/* Links — SEO-friendly with underline and clear hover states */
 .prose-container a {
   color: oklch(0.55 0.15 160);
   text-decoration: underline;
   text-underline-offset: 3px;
   text-decoration-thickness: 1px;
+  text-decoration-color: oklch(0.55 0.15 160 / 40%);
   transition: color 0.2s ease, text-decoration-color 0.2s ease;
 }
 
 .prose-container a:hover {
   color: oklch(0.65 0.18 160);
   text-decoration-thickness: 2px;
+  text-decoration-color: oklch(0.65 0.18 160 / 60%);
+}
+
+/* Dark mode link adjustments */
+.dark .prose-container a {
+  color: oklch(0.60 0.16 160);
+  text-decoration-color: oklch(0.60 0.16 160 / 40%);
+}
+
+.dark .prose-container a:hover {
+  color: oklch(0.72 0.18 160);
+  text-decoration-color: oklch(0.72 0.18 160 / 60%);
 }
 
 /* Strong & Em */
 .prose-container strong {
-  font-weight: 600;
+  font-weight: 650;
   color: var(--foreground);
 }
 
@@ -488,19 +521,19 @@ html {
   font-style: italic;
 }
 
-/* Lists */
+/* Lists — clear visual hierarchy */
 .prose-container ul {
   list-style-type: disc;
   padding-left: 1.5rem;
   margin-top: 0.5rem;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.35rem;
 }
 
 .prose-container ol {
   list-style-type: decimal;
   padding-left: 1.5rem;
   margin-top: 0.5rem;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.35rem;
 }
 
 .prose-container li {
@@ -525,10 +558,10 @@ html {
   margin-bottom: 0.5rem;
 }
 
-/* Blockquotes */
+/* Blockquotes — visually distinct callouts */
 .prose-container blockquote {
   border-left: 4px solid oklch(0.55 0.15 160 / 40%);
-  padding: 0.75rem 1rem;
+  padding: 0.85rem 1.15rem;
   margin: 1.5rem 0;
   background: oklch(0.55 0.15 160 / 5%);
   border-radius: 0 0.5rem 0.5rem 0;
@@ -539,7 +572,11 @@ html {
   margin-bottom: 0;
 }
 
-/* Code */
+.prose-container blockquote strong {
+  font-style: normal;
+}
+
+/* Code — monospace with subtle background */
 .prose-container code {
   font-family: var(--font-geist-mono), ui-monospace, monospace;
   font-size: 0.875em;
@@ -568,7 +605,7 @@ html {
   color: oklch(0.87 0 0);
 }
 
-/* Tables */
+/* Tables — responsive, accessible, well-styled */
 .prose-container table {
   width: 100%;
   border-collapse: collapse;
@@ -608,7 +645,7 @@ html {
   border-bottom: none;
 }
 
-/* Horizontal Rule */
+/* Horizontal Rule — subtle section divider */
 .prose-container hr {
   border: none;
   height: 1px;
@@ -625,4 +662,26 @@ html {
 
 .prose-container .table-wrapper table {
   margin: 0;
+}
+
+/* Dark mode specific adjustments for blog */
+.dark .prose-container h2 {
+  border-bottom-color: oklch(0.55 0.15 160 / 20%);
+}
+
+.dark .prose-container blockquote {
+  background: oklch(0.55 0.15 160 / 8%);
+  border-left-color: oklch(0.55 0.15 160 / 50%);
+}
+
+.dark .prose-container table {
+  border-color: oklch(1 0 0 / 10%);
+}
+
+.dark .prose-container th {
+  border-bottom-color: oklch(0.55 0.15 160 / 25%);
+}
+
+.dark .prose-container td {
+  border-bottom-color: oklch(1 0 0 / 6%);
 }

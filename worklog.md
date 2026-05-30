@@ -1,25 +1,22 @@
 ---
 Task ID: 1
 Agent: Main Agent
-Task: Fix blog article formatting, SEO heading hierarchy, and markdown rendering issues
+Task: Fix blog formatting, SEO issues, and improve article structure
 
 Work Log:
-- Explored project structure and identified blog system architecture
-- Found that `prose-container` class had NO CSS styles for article content (h2, h3, p, ul, ol, table, blockquote, etc.)
-- Found that `simpleMarkdownToHtml()` function didn't support Markdown pipe-delimited tables
-- Found multiple SEO heading hierarchy issues: `<p>` tags used as headings instead of `<h2>`
-- Added comprehensive prose/blog article CSS styles to globals.css (headings, paragraphs, lists, tables, blockquotes, code, links, horizontal rules)
-- Added table support to `simpleMarkdownToHtml()` with `isTableRow()`, `isTableSeparator()`, `parseTableRow()` helper functions
-- Fixed `<p>` → `<h2>` heading hierarchy issues in: blog/page.tsx, blog/[slug]/page.tsx, about/page.tsx, terms/page.tsx, privacy/page.tsx
-- Fixed "Bottom Line" H2 duplicates across 7 blog articles by making each one unique and SEO-specific
-- Improved blog detail page layout: centered content with max-w-3xl for better readability
-- Added missing `state-tax` category to CATEGORY_LABELS and CATEGORY_COLORS
-- Improved blog page meta description from 121 chars to ~155 chars
-- Removed unused `BlogDetailClient` import from blog detail page
+- Diagnosed blog listing page (blog/page.tsx) - working correctly
+- Diagnosed blog article page (blog/[slug]/page.tsx) - formatting improvements needed
+- Enhanced simpleMarkdownToHtml() to add IDs to H3 headings (previously only H2 had IDs)
+- Added Table of Contents (TOC) sidebar on desktop with IntersectionObserver for active heading tracking
+- Created blog-toc.tsx component with smooth scroll navigation and active section highlighting
+- Added reading time estimate (200 words/min) to article header
+- Improved article layout: TOC sidebar on desktop, content centered on mobile
+- Enhanced prose-container CSS: larger font size (1.0625rem), better line-height (1.85), heading anchor links (#) on hover, dark mode link adjustments, improved spacing
+- Fixed 404 page title from "Page Not Found (404)" (21 chars) to "Page Not Found — TheTaxCalc" (34 chars)
+- Verified all pages render correctly with curl tests
 
 Stage Summary:
-- Blog articles now have proper CSS typography styles for all HTML elements
-- Markdown tables are now converted to proper HTML tables with thead/tbody
-- All heading hierarchy issues fixed (6 instances of p→h2 across 5 pages)
-- All "Bottom Line" H2 headings made unique per article for better SEO
-- Blog detail page content is centered and more readable
+- Blog article pages now have: H2 + H3 with IDs, Table of Contents sidebar, reading time, heading anchor links
+- Prose CSS enhanced with better typography, dark mode support, and heading anchors
+- 404 page title fixed for better SEO
+- All pages verified rendering correctly (200 OK, proper HTML structure)
