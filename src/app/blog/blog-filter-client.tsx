@@ -63,9 +63,9 @@ export function BlogFilterClient({ posts }: { posts: BlogPostMeta[] }) {
       const q = search.toLowerCase();
       filtered = filtered.filter(
         (p) =>
-          p.title.toLowerCase().includes(q) ||
+          (p.title || '').toLowerCase().includes(q) ||
           (p.excerpt && p.excerpt.toLowerCase().includes(q)) ||
-          p.tags.toLowerCase().includes(q)
+          (p.tags || '').toLowerCase().includes(q)
       );
     }
 

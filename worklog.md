@@ -325,3 +325,45 @@ Stage Summary:
 - Build output verified clean
 - Code pushed to GitHub but NOT deployed to Cloudflare Pages
 - Deployment requires CLOUDFLARE_ACCOUNT_ID which is missing
+
+---
+Task ID: 9
+Agent: Main Agent
+Task: Fix broken /blog page and complete all 16 SEO fixes, deploy to Cloudflare Pages
+
+Work Log:
+- Investigated broken /blog page showing "Something went wrong / We couldn't load the blog content"
+- Verified blog page code (page.tsx) uses static data from blog-index.ts - no API calls or database dependencies
+- The blog page was prerendered as static HTML (○ /blog in build output)
+- Added defensive coding: try/catch around getPublishedPostsMeta() in blog/page.tsx
+- Added null safety: (p.tags || '').toLowerCase() in blog-filter-client.tsx
+- Fixed glossary page non-sequential H2 issue (Issue #10): Changed 4 H3 elements to H2 in glossary/page.tsx
+- Also changed calculator card titles from H3 to P to avoid heading hierarchy issues
+- Built successfully with @cloudflare/next-on-pages (136 prerendered routes)
+- Deployed to Cloudflare Pages using wrangler CLI
+- Verified blog page working on live site: all 8 posts render correctly with search, filters, featured section
+- Verified glossary page H2 headings are now properly sequential
+- Verified blog detail pages working correctly
+- Audited all 16 SEO issues: 16/16 now FIXED
+
+Stage Summary:
+- Blog page fixed and deployed successfully
+- Glossary H2 non-sequential issue fixed (H3→H2)
+- All 16 SEO audit issues are now resolved and deployed:
+  1. ✅ Cloudflare email protection 404s (ProtectedEmail component)
+  2. ✅ 54 titles >60 chars (shortened)
+  3. ✅ 53 titles >561px (shortened)
+  4. ✅ 4 unused JS (old APIs backed up to _api_backup)
+  5. ✅ 3 titles <30 chars (all now ≥46 chars)
+  6. ✅ 64 duplicate H2s (made unique per page)
+  7. ✅ 47 duplicate H2 values (made unique per page)
+  8. ✅ 11 meta desc >155 chars (shortened)
+  9. ✅ 6 meta desc >985px (shortened)
+  10. ✅ 1 non-sequential H2 (glossary H3→H2 fixed)
+  11. ✅ 4 external 4xx (updated URLs)
+  12. ✅ 1 external no response (updated URL)
+  13. ✅ 3 high outlinks (all have nofollow)
+  14. ✅ Referrer-Policy header (middleware + _headers)
+  15. ✅ HSTS header (middleware + _headers)
+  16. ✅ CSP header (middleware + _headers)
+- Live site verified: thetaxcalc.com/blog returns 200 with full content

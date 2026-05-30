@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { getPublishedPostsMeta } from '@/lib/blog-index';
+import { getPublishedPostsMeta, type BlogPostMeta } from '@/lib/blog-index';
 import { BlogFilterClient } from './blog-filter-client';
 import { Breadcrumb } from '@/components/finance/breadcrumb';
 import { SITE_URL } from '@/lib/site-config';
@@ -30,7 +30,13 @@ export const metadata: Metadata = {
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
 export default async function BlogPage() {
-  const posts = getPublishedPostsMeta();
+  let posts: BlogPostMeta[] = [];
+  try {
+    posts = getPublishedPostsMeta();
+  } catch {
+    // Fallback: if blog index fails, render empty state
+    posts = [];
+  }
 
   const jsonLd = {
     '@context': 'https://schema.org', '@type': 'Blog',

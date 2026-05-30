@@ -178,9 +178,9 @@ export default function GlossaryPage() {
       {/* ─── Related Calculators CTA ──────────────────────────────────────── */}
       <section className="mt-16 border-t border-border/20 pt-12">
         <div className="text-center mb-8">
-          <h3 className="text-2xl font-bold text-foreground">
+          <h2 className="text-2xl font-bold text-foreground">
             Try Our <span className="gradient-text">Tax Calculators</span>
-          </h3>
+          </h2>
           <p className="mt-2 text-sm text-muted-foreground max-w-lg mx-auto">
             Put these terms into practice with our free 2026 calculators — accurate, private, and no sign-up required.
           </p>
@@ -193,9 +193,9 @@ export default function GlossaryPage() {
               href={calc.href}
               className="group premium-card hover-lift p-5 flex flex-col gap-2"
             >
-              <h3 className="text-sm font-semibold text-foreground group-hover:text-emerald-400 transition-colors">
+              <p className="text-sm font-semibold text-foreground group-hover:text-emerald-400 transition-colors">
                 {calc.label}
-              </h3>
+              </p>
               <p className="text-xs text-muted-foreground leading-relaxed">
                 {calc.desc}
               </p>
@@ -216,7 +216,7 @@ export default function GlossaryPage() {
         <div className="grid gap-6 lg:grid-cols-3">
           {/* Popular Salary Pages */}
           <div className="rounded-xl border border-border/30 bg-card/50 p-5">
-            <h3 className="text-base font-semibold text-foreground mb-3">Popular Salary Calculations</h3>
+            <h2 className="text-base font-semibold text-foreground mb-3">Popular Salary Calculations</h2>
             <div className="flex flex-wrap gap-2">
               {[
                 { href: '/salary/50000', label: '$50K' },
@@ -241,7 +241,7 @@ export default function GlossaryPage() {
 
           {/* State Comparisons */}
           <div className="rounded-xl border border-border/30 bg-card/50 p-5">
-            <h3 className="text-base font-semibold text-foreground mb-3">Compare State Taxes</h3>
+            <h2 className="text-base font-semibold text-foreground mb-3">Compare State Taxes</h2>
             <div className="space-y-2">
               {[
                 { href: '/compare', label: 'All State Comparisons' },
@@ -262,7 +262,7 @@ export default function GlossaryPage() {
 
           {/* Blog & Guides */}
           <div className="rounded-xl border border-border/30 bg-card/50 p-5">
-            <h3 className="text-base font-semibold text-foreground mb-3">Tax Guides & Blog</h3>
+            <h2 className="text-base font-semibold text-foreground mb-3">Tax Guides & Blog</h2>
             <div className="space-y-2">
               {[
                 { href: '/blog', label: 'All Blog Articles' },
