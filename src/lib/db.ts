@@ -128,6 +128,7 @@ const defaultSettings: SiteSettingRecord[] = [
   { id: uuid(), key: 'site_name', value: 'TheTaxCalc' },
   { id: uuid(), key: 'site_description', value: 'Free tax calculators and guides to help you understand your paycheck, state taxes, and financial planning.' },
   { id: uuid(), key: 'ga_tracking_id', value: '' },
+  { id: uuid(), key: 'adsense_client_id', value: '' },
 ];
 
 for (const setting of defaultSettings) {

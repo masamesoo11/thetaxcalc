@@ -5,6 +5,7 @@ import { QueryProvider } from "@/components/providers/query-provider";
 import { DynamicProviders } from "@/components/providers/dynamic-providers";
 import { Header } from "@/components/finance/header";
 import { Footer } from "@/components/finance/footer";
+import { ClientAnalytics } from "@/components/finance/client-analytics";
 import { SITE_URL } from '@/lib/site-config';
 
 const geistSans = Geist({
@@ -86,34 +87,9 @@ export const metadata: Metadata = {
   classification: "Tax Calculator",
 };
 
-// ─── Google Analytics Component ────────────────────────────────────────────────
-
-function GoogleAnalytics() {
-  const gaId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
-  if (!gaId) return null;
-
-  return (
-    <>
-      {/* Google Analytics — Global Site Tag */}
-      <script
-        async
-        src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
-      />
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', '${gaId}', {
-              page_path: window.location.pathname,
-            });
-          `,
-        }}
-      />
-    </>
-  );
-}
+// ─── Google Analytics & AdSense — loaded dynamically via ClientAnalytics ─────
+// The ClientAnalytics component reads GA and AdSense IDs from /api/settings
+// (admin panel) and injects the scripts client-side.
 
 // ─── Structured Data for Organization ──────────────────────────────────────────
 
@@ -157,8 +133,8 @@ export default function RootLayout({
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#0a0f1e" />
 
-        {/* Google Analytics */}
-        <GoogleAnalytics />
+        {/* Google Analytics & AdSense — loaded from DB settings */}
+        <ClientAnalytics />
 
         {/* Structured Data — Organization & WebSite (sitewide) */}
         <script
