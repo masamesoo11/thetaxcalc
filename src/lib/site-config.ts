@@ -7,6 +7,9 @@
 export const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL || 'https://thetaxcalc.com';
 
+/** Homepage URL with trailing slash — used for canonical, og:url, sitemap */
+export const SITE_HOME_URL = SITE_URL.endsWith('/') ? SITE_URL : `${SITE_URL}/`;
+
 export const SITE_NAME = 'TheTaxCalc';
 
 export const SITE_DESCRIPTION =

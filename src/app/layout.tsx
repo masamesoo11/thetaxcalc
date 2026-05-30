@@ -6,7 +6,7 @@ import { DynamicProviders } from "@/components/providers/dynamic-providers";
 import { Header } from "@/components/finance/header";
 import { Footer } from "@/components/finance/footer";
 import { ClientAnalytics } from "@/components/finance/client-analytics";
-import { SITE_URL } from '@/lib/site-config';
+import { SITE_URL, SITE_HOME_URL } from '@/lib/site-config';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,14 +24,7 @@ export const metadata: Metadata = {
     template: "%s | TheTaxCalc",
   },
   description:
-    "Calculate take-home pay after federal, FICA, and state taxes. Free 2026 calculators for IL, TX, FL, CA, NY, plus mortgage, 401(k) & self-employment tools.",
-  keywords: [
-    "paycheck calculator", "take home pay calculator", "salary calculator",
-    "Illinois tax calculator", "Texas tax calculator", "Florida tax calculator",
-    "California tax calculator", "New York tax calculator", "mortgage calculator",
-    "FICA calculator", "2026 tax brackets", "federal tax calculator",
-    "state income tax", "after tax salary", "net pay calculator",
-  ],
+    "Free 2026 tax calculator — paycheck, take-home pay, federal & state taxes. Plus mortgage, 401(k), self-employment & capital gains tools. No sign-up.",
   authors: [{ name: "TheTaxCalc" }],
   creator: "TheTaxCalc",
   publisher: "TheTaxCalc",
@@ -42,8 +35,8 @@ export const metadata: Metadata = {
   openGraph: {
     title: "TheTaxCalc — Free 2026 Tax, Paycheck & Mortgage Calculator",
     description:
-      "Precision paycheck calculator for 2026. Compute take-home pay after federal, FICA, and state taxes for IL, TX, FL, CA, NY.",
-    url: SITE_URL,
+      "Free 2026 tax calculator. Compute take-home pay after federal, FICA & state taxes for IL, TX, FL, CA, NY. No sign-up.",
+    url: SITE_HOME_URL,
     siteName: "TheTaxCalc",
     type: "website",
     locale: "en_US",
@@ -75,7 +68,7 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: SITE_URL,
+    canonical: SITE_HOME_URL,
     types: {
       "application/rss+xml": `${SITE_URL}/feed.xml`,
     },
