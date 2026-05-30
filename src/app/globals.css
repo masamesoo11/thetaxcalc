@@ -419,3 +419,210 @@ html {
     padding-right: 2rem;
   }
 }
+
+/* ─── Blog Article / Prose Typography ───────────────────────────────── */
+.prose-container {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--muted-foreground);
+}
+
+.prose-container > *:first-child {
+  margin-top: 0;
+}
+
+/* Headings */
+.prose-container h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--foreground);
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid oklch(0.55 0.15 160 / 15%);
+  scroll-margin-top: 5rem;
+}
+
+.prose-container h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--foreground);
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  scroll-margin-top: 5rem;
+}
+
+/* Paragraphs */
+.prose-container p {
+  margin-top: 0;
+  margin-bottom: 1.25rem;
+}
+
+.prose-container p:last-child {
+  margin-bottom: 0;
+}
+
+/* Links */
+.prose-container a {
+  color: oklch(0.55 0.15 160);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  transition: color 0.2s ease, text-decoration-color 0.2s ease;
+}
+
+.prose-container a:hover {
+  color: oklch(0.65 0.18 160);
+  text-decoration-thickness: 2px;
+}
+
+/* Strong & Em */
+.prose-container strong {
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+.prose-container em {
+  font-style: italic;
+}
+
+/* Lists */
+.prose-container ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.prose-container ol {
+  list-style-type: decimal;
+  padding-left: 1.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.prose-container li {
+  margin-bottom: 0.5rem;
+  padding-left: 0.25rem;
+}
+
+.prose-container li::marker {
+  color: oklch(0.55 0.15 160 / 60%);
+}
+
+.prose-container li:last-child {
+  margin-bottom: 0;
+}
+
+/* Nested lists */
+.prose-container ul ul,
+.prose-container ol ol,
+.prose-container ul ol,
+.prose-container ol ul {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Blockquotes */
+.prose-container blockquote {
+  border-left: 4px solid oklch(0.55 0.15 160 / 40%);
+  padding: 0.75rem 1rem;
+  margin: 1.5rem 0;
+  background: oklch(0.55 0.15 160 / 5%);
+  border-radius: 0 0.5rem 0.5rem 0;
+  font-style: italic;
+}
+
+.prose-container blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+/* Code */
+.prose-container code {
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
+  font-size: 0.875em;
+  background: oklch(0.55 0.15 160 / 8%);
+  padding: 0.15em 0.4em;
+  border-radius: 0.25rem;
+  color: var(--foreground);
+}
+
+.prose-container pre {
+  background: oklch(0.12 0.006 260);
+  border: 1px solid oklch(1 0 0 / 8%);
+  border-radius: 0.75rem;
+  padding: 1rem 1.25rem;
+  margin: 1.5rem 0;
+  overflow-x: auto;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+.prose-container pre code {
+  background: none;
+  padding: 0;
+  border-radius: 0;
+  font-size: inherit;
+  color: oklch(0.87 0 0);
+}
+
+/* Tables */
+.prose-container table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.9rem;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  border: 1px solid oklch(1 0 0 / 8%);
+}
+
+.prose-container thead {
+  background: oklch(0.55 0.15 160 / 8%);
+}
+
+.prose-container th {
+  text-align: left;
+  padding: 0.75rem 1rem;
+  font-weight: 600;
+  color: var(--foreground);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  border-bottom: 2px solid oklch(0.55 0.15 160 / 20%);
+}
+
+.prose-container td {
+  padding: 0.625rem 1rem;
+  border-bottom: 1px solid oklch(1 0 0 / 6%);
+  color: var(--muted-foreground);
+}
+
+.prose-container tbody tr:hover {
+  background: oklch(0.55 0.15 160 / 4%);
+}
+
+.prose-container tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Horizontal Rule */
+.prose-container hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, oklch(0.55 0.15 160 / 20%), transparent);
+  margin: 2rem 0;
+}
+
+/* Responsive table wrapper */
+.prose-container .table-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 1.5rem 0;
+}
+
+.prose-container .table-wrapper table {
+  margin: 0;
+}

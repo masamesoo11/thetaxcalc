@@ -3,7 +3,6 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { getPublishedPostsMeta, getPostMeta, getPublishedSlugs } from '@/lib/blog-index';
 import { BLOG_CONTENT } from '@/lib/blog-content';
-import { BlogDetailClient } from './blog-detail-client';
 import { SITE_URL } from '@/lib/site-config';
 
 export function generateStaticParams() {
@@ -85,6 +84,7 @@ export async function generateMetadata({
 const CATEGORY_LABELS: Record<string, string> = {
   'tax-guide': 'Tax Guide',
   comparison: 'Comparison',
+  'state-tax': 'State Tax',
   tips: 'Tips',
   news: 'News',
 };
@@ -92,6 +92,7 @@ const CATEGORY_LABELS: Record<string, string> = {
 const CATEGORY_COLORS: Record<string, string> = {
   'tax-guide': 'bg-emerald-100 text-emerald-800 dark:bg-emerald-500/20 dark:text-emerald-400 border-emerald-300 dark:border-emerald-500/30',
   comparison: 'bg-cyan-100 text-cyan-800 dark:bg-cyan-500/20 dark:text-cyan-400 border-cyan-300 dark:border-cyan-500/30',
+  'state-tax': 'bg-violet-100 text-violet-800 dark:bg-violet-500/20 dark:text-violet-400 border-violet-300 dark:border-violet-500/30',
   tips: 'bg-amber-100 text-amber-800 dark:bg-amber-500/20 dark:text-amber-400 border-amber-300 dark:border-amber-500/30',
   news: 'bg-rose-100 text-rose-800 dark:bg-rose-500/20 dark:text-rose-400 border-rose-300 dark:border-rose-500/30',
 };
@@ -109,7 +110,34 @@ function formatDate(dateStr: string): string {
 }
 
 /**
+ * Check if a line is a markdown table row (starts and ends with |)
+ */
+function isTableRow(line: string): boolean {
+  const trimmed = line.trim();
+  return trimmed.startsWith('|') && trimmed.endsWith('|');
+}
+
+/**
+ * Check if a line is a table separator (e.g., |---|---|)
+ */
+function isTableSeparator(line: string): boolean {
+  return /^\|?\s*[-:]+[-|\s:]*$/.test(line.trim());
+}
+
+/**
+ * Parse a table row into cells
+ */
+function parseTableRow(line: string): string[] {
+  return line.trim()
+    .replace(/^\|/, '')
+    .replace(/\|$/, '')
+    .split('|')
+    .map(cell => cell.trim());
+}
+
+/**
  * Convert Markdown to HTML for server-rendered content.
+ * Supports: headings, tables, blockquotes, lists, code blocks, bold, italic, links, inline code, hr
  */
 function simpleMarkdownToHtml(markdown: string): string {
   const lines = markdown.split('\n');
@@ -119,6 +147,7 @@ function simpleMarkdownToHtml(markdown: string): string {
   while (i < lines.length) {
     const line = lines[i];
 
+    // Code blocks
     if (line.trimStart().startsWith('```')) {
       const codeLines: string[] = [];
       i++;
@@ -131,12 +160,14 @@ function simpleMarkdownToHtml(markdown: string): string {
       continue;
     }
 
+    // Horizontal rule
     if (/^\s*([-*_])\s*\1\s*\1\s*(\1\s*)*$/.test(line)) {
       htmlParts.push('<hr/>');
       i++;
       continue;
     }
 
+    // Headings (process H3 before H2 before H1)
     const h3Match = line.match(/^###\s+(.+)$/);
     if (h3Match) { htmlParts.push(`<h3>${inlineMarkdown(h3Match[1])}</h3>`); i++; continue; }
     const h2Match = line.match(/^##\s+(.+)$/);
@@ -153,6 +184,33 @@ function simpleMarkdownToHtml(markdown: string): string {
       i++; continue;
     }
 
+    // Tables
+    if (isTableRow(line)) {
+      const tableRows: string[] = [];
+      while (i < lines.length && isTableRow(lines[i])) {
+        if (!isTableSeparator(lines[i])) {
+          tableRows.push(lines[i]);
+        }
+        i++;
+      }
+      if (tableRows.length > 0) {
+        const headerCells = parseTableRow(tableRows[0]);
+        const headerHtml = headerCells.map(cell => `<th>${inlineMarkdown(cell)}</th>`).join('');
+        let tableHtml = `<div class="table-wrapper"><table><thead><tr>${headerHtml}</tr></thead>`;
+        if (tableRows.length > 1) {
+          const bodyRows = tableRows.slice(1).map(row => {
+            const cells = parseTableRow(row);
+            return `<tr>${cells.map(cell => `<td>${inlineMarkdown(cell)}</td>`).join('')}</tr>`;
+          }).join('');
+          tableHtml += `<tbody>${bodyRows}</tbody>`;
+        }
+        tableHtml += '</table></div>';
+        htmlParts.push(tableHtml);
+      }
+      continue;
+    }
+
+    // Blockquotes
     if (/^>\s?/.test(line)) {
       const quoteLines: string[] = [];
       while (i < lines.length && /^>\s?/.test(lines[i])) { quoteLines.push(lines[i].replace(/^>\s?/, '')); i++; }
@@ -160,6 +218,7 @@ function simpleMarkdownToHtml(markdown: string): string {
       continue;
     }
 
+    // Unordered lists
     if (/^\s*[-*]\s+/.test(line)) {
       const items: string[] = [];
       while (i < lines.length && /^\s*[-*]\s+/.test(lines[i])) { items.push(lines[i].replace(/^\s*[-*]\s+/, '')); i++; }
@@ -167,6 +226,7 @@ function simpleMarkdownToHtml(markdown: string): string {
       continue;
     }
 
+    // Ordered lists
     if (/^\s*\d+\.\s+/.test(line)) {
       const items: string[] = [];
       while (i < lines.length && /^\s*\d+\.\s+/.test(lines[i])) { items.push(lines[i].replace(/^\s*\d+\.\s+/, '')); i++; }
@@ -174,10 +234,12 @@ function simpleMarkdownToHtml(markdown: string): string {
       continue;
     }
 
+    // Blank lines
     if (line.trim() === '') { i++; continue; }
 
+    // Paragraphs — collect consecutive non-special lines
     const paraLines: string[] = [];
-    while (i < lines.length && lines[i].trim() !== '' && !/^#{1,6}\s/.test(lines[i]) && !/^>\s?/.test(lines[i]) && !/^\s*[-*]\s+/.test(lines[i]) && !/^\s*\d+\.\s+/.test(lines[i]) && !/^\s*```/.test(lines[i]) && !/^\s*([-*_])\s*\1\s*\1/.test(lines[i])) {
+    while (i < lines.length && lines[i].trim() !== '' && !/^#{1,6}\s/.test(lines[i]) && !/^>\s?/.test(lines[i]) && !/^\s*[-*]\s+/.test(lines[i]) && !/^\s*\d+\.\s+/.test(lines[i]) && !/^\s*```/.test(lines[i]) && !/^\s*([-*_])\s*\1\s*\1/.test(lines[i]) && !isTableRow(lines[i])) {
       paraLines.push(lines[i]);
       i++;
     }
@@ -195,10 +257,10 @@ function escapeHtml(text: string): string {
 
 function inlineMarkdown(text: string): string {
   return text
-    .replace(/\[(.+?)\]\((.+?)\)/g, (match, text, url) => {
+    .replace(/\[(.+?)\]\((.+?)\)/g, (_match, linkText, url) => {
         const isExternal = url.startsWith('http');
         const rel = isExternal ? 'noopener noreferrer nofollow' : '';
-        return `<a href="${url}"${rel ? ` rel="${rel}"` : ''}>${text}</a>`;
+        return `<a href="${url}"${rel ? ` rel="${rel}"` : ''}>${linkText}</a>`;
       })
     .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
     .replace(/(?<!\*)\*(?!\*)(.+?)(?<!\*)\*(?!\*)/g, '<em>$1</em>')
@@ -284,46 +346,54 @@ export default async function BlogDetailPage({
         <span className="truncate text-foreground font-medium max-w-[200px] sm:max-w-none">{post.title}</span>
       </nav>
 
-      <article className="mb-8 space-y-6">
-        <div className="flex flex-wrap items-center gap-2">
-          <span className={`inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-medium ${CATEGORY_COLORS[post.category] || 'bg-muted text-muted-foreground border-border'}`}>
-            {CATEGORY_LABELS[post.category] || post.category}
-          </span>
-          {post.featured && (
-            <span className="inline-flex items-center rounded-full border border-amber-300 bg-amber-100 px-2.5 py-0.5 text-xs font-medium text-amber-800 dark:border-amber-500/30 dark:bg-amber-500/20 dark:text-amber-400">Featured</span>
-          )}
-        </div>
-
-        <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl leading-tight">{post.title}</h1>
-
-        {post.excerpt && <p className="text-lg text-muted-foreground leading-relaxed">{post.excerpt}</p>}
-
-        <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
-          <span>By TheTaxCalc Team</span>
-          <span><time dateTime={post.createdAt}>{formatDate(post.createdAt)}</time></span>
-          {post.updatedAt && post.updatedAt !== post.createdAt && (
-            <span>Updated <time dateTime={post.updatedAt}>{formatDate(post.updatedAt)}</time></span>
-          )}
-        </div>
-
-        {tagList.length > 0 && (
+      <article className="mb-8">
+        {/* Article Header */}
+        <div className="mx-auto max-w-3xl space-y-4 mb-8">
           <div className="flex flex-wrap items-center gap-2">
-            {tagList.map((tag) => (
-              <span key={tag} className="inline-flex items-center rounded-full border border-border/50 px-2.5 py-0.5 text-[10px] text-muted-foreground">{tag}</span>
-            ))}
+            <span className={`inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-medium ${CATEGORY_COLORS[post.category] || 'bg-muted text-muted-foreground border-border'}`}>
+              {CATEGORY_LABELS[post.category] || post.category}
+            </span>
+            {post.featured && (
+              <span className="inline-flex items-center rounded-full border border-amber-300 bg-amber-100 px-2.5 py-0.5 text-xs font-medium text-amber-800 dark:border-amber-500/30 dark:bg-amber-500/20 dark:text-amber-400">Featured</span>
+            )}
+          </div>
+
+          <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl leading-tight">{post.title}</h1>
+
+          {post.excerpt && <p className="text-lg text-muted-foreground leading-relaxed">{post.excerpt}</p>}
+
+          <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground border-b border-border/30 pb-4">
+            <span>By TheTaxCalc Team</span>
+            <span><time dateTime={post.createdAt}>{formatDate(post.createdAt)}</time></span>
+            {post.updatedAt && post.updatedAt !== post.createdAt && (
+              <span>Updated <time dateTime={post.updatedAt}>{formatDate(post.updatedAt)}</time></span>
+            )}
+          </div>
+
+          {tagList.length > 0 && (
+            <div className="flex flex-wrap items-center gap-2">
+              {tagList.map((tag) => (
+                <span key={tag} className="inline-flex items-center rounded-full border border-border/50 px-2.5 py-0.5 text-[10px] text-muted-foreground">{tag}</span>
+              ))}
+            </div>
+          )}
+        </div>
+
+        {/* Article Content — centered, readable width */}
+        {contentFullHtml && (
+          <div className="mx-auto max-w-3xl">
+            <div className="prose-container" dangerouslySetInnerHTML={{ __html: contentFullHtml }} />
           </div>
         )}
 
-        {contentFullHtml && (
-          <div className="prose-container max-w-none text-muted-foreground leading-relaxed" dangerouslySetInnerHTML={{ __html: contentFullHtml }} />
-        )}
-
-        <Link href="/blog" className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors">← Back to Blog</Link>
+        <div className="mx-auto max-w-3xl mt-8">
+          <Link href="/blog" className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors">← Back to Blog</Link>
+        </div>
       </article>
 
       {/* Internal Links: Try Our Calculators */}
       <section className="mb-8 rounded-xl border border-emerald-500/20 bg-emerald-500/5 p-6">
-        <p className="text-lg font-bold text-foreground mb-3">Try Our Tax Calculators</p>
+        <h2 className="text-lg font-bold text-foreground mb-3">Try Our Tax Calculators</h2>
         <p className="text-sm text-muted-foreground mb-4">See exactly how much you&apos;ll take home after all taxes and deductions.</p>
         <div className="flex flex-wrap gap-3">
           <Link href="/paycheck-calculator" className="inline-flex items-center gap-1.5 rounded-lg bg-emerald-600 px-4 py-2 text-sm font-medium text-white hover:bg-emerald-700 transition-colors">Paycheck Calculator</Link>
@@ -341,7 +411,7 @@ export default async function BlogDetailPage({
 
       {/* Popular Salary Calculations */}
       <section className="mb-8 rounded-xl border border-border/50 bg-muted/30 p-6">
-        <p className="text-lg font-bold text-foreground mb-3">Popular Salary Calculations</p>
+        <h2 className="text-lg font-bold text-foreground mb-3">Popular Salary Calculations</h2>
         <p className="text-sm text-muted-foreground mb-4">Quick access to take-home pay estimates for common salary levels.</p>
         <div className="flex flex-wrap gap-3">
           {[
@@ -365,7 +435,7 @@ export default async function BlogDetailPage({
       {/* Related Articles */}
       {relatedPosts.length > 0 && (
         <section className="mb-8">
-          <p className="text-lg font-bold text-foreground mb-4">Related Articles</p>
+          <h2 className="text-lg font-bold text-foreground mb-4">Related Articles</h2>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {relatedPosts.map((rp) => {
               const rpTagList = rp.tags ? rp.tags.split(',').map((t) => t.trim()).filter(Boolean) : [];

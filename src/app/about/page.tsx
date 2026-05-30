@@ -301,7 +301,7 @@ export default function AboutPage() {
       {/* Contact */}
       <section id="contact" className="mb-12 rounded-xl border border-border/30 bg-card/50 p-8 text-center">
         <Mail className="h-8 w-8 text-emerald-400 mx-auto mb-4" />
-        <h3 className="text-2xl font-bold text-foreground mb-3">Get in Touch</h3>
+        <h2 className="text-2xl font-bold text-foreground mb-3">Get in Touch</h2>
         <p className="text-muted-foreground mb-6 max-w-md mx-auto">
           Found a bug? Think our Illinois math is off? Want your state added? We actually
           read every email. Seriously.
@@ -471,9 +471,7 @@ export default function AboutPage() {
 
       {/* Related Tools & Resources */}
       <section className="mb-12 border-t border-border/20 pt-10">
-        <p className="text-lg font-bold text-foreground mb-6">
-          About TheTaxCalc — Resources
-        </p>
+        <h2 className="text-lg font-bold text-foreground mb-6">About TheTaxCalc — Resources</h2>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {/* Calculators */}
           <div className="rounded-xl border border-border/30 bg-card/50 p-5">

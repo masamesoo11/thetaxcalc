@@ -100,7 +100,7 @@ The brackets are adjusted annually for inflation. Compared to 2025:
 3. **Ignoring tax credits** — Credits reduce your tax dollar-for-dollar, which is more valuable than deductions.
 4. **Not adjusting withholdings** — If your situation changed, update your W-4.
 
-## Bottom Line
+## Bottom Line: Know Your Brackets
 
 The 2026 tax brackets continue the seven-rate progressive system. Understanding marginal vs. effective rates can save you from unnecessary anxiety about "moving into a higher bracket." Use our free [tax calculator](/paycheck-calculator) to see exactly what you'll owe based on your specific situation.`,
 
@@ -198,7 +198,7 @@ Texas might be better for you if:
 - You prefer a **lower cost of living** (housing, groceries, and services are generally cheaper)
 - You're a **business owner** (Texas has no corporate income tax, franchise tax is modest)
 
-## The Bottom Line
+## Bottom Line: Florida vs Texas Verdict
 
 Both states offer significant tax savings compared to high-tax states like California, New York, or Illinois. The right choice depends on your lifestyle:
 
@@ -323,7 +323,7 @@ You must file an Illinois tax return (Form IL-1040) if:
 
 The filing deadline aligns with the federal deadline, typically April 15.
 
-## Bottom Line
+## Bottom Line: Illinois Tax Takeaways
 
 Illinois offers a straightforward flat tax rate, but the overall tax burden is high due to property taxes:
 
@@ -559,7 +559,7 @@ In 2023, Texas passed the **largest property tax cut in state history** ($18 bil
 
 This reduced the average homeowner's property tax bill by about 18-20%, but Texas property taxes remain among the highest nationally.
 
-## Bottom Line
+## Bottom Line: Texas No-Income-Tax Trade-Offs
 
 Texas's no-income-tax model works, but it's not free. You pay through property taxes and higher sales taxes. The net benefit depends on your income, housing situation, and spending habits.
 
@@ -677,7 +677,7 @@ Don't forget state obligations:
 - **States with income tax**: File state quarterly estimates too
 - **Local taxes**: Some cities (NYC, for example) have their own income tax
 
-## Bottom Line
+## Bottom Line: Self-Employment Tax Summary
 
 Being self-employed means paying more in taxes than a W-2 employee earning the same amount — roughly $6,000 more on $80,000. But smart use of deductions (especially retirement contributions and home office) can significantly close that gap.
 
@@ -805,7 +805,7 @@ However, each platform will issue its own 1099-NEC if you earned $600+ from that
 
 Use our [paycheck calculator](/paycheck-calculator) to estimate your total tax burden based on your state.
 
-## Bottom Line
+## Bottom Line: DoorDash Tax Planning
 
 DoorDash driving is taxed as self-employment income. Expect to pay roughly **25–30%** of your earnings in taxes, but smart mileage tracking and deductions can bring that down significantly. Set aside money quarterly and track every deductible mile — your future self will thank you.`,
 
@@ -937,7 +937,7 @@ This is especially valuable if:
 - **Filing**: Form 5500-EZ required when plan assets exceed $250,000
 - **Fees**: Typically $0 at major brokerages; some providers charge setup fees
 
-## Bottom Line
+## Bottom Line: SEP IRA vs Solo 401(k) Decision
 
 For most self-employed people without employees, the **Solo 401(k) is the better choice** because:
 

@@ -279,9 +279,7 @@ export default function PrivacyPage() {
 
       {/* Related Tools & Resources */}
       <section className="mt-12 border-t border-border/20 pt-10">
-        <p className="text-lg font-bold text-foreground mb-6">
-          Privacy — Tax Resources
-        </p>
+        <h2 className="text-lg font-bold text-foreground mb-6">Privacy — Tax Resources</h2>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {/* Calculators */}
           <div className="rounded-xl border border-border/30 bg-card/50 p-5">
