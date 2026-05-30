@@ -270,7 +270,7 @@ export default function PrivacyPage() {
             </p>
             <div className="mt-3 rounded-lg bg-muted/30 p-4">
               <p className="font-semibold text-foreground">TheTaxCalc</p>
-              <p>Email: <ProtectedEmail user="privacy" domain="thetaxcalc.com" label="privacy@thetaxcalc.com" /></p>
+              <p>Email: <ProtectedEmail user="privacy" domain="thetaxcalc.com" /></p>
               <p>Website: {SITE_URL}</p>
             </div>
           </div>

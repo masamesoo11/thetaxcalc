@@ -17,6 +17,7 @@ import {
 } from 'lucide-react';
 import Link from 'next/link';
 import { Breadcrumb } from '@/components/finance/breadcrumb';
+import { ProtectedEmail } from '@/components/finance/protected-email';
 import { SITE_URL } from '@/lib/site-config';
 
 export const metadata: Metadata = {
@@ -307,7 +308,7 @@ export default function AboutPage() {
         </p>
         <div className="rounded-lg bg-muted/30 p-4 inline-block">
           <p className="text-sm text-muted-foreground">
-            Email: <span className="text-emerald-400">contact</span><span className="text-emerald-400">@thetaxcalc.com</span>
+            Email: <ProtectedEmail user="contact" domain="thetaxcalc.com" />
           </p>
         </div>
       </section>

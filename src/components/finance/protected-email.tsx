@@ -1,15 +1,22 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 /**
- * A client component that displays an email address using JavaScript.
- * Cloudflare's email obfuscation feature only processes static HTML,
- * so emails rendered via JS won't be converted to /cdn-cgi/l/email-protection links.
- * The email is split across props so no email pattern exists in the server-rendered HTML.
+ * A client component that displays an email address using JavaScript only.
+ *
+ * Cloudflare's "Email Address Obfuscation" rewrites any email-like text
+ * (even in buttons/links) in the server-rendered HTML into
+ * /cdn-cgi/l/email-protection links, which return 404 for crawlers.
+ *
+ * Solution: render NOTHING that resembles an email in the initial HTML.
+ * The email is constructed client-side only after the user clicks.
  */
-export function ProtectedEmail({ user, domain, label }: { user: string; domain: string; label?: string }) {
+export function ProtectedEmail({ user, domain }: { user: string; domain: string }) {
   const [revealed, setRevealed] = useState(false);
+
+  // Hydration-safe: only construct email client-side
+  const email = revealed ? `${user}\u0040${domain}` : '';
 
   if (!revealed) {
     return (
@@ -19,16 +26,14 @@ export function ProtectedEmail({ user, domain, label }: { user: string; domain: 
         className="text-emerald-400 hover:text-emerald-300 underline cursor-pointer bg-transparent border-none p-0 font-inherit text-inherit"
         aria-label="Click to reveal email address"
       >
-        {label || 'Click to show email'}
+        Show email address
       </button>
     );
   }
 
-  const email = user + '@' + domain;
-
   return (
     <a
-      href={'mailto:' + email}
+      href={`mailto:${user}%40${domain}`}
       className="text-emerald-400 hover:text-emerald-300 underline"
     >
       {email}
