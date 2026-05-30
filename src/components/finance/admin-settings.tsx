@@ -1,8 +1,8 @@
 'use client';
 
-import { useState, useMemo, useCallback } from 'react';
-import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { Save, Plus, Trash2 } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { Save, Plus, Trash2, Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -23,37 +23,61 @@ const COMMON_SETTINGS = [
 
 export function AdminSettings() {
   const queryClient = useQueryClient();
-  // Track local edits as a diff overlay on fetched data
-  const [edits, setEdits] = useState<Record<string, string>>({});
-  const [addedKeys, setAddedKeys] = useState<string[]>([]);
-  const [removedKeys, setRemovedKeys] = useState<string[]>([]);
+
+  // Simple local state: array of { key, value } that the user can edit directly
+  const [commonValues, setCommonValues] = useState<Record<string, string>>({});
+  const [customSettings, setCustomSettings] = useState<SettingItem[]>([]);
   const [newKey, setNewKey] = useState('');
   const [newValue, setNewValue] = useState('');
+  const [isLoading, setIsLoading] = useState(true);
+  const [hasLoaded, setHasLoaded] = useState(false);
 
-  // Fetch settings
-  const { data: settingsMap = {}, isLoading } = useQuery<Record<string, string>>({
-    queryKey: ['site-settings'],
-    queryFn: async () => {
-      const res = await fetch('/api/settings');
-      if (!res.ok) throw new Error('Failed to fetch settings');
-      return res.json();
-    },
-  });
+  // Fetch settings on mount
+  useEffect(() => {
+    async function fetchSettings() {
+      try {
+        const res = await fetch('/api/settings');
+        if (!res.ok) throw new Error('Failed to fetch');
+        const data: Record<string, string> = await res.json();
 
-  // Derive the full settings list from fetched data + local edits
-  const settings = useMemo(() => {
-    const result: SettingItem[] = [];
-    const allKeys = new Set([
-      ...Object.keys(settingsMap),
-      ...addedKeys,
-    ]);
-    for (const key of allKeys) {
-      if (removedKeys.includes(key)) continue;
-      const value = key in edits ? edits[key] : (settingsMap[key] ?? '');
-      result.push({ key, value });
+        // Separate common vs custom
+        const commonKeys = new Set(COMMON_SETTINGS.map(s => s.key));
+        const cv: Record<string, string> = {};
+        const cs: SettingItem[] = [];
+
+        for (const [key, value] of Object.entries(data)) {
+          if (commonKeys.has(key)) {
+            cv[key] = value;
+          } else {
+            cs.push({ key, value });
+          }
+        }
+
+        // Ensure all common keys exist even if missing from API
+        for (const cs of COMMON_SETTINGS) {
+          if (!(cs.key in cv)) {
+            cv[cs.key] = '';
+          }
+        }
+
+        setCommonValues(cv);
+        setCustomSettings(cs);
+      } catch (err) {
+        console.error('Failed to fetch settings:', err);
+        toast.error('Failed to load settings');
+        // Still initialize common keys with empty values
+        const cv: Record<string, string> = {};
+        for (const cs of COMMON_SETTINGS) {
+          cv[cs.key] = '';
+        }
+        setCommonValues(cv);
+      } finally {
+        setIsLoading(false);
+        setHasLoaded(true);
+      }
     }
-    return result;
-  }, [settingsMap, edits, addedKeys, removedKeys]);
+    fetchSettings();
+  }, []);
 
   // Save mutation
   const saveMutation = useMutation({
@@ -78,58 +102,60 @@ export function AdminSettings() {
     },
   });
 
-  const handleValueChange = useCallback((key: string, value: string) => {
-    setEdits((prev) => ({ ...prev, [key]: value }));
-  }, []);
+  // Update a common setting value
+  const handleCommonChange = (key: string, value: string) => {
+    setCommonValues(prev => ({ ...prev, [key]: value }));
+  };
 
-  const handleAddSetting = useCallback(() => {
+  // Update a custom setting value
+  const handleCustomChange = (index: number, value: string) => {
+    setCustomSettings(prev => {
+      const next = [...prev];
+      next[index] = { ...next[index], value };
+      return next;
+    });
+  };
+
+  // Add a new custom setting
+  const handleAddSetting = () => {
     if (!newKey.trim()) {
       toast.error('Setting key is required');
       return;
     }
-    if ([...Object.keys(settingsMap), ...addedKeys].includes(newKey.trim()) && !removedKeys.includes(newKey.trim())) {
+    const keyExists = COMMON_SETTINGS.some(s => s.key === newKey.trim()) ||
+      customSettings.some(s => s.key === newKey.trim());
+    if (keyExists) {
       toast.error('Setting key already exists');
       return;
     }
-    setAddedKeys((prev) => [...prev, newKey.trim()]);
-    setEdits((prev) => ({ ...prev, [newKey.trim()]: newValue }));
-    setRemovedKeys((prev) => prev.filter((k) => k !== newKey.trim()));
+    setCustomSettings(prev => [...prev, { key: newKey.trim(), value: newValue }]);
     setNewKey('');
     setNewValue('');
-  }, [newKey, newValue, settingsMap, addedKeys, removedKeys]);
-
-  const handleRemoveSetting = useCallback((key: string) => {
-    setRemovedKeys((prev) => [...prev, key]);
-    setAddedKeys((prev) => prev.filter((k) => k !== key));
-    setEdits((prev) => {
-      const next = { ...prev };
-      delete next[key];
-      return next;
-    });
-  }, []);
-
-  const handleSave = () => {
-    saveMutation.mutate(settings);
   };
 
-  if (isLoading) {
+  // Remove a custom setting
+  const handleRemoveSetting = (index: number) => {
+    setCustomSettings(prev => prev.filter((_, i) => i !== index));
+  };
+
+  // Save all settings
+  const handleSave = () => {
+    const allSettings: SettingItem[] = [
+      // Common settings
+      ...Object.entries(commonValues).map(([key, value]) => ({ key, value })),
+      // Custom settings
+      ...customSettings,
+    ];
+    saveMutation.mutate(allSettings);
+  };
+
+  if (isLoading || !hasLoaded) {
     return (
       <div className="flex items-center justify-center py-20">
-        <div className="animate-spin h-8 w-8 border-2 border-emerald-500 border-t-transparent rounded-full" />
+        <Loader2 className="h-8 w-8 animate-spin text-emerald-500" />
       </div>
     );
   }
-
-  // Separate common settings from custom ones
-  const commonKeys = new Set(COMMON_SETTINGS.map((s) => s.key));
-  const commonSettings = settings.filter((s) => commonKeys.has(s.key));
-  const customSettings = settings.filter((s) => !commonKeys.has(s.key));
-
-  // Ensure all common settings exist (add empty ones if missing)
-  const allCommonSettings = COMMON_SETTINGS.map((cs) => {
-    const existing = commonSettings.find((s) => s.key === cs.key);
-    return existing || { key: cs.key, value: '' };
-  });
 
   return (
     <div className="space-y-6">
@@ -139,23 +165,21 @@ export function AdminSettings() {
           <CardTitle className="text-base">General Settings</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
-          {allCommonSettings.map((cs) => {
-            const meta = COMMON_SETTINGS.find((m) => m.key === cs.key);
-            return (
-              <div key={cs.key} className="grid gap-2 sm:grid-cols-[200px_1fr] sm:items-center">
-                <Label htmlFor={cs.key} className="text-sm font-mono">
-                  {meta?.label || cs.key}
-                </Label>
-                <Input
-                  id={cs.key}
-                  value={cs.value}
-                  onChange={(e) => handleValueChange(cs.key, e.target.value)}
-                  placeholder={meta?.placeholder}
-                  className="bg-background"
-                />
-              </div>
-            );
-          })}
+          {COMMON_SETTINGS.map((cs) => (
+            <div key={cs.key} className="grid gap-2 sm:grid-cols-[200px_1fr] sm:items-center">
+              <Label htmlFor={cs.key} className="text-sm font-mono">
+                {cs.label}
+              </Label>
+              <Input
+                id={cs.key}
+                type="text"
+                value={commonValues[cs.key] ?? ''}
+                onChange={(e) => handleCommonChange(cs.key, e.target.value)}
+                placeholder={cs.placeholder}
+                className="bg-background"
+              />
+            </div>
+          ))}
         </CardContent>
       </Card>
 
@@ -165,19 +189,20 @@ export function AdminSettings() {
           <CardTitle className="text-base">Custom Settings</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
-          {customSettings.map((setting) => (
+          {customSettings.map((setting, index) => (
             <div key={setting.key} className="grid gap-2 sm:grid-cols-[200px_1fr_auto] sm:items-center">
               <Label className="text-sm font-mono truncate">{setting.key}</Label>
               <Input
+                type="text"
                 aria-label={`Value for ${setting.key}`}
                 value={setting.value}
-                onChange={(e) => handleValueChange(setting.key, e.target.value)}
+                onChange={(e) => handleCustomChange(index, e.target.value)}
                 className="bg-background"
               />
               <Button
                 variant="ghost"
                 size="sm"
-                onClick={() => handleRemoveSetting(setting.key)}
+                onClick={() => handleRemoveSetting(index)}
                 className="text-red-400 hover:text-red-300 hover:bg-red-500/10 shrink-0"
                 aria-label="Remove setting"
               >
@@ -197,6 +222,7 @@ export function AdminSettings() {
             <div className="text-sm font-medium mb-3">Add New Setting</div>
             <div className="grid gap-2 sm:grid-cols-[200px_1fr_auto] sm:items-center">
               <Input
+                type="text"
                 aria-label="New setting key"
                 value={newKey}
                 onChange={(e) => setNewKey(e.target.value)}
@@ -204,6 +230,7 @@ export function AdminSettings() {
                 className="bg-background font-mono text-sm"
               />
               <Input
+                type="text"
                 aria-label="New setting value"
                 value={newValue}
                 onChange={(e) => setNewValue(e.target.value)}
@@ -231,7 +258,7 @@ export function AdminSettings() {
           className="gap-2 bg-emerald-600 hover:bg-emerald-700 min-w-[140px]"
           disabled={saveMutation.isPending}
         >
-          <Save className="h-4 w-4" />
+          {saveMutation.isPending ? <Loader2 className="h-4 w-4 animate-spin" /> : <Save className="h-4 w-4" />}
           {saveMutation.isPending ? 'Saving...' : 'Save All'}
         </Button>
       </div>
