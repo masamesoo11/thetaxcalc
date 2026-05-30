@@ -1,7 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { getPublishedPostsMeta } from '@/lib/blog-index';
-import { BLOG_CONTENT } from '@/lib/blog-content';
 import { BlogListClient } from './blog-list-client';
 import { Breadcrumb } from '@/components/finance/breadcrumb';
 import { SITE_URL } from '@/lib/site-config';
@@ -46,10 +45,7 @@ function formatDate(dateStr: string): string {
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
 function getStaticPosts() {
-  return getPublishedPostsMeta().map(meta => ({
-    ...meta,
-    content: BLOG_CONTENT[meta.slug] || '',
-  }));
+  return getPublishedPostsMeta();
 }
 
 export default async function BlogPage() {
