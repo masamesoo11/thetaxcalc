@@ -66,7 +66,7 @@ export function Footer() {
                   <Input
                     type="email"
                     aria-label="Email address for newsletter"
-                    placeholder="your@email.com"
+                    placeholder="Enter your email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     onKeyDown={(e) => e.key === 'Enter' && handleSubscribe()}

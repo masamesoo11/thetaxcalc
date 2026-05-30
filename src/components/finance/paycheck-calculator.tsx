@@ -107,9 +107,9 @@ export function PaycheckCalculator({ defaultState = 'illinois', onStateChange }:
     <div className="space-y-6">
       {/* ─── Page Title ────────────────────────────────────── */}
       <div className="text-center">
-        <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+        <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
           Paycheck Calculator
-        </h1>
+        </h2>
         <p className="mt-2 text-muted-foreground">
           Instantly compute your take-home pay with federal, FICA, and state tax deductions
         </p>

@@ -293,10 +293,10 @@ export function CapitalGainsCalculator() {
     <div className="space-y-6">
       {/* ─── Page Title ─────────────────────────────────── */}
       <div className="text-center">
-        <h1 className="flex items-center justify-center gap-2 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+        <h2 className="flex items-center justify-center gap-2 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
           <TrendingUp className="h-8 w-8 text-emerald-400" />
           Capital Gains Tax Calculator
-        </h1>
+        </h2>
         <p className="mt-2 text-muted-foreground">
           Calculate your capital gains tax liability — short-term, long-term, and NIIT for 2026
         </p>

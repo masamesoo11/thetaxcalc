@@ -201,10 +201,10 @@ export function RetirementProjection() {
     <div className="space-y-6">
       {/* Page Header */}
       <div className="text-center">
-        <h1 className="flex items-center justify-center gap-2 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+        <h2 className="flex items-center justify-center gap-2 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
           <PiggyBank className="h-8 w-8 text-emerald-400" />
           401(k) Retirement Projection
-        </h1>
+        </h2>
         <p className="mt-2 text-muted-foreground">
           See how your 401(k) contributions compound over time with employer matching
         </p>

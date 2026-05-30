@@ -295,7 +295,8 @@ export function BlogDetail({
     queryFn: async () => {
       const res = await fetch(`/api/blog/${slug}`);
       if (!res.ok) throw new Error('Post not found');
-      return res.json();
+      const data = await res.json();
+      return data.post ?? data;
     },
     enabled: !!slug,
   });
@@ -306,8 +307,9 @@ export function BlogDetail({
     queryFn: async () => {
       const res = await fetch(`/api/blog?published=true&category=${post!.category}`);
       if (!res.ok) return [];
-      const data: BlogPost[] = await res.json();
-      return data.filter((p) => p.slug !== slug).slice(0, 3);
+      const data = await res.json();
+      const posts: BlogPost[] = data.posts ?? data;
+      return posts.filter((p) => p.slug !== slug).slice(0, 3);
     },
     enabled: !!post?.category,
   });

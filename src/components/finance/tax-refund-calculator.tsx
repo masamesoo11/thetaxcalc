@@ -453,9 +453,9 @@ export function TaxRefundCalculator() {
     <div className="space-y-6">
       {/* ─── Page Title ────────────────────────────────────── */}
       <div className="text-center">
-        <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+        <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
           Tax Refund Calculator
-        </h1>
+        </h2>
         <p className="mt-2 text-muted-foreground">
           Estimate your 2026 federal and state tax refund or amount owed
         </p>

@@ -102,10 +102,10 @@ export function MortgageCalculator() {
   return (
     <div className="space-y-6">
       <div className="text-center">
-        <h1 className="flex items-center justify-center gap-2 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+        <h2 className="flex items-center justify-center gap-2 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
           <Home className="h-8 w-8 text-emerald-400" />
           Mortgage Calculator
-        </h1>
+        </h2>
         <p className="mt-2 text-muted-foreground">
           Fixed-rate amortization with extra payment simulation — see exactly how much you save
         </p>

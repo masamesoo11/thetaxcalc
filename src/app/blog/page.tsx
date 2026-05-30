@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { getPublishedPostsMeta } from '@/lib/blog-index';
-import { BlogListClient } from './blog-list-client';
+import { BlogFilterClient } from './blog-filter-client';
 import { Breadcrumb } from '@/components/finance/breadcrumb';
 import { SITE_URL } from '@/lib/site-config';
 
@@ -27,32 +27,10 @@ export const metadata: Metadata = {
   },
 };
 
-// ─── Helpers ──────────────────────────────────────────────────────────────────
-
-const CATEGORY_LABELS: Record<string, string> = { 'tax-guide': 'Tax Guide', comparison: 'Comparison', tips: 'Tips', news: 'News' };
-const CATEGORY_COLORS: Record<string, string> = {
-  'tax-guide': 'bg-emerald-100 text-emerald-800 dark:bg-emerald-500/20 dark:text-emerald-400 border-emerald-300 dark:border-emerald-500/30',
-  comparison: 'bg-cyan-100 text-cyan-800 dark:bg-cyan-500/20 dark:text-cyan-400 border-cyan-300 dark:border-cyan-500/30',
-  tips: 'bg-amber-100 text-amber-800 dark:bg-amber-500/20 dark:text-amber-400 border-amber-300 dark:border-amber-500/30',
-  news: 'bg-rose-100 text-rose-800 dark:bg-rose-500/20 dark:text-rose-400 border-rose-300 dark:border-rose-500/30',
-};
-
-function formatDate(dateStr: string): string {
-  try { return new Date(dateStr).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }); }
-  catch { return dateStr; }
-}
-
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
-function getStaticPosts() {
-  return getPublishedPostsMeta();
-}
-
 export default async function BlogPage() {
-  const posts = getStaticPosts();
-
-  const featuredPosts = posts.filter((p) => p.featured);
-  const regularPosts = posts.filter((p) => !p.featured);
+  const posts = getPublishedPostsMeta();
 
   const jsonLd = {
     '@context': 'https://schema.org', '@type': 'Blog',
@@ -88,67 +66,11 @@ export default async function BlogPage() {
         </p>
       </div>
 
-      {posts.length > 0 && (
-        <div className="mb-8 space-y-8">
-          {featuredPosts.length > 0 && (
-            <section>
-              <h2 className="mb-4 text-lg font-semibold text-foreground">Featured Articles</h2>
-              <div className="grid gap-6 lg:grid-cols-2">
-                {featuredPosts.map((post) => (
-                  <Link key={post.id} href={`/blog/${post.slug}`} className="group block rounded-xl border border-border/50 bg-card/80 backdrop-blur-sm transition-all hover:border-emerald-500/30 hover:shadow-lg hover:shadow-emerald-500/5">
-                    <article className="p-6 space-y-3">
-                      <div className="flex items-center gap-2">
-                        <span className={`inline-flex items-center rounded-full border px-2.5 py-0.5 text-[10px] font-medium ${CATEGORY_COLORS[post.category] || 'bg-muted text-muted-foreground border-border'}`}>
-                          {CATEGORY_LABELS[post.category] || post.category}
-                        </span>
-                        <span className="inline-flex items-center rounded-full border border-amber-300 bg-amber-100 px-2.5 py-0.5 text-[10px] font-medium text-amber-800 dark:border-amber-500/30 dark:bg-amber-500/20 dark:text-amber-400">Featured</span>
-                      </div>
-                      <h3 className="text-xl font-bold leading-tight text-foreground group-hover:text-emerald-400 transition-colors">{post.title}</h3>
-                      {post.excerpt && <p className="text-sm leading-relaxed text-muted-foreground">{post.excerpt}</p>}
-                      <div className="flex items-center gap-3 pt-1 text-xs text-muted-foreground">
-                        <time dateTime={post.createdAt}>{formatDate(post.createdAt)}</time>
-                      </div>
-                      <span className="inline-flex items-center gap-1 text-xs font-medium text-emerald-400 group-hover:gap-2 transition-all">Read more →</span>
-                    </article>
-                  </Link>
-                ))}
-              </div>
-            </section>
-          )}
-
-          <section>
-            {featuredPosts.length > 0 && <h2 className="mb-4 text-lg font-semibold text-foreground">Latest Articles</h2>}
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {regularPosts.map((post) => (
-                <Link key={post.id} href={`/blog/${post.slug}`} className="group block rounded-xl border border-border/50 bg-card/80 backdrop-blur-sm transition-all hover:border-emerald-500/30 hover:shadow-lg hover:shadow-emerald-500/5">
-                  <article className="p-4 space-y-2">
-                    <span className={`inline-flex items-center rounded-full border px-2.5 py-0.5 text-[10px] font-medium ${CATEGORY_COLORS[post.category] || 'bg-muted text-muted-foreground border-border'}`}>
-                      {CATEGORY_LABELS[post.category] || post.category}
-                    </span>
-                    <h3 className="text-base font-bold leading-tight text-foreground group-hover:text-emerald-400 transition-colors">{post.title}</h3>
-                    {post.excerpt && <p className="text-xs leading-relaxed text-muted-foreground line-clamp-2">{post.excerpt}</p>}
-                    <div className="flex items-center gap-3 pt-1 text-xs text-muted-foreground">
-                      <time dateTime={post.createdAt}>{formatDate(post.createdAt)}</time>
-                    </div>
-                    <span className="inline-flex items-center gap-1 text-xs font-medium text-emerald-400 group-hover:gap-2 transition-all">Read more →</span>
-                  </article>
-                </Link>
-              ))}
-            </div>
-          </section>
-
-          <p className="text-center text-xs text-muted-foreground">{posts.length} article{posts.length !== 1 ? 's' : ''} published</p>
-        </div>
-      )}
-
-      {posts.length === 0 && (
-        <div className="py-12 text-center">
-          <p className="text-muted-foreground">Loading articles...</p>
-        </div>
-      )}
+      {/* Client-side filterable blog list using server-provided data (no API call) */}
+      <BlogFilterClient posts={posts} />
 
       <section className="mx-auto mt-12 max-w-3xl border-t border-border/50 pt-10">
-        <h3 className="text-2xl font-bold tracking-tight text-foreground">Why read this blog?</h3>
+        <h2 className="text-2xl font-bold tracking-tight text-foreground">Why read this blog?</h2>
         <div className="mt-5 space-y-4 text-sm leading-relaxed text-muted-foreground">
           <p>Because nobody wakes up excited to read about tax brackets. We know. But here&apos;s the thing — ignoring taxes doesn&apos;t make them go away. It just makes April a lot more stressful than it needs to be.</p>
           <p>We&apos;re not a faceless finance conglomerate. We&apos;re real people who got tired of tax articles that read like IRS instruction manuals. Our promise: plain English, honest opinions, and zero condescension.</p>
@@ -266,8 +188,6 @@ export default async function BlogPage() {
           </div>
         </div>
       </section>
-
-      <BlogListClient />
     </div>
   );
 }

@@ -89,10 +89,10 @@ export function FloridaCalculator() {
   return (
     <div className="space-y-6">
       <div className="text-center">
-        <h1 className="flex items-center justify-center gap-2 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+        <h2 className="flex items-center justify-center gap-2 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
           <Sun className="h-8 w-8 text-emerald-400" />
           Florida Paycheck Calculator
-        </h1>
+        </h2>
         <p className="mt-2 text-muted-foreground">
           Zero state income tax — factor in Florida property &amp; sales tax for the complete picture
         </p>

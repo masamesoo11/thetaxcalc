@@ -141,10 +141,10 @@ export function NewYorkCalculator() {
   return (
     <div className="space-y-6">
       <div className="text-center">
-        <h1 className="flex items-center justify-center gap-2 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+        <h2 className="flex items-center justify-center gap-2 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
           <MapPin className="h-8 w-8 text-emerald-400" />
           New York Paycheck Calculator
-        </h1>
+        </h2>
         <p className="mt-2 text-muted-foreground">
           Progressive 4%–10.9% state tax + potential NYC tax — complete take-home &amp; cost of living breakdown
         </p>

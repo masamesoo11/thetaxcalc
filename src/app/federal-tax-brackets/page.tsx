@@ -236,7 +236,7 @@ export default function FederalTaxBracketsPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-8">
             <h2 className="text-2xl sm:text-3xl font-bold text-foreground">
-              2026 Federal <span className="gradient-text">Tax Brackets</span>
+              2026 Federal Tax Brackets by <span className="gradient-text">Filing Status</span>
             </h2>
             <p className="mt-2 text-muted-foreground max-w-2xl">
               Pick your filing status below. These are the official IRS numbers for 2026 —

@@ -6,15 +6,21 @@ import { useState, useCallback } from 'react';
  * A client component that displays an email address using JavaScript only.
  *
  * Cloudflare's "Email Address Obfuscation" rewrites any email-like text
- * (even in buttons/links) in the server-rendered HTML into
- * /cdn-cgi/l/email-protection links, which return 404 for crawlers.
+ * (even in serialized React props and buttons/links) in the server-rendered
+ * HTML into /cdn-cgi/l/email-protection links, which return 404 for crawlers.
  *
- * Solution: render NOTHING that resembles an email in the initial HTML.
- * The email is constructed client-side only after the user clicks.
- * We also NEVER use mailto: links because Cloudflare rewrites those too.
+ * Solution: Pass the email as a single obfuscated `code` prop where the @
+ * symbol is replaced with a pipe character. The component decodes it
+ * client-side only after the user clicks. This prevents Cloudflare from
+ * finding email-like patterns in the server-rendered HTML, including the
+ * serialized React hydration data.
+ *
+ * Usage: <ProtectedEmail code="contact|thetaxcalc.com" />
  */
-export function ProtectedEmail({ user, domain }: { user: string; domain: string }) {
+export function ProtectedEmail({ code }: { code: string }) {
   const [revealed, setRevealed] = useState(false);
+
+  const email = code.replace('|', '@');
 
   const handleClick = useCallback(() => {
     if (!revealed) {
@@ -22,9 +28,8 @@ export function ProtectedEmail({ user, domain }: { user: string; domain: string 
       return;
     }
     // Copy to clipboard instead of using mailto: (which Cloudflare rewrites)
-    const email = `${user}@${domain}`;
     navigator.clipboard.writeText(email).catch(() => {});
-  }, [revealed, user, domain]);
+  }, [revealed, email]);
 
   if (!revealed) {
     return (
@@ -39,14 +44,16 @@ export function ProtectedEmail({ user, domain }: { user: string; domain: string 
     );
   }
 
-  // Display email as plain text (not a link) to avoid Cloudflare rewriting
+  // Display email as plain text (not a link) to avoid Cloudflare rewriting.
+  // Use &#64; HTML entity for @ as an extra precaution.
+  const [user, domain] = code.split('|');
   return (
     <button
       type="button"
       onClick={handleClick}
       className="text-emerald-400 hover:text-emerald-300 underline cursor-pointer bg-transparent border-none p-0 font-inherit text-inherit"
       title="Click to copy email address"
-      aria-label={`${user} at ${domain}, click to copy`}
+      aria-label="Click to copy email address"
     >
       {user}&#64;{domain}
     </button>

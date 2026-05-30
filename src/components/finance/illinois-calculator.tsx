@@ -105,10 +105,10 @@ export function IllinoisCalculator() {
   return (
     <div className="space-y-6">
       <div className="text-center">
-        <h1 className="flex items-center justify-center gap-2 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+        <h2 className="flex items-center justify-center gap-2 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
           <MapPin className="h-8 w-8 text-emerald-400" />
           Illinois Paycheck Calculator
-        </h1>
+        </h2>
         <p className="mt-2 text-muted-foreground">
           Illinois flat 4.95% income tax with $2,775 personal exemption — complete take-home breakdown
         </p>

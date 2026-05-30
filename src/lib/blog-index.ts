@@ -55,7 +55,7 @@ export const BLOG_INDEX: BlogPostMeta[] = [
     "published": true,
     "featured": true,
     "metaTitle": "DoorDash Taxes 2026: Driver Guide",
-    "metaDesc": "DoorDash driver taxes for 2026. Self-employment tax, deductions, quarterly payments, and filing tips for gig workers.",
+    "metaDesc": "DoorDash driver taxes for 2026. Self-employment tax, mileage deductions, quarterly payments, and filing tips for gig workers.",
     "createdAt": "2026-05-28T12:00:00.000Z",
     "updatedAt": "2026-05-28T12:00:00.000Z"
   },
@@ -85,7 +85,7 @@ export const BLOG_INDEX: BlogPostMeta[] = [
     "published": true,
     "featured": false,
     "metaTitle": "How FICA Taxes Work 2026 — Full Guide",
-    "metaDesc": "Complete guide to FICA taxes in 2026. Social Security and Medicare withholding, wage bases, and self-employment tax.",
+    "metaDesc": "Complete guide to FICA taxes in 2026. Social Security and Medicare withholding, wage bases, and self-employment tax rules.",
     "createdAt": "2026-05-26T06:59:34.072Z",
     "updatedAt": "2026-05-26T20:31:33.172Z"
   },

@@ -8,7 +8,7 @@ import { SITE_URL } from '@/lib/site-config';
 export const metadata: Metadata = {
   title: 'Terms of Use — TheTaxCalc Tax Calculators',
   description:
-    'TheTaxCalc Terms of Use — understand the terms and conditions for using our free tax calculators and website.',
+    'TheTaxCalc Terms of Use — understand the terms and conditions for using our free tax calculators, website, and financial tools.',
   keywords: ['terms of use', 'thetaxcalc terms', 'tax calculator terms', 'usage agreement', 'legal terms', 'disclaimer'],
   alternates: {
     canonical: `${SITE_URL}/terms`,
@@ -320,7 +320,7 @@ export default function TermsPage() {
             </p>
             <div className="mt-3 rounded-lg bg-muted/30 p-4">
               <p className="font-semibold text-foreground">TheTaxCalc</p>
-              <p>Email: <ProtectedEmail user="legal" domain="thetaxcalc.com" /></p>
+              <p>Email: <ProtectedEmail code="legal|thetaxcalc.com" /></p>
               <p>Website: {SITE_URL}</p>
             </div>
           </div>

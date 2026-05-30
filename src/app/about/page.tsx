@@ -299,7 +299,7 @@ export default function AboutPage() {
       </section>
 
       {/* Contact */}
-      <section className="mb-12 rounded-xl border border-border/30 bg-card/50 p-8 text-center">
+      <section id="contact" className="mb-12 rounded-xl border border-border/30 bg-card/50 p-8 text-center">
         <Mail className="h-8 w-8 text-emerald-400 mx-auto mb-4" />
         <h3 className="text-2xl font-bold text-foreground mb-3">Get in Touch</h3>
         <p className="text-muted-foreground mb-6 max-w-md mx-auto">
@@ -308,7 +308,7 @@ export default function AboutPage() {
         </p>
         <div className="rounded-lg bg-muted/30 p-4 inline-block">
           <p className="text-sm text-muted-foreground">
-            Email: <ProtectedEmail user="contact" domain="thetaxcalc.com" />
+            Email: <ProtectedEmail code="contact|thetaxcalc.com" />
           </p>
         </div>
       </section>

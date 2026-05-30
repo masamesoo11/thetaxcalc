@@ -76,7 +76,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     h1: 'Texas Paycheck Calculator',
     metaTitle: 'TX Paycheck Calculator 2026 | 0% Tax',
     metaDesc:
-      'Calculate Texas take-home pay with 0% state income tax. Free 2026 TX paycheck calculator with property tax analysis.',
+      'Calculate Texas take-home pay with 0% state income tax. Free 2026 TX paycheck calculator with property tax and cost-of-living analysis.',
     keywords: [
       'Texas tax calculator', 'TX paycheck calculator', 'Texas no income tax',
       'Texas take home pay', 'Texas salary calculator', 'Texas property tax',
@@ -99,7 +99,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     h1: 'Florida Paycheck Calculator',
     metaTitle: 'FL Paycheck Calculator 2026 | 0% Tax',
     metaDesc:
-      'Calculate Florida take-home pay with 0% state income tax and homestead exemption. Free 2026 FL calculator.',
+      'Calculate Florida take-home pay with 0% state income tax and homestead exemption. Free 2026 FL paycheck calculator with property tax info.',
     keywords: [
       'Florida tax calculator', 'FL paycheck calculator', 'Florida no income tax',
       'Florida take home pay', 'Florida salary calculator', 'Florida homestead exemption',
@@ -122,7 +122,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     h1: 'California Paycheck Calculator',
     metaTitle: 'CA Paycheck Calculator 2026 | 1-13.3%',
     metaDesc:
-      'Calculate California take-home pay after progressive state tax (1%–13.3%). Free 2026 CA paycheck calculator.',
+      'Calculate California take-home pay after progressive state tax (1%–13.3%). Free 2026 CA paycheck calculator with 401(k) and HSA.',
     keywords: [
       'California tax calculator', 'CA paycheck calculator', 'California income tax',
       'California 13.3% tax', 'California take home pay', 'California salary calculator',
@@ -191,7 +191,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     h1: '401(k) Retirement Calculator',
     metaTitle: '401(k) Calculator 2026 | Projections',
     metaDesc:
-      'Project your 401(k) balance at retirement with employer match and compound growth. Free 2026 retirement calculator.',
+      'Project your 401(k) balance at retirement with employer match and compound growth. Free 2026 retirement calculator with visual charts.',
     keywords: [
       '401k calculator', 'retirement calculator', '401k projection',
       'retirement savings calculator', '401k growth calculator', 'employer match calculator',
@@ -214,7 +214,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     h1: 'Salary Relocation Calculator',
     metaTitle: 'Relocation Calculator 2026 | Compare',
     metaDesc:
-      'Calculate equivalent salary between states. Compare take-home pay in IL, TX, FL, CA, NY. Free relocation calculator.',
+      'Calculate equivalent salary between states. Compare take-home pay in IL, TX, FL, CA, NY. Free 2026 relocation salary calculator.',
     keywords: [
       'relocation calculator', 'salary comparison by state', 'cost of living calculator',
       'move calculator', 'salary equivalent calculator', 'state tax comparison',
