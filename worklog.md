@@ -301,3 +301,27 @@ Stage Summary:
 - Internal 4xx error (`/cdn-cgi/l/email-protection`) fixed by eliminating all mailto: links and obfuscating email addresses with HTML entities
 - 3 files modified: about/page.tsx, privacy/page.tsx, terms/page.tsx
 - All 16 original SEO audit issues are now resolved
+
+---
+Task ID: 8
+Agent: Main Agent
+Task: Fix Cloudflare email obfuscation - update ProtectedEmail component and deploy
+
+Work Log:
+- Identified that the live site (thetaxcalc.com) still has Cloudflare email obfuscation (/cdn-cgi/l/email-protection) because previous code changes were never deployed
+- The ProtectedEmail component was passing the full email address as the label prop, which Cloudflare could still detect in server-rendered HTML
+- Rewrote ProtectedEmail component to never show any email-like text in initial server-rendered HTML - now shows "Show email address" button instead
+- Updated about/page.tsx to use ProtectedEmail component (was using split spans before)
+- Updated terms/page.tsx and privacy/page.tsx to remove label prop from ProtectedEmail
+- Verified build output: no mailto: links, no cdn-cgi links, ProtectedEmail button present
+- Only email in build output is in JSON-LD (which Cloudflare doesn't obfuscate)
+- Built successfully with @cloudflare/next-on-pages
+- Committed and pushed all changes to GitHub
+- DEPLOYMENT BLOCKED: Cannot find CLOUDFLARE_ACCOUNT_ID - the cfut_ API token doesn't have account listing permissions, and the account ID is not stored anywhere in the project or system
+
+Stage Summary:
+- ProtectedEmail component rewritten: no email text in server-rendered HTML
+- About, Terms, Privacy pages updated to use improved ProtectedEmail
+- Build output verified clean
+- Code pushed to GitHub but NOT deployed to Cloudflare Pages
+- Deployment requires CLOUDFLARE_ACCOUNT_ID which is missing
