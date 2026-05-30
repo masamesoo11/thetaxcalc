@@ -319,7 +319,7 @@ export default function TermsPage() {
             </p>
             <div className="mt-3 rounded-lg bg-muted/30 p-4">
               <p className="font-semibold text-foreground">TheTaxCalc</p>
-              <p>Email: legal@thetaxcalc.com</p>
+              <p>Email: legal&#64;thetaxcalc&#46;com</p>
               <p>Website: {SITE_URL}</p>
             </div>
           </div>

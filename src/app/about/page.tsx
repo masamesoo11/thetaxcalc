@@ -251,7 +251,7 @@ export default function AboutPage() {
             We picked these five for a reason — they represent the full spectrum of state tax
             situations, from zero-income-tax states (TX, FL) to the highest-tax states in the
             country (CA, NY), with a flat-tax state (IL) in between. If your state isn&apos;t here
-            yet, <Link href="mailto:contact@thetaxcalc.com" className="text-emerald-400 hover:text-emerald-300 underline">drop us a line</Link> and
+            yet, <span className="text-emerald-400">contact&#64;thetaxcalc&#46;com</span> and
             we&apos;ll prioritize it.
           </p>
           <p>
@@ -307,7 +307,7 @@ export default function AboutPage() {
         </p>
         <div className="rounded-lg bg-muted/30 p-4 inline-block">
           <p className="text-sm text-muted-foreground">
-            Email: <span className="text-emerald-400">contact@thetaxcalc.com</span>
+            Email: <span className="text-emerald-400">contact&#64;thetaxcalc&#46;com</span>
           </p>
         </div>
       </section>

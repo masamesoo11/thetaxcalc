@@ -269,7 +269,7 @@ export default function PrivacyPage() {
             </p>
             <div className="mt-3 rounded-lg bg-muted/30 p-4">
               <p className="font-semibold text-foreground">TheTaxCalc</p>
-              <p>Email: privacy@thetaxcalc.com</p>
+              <p>Email: privacy&#64;thetaxcalc&#46;com</p>
               <p>Website: {SITE_URL}</p>
             </div>
           </div>
