@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo, useState, useCallback, useEffect, lazy, Suspense, ComponentType } from 'react';
+import { useMemo, useState, useCallback, useEffect, lazy, Suspense } from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import {
   LayoutDashboard,
@@ -31,10 +31,13 @@ import { toast } from 'sonner';
 
 const AdminBlogList = lazy(() => import('@/components/finance/admin-blog-list').then(m => ({ default: m.AdminBlogList })));
 const AdminAds = lazy(() => import('@/components/finance/admin-ads').then(m => ({ default: m.AdminAds })));
-const AdminSettings = lazy(() => import('@/components/finance/admin-settings').then(m => ({ default: m.AdminSettings })));
 const AdminLinks = lazy(() => import('@/components/finance/admin-links').then(m => ({ default: m.AdminLinks })));
 const BlogEditor = lazy(() => import('@/components/finance/blog-editor').then(m => ({ default: m.BlogEditor })));
 const DatabaseClient = lazy(() => import('@/components/finance/database-client').then(m => ({ default: m.DatabaseClient })));
+
+// Direct import for AdminSettings — must NOT use lazy/dynamic to ensure
+// React event handlers work correctly for controlled inputs
+import { AdminSettings } from '@/components/finance/admin-settings';
 
 // ─── Loading fallback ────────────────────────────────────────────────────
 
@@ -268,11 +271,7 @@ export function AdminDashboard() {
               <DatabaseClient />
             </Suspense>
           )}
-          {adminSection.section === 'settings' && (
-            <Suspense fallback={<SectionLoader />}>
-              <AdminSettings />
-            </Suspense>
-          )}
+          {adminSection.section === 'settings' && <AdminSettings />}
           {adminSection.section === 'links' && (
             <Suspense fallback={<SectionLoader />}>
               <AdminLinks />
