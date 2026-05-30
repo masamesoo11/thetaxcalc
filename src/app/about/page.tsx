@@ -57,7 +57,7 @@ const organizationJsonLd = {
       sameAs: [],
       contactPoint: {
         '@type': 'ContactPoint',
-        email: 'contact@thetaxcalc.com',
+        url: `${SITE_URL}/about#contact`,
         contactType: 'customer support',
       },
     },

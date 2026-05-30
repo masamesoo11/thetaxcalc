@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     template: "%s | TheTaxCalc",
   },
   description:
-    "Instantly calculate your take-home pay after federal tax, FICA, and state income tax. Supports Illinois (4.95%), Texas (0%), Florida (0%), California (1%-13.3%), New York (4%-10.9%). Includes mortgage, 401(k), capital gains, and self-employment calculators.",
+    "Calculate take-home pay after federal, FICA, and state taxes. Free 2026 calculators for IL, TX, FL, CA, NY, plus mortgage, 401(k) & self-employment tools.",
   keywords: [
     "paycheck calculator", "take home pay calculator", "salary calculator",
     "Illinois tax calculator", "Texas tax calculator", "Florida tax calculator",

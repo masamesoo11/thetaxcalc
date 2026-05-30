@@ -11,7 +11,7 @@ import { SITE_URL } from '@/lib/site-config';
 // ─── Metadata ─────────────────────────────────────────────────────────────────
 
 export const metadata: Metadata = {
-  title: 'Tax Blog — Guides, Tips & News',
+  title: 'Tax Blog — 2026 Guides, Tips & News',
   description: 'Expert tax guides, state-by-state comparisons, and financial tips to help you keep more of your money. Updated for 2026 tax laws.',
   keywords: ['tax blog', 'tax tips', 'tax guide', 'tax news', 'state tax comparison', 'tax planning', 'financial tips'],
   alternates: {
