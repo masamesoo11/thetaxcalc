@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import { Scale, AlertTriangle, Shield, FileText, Gavel, Mail, ExternalLink } from 'lucide-react';
 import Link from 'next/link';
 import { Breadcrumb } from '@/components/finance/breadcrumb';
+import { ProtectedEmail } from '@/components/finance/protected-email';
 import { SITE_URL } from '@/lib/site-config';
 
 export const metadata: Metadata = {
@@ -319,7 +320,7 @@ export default function TermsPage() {
             </p>
             <div className="mt-3 rounded-lg bg-muted/30 p-4">
               <p className="font-semibold text-foreground">TheTaxCalc</p>
-              <p>Email: legal&#64;thetaxcalc&#46;com</p>
+              <p>Email: <ProtectedEmail user="legal" domain="thetaxcalc.com" label="legal@thetaxcalc.com" /></p>
               <p>Website: {SITE_URL}</p>
             </div>
           </div>

@@ -17,6 +17,7 @@ import {
 } from 'lucide-react';
 import Link from 'next/link';
 import { Breadcrumb } from '@/components/finance/breadcrumb';
+import { ProtectedEmail } from '@/components/finance/protected-email';
 import { SITE_URL } from '@/lib/site-config';
 
 export const metadata: Metadata = {
@@ -251,7 +252,7 @@ export default function AboutPage() {
             We picked these five for a reason — they represent the full spectrum of state tax
             situations, from zero-income-tax states (TX, FL) to the highest-tax states in the
             country (CA, NY), with a flat-tax state (IL) in between. If your state isn&apos;t here
-            yet, <span className="text-emerald-400">contact&#64;thetaxcalc&#46;com</span> and
+            yet, <ProtectedEmail user="contact" domain="thetaxcalc.com" label="email us" /> and
             we&apos;ll prioritize it.
           </p>
           <p>
@@ -307,7 +308,7 @@ export default function AboutPage() {
         </p>
         <div className="rounded-lg bg-muted/30 p-4 inline-block">
           <p className="text-sm text-muted-foreground">
-            Email: <span className="text-emerald-400">contact&#64;thetaxcalc&#46;com</span>
+            Email: <ProtectedEmail user="contact" domain="thetaxcalc.com" label="click to reveal" />
           </p>
         </div>
       </section>

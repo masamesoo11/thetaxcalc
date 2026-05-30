@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import { Shield, Lock, Eye, Server, UserCheck, Bell, FileText, Mail } from 'lucide-react';
 import Link from 'next/link';
 import { Breadcrumb } from '@/components/finance/breadcrumb';
+import { ProtectedEmail } from '@/components/finance/protected-email';
 import { SITE_URL } from '@/lib/site-config';
 
 export const metadata: Metadata = {
@@ -269,7 +270,7 @@ export default function PrivacyPage() {
             </p>
             <div className="mt-3 rounded-lg bg-muted/30 p-4">
               <p className="font-semibold text-foreground">TheTaxCalc</p>
-              <p>Email: privacy&#64;thetaxcalc&#46;com</p>
+              <p>Email: <ProtectedEmail user="privacy" domain="thetaxcalc.com" label="privacy@thetaxcalc.com" /></p>
               <p>Website: {SITE_URL}</p>
             </div>
           </div>
