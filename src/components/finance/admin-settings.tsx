@@ -1,52 +1,123 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { Save, Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { toast } from 'sonner';
-import { getSettings, saveSettings, type SiteSettings } from '@/lib/settings-store';
 
-const COMMON_SETTINGS = [
-  { key: 'site_name', label: 'Site Name', placeholder: 'TheTaxCalc' },
-  { key: 'site_description', label: 'Site Description', placeholder: 'Free paycheck & tax calculator' },
-  { key: 'ga_tracking_id', label: 'Google Analytics ID', placeholder: 'G-XXXXXXXXXX' },
-  { key: 'adsense_client_id', label: 'AdSense Client ID', placeholder: 'ca-pub-XXXXXXXXXX' },
-];
+const STORAGE_KEY = 'thetaxcalc_site_settings';
+
+interface SettingsData {
+  site_name: string;
+  site_description: string;
+  ga_tracking_id: string;
+  adsense_client_id: string;
+}
+
+const DEFAULTS: SettingsData = {
+  site_name: 'TheTaxCalc',
+  site_description: 'Free tax calculators and guides to help you understand your paycheck, state taxes, and financial planning.',
+  ga_tracking_id: '',
+  adsense_client_id: '',
+};
+
+function loadFromStorage(): SettingsData {
+  if (typeof window === 'undefined') return { ...DEFAULTS };
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (raw) {
+      const parsed = JSON.parse(raw);
+      return { ...DEFAULTS, ...parsed };
+    }
+  } catch {
+    // ignore
+  }
+  return { ...DEFAULTS };
+}
+
+function saveToStorage(data: SettingsData): void {
+  if (typeof window === 'undefined') return;
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+  } catch {
+    // ignore
+  }
+}
+
+// ─── Individual field component to avoid parent re-render issues ────
+
+function SettingField({ id, label, placeholder, value, onChange }: {
+  id: string;
+  label: string;
+  placeholder: string;
+  value: string;
+  onChange: (val: string) => void;
+}) {
+  return (
+    <div className="grid gap-2 sm:grid-cols-[200px_1fr] sm:items-center">
+      <Label htmlFor={id} className="text-sm font-medium">
+        {label}
+      </Label>
+      <Input
+        id={id}
+        type="text"
+        value={value}
+        onChange={(e) => {
+          e.stopPropagation();
+          onChange(e.target.value);
+        }}
+        placeholder={placeholder}
+        autoComplete="off"
+        autoCorrect="off"
+        autoCapitalize="off"
+        spellCheck={false}
+      />
+    </div>
+  );
+}
+
+// ─── Main Component ──────────────────────────────────────────────────
 
 export function AdminSettings() {
-  const [values, setValues] = useState<SiteSettings | null>(null);
+  const [siteName, setSiteName] = useState('');
+  const [siteDescription, setSiteDescription] = useState('');
+  const [gaTrackingId, setGaTrackingId] = useState('');
+  const [adsenseClientId, setAdsenseClientId] = useState('');
   const [isSaving, setIsSaving] = useState(false);
+  const [loaded, setLoaded] = useState(false);
 
-  // Load settings from localStorage on mount
+  // Load from localStorage on mount
   useEffect(() => {
-    const settings = getSettings();
-    setValues(settings);
+    const data = loadFromStorage();
+    setSiteName(data.site_name);
+    setSiteDescription(data.site_description);
+    setGaTrackingId(data.ga_tracking_id);
+    setAdsenseClientId(data.adsense_client_id);
+    setLoaded(true);
   }, []);
 
-  // Update a single field
-  const handleChange = (key: string, value: string) => {
-    setValues(prev => prev ? { ...prev, [key]: value } : prev);
-  };
-
-  // Save all settings
-  const handleSave = () => {
-    if (!values) return;
+  const handleSave = useCallback(() => {
     setIsSaving(true);
+    const data: SettingsData = {
+      site_name: siteName,
+      site_description: siteDescription,
+      ga_tracking_id: gaTrackingId,
+      adsense_client_id: adsenseClientId,
+    };
     try {
-      saveSettings(values);
-      toast.success('Settings saved successfully! GA and AdSense will activate on next page load.');
+      saveToStorage(data);
+      toast.success('Settings saved! GA and AdSense will activate on next page load.');
     } catch {
       toast.error('Failed to save settings');
     } finally {
       setIsSaving(false);
     }
-  };
+  }, [siteName, siteDescription, gaTrackingId, adsenseClientId]);
 
-  // Still loading
-  if (!values) {
+  if (!loaded) {
     return (
       <div className="flex items-center justify-center py-20">
         <Loader2 className="h-8 w-8 animate-spin text-emerald-500" />
@@ -56,30 +127,40 @@ export function AdminSettings() {
 
   return (
     <div className="space-y-6">
-      {/* Common Settings */}
+      {/* General Settings */}
       <Card className="border-border/50">
         <CardHeader className="pb-4">
           <CardTitle className="text-base">General Settings</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
-          {COMMON_SETTINGS.map((cs) => (
-            <div key={cs.key} className="grid gap-2 sm:grid-cols-[200px_1fr] sm:items-center">
-              <Label htmlFor={cs.key} className="text-sm font-mono">
-                {cs.label}
-              </Label>
-              <Input
-                id={cs.key}
-                type="text"
-                value={values[cs.key] ?? ''}
-                onChange={(e) => handleChange(cs.key, e.target.value)}
-                placeholder={cs.placeholder}
-                autoComplete="off"
-                autoCorrect="off"
-                autoCapitalize="off"
-                spellCheck={false}
-              />
-            </div>
-          ))}
+          <SettingField
+            id="site_name"
+            label="Site Name"
+            placeholder="TheTaxCalc"
+            value={siteName}
+            onChange={setSiteName}
+          />
+          <SettingField
+            id="site_description"
+            label="Site Description"
+            placeholder="Free paycheck & tax calculator"
+            value={siteDescription}
+            onChange={setSiteDescription}
+          />
+          <SettingField
+            id="ga_tracking_id"
+            label="Google Analytics ID"
+            placeholder="G-XXXXXXXXXX"
+            value={gaTrackingId}
+            onChange={setGaTrackingId}
+          />
+          <SettingField
+            id="adsense_client_id"
+            label="AdSense Client ID"
+            placeholder="ca-pub-XXXXXXXXXX"
+            value={adsenseClientId}
+            onChange={setAdsenseClientId}
+          />
         </CardContent>
       </Card>
 

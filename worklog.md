@@ -46,3 +46,27 @@ Stage Summary:
 - Blog articles have proper formatting with H1, H2 (with IDs), H3 (with IDs), tables, blockquotes, lists
 - Security headers all present and correct
 - Site successfully deployed to Cloudflare Pages
+---
+Task ID: 1
+Agent: main
+Task: Fix admin settings input fields that don't accept user input
+
+Work Log:
+- Investigated the admin settings component (`admin-settings.tsx`) and found it was loaded via `dynamic()` with `ssr: false` in `admin-dashboard.tsx`
+- This pattern causes event handlers to break on Cloudflare Pages because the component doesn't properly hydrate
+- Completely rewrote `admin-settings.tsx` with:
+  - Individual `useState` hooks for each field (siteName, siteDescription, gaTrackingId, adsenseClientId) instead of a single object state
+  - A `SettingField` sub-component defined outside the main component to avoid re-creation on each render
+  - Inline localStorage functions instead of importing from `settings-store.ts` (to reduce module dependencies)
+  - `e.stopPropagation()` on onChange handlers to prevent parent event interference
+  - `autoComplete="off"`, `autoCorrect="off"`, `autoCapitalize="off"`, `spellCheck={false}` to prevent browser autofill interference
+- Changed `admin-dashboard.tsx` to import `AdminSettings` directly instead of using `dynamic()` with `ssr: false`
+- This is the critical fix: `dynamic(() => ..., { ssr: false })` breaks React event handlers on Cloudflare Pages because the component renders but doesn't properly hydrate
+- Verified code compiles with no TypeScript errors in source files
+- Verified dev server serves the admin page with HTTP 200
+
+Stage Summary:
+- Root cause identified: `dynamic()` with `ssr: false` breaks input event handlers on Cloudflare Pages
+- Fix: Changed to direct import of `AdminSettings` component
+- Also simplified the component with individual state hooks and a sub-component pattern
+- localStorage key (`thetaxcalc_site_settings`) is shared between admin-settings and ClientAnalytics

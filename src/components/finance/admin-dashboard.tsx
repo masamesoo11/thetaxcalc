@@ -24,10 +24,12 @@ import { Switch } from '@/components/ui/switch';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { toast } from 'sonner';
 
+// Import AdminSettings directly — dynamic import with ssr:false breaks input events on Cloudflare Pages
+import { AdminSettings } from '@/components/finance/admin-settings';
+
 // Lazy-load heavy admin components to reduce initial bundle size
 const AdminBlogList = dynamic(() => import('@/components/finance/admin-blog-list').then(m => ({ default: m.AdminBlogList })), { ssr: false });
 const AdminAds = dynamic(() => import('@/components/finance/admin-ads').then(m => ({ default: m.AdminAds })), { ssr: false });
-const AdminSettings = dynamic(() => import('@/components/finance/admin-settings').then(m => ({ default: m.AdminSettings })), { ssr: false });
 const AdminLinks = dynamic(() => import('@/components/finance/admin-links').then(m => ({ default: m.AdminLinks })), { ssr: false });
 const BlogEditor = dynamic(() => import('@/components/finance/blog-editor').then(m => ({ default: m.BlogEditor })), { ssr: false });
 const DatabaseClient = dynamic(() => import('@/components/finance/database-client').then(m => ({ default: m.DatabaseClient })), { ssr: false });
