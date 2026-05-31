@@ -35,6 +35,7 @@ const CALC_ITEMS = [
   { key: 'relocation', href: '/relocation-calculator', label: 'Relocate', icon: ArrowRightLeft, desc: 'Salary by state' },
   { key: 'capital-gains', href: '/capital-gains-calculator', label: 'Capital Gains', icon: TrendingUp, desc: '0%/15%/20% + NIIT' },
   { key: 'self-employment', href: '/self-employment-tax-calculator', label: 'Self-Employment', icon: Shield, desc: '15.3% SE tax' },
+  { key: 'tax-refund', href: '/tax-refund-calculator', label: 'Tax Refund', icon: DollarSign, desc: 'Estimate your refund' },
 ];
 
 const MORE_LINKS = [
@@ -136,7 +137,7 @@ export function Header() {
                 <div className="mb-3 flex items-center gap-2 px-2">
                   <Zap className="h-4 w-4 text-emerald-400" />
                   <span className="text-sm font-semibold text-foreground">Tax Calculators</span>
-                  <span className="ml-auto text-[10px] text-muted-foreground">11 tools</span>
+                  <span className="ml-auto text-[10px] text-muted-foreground">12 tools</span>
                 </div>
                 <div className="divider-glow mb-3" />
                 <div className="grid grid-cols-2 gap-1">

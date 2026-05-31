@@ -39,6 +39,7 @@ export function SeoNavigation() {
               <li><a href="/401k-retirement-calculator" className="text-sm text-muted-foreground hover:text-emerald-400 transition-colors">401(k) Retirement Calculator</a></li>
               <li><a href="/capital-gains-calculator" className="text-sm text-muted-foreground hover:text-emerald-400 transition-colors">Capital Gains Tax Calculator</a></li>
               <li><a href="/self-employment-tax-calculator" className="text-sm text-muted-foreground hover:text-emerald-400 transition-colors">Self-Employment Tax Calculator</a></li>
+              <li><a href="/tax-refund-calculator" className="text-sm text-muted-foreground hover:text-emerald-400 transition-colors">Tax Refund Calculator</a></li>
               <li><a href="/relocation-calculator" className="text-sm text-muted-foreground hover:text-emerald-400 transition-colors">Relocation Calculator</a></li>
             </ul>
           </div>
