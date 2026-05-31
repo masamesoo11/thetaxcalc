@@ -13,7 +13,7 @@ export interface CalculatorRouteConfig {
   metaDesc: string;
   keywords: string[];
   componentKey: string;
-  category: 'paycheck' | 'mortgage' | 'retirement' | 'investment' | 'business' | 'sales-tax';
+  category: 'paycheck' | 'mortgage' | 'retirement' | 'investment' | 'business' | 'sales-tax' | 'overtime' | 'bonus-tax' | 'property-tax' | 'lottery-tax';
   breadcrumbLabel: string;
   ogTitle: string;
   ogDescription: string;
@@ -366,6 +366,159 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
       'Free sales tax calculator 2026. Calculate sales tax for any US state. Reverse calculator & tax-exempt items included. No sign-up.',
     canonicalPath: '/sales-tax-calculator',
     jsonLdType: 'sales-tax',
+  },
+  {
+    slug: 'overtime-tax-calculator',
+    title: 'Free No Tax on Overtime Calculator 2025–2028 — OT Tax Exemption Savings',
+    description:
+      'Free overtime tax calculator for 2025–2028. Calculate how much you save under the No Tax on Overtime law. Compare take-home pay with and without the exemption. No sign-up required.',
+    h1: 'Free No Tax on Overtime Calculator',
+    metaTitle: 'Free No Tax on Overtime Calculator 2025–2028 | OT Savings',
+    metaDesc:
+      'Free overtime tax calculator 2025–2028. Calculate your savings under the OT tax exemption law. Compare take-home pay with and without the exemption. No sign-up required.',
+    keywords: [
+      'no tax on overtime calculator', 'overtime tax calculator', 'overtime tax exemption',
+      'no tax on overtime 2025', 'overtime pay tax free', 'OT tax savings calculator',
+      'trump overtime tax law', 'overtime income tax exemption',
+      'how much do I save with no tax on overtime', 'overtime tax calculator 2026',
+      'no tax on overtime law expiration', 'overtime exemption calculator',
+      'no tax on overtime calculator 2026',
+    ],
+    componentKey: 'overtime-tax',
+    category: 'overtime',
+    breadcrumbLabel: 'Overtime Tax',
+    ogTitle: 'Free No Tax on Overtime Calculator 2025–2028 — See Your Savings',
+    ogDescription:
+      'Free overtime tax calculator 2025–2028. Calculate your savings under the OT tax exemption. No sign-up required.',
+    canonicalPath: '/overtime-tax-calculator',
+    jsonLdType: 'overtime-tax',
+  },
+  {
+    slug: 'bonus-tax-calculator',
+    title: 'Free Bonus Tax Calculator 2026 — Percentage vs Aggregate Method',
+    description:
+      'Free bonus tax calculator for 2026. Calculate how much tax is taken from your bonus using the flat 22% percentage method or aggregate method. Compare both to maximize take-home pay. No sign-up required.',
+    h1: 'Free Bonus Tax Calculator',
+    metaTitle: 'Free Bonus Tax Calculator 2026 | 22% Flat vs Aggregate',
+    metaDesc:
+      'Free bonus tax calculator 2026. Compare 22% flat rate vs aggregate method. See exactly how much tax comes out of your bonus. No sign-up required.',
+    keywords: [
+      'bonus tax calculator', 'bonus calculator', 'how much tax on bonus', 'bonus tax rate',
+      'supplemental wage tax calculator', '22% bonus tax', 'aggregate method bonus',
+      'percentage method bonus', 'tax on bonus check', 'bonus withholding calculator',
+      'bonus tax calculator 2026', 'free bonus tax calculator', 'bonus after tax calculator',
+      'how is bonus taxed',
+    ],
+    componentKey: 'bonus-tax',
+    category: 'bonus-tax',
+    breadcrumbLabel: 'Bonus Tax',
+    ogTitle: 'Free Bonus Tax Calculator 2026 — See How Much Tax on Your Bonus',
+    ogDescription:
+      'Free bonus tax calculator 2026. Compare 22% flat vs aggregate method. See how much tax comes out of your bonus. No sign-up required.',
+    canonicalPath: '/bonus-tax-calculator',
+    jsonLdType: 'bonus-tax',
+  },
+  {
+    slug: 'property-tax-calculator',
+    title: 'Free Property Tax Calculator 2026 — All 50 States Rates',
+    description:
+      'Free property tax calculator for 2026. Calculate annual and monthly property tax for any US state with average effective rates. Compare rates across all 50 states. No sign-up required.',
+    h1: 'Free Property Tax Calculator',
+    metaTitle: 'Free Property Tax Calculator 2026 | All 50 States',
+    metaDesc:
+      'Free property tax calculator 2026. Calculate property tax for any US state. Compare all 50 states. Annual, monthly & bi-weekly. No sign-up required.',
+    keywords: [
+      'property tax calculator', 'property tax', 'property tax rate',
+      'home tax calculator', 'real estate tax calculator',
+      'property tax by state', 'average property tax',
+      'property tax comparison', 'property tax calculator 2026',
+      'free property tax calculator', 'property tax estimator',
+      'how much is property tax', 'property tax percentage',
+    ],
+    componentKey: 'property-tax',
+    category: 'property-tax',
+    breadcrumbLabel: 'Property Tax',
+    ogTitle: 'Free Property Tax Calculator 2026 — All 50 States Rates',
+    ogDescription:
+      'Free property tax calculator 2026. Calculate property tax for any US state. Compare all 50 states. No sign-up required.',
+    canonicalPath: '/property-tax-calculator',
+    jsonLdType: 'property-tax',
+  },
+  {
+    slug: 'lottery-tax-calculator',
+    title: 'Free Lottery Tax Calculator 2026 — Winnings After Federal & State Tax',
+    description:
+      'Free lottery tax calculator for 2026. Calculate how much tax you pay on lottery, gambling, and prize winnings. Compare lump sum vs annuity. Federal + state taxes included. No sign-up required.',
+    h1: 'Free Lottery Tax Calculator',
+    metaTitle: 'Free Lottery Tax Calculator 2026 | After-Tax Winnings',
+    metaDesc:
+      'Free lottery tax calculator 2026. Calculate tax on lottery winnings — federal + state. Lump sum vs annuity comparison. No sign-up required.',
+    keywords: [
+      'lottery tax calculator', 'lottery calculator', 'tax on lottery winnings',
+      'lottery tax rate', 'gambling tax calculator', 'prize tax calculator',
+      'lottery after tax', 'lottery winnings tax', 'how much tax on lottery',
+      'lump sum vs annuity calculator', 'lottery tax calculator 2026',
+      'free lottery tax calculator', 'mega millions tax calculator',
+      'powerball tax calculator',
+    ],
+    componentKey: 'lottery-tax',
+    category: 'lottery-tax',
+    breadcrumbLabel: 'Lottery Tax',
+    ogTitle: 'Free Lottery Tax Calculator 2026 — See Your After-Tax Winnings',
+    ogDescription:
+      'Free lottery tax calculator 2026. Calculate tax on lottery winnings — federal + state. No sign-up required.',
+    canonicalPath: '/lottery-tax-calculator',
+    jsonLdType: 'lottery-tax',
+  },
+  {
+    slug: 'georgia-tax-calculator',
+    title: 'Free Georgia Tax Calculator 2026 — 5.49% Flat Income Tax',
+    description:
+      'Free Georgia tax calculator for 2026. Calculate take-home pay after 5.49% flat state tax, standard deduction, personal exemption, federal tax & FICA. No sign-up required.',
+    h1: 'Free Georgia Tax Calculator',
+    metaTitle: 'Free Georgia Tax Calculator 2026 | 5.49% Flat Rate',
+    metaDesc:
+      'Free Georgia tax calculator 2026. Take-home pay after 5.49% flat tax, $5,400 standard deduction & personal exemption. No sign-up required.',
+    keywords: [
+      'free Georgia tax calculator', 'Georgia tax calculator', 'GA paycheck calculator',
+      'Georgia income tax', 'Georgia 5.49% tax', 'Georgia take home pay',
+      'Georgia standard deduction', 'Georgia salary calculator',
+      'Georgia paycheck calculator', 'GA state tax 2026',
+      'free tax calculator for 2026', 'Georgia tax rate',
+    ],
+    componentKey: 'georgia',
+    category: 'paycheck',
+    breadcrumbLabel: 'Georgia',
+    ogTitle: 'Free Georgia Tax Calculator 2026 — 5.49% Flat Rate',
+    ogDescription:
+      'Free Georgia tax calculator 2026. Take-home pay after 5.49% flat tax & deductions. No sign-up required.',
+    canonicalPath: '/georgia-tax-calculator',
+    jsonLdType: 'georgia',
+  },
+  {
+    slug: 'virginia-tax-calculator',
+    title: 'Free Virginia Tax Calculator 2026 — 2% to 5.75% Progressive Brackets',
+    description:
+      'Free Virginia tax calculator for 2026. Calculate take-home pay after progressive state tax (2%–5.75%), $8,300 standard deduction, $930 personal exemption, federal tax & FICA. No sign-up required.',
+    h1: 'Free Virginia Tax Calculator',
+    metaTitle: 'Free Virginia Tax Calculator 2026 | 2-5.75% Brackets',
+    metaDesc:
+      'Free Virginia tax calculator 2026. Take-home pay after progressive tax (2%–5.75%), $8,300 deduction & $930 exemption. No sign-up required.',
+    keywords: [
+      'free Virginia tax calculator', 'Virginia tax calculator', 'VA paycheck calculator',
+      'Virginia income tax', 'Virginia 5.75% tax', 'Virginia take home pay',
+      'Virginia standard deduction', 'Virginia salary calculator',
+      'Virginia paycheck calculator', 'VA state tax 2026',
+      'free tax calculator for 2026', 'Virginia tax brackets',
+    ],
+    componentKey: 'virginia',
+    category: 'paycheck',
+    breadcrumbLabel: 'Virginia',
+    ogTitle: 'Free Virginia Tax Calculator 2026 — Progressive 2%–5.75%',
+    ogDescription:
+      'Free Virginia tax calculator 2026. Take-home pay after progressive tax (2%–5.75%) & deductions. No sign-up required.',
+    canonicalPath: '/virginia-tax-calculator',
+    jsonLdType: 'virginia',
   },
 ];
 

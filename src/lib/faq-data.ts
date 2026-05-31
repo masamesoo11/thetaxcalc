@@ -513,3 +513,216 @@ export const TAX_CALC_FAQS: FAQItem[] = [
       "This calculator focuses on W-2 income tax and withholding. If you're self-employed, you'll also owe self-employment tax (15.3% on 92.35% of net income) on top of regular income tax. Check our Self-Employment Tax Calculator for that.",
   },
 ];
+
+export const OVERTIME_FAQS: FAQItem[] = [
+  {
+    question: 'What is the No Tax on Overtime law?',
+    answer:
+      "Under the 2025 Trump tax law (the 'One Big Beautiful Bill Act'), overtime pay is exempt from federal income tax for tax years 2025 through 2028. This means if you earn overtime pay — defined as hours worked beyond 40 per week at 1.5x your regular rate or higher — that portion of your income is not subject to federal income tax. However, FICA taxes (Social Security 6.2% + Medicare 1.45%) still apply to overtime pay. The exemption sunsets after December 31, 2028 unless Congress extends it.",
+  },
+  {
+    question: 'Does the overtime tax exemption apply to my state income tax?',
+    answer:
+      "In most states, no. Only the federal income tax exemption is automatic. Most states have not conformed to the federal OT exemption, meaning your state will still tax overtime pay as regular income. States with no income tax (like Texas, Florida, Washington, Nevada, etc.) effectively don't tax overtime at the state level since they don't tax any income. Check with your state's revenue department for conformity updates.",
+  },
+  {
+    question: 'How much can I save with no tax on overtime?',
+    answer:
+      "It depends on your hourly wage, overtime hours, and federal tax bracket. A worker earning $30/hour who works 10 hours of overtime per week saves roughly $2,000–$4,000 per year in federal income tax, depending on their bracket. Higher earners in the 22% or 24% brackets see the biggest savings. Use this calculator to see your exact savings based on your situation.",
+  },
+  {
+    question: 'When does the overtime tax exemption expire?',
+    answer:
+      "The exemption is currently scheduled to sunset after December 31, 2028. This means it applies to tax years 2025, 2026, 2027, and 2028. After that, overtime pay will once again be taxed as regular income at the federal level unless Congress passes legislation to extend or make the exemption permanent.",
+  },
+  {
+    question: 'Does the overtime exemption apply to salaried employees?',
+    answer:
+      "Generally no. The exemption applies to overtime pay as defined by the Fair Labor Standards Act (FLSA) — hours worked beyond 40 in a workweek at a rate of at least 1.5x your regular hourly rate. Most salaried employees classified as 'exempt' under FLSA don't receive overtime pay, so there's nothing to exempt. However, non-exempt salaried workers who do receive overtime pay would qualify for the federal income tax exemption on those overtime payments.",
+  },
+  {
+    question: 'Is FICA (Social Security and Medicare) still taken from overtime pay?',
+    answer:
+      "Yes, absolutely. The No Tax on Overtime law only exempts overtime pay from federal income tax. FICA taxes — 6.2% for Social Security (up to the $176,100 wage cap for 2026) and 1.45% for Medicare (no cap) — still apply to all wages including overtime. If you earn over $200,000, the additional 0.9% Medicare tax also applies. Don't confuse the income tax exemption with a total tax exemption.",
+  },
+];
+
+export const BONUS_TAX_FAQS: FAQItem[] = [
+  {
+    question: 'How are bonuses taxed?',
+    answer:
+      "The IRS treats bonuses as 'supplemental wages,' and your employer can use one of two methods to tax them. The Percentage Method applies a flat 22% federal withholding rate on your bonus (37% on any amount above $1 million). The Aggregate Method adds your bonus to your regular paycheck and taxes the whole thing through normal progressive brackets (10%–37%), then subtracts the tax on regular wages alone. Both methods also include FICA (6.2% Social Security + 1.45% Medicare) and state income tax. The method your employer uses can make a real difference in how much tax comes out of your bonus.",
+  },
+  {
+    question: 'What is the flat 22% supplemental wage rate?',
+    answer:
+      "It's the IRS's simplified withholding rate for supplemental wages (bonuses, commissions, severance) under $1 million. Instead of running your bonus through progressive tax brackets, your employer just withholds 22% for federal income tax. It's quick and predictable — a $5,000 bonus means $1,100 in federal withholding. If your bonus exceeds $1,000,000, the rate jumps to 37% on the amount above $1M. This flat rate is optional for employers; they can choose the aggregate method instead.",
+  },
+  {
+    question: 'Which method should I choose — percentage or aggregate?',
+    answer:
+      "It depends on your marginal tax bracket. If you're in the 24%, 32%, 35%, or 37% bracket, the flat 22% percentage method is almost always better — you're locking in a rate below what your regular wages get taxed at. If you're in the 12% or lower bracket, the aggregate method typically wins because your bonus gets taxed at or near 12% instead of a flat 22%. At the 22% bracket, it's roughly a wash, though the aggregate method can be slightly more due to bracket overlap. Our calculator shows you both results so you can see the exact difference.",
+  },
+  {
+    question: 'Does FICA apply to bonuses?',
+    answer:
+      "Yes, always. FICA taxes (6.2% for Social Security up to the $176,100 wage cap in 2026, plus 1.45% for Medicare with no cap) apply to all wages including bonuses, regardless of which federal income tax method your employer uses. If your total income exceeds $200,000, there's an additional 0.9% Medicare surtax on wages above that threshold. FICA is calculated on gross wages before any deductions — there's no way around it.",
+  },
+  {
+    question: 'Are bonuses taxed at a higher rate?',
+    answer:
+      "It can feel that way, but technically no — bonuses are just subject to withholding rules that can result in more tax being taken out upfront. With the 22% flat rate method, a $5,000 bonus has $1,100 withheld for federal tax, which for someone in the 12% bracket feels like a lot. But here's the thing: withholding is not the same as what you actually owe. When you file your tax return, your bonus is just part of your total income and gets taxed through the same brackets. If too much was withheld, you get it back as a refund. The 'bonus tax' people complain about is really just the withholding being higher than necessary for lower-bracket earners.",
+  },
+  {
+    question: 'What is the aggregate method for bonus taxation?',
+    answer:
+      "Under the aggregate method, your employer adds your bonus to your most recent regular paycheck and calculates federal income tax on the total amount using the standard progressive brackets (10%–37%). Then they subtract the tax that would have been on your regular wages alone, and the difference becomes the withholding on your bonus. This method tends to produce more accurate withholding if your bonus is small relative to your regular pay, but can result in higher withholding for high earners since the bonus gets pushed into your top bracket. Your employer chooses the method — you generally can't pick — but knowing which one they use helps you understand your pay stub.",
+  },
+];
+
+export const LOTTERY_TAX_FAQS: FAQItem[] = [
+  {
+    question: 'How are lottery winnings taxed?',
+    answer:
+      "Lottery winnings are taxed as ordinary income at both the federal and state level — there's no special 'lottery tax rate.' At the federal level, the full amount is subject to progressive income tax brackets (10%–37% for 2026), minus the standard deduction ($15,000 single / $30,000 married). The key difference from regular wages: lottery winnings are NOT subject to FICA (Social Security and Medicare taxes), which saves you 7.65%. For state taxes, it depends on where you live — some states don't tax lottery winnings at all. The IRS also requires 24% mandatory federal withholding on winnings over $5,000, but your actual tax may be higher or lower depending on your bracket.",
+  },
+  {
+    question: 'What is the federal tax rate on lottery winnings?',
+    answer:
+      "There's no single rate — lottery winnings are taxed through the same progressive brackets as all other income. For 2026, the brackets range from 10% to 37%. On a $1,000,000 lump sum for a single filer, after the $15,000 standard deduction, the effective federal rate works out to roughly 30%–33%. The top 37% rate only applies to income above $609,350 for single filers. The IRS withholds 24% on winnings over $5,000, but if you're in a higher bracket, you'll owe the difference at tax time. Many winners are surprised by a big tax bill the following April.",
+  },
+  {
+    question: 'Do I have to pay FICA (Social Security and Medicare) on lottery winnings?',
+    answer:
+      "No — and this is a major tax advantage. Lottery winnings, gambling income, and prize winnings are NOT subject to FICA taxes. That means you don't pay the 6.2% Social Security tax or the 1.45% Medicare tax that comes out of every regular paycheck. On a $500,000 lump sum, that's a savings of over $38,000 compared to earning the same amount as wages. This is one of the few silver linings of winning the lottery from a tax perspective. However, if you earn other wages during the year, those wages are still subject to FICA as normal.",
+  },
+  {
+    question: 'What is the difference between lump sum and annuity for lottery winnings?',
+    answer:
+      "When you win a large jackpot, you typically choose between a lump sum (cash option) and an annuity paid over 30 years. The lump sum is significantly less than the advertised jackpot — usually 50–60% — because it represents the present cash value needed to fund the annuity payments. For example, a $1,000,000 advertised jackpot might have a $500,000–$600,000 lump sum. With the annuity, you receive the full advertised amount spread over 30 annual payments. The tax implications differ: a lump sum pushes all income into one tax year (potentially hitting the 37% bracket hard), while annuity payments are taxed each year at potentially lower rates. Our calculator shows both scenarios side by side.",
+  },
+  {
+    question: 'Which states don\'t tax lottery winnings?',
+    answer:
+      "Several states have no income tax at all, which means they don't tax lottery winnings: Texas, Florida, Washington, Nevada, Wyoming, South Dakota, Alaska, Tennessee, and New Hampshire. Some states with income taxes specifically exempt lottery winnings or have special rules. California and Pennsylvania don't tax in-state lottery winnings (like Powerball or Mega Millions sold in that state), but they do tax winnings from out-of-state lotteries. Illinois, New York, and most other states tax lottery winnings at their standard income tax rates. If you buy a ticket in one state but live in another, you generally owe tax in both states, though your home state may offer a credit for taxes paid to the other state.",
+  },
+  {
+    question: 'What is the mandatory withholding on lottery winnings?',
+    answer:
+      "The IRS requires 24% federal income tax withholding on gambling winnings over $5,000. This is mandatory — the lottery commission automatically deducts it before you see a dime. But here's the catch: 24% is just the withholding, not your actual tax. If your total income puts you in the 32%, 35%, or 37% bracket, you'll owe significantly more when you file your return. On a $500,000 lump sum, 24% withholding is $120,000, but if your actual federal tax is $160,000+, you'll owe an extra $40,000+ at tax time. Some states also require their own withholding on lottery winnings. Always set aside extra money for the tax bill.",
+  },
+  {
+    question: 'Can I deduct gambling losses from lottery winnings?',
+    answer:
+      "Yes, but only if you itemize deductions — and only up to the amount of your winnings. You can't deduct more in losses than you won. For example, if you won $10,000 but lost $15,000 on lottery tickets over the year, you can only deduct $10,000 in losses. The deduction goes on Schedule A as a miscellaneous itemized deduction, and it only helps if your total itemized deductions exceed the standard deduction ($15,000 single / $30,000 married for 2026). Most lottery winners take the standard deduction because their winnings are too high for itemizing to help, meaning the loss deduction provides little to no benefit for big winners.",
+  },
+];
+
+export const PROPERTY_TAX_FAQS: FAQItem[] = [
+  {
+    question: 'How is property tax calculated?',
+    answer:
+      "Property tax is calculated by multiplying your home's assessed value by the local property tax rate (often called a mill rate). The formula is straightforward: Annual Property Tax = Assessed Value × Effective Tax Rate. For example, a $350,000 home at a 1.78% effective rate = $6,230 per year. Most jurisdictions use an assessed value that may differ from market value — some states assess at 100% of market value, while others use a fraction (like 10% or 40%). This calculator uses average effective rates, which already account for assessment ratios, so you can simply enter your home's market value.",
+  },
+  {
+    question: 'Which state has the highest property tax?',
+    answer:
+      "New Jersey takes the crown with an average effective property tax rate of 2.49%. On a $350,000 home, that's roughly $8,715 per year. Illinois is second at 1.78%, followed by New Hampshire at 2.06% and Vermont at 1.86%. The Northeast dominates the top of the property tax rankings — most of the highest-tax states are in that region. It's worth noting that some of these states offset high property taxes with other advantages (like New Hampshire having no income or sales tax).",
+  },
+  {
+    question: 'Which state has the lowest property tax?',
+    answer:
+      "Hawaii wins with an average effective rate of just 0.31%. On a $350,000 home, that's only about $1,085 per year. Alabama (0.41%), Colorado and Louisiana (0.55% each), and Delaware (0.57%) round out the bottom five. But here's the catch with Hawaii: while the rate is low, the median home value in Hawaii is around $800K+, so the actual tax bill isn't as small as the rate suggests. Low rate doesn't always mean low taxes if home values are high.",
+  },
+  {
+    question: 'What is the average property tax rate in the US?',
+    answer:
+      "The average effective property tax rate across the United States is approximately 1.1%. That means on a $350,000 home, the typical American homeowner pays around $3,850 per year in property taxes. But averages are misleading — the range is massive, from 0.31% in Hawaii to 2.49% in New Jersey. Even within a single state, rates can vary significantly by county, city, and school district.",
+  },
+  {
+    question: 'Does Texas have high property taxes?',
+    answer:
+      "Yes, Texas has the 6th highest effective property tax rate in the country at about 1.71%. On a $350,000 home, that's roughly $5,985 per year. The reason is straightforward: Texas has no state income tax, so local governments rely heavily on property taxes to fund schools, roads, and services. It's the classic trade-off — you save on income tax but pay more on your home. For renters and people with modest homes, Texas is still a great deal. But for homeowners with expensive properties, the property tax bill can eat into the income tax savings significantly.",
+  },
+  {
+    question: 'What is a homestead exemption?',
+    answer:
+      "A homestead exemption reduces the taxable value of your primary residence, which lowers your property tax bill. Florida is the most well-known example — it exempts up to $50,000 of your home's assessed value. The first $25,000 exempts you from all property taxes, and the second $25,000 exempts you from non-school taxes. On a $300,000 home in Florida, that could save you $800–$1,500 per year. Other states with homestead exemptions include South Carolina ($50,000), Colorado ($55,000 for seniors 65+), and Georgia (varies by county). Some states also cap annual assessment increases — Florida's Save Our Homes cap limits increases to 3% per year, which creates a growing gap between market value and taxable value over time.",
+  },
+  {
+    question: 'How do property taxes vary within a state?',
+    answer:
+      "Significantly. Property tax rates are set at the county, city, and school district level — not the state level. The state rates shown in this calculator are averages. Within Illinois, for example, Cook County (Chicago) has different assessment rules than downstate counties. In Texas, rates vary by county from about 1.4% to over 2.3%. School district taxes are usually the biggest component of your property tax bill — often 50–60% of the total. Urban areas with more services tend to have higher rates, while rural areas are often lower. Always check your specific county tax assessor's website for the most accurate rate for your address.",
+  },
+  {
+    question: 'Can I lower my property tax bill?',
+    answer:
+      "Yes, several ways. First, check if you qualify for a homestead exemption — many homeowners leave money on the table by not applying. Second, appeal your assessment if you think your home's assessed value is too high — success rates vary, but it's worth trying, especially if home values in your area have declined. Third, look into senior, veteran, or disability exemptions offered by your state or county. Fourth, some states offer freezes on assessed value increases for seniors or long-term residents. Finally, understand that property tax rates and assessments are local — attending city council or school board meetings where budgets are set can give you advance notice of rate changes.",
+  },
+];
+
+export const GEORGIA_FAQS: FAQItem[] = [
+  {
+    question: 'How much is Georgia state income tax in 2026?',
+    answer:
+      "Georgia uses a flat 5.49% rate — that's it, one rate for all taxable income. This is a recent change; Georgia used to have a graduated bracket system but transitioned to the flat rate starting in 2024. Whether that's better for you depends on your income level, but it does simplify the math considerably.",
+  },
+  {
+    question: 'What deductions does Georgia offer?',
+    answer:
+      "Georgia gives you both a standard deduction and a personal exemption, which is nice. The standard deduction is $5,400 for single filers, $7,100 for married filing jointly, and $5,400 for head of household. On top of that, you get a personal exemption of $2,700 per person ($5,400 for married couples). So a single filer making $75K would subtract $2,700 + $5,400 = $8,100 before applying the 5.49% rate — that brings taxable income down to $66,900.",
+  },
+  {
+    question: 'Does Georgia tax Social Security benefits?',
+    answer:
+      "Nope, Georgia does not tax Social Security benefits. They also exclude up to $35,000 of retirement income ($65,000 for couples) for folks 62 and older. That includes 401(k) withdrawals, IRA distributions, and pensions. Combined with the flat 5.49% rate, Georgia is actually one of the more retiree-friendly states with an income tax.",
+  },
+  {
+    question: 'How does Georgia compare to neighboring states for taxes?',
+    answer:
+      "Georgia's 5.49% flat rate is pretty middle-of-the-road for the Southeast. Florida and Tennessee have no income tax, so they win on that front. But Georgia's property taxes are quite reasonable — about 0.92% average effective rate compared to North Carolina's 0.82% or South Carolina's 0.57%. The sales tax averages around 7.35% (4% state + local). Overall, Georgia isn't the cheapest or the most expensive — it's a reasonable middle ground.",
+  },
+  {
+    question: 'What is the Georgia standard deduction for 2026?',
+    answer:
+      "$5,400 for single filers, $7,100 for married filing jointly, and $5,400 for head of household. It's not as generous as the federal $15,000 standard deduction, but combined with the $2,700 personal exemption, a single filer gets $8,100 knocked off their income before the 5.49% rate applies. That's actually better than what Illinois offers — they don't have a standard deduction at all.",
+  },
+  {
+    question: 'Is Georgia a good state for retirees?',
+    answer:
+      "Surprisingly, yes. No tax on Social Security, the $35,000/$65,000 retirement income exclusion for those 62+, moderate property taxes, and the flat 5.49% income tax rate. Georgia consistently ranks as one of the more tax-friendly states for retirees. The cost of living is also below the national average, which helps stretch those retirement dollars further. It's not Florida-level tax-free, but it's solid.",
+  },
+];
+
+export const VIRGINIA_FAQS: FAQItem[] = [
+  {
+    question: 'How much is Virginia state income tax in 2026?',
+    answer:
+      "Virginia uses a progressive bracket system with four rates: 2%, 3%, 5%, and 5.75%. For a single filer making $75K after the $8,300 standard deduction, your effective rate works out to roughly 4.7%. That top 5.75% rate kicks in above $17,000 of taxable income, so most working professionals hit the top bracket pretty quickly.",
+  },
+  {
+    question: 'What is the Virginia standard deduction for 2026?',
+    answer:
+      "$8,300 for single filers, $16,600 for married filing jointly, and $8,300 for head of household. Virginia also offers a personal exemption of $930 per person ($1,860 for married couples). So a single filer earning $75K subtracts $8,300 + $930 = $9,230 before applying the brackets. Better than Georgia's standard deduction, but Georgia's personal exemption is larger.",
+  },
+  {
+    question: 'Does Virginia tax Social Security benefits?',
+    answer:
+      "No, Virginia does not tax Social Security benefits. And for residents 65 and older, there's an additional age deduction of up to $12,000 per person ($24,000 for couples) on other retirement income, subject to income thresholds. Between that and the personal exemption, Virginia gives retirees a decent break compared to some states.",
+  },
+  {
+    question: 'How does Virginia compare to neighboring states for taxes?',
+    answer:
+      "Virginia's top rate of 5.75% is a bit higher than Georgia's 5.49% flat rate, but the lower brackets help for moderate incomes. North Carolina has a flat 4.5% rate, Maryland goes up to 5.75% with local county taxes on top, and West Virginia tops out at 5.12%. Virginia sits in the middle — not the cheapest, not the most expensive. The 5.3% average sales tax is reasonable, and property taxes average 0.82%, which is below the national average.",
+  },
+  {
+    question: 'Does Virginia have local income taxes like Maryland?',
+    answer:
+      "No, Virginia does not have local income taxes. That's a big advantage over Maryland, where county piggyback taxes add 2.25%–3.2% on top of the state rate. In Virginia, you just pay the state rate — what you see is what you get. Some cities in Virginia are independent (not part of any county), but they don't levy their own income taxes either.",
+  },
+  {
+    question: 'Is Virginia tax-friendly for retirees?',
+    answer:
+      "Fairly tax-friendly. No tax on Social Security, the age deduction of up to $12,000 per person for those 65+, the $930 personal exemption, and moderate property taxes. Virginia's not in the same league as Florida or Texas for retirees (those have zero income tax), but it's much better than most Northern states. If you're staying in the Mid-Atlantic region for retirement, Virginia is one of the better options.",
+  },
+];

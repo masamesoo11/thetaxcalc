@@ -203,6 +203,73 @@ export const STATE_PROFILES: Record<string, StateProfile> = {
       head_of_household: 11200,
     },
   },
+  georgia: {
+    name: 'Georgia',
+    abbreviation: 'GA',
+    incomeTaxRate: 0.0549,
+    incomeTaxType: 'progressive',
+    personalExemption: 0,
+    standardDeduction: 5400,
+    hasIncomeTax: true,
+    description:
+      'Georgia has a progressive state income tax with a top rate of 5.49% as of 2026. Georgia recently transitioned from a graduated bracket system to a flat 5.49% rate starting in 2024, which continues through 2026. The state offers a standard deduction and personal exemptions.',
+    effectiveDate: '2026-01-01',
+    brackets: [
+      { min: 0, max: null, rate: 0.0549 },
+    ],
+    standardDeductionsByFiling: {
+      single: 5400,
+      married: 7100,
+      head_of_household: 5400,
+    },
+    personalExemptionsByFiling: {
+      single: 2700,
+      married: 5400,
+      head_of_household: 2700,
+    },
+  },
+  virginia: {
+    name: 'Virginia',
+    abbreviation: 'VA',
+    incomeTaxRate: 0.02,
+    incomeTaxType: 'progressive',
+    personalExemption: 930,
+    standardDeduction: 8300,
+    hasIncomeTax: true,
+    description:
+      'Virginia has a progressive state income tax with brackets from 2% to 5.75% as of 2026. Virginia offers a standard deduction and a personal exemption of $930 per person. The state also provides a sales tax rate of 5.3% (4.3% state + 1% local) and moderate property taxes.',
+    effectiveDate: '2026-01-01',
+    brackets: [
+      { min: 0, max: 3000, rate: 0.02 },
+      { min: 3000, max: 5000, rate: 0.03 },
+      { min: 5000, max: 17000, rate: 0.05 },
+      { min: 17000, max: null, rate: 0.0575 },
+    ],
+    standardDeductionsByFiling: {
+      single: 8300,
+      married: 16600,
+      head_of_household: 8300,
+    },
+    personalExemptionsByFiling: {
+      single: 930,
+      married: 1860,
+      head_of_household: 930,
+    },
+  },
+};
+
+export const GEORGIA_COST_OF_LIVING = {
+  averagePropertyTaxRate: 0.0092,
+  averageSalesTaxRate: 0.0735, // 4% state + avg local
+  averageHomeValue: 285000,
+  averageAnnualPropertyTax: 2622,
+};
+
+export const VIRGINIA_COST_OF_LIVING = {
+  averagePropertyTaxRate: 0.0082,
+  averageSalesTaxRate: 0.053, // 4.3% state + 1% local
+  averageHomeValue: 365000,
+  averageAnnualPropertyTax: 2993,
 };
 
 export const MORTGAGE_DEFAULTS = {

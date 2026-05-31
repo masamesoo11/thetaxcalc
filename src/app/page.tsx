@@ -25,6 +25,11 @@ import {
   Scale,
   FileText,
   Map,
+  Receipt,
+  Clock,
+  Gift,
+  Building,
+  Ticket,
 } from 'lucide-react';
 
 // ─── Home Page Metadata ───────────────────────────────────────────────────────
@@ -189,6 +194,69 @@ const CALCULATOR_CARDS = [
     badgeColor: 'bg-cyan-500/20 text-cyan-400',
     gradient: 'from-cyan-600/20 to-teal-600/10',
   },
+  {
+    href: '/sales-tax-calculator',
+    title: 'Sales Tax Calculator',
+    desc: 'Calculate sales tax for any US state with combined state + local rates. Reverse calculator included',
+    icon: Receipt,
+    badge: '500K/mo',
+    badgeColor: 'bg-emerald-500/20 text-emerald-400',
+    gradient: 'from-emerald-600/20 to-green-600/10',
+  },
+  {
+    href: '/overtime-tax-calculator',
+    title: 'No Tax on Overtime Calculator',
+    desc: 'Calculate your savings under the 2025–2028 OT tax exemption law. Time-sensitive!',
+    icon: Clock,
+    badge: '2025 Law',
+    badgeColor: 'bg-amber-500/20 text-amber-400',
+    gradient: 'from-amber-600/20 to-yellow-600/10',
+  },
+  {
+    href: '/bonus-tax-calculator',
+    title: 'Bonus Tax Calculator',
+    desc: 'How much tax on your bonus? Compare 22% flat rate vs aggregate method',
+    icon: Gift,
+    badge: 'Bonus',
+    badgeColor: 'bg-pink-500/20 text-pink-400',
+    gradient: 'from-pink-600/20 to-rose-600/10',
+  },
+  {
+    href: '/property-tax-calculator',
+    title: 'Property Tax Calculator',
+    desc: 'Calculate property tax for any US state. Compare all 50 states\' effective rates',
+    icon: Building,
+    badge: 'Property',
+    badgeColor: 'bg-stone-500/20 text-stone-400',
+    gradient: 'from-stone-600/20 to-neutral-600/10',
+  },
+  {
+    href: '/lottery-tax-calculator',
+    title: 'Lottery Tax Calculator',
+    desc: 'How much tax on lottery winnings? Federal + state taxes. Lump sum vs annuity comparison',
+    icon: Ticket,
+    badge: 'Lottery',
+    badgeColor: 'bg-purple-500/20 text-purple-400',
+    gradient: 'from-purple-600/20 to-violet-600/10',
+  },
+  {
+    href: '/georgia-tax-calculator',
+    title: 'Georgia Tax Calculator',
+    desc: '5.49% progressive state tax — GA take-home pay with standard deductions',
+    icon: MapPin,
+    badge: 'GA',
+    badgeColor: 'bg-red-500/20 text-red-400',
+    gradient: 'from-red-600/20 to-orange-600/10',
+  },
+  {
+    href: '/virginia-tax-calculator',
+    title: 'Virginia Tax Calculator',
+    desc: '2%–5.75% progressive state tax — VA take-home pay with standard deductions',
+    icon: MapPin,
+    badge: 'VA',
+    badgeColor: 'bg-blue-500/20 text-blue-400',
+    gradient: 'from-blue-600/20 to-indigo-600/10',
+  },
 ];
 
 const TRUST_POINTS = [
@@ -313,7 +381,7 @@ export default function HomePage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-10 text-center">
             <h2 className="text-3xl font-bold text-foreground">
-              13 Free <span className="gradient-text">Tax Calculators</span>
+              20 Free <span className="gradient-text">Tax Calculators</span>
             </h2>
             <p className="mt-3 text-muted-foreground max-w-xl mx-auto">
               Pick the one you need. They&apos;re all free, they all use 2026 data, and none of them will
@@ -554,7 +622,7 @@ export default function HomePage() {
                   <Calculator className="h-4 w-4 text-emerald-400" />
                 </div>
                 <h3 className="text-base font-semibold text-foreground">Tax Calculators</h3>
-                <span className="ml-auto text-[10px] font-semibold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 rounded-full px-2 py-0.5">13 Tools</span>
+                <span className="ml-auto text-[10px] font-semibold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 rounded-full px-2 py-0.5">20 Tools</span>
               </div>
               <ul className="space-y-2">
                 {CALCULATOR_CARDS.map((card) => (

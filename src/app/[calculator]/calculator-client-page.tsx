@@ -60,6 +60,30 @@ const SalesTaxCalculator = dynamic(
   () => import('@/components/finance/sales-tax-calculator').then((m) => ({ default: m.SalesTaxCalculator })),
   { loading: () => <CalculatorSkeleton />, ssr: false }
 );
+const OvertimeTaxCalculator = dynamic(
+  () => import('@/components/finance/overtime-tax-calculator').then((m) => ({ default: m.OvertimeTaxCalculator })),
+  { loading: () => <CalculatorSkeleton />, ssr: false }
+);
+const BonusTaxCalculator = dynamic(
+  () => import('@/components/finance/bonus-tax-calculator').then((m) => ({ default: m.BonusTaxCalculator })),
+  { loading: () => <CalculatorSkeleton />, ssr: false }
+);
+const LotteryTaxCalculator = dynamic(
+  () => import('@/components/finance/lottery-tax-calculator').then((m) => ({ default: m.LotteryTaxCalculator })),
+  { loading: () => <CalculatorSkeleton />, ssr: false }
+);
+const PropertyTaxCalculator = dynamic(
+  () => import('@/components/finance/property-tax-calculator').then((m) => ({ default: m.PropertyTaxCalculator })),
+  { loading: () => <CalculatorSkeleton />, ssr: false }
+);
+const GeorgiaCalculator = dynamic(
+  () => import('@/components/finance/georgia-calculator').then((m) => ({ default: m.GeorgiaCalculator })),
+  { loading: () => <CalculatorSkeleton />, ssr: false }
+);
+const VirginiaCalculator = dynamic(
+  () => import('@/components/finance/virginia-calculator').then((m) => ({ default: m.VirginiaCalculator })),
+  { loading: () => <CalculatorSkeleton />, ssr: false }
+);
 
 function CalculatorSkeleton() {
   return (
@@ -123,6 +147,18 @@ export function CalculatorClientPage({ componentKey }: CalculatorClientPageProps
       return <IRSWithholdingCalculator />;
     case 'sales-tax':
       return <SalesTaxCalculator />;
+    case 'overtime-tax':
+      return <OvertimeTaxCalculator />;
+    case 'bonus-tax':
+      return <BonusTaxCalculator />;
+    case 'lottery-tax':
+      return <LotteryTaxCalculator />;
+    case 'property-tax':
+      return <PropertyTaxCalculator />;
+    case 'georgia':
+      return <GeorgiaCalculator />;
+    case 'virginia':
+      return <VirginiaCalculator />;
     default:
       return <PaycheckCalculator />;
   }

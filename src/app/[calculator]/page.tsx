@@ -21,6 +21,10 @@ import {
   TAX_REFUND_FAQS,
   IRS_WITHHOLDING_FAQS,
   SALES_TAX_FAQS,
+  OVERTIME_FAQS,
+  BONUS_TAX_FAQS,
+  PROPERTY_TAX_FAQS,
+  LOTTERY_TAX_FAQS,
   FAQItem,
 } from '@/lib/faq-data';
 import { CalculatorClientPage } from './calculator-client-page';
@@ -381,6 +385,96 @@ function getSalesTaxJsonLd() {
   };
 }
 
+function getBonusTaxJsonLd() {
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      { '@type': 'BreadcrumbList', itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+        { '@type': 'ListItem', position: 2, name: 'Bonus Tax Calculator', item: `${SITE_URL}/bonus-tax-calculator` },
+      ]},
+      { '@type': 'WebApplication', name: 'Bonus Tax Calculator 2026', url: `${SITE_URL}/bonus-tax-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
+      { '@type': 'MathSolver', name: 'Bonus Tax Math Solver', description: 'Computes tax on bonus using Percentage Method (flat 22% federal rate on supplemental wages) or Aggregate Method (add bonus to regular wages and tax through progressive brackets). Both include FICA and state tax.', mathExpression: 'Pct: FedTax = Bonus × 0.22; Agg: FedTax = FedTax(Salary + Bonus) - FedTax(Salary); Both: Total = FedTax + FICA(Bonus) + StateTax(Bonus)' },
+      { '@type': 'Dataset', name: '2026 Bonus Tax Key Rates', variableMeasured: [
+        { name: 'Supplemental Wage Rate (under $1M)', value: '22% flat' },
+        { name: 'Supplemental Wage Rate (above $1M)', value: '37% on excess' },
+        { name: 'FICA Social Security Rate', value: '6.2% (up to $176,100)' },
+        { name: 'FICA Medicare Rate', value: '1.45% (no cap)' },
+        { name: 'Additional Medicare Tax', value: '0.9% (above $200K)' },
+      ]},
+      faqsToJsonLd(BONUS_TAX_FAQS),
+    ],
+  };
+}
+
+function getLotteryTaxJsonLd() {
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      { '@type': 'BreadcrumbList', itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+        { '@type': 'ListItem', position: 2, name: 'Lottery Tax Calculator', item: `${SITE_URL}/lottery-tax-calculator` },
+      ]},
+      { '@type': 'WebApplication', name: 'Lottery Tax Calculator 2026', url: `${SITE_URL}/lottery-tax-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
+      { '@type': 'MathSolver', name: 'Lottery Tax Math Solver', description: 'Computes tax on lottery winnings: Federal tax uses progressive brackets (10%-37%) on prize amount minus standard deduction. NO FICA applies. State tax varies by state. Supports lump sum vs annuity comparison. Mandatory 24% withholding on winnings over $5,000.', mathExpression: 'Net = Prize - FedTax(Prize - StdDed) - StateTax(Prize); FICA = $0; Withholding = Prize > $5000 ? Prize × 0.24 : 0' },
+      { '@type': 'Dataset', name: '2026 Lottery Tax Key Rates', variableMeasured: [
+        { name: 'Federal Tax Brackets', value: '10% – 37% (progressive)' },
+        { name: 'FICA on Lottery Winnings', value: '0% (NOT subject to FICA)' },
+        { name: 'Mandatory Withholding Rate', value: '24% (on winnings over $5,000)' },
+        { name: 'Lump Sum Cash Value', value: 'Typically 50-60% of advertised jackpot' },
+        { name: 'Annuity Period', value: '30 years' },
+        { name: 'No Income Tax States', value: 'TX, FL, WA, NV, WY, SD, AK, TN, NH' },
+      ]},
+      faqsToJsonLd(LOTTERY_TAX_FAQS),
+    ],
+  };
+}
+
+function getPropertyTaxJsonLd() {
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      { '@type': 'BreadcrumbList', itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+        { '@type': 'ListItem', position: 2, name: 'Property Tax Calculator', item: `${SITE_URL}/property-tax-calculator` },
+      ]},
+      { '@type': 'WebApplication', name: 'Property Tax Calculator 2026', url: `${SITE_URL}/property-tax-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
+      { '@type': 'MathSolver', name: 'Property Tax Calculator', description: 'Computes annual and monthly property tax using average effective rates for all 50 US states plus DC. Supports homestead exemptions and custom exemptions. Annual Tax = Home Value × Effective Rate - Exemptions.', mathExpression: 'AnnualTax = (HomeValue - Exemption) × EffectiveRate; MonthlyTax = AnnualTax / 12; BiweeklyTax = AnnualTax / 26' },
+      { '@type': 'Dataset', name: '2026 Property Tax Key Rates', variableMeasured: [
+        { name: 'Highest State Rate', value: 'New Jersey 2.49%' },
+        { name: 'Lowest State Rate', value: 'Hawaii 0.31%' },
+        { name: 'US Average Effective Rate', value: '~1.1%' },
+        { name: 'Florida Homestead Exemption', value: 'Up to $50,000' },
+        { name: 'States Covered', value: 'All 50 states + DC' },
+      ]},
+      faqsToJsonLd(PROPERTY_TAX_FAQS),
+    ],
+  };
+}
+
+function getOvertimeTaxJsonLd() {
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      { '@type': 'BreadcrumbList', itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+        { '@type': 'ListItem', position: 2, name: 'No Tax on Overtime Calculator', item: `${SITE_URL}/overtime-tax-calculator` },
+      ]},
+      { '@type': 'WebApplication', name: 'No Tax on Overtime Calculator 2025–2028', url: `${SITE_URL}/overtime-tax-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
+      { '@type': 'MathSolver', name: 'Overtime Tax Savings Solver', description: 'Computes federal income tax savings from the OT exemption: Savings = OT_Pay × Federal_Bracket_Rate, where OT_Pay = OT_Hours × Hourly_Rate × 1.5. FICA taxes (7.65%) still apply.', mathExpression: 'Savings = (OT_Hours × Rate × 1.5) × FedBracket - FICA(OT_Pay) = OT_Pay × Bracket%' },
+      { '@type': 'Dataset', name: '2025–2028 Overtime Tax Exemption Key Rates', variableMeasured: [
+        { name: 'Minimum OT Rate Multiplier', value: '1.5x regular rate (FLSA)' },
+        { name: 'OT Exemption Period', value: '2025–2028 (tax years)' },
+        { name: 'FICA Still Applies to OT', value: 'Yes (6.2% SS + 1.45% Medicare)' },
+        { name: 'Federal Income Tax on OT', value: '0% (exempted)' },
+        { name: 'Law Sunset Date', value: 'December 31, 2028' },
+        { name: 'State Income Tax on OT', value: 'Most states still tax OT' },
+      ]},
+      faqsToJsonLd(OVERTIME_FAQS),
+    ],
+  };
+}
+
 function getJsonLdForType(type: string) {
   switch (type) {
     case 'illinois': return getIllinoisJsonLd();
@@ -396,6 +490,10 @@ function getJsonLdForType(type: string) {
     case 'tax-refund': return getTaxRefundJsonLd();
     case 'irs-withholding': return getIrsWithholdingJsonLd();
     case 'sales-tax': return getSalesTaxJsonLd();
+    case 'overtime-tax': return getOvertimeTaxJsonLd();
+    case 'bonus-tax': return getBonusTaxJsonLd();
+    case 'lottery-tax': return getLotteryTaxJsonLd();
+    case 'property-tax': return getPropertyTaxJsonLd();
     default: return getHomeJsonLd();
   }
 }
@@ -779,6 +877,105 @@ function getCalculatorContent(type: string): CalculatorContent {
           { slug: 'capital-gains-calculator', label: 'Capital Gains Calculator' },
         ],
       };
+    case 'overtime-tax':
+      return {
+        howItWorks: [
+          "The 2025 Trump tax law — officially the 'One Big Beautiful Bill Act' — created a federal income tax exemption for overtime pay. If you're a non-exempt hourly worker earning time-and-a-half for hours beyond 40 per week, that overtime pay is no longer subject to federal income tax for tax years 2025 through 2028. This calculator shows you exactly how much you save compared to the old rules where overtime was taxed like any other income.",
+          "Here's the important distinction: the exemption only covers <strong>federal income tax</strong>. FICA taxes — 6.2% for Social Security (up to the $176,100 wage cap) and 1.45% for Medicare (no cap) — still apply to your overtime pay. And most states have not conformed to the federal exemption, so your state will likely still tax overtime as regular income. The nine states with no income tax (Texas, Florida, Washington, Nevada, etc.) are the exception — they don't tax any income, overtime or otherwise.",
+          "The math is straightforward: your overtime pay equals overtime hours × hourly rate × 1.5. Under the old rules, that pay was added to your total income and taxed at your marginal bracket (anywhere from 10% to 37%). Under the new exemption, that portion skips federal income tax entirely. For a worker earning $30/hour with 10 weekly overtime hours in the 22% bracket, that's roughly $5,130 in annual federal tax savings. The higher your bracket and the more overtime you work, the bigger the benefit.",
+          "A few things to keep in mind: the exemption applies only to FLSA-defined overtime pay (1.5x rate for hours over 40/week). Bonuses, shift differentials, and premium pay that aren't tied to the 1.5x overtime rule don't qualify. And this law sunsets after December 31, 2028 — unless Congress extends it, overtime will be fully taxable again starting in 2029.",
+        ],
+        keyRates: [
+          { label: 'OT Federal Income Tax Rate', value: '0% (exempted 2025–2028)' },
+          { label: 'Minimum OT Pay Rate', value: '1.5x regular hourly rate' },
+          { label: 'FICA on Overtime', value: 'Still applies (7.65%)' },
+          { label: 'Law Sunset Date', value: 'December 31, 2028' },
+          { label: 'State Tax on OT', value: 'Most states still tax it' },
+        ],
+        faqs: OVERTIME_FAQS,
+        relatedCalculators: [
+          { slug: 'paycheck-calculator', label: 'Paycheck Calculator' },
+          { slug: 'irs-withholding-calculator', label: 'IRS Withholding Calculator' },
+          { slug: 'self-employment-tax-calculator', label: 'Self-Employment Calculator' },
+          { slug: 'salary', label: 'Salary After Tax' },
+        ],
+      };
+    case 'bonus-tax':
+      return {
+        howItWorks: [
+          "Bonuses feel great until you see the tax withholding. The IRS classifies bonuses as 'supplemental wages' — income paid in addition to your regular salary — and your employer can use one of two methods to withhold federal income tax on them. The <strong>Percentage Method</strong> applies a flat 22% rate (37% on any amount above $1 million). The <strong>Aggregate Method</strong> adds your bonus to your regular paycheck and runs the total through normal progressive brackets (10%–37%), then subtracts the tax on regular wages alone. This calculator shows you both results side by side.",
+          "Here's why the method matters: a $5,000 bonus for a single filer earning $75,000 per year. Under the 22% flat method, federal withholding is $1,100. Under the aggregate method, your employer adds the bonus to one paycheck (say, $2,885 regular + $5,000 = $7,885), annualizes that ($205,010), calculates tax on the total, subtracts tax on regular wages alone, and divides by pay periods. The result could be higher or lower depending on which bracket the bonus income falls into.",
+          "The flat 22% rate is a great deal if you're in the 24% bracket or above — you're paying less federal tax on the bonus than on your regular wages. But if you're in the 12% bracket, the aggregate method saves you money because your bonus gets taxed at around 12% instead of a flat 22%. At the 22% bracket, it's roughly a wash. This calculator does the math for both methods so you can see the exact difference for your situation.",
+          "Regardless of which method your employer uses for federal income tax, <a href='/glossary'>FICA</a> always applies to bonuses: 6.2% for Social Security (up to the $176,100 wage cap in 2026) and 1.45% for Medicare (no cap). If your total income exceeds $200,000, add 0.9% more for the Additional Medicare Tax on wages above that threshold. State income tax also applies to bonuses — and unlike federal tax, there's no flat rate option at the state level.",
+          "One common misconception: people think bonuses are 'taxed higher' than regular income. The reality is that withholding on bonuses can be higher than necessary (especially with the 22% flat method for lower-bracket earners), but when you file your tax return, the bonus is just part of your total income and gets the same bracket treatment. If too much was withheld, you get it back as a refund. The key insight: the 22% flat rate is optional for employers, and knowing which method they use helps you understand your pay stub.",
+        ],
+        keyRates: [
+          { label: 'Supplemental Rate (under $1M)', value: '22% flat federal' },
+          { label: 'Supplemental Rate (above $1M)', value: '37% on the excess' },
+          { label: 'FICA — Social Security', value: '6.2% (up to $176,100)' },
+          { label: 'FICA — Medicare', value: '1.45% (no cap)' },
+          { label: 'Additional Medicare', value: '0.9% above $200K' },
+        ],
+        faqs: BONUS_TAX_FAQS,
+        relatedCalculators: [
+          { slug: 'paycheck-calculator', label: 'Paycheck Calculator' },
+          { slug: 'irs-withholding-calculator', label: 'IRS Withholding Calculator' },
+          { slug: 'tax-refund-calculator', label: 'Tax Refund Calculator' },
+          { slug: 'self-employment-tax-calculator', label: 'Self-Employment Calculator' },
+          { slug: 'salary', label: 'Salary After Tax' },
+        ],
+      };
+    case 'lottery-tax':
+      return {
+        howItWorks: [
+          "Winning the lottery feels like a dream until you see the tax bill. Lottery winnings are taxed as <strong>ordinary income</strong> — there's no special 'lottery tax rate.' The IRS treats that jackpot the same as a massive salary, running it through the same progressive brackets from 10% to 37%. On a $1,000,000 lump sum, a single filer would owe roughly $300,000+ in federal tax alone after the $15,000 standard deduction. The effective rate typically lands around 30–33% for large prizes.",
+          "Here's the biggest surprise for most winners: <strong>lottery winnings are NOT subject to FICA</strong>. No 6.2% Social Security tax, no 1.45% Medicare tax, no 0.9% Additional Medicare Tax. That's a 7.65%+ savings compared to earning the same amount as wages. On a $500,000 lump sum, that's over $38,000 you don't have to pay. This is one of the few genuine tax advantages of winning the lottery versus earning the same amount through work.",
+          "The IRS requires <strong>24% mandatory federal withholding</strong> on gambling winnings over $5,000 — the lottery commission deducts this automatically before you see a dime. But 24% is just the withholding, not your actual tax. If you're in the 32%, 35%, or 37% bracket (which you probably are with a big win), you'll owe the difference when you file your return. On a $500,000 prize, 24% withholding is $120,000, but if your actual federal tax is $155,000, you'll owe an extra $35,000 at tax time. Many winners are caught off guard by this.",
+          "The <strong>lump sum vs annuity</strong> decision has major tax implications. The advertised jackpot (say $1,000,000) is the annuity value — paid over 30 years. The lump sum is typically only 50–60% of that ($500,000–$600,000). With a lump sum, all income hits in one year, pushing you into the top bracket. With an annuity, each year's payment is smaller and potentially taxed at a lower rate. But the annuity also means waiting 30 years for your money and facing tax rate uncertainty. This calculator shows both scenarios so you can compare total take-home amounts.",
+          "State tax makes a huge difference. Nine states have <strong>no income tax at all</strong>: Texas, Florida, Washington, Nevada, Wyoming, South Dakota, Alaska, Tennessee, and New Hampshire. Win in one of those states and you save thousands. California and Pennsylvania exempt in-state lottery winnings from state tax. But Illinois (4.95% flat) and New York (up to 10.9% + NYC tax) take a big cut. On a $500,000 win, the state tax difference between Texas ($0) and New York (~$40,000) is massive.",
+        ],
+        keyRates: [
+          { label: 'Federal Tax Brackets', value: '10% – 37% (progressive)' },
+          { label: 'FICA on Lottery Winnings', value: '0% (NOT subject to FICA)' },
+          { label: 'Mandatory Withholding', value: '24% (on winnings over $5,000)' },
+          { label: 'Lump Sum Cash Value', value: 'Typically 50–60% of jackpot' },
+          { label: 'Annuity Period', value: '30 years' },
+          { label: 'No Income Tax States', value: 'TX, FL, WA, NV, WY, SD, AK, TN, NH' },
+        ],
+        faqs: LOTTERY_TAX_FAQS,
+        relatedCalculators: [
+          { slug: 'bonus-tax-calculator', label: 'Bonus Tax Calculator' },
+          { slug: 'capital-gains-calculator', label: 'Capital Gains Calculator' },
+          { slug: 'paycheck-calculator', label: 'Paycheck Calculator' },
+          { slug: 'tax-refund-calculator', label: 'Tax Refund Calculator' },
+          { slug: 'self-employment-tax-calculator', label: 'Self-Employment Calculator' },
+        ],
+      };
+    case 'property-tax':
+      return {
+        howItWorks: [
+          "Property tax is the bill you pay for owning real estate — and depending on where you live, it can be one of your biggest annual expenses. The calculation is straightforward: your home's value multiplied by your area's effective property tax rate. A $350,000 home at 1.78% (Illinois) means $6,230 per year. Same home in Hawaii at 0.31%? Just $1,085. That's a $5,145 difference for the exact same house value. Location matters enormously.",
+          "This calculator uses average <strong>effective property tax rates</strong> for all 50 states plus DC. Effective rate is the percentage of your home's market value that you actually pay in tax — it already accounts for assessment ratios, mill rates, and local adjustments. It's the most practical way to compare states because you just plug in your home value and get the real number. The actual rate you pay depends on your specific county, city, and school district, but these averages give you a solid estimate.",
+          "The range across the US is staggering. <a href='https://www.nj.gov/treasury/' target='_blank' rel='noopener noreferrer nofollow'>New Jersey</a> tops the list at 2.49% — on a $400,000 home that's nearly $10,000 a year. Hawaii sits at the bottom at 0.31%. The Northeast and Midwest tend to have the highest rates, while the South and Mountain West are generally lower. But here's the thing: states with no income tax (like Texas at 1.71% and New Hampshire at 2.06%) often compensate with higher property taxes. It's a shell game — the money comes from somewhere.",
+          "If you're in Florida, South Carolina, or several other states, a <strong>homestead exemption</strong> can knock thousands off your taxable value. Florida's exemption removes up to $50,000 from your assessed value, and the Save Our Homes cap limits annual assessment increases to 3%. Over a decade of rising home values, that cap saves you serious money as your taxable value falls further and further behind market value. This calculator lets you toggle homestead exemptions and add custom exemptions to see the exact impact.",
+          "Bottom line: property tax is a local tax with national consequences. It affects where people choose to live, whether they can afford to stay in their homes, and how much house they can buy. A 1% rate difference on a $400K home is $4,000 a year — $333 a month. That's a car payment. Run the numbers for your state, compare it to others, and factor it into your housing budget from day one.",
+        ],
+        keyRates: [
+          { label: 'Highest Rate', value: 'New Jersey 2.49%' },
+          { label: 'Lowest Rate', value: 'Hawaii 0.31%' },
+          { label: 'US Average', value: '~1.1% effective rate' },
+          { label: 'FL Homestead Exemption', value: 'Up to $50,000' },
+          { label: 'States Covered', value: 'All 50 states + DC' },
+        ],
+        faqs: PROPERTY_TAX_FAQS,
+        relatedCalculators: [
+          { slug: 'mortgage-calculator', label: 'Mortgage Calculator' },
+          { slug: 'relocation-calculator', label: 'Relocation Calculator' },
+          { slug: 'paycheck-calculator', label: 'Paycheck Calculator' },
+          { slug: 'sales-tax-calculator', label: 'Sales Tax Calculator' },
+          { slug: 'salary', label: 'Salary After Tax' },
+        ],
+      };
     default:
       return {
         howItWorks: [
@@ -839,6 +1036,10 @@ function getFaqHeading(type: string): string {
     case 'tax-refund': return 'Tax Refund Calculator FAQ';
     case 'irs-withholding': return 'IRS Withholding Calculator FAQ';
     case 'sales-tax': return 'Sales Tax Calculator FAQ';
+    case 'overtime-tax': return 'No Tax on Overtime Calculator FAQ';
+    case 'bonus-tax': return 'Bonus Tax Calculator FAQ';
+    case 'lottery-tax': return 'Lottery Tax Calculator FAQ';
+    case 'property-tax': return 'Property Tax Calculator FAQ';
     case 'income-tax': return 'Income Tax Calculator FAQ';
     case 'tax-calc': return 'Tax Calculator FAQ';
     default: return 'Frequently Asked Questions';
@@ -909,6 +1110,34 @@ function getNextSteps(type: string): { href: string; icon: string; title: string
         { href: '/compare', icon: '\u{1F4CA}', title: 'State Comparison', description: 'Side-by-side tax comparison' },
         { href: '/mortgage-calculator', icon: '\u{1F3E0}', title: 'Mortgage Calculator', description: 'Housing costs in your new state' },
         { href: '/salary', icon: '\u{1F4B0}', title: 'Salary After Tax', description: 'Take-home for every salary level' },
+      ];
+    case 'overtime-tax':
+      return [
+        { href: '/paycheck-calculator', icon: '\u{1F4B5}', title: 'Paycheck Calculator', description: 'Full take-home pay breakdown' },
+        { href: '/irs-withholding-calculator', icon: '\u{1F4CB}', title: 'IRS Withholding', description: 'Optimize your W-4 for OT pay' },
+        { href: '/self-employment-tax-calculator', icon: '\u{1F4BC}', title: 'Self-Employment Tax', description: 'SE tax and quarterly estimates' },
+        { href: '/salary', icon: '\u{1F4B0}', title: 'Salary After Tax', description: 'Take-home pay for every salary' },
+      ];
+    case 'bonus-tax':
+      return [
+        { href: '/paycheck-calculator', icon: '\u{1F4B5}', title: 'Paycheck Calculator', description: 'Full take-home pay breakdown by state' },
+        { href: '/irs-withholding-calculator', icon: '\u{1F4CB}', title: 'IRS Withholding', description: 'Optimize your W-4 for bonus pay' },
+        { href: '/tax-refund-calculator', icon: '\u{1F4B0}', title: 'Tax Refund Calculator', description: 'Bonus withholding affects your refund' },
+        { href: '/self-employment-tax-calculator', icon: '\u{1F4BC}', title: 'Self-Employment Tax', description: 'SE tax and quarterly estimates' },
+      ];
+    case 'lottery-tax':
+      return [
+        { href: '/paycheck-calculator', icon: '\u{1F4B5}', title: 'Paycheck Calculator', description: 'Compare with regular wage income tax' },
+        { href: '/bonus-tax-calculator', icon: '\u{1F381}', title: 'Bonus Tax Calculator', description: 'Tax on supplemental wages vs lottery' },
+        { href: '/capital-gains-calculator', icon: '\u{1F4C8}', title: 'Capital Gains Tax', description: 'Investment income tax rates' },
+        { href: '/tax-refund-calculator', icon: '\u{1F4B0}', title: 'Tax Refund Calculator', description: 'Withholding may affect your refund' },
+      ];
+    case 'property-tax':
+      return [
+        { href: '/mortgage-calculator', icon: '\u{1F3E0}', title: 'Mortgage Calculator', description: 'Property tax is part of your monthly payment' },
+        { href: '/relocation-calculator', icon: '\u{1F4CA}', title: 'Relocation Calculator', description: 'Compare total tax burden across states' },
+        { href: '/paycheck-calculator', icon: '\u{1F4B5}', title: 'Paycheck Calculator', description: 'See your full take-home pay by state' },
+        { href: '/sales-tax-calculator', icon: '\u{1F4B3}', title: 'Sales Tax Calculator', description: 'Another tax that varies by state' },
       ];
     default:
       return [
