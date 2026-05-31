@@ -16,10 +16,10 @@ export function middleware(request: NextRequest) {
   // CSP
   response.headers.set('Content-Security-Policy', "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https://www.google-analytics.com https://www.googletagmanager.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://www.google-analytics.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self';");
 
-  // Cache for HTML pages
+  // Cache for HTML pages — no CDN cache during development; short cache in production
   const isHtmlPage = !pathname.startsWith('/_next') && !pathname.startsWith('/api') && !pathname.match(/\.(svg|png|jpg|jpeg|gif|webp|ico|xml|json|txt|css|js|woff2?|ttf|eot)$/);
   if (isHtmlPage) {
-    response.headers.set('Cache-Control', 'public, max-age=600, s-maxage=600, stale-while-revalidate=3600');
+    response.headers.set('Cache-Control', 'no-store, must-revalidate');
   }
 
   return response;
