@@ -17,6 +17,7 @@ const CALCULATOR_LINKS = [
   { href: '/401k-retirement-calculator', label: '401(k) Projection', icon: Shield },
   { href: '/capital-gains-calculator', label: 'Capital Gains', icon: Calculator },
   { href: '/self-employment-tax-calculator', label: 'Self-Employment', icon: Calculator },
+  { href: '/tax-refund-calculator', label: 'Tax Refund Calculator', icon: DollarSign },
   { href: '/relocation-calculator', label: 'Relocation Calculator', icon: MapPin },
 ];
 
