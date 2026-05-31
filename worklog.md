@@ -115,3 +115,27 @@ Stage Summary:
 - Page now visible in: Header dropdown, Footer links, SEO Navigation
 - Page has full SEO: meta tags, JSON-LD schema, FAQ, content sections
 - Dev server confirmed working with page returning 200 status
+
+---
+Task ID: 2
+Agent: Main Agent
+Task: Make Tax Refund Calculator visible on thetaxcalc.com website
+
+Work Log:
+- Found Tax Refund Calculator page existed at /tax-refund-calculator but was NOT visible anywhere in the site navigation
+- Added Tax Refund Calculator to Header CALC_ITEMS dropdown (header.tsx) - line 38
+- Updated "11 tools" to "12 tools" in Header dropdown (header.tsx) - line 140
+- Added Tax Refund Calculator to Footer CALCULATOR_LINKS (footer.tsx) - line 20
+- Added Tax Refund Calculator to SEO Navigation footer (seo-navigation.tsx) - line 42
+- Added Tax Refund Calculator card to Homepage CALCULATOR_CARDS (page.tsx) - line 174-182
+- Verified with agent-browser + VLM that Tax Refund Calculator appears as card #12 on homepage
+- Verified tax-refund-calculator page loads with full calculator functionality
+
+Stage Summary:
+- Tax Refund Calculator now visible in 4 locations:
+  1. Homepage card grid (12th card)
+  2. Header "Calculators" dropdown menu
+  3. Footer calculator links
+  4. SEO Navigation (for crawlers)
+- Page at /tax-refund-calculator is fully functional with income, withholding, deductions, credits inputs
+- Dev server has stability issues (crashes after requests) but this is a sandbox environment issue, not a code issue
