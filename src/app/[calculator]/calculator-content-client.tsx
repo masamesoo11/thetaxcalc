@@ -90,7 +90,6 @@ function getIllinoisJsonLd() {
         { '@type': 'ListItem', position: 2, name: 'Illinois Paycheck Calculator', item: `${SITE_URL}/illinois-tax-calculator` },
       ]},
       { '@type': 'WebApplication', name: 'Illinois Paycheck Calculator 2026', url: `${SITE_URL}/illinois-tax-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
-      { '@type': 'MathSolver', name: 'Illinois Paycheck Math Solver', description: 'Computes net take-home pay: Net = Gross - Federal Tax - FICA - IL State Tax, where IL Tax = (Gross - Personal Exemption) × 4.95%', mathExpression: 'Net = G - Fed(G - StdDed) - FICA(G) - (G - Exempt) × 0.0495', url: `${SITE_URL}/illinois-tax-calculator`, usageInfo: `${SITE_URL}/illinois-tax-calculator#how-it-works`, inLanguage: 'en-US' },
       { '@type': 'Dataset', name: '2026 Illinois Tax Rates', description: 'Key Illinois tax rates and federal brackets for 2026 paycheck calculations.', creator: { '@type': 'Organization', name: 'TheTaxCalc', url: SITE_URL }, license: `${SITE_URL}/terms`, variableMeasured: [
         { '@type': 'PropertyValue', name: 'Illinois Flat Tax Rate', value: '4.95%' },
         { '@type': 'PropertyValue', name: 'Illinois Personal Exemption', value: '$2,775' },
@@ -111,7 +110,6 @@ function getTexasJsonLd() {
         { '@type': 'ListItem', position: 2, name: 'Texas Paycheck Calculator', item: `${SITE_URL}/texas-tax-calculator` },
       ]},
       { '@type': 'WebApplication', name: 'Texas Paycheck Calculator 2026', url: `${SITE_URL}/texas-tax-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
-      { '@type': 'MathSolver', name: 'Texas Paycheck Math Solver', description: 'Computes net take-home pay in Texas: Net = Gross - Federal Tax - FICA. Texas has 0% state income tax.', mathExpression: 'Net = G - Fed(G - StdDed) - FICA(G)', url: `${SITE_URL}/texas-tax-calculator`, usageInfo: `${SITE_URL}/texas-tax-calculator#how-it-works`, inLanguage: 'en-US' },
       { '@type': 'Dataset', name: '2026 Texas Tax & Cost of Living Data', description: 'Texas tax rates and cost of living data for 2026, including property and sales tax information.', creator: { '@type': 'Organization', name: 'TheTaxCalc', url: SITE_URL }, license: `${SITE_URL}/terms`, variableMeasured: [
         { '@type': 'PropertyValue', name: 'Texas State Income Tax Rate', value: '0%' },
         { '@type': 'PropertyValue', name: 'Texas Average Effective Property Tax Rate', value: '1.71%' },
@@ -150,7 +148,6 @@ function getCaliforniaJsonLd() {
         { '@type': 'ListItem', position: 2, name: 'California Paycheck Calculator', item: `${SITE_URL}/california-tax-calculator` },
       ]},
       { '@type': 'WebApplication', name: 'California Paycheck Calculator 2026', url: `${SITE_URL}/california-tax-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
-      { '@type': 'MathSolver', name: 'California Paycheck Math Solver', description: 'Computes net take-home pay with CA progressive tax brackets 1%-13.3%.', mathExpression: 'Net = G - Fed(G - StdDed) - FICA(G) - CA_Progressive(G - StdDed_CA)', url: `${SITE_URL}/california-tax-calculator`, usageInfo: `${SITE_URL}/california-tax-calculator#how-it-works`, inLanguage: 'en-US' },
       { '@type': 'Dataset', name: '2026 California Tax Rates', description: 'Key California tax rates including progressive income tax brackets for 2026.', creator: { '@type': 'Organization', name: 'TheTaxCalc', url: SITE_URL }, license: `${SITE_URL}/terms`, variableMeasured: [
         { '@type': 'PropertyValue', name: 'California Top Marginal Tax Rate', value: '13.3%' },
         { '@type': 'PropertyValue', name: 'California Standard Deduction (Single)', value: '$6,083' },
@@ -170,7 +167,6 @@ function getNewYorkJsonLd() {
         { '@type': 'ListItem', position: 2, name: 'New York Paycheck Calculator', item: `${SITE_URL}/new-york-tax-calculator` },
       ]},
       { '@type': 'WebApplication', name: 'New York Paycheck Calculator 2026', url: `${SITE_URL}/new-york-tax-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
-      { '@type': 'MathSolver', name: 'New York Paycheck Math Solver', description: 'Computes net take-home pay with NY progressive tax brackets 4%-10.9% plus potential NYC tax.', mathExpression: 'Net = G - Fed(G - StdDed) - FICA(G) - NY_Progressive(G - StdDed_NY) - NYC_Tax', url: `${SITE_URL}/new-york-tax-calculator`, usageInfo: `${SITE_URL}/new-york-tax-calculator#how-it-works`, inLanguage: 'en-US' },
       { '@type': 'Dataset', name: '2026 New York Tax Rates', description: 'Key New York tax rates including progressive income tax brackets and NYC tax for 2026.', creator: { '@type': 'Organization', name: 'TheTaxCalc', url: SITE_URL }, license: `${SITE_URL}/terms`, variableMeasured: [
         { '@type': 'PropertyValue', name: 'New York Top Marginal Tax Rate', value: '10.9%' },
         { '@type': 'PropertyValue', name: 'New York Standard Deduction (Single)', value: '$8,100' },
@@ -190,7 +186,6 @@ function getMortgageJsonLd() {
         { '@type': 'ListItem', position: 2, name: 'Mortgage Calculator', item: `${SITE_URL}/mortgage-calculator` },
       ]},
       { '@type': 'WebApplication', name: 'Mortgage Calculator with Extra Payments', url: `${SITE_URL}/mortgage-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
-      { '@type': 'MathSolver', name: 'Mortgage Amortization Solver', description: 'Computes monthly payment using M = P × [r(1+r)^n] / [(1+r)^n - 1]', mathExpression: 'M = P × [r(1+r)^n] / [(1+r)^n - 1]', url: `${SITE_URL}/mortgage-calculator`, usageInfo: `${SITE_URL}/mortgage-calculator#how-it-works`, inLanguage: 'en-US' },
       faqsToJsonLd(MORTGAGE_FAQS),
     ],
   };
@@ -205,7 +200,6 @@ function getRetirementJsonLd() {
         { '@type': 'ListItem', position: 2, name: '401(k) Retirement Projection', item: `${SITE_URL}/401k-retirement-calculator` },
       ]},
       { '@type': 'WebApplication', name: '401(k) Retirement Projection Calculator 2026', url: `${SITE_URL}/401k-retirement-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
-      { '@type': 'MathSolver', name: '401(k) Compound Growth Solver', description: 'Computes projected 401(k) balance using annual contributions + employer match with compound annual growth.', mathExpression: 'B(n) = Σ C_annual × (1 + r)^(n-i)', url: `${SITE_URL}/401k-retirement-calculator`, usageInfo: `${SITE_URL}/401k-retirement-calculator#how-it-works`, inLanguage: 'en-US' },
       faqsToJsonLd(RETIREMENT_FAQS),
     ],
   };
@@ -269,7 +263,6 @@ function getIncomeTaxJsonLd() {
         { '@type': 'ListItem', position: 2, name: 'Paycheck Calculator', item: `${SITE_URL}/paycheck-calculator` },
       ]},
       { '@type': 'WebApplication', name: 'Income Tax Calculator 2026', url: `${SITE_URL}/paycheck-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
-      { '@type': 'MathSolver', name: 'Income Tax Math Solver', description: 'Computes income tax liability using progressive federal brackets, FICA, and state tax rates.', mathExpression: 'Tax = Fed(G - StdDed) + FICA(G) + State(G - StateDed)', url: `${SITE_URL}/paycheck-calculator`, usageInfo: `${SITE_URL}/paycheck-calculator#how-it-works`, inLanguage: 'en-US' },
       { '@type': 'Dataset', name: '2026 Federal Income Tax Brackets', description: 'Federal income tax brackets, standard deductions, and FICA rates for 2026.', creator: { '@type': 'Organization', name: 'TheTaxCalc', url: SITE_URL }, license: `${SITE_URL}/terms`, variableMeasured: [
         { '@type': 'PropertyValue', name: 'Lowest Federal Bracket', value: '10%' },
         { '@type': 'PropertyValue', name: 'Highest Federal Bracket', value: '37%' },
@@ -290,7 +283,6 @@ function getTaxCalcJsonLd() {
         { '@type': 'ListItem', position: 2, name: 'Paycheck Calculator', item: `${SITE_URL}/paycheck-calculator` },
       ]},
       { '@type': 'WebApplication', name: 'Tax Calculator 2026', url: `${SITE_URL}/paycheck-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
-      { '@type': 'MathSolver', name: 'Tax Estimator Solver', description: 'Computes total tax liability including federal income tax, FICA, and state income tax for 5 states.', mathExpression: 'TotalTax = Fed(G - StdDed) + FICA(G) + State(G - StateDed)', url: `${SITE_URL}/paycheck-calculator`, usageInfo: `${SITE_URL}/paycheck-calculator#how-it-works`, inLanguage: 'en-US' },
       { '@type': 'Dataset', name: '2026 Tax Rates', description: 'Federal and state tax rate data for 2026 paycheck calculations.', creator: { '@type': 'Organization', name: 'TheTaxCalc', url: SITE_URL }, license: `${SITE_URL}/terms`, variableMeasured: [
         { '@type': 'PropertyValue', name: 'Federal Tax Brackets', value: '10% - 37%' },
         { '@type': 'PropertyValue', name: 'FICA Rate', value: '7.65%' },

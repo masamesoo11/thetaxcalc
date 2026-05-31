@@ -154,7 +154,6 @@ function getIllinoisJsonLd() {
         { '@type': 'ListItem', position: 2, name: 'Illinois Paycheck Calculator', item: `${SITE_URL}/illinois-tax-calculator` },
       ]},
       { '@type': 'WebApplication', name: 'Illinois Paycheck Calculator 2026', url: `${SITE_URL}/illinois-tax-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
-      { '@type': 'MathSolver', name: 'Illinois Paycheck Math Solver', description: 'Computes net take-home pay: Net = Gross - Federal Tax - FICA - IL State Tax, where IL Tax = (Gross - Personal Exemption) × 4.95%', mathExpression: 'Net = G - Fed(G - StdDed) - FICA(G) - (G - Exempt) × 0.0495', url: `${SITE_URL}/illinois-tax-calculator`, usageInfo: `${SITE_URL}/illinois-tax-calculator#how-it-works`, inLanguage: 'en-US' },
       { '@type': 'Dataset', name: '2026 Illinois Tax Rates', description: 'Key Illinois tax rates and federal brackets for 2026 paycheck calculations.', creator: { '@type': 'Organization', name: 'TheTaxCalc', url: SITE_URL }, license: `${SITE_URL}/terms`, variableMeasured: [
         { '@type': 'PropertyValue', name: 'Illinois Flat Tax Rate', value: '4.95%' },
         { '@type': 'PropertyValue', name: 'Illinois Personal Exemption', value: '$2,775' },
@@ -175,7 +174,6 @@ function getTexasJsonLd() {
         { '@type': 'ListItem', position: 2, name: 'Texas Paycheck Calculator', item: `${SITE_URL}/texas-tax-calculator` },
       ]},
       { '@type': 'WebApplication', name: 'Texas Paycheck Calculator 2026', url: `${SITE_URL}/texas-tax-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
-      { '@type': 'MathSolver', name: 'Texas Paycheck Math Solver', description: 'Computes net take-home pay in Texas: Net = Gross - Federal Tax - FICA. Texas has 0% state income tax.', mathExpression: 'Net = G - Fed(G - StdDed) - FICA(G)', url: `${SITE_URL}/texas-tax-calculator`, usageInfo: `${SITE_URL}/texas-tax-calculator#how-it-works`, inLanguage: 'en-US' },
       { '@type': 'Dataset', name: '2026 Texas Tax & Cost of Living Data', description: 'Texas tax rates and cost of living data for 2026, including property and sales tax information.', creator: { '@type': 'Organization', name: 'TheTaxCalc', url: SITE_URL }, license: `${SITE_URL}/terms`, variableMeasured: [
         { '@type': 'PropertyValue', name: 'Texas State Income Tax Rate', value: '0%' },
         { '@type': 'PropertyValue', name: 'Texas Average Effective Property Tax Rate', value: '1.71%' },
@@ -214,7 +212,6 @@ function getCaliforniaJsonLd() {
         { '@type': 'ListItem', position: 2, name: 'California Paycheck Calculator', item: `${SITE_URL}/california-tax-calculator` },
       ]},
       { '@type': 'WebApplication', name: 'California Paycheck Calculator 2026', url: `${SITE_URL}/california-tax-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
-      { '@type': 'MathSolver', name: 'California Paycheck Math Solver', description: 'Computes net take-home pay with CA progressive tax brackets 1%-13.3%.', mathExpression: 'Net = G - Fed(G - StdDed) - FICA(G) - CA_Progressive(G - StdDed_CA)', url: `${SITE_URL}/california-tax-calculator`, usageInfo: `${SITE_URL}/california-tax-calculator#how-it-works`, inLanguage: 'en-US' },
       { '@type': 'Dataset', name: '2026 California Tax Rates', description: 'Key California tax rates including progressive income tax brackets for 2026.', creator: { '@type': 'Organization', name: 'TheTaxCalc', url: SITE_URL }, license: `${SITE_URL}/terms`, variableMeasured: [
         { '@type': 'PropertyValue', name: 'California Top Marginal Tax Rate', value: '13.3%' },
         { '@type': 'PropertyValue', name: 'California Standard Deduction (Single)', value: '$6,083' },
@@ -234,7 +231,6 @@ function getNewYorkJsonLd() {
         { '@type': 'ListItem', position: 2, name: 'New York Paycheck Calculator', item: `${SITE_URL}/new-york-tax-calculator` },
       ]},
       { '@type': 'WebApplication', name: 'New York Paycheck Calculator 2026', url: `${SITE_URL}/new-york-tax-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
-      { '@type': 'MathSolver', name: 'New York Paycheck Math Solver', description: 'Computes net take-home pay with NY progressive tax brackets 4%-10.9% plus potential NYC tax.', mathExpression: 'Net = G - Fed(G - StdDed) - FICA(G) - NY_Progressive(G - StdDed_NY) - NYC_Tax', url: `${SITE_URL}/new-york-tax-calculator`, usageInfo: `${SITE_URL}/new-york-tax-calculator#how-it-works`, inLanguage: 'en-US' },
       { '@type': 'Dataset', name: '2026 New York Tax Rates', description: 'Key New York tax rates including progressive income tax brackets and NYC tax for 2026.', creator: { '@type': 'Organization', name: 'TheTaxCalc', url: SITE_URL }, license: `${SITE_URL}/terms`, variableMeasured: [
         { '@type': 'PropertyValue', name: 'New York Top Marginal Tax Rate', value: '10.9%' },
         { '@type': 'PropertyValue', name: 'New York Standard Deduction (Single)', value: '$8,100' },
@@ -254,7 +250,6 @@ function getMortgageJsonLd() {
         { '@type': 'ListItem', position: 2, name: 'Mortgage Calculator', item: `${SITE_URL}/mortgage-calculator` },
       ]},
       { '@type': 'WebApplication', name: 'Mortgage Calculator with Extra Payments', url: `${SITE_URL}/mortgage-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
-      { '@type': 'MathSolver', name: 'Mortgage Amortization Solver', description: 'Computes monthly payment using M = P × [r(1+r)^n] / [(1+r)^n - 1]', mathExpression: 'M = P × [r(1+r)^n] / [(1+r)^n - 1]', url: `${SITE_URL}/mortgage-calculator`, usageInfo: `${SITE_URL}/mortgage-calculator#how-it-works`, inLanguage: 'en-US' },
       faqsToJsonLd(MORTGAGE_FAQS),
     ],
   };
@@ -269,7 +264,6 @@ function getRetirementJsonLd() {
         { '@type': 'ListItem', position: 2, name: '401(k) Retirement Projection', item: `${SITE_URL}/401k-retirement-calculator` },
       ]},
       { '@type': 'WebApplication', name: '401(k) Retirement Projection Calculator 2026', url: `${SITE_URL}/401k-retirement-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
-      { '@type': 'MathSolver', name: '401(k) Compound Growth Solver', description: 'Computes projected 401(k) balance using annual contributions + employer match with compound annual growth.', mathExpression: 'B(n) = Σ C_annual × (1 + r)^(n-i)', url: `${SITE_URL}/401k-retirement-calculator`, usageInfo: `${SITE_URL}/401k-retirement-calculator#how-it-works`, inLanguage: 'en-US' },
       faqsToJsonLd(RETIREMENT_FAQS),
     ],
   };
@@ -326,7 +320,6 @@ function getIrsWithholdingJsonLd() {
         { '@type': 'ListItem', position: 2, name: 'IRS Withholding Calculator', item: `${SITE_URL}/irs-withholding-calculator` },
       ]},
       { '@type': 'WebApplication', name: 'IRS Withholding Calculator 2026', url: `${SITE_URL}/irs-withholding-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
-      { '@type': 'MathSolver', name: 'IRS Withholding Math Solver', description: 'Computes recommended federal withholding per paycheck using IRS Publication 15-T methodology with progressive brackets, standard deduction, and dependent credits.', mathExpression: 'WH = (FedTax((Gross - Pretax - StdDed) × brackets) - DepCredit) / PayPeriods', url: `${SITE_URL}/irs-withholding-calculator`, usageInfo: `${SITE_URL}/irs-withholding-calculator#how-it-works`, inLanguage: 'en-US' },
       { '@type': 'Dataset', name: '2026 Withholding Key Rates', description: 'Key federal withholding rates and standard deductions for 2026 per IRS Publication 15-T.', creator: { '@type': 'Organization', name: 'TheTaxCalc', url: SITE_URL }, license: `${SITE_URL}/terms`, variableMeasured: [
         { '@type': 'PropertyValue', name: 'Standard Deduction (Single)', value: '$15,000' },
         { '@type': 'PropertyValue', name: 'Standard Deduction (Married)', value: '$30,000' },
@@ -349,7 +342,6 @@ function getTaxRefundJsonLd() {
         { '@type': 'ListItem', position: 2, name: 'Tax Refund Calculator', item: `${SITE_URL}/tax-refund-calculator` },
       ]},
       { '@type': 'WebApplication', name: 'Tax Refund Calculator 2026', url: `${SITE_URL}/tax-refund-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
-      { '@type': 'MathSolver', name: 'Tax Refund Math Solver', description: 'Computes estimated tax refund: Refund = Total Taxes Withheld - (Federal Tax Owed + State Tax Owed), where Federal Tax Owed uses progressive brackets with standard/itemized deductions and tax credits.', mathExpression: 'Refund = (Fed_Withheld + State_Withheld) - (Fed_Tax(Gross - Deduction) - Credits + State_Tax)', url: `${SITE_URL}/tax-refund-calculator`, usageInfo: `${SITE_URL}/tax-refund-calculator#how-it-works`, inLanguage: 'en-US' },
       { '@type': 'Dataset', name: '2026 Tax Refund Key Rates', description: 'Key tax refund rates, deductions, and credit amounts for 2026 tax filing.', creator: { '@type': 'Organization', name: 'TheTaxCalc', url: SITE_URL }, license: `${SITE_URL}/terms`, variableMeasured: [
         { '@type': 'PropertyValue', name: 'Standard Deduction (Single)', value: '$15,000' },
         { '@type': 'PropertyValue', name: 'Standard Deduction (Married)', value: '$30,000' },
@@ -371,7 +363,6 @@ function getSalesTaxJsonLd() {
         { '@type': 'ListItem', position: 2, name: 'Sales Tax Calculator', item: `${SITE_URL}/sales-tax-calculator` },
       ]},
       { '@type': 'WebApplication', name: 'Sales Tax Calculator 2026', url: `${SITE_URL}/sales-tax-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
-      { '@type': 'MathSolver', name: 'Sales Tax Calculator', description: 'Computes sales tax amount and total cost using combined state + local rates. Also supports reverse calculation: MaxPurchase = Budget / (1 + combined_rate).', mathExpression: 'Tax = Price × (StateRate + LocalRate), Total = Price + Tax, Reverse: MaxPurchase = Budget / (1 + Rate)', url: `${SITE_URL}/sales-tax-calculator`, usageInfo: `${SITE_URL}/sales-tax-calculator#how-it-works`, inLanguage: 'en-US' },
       { '@type': 'Dataset', name: '2026 Sales Tax Key Rates', description: 'Combined state and local sales tax rates for all 50 US states for 2026.', creator: { '@type': 'Organization', name: 'TheTaxCalc', url: SITE_URL }, license: `${SITE_URL}/terms`, variableMeasured: [
         { '@type': 'PropertyValue', name: 'California Combined Rate', value: '8.82% (7.25% state + 1.57% local)' },
         { '@type': 'PropertyValue', name: 'Texas Combined Rate', value: '8.20% (6.25% state + 1.95% local)' },
@@ -394,7 +385,6 @@ function getBonusTaxJsonLd() {
         { '@type': 'ListItem', position: 2, name: 'Bonus Tax Calculator', item: `${SITE_URL}/bonus-tax-calculator` },
       ]},
       { '@type': 'WebApplication', name: 'Bonus Tax Calculator 2026', url: `${SITE_URL}/bonus-tax-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
-      { '@type': 'MathSolver', name: 'Bonus Tax Math Solver', description: 'Computes tax on bonus using Percentage Method (flat 22% federal rate on supplemental wages) or Aggregate Method (add bonus to regular wages and tax through progressive brackets). Both include FICA and state tax.', mathExpression: 'Pct: FedTax = Bonus × 0.22; Agg: FedTax = FedTax(Salary + Bonus) - FedTax(Salary); Both: Total = FedTax + FICA(Bonus) + StateTax(Bonus)', url: `${SITE_URL}/bonus-tax-calculator`, usageInfo: `${SITE_URL}/bonus-tax-calculator#how-it-works`, inLanguage: 'en-US' },
       { '@type': 'Dataset', name: '2026 Bonus Tax Key Rates', description: 'Federal supplemental wage tax rates and FICA rates for 2026 bonus taxation.', creator: { '@type': 'Organization', name: 'TheTaxCalc', url: SITE_URL }, license: `${SITE_URL}/terms`, variableMeasured: [
         { '@type': 'PropertyValue', name: 'Supplemental Wage Rate (under $1M)', value: '22% flat' },
         { '@type': 'PropertyValue', name: 'Supplemental Wage Rate (above $1M)', value: '37% on excess' },
@@ -416,7 +406,6 @@ function getLotteryTaxJsonLd() {
         { '@type': 'ListItem', position: 2, name: 'Lottery Tax Calculator', item: `${SITE_URL}/lottery-tax-calculator` },
       ]},
       { '@type': 'WebApplication', name: 'Lottery Tax Calculator 2026', url: `${SITE_URL}/lottery-tax-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
-      { '@type': 'MathSolver', name: 'Lottery Tax Math Solver', description: 'Computes tax on lottery winnings: Federal tax uses progressive brackets (10%-37%) on prize amount minus standard deduction. NO FICA applies. State tax varies by state. Supports lump sum vs annuity comparison. Mandatory 24% withholding on winnings over $5,000.', mathExpression: 'Net = Prize - FedTax(Prize - StdDed) - StateTax(Prize); FICA = $0; Withholding = Prize > $5000 ? Prize × 0.24 : 0', url: `${SITE_URL}/lottery-tax-calculator`, usageInfo: `${SITE_URL}/lottery-tax-calculator#how-it-works`, inLanguage: 'en-US' },
       { '@type': 'Dataset', name: '2026 Lottery Tax Key Rates', description: 'Federal and state tax rates applicable to lottery winnings for 2026.', creator: { '@type': 'Organization', name: 'TheTaxCalc', url: SITE_URL }, license: `${SITE_URL}/terms`, variableMeasured: [
         { '@type': 'PropertyValue', name: 'Federal Tax Brackets', value: '10% – 37% (progressive)' },
         { '@type': 'PropertyValue', name: 'FICA on Lottery Winnings', value: '0% (NOT subject to FICA)' },
@@ -439,7 +428,6 @@ function getPropertyTaxJsonLd() {
         { '@type': 'ListItem', position: 2, name: 'Property Tax Calculator', item: `${SITE_URL}/property-tax-calculator` },
       ]},
       { '@type': 'WebApplication', name: 'Property Tax Calculator 2026', url: `${SITE_URL}/property-tax-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
-      { '@type': 'MathSolver', name: 'Property Tax Calculator', description: 'Computes annual and monthly property tax using average effective rates for all 50 US states plus DC. Supports homestead exemptions and custom exemptions. Annual Tax = Home Value × Effective Rate - Exemptions.', mathExpression: 'AnnualTax = (HomeValue - Exemption) × EffectiveRate; MonthlyTax = AnnualTax / 12; BiweeklyTax = AnnualTax / 26', url: `${SITE_URL}/property-tax-calculator`, usageInfo: `${SITE_URL}/property-tax-calculator#how-it-works`, inLanguage: 'en-US' },
       { '@type': 'Dataset', name: '2026 Property Tax Key Rates', description: 'Average effective property tax rates for all 50 US states plus DC for 2026.', creator: { '@type': 'Organization', name: 'TheTaxCalc', url: SITE_URL }, license: `${SITE_URL}/terms`, variableMeasured: [
         { '@type': 'PropertyValue', name: 'Highest State Rate', value: 'New Jersey 2.49%' },
         { '@type': 'PropertyValue', name: 'Lowest State Rate', value: 'Hawaii 0.31%' },
@@ -461,7 +449,6 @@ function getOvertimeTaxJsonLd() {
         { '@type': 'ListItem', position: 2, name: 'No Tax on Overtime Calculator', item: `${SITE_URL}/overtime-tax-calculator` },
       ]},
       { '@type': 'WebApplication', name: 'No Tax on Overtime Calculator 2025–2028', url: `${SITE_URL}/overtime-tax-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
-      { '@type': 'MathSolver', name: 'Overtime Tax Savings Solver', description: 'Computes federal income tax savings from the OT exemption: Savings = OT_Pay × Federal_Bracket_Rate, where OT_Pay = OT_Hours × Hourly_Rate × 1.5. FICA taxes (7.65%) still apply.', mathExpression: 'Savings = (OT_Hours × Rate × 1.5) × FedBracket - FICA(OT_Pay) = OT_Pay × Bracket%', url: `${SITE_URL}/overtime-tax-calculator`, usageInfo: `${SITE_URL}/overtime-tax-calculator#how-it-works`, inLanguage: 'en-US' },
       { '@type': 'Dataset', name: '2025–2028 Overtime Tax Exemption Key Rates', description: 'Key rates for the 2025–2028 federal overtime tax exemption under the new law.', creator: { '@type': 'Organization', name: 'TheTaxCalc', url: SITE_URL }, license: `${SITE_URL}/terms`, variableMeasured: [
         { '@type': 'PropertyValue', name: 'Minimum OT Rate Multiplier', value: '1.5x regular rate (FLSA)' },
         { '@type': 'PropertyValue', name: 'OT Exemption Period', value: '2025–2028 (tax years)' },
