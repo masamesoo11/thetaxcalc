@@ -48,6 +48,10 @@ const SelfEmploymentCalculator = dynamic(
   () => import('@/components/finance/self-employment-calculator').then((m) => ({ default: m.SelfEmploymentCalculator })),
   { loading: () => <CalculatorSkeleton />, ssr: false }
 );
+const TaxRefundCalculator = dynamic(
+  () => import('@/components/finance/tax-refund-calculator').then((m) => ({ default: m.TaxRefundCalculator })),
+  { loading: () => <CalculatorSkeleton />, ssr: false }
+);
 
 function CalculatorSkeleton() {
   return (
@@ -105,6 +109,8 @@ export function CalculatorClientPage({ componentKey }: CalculatorClientPageProps
       return <CapitalGainsCalculator />;
     case 'self-employment':
       return <SelfEmploymentCalculator />;
+    case 'tax-refund':
+      return <TaxRefundCalculator />;
     default:
       return <PaycheckCalculator />;
   }

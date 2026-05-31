@@ -343,3 +343,130 @@ export const MORTGAGE_FAQS: FAQItem[] = [
       "The old rule of thumb is the 28/36 rule: no more than 28% of gross monthly income on housing costs (mortgage + taxes + insurance), and no more than 36% on total debt. For a $75K salary, that caps your monthly housing payment around $1,750. With 20% down at 6.5%, you're looking at a home in the $250K–$280K range depending on local property taxes and insurance. But honestly, just because you can qualify for that much doesn't mean you should max it out — leave yourself some breathing room.",
   },
 ];
+
+export const TAX_REFUND_FAQS: FAQItem[] = [
+  {
+    question: 'How do I use a tax refund calculator?',
+    answer:
+      "Enter your total gross income, filing status, taxes already withheld from your paychecks (federal and state), and any deductions or credits you qualify for. The calculator compares what you've already paid through withholding to what you actually owe — if you paid more, that's your refund. If you paid less, that's what you still owe. It's that simple. Our calculator uses 2026 federal tax brackets and supports all 50 states.",
+  },
+  {
+    question: 'How accurate is a tax refund calculator?',
+    answer:
+      "Pretty accurate for estimation purposes. This calculator uses official 2026 federal tax brackets, standard deductions, FICA rates, and state tax rates. It accounts for the Child Tax Credit ($2,000 per child) and the Earned Income Credit. It won't be exact — things like alternative minimum tax, education credits, or complex self-employment situations can change your actual refund — but for most W-2 employees, the estimate will be within a few hundred dollars of your actual refund.",
+  },
+  {
+    question: 'Is my tax refund calculated from federal or state taxes?',
+    answer:
+      "Both, actually. You can get separate refunds from the federal government and your state. Your federal refund is the difference between what was withheld for federal taxes and what you actually owe the IRS. Your state refund works the same way — what was withheld minus what you owe the state. This calculator estimates both and shows you the combined total.",
+  },
+  {
+    question: 'What is the average tax refund in 2026?',
+    answer:
+      "Based on IRS data, the average federal tax refund is typically around $2,800–$3,200. But that number doesn't mean much for your specific situation — your refund depends entirely on how much was withheld versus how much you owe. A big refund isn't necessarily good; it usually means you had too much withheld and gave the government an interest-free loan all year. A small refund or slight balance due often means your withholding is dialed in correctly.",
+  },
+  {
+    question: 'Why is my tax refund different from what I estimated?',
+    answer:
+      "Several things can cause differences. If you have multiple jobs or a working spouse, the withholding tables might not account for your combined income correctly. Capital gains, freelance income, or investment dividends that didn't have tax withheld can reduce your refund. Credits you didn't account for (like the Child Tax Credit, Earned Income Credit, or education credits) can increase it. And if you itemize instead of taking the standard deduction, that changes everything. This calculator gives you a solid estimate, but your actual tax return may differ.",
+  },
+  {
+    question: 'How long does it take to get a tax refund?',
+    answer:
+      "If you e-file and choose direct deposit, most refunds arrive within 21 days. Paper returns take 6–8 weeks. The IRS typically starts accepting returns in late January, and filing early usually means faster processing. If you claim the Earned Income Credit or Additional Child Tax Credit, the IRS is required by law to hold your refund until mid-February. You can check your refund status on the IRS website using the 'Where's My Refund?' tool.",
+  },
+  {
+    question: 'Should I itemize deductions or take the standard deduction?',
+    answer:
+      "About 90% of taxpayers take the standard deduction because it's higher than what they could itemize. For 2026, the standard deduction is $15,000 (single), $30,000 (married), or $22,500 (head of household). Itemizing only makes sense if your mortgage interest, charitable contributions, and state/local taxes (SALT, capped at $10,000) add up to more than the standard deduction. This calculator lets you try both and see which gives you a bigger refund.",
+  },
+  {
+    question: 'What tax credits can increase my refund?',
+    answer:
+      "The biggest ones: Child Tax Credit ($2,000 per qualifying child, up to $1,700 refundable), Earned Income Credit (up to $7,430 for families with 3+ children), and the Child and Dependent Care Credit. Credits are way better than deductions — they reduce your tax bill dollar for dollar instead of just reducing your taxable income. Refundable credits can even give you money back if your credits exceed your tax liability. Our calculator includes the Child Tax Credit and Earned Income Credit.",
+  },
+];
+
+export const SALES_TAX_FAQS: FAQItem[] = [
+  {
+    question: 'How is sales tax calculated?',
+    answer:
+      "Multiply the purchase price by the combined tax rate. A $100 purchase at 8.25% combined rate = $8.25 in sales tax, for a total of $108.25. The combined rate includes both the state base rate and any local taxes from your county, city, or special district.",
+  },
+  {
+    question: 'Which states have no sales tax?',
+    answer:
+      "Four states charge 0% state sales tax: Delaware, Montana, New Hampshire, and Oregon. Alaska has no state sales tax but allows local taxes, with an average combined rate of about 1.82%.",
+  },
+  {
+    question: 'What is the reverse sales tax formula?',
+    answer:
+      "Divide the total by (1 + tax rate) to find the original price. A $108.25 total with 8.25% tax = $108.25 ÷ 1.0825 = $100.00 original price. This is essential for expense reports and bookkeeping when you only know the total amount paid.",
+  },
+  {
+    question: 'Which state has the highest sales tax?',
+    answer:
+      "Louisiana and Tennessee tie for the highest average combined rate at 9.56%. Some individual cities in California, Louisiana, and Alabama push past 10% when all local taxes are combined. The average combined rate across the US is about 6.6%.",
+  },
+  {
+    question: 'Do I have to pay sales tax on online purchases?',
+    answer:
+      "Since the 2018 Supreme Court decision in South Dakota v. Wayfair, states can require online retailers to collect sales tax regardless of physical presence. Most online purchases now include sales tax based on the buyer's location.",
+  },
+];
+
+export const INCOME_TAX_FAQS: FAQItem[] = [
+  {
+    question: 'How does the federal income tax bracket system work?',
+    answer:
+      "Your income is divided into chunks, and each chunk is taxed at a different rate. For 2026, brackets range from 10% on your first dollars earned up to 37% on income above $609,350 (single). Only the income within each bracket gets that rate — so a $75,000 earner pays 10% on the first $11,600, 12% on the next chunk, and 22% only on the amount above $47,150.",
+  },
+  {
+    question: 'What is the standard deduction for 2026?',
+    answer:
+      "$15,000 for single filers, $30,000 for married filing jointly, and $22,500 for head of household. This comes off the top of your gross income before any brackets apply. So a single person making $75,000 is only taxed on $60,000.",
+  },
+  {
+    question: 'What is FICA and how does it affect my income tax?',
+    answer:
+      "FICA is separate from income tax — it's 6.2% for Social Security (up to $176,100) plus 1.45% for Medicare (no cap), totaling 7.65%. Add 0.9% more Medicare if you earn above $200,000. Unlike income tax, FICA is calculated on gross pay before any deductions, including 401(k) contributions.",
+  },
+  {
+    question: 'How do state income taxes differ from federal?',
+    answer:
+      "State income taxes vary dramatically. Texas and Florida charge 0%. Illinois charges a flat 4.95%. California runs 1%–13.3% progressive. New York does 4%–10.9% progressive, plus NYC residents pay an additional 3.078%–3.876% city tax. The state you live in can easily mean thousands of dollars difference on the same salary.",
+  },
+  {
+    question: 'What deductions can reduce my taxable income?',
+    answer:
+      "The biggest ones: 401(k) contributions (up to $23,500 in 2026), HSA contributions, and the standard deduction. Pre-tax deductions reduce your taxable income for federal and state income tax but not for FICA. At a 22% marginal rate, every $1,000 in 401(k) contributions saves you $220 in federal tax plus whatever your state charges.",
+  },
+];
+
+export const TAX_CALC_FAQS: FAQItem[] = [
+  {
+    question: 'How much tax will I pay on my salary?',
+    answer:
+      "It depends on three things: your gross income, your filing status, and your state. Federal tax uses progressive brackets (10%–37%) with a $15,000 standard deduction for singles. FICA adds 7.65% on top. Then state tax ranges from 0% (TX, FL) to over 13% (CA). On a $75,000 salary as a single filer, you'd pay roughly $14,400 in federal tax and FICA combined, plus whatever your state charges. Use the calculator to see your exact breakdown.",
+  },
+  {
+    question: 'What is the difference between effective and marginal tax rate?',
+    answer:
+      "Your effective rate is your overall average — total tax divided by gross income. Your marginal rate is what hits your last dollar earned, meaning the top bracket you fall into. Someone making $75K has a marginal rate of 22%, but their effective federal rate is closer to 11–12% because the first chunk of income gets taxed at lower rates.",
+  },
+  {
+    question: 'Does the state I live in really make that much difference?',
+    answer:
+      "Huge difference. A $100,000 earner pays $0 state income tax in Texas or Florida, about $4,800 in Illinois, roughly $5,400 in California, and over $8,000 in New York City. That's an $8,000+ swing on the exact same salary. State tax is not a small factor.",
+  },
+  {
+    question: 'How can I reduce my tax burden?',
+    answer:
+      "Max out your 401(k) ($23,500 in 2026) — every dollar reduces your taxable income at both federal and state level. HSA contributions work the same way. If you're self-employed, you can deduct half your self-employment tax and contribute to a Solo 401(k) with limits up to $70,000. Tax credits like the Child Tax Credit ($2,000 per child) reduce your bill dollar for dollar.",
+  },
+  {
+    question: 'Does this calculator include self-employment tax?',
+    answer:
+      "This calculator focuses on W-2 income tax and withholding. If you're self-employed, you'll also owe self-employment tax (15.3% on 92.35% of net income) on top of regular income tax. Check our Self-Employment Tax Calculator for that.",
+  },
+];

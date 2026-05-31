@@ -288,6 +288,33 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     canonicalPath: '/self-employment-tax-calculator',
     jsonLdType: 'self-employment',
   },
+  {
+    slug: 'tax-refund-calculator',
+    title: 'Free Tax Refund Calculator 2026 — Estimate Your Federal & State Refund',
+    description:
+      'Free tax refund calculator for 2026. Estimate your federal and state tax refund based on income, withholding, deductions, and credits. No sign-up required.',
+    h1: 'Free Tax Refund Calculator',
+    metaTitle: 'Free Tax Refund Calculator 2026 | Federal & State Estimate',
+    metaDesc:
+      'Free tax refund calculator 2026. Estimate your federal and state refund based on income, withholding, deductions & credits. No sign-up required.',
+    keywords: [
+      'free tax refund calculator', 'tax refund calculator', 'tax refund calculator 2026',
+      'free tax calculator for 2026', 'free tax estimator with deductions',
+      'tax return calculator', 'federal refund calculator', 'state tax refund calculator',
+      'free tax calculator federal and state', 'tax refund estimator',
+      'free tax calculator with dependents', 'irs refund calculator',
+      'free tax refund calculator 2026', 'tax refund calculator with itemized deductions',
+      'child tax credit calculator', 'earned income credit calculator',
+    ],
+    componentKey: 'tax-refund',
+    category: 'paycheck',
+    breadcrumbLabel: 'Tax Refund Calculator',
+    ogTitle: 'Free Tax Refund Calculator 2026 — Estimate Your Refund',
+    ogDescription:
+      'Free tax refund calculator 2026. Estimate your federal and state refund. No sign-up required.',
+    canonicalPath: '/tax-refund-calculator',
+    jsonLdType: 'tax-refund',
+  },
 ];
 
 /** Map from componentKey (old hash key) to slug (new route) */

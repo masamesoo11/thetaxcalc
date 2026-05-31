@@ -18,6 +18,7 @@ import {
   SELF_EMPLOYMENT_FAQS,
   RETIREMENT_FAQS,
   RELOCATION_FAQS,
+  TAX_REFUND_FAQS,
   FAQItem,
 } from '@/lib/faq-data';
 import { CalculatorClientPage } from './calculator-client-page';
@@ -310,6 +311,28 @@ function getSelfEmploymentJsonLd() {
   };
 }
 
+function getTaxRefundJsonLd() {
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      { '@type': 'BreadcrumbList', itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+        { '@type': 'ListItem', position: 2, name: 'Tax Refund Calculator', item: `${SITE_URL}/tax-refund-calculator` },
+      ]},
+      { '@type': 'WebApplication', name: 'Tax Refund Calculator 2026', url: `${SITE_URL}/tax-refund-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
+      { '@type': 'MathSolver', name: 'Tax Refund Math Solver', description: 'Computes estimated tax refund: Refund = Total Taxes Withheld - (Federal Tax Owed + State Tax Owed), where Federal Tax Owed uses progressive brackets with standard/itemized deductions and tax credits.', mathExpression: 'Refund = (Fed_Withheld + State_Withheld) - (Fed_Tax(Gross - Deduction) - Credits + State_Tax)' },
+      { '@type': 'Dataset', name: '2026 Tax Refund Key Rates', variableMeasured: [
+        { name: 'Standard Deduction (Single)', value: '$15,000' },
+        { name: 'Standard Deduction (Married)', value: '$30,000' },
+        { name: 'Child Tax Credit', value: '$2,000 per child' },
+        { name: 'Refundable CTC Portion', value: 'Up to $1,700' },
+        { name: 'EIC Maximum (3+ children)', value: '$7,430' },
+      ]},
+      faqsToJsonLd(TAX_REFUND_FAQS),
+    ],
+  };
+}
+
 function getJsonLdForType(type: string) {
   switch (type) {
     case 'illinois': return getIllinoisJsonLd();
@@ -322,6 +345,7 @@ function getJsonLdForType(type: string) {
     case 'relocation': return getRelocationJsonLd();
     case 'capital-gains': return getCapitalGainsJsonLd();
     case 'self-employment': return getSelfEmploymentJsonLd();
+    case 'tax-refund': return getTaxRefundJsonLd();
     default: return getHomeJsonLd();
   }
 }
@@ -631,6 +655,30 @@ function getCalculatorContent(type: string): CalculatorContent {
           { slug: 'salary', label: 'Salary After Tax' },
         ],
       };
+    case 'tax-refund':
+      return {
+        howItWorks: [
+          'Your tax refund is simply the difference between what was withheld from your paychecks throughout the year and what you actually owe in taxes. If your employer withheld more than your total tax bill, the government sends you a refund. If they withheld less, you write a check. This <a href="/tax-refund-calculator">tax refund calculator</a> helps you figure out which scenario you\'re looking at before you file.',
+          'The calculation goes like this: start with your total income, subtract deductions (standard or itemized) to get taxable income, apply the federal tax brackets, subtract any credits you qualify for, and that\'s your federal tax owed. Compare it to what was already withheld. The difference is your refund — or your balance due.',
+          'The standard deduction for 2026 is $15,000 (single), $30,000 (married filing jointly), or $22,500 (head of household). Most people take the standard — about 90% of taxpayers. But if you have significant mortgage interest, charitable donations, or state/local taxes (SALT, capped at $10,000), itemizing might save you more. This calculator lets you try both.',
+          'Tax credits are better than deductions — they reduce your tax bill dollar for dollar, while deductions only reduce your taxable income. The <a href="https://www.irs.gov/credits-deductions/individuals/child-tax-credit" target="_blank" rel="noopener noreferrer nofollow">Child Tax Credit</a> gives you $2,000 per qualifying child (up to $1,700 refundable). The Earned Income Credit can be worth up to $7,430 for families with three or more children. These credits can turn a small refund into a big one.',
+          'A quick note on refund timing: if you e-file and choose direct deposit, most refunds arrive within 21 days. Paper returns take 6–8 weeks. The IRS typically starts accepting returns in late January, and filing early usually means faster processing. Just make sure you have all your documents (W-2, 1099, etc.) before you file.',
+        ],
+        keyRates: [
+          { label: 'Standard Deduction (Single)', value: '$15,000' },
+          { label: 'Standard Deduction (Married)', value: '$30,000' },
+          { label: 'Child Tax Credit', value: '$2,000/child' },
+          { label: 'Refundable Portion', value: 'Up to $1,700' },
+          { label: 'EIC Max (3+ children)', value: '$7,430' },
+        ],
+        faqs: TAX_REFUND_FAQS,
+        relatedCalculators: [
+          { slug: 'paycheck-calculator', label: 'Paycheck Calculator' },
+          { slug: '401k-retirement-calculator', label: '401(k) Calculator' },
+          { slug: 'self-employment-tax-calculator', label: 'Self-Employment Calculator' },
+          { slug: 'capital-gains-calculator', label: 'Capital Gains Calculator' },
+        ],
+      };
     default:
       return {
         howItWorks: [
@@ -688,6 +736,7 @@ function getFaqHeading(type: string): string {
     case 'relocation': return 'Relocation Calculator FAQ';
     case 'capital-gains': return 'Capital Gains Tax FAQ';
     case 'self-employment': return 'Self-Employment Tax FAQ';
+    case 'tax-refund': return 'Tax Refund Calculator FAQ';
     case 'income-tax': return 'Income Tax Calculator FAQ';
     case 'tax-calc': return 'Tax Calculator FAQ';
     default: return 'Frequently Asked Questions';
@@ -737,6 +786,13 @@ function getNextSteps(type: string): { href: string; icon: string; title: string
         { href: '/401k-retirement-calculator', icon: '\u{1F3E6}', title: 'Solo 401(k) Planner', description: 'Reduce SE tax with retirement contributions' },
         { href: '/capital-gains-calculator', icon: '\u{1F4C8}', title: 'Capital Gains Tax', description: 'Investment income on top of SE income' },
         { href: '/blog', icon: '\u{1F4DD}', title: 'Tax Guides', description: 'Deductions, quarterly payments, and more' },
+      ];
+    case 'tax-refund':
+      return [
+        { href: '/paycheck-calculator', icon: '\u{1F4B5}', title: 'Paycheck Calculator', description: 'See how withholding affects your take-home' },
+        { href: '/401k-retirement-calculator', icon: '\u{1F3E6}', title: '401(k) Planner', description: 'Reduce your tax bill with pre-tax contributions' },
+        { href: '/self-employment-tax-calculator', icon: '\u{1F4BC}', title: 'Self-Employment Tax', description: 'Estimate SE tax and quarterly payments' },
+        { href: '/capital-gains-calculator', icon: '\u{1F4C8}', title: 'Capital Gains Tax', description: 'Investment gains can affect your refund' },
       ];
     case 'relocation':
       return [
