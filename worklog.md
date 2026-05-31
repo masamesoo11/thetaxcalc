@@ -36,3 +36,23 @@ Stage Summary:
 - Root cause was CDN caching in middleware.ts, NOT browser cache or dev server
 - Changed Cache-Control from aggressive caching to no-store/must-revalidate
 - All changes now visible: Tax Refund Calculator appears in dropdown (12 tools), homepage (12 Free), footer, SEO nav
+
+---
+Task ID: 3
+Agent: Main Agent
+Task: Deploy Tax Refund Calculator changes to production (thetaxcalc.com)
+
+Work Log:
+- Discovered that changes were only in sandbox, not on production site (thetaxcalc.com)
+- Production site is hosted on Cloudflare Pages, not auto-deploying from GitHub
+- Built the project using `npx @cloudflare/next-on-pages`
+- User provided Cloudflare API token for deployment
+- Deployed using `npx wrangler pages deploy` with account ID 39f069961bc170df6feab445b1d8f742
+- Deployment successful: https://c1ea910c.thetaxcalc.pages.dev
+- Verified production site: "12 Free Tax Calculators" with Tax Refund Calculator visible
+
+Stage Summary:
+- Tax Refund Calculator is now live on thetaxcalc.com
+- All changes deployed: header dropdown (12 tools), homepage cards (12 Free), footer, SEO navigation
+- Cache-Control updated to prevent CDN caching issues
+- User confirmed everything is working
