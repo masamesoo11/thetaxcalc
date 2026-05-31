@@ -8,20 +8,8 @@ export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
       {
-        // Googlebot: allow everything EXCEPT private paths
-        // CRITICAL: must include disallow here — specific user-agent groups
-        // override the wildcard (*) group entirely per Google's spec
-        userAgent: 'Googlebot',
-        allow: '/',
-        disallow: ['/api/', '/admin/'],
-      },
-      {
-        userAgent: 'Bingbot',
-        allow: '/',
-        disallow: ['/api/', '/admin/'],
-      },
-      {
-        // AI crawlers — allow full access for now (generates backlinks/mentions)
+        // AI crawlers — allow full access (generates backlinks/mentions)
+        // No disallow needed — these bots don't need /api/ or /admin/
         userAgent: 'GPTBot',
         allow: '/',
       },
@@ -63,7 +51,11 @@ export default function robots(): MetadataRoute.Robots {
         allow: '/',
       },
       {
-        // Catch-all for all other bots
+        // Catch-all for ALL bots including Googlebot and Bingbot
+        // NOTE: Do NOT add separate Googlebot/Bingbot groups with the same rules.
+        // Per Google's robots.txt spec, if a bot has its own specific group,
+        // it ignores the wildcard (*) group entirely, which causes a
+        // "Warning — rule ignored by Googlebot" in Search Console.
         userAgent: '*',
         allow: '/',
         disallow: ['/api/', '/admin/'],
