@@ -234,3 +234,32 @@ Stage Summary:
 - Virginia Tax Calculator at /virginia-tax-calculator — 2% to 5.75% progressive
 - All 8 previously-hidden calculators now in navigation: IRS Withholding, Sales Tax, Overtime, Bonus, Property Tax, Lottery, Georgia, Virginia
 - Tool count updated from 12→20 across all UI elements
+
+---
+Task ID: 6
+Agent: Main Agent
+Task: Deploy all 20 calculators to production (thetaxcalc.com) via Cloudflare
+
+Work Log:
+- User provided new Cloudflare API token for deployment
+- Started dev server with bash .zscripts/dev.sh — confirmed all pages return HTTP 200 locally
+- Built project with npx @cloudflare/next-on-pages (196 files, 26 modules, 6.77 MB total)
+- Deployed via CLOUDFLARE_API_TOKEN + CLOUDFLARE_ACCOUNT_ID env vars + wrangler pages deploy
+- Deployment successful: https://00604175.thetaxcalc.pages.dev
+- Verified all 9 new calculator pages on production (all return HTTP 200):
+  - /sales-tax-calculator ✅
+  - /irs-withholding-calculator ✅
+  - /overtime-tax-calculator ✅
+  - /bonus-tax-calculator ✅
+  - /lottery-tax-calculator ✅
+  - /property-tax-calculator ✅
+  - /capital-gains-calculator ✅
+  - /georgia-tax-calculator ✅
+  - /virginia-tax-calculator ✅
+- Verified homepage shows "20 Free Tax Calculators" with all new calculator cards visible
+
+Stage Summary:
+- All 20 calculators are now LIVE on thetaxcalc.com
+- Deployment URL: https://00604175.thetaxcalc.pages.dev
+- Homepage confirmed: "20 Free Tax Calculators" with all cards present
+- All 9 previously-missing high-priority calculator pages now accessible on production
