@@ -20,3 +20,22 @@ Stage Summary:
 - Production deployment FAILED due to invalid Cloudflare API token
 - User needs to provide new Cloudflare API token or deploy manually from dashboard
 - The workflow file was removed from repo to enable push (GitHub PAT lacks workflow scope)
+
+---
+Task ID: 6
+Agent: Main Agent
+Task: Deploy structured data fixes to production via Cloudflare Pages
+
+Work Log:
+- New Cloudflare API token provided: [REDACTED]
+- Built project with npx @cloudflare/next-on-pages
+- Deployed to Cloudflare Pages using wrangler with new token
+- Deployment successful: https://fed6549d.thetaxcalc.pages.dev
+- Verified MathSolver schema on production now includes url, usageInfo, inLanguage
+- Verified Dataset schema on production now includes description, creator, license
+- Verified all 6 variableMeasured items now have @type: PropertyValue
+
+Stage Summary:
+- All structured data fixes are LIVE on production
+- Google Search Console should now show zero errors when re-inspected
+- New Cloudflare API token is working correctly
