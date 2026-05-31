@@ -19,6 +19,8 @@ import {
   RETIREMENT_FAQS,
   RELOCATION_FAQS,
   TAX_REFUND_FAQS,
+  IRS_WITHHOLDING_FAQS,
+  SALES_TAX_FAQS,
   FAQItem,
 } from '@/lib/faq-data';
 import { CalculatorClientPage } from './calculator-client-page';
@@ -311,6 +313,29 @@ function getSelfEmploymentJsonLd() {
   };
 }
 
+function getIrsWithholdingJsonLd() {
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      { '@type': 'BreadcrumbList', itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+        { '@type': 'ListItem', position: 2, name: 'IRS Withholding Calculator', item: `${SITE_URL}/irs-withholding-calculator` },
+      ]},
+      { '@type': 'WebApplication', name: 'IRS Withholding Calculator 2026', url: `${SITE_URL}/irs-withholding-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
+      { '@type': 'MathSolver', name: 'IRS Withholding Math Solver', description: 'Computes recommended federal withholding per paycheck using IRS Publication 15-T methodology with progressive brackets, standard deduction, and dependent credits.', mathExpression: 'WH = (FedTax((Gross - Pretax - StdDed) × brackets) - DepCredit) / PayPeriods' },
+      { '@type': 'Dataset', name: '2026 Withholding Key Rates', variableMeasured: [
+        { name: 'Standard Deduction (Single)', value: '$15,000' },
+        { name: 'Standard Deduction (Married)', value: '$30,000' },
+        { name: 'Standard Deduction (HOH)', value: '$22,500' },
+        { name: 'SS Wage Cap', value: '$176,100' },
+        { name: 'Additional Medicare Threshold', value: '$200,000' },
+        { name: 'Dependent Credit', value: '$2,000 per dependent' },
+      ]},
+      faqsToJsonLd(IRS_WITHHOLDING_FAQS),
+    ],
+  };
+}
+
 function getTaxRefundJsonLd() {
   return {
     '@context': 'https://schema.org',
@@ -333,6 +358,29 @@ function getTaxRefundJsonLd() {
   };
 }
 
+function getSalesTaxJsonLd() {
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      { '@type': 'BreadcrumbList', itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+        { '@type': 'ListItem', position: 2, name: 'Sales Tax Calculator', item: `${SITE_URL}/sales-tax-calculator` },
+      ]},
+      { '@type': 'WebApplication', name: 'Sales Tax Calculator 2026', url: `${SITE_URL}/sales-tax-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
+      { '@type': 'MathSolver', name: 'Sales Tax Calculator', description: 'Computes sales tax amount and total cost using combined state + local rates. Also supports reverse calculation: MaxPurchase = Budget / (1 + combined_rate).', mathExpression: 'Tax = Price × (StateRate + LocalRate), Total = Price + Tax, Reverse: MaxPurchase = Budget / (1 + Rate)' },
+      { '@type': 'Dataset', name: '2026 Sales Tax Key Rates', variableMeasured: [
+        { name: 'California Combined Rate', value: '8.82% (7.25% state + 1.57% local)' },
+        { name: 'Texas Combined Rate', value: '8.20% (6.25% state + 1.95% local)' },
+        { name: 'New York Combined Rate', value: '8.52% (4% state + 4.52% local)' },
+        { name: 'Florida Combined Rate', value: '7.02% (6% state + 1.02% local)' },
+        { name: 'Illinois Combined Rate', value: '8.86% (6.25% state + 2.61% local)' },
+        { name: 'No Sales Tax States', value: 'DE, MT, NH, OR (AK: local only)' },
+      ]},
+      faqsToJsonLd(SALES_TAX_FAQS),
+    ],
+  };
+}
+
 function getJsonLdForType(type: string) {
   switch (type) {
     case 'illinois': return getIllinoisJsonLd();
@@ -346,6 +394,8 @@ function getJsonLdForType(type: string) {
     case 'capital-gains': return getCapitalGainsJsonLd();
     case 'self-employment': return getSelfEmploymentJsonLd();
     case 'tax-refund': return getTaxRefundJsonLd();
+    case 'irs-withholding': return getIrsWithholdingJsonLd();
+    case 'sales-tax': return getSalesTaxJsonLd();
     default: return getHomeJsonLd();
   }
 }
@@ -679,6 +729,56 @@ function getCalculatorContent(type: string): CalculatorContent {
           { slug: 'capital-gains-calculator', label: 'Capital Gains Calculator' },
         ],
       };
+    case 'irs-withholding':
+      return {
+        howItWorks: [
+          'Your employer withholds federal income tax from every paycheck based on your W-4 settings. Too little withholding means a surprise tax bill (and possibly penalties) in April. Too much means you\'ve been giving the government an interest-free loan all year. This calculator finds the sweet spot using <a href="https://www.irs.gov/publications/p15t" target="_blank" rel="noopener noreferrer nofollow">IRS Publication 15-T</a> methodology and 2026 tax brackets.',
+          'Here\'s how federal withholding works: your employer takes your gross pay per paycheck, subtracts pre-tax deductions (401(k), HSA, commuter benefits), and multiplies by the number of pay periods to annualize your wages. Then they subtract the standard deduction ($15,000 single, $30,000 married, $22,500 head of household) and apply the progressive federal brackets (10%–37%). The result is divided by your pay periods to get the per-paycheck withholding amount.',
+          'FICA is separate from federal income tax withholding and is not affected by your W-4. Social Security takes 6.2% of wages up to $176,100, and Medicare takes 1.45% on all wages plus 0.9% additional Medicare above $200,000 (single) or $250,000 (married). Your total paycheck deduction is federal withholding + FICA + pre-tax deductions.',
+          'The modern W-4 (2020 and later) doesn\'t use allowances anymore. Instead: Step 1 is filing status, Step 2 handles multiple jobs, Step 3 claims dependents ($2,000 credit per child), and Step 4 lets you add extra withholding (4c) or report other income (4a) and deductions (4b). If you\'re under-withheld, add the extra amount to Step 4(c) — this calculator tells you exactly how much.',
+          'A real example: single filer, $75,000/year, bi-weekly pay. Federal withholding should be about $335 per paycheck. If you\'re currently having $250 withheld, you\'d owe roughly $2,210 at tax time plus potential penalties. Add $85 to Step 4(c) of your W-4 and you\'re covered.',
+        ],
+        keyRates: [
+          { label: 'Standard Deduction (Single)', value: '$15,000' },
+          { label: 'Standard Deduction (Married)', value: '$30,000' },
+          { label: 'SS Wage Cap', value: '$176,100' },
+          { label: 'Additional Medicare', value: '0.9% above $200K/$250K' },
+          { label: 'Dependent Credit', value: '$2,000 per dependent' },
+        ],
+        faqs: IRS_WITHHOLDING_FAQS,
+        relatedCalculators: [
+          { slug: 'paycheck-calculator', label: 'Paycheck Calculator' },
+          { slug: 'tax-refund-calculator', label: 'Tax Refund Calculator' },
+          { slug: '401k-retirement-calculator', label: '401(k) Calculator' },
+          { slug: 'self-employment-tax-calculator', label: 'Self-Employment Calculator' },
+          { slug: 'salary', label: 'Salary After Tax' },
+        ],
+      };
+    case 'sales-tax':
+      return {
+        howItWorks: [
+          'Sales tax is a consumption tax added to the price of goods and certain services at the point of sale. The rate you pay is the <strong>combined rate</strong> — the state base rate plus any local taxes from your county, city, or special district. This calculator uses average combined rates for all 50 US states with detailed state + local breakdowns.',
+          'The formula is straightforward: <strong>Tax = Purchase Price × Combined Rate</strong>. A $1,000 purchase at 8.82% combined rate (California) = $88.20 in sales tax, for a total of $1,088.20. The state portion is $72.50 (7.25%) and the average local portion is $15.70 (1.57%). Four states — <strong>Delaware, Montana, New Hampshire, and Oregon</strong> — charge 0% state sales tax. Alaska has no state sales tax but allows local taxes.',
+          'Need to work backwards? The <strong>reverse sales tax formula</strong> divides the total by (1 + tax rate) to find the original price. A $1,088.20 total with 8.82% tax = $1,088.20 ÷ 1.0882 = $1,000.00 original price. This is essential for expense reports and budgeting.',
+          'Many states exempt certain necessities from sales tax. <strong>Groceries</strong> are exempt in most states. <strong>Prescription drugs</strong> are exempt nearly everywhere. A few states — Connecticut, Massachusetts, Minnesota, New Jersey, New York, and Pennsylvania — also exempt <strong>clothing</strong> purchases from sales tax. This calculator handles tax-exempt items by state.',
+        ],
+        keyRates: [
+          { label: 'CA Combined Rate', value: '8.82% (7.25% + 1.57% local)' },
+          { label: 'TX Combined Rate', value: '8.20% (6.25% + 1.95% local)' },
+          { label: 'NY Combined Rate', value: '8.52% (4% + 4.52% local)' },
+          { label: 'FL Combined Rate', value: '7.02% (6% + 1.02% local)' },
+          { label: 'IL Combined Rate', value: '8.86% (6.25% + 2.61% local)' },
+          { label: 'No Sales Tax States', value: 'DE, MT, NH, OR (AK: local only)' },
+        ],
+        faqs: SALES_TAX_FAQS,
+        relatedCalculators: [
+          { slug: 'paycheck-calculator', label: 'Paycheck Calculator' },
+          { slug: 'tax-refund-calculator', label: 'Tax Refund Calculator' },
+          { slug: 'relocation-calculator', label: 'Relocation Calculator' },
+          { slug: 'compare', label: 'State Comparison' },
+          { slug: 'capital-gains-calculator', label: 'Capital Gains Calculator' },
+        ],
+      };
     default:
       return {
         howItWorks: [
@@ -737,6 +837,8 @@ function getFaqHeading(type: string): string {
     case 'capital-gains': return 'Capital Gains Tax FAQ';
     case 'self-employment': return 'Self-Employment Tax FAQ';
     case 'tax-refund': return 'Tax Refund Calculator FAQ';
+    case 'irs-withholding': return 'IRS Withholding Calculator FAQ';
+    case 'sales-tax': return 'Sales Tax Calculator FAQ';
     case 'income-tax': return 'Income Tax Calculator FAQ';
     case 'tax-calc': return 'Tax Calculator FAQ';
     default: return 'Frequently Asked Questions';
@@ -793,6 +895,13 @@ function getNextSteps(type: string): { href: string; icon: string; title: string
         { href: '/401k-retirement-calculator', icon: '\u{1F3E6}', title: '401(k) Planner', description: 'Reduce your tax bill with pre-tax contributions' },
         { href: '/self-employment-tax-calculator', icon: '\u{1F4BC}', title: 'Self-Employment Tax', description: 'Estimate SE tax and quarterly payments' },
         { href: '/capital-gains-calculator', icon: '\u{1F4C8}', title: 'Capital Gains Tax', description: 'Investment gains can affect your refund' },
+      ];
+    case 'irs-withholding':
+      return [
+        { href: '/paycheck-calculator', icon: '\u{1F4B5}', title: 'Paycheck Calculator', description: 'Full take-home pay breakdown by state' },
+        { href: '/tax-refund-calculator', icon: '\u{1F4B0}', title: 'Tax Refund Calculator', description: 'Estimate your refund or amount owed' },
+        { href: '/401k-retirement-calculator', icon: '\u{1F3E6}', title: '401(k) Planner', description: 'Reduce withholding with pre-tax contributions' },
+        { href: '/self-employment-tax-calculator', icon: '\u{1F4BC}', title: 'Self-Employment Tax', description: 'Quarterly estimated tax payments' },
       ];
     case 'relocation':
       return [

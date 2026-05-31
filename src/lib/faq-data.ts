@@ -387,6 +387,49 @@ export const TAX_REFUND_FAQS: FAQItem[] = [
   },
 ];
 
+export const IRS_WITHHOLDING_FAQS: FAQItem[] = [
+  {
+    question: 'How do I calculate my federal withholding per paycheck?',
+    answer:
+      "Your federal withholding is calculated by estimating your annual tax liability and dividing by the number of pay periods. First, subtract pre-tax deductions (401(k), HSA) from your gross pay to get taxable wages. Then subtract the standard deduction ($15,000 single, $30,000 married, $22,500 head of household). Apply the progressive tax brackets (10%–37%) and any credits. Finally, divide the annual tax by your pay periods (52 weekly, 26 bi-weekly, 24 semi-monthly, or 12 monthly).",
+  },
+  {
+    question: 'How much should I withhold from my paycheck for federal taxes?',
+    answer:
+      "The right amount depends on your income, filing status, dependents, and pre-tax deductions. A common rule of thumb: single filers earning $50K–$100K typically need $200–$400 withheld per bi-weekly paycheck. But the only way to know for sure is to calculate based on your specific situation. This calculator does that for you using IRS Publication 15-T methodology and 2026 tax brackets.",
+  },
+  {
+    question: 'What is the W-4 form and how does it affect my withholding?',
+    answer:
+      "Form W-4 tells your employer how much federal income tax to withhold from each paycheck. The 2020+ W-4 no longer uses allowances. Instead, you fill out five steps: (1) personal info and filing status, (2) multiple jobs or working spouse, (3) claim dependents ($2,000 credit per child), (4) other income or extra withholding, (5) sign and date. You can submit a new W-4 to your employer at any time to adjust your withholding.",
+  },
+  {
+    question: 'What happens if I have too little federal tax withheld?',
+    answer:
+      "If your withholding is too low, you'll owe money when you file your tax return. If you owe more than $1,000, you may also face an underpayment penalty. The IRS safe harbor rule requires you to withhold at least 90% of your current-year tax or 100% of your prior-year tax (110% if your AGI exceeded $150,000). This calculator shows you if you're under-withheld and how much extra to add on W-4 Step 4(c).",
+  },
+  {
+    question: 'What happens if I have too much federal tax withheld?',
+    answer:
+      "You'll get a refund when you file your taxes. While a big refund feels nice, it means you gave the government an interest-free loan all year. That money could have been in your paycheck each month instead — earning interest in a savings account, paying down debt, or contributing to your 401(k). If your projected refund exceeds $3,000, consider reducing your withholding by updating your W-4.",
+  },
+  {
+    question: 'Do 401(k) and HSA contributions reduce my federal withholding?',
+    answer:
+      "Yes. 401(k) contributions reduce both your federal income tax withholding and your taxable wages. HSA contributions work the same way. For example, if you contribute $200 per paycheck to a 401(k) and you're in the 22% marginal bracket, your federal withholding drops by about $44 per paycheck. That's $1,144 less in federal tax over the year — on top of the $5,200 you're saving for retirement.",
+  },
+  {
+    question: 'How do dependents affect my withholding?',
+    answer:
+      "Each qualifying dependent gives you a $2,000 tax credit for 2026 (Child Tax Credit / Other Dependent Credit). Credits reduce your tax bill dollar for dollar, unlike deductions which only reduce taxable income. If you have 2 children, that's $4,000 less in federal tax, which reduces your required withholding by about $154 per bi-weekly paycheck ($4,000 ÷ 26). You claim dependents on Step 3 of your W-4.",
+  },
+  {
+    question: 'When should I update my W-4?',
+    answer:
+      "You should update your W-4 whenever you experience a major life change: getting married or divorced, having a child, starting a second job, or experiencing a significant income change. The IRS also recommends checking your withholding annually, especially after tax law changes. You can submit a new W-4 to your employer's HR or payroll department at any time — there's no limit on how often you can update it.",
+  },
+];
+
 export const SALES_TAX_FAQS: FAQItem[] = [
   {
     question: 'How is sales tax calculated?',

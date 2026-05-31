@@ -15,6 +15,7 @@ import {
   RELOCATION_FAQS,
   INCOME_TAX_FAQS,
   TAX_CALC_FAQS,
+  IRS_WITHHOLDING_FAQS,
   FAQItem,
 } from '@/lib/faq-data';
 import { SITE_URL } from '@/lib/site-config';
@@ -314,6 +315,7 @@ function getJsonLdForType(type: string) {
     case 'self-employment': return getSelfEmploymentJsonLd();
     case 'income-tax': return getIncomeTaxJsonLd();
     case 'tax-calc': return getTaxCalcJsonLd();
+    case 'irs-withholding': return getHomeJsonLd();
     default: return getHomeJsonLd();
   }
 }

@@ -13,7 +13,7 @@ export interface CalculatorRouteConfig {
   metaDesc: string;
   keywords: string[];
   componentKey: string;
-  category: 'paycheck' | 'mortgage' | 'retirement' | 'investment' | 'business';
+  category: 'paycheck' | 'mortgage' | 'retirement' | 'investment' | 'business' | 'sales-tax';
   breadcrumbLabel: string;
   ogTitle: string;
   ogDescription: string;
@@ -289,6 +289,32 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     jsonLdType: 'self-employment',
   },
   {
+    slug: 'irs-withholding-calculator',
+    title: 'Free IRS Withholding Calculator 2026 — W-4 & Paycheck Withholding',
+    description:
+      'Free IRS withholding calculator for 2026. Calculate recommended federal withholding per paycheck, compare with current withholding, and optimize your W-4. Follows IRS Publication 15-T methodology.',
+    h1: 'Free IRS Withholding Calculator',
+    metaTitle: 'Free IRS Withholding Calculator 2026 | W-4 Optimization',
+    metaDesc:
+      'Free IRS withholding calculator 2026. Calculate recommended withholding per paycheck, compare with current, optimize your W-4. No sign-up required.',
+    keywords: [
+      'free IRS withholding calculator', 'IRS withholding calculator', 'W-4 calculator 2026',
+      'federal withholding calculator', 'paycheck withholding calculator',
+      'IRS tax withholding estimator', 'how much should I withhold',
+      'W-4 form calculator', 'withholding allowance calculator',
+      'tax withholding calculator 2026', 'IRS Pub 15-T calculator',
+      'federal income tax withholding', 'paycheck tax calculator',
+    ],
+    componentKey: 'irs-withholding',
+    category: 'paycheck',
+    breadcrumbLabel: 'IRS Withholding',
+    ogTitle: 'Free IRS Withholding Calculator 2026 — W-4 & Paycheck',
+    ogDescription:
+      'Free IRS withholding calculator 2026. Calculate recommended withholding & optimize W-4. No sign-up.',
+    canonicalPath: '/irs-withholding-calculator',
+    jsonLdType: 'irs-withholding',
+  },
+  {
     slug: 'tax-refund-calculator',
     title: 'Free Tax Refund Calculator 2026 — Estimate Your Federal & State Refund',
     description:
@@ -314,6 +340,32 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
       'Free tax refund calculator 2026. Estimate your federal and state refund. No sign-up required.',
     canonicalPath: '/tax-refund-calculator',
     jsonLdType: 'tax-refund',
+  },
+  {
+    slug: 'sales-tax-calculator',
+    title: 'Free Sales Tax Calculator 2026 — All 50 States Combined Rates',
+    description:
+      'Free sales tax calculator for 2026. Calculate sales tax for any US state with combined state + local rates. Includes reverse calculator, tax-exempt items, and city/local rate overrides. No sign-up required.',
+    h1: 'Free Sales Tax Calculator',
+    metaTitle: 'Free Sales Tax Calculator 2026 | All 50 States',
+    metaDesc:
+      'Free sales tax calculator 2026. Calculate sales tax for any US state with combined rates. Reverse calculator & tax-exempt items included. No sign-up.',
+    keywords: [
+      'free sales tax calculator', 'sales tax calculator', 'sales tax calculator 2026',
+      'calculate sales tax', 'state sales tax rates', 'combined sales tax rate',
+      'reverse sales tax calculator', 'sales tax by state', 'local sales tax calculator',
+      'city tax calculator', 'tax exempt items', 'grocery tax exemption',
+      'clothing tax exemption', 'sales tax rate by state',
+      'how much is sales tax', 'sales tax percentage',
+    ],
+    componentKey: 'sales-tax',
+    category: 'sales-tax',
+    breadcrumbLabel: 'Sales Tax Calculator',
+    ogTitle: 'Free Sales Tax Calculator 2026 — All 50 States Combined Rates',
+    ogDescription:
+      'Free sales tax calculator 2026. Calculate sales tax for any US state. Reverse calculator & tax-exempt items included. No sign-up.',
+    canonicalPath: '/sales-tax-calculator',
+    jsonLdType: 'sales-tax',
   },
 ];
 
