@@ -171,6 +171,15 @@ const CALCULATOR_CARDS = [
     badgeColor: 'bg-lime-500/20 text-lime-400',
     gradient: 'from-lime-600/20 to-green-600/10',
   },
+  {
+    href: '/tax-refund-calculator',
+    title: 'Tax Refund Calculator',
+    desc: 'Estimate your federal & state tax refund — income, withholding, deductions & credits',
+    icon: DollarSign,
+    badge: 'Refund',
+    badgeColor: 'bg-emerald-500/20 text-emerald-400',
+    gradient: 'from-emerald-600/20 to-green-600/10',
+  },
 ];
 
 const TRUST_POINTS = [
