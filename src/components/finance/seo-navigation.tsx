@@ -1,9 +1,11 @@
+'use client';
+
 import { SALARY_AMOUNTS, formatSalaryCompact } from '@/lib/salary-calculations';
 import { COMPARISON_SLUGS, COMPARE_STATES, parseComparisonSlug } from '@/lib/compare-config';
 import { getPublishedPostsMeta } from '@/lib/blog-index';
 
 /**
- * SeoNavigation — Server Component
+ * SeoNavigation — Client Component
  *
  * Renders ALL internal site links using plain <a> tags (not Next.js <Link>).
  * This guarantees that crawlers (Google, Bing, etc.) can discover every page
