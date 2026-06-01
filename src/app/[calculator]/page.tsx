@@ -19,12 +19,7 @@ import {
   RETIREMENT_FAQS,
   RELOCATION_FAQS,
   TAX_REFUND_FAQS,
-  IRS_WITHHOLDING_FAQS,
   SALES_TAX_FAQS,
-  OVERTIME_FAQS,
-  BONUS_TAX_FAQS,
-  PROPERTY_TAX_FAQS,
-  LOTTERY_TAX_FAQS,
   FAQItem,
 } from '@/lib/faq-data';
 import { CalculatorClientPage } from './calculator-client-page';
@@ -154,11 +149,12 @@ function getIllinoisJsonLd() {
         { '@type': 'ListItem', position: 2, name: 'Illinois Paycheck Calculator', item: `${SITE_URL}/illinois-tax-calculator` },
       ]},
       { '@type': 'WebApplication', name: 'Illinois Paycheck Calculator 2026', url: `${SITE_URL}/illinois-tax-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
-      { '@type': 'Dataset', name: '2026 Illinois Tax Rates', description: 'Key Illinois tax rates and federal brackets for 2026 paycheck calculations.', creator: { '@type': 'Organization', name: 'TheTaxCalc', url: SITE_URL }, license: `${SITE_URL}/terms`, variableMeasured: [
-        { '@type': 'PropertyValue', name: 'Illinois Flat Tax Rate', value: '4.95%' },
-        { '@type': 'PropertyValue', name: 'Illinois Personal Exemption', value: '$2,775' },
-        { '@type': 'PropertyValue', name: 'Federal Standard Deduction (Single)', value: '$15,000' },
-        { '@type': 'PropertyValue', name: 'Social Security Wage Cap', value: '$176,100' },
+      { '@type': 'MathSolver', name: 'Illinois Paycheck Math Solver', description: 'Computes net take-home pay: Net = Gross - Federal Tax - FICA - IL State Tax, where IL Tax = (Gross - Personal Exemption) × 4.95%', mathExpression: 'Net = G - Fed(G - StdDed) - FICA(G) - (G - Exempt) × 0.0495' },
+      { '@type': 'Dataset', name: '2026 Illinois Tax Rates', variableMeasured: [
+        { name: 'Illinois Flat Tax Rate', value: '4.95%' },
+        { name: 'Illinois Personal Exemption', value: '$2,775' },
+        { name: 'Federal Standard Deduction (Single)', value: '$15,000' },
+        { name: 'Social Security Wage Cap', value: '$176,100' },
       ]},
       faqsToJsonLd(ILLINOIS_FAQS),
     ],
@@ -174,10 +170,11 @@ function getTexasJsonLd() {
         { '@type': 'ListItem', position: 2, name: 'Texas Paycheck Calculator', item: `${SITE_URL}/texas-tax-calculator` },
       ]},
       { '@type': 'WebApplication', name: 'Texas Paycheck Calculator 2026', url: `${SITE_URL}/texas-tax-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
-      { '@type': 'Dataset', name: '2026 Texas Tax & Cost of Living Data', description: 'Texas tax rates and cost of living data for 2026, including property and sales tax information.', creator: { '@type': 'Organization', name: 'TheTaxCalc', url: SITE_URL }, license: `${SITE_URL}/terms`, variableMeasured: [
-        { '@type': 'PropertyValue', name: 'Texas State Income Tax Rate', value: '0%' },
-        { '@type': 'PropertyValue', name: 'Texas Average Effective Property Tax Rate', value: '1.71%' },
-        { '@type': 'PropertyValue', name: 'Texas Average Combined Sales Tax Rate', value: '8.2%' },
+      { '@type': 'MathSolver', name: 'Texas Paycheck Math Solver', description: 'Computes net take-home pay in Texas: Net = Gross - Federal Tax - FICA. Texas has 0% state income tax.', mathExpression: 'Net = G - Fed(G - StdDed) - FICA(G)' },
+      { '@type': 'Dataset', name: '2026 Texas Tax & Cost of Living Data', variableMeasured: [
+        { name: 'Texas State Income Tax Rate', value: '0%' },
+        { name: 'Texas Average Effective Property Tax Rate', value: '1.71%' },
+        { name: 'Texas Average Combined Sales Tax Rate', value: '8.2%' },
       ]},
       faqsToJsonLd(TEXAS_FAQS),
     ],
@@ -193,10 +190,10 @@ function getFloridaJsonLd() {
         { '@type': 'ListItem', position: 2, name: 'Florida Paycheck Calculator', item: `${SITE_URL}/florida-tax-calculator` },
       ]},
       { '@type': 'WebApplication', name: 'Florida Paycheck Calculator 2026', url: `${SITE_URL}/florida-tax-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
-      { '@type': 'Dataset', name: '2026 Florida Tax & Cost of Living Data', description: 'Florida tax rates and cost of living data for 2026, including property and sales tax information.', creator: { '@type': 'Organization', name: 'TheTaxCalc', url: SITE_URL }, license: `${SITE_URL}/terms`, variableMeasured: [
-        { '@type': 'PropertyValue', name: 'Florida State Income Tax Rate', value: '0%' },
-        { '@type': 'PropertyValue', name: 'Florida Average Effective Property Tax Rate', value: '0.86%' },
-        { '@type': 'PropertyValue', name: 'Florida Average Combined Sales Tax Rate', value: '7.0%' },
+      { '@type': 'Dataset', name: '2026 Florida Tax & Cost of Living Data', variableMeasured: [
+        { name: 'Florida State Income Tax Rate', value: '0%' },
+        { name: 'Florida Average Effective Property Tax Rate', value: '0.86%' },
+        { name: 'Florida Average Combined Sales Tax Rate', value: '7.0%' },
       ]},
       faqsToJsonLd(FLORIDA_FAQS),
     ],
@@ -212,10 +209,11 @@ function getCaliforniaJsonLd() {
         { '@type': 'ListItem', position: 2, name: 'California Paycheck Calculator', item: `${SITE_URL}/california-tax-calculator` },
       ]},
       { '@type': 'WebApplication', name: 'California Paycheck Calculator 2026', url: `${SITE_URL}/california-tax-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
-      { '@type': 'Dataset', name: '2026 California Tax Rates', description: 'Key California tax rates including progressive income tax brackets for 2026.', creator: { '@type': 'Organization', name: 'TheTaxCalc', url: SITE_URL }, license: `${SITE_URL}/terms`, variableMeasured: [
-        { '@type': 'PropertyValue', name: 'California Top Marginal Tax Rate', value: '13.3%' },
-        { '@type': 'PropertyValue', name: 'California Standard Deduction (Single)', value: '$6,083' },
-        { '@type': 'PropertyValue', name: 'California Average Combined Sales Tax', value: '8.82%' },
+      { '@type': 'MathSolver', name: 'California Paycheck Math Solver', description: 'Computes net take-home pay with CA progressive tax brackets 1%-13.3%.', mathExpression: 'Net = G - Fed(G - StdDed) - FICA(G) - CA_Progressive(G - StdDed_CA)' },
+      { '@type': 'Dataset', name: '2026 California Tax Rates', variableMeasured: [
+        { name: 'California Top Marginal Tax Rate', value: '13.3%' },
+        { name: 'California Standard Deduction (Single)', value: '$6,083' },
+        { name: 'California Average Combined Sales Tax', value: '8.82%' },
       ]},
       faqsToJsonLd(CALIFORNIA_FAQS),
     ],
@@ -231,10 +229,11 @@ function getNewYorkJsonLd() {
         { '@type': 'ListItem', position: 2, name: 'New York Paycheck Calculator', item: `${SITE_URL}/new-york-tax-calculator` },
       ]},
       { '@type': 'WebApplication', name: 'New York Paycheck Calculator 2026', url: `${SITE_URL}/new-york-tax-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
-      { '@type': 'Dataset', name: '2026 New York Tax Rates', description: 'Key New York tax rates including progressive income tax brackets and NYC tax for 2026.', creator: { '@type': 'Organization', name: 'TheTaxCalc', url: SITE_URL }, license: `${SITE_URL}/terms`, variableMeasured: [
-        { '@type': 'PropertyValue', name: 'New York Top Marginal Tax Rate', value: '10.9%' },
-        { '@type': 'PropertyValue', name: 'New York Standard Deduction (Single)', value: '$8,100' },
-        { '@type': 'PropertyValue', name: 'NYC Income Tax Rate Range', value: '3.078% - 3.876%' },
+      { '@type': 'MathSolver', name: 'New York Paycheck Math Solver', description: 'Computes net take-home pay with NY progressive tax brackets 4%-10.9% plus potential NYC tax.', mathExpression: 'Net = G - Fed(G - StdDed) - FICA(G) - NY_Progressive(G - StdDed_NY) - NYC_Tax' },
+      { '@type': 'Dataset', name: '2026 New York Tax Rates', variableMeasured: [
+        { name: 'New York Top Marginal Tax Rate', value: '10.9%' },
+        { name: 'New York Standard Deduction (Single)', value: '$8,100' },
+        { name: 'NYC Income Tax Rate Range', value: '3.078% - 3.876%' },
       ]},
       faqsToJsonLd(NEWYORK_FAQS),
     ],
@@ -250,6 +249,7 @@ function getMortgageJsonLd() {
         { '@type': 'ListItem', position: 2, name: 'Mortgage Calculator', item: `${SITE_URL}/mortgage-calculator` },
       ]},
       { '@type': 'WebApplication', name: 'Mortgage Calculator with Extra Payments', url: `${SITE_URL}/mortgage-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
+      { '@type': 'MathSolver', name: 'Mortgage Amortization Solver', description: 'Computes monthly payment using M = P × [r(1+r)^n] / [(1+r)^n - 1]', mathExpression: 'M = P × [r(1+r)^n] / [(1+r)^n - 1]' },
       faqsToJsonLd(MORTGAGE_FAQS),
     ],
   };
@@ -264,6 +264,7 @@ function getRetirementJsonLd() {
         { '@type': 'ListItem', position: 2, name: '401(k) Retirement Projection', item: `${SITE_URL}/401k-retirement-calculator` },
       ]},
       { '@type': 'WebApplication', name: '401(k) Retirement Projection Calculator 2026', url: `${SITE_URL}/401k-retirement-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
+      { '@type': 'MathSolver', name: '401(k) Compound Growth Solver', description: 'Computes projected 401(k) balance using annual contributions + employer match with compound annual growth.', mathExpression: 'B(n) = Σ C_annual × (1 + r)^(n-i)' },
       faqsToJsonLd(RETIREMENT_FAQS),
     ],
   };
@@ -311,28 +312,6 @@ function getSelfEmploymentJsonLd() {
   };
 }
 
-function getIrsWithholdingJsonLd() {
-  return {
-    '@context': 'https://schema.org',
-    '@graph': [
-      { '@type': 'BreadcrumbList', itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
-        { '@type': 'ListItem', position: 2, name: 'IRS Withholding Calculator', item: `${SITE_URL}/irs-withholding-calculator` },
-      ]},
-      { '@type': 'WebApplication', name: 'IRS Withholding Calculator 2026', url: `${SITE_URL}/irs-withholding-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
-      { '@type': 'Dataset', name: '2026 Withholding Key Rates', description: 'Key federal withholding rates and standard deductions for 2026 per IRS Publication 15-T.', creator: { '@type': 'Organization', name: 'TheTaxCalc', url: SITE_URL }, license: `${SITE_URL}/terms`, variableMeasured: [
-        { '@type': 'PropertyValue', name: 'Standard Deduction (Single)', value: '$15,000' },
-        { '@type': 'PropertyValue', name: 'Standard Deduction (Married)', value: '$30,000' },
-        { '@type': 'PropertyValue', name: 'Standard Deduction (HOH)', value: '$22,500' },
-        { '@type': 'PropertyValue', name: 'SS Wage Cap', value: '$176,100' },
-        { '@type': 'PropertyValue', name: 'Additional Medicare Threshold', value: '$200,000' },
-        { '@type': 'PropertyValue', name: 'Dependent Credit', value: '$2,000 per dependent' },
-      ]},
-      faqsToJsonLd(IRS_WITHHOLDING_FAQS),
-    ],
-  };
-}
-
 function getTaxRefundJsonLd() {
   return {
     '@context': 'https://schema.org',
@@ -342,12 +321,13 @@ function getTaxRefundJsonLd() {
         { '@type': 'ListItem', position: 2, name: 'Tax Refund Calculator', item: `${SITE_URL}/tax-refund-calculator` },
       ]},
       { '@type': 'WebApplication', name: 'Tax Refund Calculator 2026', url: `${SITE_URL}/tax-refund-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
-      { '@type': 'Dataset', name: '2026 Tax Refund Key Rates', description: 'Key tax refund rates, deductions, and credit amounts for 2026 tax filing.', creator: { '@type': 'Organization', name: 'TheTaxCalc', url: SITE_URL }, license: `${SITE_URL}/terms`, variableMeasured: [
-        { '@type': 'PropertyValue', name: 'Standard Deduction (Single)', value: '$15,000' },
-        { '@type': 'PropertyValue', name: 'Standard Deduction (Married)', value: '$30,000' },
-        { '@type': 'PropertyValue', name: 'Child Tax Credit', value: '$2,000 per child' },
-        { '@type': 'PropertyValue', name: 'Refundable CTC Portion', value: 'Up to $1,700' },
-        { '@type': 'PropertyValue', name: 'EIC Maximum (3+ children)', value: '$7,430' },
+      { '@type': 'MathSolver', name: 'Tax Refund Math Solver', description: 'Computes estimated tax refund: Refund = Total Taxes Withheld - (Federal Tax Owed + State Tax Owed), where Federal Tax Owed uses progressive brackets with standard/itemized deductions and tax credits.', mathExpression: 'Refund = (Fed_Withheld + State_Withheld) - (Fed_Tax(Gross - Deduction) - Credits + State_Tax)' },
+      { '@type': 'Dataset', name: '2026 Tax Refund Key Rates', variableMeasured: [
+        { name: 'Standard Deduction (Single)', value: '$15,000' },
+        { name: 'Standard Deduction (Married)', value: '$30,000' },
+        { name: 'Child Tax Credit', value: '$2,000 per child' },
+        { name: 'Refundable CTC Portion', value: 'Up to $1,700' },
+        { name: 'EIC Maximum (3+ children)', value: '$7,430' },
       ]},
       faqsToJsonLd(TAX_REFUND_FAQS),
     ],
@@ -363,101 +343,15 @@ function getSalesTaxJsonLd() {
         { '@type': 'ListItem', position: 2, name: 'Sales Tax Calculator', item: `${SITE_URL}/sales-tax-calculator` },
       ]},
       { '@type': 'WebApplication', name: 'Sales Tax Calculator 2026', url: `${SITE_URL}/sales-tax-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
-      { '@type': 'Dataset', name: '2026 Sales Tax Key Rates', description: 'Combined state and local sales tax rates for all 50 US states for 2026.', creator: { '@type': 'Organization', name: 'TheTaxCalc', url: SITE_URL }, license: `${SITE_URL}/terms`, variableMeasured: [
-        { '@type': 'PropertyValue', name: 'California Combined Rate', value: '8.82% (7.25% state + 1.57% local)' },
-        { '@type': 'PropertyValue', name: 'Texas Combined Rate', value: '8.20% (6.25% state + 1.95% local)' },
-        { '@type': 'PropertyValue', name: 'New York Combined Rate', value: '8.52% (4% state + 4.52% local)' },
-        { '@type': 'PropertyValue', name: 'Florida Combined Rate', value: '7.02% (6% state + 1.02% local)' },
-        { '@type': 'PropertyValue', name: 'Illinois Combined Rate', value: '8.86% (6.25% state + 2.61% local)' },
-        { '@type': 'PropertyValue', name: 'No Sales Tax States', value: 'DE, MT, NH, OR (AK: local only)' },
+      { '@type': 'MathSolver', name: 'Sales Tax Math Solver', description: 'Computes sales tax amount and total price: Tax = Price × Rate, Total = Price + Tax. Reverse: Original = Total ÷ (1 + Rate).', mathExpression: 'Tax = P × R; Total = P × (1 + R); Reverse: P = Total ÷ (1 + R)' },
+      { '@type': 'Dataset', name: '2026 US Sales Tax Rates', variableMeasured: [
+        { name: 'Average US Combined Rate', value: '~6.6%' },
+        { name: 'Highest Combined Rate', value: '9.56% (Louisiana/Tennessee)' },
+        { name: 'No Sales Tax States', value: 'DE, MT, NH, OR' },
+        { name: 'California Combined Rate', value: '8.82%' },
+        { name: 'Texas Combined Rate', value: '8.20%' },
       ]},
       faqsToJsonLd(SALES_TAX_FAQS),
-    ],
-  };
-}
-
-function getBonusTaxJsonLd() {
-  return {
-    '@context': 'https://schema.org',
-    '@graph': [
-      { '@type': 'BreadcrumbList', itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
-        { '@type': 'ListItem', position: 2, name: 'Bonus Tax Calculator', item: `${SITE_URL}/bonus-tax-calculator` },
-      ]},
-      { '@type': 'WebApplication', name: 'Bonus Tax Calculator 2026', url: `${SITE_URL}/bonus-tax-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
-      { '@type': 'Dataset', name: '2026 Bonus Tax Key Rates', description: 'Federal supplemental wage tax rates and FICA rates for 2026 bonus taxation.', creator: { '@type': 'Organization', name: 'TheTaxCalc', url: SITE_URL }, license: `${SITE_URL}/terms`, variableMeasured: [
-        { '@type': 'PropertyValue', name: 'Supplemental Wage Rate (under $1M)', value: '22% flat' },
-        { '@type': 'PropertyValue', name: 'Supplemental Wage Rate (above $1M)', value: '37% on excess' },
-        { '@type': 'PropertyValue', name: 'FICA Social Security Rate', value: '6.2% (up to $176,100)' },
-        { '@type': 'PropertyValue', name: 'FICA Medicare Rate', value: '1.45% (no cap)' },
-        { '@type': 'PropertyValue', name: 'Additional Medicare Tax', value: '0.9% (above $200K)' },
-      ]},
-      faqsToJsonLd(BONUS_TAX_FAQS),
-    ],
-  };
-}
-
-function getLotteryTaxJsonLd() {
-  return {
-    '@context': 'https://schema.org',
-    '@graph': [
-      { '@type': 'BreadcrumbList', itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
-        { '@type': 'ListItem', position: 2, name: 'Lottery Tax Calculator', item: `${SITE_URL}/lottery-tax-calculator` },
-      ]},
-      { '@type': 'WebApplication', name: 'Lottery Tax Calculator 2026', url: `${SITE_URL}/lottery-tax-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
-      { '@type': 'Dataset', name: '2026 Lottery Tax Key Rates', description: 'Federal and state tax rates applicable to lottery winnings for 2026.', creator: { '@type': 'Organization', name: 'TheTaxCalc', url: SITE_URL }, license: `${SITE_URL}/terms`, variableMeasured: [
-        { '@type': 'PropertyValue', name: 'Federal Tax Brackets', value: '10% – 37% (progressive)' },
-        { '@type': 'PropertyValue', name: 'FICA on Lottery Winnings', value: '0% (NOT subject to FICA)' },
-        { '@type': 'PropertyValue', name: 'Mandatory Withholding Rate', value: '24% (on winnings over $5,000)' },
-        { '@type': 'PropertyValue', name: 'Lump Sum Cash Value', value: 'Typically 50-60% of advertised jackpot' },
-        { '@type': 'PropertyValue', name: 'Annuity Period', value: '30 years' },
-        { '@type': 'PropertyValue', name: 'No Income Tax States', value: 'TX, FL, WA, NV, WY, SD, AK, TN, NH' },
-      ]},
-      faqsToJsonLd(LOTTERY_TAX_FAQS),
-    ],
-  };
-}
-
-function getPropertyTaxJsonLd() {
-  return {
-    '@context': 'https://schema.org',
-    '@graph': [
-      { '@type': 'BreadcrumbList', itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
-        { '@type': 'ListItem', position: 2, name: 'Property Tax Calculator', item: `${SITE_URL}/property-tax-calculator` },
-      ]},
-      { '@type': 'WebApplication', name: 'Property Tax Calculator 2026', url: `${SITE_URL}/property-tax-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
-      { '@type': 'Dataset', name: '2026 Property Tax Key Rates', description: 'Average effective property tax rates for all 50 US states plus DC for 2026.', creator: { '@type': 'Organization', name: 'TheTaxCalc', url: SITE_URL }, license: `${SITE_URL}/terms`, variableMeasured: [
-        { '@type': 'PropertyValue', name: 'Highest State Rate', value: 'New Jersey 2.49%' },
-        { '@type': 'PropertyValue', name: 'Lowest State Rate', value: 'Hawaii 0.31%' },
-        { '@type': 'PropertyValue', name: 'US Average Effective Rate', value: '~1.1%' },
-        { '@type': 'PropertyValue', name: 'Florida Homestead Exemption', value: 'Up to $50,000' },
-        { '@type': 'PropertyValue', name: 'States Covered', value: 'All 50 states + DC' },
-      ]},
-      faqsToJsonLd(PROPERTY_TAX_FAQS),
-    ],
-  };
-}
-
-function getOvertimeTaxJsonLd() {
-  return {
-    '@context': 'https://schema.org',
-    '@graph': [
-      { '@type': 'BreadcrumbList', itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
-        { '@type': 'ListItem', position: 2, name: 'No Tax on Overtime Calculator', item: `${SITE_URL}/overtime-tax-calculator` },
-      ]},
-      { '@type': 'WebApplication', name: 'No Tax on Overtime Calculator 2025–2028', url: `${SITE_URL}/overtime-tax-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
-      { '@type': 'Dataset', name: '2025–2028 Overtime Tax Exemption Key Rates', description: 'Key rates for the 2025–2028 federal overtime tax exemption under the new law.', creator: { '@type': 'Organization', name: 'TheTaxCalc', url: SITE_URL }, license: `${SITE_URL}/terms`, variableMeasured: [
-        { '@type': 'PropertyValue', name: 'Minimum OT Rate Multiplier', value: '1.5x regular rate (FLSA)' },
-        { '@type': 'PropertyValue', name: 'OT Exemption Period', value: '2025–2028 (tax years)' },
-        { '@type': 'PropertyValue', name: 'FICA Still Applies to OT', value: 'Yes (6.2% SS + 1.45% Medicare)' },
-        { '@type': 'PropertyValue', name: 'Federal Income Tax on OT', value: '0% (exempted)' },
-        { '@type': 'PropertyValue', name: 'Law Sunset Date', value: 'December 31, 2028' },
-        { '@type': 'PropertyValue', name: 'State Income Tax on OT', value: 'Most states still tax OT' },
-      ]},
-      faqsToJsonLd(OVERTIME_FAQS),
     ],
   };
 }
@@ -475,12 +369,7 @@ function getJsonLdForType(type: string) {
     case 'capital-gains': return getCapitalGainsJsonLd();
     case 'self-employment': return getSelfEmploymentJsonLd();
     case 'tax-refund': return getTaxRefundJsonLd();
-    case 'irs-withholding': return getIrsWithholdingJsonLd();
     case 'sales-tax': return getSalesTaxJsonLd();
-    case 'overtime-tax': return getOvertimeTaxJsonLd();
-    case 'bonus-tax': return getBonusTaxJsonLd();
-    case 'lottery-tax': return getLotteryTaxJsonLd();
-    case 'property-tax': return getPropertyTaxJsonLd();
     default: return getHomeJsonLd();
   }
 }
@@ -814,152 +703,29 @@ function getCalculatorContent(type: string): CalculatorContent {
           { slug: 'capital-gains-calculator', label: 'Capital Gains Calculator' },
         ],
       };
-    case 'irs-withholding':
-      return {
-        howItWorks: [
-          'Your employer withholds federal income tax from every paycheck based on your W-4 settings. Too little withholding means a surprise tax bill (and possibly penalties) in April. Too much means you\'ve been giving the government an interest-free loan all year. This calculator finds the sweet spot using <a href="https://www.irs.gov/publications/p15t" target="_blank" rel="noopener noreferrer nofollow">IRS Publication 15-T</a> methodology and 2026 tax brackets.',
-          'Here\'s how federal withholding works: your employer takes your gross pay per paycheck, subtracts pre-tax deductions (401(k), HSA, commuter benefits), and multiplies by the number of pay periods to annualize your wages. Then they subtract the standard deduction ($15,000 single, $30,000 married, $22,500 head of household) and apply the progressive federal brackets (10%–37%). The result is divided by your pay periods to get the per-paycheck withholding amount.',
-          'FICA is separate from federal income tax withholding and is not affected by your W-4. Social Security takes 6.2% of wages up to $176,100, and Medicare takes 1.45% on all wages plus 0.9% additional Medicare above $200,000 (single) or $250,000 (married). Your total paycheck deduction is federal withholding + FICA + pre-tax deductions.',
-          'The modern W-4 (2020 and later) doesn\'t use allowances anymore. Instead: Step 1 is filing status, Step 2 handles multiple jobs, Step 3 claims dependents ($2,000 credit per child), and Step 4 lets you add extra withholding (4c) or report other income (4a) and deductions (4b). If you\'re under-withheld, add the extra amount to Step 4(c) — this calculator tells you exactly how much.',
-          'A real example: single filer, $75,000/year, bi-weekly pay. Federal withholding should be about $335 per paycheck. If you\'re currently having $250 withheld, you\'d owe roughly $2,210 at tax time plus potential penalties. Add $85 to Step 4(c) of your W-4 and you\'re covered.',
-        ],
-        keyRates: [
-          { label: 'Standard Deduction (Single)', value: '$15,000' },
-          { label: 'Standard Deduction (Married)', value: '$30,000' },
-          { label: 'SS Wage Cap', value: '$176,100' },
-          { label: 'Additional Medicare', value: '0.9% above $200K/$250K' },
-          { label: 'Dependent Credit', value: '$2,000 per dependent' },
-        ],
-        faqs: IRS_WITHHOLDING_FAQS,
-        relatedCalculators: [
-          { slug: 'paycheck-calculator', label: 'Paycheck Calculator' },
-          { slug: 'tax-refund-calculator', label: 'Tax Refund Calculator' },
-          { slug: '401k-retirement-calculator', label: '401(k) Calculator' },
-          { slug: 'self-employment-tax-calculator', label: 'Self-Employment Calculator' },
-          { slug: 'salary', label: 'Salary After Tax' },
-        ],
-      };
     case 'sales-tax':
       return {
         howItWorks: [
-          'Sales tax is a consumption tax added to the price of goods and certain services at the point of sale. The rate you pay is the <strong>combined rate</strong> — the state base rate plus any local taxes from your county, city, or special district. This calculator uses average combined rates for all 50 US states with detailed state + local breakdowns.',
-          'The formula is straightforward: <strong>Tax = Purchase Price × Combined Rate</strong>. A $1,000 purchase at 8.82% combined rate (California) = $88.20 in sales tax, for a total of $1,088.20. The state portion is $72.50 (7.25%) and the average local portion is $15.70 (1.57%). Four states — <strong>Delaware, Montana, New Hampshire, and Oregon</strong> — charge 0% state sales tax. Alaska has no state sales tax but allows local taxes.',
-          'Need to work backwards? The <strong>reverse sales tax formula</strong> divides the total by (1 + tax rate) to find the original price. A $1,088.20 total with 8.82% tax = $1,088.20 ÷ 1.0882 = $1,000.00 original price. This is essential for expense reports and budgeting.',
-          'Many states exempt certain necessities from sales tax. <strong>Groceries</strong> are exempt in most states. <strong>Prescription drugs</strong> are exempt nearly everywhere. A few states — Connecticut, Massachusetts, Minnesota, New Jersey, New York, and Pennsylvania — also exempt <strong>clothing</strong> purchases from sales tax. This calculator handles tax-exempt items by state.',
+          'Sales tax is the tax you pay on purchases — it\'s added at the register and calculated by multiplying the purchase price by the combined tax rate for your area. The combined rate includes both the state base rate and any local taxes (county, city, special district). On a $1,000 purchase in California at 8.82% combined rate, you pay $88.20 in sales tax for a total of $1,088.20.',
+          'Four states charge 0% state sales tax: <a href="https://www.taxadmin.org/" target="_blank" rel="noopener noreferrer nofollow">Delaware, Montana, New Hampshire, and Oregon</a>. Alaska has no state sales tax but allows local taxes, resulting in a low average combined rate of about 1.82%. On the other end, Louisiana and Tennessee tie for the highest average combined rate at 9.56%.',
+          'Local taxes make a real difference. The state base rate might be 6%, but your county and city can add another 2-3% on top. That\'s why the same purchase can cost different amounts depending on exactly where you are within a state. Our calculator uses average combined rates for each state to give you the most realistic estimate.',
+          'Need to figure out the original price before tax from a receipt? That\'s the reverse sales tax calculation. Divide the total by (1 + tax rate). A $108.82 total in California = $108.82 ÷ 1.0882 = $100.00 original price. This comes in handy for expense reports and accounting.',
+          'Since the 2018 <a href="https://www.supremecourt.gov/" target="_blank" rel="noopener noreferrer nofollow">Supreme Court decision in South Dakota v. Wayfair</a>, states can require online retailers to collect sales tax even without a physical presence. So most online purchases now include sales tax based on your location. Some states also have sales tax holidays — temporary periods where certain items (like back-to-school supplies) are exempt from sales tax.',
         ],
         keyRates: [
-          { label: 'CA Combined Rate', value: '8.82% (7.25% + 1.57% local)' },
-          { label: 'TX Combined Rate', value: '8.20% (6.25% + 1.95% local)' },
-          { label: 'NY Combined Rate', value: '8.52% (4% + 4.52% local)' },
-          { label: 'FL Combined Rate', value: '7.02% (6% + 1.02% local)' },
-          { label: 'IL Combined Rate', value: '8.86% (6.25% + 2.61% local)' },
-          { label: 'No Sales Tax States', value: 'DE, MT, NH, OR (AK: local only)' },
+          { label: 'Average US Combined Rate', value: '~6.6%' },
+          { label: 'Highest Combined Rate', value: '9.56% (LA/TN)' },
+          { label: 'No Sales Tax States', value: 'DE, MT, NH, OR' },
+          { label: 'CA Combined Rate', value: '8.82%' },
+          { label: 'TX Combined Rate', value: '8.20%' },
         ],
         faqs: SALES_TAX_FAQS,
         relatedCalculators: [
           { slug: 'paycheck-calculator', label: 'Paycheck Calculator' },
-          { slug: 'tax-refund-calculator', label: 'Tax Refund Calculator' },
+          { slug: 'california-tax-calculator', label: 'California Calculator' },
+          { slug: 'texas-tax-calculator', label: 'Texas Calculator' },
+          { slug: 'florida-tax-calculator', label: 'Florida Calculator' },
           { slug: 'relocation-calculator', label: 'Relocation Calculator' },
-          { slug: 'compare', label: 'State Comparison' },
-          { slug: 'capital-gains-calculator', label: 'Capital Gains Calculator' },
-        ],
-      };
-    case 'overtime-tax':
-      return {
-        howItWorks: [
-          "The 2025 Trump tax law — officially the 'One Big Beautiful Bill Act' — created a federal income tax exemption for overtime pay. If you're a non-exempt hourly worker earning time-and-a-half for hours beyond 40 per week, that overtime pay is no longer subject to federal income tax for tax years 2025 through 2028. This calculator shows you exactly how much you save compared to the old rules where overtime was taxed like any other income.",
-          "Here's the important distinction: the exemption only covers <strong>federal income tax</strong>. FICA taxes — 6.2% for Social Security (up to the $176,100 wage cap) and 1.45% for Medicare (no cap) — still apply to your overtime pay. And most states have not conformed to the federal exemption, so your state will likely still tax overtime as regular income. The nine states with no income tax (Texas, Florida, Washington, Nevada, etc.) are the exception — they don't tax any income, overtime or otherwise.",
-          "The math is straightforward: your overtime pay equals overtime hours × hourly rate × 1.5. Under the old rules, that pay was added to your total income and taxed at your marginal bracket (anywhere from 10% to 37%). Under the new exemption, that portion skips federal income tax entirely. For a worker earning $30/hour with 10 weekly overtime hours in the 22% bracket, that's roughly $5,130 in annual federal tax savings. The higher your bracket and the more overtime you work, the bigger the benefit.",
-          "A few things to keep in mind: the exemption applies only to FLSA-defined overtime pay (1.5x rate for hours over 40/week). Bonuses, shift differentials, and premium pay that aren't tied to the 1.5x overtime rule don't qualify. And this law sunsets after December 31, 2028 — unless Congress extends it, overtime will be fully taxable again starting in 2029.",
-        ],
-        keyRates: [
-          { label: 'OT Federal Income Tax Rate', value: '0% (exempted 2025–2028)' },
-          { label: 'Minimum OT Pay Rate', value: '1.5x regular hourly rate' },
-          { label: 'FICA on Overtime', value: 'Still applies (7.65%)' },
-          { label: 'Law Sunset Date', value: 'December 31, 2028' },
-          { label: 'State Tax on OT', value: 'Most states still tax it' },
-        ],
-        faqs: OVERTIME_FAQS,
-        relatedCalculators: [
-          { slug: 'paycheck-calculator', label: 'Paycheck Calculator' },
-          { slug: 'irs-withholding-calculator', label: 'IRS Withholding Calculator' },
-          { slug: 'self-employment-tax-calculator', label: 'Self-Employment Calculator' },
-          { slug: 'salary', label: 'Salary After Tax' },
-        ],
-      };
-    case 'bonus-tax':
-      return {
-        howItWorks: [
-          "Bonuses feel great until you see the tax withholding. The IRS classifies bonuses as 'supplemental wages' — income paid in addition to your regular salary — and your employer can use one of two methods to withhold federal income tax on them. The <strong>Percentage Method</strong> applies a flat 22% rate (37% on any amount above $1 million). The <strong>Aggregate Method</strong> adds your bonus to your regular paycheck and runs the total through normal progressive brackets (10%–37%), then subtracts the tax on regular wages alone. This calculator shows you both results side by side.",
-          "Here's why the method matters: a $5,000 bonus for a single filer earning $75,000 per year. Under the 22% flat method, federal withholding is $1,100. Under the aggregate method, your employer adds the bonus to one paycheck (say, $2,885 regular + $5,000 = $7,885), annualizes that ($205,010), calculates tax on the total, subtracts tax on regular wages alone, and divides by pay periods. The result could be higher or lower depending on which bracket the bonus income falls into.",
-          "The flat 22% rate is a great deal if you're in the 24% bracket or above — you're paying less federal tax on the bonus than on your regular wages. But if you're in the 12% bracket, the aggregate method saves you money because your bonus gets taxed at around 12% instead of a flat 22%. At the 22% bracket, it's roughly a wash. This calculator does the math for both methods so you can see the exact difference for your situation.",
-          "Regardless of which method your employer uses for federal income tax, <a href='/glossary'>FICA</a> always applies to bonuses: 6.2% for Social Security (up to the $176,100 wage cap in 2026) and 1.45% for Medicare (no cap). If your total income exceeds $200,000, add 0.9% more for the Additional Medicare Tax on wages above that threshold. State income tax also applies to bonuses — and unlike federal tax, there's no flat rate option at the state level.",
-          "One common misconception: people think bonuses are 'taxed higher' than regular income. The reality is that withholding on bonuses can be higher than necessary (especially with the 22% flat method for lower-bracket earners), but when you file your tax return, the bonus is just part of your total income and gets the same bracket treatment. If too much was withheld, you get it back as a refund. The key insight: the 22% flat rate is optional for employers, and knowing which method they use helps you understand your pay stub.",
-        ],
-        keyRates: [
-          { label: 'Supplemental Rate (under $1M)', value: '22% flat federal' },
-          { label: 'Supplemental Rate (above $1M)', value: '37% on the excess' },
-          { label: 'FICA — Social Security', value: '6.2% (up to $176,100)' },
-          { label: 'FICA — Medicare', value: '1.45% (no cap)' },
-          { label: 'Additional Medicare', value: '0.9% above $200K' },
-        ],
-        faqs: BONUS_TAX_FAQS,
-        relatedCalculators: [
-          { slug: 'paycheck-calculator', label: 'Paycheck Calculator' },
-          { slug: 'irs-withholding-calculator', label: 'IRS Withholding Calculator' },
-          { slug: 'tax-refund-calculator', label: 'Tax Refund Calculator' },
-          { slug: 'self-employment-tax-calculator', label: 'Self-Employment Calculator' },
-          { slug: 'salary', label: 'Salary After Tax' },
-        ],
-      };
-    case 'lottery-tax':
-      return {
-        howItWorks: [
-          "Winning the lottery feels like a dream until you see the tax bill. Lottery winnings are taxed as <strong>ordinary income</strong> — there's no special 'lottery tax rate.' The IRS treats that jackpot the same as a massive salary, running it through the same progressive brackets from 10% to 37%. On a $1,000,000 lump sum, a single filer would owe roughly $300,000+ in federal tax alone after the $15,000 standard deduction. The effective rate typically lands around 30–33% for large prizes.",
-          "Here's the biggest surprise for most winners: <strong>lottery winnings are NOT subject to FICA</strong>. No 6.2% Social Security tax, no 1.45% Medicare tax, no 0.9% Additional Medicare Tax. That's a 7.65%+ savings compared to earning the same amount as wages. On a $500,000 lump sum, that's over $38,000 you don't have to pay. This is one of the few genuine tax advantages of winning the lottery versus earning the same amount through work.",
-          "The IRS requires <strong>24% mandatory federal withholding</strong> on gambling winnings over $5,000 — the lottery commission deducts this automatically before you see a dime. But 24% is just the withholding, not your actual tax. If you're in the 32%, 35%, or 37% bracket (which you probably are with a big win), you'll owe the difference when you file your return. On a $500,000 prize, 24% withholding is $120,000, but if your actual federal tax is $155,000, you'll owe an extra $35,000 at tax time. Many winners are caught off guard by this.",
-          "The <strong>lump sum vs annuity</strong> decision has major tax implications. The advertised jackpot (say $1,000,000) is the annuity value — paid over 30 years. The lump sum is typically only 50–60% of that ($500,000–$600,000). With a lump sum, all income hits in one year, pushing you into the top bracket. With an annuity, each year's payment is smaller and potentially taxed at a lower rate. But the annuity also means waiting 30 years for your money and facing tax rate uncertainty. This calculator shows both scenarios so you can compare total take-home amounts.",
-          "State tax makes a huge difference. Nine states have <strong>no income tax at all</strong>: Texas, Florida, Washington, Nevada, Wyoming, South Dakota, Alaska, Tennessee, and New Hampshire. Win in one of those states and you save thousands. California and Pennsylvania exempt in-state lottery winnings from state tax. But Illinois (4.95% flat) and New York (up to 10.9% + NYC tax) take a big cut. On a $500,000 win, the state tax difference between Texas ($0) and New York (~$40,000) is massive.",
-        ],
-        keyRates: [
-          { label: 'Federal Tax Brackets', value: '10% – 37% (progressive)' },
-          { label: 'FICA on Lottery Winnings', value: '0% (NOT subject to FICA)' },
-          { label: 'Mandatory Withholding', value: '24% (on winnings over $5,000)' },
-          { label: 'Lump Sum Cash Value', value: 'Typically 50–60% of jackpot' },
-          { label: 'Annuity Period', value: '30 years' },
-          { label: 'No Income Tax States', value: 'TX, FL, WA, NV, WY, SD, AK, TN, NH' },
-        ],
-        faqs: LOTTERY_TAX_FAQS,
-        relatedCalculators: [
-          { slug: 'bonus-tax-calculator', label: 'Bonus Tax Calculator' },
-          { slug: 'capital-gains-calculator', label: 'Capital Gains Calculator' },
-          { slug: 'paycheck-calculator', label: 'Paycheck Calculator' },
-          { slug: 'tax-refund-calculator', label: 'Tax Refund Calculator' },
-          { slug: 'self-employment-tax-calculator', label: 'Self-Employment Calculator' },
-        ],
-      };
-    case 'property-tax':
-      return {
-        howItWorks: [
-          "Property tax is the bill you pay for owning real estate — and depending on where you live, it can be one of your biggest annual expenses. The calculation is straightforward: your home's value multiplied by your area's effective property tax rate. A $350,000 home at 1.78% (Illinois) means $6,230 per year. Same home in Hawaii at 0.31%? Just $1,085. That's a $5,145 difference for the exact same house value. Location matters enormously.",
-          "This calculator uses average <strong>effective property tax rates</strong> for all 50 states plus DC. Effective rate is the percentage of your home's market value that you actually pay in tax — it already accounts for assessment ratios, mill rates, and local adjustments. It's the most practical way to compare states because you just plug in your home value and get the real number. The actual rate you pay depends on your specific county, city, and school district, but these averages give you a solid estimate.",
-          "The range across the US is staggering. <a href='https://www.nj.gov/treasury/' target='_blank' rel='noopener noreferrer nofollow'>New Jersey</a> tops the list at 2.49% — on a $400,000 home that's nearly $10,000 a year. Hawaii sits at the bottom at 0.31%. The Northeast and Midwest tend to have the highest rates, while the South and Mountain West are generally lower. But here's the thing: states with no income tax (like Texas at 1.71% and New Hampshire at 2.06%) often compensate with higher property taxes. It's a shell game — the money comes from somewhere.",
-          "If you're in Florida, South Carolina, or several other states, a <strong>homestead exemption</strong> can knock thousands off your taxable value. Florida's exemption removes up to $50,000 from your assessed value, and the Save Our Homes cap limits annual assessment increases to 3%. Over a decade of rising home values, that cap saves you serious money as your taxable value falls further and further behind market value. This calculator lets you toggle homestead exemptions and add custom exemptions to see the exact impact.",
-          "Bottom line: property tax is a local tax with national consequences. It affects where people choose to live, whether they can afford to stay in their homes, and how much house they can buy. A 1% rate difference on a $400K home is $4,000 a year — $333 a month. That's a car payment. Run the numbers for your state, compare it to others, and factor it into your housing budget from day one.",
-        ],
-        keyRates: [
-          { label: 'Highest Rate', value: 'New Jersey 2.49%' },
-          { label: 'Lowest Rate', value: 'Hawaii 0.31%' },
-          { label: 'US Average', value: '~1.1% effective rate' },
-          { label: 'FL Homestead Exemption', value: 'Up to $50,000' },
-          { label: 'States Covered', value: 'All 50 states + DC' },
-        ],
-        faqs: PROPERTY_TAX_FAQS,
-        relatedCalculators: [
-          { slug: 'mortgage-calculator', label: 'Mortgage Calculator' },
-          { slug: 'relocation-calculator', label: 'Relocation Calculator' },
-          { slug: 'paycheck-calculator', label: 'Paycheck Calculator' },
-          { slug: 'sales-tax-calculator', label: 'Sales Tax Calculator' },
           { slug: 'salary', label: 'Salary After Tax' },
         ],
       };
@@ -990,6 +756,7 @@ const CALCULATOR_BLOG_SLUGS: Record<string, string[]> = {
   relocation: ['florida-vs-texas-tax-comparison', 'why-texas-has-no-income-tax'],
   'capital-gains': ['how-fica-taxes-work-2026', '2026-federal-tax-brackets-explained'],
   'self-employment': ['how-fica-taxes-work-2026'],
+  'sales-tax': ['sales-tax-by-state-guide-2026', 'florida-vs-texas-tax-comparison'],
 };
 
 // ─── Helper: Other States for Comparison ──────────────────────────────────────
@@ -1021,12 +788,7 @@ function getFaqHeading(type: string): string {
     case 'capital-gains': return 'Capital Gains Tax FAQ';
     case 'self-employment': return 'Self-Employment Tax FAQ';
     case 'tax-refund': return 'Tax Refund Calculator FAQ';
-    case 'irs-withholding': return 'IRS Withholding Calculator FAQ';
     case 'sales-tax': return 'Sales Tax Calculator FAQ';
-    case 'overtime-tax': return 'No Tax on Overtime Calculator FAQ';
-    case 'bonus-tax': return 'Bonus Tax Calculator FAQ';
-    case 'lottery-tax': return 'Lottery Tax Calculator FAQ';
-    case 'property-tax': return 'Property Tax Calculator FAQ';
     case 'income-tax': return 'Income Tax Calculator FAQ';
     case 'tax-calc': return 'Tax Calculator FAQ';
     default: return 'Frequently Asked Questions';
@@ -1084,12 +846,12 @@ function getNextSteps(type: string): { href: string; icon: string; title: string
         { href: '/self-employment-tax-calculator', icon: '\u{1F4BC}', title: 'Self-Employment Tax', description: 'Estimate SE tax and quarterly payments' },
         { href: '/capital-gains-calculator', icon: '\u{1F4C8}', title: 'Capital Gains Tax', description: 'Investment gains can affect your refund' },
       ];
-    case 'irs-withholding':
+    case 'sales-tax':
       return [
-        { href: '/paycheck-calculator', icon: '\u{1F4B5}', title: 'Paycheck Calculator', description: 'Full take-home pay breakdown by state' },
-        { href: '/tax-refund-calculator', icon: '\u{1F4B0}', title: 'Tax Refund Calculator', description: 'Estimate your refund or amount owed' },
-        { href: '/401k-retirement-calculator', icon: '\u{1F3E6}', title: '401(k) Planner', description: 'Reduce withholding with pre-tax contributions' },
-        { href: '/self-employment-tax-calculator', icon: '\u{1F4BC}', title: 'Self-Employment Tax', description: 'Quarterly estimated tax payments' },
+        { href: '/paycheck-calculator', icon: '\u{1F4B5}', title: 'Paycheck Calculator', description: 'Income tax vs sales tax breakdown' },
+        { href: '/compare', icon: '\u{1F4CA}', title: 'Compare States', description: 'Full tax comparison across states' },
+        { href: '/relocation-calculator', icon: '\u{1F3E0}', title: 'Relocation Calculator', description: 'Sales tax factors into cost of living' },
+        { href: '/glossary', icon: '\u{1F4D6}', title: 'Tax Glossary', description: 'Key sales tax terms explained' },
       ];
     case 'relocation':
       return [
@@ -1097,34 +859,6 @@ function getNextSteps(type: string): { href: string; icon: string; title: string
         { href: '/compare', icon: '\u{1F4CA}', title: 'State Comparison', description: 'Side-by-side tax comparison' },
         { href: '/mortgage-calculator', icon: '\u{1F3E0}', title: 'Mortgage Calculator', description: 'Housing costs in your new state' },
         { href: '/salary', icon: '\u{1F4B0}', title: 'Salary After Tax', description: 'Take-home for every salary level' },
-      ];
-    case 'overtime-tax':
-      return [
-        { href: '/paycheck-calculator', icon: '\u{1F4B5}', title: 'Paycheck Calculator', description: 'Full take-home pay breakdown' },
-        { href: '/irs-withholding-calculator', icon: '\u{1F4CB}', title: 'IRS Withholding', description: 'Optimize your W-4 for OT pay' },
-        { href: '/self-employment-tax-calculator', icon: '\u{1F4BC}', title: 'Self-Employment Tax', description: 'SE tax and quarterly estimates' },
-        { href: '/salary', icon: '\u{1F4B0}', title: 'Salary After Tax', description: 'Take-home pay for every salary' },
-      ];
-    case 'bonus-tax':
-      return [
-        { href: '/paycheck-calculator', icon: '\u{1F4B5}', title: 'Paycheck Calculator', description: 'Full take-home pay breakdown by state' },
-        { href: '/irs-withholding-calculator', icon: '\u{1F4CB}', title: 'IRS Withholding', description: 'Optimize your W-4 for bonus pay' },
-        { href: '/tax-refund-calculator', icon: '\u{1F4B0}', title: 'Tax Refund Calculator', description: 'Bonus withholding affects your refund' },
-        { href: '/self-employment-tax-calculator', icon: '\u{1F4BC}', title: 'Self-Employment Tax', description: 'SE tax and quarterly estimates' },
-      ];
-    case 'lottery-tax':
-      return [
-        { href: '/paycheck-calculator', icon: '\u{1F4B5}', title: 'Paycheck Calculator', description: 'Compare with regular wage income tax' },
-        { href: '/bonus-tax-calculator', icon: '\u{1F381}', title: 'Bonus Tax Calculator', description: 'Tax on supplemental wages vs lottery' },
-        { href: '/capital-gains-calculator', icon: '\u{1F4C8}', title: 'Capital Gains Tax', description: 'Investment income tax rates' },
-        { href: '/tax-refund-calculator', icon: '\u{1F4B0}', title: 'Tax Refund Calculator', description: 'Withholding may affect your refund' },
-      ];
-    case 'property-tax':
-      return [
-        { href: '/mortgage-calculator', icon: '\u{1F3E0}', title: 'Mortgage Calculator', description: 'Property tax is part of your monthly payment' },
-        { href: '/relocation-calculator', icon: '\u{1F4CA}', title: 'Relocation Calculator', description: 'Compare total tax burden across states' },
-        { href: '/paycheck-calculator', icon: '\u{1F4B5}', title: 'Paycheck Calculator', description: 'See your full take-home pay by state' },
-        { href: '/sales-tax-calculator', icon: '\u{1F4B3}', title: 'Sales Tax Calculator', description: 'Another tax that varies by state' },
       ];
     default:
       return [

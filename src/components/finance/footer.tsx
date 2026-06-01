@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { DollarSign, ArrowRight, ArrowRightLeft, Mail, ExternalLink, BookOpen, MapPin, Calculator, Shield, Home, TrendingUp, FileText, Receipt, Clock, Gift, Building, Ticket } from 'lucide-react';
+import { DollarSign, ArrowRight, ArrowRightLeft, Mail, ExternalLink, BookOpen, MapPin, Calculator, Shield, Home, TrendingUp, Receipt } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 
@@ -13,19 +13,12 @@ const CALCULATOR_LINKS = [
   { href: '/florida-tax-calculator', label: 'Florida Tax', icon: MapPin },
   { href: '/california-tax-calculator', label: 'California Tax', icon: MapPin },
   { href: '/new-york-tax-calculator', label: 'New York Tax', icon: MapPin },
-  { href: '/georgia-tax-calculator', label: 'Georgia Tax', icon: MapPin },
-  { href: '/virginia-tax-calculator', label: 'Virginia Tax', icon: MapPin },
   { href: '/mortgage-calculator', label: 'Mortgage Calculator', icon: Home },
   { href: '/401k-retirement-calculator', label: '401(k) Projection', icon: Shield },
   { href: '/capital-gains-calculator', label: 'Capital Gains', icon: Calculator },
   { href: '/self-employment-tax-calculator', label: 'Self-Employment', icon: Calculator },
   { href: '/tax-refund-calculator', label: 'Tax Refund Calculator', icon: DollarSign },
-  { href: '/irs-withholding-calculator', label: 'IRS Withholding Calculator', icon: FileText },
   { href: '/sales-tax-calculator', label: 'Sales Tax Calculator', icon: Receipt },
-  { href: '/overtime-tax-calculator', label: 'Overtime Tax Calculator', icon: Clock },
-  { href: '/bonus-tax-calculator', label: 'Bonus Tax Calculator', icon: Gift },
-  { href: '/property-tax-calculator', label: 'Property Tax Calculator', icon: Building },
-  { href: '/lottery-tax-calculator', label: 'Lottery Tax Calculator', icon: Ticket },
   { href: '/relocation-calculator', label: 'Relocation Calculator', icon: MapPin },
 ];
 
@@ -130,7 +123,7 @@ export function Footer() {
               Calculators
             </h4>
             <ul className="space-y-2">
-              {CALCULATOR_LINKS.slice(0, 10).map((link) => {
+              {CALCULATOR_LINKS.slice(0, 7).map((link) => {
                 const Icon = link.icon;
                 return (
                   <li key={link.href}>
@@ -153,7 +146,7 @@ export function Footer() {
               More Tools
             </h4>
             <ul className="space-y-2">
-              {CALCULATOR_LINKS.slice(10).map((link) => {
+              {CALCULATOR_LINKS.slice(7).map((link) => {
                 const Icon = link.icon;
                 return (
                   <li key={link.href}>

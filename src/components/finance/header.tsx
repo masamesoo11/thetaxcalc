@@ -19,12 +19,7 @@ import {
   Zap,
   BarChart3,
   Globe,
-  FileText,
   Receipt,
-  Clock,
-  Gift,
-  Building,
-  Ticket,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { COMPONENT_KEY_TO_SLUG } from '@/lib/calculator-routes';
@@ -36,20 +31,13 @@ const CALC_ITEMS = [
   { key: 'florida', href: '/florida-tax-calculator', label: 'Florida', icon: MapPin, desc: '0% state income tax' },
   { key: 'california', href: '/california-tax-calculator', label: 'California', icon: MapPin, desc: '1%–13.3% progressive' },
   { key: 'newyork', href: '/new-york-tax-calculator', label: 'New York', icon: MapPin, desc: '4%–10.9% progressive' },
-  { key: 'georgia', href: '/georgia-tax-calculator', label: 'Georgia', icon: MapPin, desc: '5.49% progressive tax' },
-  { key: 'virginia', href: '/virginia-tax-calculator', label: 'Virginia', icon: MapPin, desc: '2%–5.75% progressive' },
   { key: 'mortgage', href: '/mortgage-calculator', label: 'Mortgage', icon: Home, desc: 'Amortization & extra payments' },
   { key: 'retirement', href: '/401k-retirement-calculator', label: '401(k)', icon: PiggyBank, desc: 'Retirement projection' },
   { key: 'relocation', href: '/relocation-calculator', label: 'Relocate', icon: ArrowRightLeft, desc: 'Salary by state' },
   { key: 'capital-gains', href: '/capital-gains-calculator', label: 'Capital Gains', icon: TrendingUp, desc: '0%/15%/20% + NIIT' },
   { key: 'self-employment', href: '/self-employment-tax-calculator', label: 'Self-Employment', icon: Shield, desc: '15.3% SE tax' },
   { key: 'tax-refund', href: '/tax-refund-calculator', label: 'Tax Refund', icon: DollarSign, desc: 'Estimate your refund' },
-  { key: 'irs-withholding', href: '/irs-withholding-calculator', label: 'IRS Withholding', icon: FileText, desc: 'W-4 & paycheck withholding' },
-  { key: 'sales-tax', href: '/sales-tax-calculator', label: 'Sales Tax', icon: Receipt, desc: 'All 50 states combined rates' },
-  { key: 'overtime-tax', href: '/overtime-tax-calculator', label: 'Overtime Tax', icon: Clock, desc: '2025–2028 OT exemption' },
-  { key: 'bonus-tax', href: '/bonus-tax-calculator', label: 'Bonus Tax', icon: Gift, desc: '22% flat vs aggregate' },
-  { key: 'property-tax', href: '/property-tax-calculator', label: 'Property Tax', icon: Building, desc: 'All 50 states rates' },
-  { key: 'lottery-tax', href: '/lottery-tax-calculator', label: 'Lottery Tax', icon: Ticket, desc: 'Winnings after tax' },
+  { key: 'sales-tax', href: '/sales-tax-calculator', label: 'Sales Tax', icon: Receipt, desc: 'All 50 states & reverse' },
 ];
 
 const MORE_LINKS = [
@@ -151,10 +139,10 @@ export function Header() {
                 <div className="mb-3 flex items-center gap-2 px-2">
                   <Zap className="h-4 w-4 text-emerald-400" />
                   <span className="text-sm font-semibold text-foreground">Tax Calculators</span>
-                  <span className="ml-auto text-[10px] text-muted-foreground">20 tools</span>
+                  <span className="ml-auto text-[10px] text-muted-foreground">12 tools</span>
                 </div>
                 <div className="divider-glow mb-3" />
-                <div className="grid grid-cols-2 gap-1 max-h-[70vh] overflow-y-auto custom-scrollbar">
+                <div className="grid grid-cols-2 gap-1">
                   {CALC_ITEMS.map((item) => {
                     const Icon = item.icon;
                     const isActive = pathname === item.href;
