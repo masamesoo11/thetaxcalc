@@ -148,7 +148,7 @@ export function Header() {
                 <div className="mb-3 flex items-center gap-2 px-2">
                   <Zap className="h-4 w-4 text-emerald-400" />
                   <span className="text-sm font-semibold text-foreground">Tax Calculators</span>
-                  <span className="ml-auto text-[10px] text-muted-foreground">12 tools</span>
+                  <span className="ml-auto text-[10px] text-muted-foreground">20 tools</span>
                 </div>
                 <div className="divider-glow mb-3" />
                 <div className="grid grid-cols-2 gap-1">
