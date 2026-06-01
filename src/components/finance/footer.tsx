@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { DollarSign, ArrowRight, ArrowRightLeft, Mail, ExternalLink, BookOpen, MapPin, Calculator, Shield, Home, TrendingUp, Receipt } from 'lucide-react';
+import { DollarSign, ArrowRight, ArrowRightLeft, Mail, ExternalLink, BookOpen, MapPin, Calculator, Shield, Home, TrendingUp, Receipt, Clock, FileText } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 
@@ -19,6 +19,13 @@ const CALCULATOR_LINKS = [
   { href: '/self-employment-tax-calculator', label: 'Self-Employment', icon: Calculator },
   { href: '/tax-refund-calculator', label: 'Tax Refund Calculator', icon: DollarSign },
   { href: '/sales-tax-calculator', label: 'Sales Tax Calculator', icon: Receipt },
+  { href: '/overtime-tax-calculator', label: 'Overtime Tax Calculator', icon: Clock },
+  { href: '/georgia-tax-calculator', label: 'Georgia Tax Calculator', icon: MapPin },
+  { href: '/lottery-tax-calculator', label: 'Lottery Tax Calculator', icon: DollarSign },
+  { href: '/irs-withholding-calculator', label: 'IRS Withholding Calculator', icon: FileText },
+  { href: '/property-tax-calculator', label: 'Property Tax Calculator', icon: Home },
+  { href: '/bonus-tax-calculator', label: 'Bonus Tax Calculator', icon: DollarSign },
+  { href: '/virginia-tax-calculator', label: 'Virginia Tax Calculator', icon: MapPin },
   { href: '/relocation-calculator', label: 'Relocation Calculator', icon: MapPin },
 ];
 

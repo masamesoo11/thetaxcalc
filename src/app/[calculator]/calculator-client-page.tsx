@@ -56,6 +56,34 @@ const SalesTaxCalculator = dynamic(
   () => import('@/components/finance/sales-tax-calculator').then((m) => ({ default: m.SalesTaxCalculator })),
   { loading: () => <CalculatorSkeleton />, ssr: false }
 );
+const OvertimeTaxCalculator = dynamic(
+  () => import('@/components/finance/overtime-tax-calculator').then((m) => ({ default: m.OvertimeTaxCalculator })),
+  { loading: () => <CalculatorSkeleton />, ssr: false }
+);
+const GeorgiaCalculator = dynamic(
+  () => import('@/components/finance/georgia-calculator').then((m) => ({ default: m.GeorgiaCalculator })),
+  { loading: () => <CalculatorSkeleton />, ssr: false }
+);
+const LotteryTaxCalculator = dynamic(
+  () => import('@/components/finance/lottery-tax-calculator').then((m) => ({ default: m.LotteryTaxCalculator })),
+  { loading: () => <CalculatorSkeleton />, ssr: false }
+);
+const IRSWithholdingCalculator = dynamic(
+  () => import('@/components/finance/irs-withholding-calculator').then((m) => ({ default: m.IRSWithholdingCalculator })),
+  { loading: () => <CalculatorSkeleton />, ssr: false }
+);
+const PropertyTaxCalculator = dynamic(
+  () => import('@/components/finance/property-tax-calculator').then((m) => ({ default: m.PropertyTaxCalculator })),
+  { loading: () => <CalculatorSkeleton />, ssr: false }
+);
+const BonusTaxCalculator = dynamic(
+  () => import('@/components/finance/bonus-tax-calculator').then((m) => ({ default: m.BonusTaxCalculator })),
+  { loading: () => <CalculatorSkeleton />, ssr: false }
+);
+const VirginiaCalculator = dynamic(
+  () => import('@/components/finance/virginia-calculator').then((m) => ({ default: m.VirginiaCalculator })),
+  { loading: () => <CalculatorSkeleton />, ssr: false }
+);
 
 function CalculatorSkeleton() {
   return (
@@ -117,6 +145,20 @@ export function CalculatorClientPage({ componentKey }: CalculatorClientPageProps
       return <TaxRefundCalculator />;
     case 'sales-tax':
       return <SalesTaxCalculator />;
+    case 'overtime':
+      return <OvertimeTaxCalculator />;
+    case 'georgia':
+      return <GeorgiaCalculator />;
+    case 'lottery':
+      return <LotteryTaxCalculator />;
+    case 'irs-withholding':
+      return <IRSWithholdingCalculator />;
+    case 'property-tax':
+      return <PropertyTaxCalculator />;
+    case 'bonus-tax':
+      return <BonusTaxCalculator />;
+    case 'virginia':
+      return <VirginiaCalculator />;
     default:
       return <PaycheckCalculator />;
   }

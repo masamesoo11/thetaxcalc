@@ -339,6 +339,175 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     canonicalPath: '/tax-refund-calculator',
     jsonLdType: 'tax-refund',
   },
+  {
+    slug: 'overtime-tax-calculator',
+    title: 'Free Overtime Tax Calculator 2026 — After-Tax OT Pay',
+    description:
+      'Free overtime tax calculator for 2026. Calculate your after-tax overtime pay at 1.5x rate. See how much OT you actually keep after federal, FICA & state taxes. No sign-up.',
+    h1: 'Free Overtime Tax Calculator',
+    metaTitle: 'Free Overtime Tax Calculator 2026 | After-Tax OT Pay',
+    metaDesc:
+      'Free overtime tax calculator 2026. Calculate after-tax overtime pay at 1.5x rate. Federal, FICA & state taxes included. No sign-up required.',
+    keywords: [
+      'free overtime tax calculator', 'overtime tax calculator', 'overtime pay calculator',
+      'overtime calculator 2026', 'after tax overtime pay', 'overtime tax rate',
+      '1.5x overtime calculator', 'time and a half calculator', 'overtime take home pay',
+      'how much overtime is taxed', 'no tax on overtime calculator', 'free tax calculator for 2026',
+    ],
+    componentKey: 'overtime',
+    category: 'paycheck',
+    breadcrumbLabel: 'Overtime Tax',
+    ogTitle: 'Free Overtime Tax Calculator 2026 — After-Tax OT Pay',
+    ogDescription:
+      'Free overtime tax calculator 2026. Calculate after-tax overtime pay. Federal, FICA & state taxes. No sign-up.',
+    canonicalPath: '/overtime-tax-calculator',
+    jsonLdType: 'overtime',
+  },
+  {
+    slug: 'georgia-tax-calculator',
+    title: 'Free Georgia Tax Calculator 2026 — 5.49% Flat Tax',
+    description:
+      'Free Georgia tax calculator for 2026. Calculate take-home pay after 5.49% flat state tax, federal tax & FICA. Includes standard deductions. No sign-up.',
+    h1: 'Free Georgia Tax Calculator',
+    metaTitle: 'Free Georgia Tax Calculator 2026 | 5.49% Flat Tax',
+    metaDesc:
+      'Free Georgia tax calculator 2026. Take-home pay after 5.49% flat state tax and federal tax. No sign-up required.',
+    keywords: [
+      'free Georgia tax calculator', 'Georgia tax calculator', 'GA paycheck calculator',
+      'Georgia income tax', 'Georgia 5.49% tax', 'Georgia take home pay',
+      'Georgia salary calculator', 'Georgia flat tax rate',
+      'free tax calculator for 2026', 'GA state tax 2026',
+    ],
+    componentKey: 'georgia',
+    category: 'paycheck',
+    breadcrumbLabel: 'Georgia',
+    ogTitle: 'Free Georgia Tax Calculator 2026 — 5.49% Flat Tax',
+    ogDescription:
+      'Free Georgia tax calculator. Take-home pay after 5.49% flat state tax and federal tax. No sign-up. 2026 data.',
+    canonicalPath: '/georgia-tax-calculator',
+    jsonLdType: 'georgia',
+  },
+  {
+    slug: 'lottery-tax-calculator',
+    title: 'Free Lottery Tax Calculator 2026 — After-Tax Winnings',
+    description:
+      'Free lottery tax calculator for 2026. Calculate after-tax lottery winnings with 24% federal withholding and state taxes. See your actual payout. No sign-up.',
+    h1: 'Free Lottery Tax Calculator',
+    metaTitle: 'Free Lottery Tax Calculator 2026 | After-Tax Winnings',
+    metaDesc:
+      'Free lottery tax calculator 2026. After-tax winnings with 24% federal withholding and state taxes. No sign-up required.',
+    keywords: [
+      'free lottery tax calculator', 'lottery tax calculator', 'lottery winnings tax',
+      'lottery tax rate', 'after tax lottery winnings', 'powerball tax calculator',
+      'mega millions tax calculator', 'lottery withholding rate',
+      'free tax calculator for 2026', 'lottery payout calculator',
+    ],
+    componentKey: 'lottery',
+    category: 'investment',
+    breadcrumbLabel: 'Lottery Tax',
+    ogTitle: 'Free Lottery Tax Calculator 2026 — After-Tax Winnings',
+    ogDescription:
+      'Free lottery tax calculator. After-tax winnings with 24% federal withholding and state taxes. No sign-up.',
+    canonicalPath: '/lottery-tax-calculator',
+    jsonLdType: 'lottery',
+  },
+  {
+    slug: 'irs-withholding-calculator',
+    title: 'Free IRS Withholding Calculator 2026 — W-4 Optimization',
+    description:
+      'Free IRS withholding calculator for 2026. Optimize your W-4 to avoid owing taxes or overpaying. Based on IRS Publication 15-T. No sign-up.',
+    h1: 'Free IRS Withholding Calculator',
+    metaTitle: 'Free IRS Withholding Calculator 2026 | W-4 Optimization',
+    metaDesc:
+      'Free IRS withholding calculator 2026. Optimize your W-4 to avoid penalties and overpayment. No sign-up required.',
+    keywords: [
+      'free IRS withholding calculator', 'IRS withholding calculator', 'W-4 calculator',
+      'withholding calculator 2026', 'tax withholding estimator', 'W-4 optimization',
+      'paycheck withholding calculator', 'IRS tax withholding',
+      'free tax calculator for 2026', 'federal withholding calculator',
+      'adjust W-4 allowances', 'IRS Publication 15-T',
+    ],
+    componentKey: 'irs-withholding',
+    category: 'paycheck',
+    breadcrumbLabel: 'IRS Withholding',
+    ogTitle: 'Free IRS Withholding Calculator 2026 — W-4 Optimization',
+    ogDescription:
+      'Free IRS withholding calculator. Optimize your W-4 to avoid penalties. No sign-up. 2026 data.',
+    canonicalPath: '/irs-withholding-calculator',
+    jsonLdType: 'irs-withholding',
+  },
+  {
+    slug: 'property-tax-calculator',
+    title: 'Free Property Tax Calculator 2026 — All 50 States',
+    description:
+      'Free property tax calculator for 2026. Calculate annual property tax for any US state with average effective rates. Includes homestead exemptions. No sign-up.',
+    h1: 'Free Property Tax Calculator',
+    metaTitle: 'Free Property Tax Calculator 2026 | All 50 States',
+    metaDesc:
+      'Free property tax calculator 2026. Calculate annual property tax for any US state with effective rates. No sign-up required.',
+    keywords: [
+      'free property tax calculator', 'property tax calculator', 'property tax by state',
+      'home property tax calculator', 'property tax rate', 'property tax estimator',
+      'real estate tax calculator', 'annual property tax',
+      'free tax calculator for 2026', 'property tax comparison by state',
+    ],
+    componentKey: 'property-tax',
+    category: 'mortgage',
+    breadcrumbLabel: 'Property Tax',
+    ogTitle: 'Free Property Tax Calculator 2026 — All 50 States',
+    ogDescription:
+      'Free property tax calculator. Calculate annual property tax for any US state. No sign-up.',
+    canonicalPath: '/property-tax-calculator',
+    jsonLdType: 'property-tax',
+  },
+  {
+    slug: 'bonus-tax-calculator',
+    title: 'Free Bonus Tax Calculator 2026 — 22% Flat vs Aggregate Method',
+    description:
+      'Free bonus tax calculator for 2026. Compare 22% flat rate vs aggregate method for supplemental wages. See your after-tax bonus. No sign-up.',
+    h1: 'Free Bonus Tax Calculator',
+    metaTitle: 'Free Bonus Tax Calculator 2026 | 22% Flat vs Aggregate',
+    metaDesc:
+      'Free bonus tax calculator 2026. Compare 22% flat vs aggregate method for supplemental wages. No sign-up required.',
+    keywords: [
+      'free bonus tax calculator', 'bonus tax calculator', 'bonus tax rate',
+      'supplemental wage calculator', '22% bonus tax', 'aggregate method bonus',
+      'after tax bonus calculator', 'year end bonus tax',
+      'free tax calculator for 2026', 'bonus withholding calculator',
+    ],
+    componentKey: 'bonus-tax',
+    category: 'business',
+    breadcrumbLabel: 'Bonus Tax',
+    ogTitle: 'Free Bonus Tax Calculator 2026 — 22% Flat vs Aggregate',
+    ogDescription:
+      'Free bonus tax calculator. Compare 22% flat vs aggregate method. No sign-up. 2026 data.',
+    canonicalPath: '/bonus-tax-calculator',
+    jsonLdType: 'bonus-tax',
+  },
+  {
+    slug: 'virginia-tax-calculator',
+    title: 'Free Virginia Tax Calculator 2026 — 2% to 5.75% Progressive',
+    description:
+      'Free Virginia tax calculator for 2026. Calculate take-home pay after progressive state tax (2%–5.75%), federal tax & FICA. No sign-up.',
+    h1: 'Free Virginia Tax Calculator',
+    metaTitle: 'Free Virginia Tax Calculator 2026 | 2-5.75% Progressive',
+    metaDesc:
+      'Free Virginia tax calculator 2026. Take-home pay after progressive tax (2%–5.75%) and federal tax. No sign-up required.',
+    keywords: [
+      'free Virginia tax calculator', 'Virginia tax calculator', 'VA paycheck calculator',
+      'Virginia income tax', 'Virginia 5.75% tax', 'Virginia take home pay',
+      'Virginia salary calculator', 'VA progressive tax',
+      'free tax calculator for 2026', 'VA state tax 2026',
+    ],
+    componentKey: 'virginia',
+    category: 'paycheck',
+    breadcrumbLabel: 'Virginia',
+    ogTitle: 'Free Virginia Tax Calculator 2026 — 2%–5.75% Progressive',
+    ogDescription:
+      'Free Virginia tax calculator. Take-home pay after progressive tax (2%–5.75%). No sign-up. 2026 data.',
+    canonicalPath: '/virginia-tax-calculator',
+    jsonLdType: 'virginia',
+  },
 ];
 
 /** Map from componentKey (old hash key) to slug (new route) */

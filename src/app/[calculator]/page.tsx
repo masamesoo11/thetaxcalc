@@ -20,6 +20,13 @@ import {
   RELOCATION_FAQS,
   TAX_REFUND_FAQS,
   SALES_TAX_FAQS,
+  OVERTIME_FAQS,
+  GEORGIA_FAQS,
+  LOTTERY_TAX_FAQS,
+  IRS_WITHHOLDING_FAQS,
+  PROPERTY_TAX_FAQS,
+  BONUS_TAX_FAQS,
+  VIRGINIA_FAQS,
   FAQItem,
 } from '@/lib/faq-data';
 import { CalculatorClientPage } from './calculator-client-page';
@@ -356,6 +363,154 @@ function getSalesTaxJsonLd() {
   };
 }
 
+function getOvertimeJsonLd() {
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      { '@type': 'BreadcrumbList', itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+        { '@type': 'ListItem', position: 2, name: 'Overtime Tax Calculator', item: `${SITE_URL}/overtime-tax-calculator` },
+      ]},
+      { '@type': 'WebApplication', name: 'Overtime Tax Calculator 2026', url: `${SITE_URL}/overtime-tax-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
+      { '@type': 'MathSolver', name: 'Overtime Tax Math Solver', description: 'Computes after-tax overtime pay: OT Pay = Hours × Rate × 1.5, After-Tax = OT Pay × (1 - Marginal Rate - FICA - State Rate).', mathExpression: 'After-Tax OT = H × R × 1.5 × (1 - Fed_Marginal - FICA - State)' },
+      { '@type': 'Dataset', name: '2026 Overtime Tax Data', variableMeasured: [
+        { name: 'Federal Overtime Rate', value: '1.5x (time and a half)' },
+        { name: 'Federal Tax on OT', value: 'Taxed at marginal rate' },
+        { name: 'FICA Rate', value: '7.65%' },
+        { name: 'Effective OT Tax Rate', value: 'Typically 25%–35%' },
+      ]},
+      faqsToJsonLd(OVERTIME_FAQS),
+    ],
+  };
+}
+
+function getGeorgiaJsonLd() {
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      { '@type': 'BreadcrumbList', itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+        { '@type': 'ListItem', position: 2, name: 'Georgia Tax Calculator', item: `${SITE_URL}/georgia-tax-calculator` },
+      ]},
+      { '@type': 'WebApplication', name: 'Georgia Tax Calculator 2026', url: `${SITE_URL}/georgia-tax-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
+      { '@type': 'MathSolver', name: 'Georgia Paycheck Math Solver', description: 'Computes net take-home pay: Net = Gross - Federal Tax - FICA - GA State Tax, where GA Tax = (Gross - StdDed) × 5.49%.', mathExpression: 'Net = G - Fed(G - StdDed) - FICA(G) - (G - StdDed_GA) × 0.0549' },
+      { '@type': 'Dataset', name: '2026 Georgia Tax Rates', variableMeasured: [
+        { name: 'Georgia Flat Tax Rate', value: '5.49%' },
+        { name: 'Georgia Standard Deduction (Single)', value: '$5,400' },
+        { name: 'Georgia Standard Deduction (Married)', value: '$7,100' },
+        { name: 'Federal Standard Deduction (Single)', value: '$15,000' },
+      ]},
+      faqsToJsonLd(GEORGIA_FAQS),
+    ],
+  };
+}
+
+function getLotteryJsonLd() {
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      { '@type': 'BreadcrumbList', itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+        { '@type': 'ListItem', position: 2, name: 'Lottery Tax Calculator', item: `${SITE_URL}/lottery-tax-calculator` },
+      ]},
+      { '@type': 'WebApplication', name: 'Lottery Tax Calculator 2026', url: `${SITE_URL}/lottery-tax-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
+      { '@type': 'MathSolver', name: 'Lottery Tax Math Solver', description: 'Computes after-tax lottery winnings: After-Tax = Winnings × (1 - Federal Rate - State Rate), where federal withholding is 24%.', mathExpression: 'After-Tax = W × (1 - 0.24 - StateRate)' },
+      { '@type': 'Dataset', name: '2026 Lottery Tax Rates', variableMeasured: [
+        { name: 'Federal Withholding Rate', value: '24%' },
+        { name: 'Top Federal Marginal Rate', value: '37%' },
+        { name: 'States with No Lottery Tax', value: 'CA, DE, FL, NH, PA, SD, TN, TX, WA, WY' },
+        { name: 'Average State Lottery Tax', value: '~4%–8%' },
+      ]},
+      faqsToJsonLd(LOTTERY_TAX_FAQS),
+    ],
+  };
+}
+
+function getIrsWithholdingJsonLd() {
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      { '@type': 'BreadcrumbList', itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+        { '@type': 'ListItem', position: 2, name: 'IRS Withholding Calculator', item: `${SITE_URL}/irs-withholding-calculator` },
+      ]},
+      { '@type': 'WebApplication', name: 'IRS Withholding Calculator 2026', url: `${SITE_URL}/irs-withholding-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
+      { '@type': 'MathSolver', name: 'IRS Withholding Math Solver', description: 'Computes optimal W-4 withholding: Withholding = (Annual Tax Owed - Credits) / Pay Periods, compared to current withholding.', mathExpression: 'Withholding_Period = (Tax_Owed - Credits) / N_Periods' },
+      { '@type': 'Dataset', name: '2026 IRS Withholding Data', variableMeasured: [
+        { name: 'Standard Deduction (Single)', value: '$15,000' },
+        { name: 'Standard Deduction (Married)', value: '$30,000' },
+        { name: 'Child Tax Credit', value: '$2,000 per child' },
+        { name: 'Underpayment Penalty Threshold', value: '90% of tax owed or 100% of prior year' },
+      ]},
+      faqsToJsonLd(IRS_WITHHOLDING_FAQS),
+    ],
+  };
+}
+
+function getPropertyTaxJsonLd() {
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      { '@type': 'BreadcrumbList', itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+        { '@type': 'ListItem', position: 2, name: 'Property Tax Calculator', item: `${SITE_URL}/property-tax-calculator` },
+      ]},
+      { '@type': 'WebApplication', name: 'Property Tax Calculator 2026', url: `${SITE_URL}/property-tax-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
+      { '@type': 'MathSolver', name: 'Property Tax Math Solver', description: 'Computes annual property tax: Tax = Assessed Value × Effective Rate. Some states apply assessment ratios.', mathExpression: 'Tax = Assessed_Value × Effective_Rate' },
+      { '@type': 'Dataset', name: '2026 US Property Tax Rates', variableMeasured: [
+        { name: 'US Average Effective Rate', value: '~1.1%' },
+        { name: 'Highest Rate (NJ)', value: '~2.49%' },
+        { name: 'Lowest Rate (HI)', value: '~0.29%' },
+        { name: 'TX Average Rate', value: '~1.71%' },
+        { name: 'FL Average Rate', value: '~0.86%' },
+      ]},
+      faqsToJsonLd(PROPERTY_TAX_FAQS),
+    ],
+  };
+}
+
+function getBonusTaxJsonLd() {
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      { '@type': 'BreadcrumbList', itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+        { '@type': 'ListItem', position: 2, name: 'Bonus Tax Calculator', item: `${SITE_URL}/bonus-tax-calculator` },
+      ]},
+      { '@type': 'WebApplication', name: 'Bonus Tax Calculator 2026', url: `${SITE_URL}/bonus-tax-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
+      { '@type': 'MathSolver', name: 'Bonus Tax Math Solver', description: 'Computes after-tax bonus using flat 22% method or aggregate method: Flat = Bonus × (1 - 0.22 - FICA - State), Aggregate blends bonus with regular wages.', mathExpression: 'Flat: After-Tax = B × (1 - 0.22 - FICA - State); Aggregate: Tax = Progressive(Income + Bonus)' },
+      { '@type': 'Dataset', name: '2026 Bonus Tax Rates', variableMeasured: [
+        { name: 'Federal Flat Withholding Rate', value: '22%' },
+        { name: 'FICA Rate', value: '7.65%' },
+        { name: 'Bonus Under $1M Federal Rate', value: '22% flat' },
+        { name: 'Bonus Over $1M Federal Rate', value: '37% flat' },
+      ]},
+      faqsToJsonLd(BONUS_TAX_FAQS),
+    ],
+  };
+}
+
+function getVirginiaJsonLd() {
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      { '@type': 'BreadcrumbList', itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+        { '@type': 'ListItem', position: 2, name: 'Virginia Tax Calculator', item: `${SITE_URL}/virginia-tax-calculator` },
+      ]},
+      { '@type': 'WebApplication', name: 'Virginia Tax Calculator 2026', url: `${SITE_URL}/virginia-tax-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
+      { '@type': 'MathSolver', name: 'Virginia Paycheck Math Solver', description: 'Computes net take-home pay: Net = Gross - Federal Tax - FICA - VA State Tax, where VA Tax uses progressive brackets 2%-5.75%.', mathExpression: 'Net = G - Fed(G - StdDed) - FICA(G) - VA_Progressive(G - StdDed_VA)' },
+      { '@type': 'Dataset', name: '2026 Virginia Tax Rates', variableMeasured: [
+        { name: 'Virginia Top Marginal Rate', value: '5.75%' },
+        { name: 'Virginia Standard Deduction (Single)', value: '$8,000' },
+        { name: 'Virginia Standard Deduction (Married)', value: '$16,000' },
+        { name: 'VA Tax Brackets', value: '2% – 5.75% (4 brackets)' },
+      ]},
+      faqsToJsonLd(VIRGINIA_FAQS),
+    ],
+  };
+}
+
 function getJsonLdForType(type: string) {
   switch (type) {
     case 'illinois': return getIllinoisJsonLd();
@@ -370,6 +525,13 @@ function getJsonLdForType(type: string) {
     case 'self-employment': return getSelfEmploymentJsonLd();
     case 'tax-refund': return getTaxRefundJsonLd();
     case 'sales-tax': return getSalesTaxJsonLd();
+    case 'overtime': return getOvertimeJsonLd();
+    case 'georgia': return getGeorgiaJsonLd();
+    case 'lottery': return getLotteryJsonLd();
+    case 'irs-withholding': return getIrsWithholdingJsonLd();
+    case 'property-tax': return getPropertyTaxJsonLd();
+    case 'bonus-tax': return getBonusTaxJsonLd();
+    case 'virginia': return getVirginiaJsonLd();
     default: return getHomeJsonLd();
   }
 }
@@ -729,6 +891,178 @@ function getCalculatorContent(type: string): CalculatorContent {
           { slug: 'salary', label: 'Salary After Tax' },
         ],
       };
+    case 'overtime':
+      return {
+        howItWorks: [
+          'Overtime pay is calculated at 1.5x your regular hourly rate for hours worked beyond 40 in a week — that\'s the federal standard under the <a href="https://www.dol.gov/agencies/whd/overtime" target="_blank" rel="noopener noreferrer nofollow">Fair Labor Standards Act</a>. So if you make $30/hour, your OT rate is $45/hour. Sounds great until you see the taxes. Overtime is taxed as ordinary income at your marginal federal rate, plus FICA (7.65%), plus state income tax. For someone in the 22% federal bracket in a state like Illinois, the combined hit on OT earnings can approach 35%. That $45/hour OT becomes more like $29/hour after taxes.',
+          'Here\'s the thing most people miss: overtime gets taxed at your marginal rate, not your effective rate. Your effective rate is the blended average across all brackets. But OT income stacks on top of your regular income, so it fills the highest bracket first. If your regular salary puts you at the top of the 12% bracket, every OT dollar is taxed at 22% federally. That\'s a big jump. Still, even at a higher tax rate, overtime puts more money in your pocket — just not as much as the gross number suggests.',
+          'Some states have proposed eliminating state income tax on overtime pay, but as of 2026, no state has enacted such a law. Federal tax on overtime remains unchanged. Your best strategy is knowing your marginal rate before you volunteer for extra shifts so you can make an informed decision about whether the after-tax pay is worth the extra hours.',
+          'A quick example: earning $20/hour with 10 hours of OT per week means an extra $300/week in gross OT pay. In a 22% federal bracket with 7.65% FICA and no state tax, you\'d keep about $211 of that $300. In Illinois with 4.95% state tax, you\'d keep about $196. Over a year of consistent OT, that\'s $10,000–$11,000 extra take-home — real money, but significantly less than the $15,600 gross.',
+        ],
+        keyRates: [
+          { label: 'OT Pay Rate', value: '1.5x regular rate' },
+          { label: 'Federal Tax on OT', value: 'At marginal rate (10%–37%)' },
+          { label: 'FICA Rate', value: '7.65%' },
+          { label: 'Typical Combined Tax on OT', value: '25%–35%' },
+          { label: 'FLSA OT Threshold', value: 'After 40 hours/week' },
+        ],
+        faqs: OVERTIME_FAQS,
+        relatedCalculators: [
+          { slug: 'paycheck-calculator', label: 'Paycheck Calculator' },
+          { slug: 'bonus-tax-calculator', label: 'Bonus Tax Calculator' },
+          { slug: 'irs-withholding-calculator', label: 'IRS Withholding Calculator' },
+          { slug: 'self-employment-tax-calculator', label: 'Self-Employment Calculator' },
+          { slug: 'salary', label: 'Salary After Tax' },
+        ],
+      };
+    case 'georgia':
+      return {
+        howItWorks: [
+          'Georgia charges a flat 5.49% income tax rate for 2026. That\'s it — one rate for everybody, whether you\'re making $40K or $400K. The state moved to a flat tax system recently, and the rate has been gradually decreasing. Georgia offers a standard deduction of $5,400 for single filers and $7,100 for married filing jointly, which comes off the top before the 5.49% applies. On a $75,000 salary (single), you\'re taxed on $69,600 after the deduction, which comes to about $3,821 in state tax.',
+          'On top of Georgia state tax, you\'ve got the federal progressive brackets with the $15,000 standard deduction, plus FICA at 7.65% combined. So for a single person earning $75,000, the total tax picture looks like this: roughly $8,580 federal, $5,738 FICA, and $3,821 Georgia state tax. That leaves you with about $56,861 take-home — an effective total tax rate of about 24.2%.',
+          'Georgia does offer some tax benefits worth noting. Social Security income is not taxed at the state level, and retirees aged 62+ can exclude up to $35,000 of retirement income ($70,000 for couples). That makes Georgia surprisingly competitive for retirees compared to states with higher flat rates like Illinois at 4.95% (though Illinois has a broader retirement income exemption). Property taxes in Georgia average about 0.87% — quite reasonable compared to the national average of 1.1%.',
+          'If you\'re considering a move to Georgia, the flat tax is predictable and easier to plan around than progressive brackets. Compare it to <a href="/california-tax-calculator">California\'s 13.3% top rate</a> or <a href="/new-york-tax-calculator">New York\'s 10.9%</a> and the savings are significant for high earners. <a href="/relocation-calculator">Run the relocation calculator</a> to see the difference for your salary.',
+        ],
+        keyRates: [
+          { label: 'Georgia Flat Tax Rate', value: '5.49%' },
+          { label: 'GA Standard Deduction (Single)', value: '$5,400' },
+          { label: 'GA Standard Deduction (Married)', value: '$7,100' },
+          { label: 'GA Avg Property Tax Rate', value: '~0.87%' },
+          { label: 'Retirement Income Exclusion (62+)', value: 'Up to $35,000' },
+        ],
+        faqs: GEORGIA_FAQS,
+        relatedCalculators: [
+          { slug: 'paycheck-calculator', label: 'Paycheck Calculator' },
+          { slug: 'illinois-tax-calculator', label: 'Illinois Calculator (4.95%)' },
+          { slug: 'virginia-tax-calculator', label: 'Virginia Calculator' },
+          { slug: 'california-tax-calculator', label: 'California Calculator' },
+          { slug: 'relocation-calculator', label: 'Relocation Calculator' },
+          { slug: 'salary', label: 'Salary After Tax' },
+        ],
+      };
+    case 'lottery':
+      return {
+        howItWorks: [
+          'Won the lottery? Congratulations — now let\'s talk about the tax bill. The IRS treats lottery winnings as ordinary income, and the withholding is 24% federal for winnings over $5,000. But here\'s the catch: 24% is just the withholding, not your actual tax rate. If your total income (winnings + salary + other income) puts you in the 32% or 37% bracket, you\'ll owe the difference when you file your return. On a $1 million prize, the 24% withholding is $240,000, but if your total tax rate is 37%, you owe another $130,000 at tax time.',
+          'State taxes on lottery winnings vary widely. Some states — like California, Florida, Pennsylvania, and Texas — don\'t tax lottery winnings at all at the state level. Others, like New York, hit you with up to 10.9% state tax plus 3.876% NYC tax if you\'re a city resident. On a $1 million win in NYC, you could lose nearly 50% to combined federal, state, and city taxes. That\'s why where you live matters enormously when you win.',
+          'Lump sum vs. annuity is the big decision. Most lotteries advertise the annuity total (e.g., "$100 million"), but the lump sum is typically about 50-60% of that. A $100 million annuity might have a $50 million lump sum. After 24% federal withholding on $50 million, that\'s $38 million. After the full 37% federal rate, it\'s $31.5 million. After state tax, it could be $27 million or less. The annuity spreads the tax hit over 30 years, which can keep you in lower brackets — but you\'re locked into the payment schedule.',
+          'Don\'t forget that some states also have local taxes on top. And if you\'re thinking about moving to a no-tax state before claiming your prize — most states tax based on where the ticket was purchased, not where you live when you claim it. Always consult a tax professional before claiming a major prize.',
+        ],
+        keyRates: [
+          { label: 'Federal Withholding', value: '24% (on winnings over $5K)' },
+          { label: 'Top Federal Marginal Rate', value: '37%' },
+          { label: 'States with No Lottery Tax', value: 'CA, FL, PA, TX, and more' },
+          { label: 'Lump Sum vs Annuity', value: 'Lump sum ~50-60% of annuity total' },
+          { label: 'NYC Combined Tax on Winnings', value: 'Up to ~50% total' },
+        ],
+        faqs: LOTTERY_TAX_FAQS,
+        relatedCalculators: [
+          { slug: 'paycheck-calculator', label: 'Paycheck Calculator' },
+          { slug: 'capital-gains-calculator', label: 'Capital Gains Calculator' },
+          { slug: 'tax-refund-calculator', label: 'Tax Refund Calculator' },
+          { slug: 'irs-withholding-calculator', label: 'IRS Withholding Calculator' },
+          { slug: 'salary', label: 'Salary After Tax' },
+        ],
+      };
+    case 'irs-withholding':
+      return {
+        howItWorks: [
+          'Your W-4 form tells your employer how much federal tax to withhold from each paycheck. Too much withholding means a big refund but less money in each paycheck. Too little means bigger paychecks but a tax bill — and possibly penalties — in April. This calculator helps you find the sweet spot based on <a href="https://www.irs.gov/publications/p15t" target="_blank" rel="noopener noreferrer nofollow">IRS Publication 15-T</a>.',
+          'The current W-4 (redesigned in 2020) no longer uses allowances. Instead, you enter your expected deductions, other income, and tax credits directly. The form has five steps: personal info, multiple jobs/spouse working, dependents, other adjustments, and signature. Most people only need Step 1 and Step 5. Steps 2-4 are for situations that make your withholding less straightforward.',
+          'The safe harbor rule is your friend. To avoid underpayment penalties, you need to have withheld at least 90% of this year\'s tax liability OR 100% of last year\'s tax liability (110% if your AGI was over $150,000). If you owed less than $1,000 in tax for the year, you\'re also safe. The calculator shows you whether you\'re on track to meet the safe harbor, which is far more useful than just aiming for a refund.',
+          'Common W-4 mistakes: not updating after getting married, having a second job, or having investment income. Each of these can throw off your withholding significantly. If you and your spouse both work and both check "Married" on your W-4 without accounting for the other\'s income, you\'ll almost certainly underpay. The fix is either Step 2 on the W-4 or using this calculator to figure out the right additional withholding amount.',
+        ],
+        keyRates: [
+          { label: 'Standard Deduction (Single)', value: '$15,000' },
+          { label: 'Standard Deduction (Married)', value: '$30,000' },
+          { label: 'Safe Harbor (Prior Year)', value: '100% of last year\'s tax' },
+          { label: 'Safe Harbor (High Income)', value: '110% if AGI > $150K' },
+          { label: 'De Minimis Threshold', value: 'Owe less than $1,000 = no penalty' },
+        ],
+        faqs: IRS_WITHHOLDING_FAQS,
+        relatedCalculators: [
+          { slug: 'paycheck-calculator', label: 'Paycheck Calculator' },
+          { slug: 'tax-refund-calculator', label: 'Tax Refund Calculator' },
+          { slug: 'overtime-tax-calculator', label: 'Overtime Tax Calculator' },
+          { slug: 'bonus-tax-calculator', label: 'Bonus Tax Calculator' },
+          { slug: 'salary', label: 'Salary After Tax' },
+        ],
+      };
+    case 'property-tax':
+      return {
+        howItWorks: [
+          'Property tax is calculated by multiplying your home\'s assessed value by the local effective tax rate. Simple formula, complicated reality. Your assessed value might not match your market value — some states assess at 100% of market value, others use a fraction. Illinois, for example, assesses residential property at about 10% of market value in Cook County. The rate itself varies enormously: New Jersey averages 2.49%, while Hawaii sits at 0.29%. On a $400,000 home, that\'s the difference between $9,960/year and $1,160/year. Same house value, wildly different tax bill.',
+          'The national average effective property tax rate is about 1.1%. On a $300,000 home, that\'s roughly $3,300 per year or $275/month — often rolled into your mortgage payment via escrow. The states with the highest rates tend to be in the Northeast (New Jersey, Illinois, New Hampshire), while the lowest are in the South and West (Hawaii, Alabama, Colorado). But low property tax states often compensate with higher sales or income taxes, so the total tax burden tells a different story.',
+          'Homestead exemptions can reduce your bill significantly. Florida knocks up to $50,000 off your assessed value if the property is your primary residence. Texas offers a $100,000 homestead exemption (increased in 2023). Some states also offer property tax freezes for seniors, disabled residents, or veterans. These exemptions aren\'t automatic — you have to apply for them, and many homeowners leave money on the table by not filing.',
+          'Property taxes fund local services: schools, police, fire departments, road maintenance, and more. When you compare property taxes between areas, you\'re also comparing the quality and funding level of those services. A low rate in a rural county might mean underfunded schools. A high rate in a wealthy suburb might mean excellent public schools. The value you get matters as much as the amount you pay.',
+          'This calculator uses average effective property tax rates for each state. Your actual rate depends on your specific county, city, school district, and any special assessment districts. Check your county tax assessor\'s website for the most precise rate for your address.',
+        ],
+        keyRates: [
+          { label: 'US Average Effective Rate', value: '~1.1%' },
+          { label: 'Highest Rate (NJ)', value: '~2.49%' },
+          { label: 'Lowest Rate (HI)', value: '~0.29%' },
+          { label: 'TX Avg Rate', value: '~1.71%' },
+          { label: 'FL Avg Rate', value: '~0.86%' },
+        ],
+        faqs: PROPERTY_TAX_FAQS,
+        relatedCalculators: [
+          { slug: 'mortgage-calculator', label: 'Mortgage Calculator' },
+          { slug: 'paycheck-calculator', label: 'Paycheck Calculator' },
+          { slug: 'texas-tax-calculator', label: 'Texas Calculator' },
+          { slug: 'florida-tax-calculator', label: 'Florida Calculator' },
+          { slug: 'relocation-calculator', label: 'Relocation Calculator' },
+          { slug: 'salary', label: 'Salary After Tax' },
+        ],
+      };
+    case 'bonus-tax':
+      return {
+        howItWorks: [
+          'Your year-end bonus is considered supplemental wages by the IRS, and there are two ways your employer can tax it. The flat rate method withholds 22% federally for bonuses under $1 million. That\'s simple and predictable — a $5,000 bonus gets $1,100 withheld for federal tax. The aggregate method combines your bonus with your regular paycheck and calculates withholding as if it\'s all regular income, which can push you into a higher withholding bracket temporarily.',
+          'Here\'s where it gets interesting: the 22% flat rate is just the withholding, not your actual tax. If your total income puts you in the 24% or 32% bracket, you\'ll owe the difference when you file. On a $10,000 bonus, 22% withholding is $2,200. If your actual rate is 32%, you owe $3,200 — that\'s an extra $1,000 come tax time. On the other hand, if you\'re in the 12% bracket, you\'ll get a refund of the difference. The withholding is a prepayment, not the final bill.',
+          'For bonuses over $1 million, the mandatory federal withholding rate jumps to 37%. Yes, 37% off the top for anything above that first million. Plus FICA at 7.65% on the full amount, plus state taxes. A $2 million bonus in California could see total withholding above 50%. That\'s why compensation packages for executives often include tax gross-ups — the company pays the tax on the tax.',
+          'State taxes on bonuses follow the same rules as regular income. In a zero-income-tax state like Texas or Florida, you only pay federal withholding and FICA on your bonus. In California, add up to 13.3% state tax. The difference between receiving a $10,000 bonus in Texas vs California is roughly $1,000 in state tax alone. <a href="/relocation-calculator">Location matters</a>.',
+        ],
+        keyRates: [
+          { label: 'Federal Flat Withholding', value: '22% (under $1M)' },
+          { label: 'Federal Rate (over $1M)', value: '37%' },
+          { label: 'FICA Rate', value: '7.65%' },
+          { label: 'Aggregate Method', value: 'Combined with regular wages' },
+          { label: 'Actual Tax vs Withholding', value: 'Reconcile at tax time' },
+        ],
+        faqs: BONUS_TAX_FAQS,
+        relatedCalculators: [
+          { slug: 'paycheck-calculator', label: 'Paycheck Calculator' },
+          { slug: 'overtime-tax-calculator', label: 'Overtime Tax Calculator' },
+          { slug: 'irs-withholding-calculator', label: 'IRS Withholding Calculator' },
+          { slug: 'tax-refund-calculator', label: 'Tax Refund Calculator' },
+          { slug: 'salary', label: 'Salary After Tax' },
+        ],
+      };
+    case 'virginia':
+      return {
+        howItWorks: [
+          'Virginia uses a progressive income tax with four brackets ranging from 2% to 5.75%. The 2% rate applies to your first $3,000 of taxable income (single) or $6,000 (married), then 3% up to $5,000/$10,000, 5% up to $17,000/$34,000, and 5.75% on everything above that. For most working professionals, the majority of your income falls into the 5.75% bracket. Virginia\'s standard deduction is $8,000 for single filers and $16,000 for married filing jointly — actually quite generous compared to states like California ($6,083) or Illinois (which has no standard deduction, just a $2,775 personal exemption).',
+          'Let\'s run a real example. A single person earning $80,000 in Virginia: after the $8,000 standard deduction, taxable income is $72,000. Virginia tax comes to roughly $3,762.50. Add federal tax of about $9,660 and FICA of $6,120, and total taxes are about $19,542 — leaving you with roughly $60,458 take-home. That\'s an effective total tax rate of about 24.4%. Not bad compared to <a href="/california-tax-calculator">California</a> or <a href="/new-york-tax-calculator">New York</a>.',
+          'Virginia has some decent tax benefits. Social Security benefits are fully exempt from state tax. Military pay is also exempt for Virginia National Guard members (up to $3,000) and active duty pay is exempt for those serving in a combat zone. The state also offers a deduction for long-term capital gains from certain qualifying investments. Property taxes average about 0.82%, which is below the national average of 1.1%.',
+          'One thing to watch: Virginia doesn\'t allow local income taxes, unlike some states where cities or counties add their own tax on top. What you see at the state level is what you pay. That\'s different from <a href="/new-york-tax-calculator">New York City\'s 3.876% city tax</a> or the local taxes in some Pennsylvania and Ohio municipalities.',
+        ],
+        keyRates: [
+          { label: 'VA Tax Brackets', value: '2% – 5.75% (4 brackets)' },
+          { label: 'VA Standard Deduction (Single)', value: '$8,000' },
+          { label: 'VA Standard Deduction (Married)', value: '$16,000' },
+          { label: 'VA Avg Property Tax Rate', value: '~0.82%' },
+          { label: 'Social Security Tax', value: 'Exempt' },
+        ],
+        faqs: VIRGINIA_FAQS,
+        relatedCalculators: [
+          { slug: 'paycheck-calculator', label: 'Paycheck Calculator' },
+          { slug: 'georgia-tax-calculator', label: 'Georgia Calculator (5.49%)' },
+          { slug: 'illinois-tax-calculator', label: 'Illinois Calculator (4.95%)' },
+          { slug: 'california-tax-calculator', label: 'California Calculator' },
+          { slug: 'relocation-calculator', label: 'Relocation Calculator' },
+          { slug: 'salary', label: 'Salary After Tax' },
+        ],
+      };
     default:
       return {
         howItWorks: [
@@ -757,6 +1091,13 @@ const CALCULATOR_BLOG_SLUGS: Record<string, string[]> = {
   'capital-gains': ['how-fica-taxes-work-2026', '2026-federal-tax-brackets-explained'],
   'self-employment': ['how-fica-taxes-work-2026'],
   'sales-tax': ['sales-tax-by-state-guide-2026', 'florida-vs-texas-tax-comparison'],
+  overtime: ['2026-federal-tax-brackets-explained', 'how-fica-taxes-work-2026'],
+  georgia: ['2026-federal-tax-brackets-explained', 'florida-vs-texas-tax-comparison'],
+  lottery: ['2026-federal-tax-brackets-explained', 'how-fica-taxes-work-2026'],
+  'irs-withholding': ['2026-federal-tax-brackets-explained', 'how-fica-taxes-work-2026'],
+  'property-tax': ['florida-vs-texas-tax-comparison', '2026-federal-tax-brackets-explained'],
+  'bonus-tax': ['2026-federal-tax-brackets-explained', 'how-fica-taxes-work-2026'],
+  virginia: ['2026-federal-tax-brackets-explained', 'florida-vs-texas-tax-comparison'],
 };
 
 // ─── Helper: Other States for Comparison ──────────────────────────────────────
@@ -789,6 +1130,13 @@ function getFaqHeading(type: string): string {
     case 'self-employment': return 'Self-Employment Tax FAQ';
     case 'tax-refund': return 'Tax Refund Calculator FAQ';
     case 'sales-tax': return 'Sales Tax Calculator FAQ';
+    case 'overtime': return 'Overtime Tax Calculator FAQ';
+    case 'georgia': return 'Georgia Tax Calculator FAQ';
+    case 'lottery': return 'Lottery Tax Calculator FAQ';
+    case 'irs-withholding': return 'IRS Withholding Calculator FAQ';
+    case 'property-tax': return 'Property Tax Calculator FAQ';
+    case 'bonus-tax': return 'Bonus Tax Calculator FAQ';
+    case 'virginia': return 'Virginia Tax Calculator FAQ';
     case 'income-tax': return 'Income Tax Calculator FAQ';
     case 'tax-calc': return 'Tax Calculator FAQ';
     default: return 'Frequently Asked Questions';
@@ -852,6 +1200,55 @@ function getNextSteps(type: string): { href: string; icon: string; title: string
         { href: '/compare', icon: '\u{1F4CA}', title: 'Compare States', description: 'Full tax comparison across states' },
         { href: '/relocation-calculator', icon: '\u{1F3E0}', title: 'Relocation Calculator', description: 'Sales tax factors into cost of living' },
         { href: '/glossary', icon: '\u{1F4D6}', title: 'Tax Glossary', description: 'Key sales tax terms explained' },
+      ];
+    case 'overtime':
+      return [
+        { href: '/paycheck-calculator', icon: '\u{1F4B5}', title: 'Paycheck Calculator', description: 'Full take-home pay breakdown' },
+        { href: '/bonus-tax-calculator', icon: '\u{1F4B0}', title: 'Bonus Tax Calculator', description: 'Another type of supplemental pay' },
+        { href: '/irs-withholding-calculator', icon: '\u{1F4CB}', title: 'IRS Withholding', description: 'Adjust W-4 for OT income' },
+        { href: '/salary', icon: '\u{1F4C8}', title: 'Salary After Tax', description: 'Take-home pay at every level' },
+      ];
+    case 'georgia':
+      return [
+        { href: '/paycheck-calculator', icon: '\u{1F4B5}', title: 'Paycheck Calculator', description: 'Full take-home pay breakdown' },
+        { href: '/virginia-tax-calculator', icon: '\u{1F3E0}', title: 'Virginia Calculator', description: 'Compare VA 2%–5.75% vs GA 5.49%' },
+        { href: '/relocation-calculator', icon: '\u{1F4CA}', title: 'Relocation Calculator', description: 'Compare GA to other states' },
+        { href: '/salary', icon: '\u{1F4B0}', title: 'Salary After Tax', description: 'Take-home pay at every level' },
+      ];
+    case 'lottery':
+      return [
+        { href: '/paycheck-calculator', icon: '\u{1F4B5}', title: 'Paycheck Calculator', description: 'Your regular income tax rate matters' },
+        { href: '/capital-gains-calculator', icon: '\u{1F4C8}', title: 'Capital Gains Tax', description: 'Tax on investment income' },
+        { href: '/tax-refund-calculator', icon: '\u{1F4CB}', title: 'Tax Refund Calculator', description: 'Will you owe or get a refund?' },
+        { href: '/irs-withholding-calculator', icon: '\u{1F3E6}', title: 'IRS Withholding', description: 'Adjust withholding after big win' },
+      ];
+    case 'irs-withholding':
+      return [
+        { href: '/paycheck-calculator', icon: '\u{1F4B5}', title: 'Paycheck Calculator', description: 'See how withholding affects take-home' },
+        { href: '/tax-refund-calculator', icon: '\u{1F4CB}', title: 'Tax Refund Calculator', description: 'Will you owe or get a refund?' },
+        { href: '/overtime-tax-calculator', icon: '\u{1F4BC}', title: 'Overtime Tax', description: 'OT can change your withholding needs' },
+        { href: '/bonus-tax-calculator', icon: '\u{1F4B0}', title: 'Bonus Tax', description: 'Bonus withholding is different' },
+      ];
+    case 'property-tax':
+      return [
+        { href: '/mortgage-calculator', icon: '\u{1F3E0}', title: 'Mortgage Calculator', description: 'Property tax is part of your payment' },
+        { href: '/texas-tax-calculator', icon: '\u{1F4B5}', title: 'Texas Calculator', description: 'High property tax, no income tax' },
+        { href: '/florida-tax-calculator', icon: '\u{1F3E0}', title: 'Florida Calculator', description: 'Low property tax, homestead exemption' },
+        { href: '/relocation-calculator', icon: '\u{1F4CA}', title: 'Relocation Calculator', description: 'Property tax varies by state' },
+      ];
+    case 'bonus-tax':
+      return [
+        { href: '/paycheck-calculator', icon: '\u{1F4B5}', title: 'Paycheck Calculator', description: 'Full take-home pay breakdown' },
+        { href: '/overtime-tax-calculator', icon: '\u{1F4BC}', title: 'Overtime Tax', description: 'Another supplemental income type' },
+        { href: '/irs-withholding-calculator', icon: '\u{1F4CB}', title: 'IRS Withholding', description: 'Adjust W-4 for bonus income' },
+        { href: '/tax-refund-calculator', icon: '\u{1F3E6}', title: 'Tax Refund Calculator', description: 'Will bonus affect your refund?' },
+      ];
+    case 'virginia':
+      return [
+        { href: '/paycheck-calculator', icon: '\u{1F4B5}', title: 'Paycheck Calculator', description: 'Full take-home pay breakdown' },
+        { href: '/georgia-tax-calculator', icon: '\u{1F3E0}', title: 'Georgia Calculator', description: 'Compare GA 5.49% vs VA 2%–5.75%' },
+        { href: '/relocation-calculator', icon: '\u{1F4CA}', title: 'Relocation Calculator', description: 'Compare VA to other states' },
+        { href: '/salary', icon: '\u{1F4B0}', title: 'Salary After Tax', description: 'Take-home pay at every level' },
       ];
     case 'relocation':
       return [

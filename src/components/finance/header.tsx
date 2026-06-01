@@ -20,6 +20,8 @@ import {
   BarChart3,
   Globe,
   Receipt,
+  Clock,
+  FileText,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { COMPONENT_KEY_TO_SLUG } from '@/lib/calculator-routes';
@@ -38,6 +40,13 @@ const CALC_ITEMS = [
   { key: 'self-employment', href: '/self-employment-tax-calculator', label: 'Self-Employment', icon: Shield, desc: '15.3% SE tax' },
   { key: 'tax-refund', href: '/tax-refund-calculator', label: 'Tax Refund', icon: DollarSign, desc: 'Estimate your refund' },
   { key: 'sales-tax', href: '/sales-tax-calculator', label: 'Sales Tax', icon: Receipt, desc: 'All 50 states & reverse' },
+  { key: 'overtime', href: '/overtime-tax-calculator', label: 'Overtime Tax', icon: Clock, desc: 'No-tax OT savings' },
+  { key: 'georgia', href: '/georgia-tax-calculator', label: 'Georgia', icon: MapPin, desc: '5.49% flat tax' },
+  { key: 'lottery', href: '/lottery-tax-calculator', label: 'Lottery Tax', icon: DollarSign, desc: 'After-tax winnings' },
+  { key: 'irs-withholding', href: '/irs-withholding-calculator', label: 'IRS Withholding', icon: FileText, desc: 'W-4 optimization' },
+  { key: 'property-tax', href: '/property-tax-calculator', label: 'Property Tax', icon: Home, desc: 'All 50 states' },
+  { key: 'bonus-tax', href: '/bonus-tax-calculator', label: 'Bonus Tax', icon: DollarSign, desc: '22% flat vs aggregate' },
+  { key: 'virginia', href: '/virginia-tax-calculator', label: 'Virginia', icon: MapPin, desc: '2%–5.75% progressive' },
 ];
 
 const MORE_LINKS = [
