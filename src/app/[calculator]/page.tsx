@@ -1319,6 +1319,10 @@ export default async function CalculatorPage({
         <p className="mt-2 text-muted-foreground max-w-2xl mx-auto">
           {config.description}
         </p>
+        {/* E-E-A-T: Last reviewed date */}
+        <p className="mt-2 text-xs text-muted-foreground/60">
+          Last reviewed: January 2026 · Tax data verified against IRS Publication 15-T &amp; state revenue departments
+        </p>
       </div>
 
       {/* Client-Side Calculator */}

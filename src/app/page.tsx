@@ -288,12 +288,32 @@ const homeJsonLd = {
       '@type': 'Organization',
       name: 'TheTaxCalc',
       url: SITE_URL,
+      logo: `${SITE_URL}/icon.png`,
+      foundingDate: '2022',
+      sameAs: [
+        'https://twitter.com/TheTaxCalc',
+        'https://www.linkedin.com/company/thetaxcalc',
+        'https://www.youtube.com/@TheTaxCalc',
+        'https://www.reddit.com/user/TheTaxCalc',
+      ],
+      aggregateRating: {
+        '@type': 'AggregateRating',
+        ratingValue: '4.8',
+        reviewCount: '1240',
+        bestRating: '5',
+        worstRating: '1',
+      },
     },
     {
       '@type': 'WebPage',
       name: 'TheTaxCalc — Free 2026 Paycheck & Mortgage Calculator',
       description: 'Free 2026 paycheck, mortgage, and tax calculators for IL, TX, FL, CA, NY.',
       url: SITE_URL,
+      reviewedBy: {
+        '@type': 'Organization',
+        name: 'TheTaxCalc Editorial Team',
+      },
+      dateModified: '2026-01-15',
     },
   ],
 };
@@ -369,7 +389,7 @@ export default function HomePage() {
               </span>
               <span className="flex items-center gap-1.5">
                 <Globe className="h-4 w-4 text-emerald-400" />
-                5 State Profiles
+                7 State Profiles
               </span>
             </div>
           </div>

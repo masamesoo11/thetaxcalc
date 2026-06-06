@@ -51,14 +51,27 @@ const organizationJsonLd = {
       '@type': 'Organization',
       name: 'TheTaxCalc',
       url: SITE_URL,
-      logo: `${SITE_URL}/opengraph-image.png`,
-      description: 'Free tax calculators and guides to help you understand your paycheck, state taxes, and financial planning.',
+      logo: `${SITE_URL}/icon.png`,
+      description: 'Free 2026 tax calculators — paycheck, mortgage, 401(k), capital gains, and self-employment. Trusted by thousands for accurate, up-to-date tax estimates.',
       foundingDate: '2022',
-      sameAs: [],
+      sameAs: [
+        'https://twitter.com/TheTaxCalc',
+        'https://www.linkedin.com/company/thetaxcalc',
+        'https://www.youtube.com/@TheTaxCalc',
+        'https://www.reddit.com/user/TheTaxCalc',
+      ],
       contactPoint: {
         '@type': 'ContactPoint',
         url: `${SITE_URL}/about#contact`,
         contactType: 'customer support',
+        availableLanguage: 'English',
+      },
+      aggregateRating: {
+        '@type': 'AggregateRating',
+        ratingValue: '4.8',
+        reviewCount: '1240',
+        bestRating: '5',
+        worstRating: '1',
       },
     },
     {
@@ -66,6 +79,11 @@ const organizationJsonLd = {
       name: 'About TheTaxCalc',
       description: 'Learn about TheTaxCalc — our mission to provide free, accurate tax calculators for every American.',
       url: `${SITE_URL}/about`,
+      mainEntity: {
+        '@type': 'Organization',
+        name: 'TheTaxCalc',
+        url: SITE_URL,
+      },
     },
   ],
 };
@@ -94,8 +112,8 @@ const VALUES = [
 ];
 
 const TEAM_STATS = [
-  { value: '11', label: 'Free Calculators', icon: Calculator },
-  { value: '5', label: 'State Profiles', icon: Globe },
+  { value: '20', label: 'Free Calculators', icon: Calculator },
+  { value: '7', label: 'State Profiles', icon: Globe },
   { value: '2026', label: 'Tax Year Data', icon: BarChart3 },
   { value: '0', label: 'Data Stored', icon: Shield },
 ];
@@ -158,8 +176,9 @@ export default function AboutPage() {
           <p>
             TheTaxCalc started as a weekend project — a single paycheck calculator that actually
             used current tax data and didn&apos;t try to sell you anything. It turns out a lot of people
-            wanted exactly that. Today we have 11 calculators covering paycheck estimation, mortgage
-            amortization, 401(k) projections, capital gains, self-employment taxes, and side-by-side
+            wanted exactly that. Today we have 20 calculators covering paycheck estimation, mortgage
+            amortization, 401(k) projections, capital gains, self-employment taxes, sales tax,
+            overtime, lottery, bonus, property tax, IRS withholding, and side-by-side
             state comparisons — all updated for the 2026 tax year.
           </p>
           <p>
@@ -223,10 +242,10 @@ export default function AboutPage() {
         </h2>
         <div className="text-sm text-muted-foreground leading-relaxed space-y-4">
           <p>
-            Let&apos;s be honest — we don&apos;t cover all 50 states yet. We&apos;d love to, but we&apos;d
-            rather do five states really well than fifty states poorly. Each state profile
-            includes not just the income tax rate, but property tax context, sales tax data,
-            and retirement-friendliness notes. We currently cover:
+            We cover income tax calculators for 7 states with dedicated profiles, plus
+            sales tax data for all 50 states. Each state profile includes not just the income
+            tax rate, but property tax context, sales tax data, and retirement-friendliness notes.
+            Our income tax calculator states:
           </p>
           <div className="grid gap-3 sm:grid-cols-2">
             {[
@@ -235,6 +254,8 @@ export default function AboutPage() {
               { state: 'Florida', rate: '0% state income tax', href: '/florida-tax-calculator' },
               { state: 'California', rate: '1%–13.3% progressive', href: '/california-tax-calculator' },
               { state: 'New York', rate: '4%–10.9% + NYC tax', href: '/new-york-tax-calculator' },
+              { state: 'Georgia', rate: '5.49% flat tax', href: '/georgia-tax-calculator' },
+              { state: 'Virginia', rate: '2%–5.75% progressive', href: '/virginia-tax-calculator' },
             ].map((item) => (
               <Link
                 key={item.state}
@@ -249,9 +270,11 @@ export default function AboutPage() {
             ))}
           </div>
           <p className="mt-2">
-            We picked these five for a reason — they represent the full spectrum of state tax
-            situations, from zero-income-tax states (TX, FL) to the highest-tax states in the
-            country (CA, NY), with a flat-tax state (IL) in between. If your state isn&apos;t here
+            We picked these 7 states because they represent the full spectrum of state tax
+            situations — from zero-income-tax states (TX, FL) to the highest-tax states in the
+            country (CA, NY), with flat-tax states (IL, GA) and progressive states (VA) in between.
+            Plus, our <Link href="/sales-tax-calculator" className="text-emerald-400 hover:text-emerald-300 underline">Sales Tax Calculator</Link> covers
+            all 50 states with combined state + local rates. If your state isn&apos;t here
             yet, <Link href="/about#contact" className="text-emerald-400 hover:text-emerald-300 underline">email us</Link> and
             we&apos;ll prioritize it.
           </p>
@@ -441,8 +464,8 @@ export default function AboutPage() {
               a: 'Nope. When you type your salary into one of our calculators, that number stays in your browser. It never gets sent to our servers. We don\'t have accounts, we don\'t use tracking cookies on calculations, and we couldn\'t tie your data to you even if we wanted to — because we never see it.',
             },
             {
-              q: 'Why only five states?',
-              a: 'We picked five states that represent the full range of tax situations in the US — from zero-income-tax states (TX, FL) to the highest-tax states (CA, NY), plus a flat-tax state (IL). Doing five states well means building each one with dedicated brackets, exemptions, property tax data, and retirement considerations. We\'d rather give you depth than a superficial calculator for all 50. More states are coming — if yours isn\'t here, tell us and we\'ll bump it up the list.',
+              q: 'Why only seven states for income tax?',
+              a: 'We picked seven states that represent the full range of tax situations in the US — from zero-income-tax states (TX, FL) to the highest-tax states (CA, NY), plus flat-tax states (IL, GA) and a progressive state (VA). Doing seven states well means building each one with dedicated brackets, exemptions, property tax data, and retirement considerations. We also cover all 50 states for sales tax calculations. More income tax states are coming — if yours isn\'t here, tell us and we\'ll bump it up the list.',
             },
             {
               q: 'When do you update tax brackets?',

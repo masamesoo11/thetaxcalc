@@ -39,6 +39,12 @@ const RESOURCE_LINKS = [
   { label: 'NY Tax & Finance', url: 'https://www.tax.ny.gov/', category: 'government' },
 ];
 
+const SOCIAL_LINKS = [
+  { label: 'Twitter / X', url: 'https://twitter.com/TheTaxCalc' },
+  { label: 'LinkedIn', url: 'https://www.linkedin.com/company/thetaxcalc' },
+  { label: 'YouTube', url: 'https://www.youtube.com/@TheTaxCalc' },
+];
+
 export function Footer() {
   const [email, setEmail] = useState('');
   const [subscribed, setSubscribed] = useState(false);
@@ -258,6 +264,23 @@ export function Footer() {
                 </li>
               ))}
             </ul>
+            {/* Social Links */}
+            <div className="mt-4 pt-4 border-t border-border/20">
+              <h5 className="mb-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground">Follow Us</h5>
+              <div className="flex gap-3">
+                {SOCIAL_LINKS.map((link) => (
+                  <a
+                    key={link.url}
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs text-muted-foreground hover:text-emerald-400 transition-colors"
+                  >
+                    {link.label}
+                  </a>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>

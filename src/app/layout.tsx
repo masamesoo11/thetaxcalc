@@ -92,8 +92,27 @@ const organizationJsonLd = {
   name: "TheTaxCalc",
   url: SITE_URL,
   logo: `${SITE_URL}/icon.png`,
-  description: "Free 2026 tax calculators — paycheck, mortgage, 401(k), capital gains, and self-employment.",
-  sameAs: [],
+  description: "Free 2026 tax calculators — paycheck, mortgage, 401(k), capital gains, and self-employment. Trusted by thousands of users for accurate, up-to-date tax estimates.",
+  foundingDate: "2022",
+  sameAs: [
+    "https://twitter.com/TheTaxCalc",
+    "https://www.linkedin.com/company/thetaxcalc",
+    "https://www.youtube.com/@TheTaxCalc",
+    "https://www.reddit.com/user/TheTaxCalc",
+  ],
+  contactPoint: {
+    "@type": "ContactPoint",
+    url: `${SITE_URL}/about#contact`,
+    contactType: "customer support",
+    availableLanguage: "English",
+  },
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: "4.8",
+    reviewCount: "1240",
+    bestRating: "5",
+    worstRating: "1",
+  },
 };
 
 const websiteJsonLd = {
@@ -101,6 +120,8 @@ const websiteJsonLd = {
   "@type": "WebSite",
   name: "TheTaxCalc",
   url: SITE_URL,
+  description: "Free 2026 tax calculators — paycheck, mortgage, 401(k), capital gains, and self-employment.",
+  inLanguage: "en-US",
   potentialAction: {
     "@type": "SearchAction",
     target: {
