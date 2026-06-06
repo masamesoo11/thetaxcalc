@@ -27,8 +27,13 @@ npx @cloudflare/next-on-pages
 echo "🔧 Patching Worker with security & indexing headers..."
 node scripts/patch-worker-headers.js
 
+if [ -z "$CLOUDFLARE_API_TOKEN" ]; then
+  echo "❌ Error: CLOUDFLARE_API_TOKEN is not set"
+  echo "Set it before running: export CLOUDFLARE_API_TOKEN=your_token"
+  exit 1
+fi
+
 echo "📦 Deploying to Cloudflare Pages..."
-CLOUDFLARE_API_TOKEN=REPLACE_WITH_TOKEN \
 CLOUDFLARE_ACCOUNT_ID=$CLOUDFLARE_ACCOUNT_ID \
 npx wrangler pages deploy .vercel/output/static --project-name=thetaxcalc
 
