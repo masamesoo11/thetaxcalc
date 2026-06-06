@@ -39,6 +39,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   entries.push({ url: `${baseUrl}/glossary`, lastModified: now, changeFrequency: 'monthly', priority: 0.85 });
   entries.push({ url: `${baseUrl}/federal-tax-brackets`, lastModified: now, changeFrequency: 'monthly', priority: 0.95 });
   entries.push({ url: `${baseUrl}/about`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 });
+  entries.push({ url: `${baseUrl}/resources`, lastModified: now, changeFrequency: 'monthly', priority: 0.9 });
+  entries.push({ url: `${baseUrl}/widgets`, lastModified: now, changeFrequency: 'monthly', priority: 0.85 });
 
   for (const path of ['/privacy', '/terms']) {
     entries.push({ url: `${baseUrl}${path}`, lastModified: now, changeFrequency: 'yearly', priority: 0.3 });

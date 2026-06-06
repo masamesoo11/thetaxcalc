@@ -312,6 +312,12 @@ export function Footer() {
               <Link href="/blog" className="hover:text-emerald-400 transition-colors">
                 Blog
               </Link>
+              <Link href="/resources" className="hover:text-emerald-400 transition-colors">
+                Tax Data
+              </Link>
+              <Link href="/widgets" className="hover:text-emerald-400 transition-colors">
+                Free Widgets
+              </Link>
             </div>
           </div>
         </div>
