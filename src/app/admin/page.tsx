@@ -1,7 +1,7 @@
 'use client';
 
 import dynamic from 'next/dynamic';
-import { useState, useEffect } from 'react';
+import { useSyncExternalStore } from 'react';
 import { Loader2 } from 'lucide-react';
 
 // Lazy-load admin components to avoid OOM during compilation.
@@ -9,12 +9,10 @@ import { Loader2 } from 'lucide-react';
 const AdminGate = dynamic(() => import('@/components/finance/admin-gate').then(m => ({ default: m.AdminGate })), { ssr: false });
 const AdminDashboard = dynamic(() => import('@/components/finance/admin-dashboard').then(m => ({ default: m.AdminDashboard })), { ssr: false });
 
-export default function AdminPage() {
-  const [mounted, setMounted] = useState(false);
+const emptySubscribe = () => () => {};
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+export default function AdminPage() {
+  const mounted = useSyncExternalStore(emptySubscribe, () => true, () => false);
 
   if (!mounted) {
     return (

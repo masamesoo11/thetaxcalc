@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useMemo, useState, useCallback } from 'react';
+import { useEffect, useMemo, useState, useRef } from 'react';
 import {
   Calculator,
   DollarSign,
@@ -207,9 +207,6 @@ export function PropertyTaxCalculator() {
   const [customExemption, setCustomExemption] = useState<number>(0);
   const [useCustomExemption, setUseCustomExemption] = useState<boolean>(false);
 
-  const [hasCalculated, setHasCalculated] = useState(false);
-  const [result, setResult] = useState<PropertyTaxResult | null>(null);
-
   const currentState = STATE_PROPERTY_TAX_RATES[stateKey];
   const homesteadInfo = HOMESTEAD_EXEMPTIONS[stateKey];
   const hasHomestead = !!homesteadInfo;
@@ -229,26 +226,30 @@ export function PropertyTaxCalculator() {
     });
   }, [homeValue, stateKey]);
 
-  // Track usage
-  const trackUsage = useCallback(() => {
-    fetch('/api/track', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ calculator: 'property-tax' }),
-    }).catch(() => {});
+  // Track usage (fire once via ref)
+  const hasTrackedRef = useRef(false);
+  useEffect(() => {
+    if (!hasTrackedRef.current) {
+      fetch('/api/track', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ calculator: 'property-tax' }),
+      }).catch(() => {});
+      hasTrackedRef.current = true;
+    }
   }, []);
 
-  // ─── Calculate ──────────────────────────────────────────────────────────
+  // ─── Calculate (reactive) ──────────────────────────────────────────────
 
-  const handleCalculate = () => {
-    if (homeValue <= 0 || !currentState) return;
+  const result = useMemo(() => {
+    if (homeValue <= 0 || !currentState) return null;
 
     const taxableValue = Math.max(0, homeValue - effectiveExemption);
     const annualTax = taxableValue * currentState.rate;
     const monthlyTax = annualTax / 12;
     const biweeklyTax = annualTax / 26;
 
-    setResult({
+    return {
       homeValue,
       effectiveRate: currentState.rate,
       annualTax: roundCurrency(annualTax),
@@ -258,16 +259,14 @@ export function PropertyTaxCalculator() {
       exemptionAmount: effectiveExemption,
       taxableValue: roundCurrency(taxableValue),
       notes: currentState.notes,
-    });
-    setHasCalculated(true);
-    trackUsage();
-  };
+    };
+  }, [homeValue, currentState, effectiveExemption]);
 
-  // Auto-calculate on mount or when inputs change significantly
-  useEffect(() => {
-    handleCalculate();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [homeValue, stateKey, effectiveExemption]);
+  const hasCalculated = result !== null;
+
+  const handleCalculate = () => {
+    // Calculation is now reactive via useMemo; this is kept for manual recalculate button
+  };
 
   // ─── Chart Data ─────────────────────────────────────────────────────────
 

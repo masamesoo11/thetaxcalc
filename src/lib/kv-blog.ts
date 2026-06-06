@@ -39,9 +39,10 @@ function getKV(): KVNamespace | null {
 /** Local dev fallback: read from JSON files */
 function getPostsFromJson(): BlogPost[] {
   // Dynamic import only works in Node.js, not Edge
-  // We use require() with try/catch for safety
   try {
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
     const fs = require('fs');
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
     const path = require('path');
     const BLOG_DIR = path.join(process.cwd(), 'content', 'blog');
     const files = fs.readdirSync(BLOG_DIR).filter((f: string) => f.endsWith('.json'));
@@ -62,7 +63,9 @@ function getPostsFromJson(): BlogPost[] {
 
 function getSlugFromJson(slug: string): BlogPost | null {
   try {
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
     const fs = require('fs');
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
     const path = require('path');
     const filePath = path.join(process.cwd(), 'content', 'blog', `${slug}.json`);
     if (!fs.existsSync(filePath)) return null;
@@ -76,7 +79,9 @@ function getSlugFromJson(slug: string): BlogPost | null {
 
 function getSlugsFromJson(): string[] {
   try {
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
     const fs = require('fs');
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
     const path = require('path');
     const BLOG_DIR = path.join(process.cwd(), 'content', 'blog');
     const files = fs.readdirSync(BLOG_DIR).filter((f: string) => f.endsWith('.json'));

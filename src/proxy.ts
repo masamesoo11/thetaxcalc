@@ -29,7 +29,7 @@ const PUBLIC_API_ROUTES = [
 export async function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  // Skip static files, Next.js internals, and non-API/public routes
+  // Skip static files and Next.js internals
   if (
     pathname.startsWith('/_next') ||
     pathname.startsWith('/static') ||
@@ -38,9 +38,26 @@ export async function proxy(request: NextRequest) {
     return NextResponse.next();
   }
 
+  // ─── Security Headers (applied to all responses) ────────────────────────
+  const response = NextResponse.next();
+  response.headers.set('X-Content-Type-Options', 'nosniff');
+  response.headers.set('X-Frame-Options', 'DENY');
+  response.headers.set('Referrer-Policy', 'strict-origin-when-cross-origin');
+  response.headers.set('Permissions-Policy', 'camera=(), microphone=(), geolocation=(), payment=()');
+  response.headers.set('Strict-Transport-Security', 'max-age=63072000; includeSubDomains; preload');
+
+  // CSP
+  response.headers.set('Content-Security-Policy', "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https://www.google-analytics.com https://www.googletagmanager.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://www.google-analytics.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self';");
+
+  // Cache for HTML pages — no CDN cache during development; short cache in production
+  const isHtmlPage = !pathname.startsWith('/_next') && !pathname.startsWith('/api') && !pathname.match(/\.(svg|png|jpg|jpeg|gif|webp|ico|xml|json|txt|css|js|woff2?|ttf|eot)$/);
+  if (isHtmlPage) {
+    response.headers.set('Cache-Control', 'no-store, must-revalidate');
+  }
+
   // Check if this is a public API route (always allow)
   if (PUBLIC_API_ROUTES.some(route => pathname.startsWith(route))) {
-    return NextResponse.next();
+    return response;
   }
 
   // Check if this is a protected page route (like /admin)
@@ -57,7 +74,7 @@ export async function proxy(request: NextRequest) {
   const needsAuth = isProtectedPage || isProtectedApi || (isMutationProtected && isMutation);
 
   if (!needsAuth) {
-    return NextResponse.next();
+    return response;
   }
 
   // Verify the session token
@@ -71,9 +88,8 @@ export async function proxy(request: NextRequest) {
         { status: 401 }
       );
     }
-    // For page routes, redirect to admin (which will show login form)
-    // But actually let the page load — the AdminGate component will handle the UI
-    return NextResponse.next();
+    // For page routes, let the page load — the AdminGate component will handle the UI
+    return response;
   }
 
   const session = await verifySessionToken(token);
@@ -81,22 +97,21 @@ export async function proxy(request: NextRequest) {
   if (!session) {
     // Invalid/expired token
     if (pathname.startsWith('/api/')) {
-      const response = NextResponse.json(
+      const unauthorizedResponse = NextResponse.json(
         { error: 'Invalid or expired session' },
         { status: 401 }
       );
       // Clear the invalid cookie
-      response.cookies.set(getCookieName(), '', {
+      unauthorizedResponse.cookies.set(getCookieName(), '', {
         httpOnly: true,
         secure: process.env.NODE_ENV === 'production',
         sameSite: 'lax',
         path: '/',
         maxAge: 0,
       });
-      return response;
+      return unauthorizedResponse;
     }
     // For page routes, clear cookie and let AdminGate handle it
-    const response = NextResponse.next();
     response.cookies.set(getCookieName(), '', {
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production',
@@ -108,7 +123,7 @@ export async function proxy(request: NextRequest) {
   }
 
   // Valid session — proceed
-  return NextResponse.next();
+  return response;
 }
 
 export const config = {
