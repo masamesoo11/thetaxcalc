@@ -32,6 +32,8 @@ import {
 import { CalculatorClientPage } from './calculator-client-page';
 import { getAllPosts } from '@/lib/blog-db';
 import { SITE_URL } from '@/lib/site-config';
+import { ShareButtons } from '@/components/finance/share-buttons';
+import { LinkToUs } from '@/components/finance/link-to-us';
 
 export function generateStaticParams() {
   return getCalculatorSlugs().map((slug) => ({ calculator: slug }));
@@ -1311,6 +1313,15 @@ export default async function CalculatorPage({
         <span className="text-foreground font-medium">{config.breadcrumbLabel}</span>
       </nav>
 
+      {/* Share Buttons — Social signals for SEO */}
+      <div className="mb-4 flex justify-center">
+        <ShareButtons
+          url={`${SITE_URL}${config.canonicalPath}`}
+          title={config.title}
+          description={config.metaDesc}
+        />
+      </div>
+
       {/* H1 — Semantic for SEO */}
       <div className="mb-8 text-center">
         <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
@@ -1470,6 +1481,15 @@ export default async function CalculatorPage({
             </div>
           </section>
         )}
+
+        {/* Link to Us — Encourage backlinks for DA */}
+        <div className="mt-8">
+          <LinkToUs
+            url={`${SITE_URL}${config.canonicalPath}`}
+            title={config.title}
+            slug={config.slug}
+          />
+        </div>
 
         {/* Compare with Other States */}
         {['illinois', 'texas', 'florida', 'california', 'newyork'].includes(config.componentKey) && (

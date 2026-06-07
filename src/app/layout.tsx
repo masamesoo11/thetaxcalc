@@ -126,7 +126,7 @@ const websiteJsonLd = {
     "@type": "SearchAction",
     target: {
       "@type": "EntryPoint",
-      urlTemplate: `${SITE_URL}/paycheck-calculator?q={search_term_string}`,
+      urlTemplate: `${SITE_URL}/?q={search_term_string}`,
     },
     "query-input": "required name=search_term_string",
   },
