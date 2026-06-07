@@ -289,6 +289,7 @@ function getJsonLd() {
           { name: 'Standard Deductions', description: '2026 standard deduction amounts by filing status' },
           { name: 'Retirement Contribution Limits', description: '401(k), IRA, HSA, and SIMPLE IRA limits with catch-up provisions' },
           { name: 'Tax Deadlines', description: 'Key filing and payment deadlines for the 2026 tax year' },
+          { name: 'No-Income-Tax States', description: 'Nine U.S. states that levy no state income tax on wages' },
         ],
       },
       {
@@ -864,6 +865,67 @@ export default function ResourcesPage() {
         </div>
       </section>
 
+      {/* ─── Section 7: No-Income-Tax States ─────────────────────────────── */}
+      <section className="mb-12">
+        <SectionHeader
+          id="no-income-tax-states"
+          icon={Landmark}
+          title="No Income Tax"
+          highlight="States 2026"
+          citeTitle="States With No Income Tax in 2026"
+        />
+        <div className="rounded-xl border border-emerald-500/20 bg-emerald-500/5 p-6">
+          <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+            As of 2026, <strong className="text-foreground">nine U.S. states</strong> levy no state
+            income tax on wages. Two of these states (New Hampshire) tax dividends and interest but
+            not earned income. Living in a no-income-tax state can save thousands per year,
+            especially for high earners.
+          </p>
+          <div className="grid gap-3 sm:grid-cols-3">
+            {[
+              { state: 'Alaska', abbr: 'AK', note: 'No income tax, no state sales tax', calculator: null },
+              { state: 'Florida', abbr: 'FL', note: 'No income tax', calculator: '/florida-tax-calculator' },
+              { state: 'Nevada', abbr: 'NV', note: 'No income tax', calculator: null },
+              { state: 'New Hampshire', abbr: 'NH', note: 'Tax on dividends/interest only', calculator: null },
+              { state: 'South Dakota', abbr: 'SD', note: 'No income tax', calculator: null },
+              { state: 'Tennessee', abbr: 'TN', note: 'No income tax (Hall tax repealed 2021)', calculator: null },
+              { state: 'Texas', abbr: 'TX', note: 'No income tax', calculator: '/texas-tax-calculator' },
+              { state: 'Washington', abbr: 'WA', note: 'No income tax (capital gains tax added 2022)', calculator: null },
+              { state: 'Wyoming', abbr: 'WY', note: 'No income tax', calculator: null },
+            ].map((item) => (
+              <div
+                key={item.abbr}
+                className="flex items-start gap-3 rounded-lg border border-emerald-500/15 bg-background/40 p-3"
+              >
+                <span className="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-emerald-500/10 text-xs font-bold text-emerald-400">
+                  {item.abbr}
+                </span>
+                <div className="min-w-0">
+                  <p className="text-sm font-semibold text-foreground">{item.state}</p>
+                  <p className="text-xs text-muted-foreground">{item.note}</p>
+                  {item.calculator && (
+                    <Link
+                      href={item.calculator}
+                      className="text-xs text-emerald-400 hover:text-emerald-300 underline underline-offset-2 mt-0.5 inline-block"
+                    >
+                      Calculator →
+                    </Link>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+          <p className="text-xs text-muted-foreground leading-relaxed mt-4">
+            Note: Even in states with no income tax, you still pay federal income tax and FICA (7.65% employee).
+            Some states compensate with higher sales or property taxes. Use our{' '}
+            <Link href="/compare" className="text-emerald-400 hover:text-emerald-300 underline underline-offset-2">
+              state comparison tool
+            </Link>{' '}
+            to see the full picture.
+          </p>
+        </div>
+      </section>
+
       {/* ─── Bottom CTA ───────────────────────────────────────────────────── */}
       <section className="mb-12 rounded-xl border border-emerald-500/20 bg-emerald-500/5 p-8 text-center">
         <Database className="h-8 w-8 text-emerald-400 mx-auto mb-4" />
@@ -873,15 +935,15 @@ export default function ResourcesPage() {
         <p className="text-muted-foreground mb-6 max-w-lg mx-auto text-sm leading-relaxed">
           This reference data is free to cite, link to, and share. Click &ldquo;Cite this
           data&rdquo; on any section to get an APA-formatted citation. Link directly to any
-          section using the &ldquo;Link&rdquo; button.
+          section using the &ldquo;Link&rdquo; button. You can also embed data tables on your website.
         </p>
         <div className="flex flex-wrap items-center justify-center gap-3">
           <Link
-            href="/paycheck-calculator"
+            href="/widgets"
             className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-600 to-emerald-500 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/30 transition-all hover:scale-[1.02]"
           >
             <Calculator className="h-4 w-4" />
-            Try Paycheck Calculator
+            Embed Calculators & Data
           </Link>
           <Link
             href="/federal-tax-brackets"

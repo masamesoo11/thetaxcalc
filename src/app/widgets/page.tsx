@@ -343,7 +343,7 @@ export default function WidgetsPage() {
               Available <span className="gradient-text">Widgets</span>
             </h2>
             <p className="text-sm text-muted-foreground">
-              6 free calculators ready to embed on your website.
+              20 free calculators ready to embed on your website.
             </p>
           </div>
         </div>
