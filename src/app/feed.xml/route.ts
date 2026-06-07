@@ -2,6 +2,8 @@ import { CALCULATOR_ROUTES } from '@/lib/calculator-routes';
 import { getPublishedPostsMeta } from '@/lib/blog-index';
 import { SITE_URL, SITE_NAME, SITE_DESCRIPTION } from '@/lib/site-config';
 
+export const runtime = 'edge';
+
 export async function GET() {
   const posts = getPublishedPostsMeta();
 
