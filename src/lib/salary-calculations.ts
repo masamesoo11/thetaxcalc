@@ -23,15 +23,30 @@ export type SalaryAmount = (typeof SALARY_AMOUNTS)[number];
 
 // ─── State Keys ─────────────────────────────────────────────────────────────────
 
-export const STATE_KEYS = ['illinois', 'texas', 'florida', 'california', 'newyork'] as const;
+// Featured states shown on salary pages (subset of all 50)
+export const STATE_KEYS = [
+  'texas', 'florida', 'california', 'newyork', 'illinois',
+  'pennsylvania', 'ohio', 'georgia', 'northcarolina', 'newjersey',
+  'washington', 'nevada', 'colorado', 'virginia', 'michigan',
+] as const;
 export type StateKey = (typeof STATE_KEYS)[number];
 
-export const STATE_LABELS: Record<StateKey, { name: string; abbr: string }> = {
-  illinois: { name: 'Illinois', abbr: 'IL' },
+export const STATE_LABELS: Record<string, { name: string; abbr: string }> = {
   texas: { name: 'Texas', abbr: 'TX' },
   florida: { name: 'Florida', abbr: 'FL' },
   california: { name: 'California', abbr: 'CA' },
   newyork: { name: 'New York', abbr: 'NY' },
+  illinois: { name: 'Illinois', abbr: 'IL' },
+  pennsylvania: { name: 'Pennsylvania', abbr: 'PA' },
+  ohio: { name: 'Ohio', abbr: 'OH' },
+  georgia: { name: 'Georgia', abbr: 'GA' },
+  northcarolina: { name: 'North Carolina', abbr: 'NC' },
+  newjersey: { name: 'New Jersey', abbr: 'NJ' },
+  washington: { name: 'Washington', abbr: 'WA' },
+  nevada: { name: 'Nevada', abbr: 'NV' },
+  colorado: { name: 'Colorado', abbr: 'CO' },
+  virginia: { name: 'Virginia', abbr: 'VA' },
+  michigan: { name: 'Michigan', abbr: 'MI' },
 };
 
 // ─── Salary Calculation Result Per State ────────────────────────────────────────
@@ -96,20 +111,25 @@ export function fmtFull(amount: number): string {
 
 // ─── Core Calculation ───────────────────────────────────────────────────────────
 
-export function calculateSalaryTakeHome(salary: number): SalaryCalculationResult {
-  const federalTax = calculateFederalTax(salary, 'single');
-  const fica = calculateFICA(salary);
+export type FilingStatus = 'single' | 'married' | 'head_of_household';
+
+export function calculateSalaryTakeHome(
+  salary: number,
+  filingStatus: FilingStatus = 'single'
+): SalaryCalculationResult {
+  const federalTax = calculateFederalTax(salary, filingStatus);
+  const fica = calculateFICA(salary, filingStatus);
 
   const states: StateTakeHome[] = STATE_KEYS.map((stateKey) => {
-    const stateTax = calculateStateTax(salary, stateKey, 'single');
+    const stateTax = calculateStateTax(salary, stateKey, filingStatus);
     const totalDeductions = federalTax + fica.total + stateTax;
     const netAnnual = salary - totalDeductions;
     const effectiveTaxRate = salary > 0 ? totalDeductions / salary : 0;
 
     return {
       stateKey,
-      stateName: STATE_LABELS[stateKey].name,
-      stateAbbr: STATE_LABELS[stateKey].abbr,
+      stateName: STATE_LABELS[stateKey]?.name ?? stateKey,
+      stateAbbr: STATE_LABELS[stateKey]?.abbr ?? stateKey.toUpperCase().slice(0, 2),
       grossAnnual: salary,
       federalTax: roundCurrency(federalTax),
       ficaTotal: roundCurrency(fica.total),
@@ -240,13 +260,13 @@ function getGoodSalaryAnswer(salary: number): string {
 }
 
 function getFederalBracketLabel(salary: number): string {
-  const taxableIncome = salary - 15000; // Single standard deduction
-  if (taxableIncome <= 11600) return '10%';
-  if (taxableIncome <= 47150) return '12%';
-  if (taxableIncome <= 100525) return '22%';
-  if (taxableIncome <= 191950) return '24%';
-  if (taxableIncome <= 243725) return '32%';
-  if (taxableIncome <= 609350) return '35%';
+  const taxableIncome = salary - 16100; // 2026 Single standard deduction
+  if (taxableIncome <= 12400) return '10%';
+  if (taxableIncome <= 50400) return '12%';
+  if (taxableIncome <= 105700) return '22%';
+  if (taxableIncome <= 201775) return '24%';
+  if (taxableIncome <= 256225) return '32%';
+  if (taxableIncome <= 640600) return '35%';
   return '37%';
 }
 

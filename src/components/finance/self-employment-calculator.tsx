@@ -142,7 +142,7 @@ function calculateSelfEmploymentTax(
 
   // ─── Employee Comparison ─────────────────────────────────────────────────
   // For the same gross income as an employee
-  const employeeFICA = calculateFICA(adjustedNetIncome);
+  const employeeFICA = calculateFICA(adjustedNetIncome, filingStatus);
   const employeeFederalTax = calculateFederalTax(
     Math.max(0, adjustedNetIncome - employeeFICA.socialSecurity - employeeFICA.medicare - retirement401k),
     filingStatus

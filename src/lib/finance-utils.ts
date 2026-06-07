@@ -10,6 +10,7 @@ import {
   FICA_2026,
   FEDERAL_TAX_2026,
   STATE_PROFILES,
+  NYC_TAX_2026,
   TEXAS_COST_OF_LIVING,
   FLORIDA_COST_OF_LIVING,
   CALIFORNIA_COST_OF_LIVING,
@@ -79,7 +80,10 @@ export function calculateFederalTaxEstimate(annualGross: number): number {
 
 // ─── FICA Tax Calculation ────────────────────────────────────────────────────
 
-export function calculateFICA(annualGross: number): {
+export function calculateFICA(
+  annualGross: number,
+  filingStatus: 'single' | 'married' | 'head_of_household' = 'single'
+): {
   socialSecurity: number;
   medicare: number;
   additionalMedicare: number;
@@ -90,10 +94,14 @@ export function calculateFICA(annualGross: number): {
   const socialSecurity = ssWages * FICA_2026.socialSecurityRate;
 
   // Medicare: 1.45% on all wages + 0.9% additional above threshold
+  // Married filing jointly has a higher threshold ($250K vs $200K)
   const medicare = annualGross * FICA_2026.medicareRate;
+  const threshold = filingStatus === 'married'
+    ? FICA_2026.additionalMedicareThresholdMFJ
+    : FICA_2026.additionalMedicareThreshold;
   const additionalMedicare =
-    annualGross > FICA_2026.additionalMedicareThreshold
-      ? (annualGross - FICA_2026.additionalMedicareThreshold) * FICA_2026.additionalMedicareRate
+    annualGross > threshold
+      ? (annualGross - threshold) * FICA_2026.additionalMedicareRate
       : 0;
 
   return {
@@ -139,9 +147,10 @@ export function calculateStateTax(
   if (!state || !state.hasIncomeTax) return 0;
 
   if (state.incomeTaxType === 'flat') {
-    // Illinois: subtract personal exemption before applying flat rate
+    // Flat rate states: subtract standard deduction and personal exemption before applying flat rate
+    const stdDeduction = state.standardDeductionsByFiling?.[filingStatus] ?? state.standardDeduction;
     const exemption = state.personalExemptionsByFiling?.[filingStatus] ?? state.personalExemption;
-    const taxableIncome = Math.max(0, annualGross - exemption);
+    const taxableIncome = Math.max(0, annualGross - stdDeduction - exemption);
     return taxableIncome * state.incomeTaxRate;
   }
 
@@ -157,6 +166,31 @@ export function calculateStateTax(
   return 0;
 }
 
+// ─── NYC City Income Tax Calculation ──────────────────────────────────────────
+
+export function calculateNYCTax(
+  annualGross: number,
+  filingStatus: 'single' | 'married' | 'head_of_household' = 'single'
+): number {
+  const brackets = NYC_TAX_2026.brackets[filingStatus] ?? NYC_TAX_2026.brackets.single;
+  // NYC tax is on NYS taxable income (after NYS standard deduction)
+  // For simplicity, we apply on gross - NYS standard deduction
+  const nysDeduction = STATE_PROFILES.newyork?.standardDeductionsByFiling?.[filingStatus] ?? 8100;
+  const taxableIncome = Math.max(0, annualGross - nysDeduction);
+  if (taxableIncome <= 0) return 0;
+
+  let tax = 0;
+  let remaining = taxableIncome;
+  for (const bracket of brackets) {
+    if (remaining <= 0) break;
+    const bracketWidth = bracket.max === null ? remaining : bracket.max - bracket.min;
+    const taxableInBracket = Math.min(remaining, bracketWidth);
+    tax += taxableInBracket * bracket.rate;
+    remaining -= taxableInBracket;
+  }
+  return tax;
+}
+
 // ─── Complete Paycheck Calculation ───────────────────────────────────────────
 
 export interface PaycheckInput {
@@ -167,6 +201,7 @@ export interface PaycheckInput {
   hsaContribution: number; // annual contribution
   stateKey: string;
   filingStatus: 'single' | 'married' | 'head_of_household';
+  nycResident?: boolean; // NYC residents pay additional city tax
 }
 
 export interface PaycheckResult {
@@ -181,6 +216,8 @@ export interface PaycheckResult {
   ficaAdditionalMedicare: number;
   stateTax: number;
   stateTaxPerPeriod: number;
+  nycTax: number;
+  nycTaxPerPeriod: number;
   retirement401k: number;
   retirement401kPerPeriod: number;
   hsaContribution: number;
@@ -222,7 +259,7 @@ export function calculatePaycheck(input: PaycheckInput): PaycheckResult {
   const federalTax = calculateFederalTax(adjustedGrossForFederal, input.filingStatus);
 
   // FICA on full gross (401k doesn't reduce FICA for employees, HSA does not either)
-  const fica = calculateFICA(grossAnnual);
+  const fica = calculateFICA(grossAnnual, input.filingStatus);
 
   // State tax
   const stateKey = input.stateKey || 'illinois';
@@ -231,16 +268,14 @@ export function calculatePaycheck(input: PaycheckInput): PaycheckResult {
   let stateTax = 0;
   if (stateProfile?.hasIncomeTax) {
     if (stateProfile.incomeTaxType === 'flat') {
-      // For Illinois: subtract pre-tax deductions AND personal exemption
+      // Flat rate states: subtract pre-tax deductions, standard deduction, AND personal exemption
+      const stdDeduction = stateProfile.standardDeductionsByFiling?.[input.filingStatus] ?? stateProfile.standardDeduction;
       const exemption = stateProfile.personalExemptionsByFiling?.[input.filingStatus] ?? stateProfile.personalExemption;
-      const stateTaxableIncome = Math.max(0, grossAnnual - pretaxDeductions - exemption);
+      const stateTaxableIncome = Math.max(0, grossAnnual - pretaxDeductions - stdDeduction - exemption);
       stateTax = stateTaxableIncome * stateProfile.incomeTaxRate;
     } else if (stateProfile.incomeTaxType === 'progressive' && stateProfile.brackets) {
       // For progressive states (CA, NY): subtract pre-tax deductions, then apply brackets
       const stdDeduction = stateProfile.standardDeductionsByFiling?.[input.filingStatus] ?? stateProfile.standardDeduction;
-      const stateTaxableIncome = Math.max(0, grossAnnual - pretaxDeductions - stdDeduction);
-      stateTax = calculateProgressiveStateTax(grossAnnual - pretaxDeductions, stateProfile.brackets, stdDeduction);
-      // recalculate: actually the function already deducts, so we pass gross - pretax
       stateTax = calculateProgressiveStateTax(
         grossAnnual - pretaxDeductions,
         stateProfile.brackets,
@@ -249,7 +284,13 @@ export function calculatePaycheck(input: PaycheckInput): PaycheckResult {
     }
   }
 
-  const totalDeductions = federalTax + fica.total + stateTax + pretaxDeductions;
+  // NYC city tax (if NY state and NYC resident)
+  let nycTax = 0;
+  if (stateKey === 'newyork' && input.nycResident) {
+    nycTax = calculateNYCTax(grossAnnual - pretaxDeductions, input.filingStatus);
+  }
+
+  const totalDeductions = federalTax + fica.total + stateTax + nycTax + pretaxDeductions;
   const netAnnual = grossAnnual - totalDeductions;
 
   const perPeriodDivisor = input.payFrequency === 'hourly' ? 1 : periodsPerYear;
@@ -268,6 +309,8 @@ export function calculatePaycheck(input: PaycheckInput): PaycheckResult {
     ficaAdditionalMedicare: fica.additionalMedicare,
     stateTax,
     stateTaxPerPeriod: stateTax / periodsPerYear,
+    nycTax,
+    nycTaxPerPeriod: nycTax / periodsPerYear,
     retirement401k: input.retirement401k,
     retirement401kPerPeriod: input.retirement401k / periodsPerYear,
     hsaContribution: input.hsaContribution,
@@ -278,7 +321,7 @@ export function calculatePaycheck(input: PaycheckInput): PaycheckResult {
     netPerPeriod: input.payFrequency === 'hourly'
       ? netAnnual / 2080
       : netAnnual / periodsPerYear,
-    effectiveTaxRate: grossAnnual > 0 ? (federalTax + fica.total + stateTax) / grossAnnual : 0,
+    effectiveTaxRate: grossAnnual > 0 ? (federalTax + fica.total + stateTax + nycTax) / grossAnnual : 0,
     marginalTaxRate: getMarginalRate(adjustedGrossForFederal, input.filingStatus),
     periodsPerYear,
     stateProfile,

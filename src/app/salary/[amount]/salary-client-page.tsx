@@ -12,6 +12,7 @@ import {
   CheckCircle2,
   BarChart3,
 } from 'lucide-react';
+import { useState } from 'react';
 import {
   SALARY_AMOUNTS,
   calculateSalaryTakeHome,
@@ -22,6 +23,7 @@ import {
   fmt,
   fmtFull,
   STATE_LABELS,
+  type FilingStatus,
 } from '@/lib/salary-calculations';
 import { SITE_URL } from '@/lib/site-config';
 
@@ -33,6 +35,16 @@ const STATE_KEY_TO_SLUG: Record<string, string> = {
   florida: '/florida-tax-calculator',
   california: '/california-tax-calculator',
   newyork: '/new-york-tax-calculator',
+  georgia: '/georgia-tax-calculator',
+  virginia: '/virginia-tax-calculator',
+  pennsylvania: '/paycheck-calculator',
+  ohio: '/paycheck-calculator',
+  northcarolina: '/paycheck-calculator',
+  newjersey: '/paycheck-calculator',
+  washington: '/paycheck-calculator',
+  nevada: '/paycheck-calculator',
+  colorado: '/paycheck-calculator',
+  michigan: '/paycheck-calculator',
 };
 
 // ─── JSON-LD Schema ───────────────────────────────────────────────────────────
@@ -93,10 +105,11 @@ interface SalaryClientPageProps {
 }
 
 export function SalaryClientPage({ amountStr }: SalaryClientPageProps) {
+  const [filingStatus, setFilingStatus] = useState<FilingStatus>('single');
   const salary = slugToSalary(amountStr);
   if (!salary || !isValidSalaryAmount(salary)) return null;
 
-  const calc = calculateSalaryTakeHome(salary);
+  const calc = calculateSalaryTakeHome(salary, filingStatus);
   const faqs = generateFAQs(salary);
   const jsonLd = generateJsonLd(salary);
 
@@ -104,6 +117,12 @@ export function SalaryClientPage({ amountStr }: SalaryClientPageProps) {
   const currentIndex = SALARY_AMOUNTS.indexOf(salary as (typeof SALARY_AMOUNTS)[number]);
   const prevSalary = currentIndex > 0 ? SALARY_AMOUNTS[currentIndex - 1] : null;
   const nextSalary = currentIndex < SALARY_AMOUNTS.length - 1 ? SALARY_AMOUNTS[currentIndex + 1] : null;
+
+  const filingStatusLabel: Record<FilingStatus, string> = {
+    single: 'Single',
+    married: 'Married Filing Jointly',
+    head_of_household: 'Head of Household',
+  };
 
   return (
     <>
@@ -139,10 +158,27 @@ export function SalaryClientPage({ amountStr }: SalaryClientPageProps) {
             On a {calc.salaryFormatted} salary, where you live makes a huge difference. Your take-home ranges from{' '}
             <strong className="text-red-400">{fmt(calc.lowestNet.netAnnual)}</strong> in {calc.lowestNet.stateName} to{' '}
             <strong className="text-emerald-400">{fmt(calc.highestNet.netAnnual)}</strong> in {calc.highestNet.stateName}{' '}
-            (Single filer, standard deduction). That&apos;s a{' '}
+            ({filingStatusLabel[filingStatus]}, standard deduction). That&apos;s a{' '}
             <strong className="text-amber-400">{fmt(calc.highestNet.netAnnual - calc.lowestNet.netAnnual)}</strong> gap
             per year — just from choosing a different state.
           </p>
+          {/* Filing Status Selector */}
+          <div className="mt-6 flex flex-wrap items-center gap-2">
+            <span className="text-sm font-medium text-muted-foreground">Filing Status:</span>
+            {(['single', 'married', 'head_of_household'] as FilingStatus[]).map((status) => (
+              <button
+                key={status}
+                onClick={() => setFilingStatus(status)}
+                className={`rounded-lg px-4 py-2 text-sm font-medium transition-all ${
+                  filingStatus === status
+                    ? 'bg-emerald-600 text-white shadow-lg shadow-emerald-500/20'
+                    : 'bg-muted/30 text-muted-foreground hover:bg-muted/50 border border-border/30'
+                }`}
+              >
+                {filingStatusLabel[status]}
+              </button>
+            ))}
+          </div>
         </section>
 
         {/* Quick Summary Cards */}
@@ -243,7 +279,7 @@ export function SalaryClientPage({ amountStr }: SalaryClientPageProps) {
                     </div>
                     <div>
                       <h3 className="text-lg font-semibold text-foreground">{state.stateName}</h3>
-                      <p className="text-xs text-muted-foreground">{state.stateAbbr} resident · Single filer</p>
+                      <p className="text-xs text-muted-foreground">{state.stateAbbr} resident · {filingStatusLabel[filingStatus]}</p>
                     </div>
                     <div className="ml-auto text-right">
                       <p className="text-lg font-bold text-emerald-400">{fmt(state.netAnnual)}</p>
@@ -295,8 +331,8 @@ export function SalaryClientPage({ amountStr }: SalaryClientPageProps) {
             })}
           </div>
           <p className="mt-4 text-xs text-muted-foreground">
-            All calculations assume Single filing status, standard deduction ($15,000 federal), and no pre-tax deductions (401(k), HSA).
-            FICA includes Social Security (6.2% up to $176,100) and Medicare (1.45% + 0.9% additional above $200,000).
+            All calculations assume {filingStatusLabel[filingStatus]} filing status with standard deduction ($16,100 single / $32,200 married / $24,150 HOH), and no pre-tax deductions (401(k), HSA).
+            FICA includes Social Security (6.2% up to $176,100) and Medicare (1.45% + 0.9% additional above $200,000 single / $250,000 married).
           </p>
         </section>
 
