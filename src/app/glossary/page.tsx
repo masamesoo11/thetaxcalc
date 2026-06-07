@@ -294,8 +294,8 @@ export default function GlossaryPage() {
           <div className="space-y-3 text-sm text-muted-foreground leading-relaxed">
             <p>
               Here&apos;s the thing — tax laws change every single year, and 2026 is no exception. New brackets.
-              A Social Security wage cap of $176,100. Standard deductions at $15,000 (single), $30,000 (married),
-              $22,500 (HOH). If you don&apos;t know what these numbers mean, you&apos;re basically guessing at your own
+              A Social Security wage cap of $176,100. Standard deductions at $16,100 (single), $32,200 (married),
+              $24,150 (HOH). If you don&apos;t know what these numbers mean, you&apos;re basically guessing at your own
               finances. And guessing with the IRS? Not a great strategy.
             </p>
             <p>

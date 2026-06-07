@@ -55,7 +55,7 @@ export const FICA_2026: FICAConfig = {
   additionalMedicareRate: 0.009,
   additionalMedicareThreshold: 200000, // Statutory threshold, not indexed for inflation
   additionalMedicareThresholdMFJ: 250000, // Married Filing Jointly threshold
-  socialSecurityWageCap: 176100, // 2026 SS wage base per IRS Rev. Proc. 2025-32
+  socialSecurityWageCap: 184500, // 2026 SS wage base per SSA (updated from $176,100 in 2025)
   totalRate: 0.0765,
 };
 

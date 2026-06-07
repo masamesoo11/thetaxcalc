@@ -459,7 +459,7 @@ export function CaliforniaCalculator() {
               </TableRow>
               <TableRow>
                 <TableCell>Federal Standard Deduction</TableCell>
-                <TableCell className="font-medium">$15,000</TableCell>
+                <TableCell className="font-medium">$16,100</TableCell>
                 <TableCell>Applied to federal tax calculation only</TableCell>
               </TableRow>
               <TableRow>
@@ -484,11 +484,11 @@ export function CaliforniaCalculator() {
           <p>California Standard Deduction (Single): -$6,083.00</p>
           <p>California Taxable Income: $93,917.00</p>
           <p>California State Tax (1%–9.3% brackets): $5,381.13</p>
-          <p>Federal Tax (after $15,000 std deduction): $13,753.00</p>
+          <p>Federal Tax (after $16,100 std deduction): $13,170.00</p>
           <p>FICA Total (7.65%): $7,650.00</p>
-          <p>Total Deductions: $26,784.13</p>
-          <p>Net Annual Take-Home: $73,215.87</p>
-          <p>Monthly Take-Home: $6,101.32</p>
+          <p>Total Deductions: $26,201.13</p>
+          <p>Net Annual Take-Home: $73,798.87</p>
+          <p>Monthly Take-Home: $6,149.91</p>
           <p>Estimated COL Burden (Property + Sales Tax): $10,443.00/yr</p>
         </div>
       </div>

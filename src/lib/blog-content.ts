@@ -60,9 +60,9 @@ See? Even though your top bracket is 22%, your actual tax rate is much lower bec
 
 Most taxpayers take the standard deduction rather than itemizing. For 2026:
 
-- **Single**: $15,000
-- **Married Filing Jointly**: $30,000
-- **Head of Household**: $22,500
+- **Single**: $16,100
+- **Married Filing Jointly**: $32,200
+- **Head of Household**: $24,150
 
 If you're 65 or older or blind, you can claim an additional standard deduction of $1,600 (single) or $1,300 (married).
 
@@ -588,17 +588,17 @@ On top of that, you also pay **regular federal income tax** (10%–37%) and any 
 1. **Self-employment tax**: $80,000 × 92.35% × 15.3% = **$11,304**
    - Deductible half: $5,652
 2. **Federal income tax** (after SE deduction and standard deduction):
-   - Taxable income ≈ $80,000 - $5,652 - $15,000 = $59,348
-   - Tax ≈ **$8,954**
+   - Taxable income ≈ $80,000 - $5,652 - $16,100 = $58,248
+   - Tax ≈ **$7,527**
 3. **State income tax** (varies by state — 0% in TX/FL)
 
-**Total federal tax**: ~$20,258 on $80,000 = **25.3% effective rate**
+**Total federal tax**: ~$18,831 on $80,000 = **23.5% effective rate**
 
 Compare that to a W-2 employee earning $80,000:
-- Federal income tax + FICA ≈ **$14,234**
+- Federal income tax + FICA ≈ **$14,890**
 - Employer also pays $6,120 in FICA
 
-The self-employed person pays about **$6,000 more** than the employee for the same gross income.
+The self-employed person pays about **$4,000 more** than the employee for the same gross income.
 
 ## Quarterly Estimated Taxes
 

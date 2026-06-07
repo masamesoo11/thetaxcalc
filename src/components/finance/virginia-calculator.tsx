@@ -390,7 +390,7 @@ export function VirginiaCalculator() {
               </TableRow>
               <TableRow>
                 <TableCell>Federal Standard Deduction</TableCell>
-                <TableCell className="font-medium">$15,000</TableCell>
+                <TableCell className="font-medium">$16,100</TableCell>
                 <TableCell>Applied to federal tax calculation only</TableCell>
               </TableRow>
               <TableRow>
@@ -420,11 +420,11 @@ export function VirginiaCalculator() {
           <p>Virginia Bracket 3 (5% on $12,000): $600.00</p>
           <p>Virginia Bracket 4 (5.75% on $48,770): $2,804.28</p>
           <p>Virginia State Tax (Total): $3,524.28</p>
-          <p>Federal Tax (after $15,000 std deduction): $8,253.00</p>
+          <p>Federal Tax (after $16,100 std deduction): $7,670.00</p>
           <p>FICA Total (7.65%): $5,737.50</p>
-          <p>Total Deductions: $17,514.78</p>
-          <p>Net Annual Take-Home: $57,485.22</p>
-          <p>Monthly Take-Home: $4,790.44</p>
+          <p>Total Deductions: $16,931.78</p>
+          <p>Net Annual Take-Home: $58,068.22</p>
+          <p>Monthly Take-Home: $4,839.02</p>
         </div>
       </div>
 

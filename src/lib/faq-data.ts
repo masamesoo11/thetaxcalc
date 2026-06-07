@@ -20,7 +20,7 @@ export const HOME_FAQS: FAQItem[] = [
   {
     question: 'How much is taken out of a $75,000 salary in taxes?',
     answer:
-      "Roughly speaking, a single filer making $75K will lose about $8,700 to federal tax (after the $15,000 standard deduction), another $5,738 to FICA, and then it depends entirely on where you live. In Texas or Florida? Zero state tax, so you're keeping around $60,500. In Illinois? Subtract another $3,575 and you're closer to $57,000. The state you pick makes a real difference.",
+      "Roughly speaking, a single filer making $75K will lose about $7,670 to federal tax (after the $16,100 standard deduction), another $5,738 to FICA, and then it depends entirely on where you live. In Texas or Florida? Zero state tax, so you're keeping around $61,600. In Illinois? Subtract another $3,575 and you're closer to $58,000. The state you pick makes a real difference.",
   },
   {
     question: 'Does contributing to a 401(k) reduce my taxes?',
@@ -48,7 +48,7 @@ export const ILLINOIS_FAQS: FAQItem[] = [
   {
     question: 'Does Illinois have a standard deduction?',
     answer:
-      "Nope. Illinois doesn't do the standard deduction thing. Instead you get that $2,775 personal exemption per person, which is way less generous than the federal $15,000 standard deduction. They're completely separate — the federal deduction only applies to your federal return.",
+      "Nope. Illinois doesn't do the standard deduction thing. Instead you get that $2,775 personal exemption per person, which is way less generous than the federal $16,100 standard deduction. They're completely separate — the federal deduction only applies to your federal return.",
   },
   {
     question: 'Is Illinois a good state for high-income earners?',
@@ -378,7 +378,7 @@ export const TAX_REFUND_FAQS: FAQItem[] = [
   {
     question: 'Should I itemize deductions or take the standard deduction?',
     answer:
-      "About 90% of taxpayers take the standard deduction because it's higher than what they could itemize. For 2026, the standard deduction is $15,000 (single), $30,000 (married), or $22,500 (head of household). Itemizing only makes sense if your mortgage interest, charitable contributions, and state/local taxes (SALT, capped at $10,000) add up to more than the standard deduction. This calculator lets you try both and see which gives you a bigger refund.",
+      "About 90% of taxpayers take the standard deduction because it's higher than what they could itemize. For 2026, the standard deduction is $16,100 (single), $32,200 (married), or $24,150 (head of household). Itemizing only makes sense if your mortgage interest, charitable contributions, and state/local taxes (SALT, capped at $10,000) add up to more than the standard deduction. This calculator lets you try both and see which gives you a bigger refund.",
   },
   {
     question: 'What tax credits can increase my refund?',
@@ -391,7 +391,7 @@ export const IRS_WITHHOLDING_FAQS: FAQItem[] = [
   {
     question: 'How do I calculate my federal withholding per paycheck?',
     answer:
-      "Your federal withholding is calculated by estimating your annual tax liability and dividing by the number of pay periods. First, subtract pre-tax deductions (401(k), HSA) from your gross pay to get taxable wages. Then subtract the standard deduction ($15,000 single, $30,000 married, $22,500 head of household). Apply the progressive tax brackets (10%–37%) and any credits. Finally, divide the annual tax by your pay periods (52 weekly, 26 bi-weekly, 24 semi-monthly, or 12 monthly).",
+      "Your federal withholding is calculated by estimating your annual tax liability and dividing by the number of pay periods. First, subtract pre-tax deductions (401(k), HSA) from your gross pay to get taxable wages. Then subtract the standard deduction ($16,100 single, $32,200 married, $24,150 head of household). Apply the progressive tax brackets (10%–37%) and any credits. Finally, divide the annual tax by your pay periods (52 weekly, 26 bi-weekly, 24 semi-monthly, or 12 monthly).",
   },
   {
     question: 'How much should I withhold from my paycheck for federal taxes?',
@@ -467,7 +467,7 @@ export const INCOME_TAX_FAQS: FAQItem[] = [
   {
     question: 'What is the standard deduction for 2026?',
     answer:
-      "$15,000 for single filers, $30,000 for married filing jointly, and $22,500 for head of household. This comes off the top of your gross income before any brackets apply. So a single person making $75,000 is only taxed on $60,000.",
+      "$16,100 for single filers, $32,200 for married filing jointly, and $24,150 for head of household. This comes off the top of your gross income before any brackets apply. So a single person making $75,000 is only taxed on $58,900.",
   },
   {
     question: 'What is FICA and how does it affect my income tax?',
@@ -490,7 +490,7 @@ export const TAX_CALC_FAQS: FAQItem[] = [
   {
     question: 'How much tax will I pay on my salary?',
     answer:
-      "It depends on three things: your gross income, your filing status, and your state. Federal tax uses progressive brackets (10%–37%) with a $15,000 standard deduction for singles. FICA adds 7.65% on top. Then state tax ranges from 0% (TX, FL) to over 13% (CA). On a $75,000 salary as a single filer, you'd pay roughly $14,400 in federal tax and FICA combined, plus whatever your state charges. Use the calculator to see your exact breakdown.",
+      "It depends on three things: your gross income, your filing status, and your state. Federal tax uses progressive brackets (10%–37%) with a $16,100 standard deduction for singles. FICA adds 7.65% on top. Then state tax ranges from 0% (TX, FL) to over 13% (CA). On a $75,000 salary as a single filer, you'd pay roughly $13,408 in federal tax and FICA combined, plus whatever your state charges. Use the calculator to see your exact breakdown.",
   },
   {
     question: 'What is the difference between effective and marginal tax rate?',
@@ -584,12 +584,12 @@ export const LOTTERY_TAX_FAQS: FAQItem[] = [
   {
     question: 'How are lottery winnings taxed?',
     answer:
-      "Lottery winnings are taxed as ordinary income at both the federal and state level — there's no special 'lottery tax rate.' At the federal level, the full amount is subject to progressive income tax brackets (10%–37% for 2026), minus the standard deduction ($15,000 single / $30,000 married). The key difference from regular wages: lottery winnings are NOT subject to FICA (Social Security and Medicare taxes), which saves you 7.65%. For state taxes, it depends on where you live — some states don't tax lottery winnings at all. The IRS also requires 24% mandatory federal withholding on winnings over $5,000, but your actual tax may be higher or lower depending on your bracket.",
+      "Lottery winnings are taxed as ordinary income at both the federal and state level — there's no special 'lottery tax rate.' At the federal level, the full amount is subject to progressive income tax brackets (10%–37% for 2026), minus the standard deduction ($16,100 single / $32,200 married). The key difference from regular wages: lottery winnings are NOT subject to FICA (Social Security and Medicare taxes), which saves you 7.65%. For state taxes, it depends on where you live — some states don't tax lottery winnings at all. The IRS also requires 24% mandatory federal withholding on winnings over $5,000, but your actual tax may be higher or lower depending on your bracket.",
   },
   {
     question: 'What is the federal tax rate on lottery winnings?',
     answer:
-      "There's no single rate — lottery winnings are taxed through the same progressive brackets as all other income. For 2026, the brackets range from 10% to 37%. On a $1,000,000 lump sum for a single filer, after the $15,000 standard deduction, the effective federal rate works out to roughly 30%–33%. The top 37% rate only applies to income above $609,350 for single filers. The IRS withholds 24% on winnings over $5,000, but if you're in a higher bracket, you'll owe the difference at tax time. Many winners are surprised by a big tax bill the following April.",
+      "There's no single rate — lottery winnings are taxed through the same progressive brackets as all other income. For 2026, the brackets range from 10% to 37%. On a $1,000,000 lump sum for a single filer, after the $16,100 standard deduction, the effective federal rate works out to roughly 30%–33%. The top 37% rate only applies to income above $609,350 for single filers. The IRS withholds 24% on winnings over $5,000, but if you're in a higher bracket, you'll owe the difference at tax time. Many winners are surprised by a big tax bill the following April.",
   },
   {
     question: 'Do I have to pay FICA (Social Security and Medicare) on lottery winnings?',
@@ -614,7 +614,7 @@ export const LOTTERY_TAX_FAQS: FAQItem[] = [
   {
     question: 'Can I deduct gambling losses from lottery winnings?',
     answer:
-      "Yes, but only if you itemize deductions — and only up to the amount of your winnings. You can't deduct more in losses than you won. For example, if you won $10,000 but lost $15,000 on lottery tickets over the year, you can only deduct $10,000 in losses. The deduction goes on Schedule A as a miscellaneous itemized deduction, and it only helps if your total itemized deductions exceed the standard deduction ($15,000 single / $30,000 married for 2026). Most lottery winners take the standard deduction because their winnings are too high for itemizing to help, meaning the loss deduction provides little to no benefit for big winners.",
+      "Yes, but only if you itemize deductions — and only up to the amount of your winnings. You can't deduct more in losses than you won. For example, if you won $10,000 but lost $15,000 on lottery tickets over the year, you can only deduct $10,000 in losses. The deduction goes on Schedule A as a miscellaneous itemized deduction, and it only helps if your total itemized deductions exceed the standard deduction ($16,100 single / $32,200 married for 2026). Most lottery winners take the standard deduction because their winnings are too high for itemizing to help, meaning the loss deduction provides little to no benefit for big winners.",
   },
 ];
 
@@ -685,7 +685,7 @@ export const GEORGIA_FAQS: FAQItem[] = [
   {
     question: 'What is the Georgia standard deduction for 2026?',
     answer:
-      "$5,400 for single filers, $7,100 for married filing jointly, and $5,400 for head of household. It's not as generous as the federal $15,000 standard deduction, but combined with the $2,700 personal exemption, a single filer gets $8,100 knocked off their income before the 5.49% rate applies. That's actually better than what Illinois offers — they don't have a standard deduction at all.",
+      "$5,400 for single filers, $7,100 for married filing jointly, and $5,400 for head of household. It's not as generous as the federal $16,100 standard deduction, but combined with the $2,700 personal exemption, a single filer gets $8,100 knocked off their income before the 5.49% rate applies. That's actually better than what Illinois offers — they don't have a standard deduction at all.",
   },
   {
     question: 'Is Georgia a good state for retirees?',

@@ -243,7 +243,7 @@ export default function SalaryLandingPage() {
               {
                 step: '1',
                 title: 'Federal Income Tax',
-                desc: 'Progressive brackets from 10% to 37% applied after the $15,000 standard deduction for Single filers.',
+                desc: 'Progressive brackets from 10% to 37% applied after the $16,100 standard deduction for Single filers.',
               },
               {
                 step: '2',

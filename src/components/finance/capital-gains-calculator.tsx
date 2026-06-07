@@ -327,7 +327,7 @@ export function CapitalGainsCalculator() {
           <p>Filing Status: Single</p>
           <p>Other Income: $75,000</p>
           <p>Long-Term Gains: $50,000</p>
-          <p>Total Taxable Income: $110,000 (after $15,000 standard deduction on ordinary income)</p>
+          <p>Total Taxable Income: $108,900 (after $16,100 standard deduction on ordinary income)</p>
           <p>Long-Term Capital Gains Bracket: 15%</p>
           <p>Estimated Long-Term Capital Gains Tax: ~$7,500</p>
           <p>No NIIT applies (MAGI below $200,000 threshold)</p>

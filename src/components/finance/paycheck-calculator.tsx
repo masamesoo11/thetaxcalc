@@ -10,6 +10,7 @@ import {
   TrendingUp,
   Shield,
   PiggyBank,
+  Building2,
 } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -57,6 +58,7 @@ export function PaycheckCalculator({ defaultState = 'illinois', onStateChange }:
   const [filingStatus, setFilingStatus] = useState<'single' | 'married' | 'head_of_household'>(() => (hashParams.filing as 'single' | 'married' | 'head_of_household') || 'single');
   const [retirement401k, setRetirement401k] = useState<number>(() => hashParams.k401k ? Number(hashParams.k401k) : 0);
   const [hsaContribution, setHsaContribution] = useState<number>(() => hashParams.hsa ? Number(hashParams.hsa) : 0);
+  const [nycResident, setNycResident] = useState<boolean>(() => hashParams.nyc === '1' || false);
   const [advancedOpen, setAdvancedOpen] = useState(false);
 
   // Sync state to URL hash whenever inputs change (side-effect only, no setState)
@@ -69,8 +71,9 @@ export function PaycheckCalculator({ defaultState = 'illinois', onStateChange }:
       filing: filingStatus,
       k401k: retirement401k,
       hsa: hsaContribution,
+      nyc: nycResident ? '1' : '0',
     });
-  }, [salary, payFrequency, hoursPerWeek, stateKey, filingStatus, retirement401k, hsaContribution]);
+  }, [salary, payFrequency, hoursPerWeek, stateKey, filingStatus, retirement401k, hsaContribution, nycResident]);
 
   const handleStateChange = (newState: string) => {
     setStateKey(newState);
@@ -96,10 +99,11 @@ export function PaycheckCalculator({ defaultState = 'illinois', onStateChange }:
       hsaContribution,
       stateKey,
       filingStatus,
+      nycResident: stateKey === 'newyork' ? nycResident : false,
     };
 
     return calculatePaycheck(input);
-  }, [salary, payFrequency, hoursPerWeek, retirement401k, hsaContribution, stateKey, filingStatus]);
+  }, [salary, payFrequency, hoursPerWeek, retirement401k, hsaContribution, stateKey, filingStatus, nycResident]);
 
   const periodLabel = payFrequency === 'hourly' ? 'Hourly' : payFrequency === 'annual' ? 'Annual' : `Per ${payFrequency === 'biweekly' ? 'Bi-Weekly' : payFrequency === 'weekly' ? 'Weekly' : 'Monthly'}`;
 
@@ -215,6 +219,24 @@ export function PaycheckCalculator({ defaultState = 'illinois', onStateChange }:
                   </Select>
                 </div>
               </div>
+
+              {/* NYC Resident Toggle — shown only when New York is selected */}
+              {stateKey === 'newyork' && (
+                <div className="flex items-center gap-3 rounded-lg bg-red-500/10 border border-red-500/20 p-3">
+                  <input
+                    type="checkbox"
+                    id="nyc-resident"
+                    checked={nycResident}
+                    onChange={(e) => setNycResident(e.target.checked)}
+                    className="h-4 w-4 rounded border-border accent-red-500"
+                  />
+                  <Label htmlFor="nyc-resident" className="text-sm font-medium cursor-pointer flex items-center gap-1.5">
+                    <Building2 className="h-3.5 w-3.5 text-red-400" />
+                    NYC Resident
+                    <span className="text-xs text-muted-foreground font-normal">(adds 3.078%–3.876% city tax)</span>
+                  </Label>
+                </div>
+              )}
             </CardContent>
           </Card>
 
@@ -367,6 +389,17 @@ export function PaycheckCalculator({ defaultState = 'illinois', onStateChange }:
                   </span>
                   </div>
                 )}
+                {result.nycTax > 0 && (
+                  <div className="flex items-center justify-between">
+                    <span className="flex items-center gap-1.5 text-sm text-muted-foreground">
+                      <Building2 className="h-3.5 w-3.5 text-red-400" />
+                      NYC City Tax
+                    </span>
+                    <span className="text-sm font-medium text-red-400">
+                      -{formatCurrency(result.nycTax)}
+                    </span>
+                  </div>
+                )}
                 {result.retirement401k > 0 && (
                   <div className="flex items-center justify-between">
                     <span className="flex items-center gap-1.5 text-sm text-muted-foreground">
@@ -452,20 +485,20 @@ export function PaycheckCalculator({ defaultState = 'illinois', onStateChange }:
           Example Paycheck Calculation: $75,000 Salary in Illinois (2026)
         </h2>
         <p className="mt-2 text-sm text-muted-foreground">
-          For a single filer earning $75,000 annually in Illinois with standard deduction of $15,000
+          For a single filer earning $75,000 annually in Illinois with standard deduction of $16,100
           and Illinois personal exemption of $2,775:
         </p>
         <div className="mt-4 space-y-1 text-sm text-muted-foreground">
           <p>Gross Annual Salary: $75,000.00</p>
-          <p>Federal Tax (after $15,000 standard deduction): $8,717.50</p>
+          <p>Federal Tax (after $16,100 standard deduction): $7,670.00</p>
           <p>FICA - Social Security (6.2%): $4,650.00</p>
           <p>FICA - Medicare (1.45%): $1,087.50</p>
           <p>Illinois State Tax (4.95% on $75,000 - $2,775): $3,576.38</p>
-          <p>Total Deductions: $18,031.38</p>
-          <p>Net Annual Take-Home Pay: $56,968.62</p>
-          <p>Effective Tax Rate: 24.04%</p>
-          <p>Monthly Take-Home: $4,747.39</p>
-          <p>Bi-Weekly Take-Home: $2,191.10</p>
+          <p>Total Deductions: $16,983.88</p>
+          <p>Net Annual Take-Home Pay: $58,016.12</p>
+          <p>Effective Tax Rate: 22.64%</p>
+          <p>Monthly Take-Home: $4,834.68</p>
+          <p>Bi-Weekly Take-Home: $2,231.39</p>
         </div>
       </div>
 

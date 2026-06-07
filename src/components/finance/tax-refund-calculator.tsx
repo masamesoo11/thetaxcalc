@@ -1038,14 +1038,14 @@ export function TaxRefundCalculator() {
         </p>
         <div className="mt-4 space-y-1 text-sm text-muted-foreground">
           <p>Gross Income: $75,000.00</p>
-          <p>Standard Deduction (Single): $15,000.00</p>
-          <p>Taxable Income: $60,000.00</p>
-          <p>Federal Tax Owed: $8,717.50</p>
+          <p>Standard Deduction (Single): $16,100.00</p>
+          <p>Taxable Income: $58,900.00</p>
+          <p>Federal Tax Owed: $7,670.00</p>
           <p>FICA (Social Security + Medicare): $5,737.50</p>
           <p>Illinois State Tax Owed (4.95%): $3,576.38</p>
-          <p>Federal Refund: $12,000 - $8,717.50 = $3,282.50</p>
+          <p>Federal Refund: $12,000 - $7,670.00 = $4,330.00</p>
           <p>State Refund: $4,000 - $3,576.38 = $423.62</p>
-          <p>Total Estimated Refund: $3,706.12</p>
+          <p>Total Estimated Refund: $4,753.62</p>
         </div>
       </div>
 

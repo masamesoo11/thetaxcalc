@@ -330,7 +330,7 @@ export function Footer() {
               <Link href="/blog" className="hover:text-emerald-400 transition-colors">
                 Blog
               </Link>
-              <Link href="/resources" className="hover:text-emerald-400 transition-colors">
+              <Link href="/tax-data" className="hover:text-emerald-400 transition-colors">
                 Tax Data
               </Link>
               <Link href="/tax-data" className="hover:text-emerald-400 transition-colors">

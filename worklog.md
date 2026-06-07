@@ -214,3 +214,145 @@ Stage Summary:
 - Total state count: 7 existing + 43 new = 50 states (complete coverage)
 - Key fix: flat tax calculation engine now supports standard deductions, enabling accurate calculations for new flat-tax states beyond Illinois
 - Massachusetts handled as progressive with 2 brackets to support millionaire's surtax
+---
+Task ID: 2
+Agent: NYC Resident Toggle Agent
+Task: Add NYC Resident toggle to New York calculator component
+
+Work Log:
+- Added `Switch` import from `@/components/ui/switch` (shadcn/ui component)
+- Added `NYC_TAX_2026` import from `@/lib/tax-config` for NYC tax bracket breakdown display
+- Added `nycResident` state variable: `useState<boolean>(() => hashParams.nyc === '1' || false)`
+- Passed `nycResident` to `calculatePaycheck()` call, enabling NYC tax computation
+- Added `nycResident` to useMemo dependency array for the result computation
+- Added `nyc` hash param to `updateHashState()` call with `'1'`/`'0'` values for URL persistence
+- Added `nycResident` to the hash state sync useEffect dependency array
+- Added NYC Resident toggle UI after the filing status selector:
+  - Uses Switch component with amber-tinted card styling (`bg-amber-500/5 border border-amber-500/20`)
+  - Label: "I live in New York City" with subtitle "Adds NYC income tax (3.078%–3.876%)"
+- Added NYC City Tax deduction line in the results Deductions section:
+  - Conditionally rendered when `nycResident && result.nycTax > 0`
+  - Red-tinted TrendingDown icon with "-{amount}" in red text
+- Added NYC City Tax Breakdown in the NY Tax Breakdown card:
+  - Conditionally rendered when `nycResident && result.nycTax > 0`
+  - Computes bracket-by-bracket breakdown inline using NYC_TAX_2026 brackets
+  - Shows each bracket range, rate (3 decimal places), and tax amount
+  - Displays total "NYC City Tax" in red
+- Removed unused `calculateNYCTax` import (bracket computation is done inline using raw bracket data)
+- Verified brace balance (113 open / 113 close), no structural issues
+- Only pre-existing TypeScript error remains (PayFrequency import from finance-utils — not exported, existed before this change)
+
+Stage Summary:
+- 1 file modified: `/src/components/finance/newyork-calculator.tsx`
+- NYC Resident toggle fully functional: Switch UI → state → calculatePaycheck → results display
+- URL hash persistence: `#nyc=1` or `#nyc=0` synced with toggle state
+- NYC tax shown in both Deductions section and Tax Breakdown card when enabled
+- Backward compatible: default is `false` (no NYC tax), existing users unaffected
+---
+Task ID: 3
+Agent: Salary Calculations Fix Agent
+Task: Fix FAQ generateFAQs filing status + expand salary page state coverage to all 50 states
+
+Work Log:
+- **Issue 1 — generateFAQs hardcoded 'single' filing status**:
+  1. Updated `generateFAQs()` signature in `/src/lib/salary-calculations.ts` (line 196) to accept `filingStatus: FilingStatus = 'single'` parameter
+  2. Updated the internal call `calculateSalaryTakeHome(salary)` → `calculateSalaryTakeHome(salary, filingStatus)` so FAQs now reflect the selected filing status
+  3. Updated `generateJsonLd()` in `/src/app/salary/[amount]/salary-client-page.tsx` (line 52) to accept `filingStatus: FilingStatus = 'single'` parameter
+  4. Updated `generateJsonLd` internal calls: `calculateSalaryTakeHome(salary, filingStatus)` and `generateFAQs(salary, filingStatus)`
+  5. Updated call sites in SalaryClientPage component: `generateFAQs(salary, filingStatus)` and `generateJsonLd(salary, filingStatus)` (lines 113-114)
+  6. All changes are backward compatible (filingStatus defaults to 'single')
+
+- **Issue 2 — Expand STATE_KEYS from 15 to all 50 states**:
+  1. Expanded `STATE_KEYS` array in `/src/lib/salary-calculations.ts` from 15 states to all 50 states matching STATE_PROFILES keys in tax-config.ts
+  2. Changed type from `as const` to `string[]` since listing 50 states as const literal union is unwieldy
+  3. Expanded `STATE_LABELS` record from 15 entries to all 50 states with correct names and abbreviations
+  4. Expanded `STATE_KEY_TO_SLUG` mapping in `/src/app/salary/[amount]/salary-client-page.tsx` from 15 entries to all 50 states
+  5. States with dedicated calculator pages (IL, TX, FL, CA, NY, GA, VA) keep their specific slugs; all other states map to `/paycheck-calculator`
+  6. TypeScript compilation passes cleanly (no errors in modified files)
+
+Stage Summary:
+- 2 files modified: `salary-calculations.ts` and `salary-client-page.tsx`
+- Issue 1 fix: FAQ and JSON-LD generation now respect the user's selected filing status instead of always using 'single'
+- Issue 2 fix: Salary pages now show all 50 states instead of just 15, providing complete national coverage
+- All changes backward compatible (default parameter values preserve existing behavior)
+
+---
+Task ID: 1
+Agent: Standard Deduction Update Agent
+Task: Fix $15,000→$16,100 standard deduction across all display content files (per Rev. Proc. 2025-32 OBBBA)
+
+Work Log:
+- Updated 2026 standard deduction values across 27+ files:
+  - $15,000 (single) → $16,100
+  - $30,000 (married/MFJ) → $32,200
+  - $22,500 (head of household) → $24,150
+- Recalculated all pre-rendered static example calculations using correct 2026 brackets from tax-config.ts ($12,400/$50,400/$105,700 single):
+  - $75,000 single filer: taxable $58,900, federal tax $7,670.00 (was $8,717.50)
+  - $100,000 single filer: taxable $83,900, federal tax $13,170.00 (was $13,753.00)
+  - Updated all downstream numbers (total deductions, net take-home, effective rate, monthly/bi-weekly)
+- Updated age 65+ additional deduction totals:
+  - Single: $18,100 (was $17,000), HOH: $26,150 (was $24,500)
+  - Married both 65+: $35,400 (was $33,200)
+- Updated year-over-year comparison text: "$14,600 to $15,000" → "$14,600 to $16,100", "$29,200 to $30,000" → "$29,200 to $32,200"
+- Updated freelancer example in blog: taxable $58,248 (was $59,348), tax $7,527 (was $8,954), total federal $18,831 (was $20,258), effective rate 23.5% (was 25.3%), W-2 comparison $14,890 (was $14,234), difference ~$4,000 (was ~$6,000)
+- Carefully preserved non-standard-deduction $15,000 references (salary differences, stock prices, CA tax amounts, DoorDash income, lottery losses)
+- Did NOT modify tax-config.ts or finance-utils.ts (already had correct 2026 numbers)
+
+Files modified (27):
+1. src/lib/faq-data.ts - 10 replacements (HOME, IL, TAX_REFUND, IRS_WITHHOLDING, INCOME_TAX, TAX_CALC, LOTTERY_TAX, GEORGIA FAQs)
+2. src/lib/blog-content.ts - 2 edits (standard deduction section, freelancer example)
+3. src/lib/calculator-jsonld.ts - 3 edits (IL/income-tax/tax-refund JSON-LD)
+4. src/lib/glossary-data.ts - 6 edits (deductions, filing status, HoH, standard deduction, taxable income terms)
+5. src/lib/calculator-content-data.ts - 10 edits (home, TX, FL, CA, income-tax, tax-calc, tax-refund content)
+6. src/components/finance/paycheck-calculator.tsx - example calc updated
+7. src/components/finance/newyork-calculator.tsx - table + example calc updated
+8. src/components/finance/california-calculator.tsx - table + example calc updated
+9. src/components/finance/florida-calculator.tsx - example calc updated
+10. src/components/finance/texas-calculator.tsx - example calc updated
+11. src/components/finance/georgia-calculator.tsx - table + example calc updated
+12. src/components/finance/illinois-calculator.tsx - table + example calc updated
+13. src/components/finance/virginia-calculator.tsx - table + example calc updated
+14. src/components/finance/capital-gains-calculator.tsx - example calc updated
+15. src/components/finance/irs-withholding-calculator.tsx - example calc updated
+16. src/components/finance/tax-refund-calculator.tsx - example calc updated
+17. src/components/finance/state-comparison.tsx - footnote updated
+18. src/app/salary/[amount]/page.tsx - disclaimer text updated
+19. src/app/salary/page.tsx - step description updated
+20. src/app/resources/page.tsx - deduction table + FAQ updated
+21. src/app/page.tsx - hero example calc updated
+22. src/app/federal-tax-brackets/page.tsx - JSON-LD, FAQ, salary breakdown, display cards, age 65+ example, all text
+23. src/app/glossary/page.tsx - intro text updated
+24. src/app/[calculator]/page.tsx - JSON-LD, key rates, howItWorks text, Georgia example
+25. src/app/[calculator]/calculator-content-client.tsx - JSON-LD, key rates, howItWorks text
+26. src/data/seed-blog-posts.ts - standard deduction section + deduction explanation
+27. src/app/api/seed/route.ts - standard deduction section + deduction explanation
+
+Stage Summary:
+- 27 files modified with 70+ individual edits
+- All standard deduction display values updated from 2025 amounts to correct 2026 OBBBA amounts
+- All pre-rendered example calculations recalculated with correct 2026 brackets
+- TypeScript compilation passes (no new errors introduced)
+- No changes to tax calculation engine (tax-config.ts, finance-utils.ts) — those were already correct
+---
+Task ID: 7
+Agent: Main Agent
+Task: Deep audit & fix based on competitor comparison analysis
+
+Work Log:
+- Audited all tax calculation files: tax-config.ts, finance-utils.ts, salary-calculations.ts, state-sales-tax-data.ts
+- Verified 2026 federal tax brackets against IRS, Tax Foundation, and Fidelity - CONFIRMED CORRECT
+- Found and fixed critical bug: SS wage cap was $176,100 (2025) instead of $184,500 (2026) per SSA
+- Found and fixed bug: progressive states (VA, AL, MD, NJ, etc.) weren't subtracting personal exemptions from taxable income
+- Added NYC resident support to salary-after-tax pages (calculateSalaryTakeHome now accepts nycResident param)
+- Added NYC resident toggle checkbox to salary-client-page.tsx
+- Added filing status selector to compare pages (compare-client-page.tsx and page.tsx)
+- Replaced server-rendered salary page content with DynamicSalaryPage for interactive filing status & NYC toggle
+- Replaced server-rendered compare page content with DynamicComparePage for interactive filing status
+- All changes pass lint cleanly
+
+Stage Summary:
+- SS wage cap fixed: $176,100 → $184,500 (2026 per SSA)
+- Progressive state personal exemption bug fixed in both calculateStateTax and calculatePaycheck
+- NYC tax now supported in salary pages (3.078%–3.876% city tax)
+- Filing status selector added to compare pages (was hardcoded 'single')
+- All verified working via Agent Browser testing

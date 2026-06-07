@@ -8,6 +8,7 @@ import {
   calculateFederalTax,
   calculateFICA,
   calculateStateTax,
+  calculateNYCTax,
   roundCurrency,
 } from './finance-utils';
 
@@ -23,30 +24,75 @@ export type SalaryAmount = (typeof SALARY_AMOUNTS)[number];
 
 // ─── State Keys ─────────────────────────────────────────────────────────────────
 
-// Featured states shown on salary pages (subset of all 50)
+// All 50 states shown on salary pages for comprehensive coverage
 export const STATE_KEYS = [
-  'texas', 'florida', 'california', 'newyork', 'illinois',
-  'pennsylvania', 'ohio', 'georgia', 'northcarolina', 'newjersey',
-  'washington', 'nevada', 'colorado', 'virginia', 'michigan',
+  // No-income-tax states (best take-home)
+  'texas', 'florida', 'washington', 'nevada', 'alaska',
+  'southdakota', 'wyoming', 'tennessee', 'newhampshire',
+  // Flat-tax states
+  'illinois', 'pennsylvania', 'colorado', 'michigan', 'northcarolina',
+  'indiana', 'kentucky', 'arizona', 'utah', 'idaho', 'mississippi',
+  // Progressive-tax states
+  'california', 'newyork', 'georgia', 'virginia', 'ohio',
+  'newjersey', 'minnesota', 'oregon', 'maryland', 'connecticut',
+  'hawaii', 'massachusetts', 'arkansas', 'alabama', 'kansas',
+  'louisiana', 'iowa', 'montana', 'nebraska', 'maine',
+  'missouri', 'oklahoma', 'delaware', 'northdakota', 'newmexico',
+  'southcarolina', 'rhodeisland', 'westvirginia', 'wisconsin', 'vermont',
 ] as const;
 export type StateKey = (typeof STATE_KEYS)[number];
 
 export const STATE_LABELS: Record<string, { name: string; abbr: string }> = {
-  texas: { name: 'Texas', abbr: 'TX' },
-  florida: { name: 'Florida', abbr: 'FL' },
+  alabama: { name: 'Alabama', abbr: 'AL' },
+  alaska: { name: 'Alaska', abbr: 'AK' },
+  arizona: { name: 'Arizona', abbr: 'AZ' },
+  arkansas: { name: 'Arkansas', abbr: 'AR' },
   california: { name: 'California', abbr: 'CA' },
-  newyork: { name: 'New York', abbr: 'NY' },
-  illinois: { name: 'Illinois', abbr: 'IL' },
-  pennsylvania: { name: 'Pennsylvania', abbr: 'PA' },
-  ohio: { name: 'Ohio', abbr: 'OH' },
-  georgia: { name: 'Georgia', abbr: 'GA' },
-  northcarolina: { name: 'North Carolina', abbr: 'NC' },
-  newjersey: { name: 'New Jersey', abbr: 'NJ' },
-  washington: { name: 'Washington', abbr: 'WA' },
-  nevada: { name: 'Nevada', abbr: 'NV' },
   colorado: { name: 'Colorado', abbr: 'CO' },
-  virginia: { name: 'Virginia', abbr: 'VA' },
+  connecticut: { name: 'Connecticut', abbr: 'CT' },
+  delaware: { name: 'Delaware', abbr: 'DE' },
+  florida: { name: 'Florida', abbr: 'FL' },
+  georgia: { name: 'Georgia', abbr: 'GA' },
+  hawaii: { name: 'Hawaii', abbr: 'HI' },
+  idaho: { name: 'Idaho', abbr: 'ID' },
+  illinois: { name: 'Illinois', abbr: 'IL' },
+  indiana: { name: 'Indiana', abbr: 'IN' },
+  iowa: { name: 'Iowa', abbr: 'IA' },
+  kansas: { name: 'Kansas', abbr: 'KS' },
+  kentucky: { name: 'Kentucky', abbr: 'KY' },
+  louisiana: { name: 'Louisiana', abbr: 'LA' },
+  maine: { name: 'Maine', abbr: 'ME' },
+  maryland: { name: 'Maryland', abbr: 'MD' },
+  massachusetts: { name: 'Massachusetts', abbr: 'MA' },
   michigan: { name: 'Michigan', abbr: 'MI' },
+  minnesota: { name: 'Minnesota', abbr: 'MN' },
+  mississippi: { name: 'Mississippi', abbr: 'MS' },
+  missouri: { name: 'Missouri', abbr: 'MO' },
+  montana: { name: 'Montana', abbr: 'MT' },
+  nebraska: { name: 'Nebraska', abbr: 'NE' },
+  nevada: { name: 'Nevada', abbr: 'NV' },
+  newhampshire: { name: 'New Hampshire', abbr: 'NH' },
+  newjersey: { name: 'New Jersey', abbr: 'NJ' },
+  newmexico: { name: 'New Mexico', abbr: 'NM' },
+  newyork: { name: 'New York', abbr: 'NY' },
+  northcarolina: { name: 'North Carolina', abbr: 'NC' },
+  northdakota: { name: 'North Dakota', abbr: 'ND' },
+  ohio: { name: 'Ohio', abbr: 'OH' },
+  oklahoma: { name: 'Oklahoma', abbr: 'OK' },
+  oregon: { name: 'Oregon', abbr: 'OR' },
+  pennsylvania: { name: 'Pennsylvania', abbr: 'PA' },
+  rhodeisland: { name: 'Rhode Island', abbr: 'RI' },
+  southcarolina: { name: 'South Carolina', abbr: 'SC' },
+  southdakota: { name: 'South Dakota', abbr: 'SD' },
+  tennessee: { name: 'Tennessee', abbr: 'TN' },
+  texas: { name: 'Texas', abbr: 'TX' },
+  utah: { name: 'Utah', abbr: 'UT' },
+  vermont: { name: 'Vermont', abbr: 'VT' },
+  virginia: { name: 'Virginia', abbr: 'VA' },
+  washington: { name: 'Washington', abbr: 'WA' },
+  westvirginia: { name: 'West Virginia', abbr: 'WV' },
+  wisconsin: { name: 'Wisconsin', abbr: 'WI' },
+  wyoming: { name: 'Wyoming', abbr: 'WY' },
 };
 
 // ─── Salary Calculation Result Per State ────────────────────────────────────────
@@ -61,6 +107,7 @@ export interface StateTakeHome {
   ficaSS: number;
   ficaMedicare: number;
   stateTax: number;
+  nycTax: number;
   totalDeductions: number;
   netAnnual: number;
   effectiveTaxRate: number;
@@ -115,14 +162,19 @@ export type FilingStatus = 'single' | 'married' | 'head_of_household';
 
 export function calculateSalaryTakeHome(
   salary: number,
-  filingStatus: FilingStatus = 'single'
+  filingStatus: FilingStatus = 'single',
+  nycResident: boolean = false
 ): SalaryCalculationResult {
   const federalTax = calculateFederalTax(salary, filingStatus);
   const fica = calculateFICA(salary, filingStatus);
 
   const states: StateTakeHome[] = STATE_KEYS.map((stateKey) => {
     const stateTax = calculateStateTax(salary, stateKey, filingStatus);
-    const totalDeductions = federalTax + fica.total + stateTax;
+    // NYC tax only applies to New York State residents who live in NYC
+    const nycTax = (stateKey === 'newyork' && nycResident)
+      ? calculateNYCTax(salary, filingStatus)
+      : 0;
+    const totalDeductions = federalTax + fica.total + stateTax + nycTax;
     const netAnnual = salary - totalDeductions;
     const effectiveTaxRate = salary > 0 ? totalDeductions / salary : 0;
 
@@ -136,6 +188,7 @@ export function calculateSalaryTakeHome(
       ficaSS: roundCurrency(fica.socialSecurity),
       ficaMedicare: roundCurrency(fica.medicare + fica.additionalMedicare),
       stateTax: roundCurrency(stateTax),
+      nycTax: roundCurrency(nycTax),
       totalDeductions: roundCurrency(totalDeductions),
       netAnnual: roundCurrency(netAnnual),
       effectiveTaxRate: roundCurrency(effectiveTaxRate * 100) / 100,
@@ -193,9 +246,9 @@ export interface FAQItem {
   answer: string;
 }
 
-export function generateFAQs(salary: number): FAQItem[] {
+export function generateFAQs(salary: number, filingStatus: FilingStatus = 'single'): FAQItem[] {
   const formatted = formatSalary(salary);
-  const calc = calculateSalaryTakeHome(salary);
+  const calc = calculateSalaryTakeHome(salary, filingStatus);
   const txNet = calc.states.find((s) => s.stateKey === 'texas')!.netAnnual;
   const caNet = calc.states.find((s) => s.stateKey === 'california')!.netAnnual;
 

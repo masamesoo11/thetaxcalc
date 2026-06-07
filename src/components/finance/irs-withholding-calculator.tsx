@@ -1240,15 +1240,15 @@ export function IRSWithholdingCalculator() {
           IRS Withholding Calculator Example: $75,000 Salary (2026)
         </h2>
         <p className="mt-2 text-sm text-muted-foreground">
-          For a single filer earning $75,000 annually, paid bi-weekly, with standard deduction of $15,000:
+          For a single filer earning $75,000 annually, paid bi-weekly, with standard deduction of $16,100:
         </p>
         <div className="mt-3 space-y-1 text-sm text-muted-foreground">
           <p>Gross Annual Income: $75,000</p>
           <p>Gross Bi-Weekly Pay: $2,884.62</p>
-          <p>Standard Deduction (Single): $15,000</p>
-          <p>Taxable Income: $60,000</p>
-          <p>Federal Income Tax: $8,717.50</p>
-          <p>Federal Withholding per Paycheck: $335.29</p>
+          <p>Standard Deduction (Single): $16,100</p>
+          <p>Taxable Income: $58,900</p>
+          <p>Federal Income Tax: $7,670.00</p>
+          <p>Federal Withholding per Paycheck: $295.00</p>
           <p>Social Security (6.2%): $4,650.00 / year ($178.85 per paycheck)</p>
           <p>Medicare (1.45%): $1,087.50 / year ($41.83 per paycheck)</p>
           <p>Total FICA per Paycheck: $220.67</p>

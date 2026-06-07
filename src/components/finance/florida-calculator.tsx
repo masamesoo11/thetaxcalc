@@ -296,12 +296,12 @@ export function FloridaCalculator() {
         <div className="mt-3 space-y-1 text-sm text-muted-foreground">
           <p>Gross Annual Salary: $75,000.00</p>
           <p>Florida State Income Tax: $0.00 (0% — no state income tax)</p>
-          <p>Federal Tax (after $15,000 standard deduction): $8,717.50</p>
+          <p>Federal Tax (after $16,100 standard deduction): $7,670.00</p>
           <p>FICA - Social Security (6.2%): $4,650.00</p>
           <p>FICA - Medicare (1.45%): $1,087.50</p>
-          <p>Total Deductions: $14,455.00</p>
-          <p>Net Annual Take-Home Pay: $60,545.00</p>
-          <p>Monthly Take-Home: $5,045.42</p>
+          <p>Total Deductions: $13,407.50</p>
+          <p>Net Annual Take-Home Pay: $61,592.50</p>
+          <p>Monthly Take-Home: $5,132.71</p>
         </div>
       </div>
 

@@ -37,14 +37,14 @@ export function getCalculatorContent(type: string): CalculatorContentData {
       return {
         howItWorks: [
           'Look at your pay stub sometime. That number at the bottom — the one that actually hits your bank — is way smaller than the number at the top. This calculator tells you why, line by line. All withholding calculations follow <a href="https://www.irs.gov/publications/p15t" target="_blank" rel="noopener noreferrer nofollow">IRS Publication 15-T</a>.',
-          'Here\'s what comes out of every paycheck. Federal tax uses progressive brackets from 10% up to 37%, with standard deductions of $15,000 (single) or $30,000 (married). Then <a href="https://www.irs.gov/taxtopics/tc751" target="_blank" rel="noopener noreferrer nofollow">FICA</a>: 6.2% for Social Security on income up to $176,100, and 1.45% for Medicare on everything. Make over $200,000? Add another 0.9% Medicare surtax on the amount above that.',
+          'Here\'s what comes out of every paycheck. Federal tax uses progressive brackets from 10% up to 37%, with standard deductions of $16,100 (single) or $32,200 (married). Then <a href="https://www.irs.gov/taxtopics/tc751" target="_blank" rel="noopener noreferrer nofollow">FICA</a>: 6.2% for Social Security on income up to $176,100, and 1.45% for Medicare on everything. Make over $200,000? Add another 0.9% Medicare surtax on the amount above that.',
           'My buddy in Chicago and I compared stubs once. Same salary, same filing status. He walked away with about $3,800 less for the year because Illinois takes 4.95% and my state takes nothing. That\'s when it hit me — state tax is not a small factor. We cover five states here: Illinois at 4.95% flat, Texas at 0%, Florida at 0%, California at 1%–13.3% progressive, and New York at 4%–10.9% plus a potential NYC tax.',
           'A couple things that help soften the blow:\n- 401(k) contributions reduce taxable income at both federal and state level\n- HSA contributions do the same\n- These pre-tax deductions are basically a discount on your tax bill',
           'Bottom line — you\'ll see your net pay, effective tax rate, and marginal rate. Most people think their effective rate is higher than it actually is. Go ahead, see for yourself.',
         ],
         keyRates: [
           { label: 'Federal Tax Brackets', value: '10% – 37%' },
-          { label: 'Standard Deduction (Single)', value: '$15,000' },
+          { label: 'Standard Deduction (Single)', value: '$16,100' },
           { label: 'Social Security Rate', value: '6.2% (up to $176,100)' },
           { label: 'Medicare Rate', value: '1.45% (no cap)' },
           { label: 'Additional Medicare Tax', value: '0.9% (above $200K)' },
@@ -90,7 +90,7 @@ export function getCalculatorContent(type: string): CalculatorContentData {
           { label: 'Texas State Income Tax', value: '0%' },
           { label: 'TX Avg Property Tax Rate', value: '~1.71%' },
           { label: 'TX Avg Combined Sales Tax', value: '8.2%' },
-          { label: 'Federal Standard Deduction', value: '$15,000 (single)' },
+          { label: 'Federal Standard Deduction', value: '$16,100 (single)' },
           { label: 'Social Security Rate', value: '6.2% (up to $176,100)' },
         ],
         faqs: TEXAS_FAQS,
@@ -115,7 +115,7 @@ export function getCalculatorContent(type: string): CalculatorContentData {
           { label: 'FL Avg Property Tax Rate', value: '~0.86%' },
           { label: 'FL Avg Combined Sales Tax', value: '7.0%' },
           { label: 'Homestead Exemption', value: 'Up to $50,000' },
-          { label: 'Federal Standard Deduction', value: '$15,000 (single)' },
+          { label: 'Federal Standard Deduction', value: '$16,100 (single)' },
         ],
         faqs: FLORIDA_FAQS,
         relatedCalculators: [
@@ -128,7 +128,7 @@ export function getCalculatorContent(type: string): CalculatorContentData {
       return {
         howItWorks: [
           'California has the highest state income tax in the country. Top rate is 13.3%, and it starts at $698,271 of taxable income for single filers. Even at a modest salary you\'re probably paying 6%–9.3% to the state. I won\'t pretend that doesn\'t sting.',
-          'The state uses <a href="https://www.ftb.ca.gov/" target="_blank" rel="noopener noreferrer nofollow">nine progressive brackets</a>. Standard deduction for 2026 is $6,083 (single) or $12,166 (married). After that deduction, each slice of your income gets its own rate — 1% on the first $10,099, climbing all the way to 13.3% above $698,271. Same principle as federal brackets: only the income within each bracket gets that rate. On top of this, you\'re paying federal progressive brackets with the $15,000 standard deduction, plus FICA at 7.65%. Pre-tax deductions like 401(k) contributions are huge in California because they cut your taxable income at both federal and state level. At 13.3% for high earners, that state deduction is worth a lot.',
+          'The state uses <a href="https://www.ftb.ca.gov/" target="_blank" rel="noopener noreferrer nofollow">nine progressive brackets</a>. Standard deduction for 2026 is $6,083 (single) or $12,166 (married). After that deduction, each slice of your income gets its own rate — 1% on the first $10,099, climbing all the way to 13.3% above $698,271. Same principle as federal brackets: only the income within each bracket gets that rate. On top of this, you\'re paying federal progressive brackets with the $16,100 standard deduction, plus FICA at 7.65%. Pre-tax deductions like 401(k) contributions are huge in California because they cut your taxable income at both federal and state level. At 13.3% for high earners, that state deduction is worth a lot.',
           'One thing that catches people off guard: California property taxes are actually pretty reasonable. Average effective rate around 0.71%. Proposition 13 caps annual assessed value increases at 2%, so your tax bill doesn\'t spiral even if your home\'s market value goes crazy. Of course, when the median house costs $800K, even a low rate gives you a hefty bill. And at least Social Security benefits aren\'t taxed by the state.',
           'A coworker of mine was offered a $130K job in San Francisco and almost took it without running the numbers. California state tax alone on that salary is roughly $8,500. The same job in Texas? $0 state tax. That\'s not chump change. Do the math before you accept that offer.',
         ],
@@ -309,15 +309,15 @@ export function getCalculatorContent(type: string): CalculatorContentData {
       return {
         howItWorks: [
           'Federal income tax in the US uses a progressive bracket system — your income is divided into chunks, and each chunk is taxed at a different rate. For 2026, the brackets range from 10% on your first dollars earned up to 37% on income above $609,350 (single). The key thing to understand: only the income within each bracket gets that rate. A $75,000 earner doesn\'t pay 22% on everything — they pay 10% on the first $11,600, 12% on the next chunk, and 22% only on the amount above $47,150. That\'s why your effective rate is always lower than your marginal rate.',
-          'Before the brackets apply, you get the standard deduction: $15,000 for single filers, $30,000 for married filing jointly, or $22,500 for head of household. This comes off the top of your gross income. So a single person making $75,000 is only taxed on $60,000. Pre-tax deductions like 401(k) contributions and HSA deposits further reduce your taxable income — every dollar you contribute saves you at your marginal rate.',
+          'Before the brackets apply, you get the standard deduction: $16,100 for single filers, $32,200 for married filing jointly, or $24,150 for head of household. This comes off the top of your gross income. So a single person making $75,000 is only taxed on $58,900. Pre-tax deductions like 401(k) contributions and HSA deposits further reduce your taxable income — every dollar you contribute saves you at your marginal rate.',
           'On top of federal income tax, there\'s FICA: 6.2% for Social Security (up to the $176,100 wage cap) and 1.45% for Medicare (no cap). Add 0.9% more Medicare if you earn above $200,000. That\'s 7.65% total for most earners, and it\'s calculated on your gross income before any deductions — including 401(k) contributions.',
           'Then there\'s state income tax, which varies wildly. Texas and Florida: 0%. Illinois: 4.95% flat. California: 1%–13.3% progressive. New York: 4%–10.9% progressive, plus NYC residents pay an additional 3.078%–3.876% city tax. The state you live in can easily mean thousands of dollars difference on the same salary. This calculator handles all five states plus the federal calculation.',
           'The bottom line: your income tax burden depends on three big factors — your filing status, your state of residence, and your pre-tax deductions. Use this calculator to see the full picture: federal tax, FICA, state tax, and your actual take-home pay.',
         ],
         keyRates: [
           { label: 'Federal Brackets', value: '10% – 37% (7 brackets)' },
-          { label: 'Standard Deduction (Single)', value: '$15,000' },
-          { label: 'Standard Deduction (Married)', value: '$30,000' },
+          { label: 'Standard Deduction (Single)', value: '$16,100' },
+          { label: 'Standard Deduction (Married)', value: '$32,200' },
           { label: 'FICA Rate', value: '7.65% (up to $176,100)' },
           { label: 'Additional Medicare', value: '0.9% (above $200K)' },
         ],
@@ -331,14 +331,14 @@ export function getCalculatorContent(type: string): CalculatorContentData {
       return {
         howItWorks: [
           'This tax calculator estimates your total federal and state tax burden for 2026. It accounts for income tax, FICA payroll taxes, and state-specific tax rules — everything that comes out of your paycheck before you see it.',
-          'Federal income tax uses progressive brackets (10%–37%). You subtract the standard deduction first — $15,000 for single filers — then each bracket applies only to the income within that range. Your effective tax rate (total tax ÷ gross income) is always lower than your marginal rate (the bracket your last dollar falls into). Most people overestimate their effective rate.',
+          'Federal income tax uses progressive brackets (10%–37%). You subtract the standard deduction first — $16,100 for single filers — then each bracket applies only to the income within that range. Your effective tax rate (total tax ÷ gross income) is always lower than your marginal rate (the bracket your last dollar falls into). Most people overestimate their effective rate.',
           'FICA adds another 7.65% on top: 6.2% for Social Security (capped at $176,100 in earnings) and 1.45% for Medicare (no cap). Earn over $200,000 and there\'s an extra 0.9% Medicare surcharge. Unlike income tax, FICA is calculated on gross pay before deductions — 401(k) contributions don\'t reduce it.',
           'State tax is where things get interesting. We cover five states with very different approaches: Illinois charges a flat 4.95% with a small personal exemption. Texas and Florida charge 0% income tax (they fund government through property and sales taxes instead). California runs progressive brackets from 1% to 13.3%. New York does 4% to 10.9% progressive, and NYC residents pay an additional city tax. The difference between the highest and lowest state tax on the same salary can be $8,000+ per year.',
           'Pre-tax deductions are your friend. 401(k) contributions (up to $23,500 in 2026) and HSA contributions reduce your taxable income for federal and state income tax — but not for FICA. At a 22% marginal rate, every $1,000 in 401(k) contributions saves you $220 in federal tax plus whatever your state charges.',
         ],
         keyRates: [
           { label: 'Federal Tax Brackets', value: '10% – 37%' },
-          { label: 'Standard Deduction (Single)', value: '$15,000' },
+          { label: 'Standard Deduction (Single)', value: '$16,100' },
           { label: 'FICA (SS + Medicare)', value: '7.65%' },
           { label: 'SS Wage Cap', value: '$176,100' },
           { label: '401(k) Limit', value: '$23,500' },
@@ -355,13 +355,13 @@ export function getCalculatorContent(type: string): CalculatorContentData {
         howItWorks: [
           'Your tax refund is simply the difference between what was withheld from your paychecks throughout the year and what you actually owe in taxes. If your employer withheld more than your total tax bill, the government sends you a refund. If they withheld less, you write a check. This calculator helps you figure out which scenario you\'re looking at before you file.',
           'The calculation goes like this: start with your total income, subtract deductions (standard or itemized) to get taxable income, apply the federal tax brackets, subtract any credits you qualify for, and that\'s your federal tax owed. Compare it to what was already withheld. The difference is your refund — or your balance due.',
-          'The standard deduction for 2026 is $15,000 (single), $30,000 (married filing jointly), or $22,500 (head of household). Most people take the standard — about 90% of taxpayers. But if you have significant mortgage interest, charitable donations, or state/local taxes (SALT, capped at $10,000), itemizing might save you more. This calculator lets you try both.',
+          'The standard deduction for 2026 is $16,100 (single), $32,200 (married filing jointly), or $24,150 (head of household). Most people take the standard — about 90% of taxpayers. But if you have significant mortgage interest, charitable donations, or state/local taxes (SALT, capped at $10,000), itemizing might save you more. This calculator lets you try both.',
           'Tax credits are better than deductions — they reduce your tax bill dollar for dollar, while deductions only reduce your taxable income. The Child Tax Credit gives you $2,000 per qualifying child (up to $1,700 refundable). The Earned Income Credit can be worth up to $7,430 for families with three or more children. These credits can turn a small refund into a big one.',
           'A quick note on refund timing: if you e-file and choose direct deposit, most refunds arrive within 21 days. Paper returns take 6-8 weeks. The IRS typically starts accepting returns in late January, and filing early usually means faster processing. Just make sure you have all your documents (W-2, 1099, etc.) before you file.',
         ],
         keyRates: [
-          { label: 'Standard Deduction (Single)', value: '$15,000' },
-          { label: 'Standard Deduction (Married)', value: '$30,000' },
+          { label: 'Standard Deduction (Single)', value: '$16,100' },
+          { label: 'Standard Deduction (Married)', value: '$32,200' },
           { label: 'Child Tax Credit', value: '$2,000/child' },
           { label: 'Refundable Portion', value: 'Up to $1,700' },
           { label: 'EIC Max (3+ children)', value: '$7,430' },

@@ -117,9 +117,10 @@ export function calculateFICA(
 function calculateProgressiveStateTax(
   annualGross: number,
   brackets: StateBracket[],
-  standardDeduction: number
+  standardDeduction: number,
+  personalExemption: number = 0
 ): number {
-  const taxableIncome = Math.max(0, annualGross - standardDeduction);
+  const taxableIncome = Math.max(0, annualGross - standardDeduction - personalExemption);
   if (taxableIncome <= 0) return 0;
 
   let tax = 0;
@@ -156,7 +157,8 @@ export function calculateStateTax(
 
   if (state.incomeTaxType === 'progressive' && state.brackets) {
     const stdDeduction = state.standardDeductionsByFiling?.[filingStatus] ?? state.standardDeduction;
-    return calculateProgressiveStateTax(annualGross, state.brackets, stdDeduction);
+    const exemption = state.personalExemptionsByFiling?.[filingStatus] ?? state.personalExemption;
+    return calculateProgressiveStateTax(annualGross, state.brackets, stdDeduction, exemption);
   }
 
   if (state.incomeTaxType === 'none') {
@@ -274,12 +276,14 @@ export function calculatePaycheck(input: PaycheckInput): PaycheckResult {
       const stateTaxableIncome = Math.max(0, grossAnnual - pretaxDeductions - stdDeduction - exemption);
       stateTax = stateTaxableIncome * stateProfile.incomeTaxRate;
     } else if (stateProfile.incomeTaxType === 'progressive' && stateProfile.brackets) {
-      // For progressive states (CA, NY): subtract pre-tax deductions, then apply brackets
+      // For progressive states: subtract pre-tax deductions, standard deduction, AND personal exemption
       const stdDeduction = stateProfile.standardDeductionsByFiling?.[input.filingStatus] ?? stateProfile.standardDeduction;
+      const exemption = stateProfile.personalExemptionsByFiling?.[input.filingStatus] ?? stateProfile.personalExemption;
       stateTax = calculateProgressiveStateTax(
         grossAnnual - pretaxDeductions,
         stateProfile.brackets,
-        stdDeduction
+        stdDeduction,
+        exemption
       );
     }
   }

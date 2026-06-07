@@ -309,7 +309,7 @@ export function StateComparisonSection() {
             </Table>
           </div>
           <p className="mt-3 text-xs text-muted-foreground">
-            Standard Deduction: $15,000 (Single), $30,000 (Married), $22,500 (Head of Household). FICA: 7.65% (6.2% Social Security up to $176,100 + 1.45% Medicare).
+            Standard Deduction: $16,100 (Single), $32,200 (Married), $24,150 (Head of Household). FICA: 7.65% (6.2% Social Security up to $176,100 + 1.45% Medicare).
             Additional Medicare Tax: 0.9% on income above $200,000.
           </p>
         </CardContent>

@@ -74,9 +74,9 @@ A quick note — and this catches people off guard — the "marriage bonus" isn'
 
 Before any brackets even apply, you get to chop a chunk off your income:
 
-- **Single filers**: $15,000
-- **Married filing jointly**: $30,000
-- **Head of household**: $22,500
+- **Single filers**: $16,100
+- **Married filing jointly**: $32,200
+- **Head of household**: $24,150
 
 These numbers go up a bit every year because inflation. (The IRS adjusts them annually — small mercies, right?) Now, you can either take the standard deduction OR itemize. Most people take the standard because, frankly, it's more than what they'd get itemizing. But if you've got a big mortgage, high state/local taxes (up to $10,000 of those are deductible, thanks SALT cap), and charitable donations that add up to more than the standard amount — itemize. Run the numbers both ways, or just use our [paycheck calculator](/paycheck-calculator) to see your take-home pay after deductions.
 
@@ -84,7 +84,7 @@ These numbers go up a bit every year because inflation. (The IRS adjusts them an
 
 Your marginal rate isn't your effective rate. I know I already said this, but it's worth repeating because it's the #1 misunderstanding people have about taxes. Your effective rate is always lower. Always.
 
-Deductions matter more than most people realize. That $15,000 standard deduction for single filers? It means your first $15,000 of income is basically tax-free at the federal level. That's not nothing.
+Deductions matter more than most people realize. That $16,100 standard deduction for single filers? It means your first $16,100 of income is basically tax-free at the federal level. That's not nothing.
 
 Bracket creep is real. The brackets do get adjusted for inflation, but if your income's growing faster than inflation (good for you, by the way), you might creep into higher brackets over time. It's not the worst problem to have, but it's something to be aware of.
 

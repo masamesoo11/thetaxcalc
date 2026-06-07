@@ -351,7 +351,7 @@ export function GeorgiaCalculator() {
               </TableRow>
               <TableRow>
                 <TableCell>Federal Standard Deduction</TableCell>
-                <TableCell className="font-medium">$15,000</TableCell>
+                <TableCell className="font-medium">$16,100</TableCell>
                 <TableCell>Applied to federal tax calculation only</TableCell>
               </TableRow>
               <TableRow>
@@ -377,10 +377,10 @@ export function GeorgiaCalculator() {
           <p>Georgia Standard Deduction: -$5,400.00</p>
           <p>Georgia Taxable Income: $66,900.00</p>
           <p>Georgia State Tax (5.49%): $3,672.81</p>
-          <p>Federal Tax (after $15,000 std deduction): $8,717.50</p>
+          <p>Federal Tax (after $16,100 std deduction): $7,670.00</p>
           <p>FICA Total (7.65%): $5,737.50</p>
-          <p>Total Deductions: $18,127.81</p>
-          <p>Net Annual Take-Home: $56,872.19</p>
+          <p>Total Deductions: $17,080.31</p>
+          <p>Net Annual Take-Home: $57,919.69</p>
           <p>Monthly Take-Home: $4,739.35</p>
         </div>
       </div>

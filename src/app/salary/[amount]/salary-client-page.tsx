@@ -37,22 +37,57 @@ const STATE_KEY_TO_SLUG: Record<string, string> = {
   newyork: '/new-york-tax-calculator',
   georgia: '/georgia-tax-calculator',
   virginia: '/virginia-tax-calculator',
-  pennsylvania: '/paycheck-calculator',
-  ohio: '/paycheck-calculator',
-  northcarolina: '/paycheck-calculator',
-  newjersey: '/paycheck-calculator',
-  washington: '/paycheck-calculator',
+  alaska: '/paycheck-calculator',
   nevada: '/paycheck-calculator',
+  southdakota: '/paycheck-calculator',
+  wyoming: '/paycheck-calculator',
+  washington: '/paycheck-calculator',
+  tennessee: '/paycheck-calculator',
+  newhampshire: '/paycheck-calculator',
+  arizona: '/paycheck-calculator',
   colorado: '/paycheck-calculator',
+  idaho: '/paycheck-calculator',
+  indiana: '/paycheck-calculator',
+  kentucky: '/paycheck-calculator',
   michigan: '/paycheck-calculator',
+  mississippi: '/paycheck-calculator',
+  northcarolina: '/paycheck-calculator',
+  pennsylvania: '/paycheck-calculator',
+  utah: '/paycheck-calculator',
+  alabama: '/paycheck-calculator',
+  arkansas: '/paycheck-calculator',
+  connecticut: '/paycheck-calculator',
+  delaware: '/paycheck-calculator',
+  hawaii: '/paycheck-calculator',
+  iowa: '/paycheck-calculator',
+  kansas: '/paycheck-calculator',
+  louisiana: '/paycheck-calculator',
+  maine: '/paycheck-calculator',
+  maryland: '/paycheck-calculator',
+  massachusetts: '/paycheck-calculator',
+  minnesota: '/paycheck-calculator',
+  missouri: '/paycheck-calculator',
+  montana: '/paycheck-calculator',
+  nebraska: '/paycheck-calculator',
+  newjersey: '/paycheck-calculator',
+  newmexico: '/paycheck-calculator',
+  northdakota: '/paycheck-calculator',
+  ohio: '/paycheck-calculator',
+  oklahoma: '/paycheck-calculator',
+  oregon: '/paycheck-calculator',
+  rhodeisland: '/paycheck-calculator',
+  southcarolina: '/paycheck-calculator',
+  vermont: '/paycheck-calculator',
+  westvirginia: '/paycheck-calculator',
+  wisconsin: '/paycheck-calculator',
 };
 
 // ─── JSON-LD Schema ───────────────────────────────────────────────────────────
 
-function generateJsonLd(salary: number) {
-  const calc = calculateSalaryTakeHome(salary);
+function generateJsonLd(salary: number, filingStatus: FilingStatus = 'single') {
+  const calc = calculateSalaryTakeHome(salary, filingStatus);
   const formatted = formatSalary(salary);
-  const faqs = generateFAQs(salary);
+  const faqs = generateFAQs(salary, filingStatus);
   const path = `/salary/${salary}`;
 
   return {
@@ -106,12 +141,13 @@ interface SalaryClientPageProps {
 
 export function SalaryClientPage({ amountStr }: SalaryClientPageProps) {
   const [filingStatus, setFilingStatus] = useState<FilingStatus>('single');
+  const [nycResident, setNycResident] = useState(false);
   const salary = slugToSalary(amountStr);
   if (!salary || !isValidSalaryAmount(salary)) return null;
 
-  const calc = calculateSalaryTakeHome(salary, filingStatus);
-  const faqs = generateFAQs(salary);
-  const jsonLd = generateJsonLd(salary);
+  const calc = calculateSalaryTakeHome(salary, filingStatus, nycResident);
+  const faqs = generateFAQs(salary, filingStatus);
+  const jsonLd = generateJsonLd(salary, filingStatus);
 
   const sortedStates = [...calc.states].sort((a, b) => b.netAnnual - a.netAnnual);
   const currentIndex = SALARY_AMOUNTS.indexOf(salary as (typeof SALARY_AMOUNTS)[number]);
@@ -179,12 +215,24 @@ export function SalaryClientPage({ amountStr }: SalaryClientPageProps) {
               </button>
             ))}
           </div>
+          {/* NYC Resident Toggle */}
+          <label className="mt-3 flex items-center gap-2 cursor-pointer select-none">
+            <input
+              type="checkbox"
+              checked={nycResident}
+              onChange={(e) => setNycResident(e.target.checked)}
+              className="h-4 w-4 rounded border-border/50 text-emerald-600 focus:ring-emerald-500/30 accent-emerald-600"
+            />
+            <span className="text-sm text-muted-foreground">
+              NYC Resident <span className="text-xs text-muted-foreground/60">(adds 3.078%–3.876% city income tax for New York)</span>
+            </span>
+          </label>
         </section>
 
-        {/* Quick Summary Cards */}
+        {/* Quick Summary Cards — Top States */}
         <section className="mb-12">
           <div className="grid gap-4 grid-cols-2 sm:grid-cols-3 lg:grid-cols-5">
-            {calc.states.map((state) => (
+            {calc.states.slice(0, 10).map((state) => (
               <Link
                 key={state.stateKey}
                 href={STATE_KEY_TO_SLUG[state.stateKey]}
@@ -199,6 +247,9 @@ export function SalaryClientPage({ amountStr }: SalaryClientPageProps) {
               </Link>
             ))}
           </div>
+          <p className="mt-3 text-xs text-muted-foreground text-center">
+            Showing top 10 states by take-home pay. See full 50-state comparison table below.
+          </p>
         </section>
 
         {/* Comparison Table */}
@@ -252,18 +303,18 @@ export function SalaryClientPage({ amountStr }: SalaryClientPageProps) {
           </div>
         </section>
 
-        {/* State Breakdown Cards */}
+        {/* State Breakdown Cards — Top 5 + Worst State */}
         <section className="mb-12">
           <div className="flex items-center gap-3 mb-6">
             <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-emerald-600/20 to-teal-600/10">
               <TrendingUp className="h-5 w-5 text-emerald-400" />
             </div>
             <h2 className="text-2xl font-bold text-foreground">
-              {calc.salaryFormatted} — Detailed Breakdown by State
+              {calc.salaryFormatted} — Top States Breakdown
             </h2>
           </div>
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {calc.states.map((state) => {
+            {sortedStates.slice(0, 6).map((state, i) => {
               const stateColor: Record<string, string> = {
                 illinois: 'from-blue-600/20 to-indigo-600/10',
                 texas: 'from-red-600/20 to-orange-600/10',
@@ -278,7 +329,10 @@ export function SalaryClientPage({ amountStr }: SalaryClientPageProps) {
                       <MapPin className="h-5 w-5 text-emerald-400" />
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold text-foreground">{state.stateName}</h3>
+                      <h3 className="text-lg font-semibold text-foreground">
+                        {i === 0 && <span className="text-emerald-400 text-xs font-bold mr-1">★ BEST</span>}
+                        {state.stateName}
+                      </h3>
                       <p className="text-xs text-muted-foreground">{state.stateAbbr} resident · {filingStatusLabel[filingStatus]}</p>
                     </div>
                     <div className="ml-auto text-right">
@@ -331,8 +385,9 @@ export function SalaryClientPage({ amountStr }: SalaryClientPageProps) {
             })}
           </div>
           <p className="mt-4 text-xs text-muted-foreground">
-            All calculations assume {filingStatusLabel[filingStatus]} filing status with standard deduction ($16,100 single / $32,200 married / $24,150 HOH), and no pre-tax deductions (401(k), HSA).
+            Showing top 6 states by take-home pay. All calculations assume {filingStatusLabel[filingStatus]} filing status with standard deduction ($16,100 single / $32,200 married / $24,150 HOH), and no pre-tax deductions (401(k), HSA).
             FICA includes Social Security (6.2% up to $176,100) and Medicare (1.45% + 0.9% additional above $200,000 single / $250,000 married).
+            Full 50-state comparison available in the table above.
           </p>
         </section>
 

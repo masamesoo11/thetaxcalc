@@ -592,8 +592,8 @@ export default function HomePage() {
                 </div>
                 <div className="divider-glow" />
                 <div className="flex justify-between">
-                  <span className="text-muted-foreground">Federal Tax (after $15,000 std ded)</span>
-                  <span className="text-red-400">-$8,717.50</span>
+                  <span className="text-muted-foreground">Federal Tax (after $16,100 std ded)</span>
+                  <span className="text-red-400">-$7,670.00</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-muted-foreground">FICA (SS + Medicare)</span>

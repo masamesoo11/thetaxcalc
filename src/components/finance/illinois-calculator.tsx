@@ -335,7 +335,7 @@ export function IllinoisCalculator() {
               </TableRow>
               <TableRow>
                 <TableCell>Federal Standard Deduction</TableCell>
-                <TableCell className="font-medium">$15,000</TableCell>
+                <TableCell className="font-medium">$16,100</TableCell>
                 <TableCell>Applied to federal tax calculation only</TableCell>
               </TableRow>
               <TableRow>
@@ -360,11 +360,11 @@ export function IllinoisCalculator() {
           <p>Illinois Personal Exemption: -$2,775.00</p>
           <p>Illinois Taxable Income: $72,225.00</p>
           <p>Illinois State Tax (4.95%): $3,575.14</p>
-          <p>Federal Tax (after $15,000 std deduction): $8,717.50</p>
+          <p>Federal Tax (after $16,100 std deduction): $7,670.00</p>
           <p>FICA Total (7.65%): $5,737.50</p>
-          <p>Total Deductions: $18,030.14</p>
-          <p>Net Annual Take-Home: $56,969.86</p>
-          <p>Monthly Take-Home: $4,747.49</p>
+          <p>Total Deductions: $16,982.64</p>
+          <p>Net Annual Take-Home: $58,017.36</p>
+          <p>Monthly Take-Home: $4,834.78</p>
         </div>
       </div>
 

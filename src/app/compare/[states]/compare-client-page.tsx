@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { useState } from 'react';
 import {
   ArrowRightLeft,
   ArrowRight,
@@ -23,9 +24,12 @@ import { calculatePaycheck, formatCurrency } from '@/lib/finance-utils';
 
 // ─── Take-Home Calculation Helper ────────────────────────────────────────────
 
+type FilingStatus = 'single' | 'married' | 'head_of_household';
+
 function getTakeHome(
   salary: number,
-  stateKey: string
+  stateKey: string,
+  filingStatus: FilingStatus = 'single'
 ): { net: number; stateTax: number; federalTax: number; fica: number; effectiveRate: number } {
   const result = calculatePaycheck({
     annualSalary: salary,
@@ -34,7 +38,7 @@ function getTakeHome(
     retirement401k: 0,
     hsaContribution: 0,
     stateKey,
-    filingStatus: 'single',
+    filingStatus,
   });
 
   return {
@@ -216,6 +220,7 @@ interface CompareClientPageProps {
 }
 
 export function CompareClientPage({ states }: CompareClientPageProps) {
+  const [filingStatus, setFilingStatus] = useState<FilingStatus>('single');
   const config = getCompareConfig(states);
   if (!config) return null;
 
@@ -223,10 +228,10 @@ export function CompareClientPage({ states }: CompareClientPageProps) {
   const taxKey1 = s1.taxConfigKey;
   const taxKey2 = s2.taxConfigKey;
 
-  const takeHome75k_1 = getTakeHome(75000, taxKey1);
-  const takeHome75k_2 = getTakeHome(75000, taxKey2);
-  const takeHome150k_1 = getTakeHome(150000, taxKey1);
-  const takeHome150k_2 = getTakeHome(150000, taxKey2);
+  const takeHome75k_1 = getTakeHome(75000, taxKey1, filingStatus);
+  const takeHome75k_2 = getTakeHome(75000, taxKey2, filingStatus);
+  const takeHome150k_1 = getTakeHome(150000, taxKey1, filingStatus);
+  const takeHome150k_2 = getTakeHome(150000, taxKey2, filingStatus);
 
   const betterAt75k = takeHome75k_1.net >= takeHome75k_2.net ? s1.name : s2.name;
   const savingsAt75k = Math.abs(takeHome75k_1.net - takeHome75k_2.net);
@@ -254,6 +259,27 @@ export function CompareClientPage({ states }: CompareClientPageProps) {
         <p className="mt-3 max-w-3xl text-lg text-muted-foreground leading-relaxed">
           Look, if you're torn between {s1.name} and {s2.name}, you're probably wondering which one's going to take a bigger bite out of your paycheck. ({s1.incomeTaxLabel} vs {s2.incomeTaxLabel} — yeah, it matters.) We crunched the numbers at $75K and $150K so you don't have to. Spoiler: the difference might surprise you.
         </p>
+        {/* Filing Status Selector */}
+        <div className="mt-5 flex flex-wrap items-center gap-2">
+          <span className="text-sm font-medium text-muted-foreground">Filing Status:</span>
+          {([
+            ['single', 'Single'],
+            ['married', 'Married Filing Jointly'],
+            ['head_of_household', 'Head of Household'],
+          ] as [FilingStatus, string][]).map(([status, label]) => (
+            <button
+              key={status}
+              onClick={() => setFilingStatus(status)}
+              className={`rounded-lg px-4 py-2 text-sm font-medium transition-all ${
+                filingStatus === status
+                  ? 'bg-emerald-600 text-white shadow-lg shadow-emerald-500/20'
+                  : 'bg-muted/30 text-muted-foreground hover:bg-muted/50 border border-border/30'
+              }`}
+            >
+              {label}
+            </button>
+          ))}
+        </div>
       </section>
 
       {/* Side-by-Side Comparison Table */}

@@ -179,10 +179,10 @@ const FICA_DATA = [
 // ─── Data: Standard Deductions ────────────────────────────────────────────────
 
 const STANDARD_DEDUCTIONS = [
-  { filingStatus: 'Single', amount: '$15,000' },
-  { filingStatus: 'Married Filing Jointly', amount: '$30,000' },
-  { filingStatus: 'Head of Household', amount: '$22,500' },
-  { filingStatus: 'Married Filing Separately', amount: '$15,000' },
+  { filingStatus: 'Single', amount: '$16,100' },
+  { filingStatus: 'Married Filing Jointly', amount: '$32,200' },
+  { filingStatus: 'Head of Household', amount: '$24,150' },
+  { filingStatus: 'Married Filing Separately', amount: '$16,100' },
   { filingStatus: 'Additional (Age 65+ or Blind)', amount: '$1,600 (S/MFS) / $1,300 (MFJ/QW)' },
 ];
 
@@ -235,7 +235,7 @@ const FAQ_ITEMS = [
   },
   {
     q: 'What is the standard deduction for 2026?',
-    a: 'The 2026 standard deduction is $15,000 for Single and Married Filing Separately filers, $30,000 for Married Filing Jointly, and $22,500 for Head of Household. Taxpayers who are 65 or older or blind get an additional $1,600 (Single/MFS) or $1,300 (MFJ/QW).',
+    a: 'The 2026 standard deduction is $16,100 for Single and Married Filing Separately filers, $32,200 for Married Filing Jointly, and $24,150 for Head of Household. Taxpayers who are 65 or older or blind get an additional $1,600 (Single/MFS) or $1,300 (MFJ/QW).',
   },
   {
     q: 'How much can I contribute to my 401(k) in 2026?',

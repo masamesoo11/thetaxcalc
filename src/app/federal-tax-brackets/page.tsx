@@ -96,7 +96,7 @@ const faqJsonLd = {
           name: 'What is the 2026 standard deduction?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'The 2026 standard deduction is $15,000 for Single and Married Filing Separately, $30,000 for Married Filing Jointly, and $22,500 for Head of Household. Taxpayers age 65 or older get an additional $2,000 (single/HOH) or $1,600 per spouse (married).',
+            text: 'The 2026 standard deduction is $16,100 for Single and Married Filing Separately, $32,200 for Married Filing Jointly, and $24,150 for Head of Household. Taxpayers age 65 or older get an additional $2,000 (single/HOH) or $1,600 per spouse (married).',
           },
         },
         {
@@ -104,7 +104,7 @@ const faqJsonLd = {
           name: 'How do progressive tax brackets work?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'The U.S. uses a progressive tax system where each bracket is taxed at its own rate. Only the income within a bracket is taxed at that rate — not your entire income. For example, a single filer earning $75,000 pays 10% on the first $11,925, 12% on income from $11,926 to $48,475, and 22% on income from $48,476 to $60,000 (the taxable income after the $15,000 standard deduction).',
+            text: 'The U.S. uses a progressive tax system where each bracket is taxed at its own rate. Only the income within a bracket is taxed at that rate — not your entire income. For example, a single filer earning $75,000 pays 10% on the first $12,400, 12% on income from $12,401 to $50,400, and 22% on income from $50,401 to $58,900 (the taxable income after the $16,100 standard deduction).',
           },
         },
         {
@@ -120,7 +120,7 @@ const faqJsonLd = {
           name: 'Did the 2026 tax brackets change from 2025?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Yes, the IRS adjusts tax brackets annually for inflation. For 2026, bracket thresholds increased by approximately 2.8% compared to 2025. The standard deduction also increased: $15,000 (single) vs $14,600 in 2025, and $30,000 (MFJ) vs $29,200 in 2025.',
+            text: 'Yes, the IRS adjusts tax brackets annually for inflation. For 2026, bracket thresholds increased significantly compared to 2025 due to the OBBBA. The standard deduction also increased: $16,100 (single) vs $14,600 in 2025, and $32,200 (MFJ) vs $29,200 in 2025.',
           },
         },
       ],
@@ -137,9 +137,9 @@ const faqJsonLd = {
         { name: '32% Bracket Upper Limit (Single)', value: '$250,525' },
         { name: '35% Bracket Upper Limit (Single)', value: '$626,350' },
         { name: '37% Bracket Threshold (Single)', value: 'Over $626,350' },
-        { name: 'Standard Deduction (Single)', value: '$15,000' },
-        { name: 'Standard Deduction (MFJ)', value: '$30,000' },
-        { name: 'Standard Deduction (HOH)', value: '$22,500' },
+        { name: 'Standard Deduction (Single)', value: '$16,100' },
+        { name: 'Standard Deduction (MFJ)', value: '$32,200' },
+        { name: 'Standard Deduction (HOH)', value: '$24,150' },
       ],
     },
   ],
@@ -154,11 +154,11 @@ const FAQS = [
   },
   {
     q: 'What is the 2026 standard deduction?',
-    a: 'For 2026: $15,000 for Single and Married Filing Separately, $30,000 for Married Filing Jointly, $22,500 for Head of Household. If you\'re 65 or older, you get an extra $2,000 (single/HOH) or $1,600 per spouse (married). Most people just take the standard deduction — it\'s simpler and usually better than itemizing unless you have a ton of mortgage interest or charitable donations.',
+    a: 'For 2026: $16,100 for Single and Married Filing Separately, $32,200 for Married Filing Jointly, $24,150 for Head of Household. If you\'re 65 or older, you get an extra $2,000 (single/HOH) or $1,600 per spouse (married). Most people just take the standard deduction — it\'s simpler and usually better than itemizing unless you have a ton of mortgage interest or charitable donations.',
   },
   {
     q: 'How do progressive tax brackets work?',
-    a: 'Progressive means your income gets taxed in layers, not all at one rate. Take a single filer making $75,000. After the $15,000 standard deduction, taxable income is $60,000. The first $11,925 gets 10%, the chunk from $11,926 to $48,475 gets 12%, and only the remaining $11,525 gets 22%. Your total federal tax is the sum of those three pieces — not 22% of the whole thing. Big difference.',
+    a: 'Progressive means your income gets taxed in layers, not all at one rate. Take a single filer making $75,000. After the $16,100 standard deduction, taxable income is $58,900. The first $12,400 gets 10%, the chunk from $12,401 to $50,400 gets 12%, and only the remaining $8,500 gets 22%. Your total federal tax is the sum of those three pieces — not 22% of the whole thing. Big difference.',
   },
   {
     q: 'What is the difference between marginal and effective tax rates?',
@@ -166,11 +166,11 @@ const FAQS = [
   },
   {
     q: 'Did the 2026 tax brackets change from 2025?',
-    a: 'Yep. The IRS adjusts for inflation every year. For 2026, bracket thresholds went up roughly 2.8% compared to 2025. Standard deduction went from $14,600 to $15,000 (single) and $29,200 to $30,000 (married). These adjustments are supposed to prevent "bracket creep" — where inflation pushes you into a higher bracket even though your purchasing power didn\'t actually improve. Doesn\'t always work perfectly, but it helps.',
+    a: 'Yep. The IRS adjusts for inflation every year. For 2026, the OBBBA significantly boosted the standard deduction: from $14,600 to $16,100 (single) and $29,200 to $32,200 (married). Bracket thresholds also increased. These adjustments are supposed to prevent "bracket creep" — where inflation pushes you into a higher bracket even though your purchasing power didn\'t actually improve. Doesn\'t always work perfectly, but it helps.',
   },
   {
     q: 'What is the standard deduction for someone 65 or older?',
-    a: 'For 2026, if you\'re 65+, you get an extra deduction on top of the base. Single and HOH filers get another $2,000 (so $17,000 or $24,500 total). Married filing jointly gets $1,600 per qualifying spouse — so a married couple both 65+ would deduct $33,200 ($30,000 + $1,600 + $1,600). Nice little bonus for older taxpayers.',
+    a: 'For 2026, if you\'re 65+, you get an extra deduction on top of the base. Single and HOH filers get another $2,000 (so $18,100 or $26,150 total). Married filing jointly gets $1,600 per qualifying spouse — so a married couple both 65+ would deduct $35,400 ($32,200 + $1,600 + $1,600). Nice little bonus for older taxpayers.',
   },
 ];
 
@@ -178,13 +178,13 @@ const FAQS = [
 
 const SALARY_BREAKDOWN = [
   { label: 'Gross Annual Salary', value: '$75,000.00', color: 'text-foreground' },
-  { label: 'Standard Deduction (Single)', value: '−$15,000.00', color: 'text-muted-foreground', isDividerAfter: true },
-  { label: 'Taxable Income', value: '$60,000.00', color: 'text-foreground font-semibold' },
-  { label: '10% on first $11,925', value: '$1,192.50', color: 'text-emerald-400' },
-  { label: '12% on $11,926 – $48,475', value: '$4,386.00', color: 'text-teal-400' },
-  { label: '22% on $48,476 – $60,000', value: '$2,534.50', color: 'text-amber-400' },
-  { label: 'Total Federal Tax', value: '$8,113.00', color: 'text-red-400 font-semibold', isDividerAfter: true },
-  { label: 'Effective Federal Rate', value: '10.82%', color: 'text-foreground' },
+  { label: 'Standard Deduction (Single)', value: '−$16,100.00', color: 'text-muted-foreground', isDividerAfter: true },
+  { label: 'Taxable Income', value: '$58,900.00', color: 'text-foreground font-semibold' },
+  { label: '10% on first $12,400', value: '$1,240.00', color: 'text-emerald-400' },
+  { label: '12% on $12,401 – $50,400', value: '$4,560.00', color: 'text-teal-400' },
+  { label: '22% on $50,401 – $58,900', value: '$1,870.00', color: 'text-amber-400' },
+  { label: 'Total Federal Tax', value: '$7,670.00', color: 'text-red-400 font-semibold', isDividerAfter: true },
+  { label: 'Effective Federal Rate', value: '10.23%', color: 'text-foreground' },
   { label: 'Marginal Rate', value: '22%', color: 'text-foreground' },
 ];
 
@@ -272,7 +272,7 @@ export default function FederalTaxBracketsPage() {
             {[
               {
                 status: 'Single',
-                amount: '$15,000',
+                amount: '$16,100',
                 detail: 'Also applies to Married Filing Separately',
                 icon: DollarSign,
                 color: 'from-emerald-600/20 to-teal-600/10',
@@ -280,7 +280,7 @@ export default function FederalTaxBracketsPage() {
               },
               {
                 status: 'Married Filing Jointly',
-                amount: '$30,000',
+                amount: '$32,200',
                 detail: 'Also applies to Surviving Spouses',
                 icon: TrendingUp,
                 color: 'from-teal-600/20 to-emerald-600/10',
@@ -288,7 +288,7 @@ export default function FederalTaxBracketsPage() {
               },
               {
                 status: 'Head of Household',
-                amount: '$22,500',
+                amount: '$24,150',
                 detail: 'For unmarried taxpayers with dependents',
                 icon: Calculator,
                 color: 'from-amber-600/20 to-yellow-600/10',
@@ -329,7 +329,7 @@ export default function FederalTaxBracketsPage() {
               <div className="text-sm text-muted-foreground leading-relaxed">
                 <strong className="text-foreground">Example:</strong> A married couple where both spouses are 65 or older
                 would have a standard deduction of{' '}
-                <span className="text-emerald-400 font-semibold">$33,200</span> ($30,000 base + $1,600 + $1,600).
+                <span className="text-emerald-400 font-semibold">$35,400</span> ($32,200 base + $1,600 + $1,600).
                 This reduces their taxable income before any bracket is applied.
               </div>
             </div>
@@ -360,7 +360,7 @@ export default function FederalTaxBracketsPage() {
               <ul className="mt-6 space-y-3">
                 {[
                   'Only income within each bracket range is taxed at that rate',
-                  'The standard deduction removes $15,000 (single) from taxation entirely',
+                  'The standard deduction removes $16,100 (single) from taxation entirely',
                   'Moving into a higher bracket only affects income above the threshold',
                   'Your total tax is the sum of tax from each bracket',
                 ].map((point) => (

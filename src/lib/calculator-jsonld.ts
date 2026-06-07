@@ -93,7 +93,7 @@ function getIllinoisJsonLd() {
       { '@type': 'Dataset', name: '2026 Illinois Tax Rates', description: 'Key Illinois tax rates and federal brackets for 2026 paycheck calculations.', creator: { '@type': 'Organization', name: 'TheTaxCalc', url: SITE_URL }, license: `${SITE_URL}/terms`, variableMeasured: [
         { '@type': 'PropertyValue', name: 'Illinois Flat Tax Rate', value: '4.95%' },
         { '@type': 'PropertyValue', name: 'Illinois Personal Exemption', value: '$2,775' },
-        { '@type': 'PropertyValue', name: 'Federal Standard Deduction (Single)', value: '$15,000' },
+        { '@type': 'PropertyValue', name: 'Federal Standard Deduction (Single)', value: '$16,100' },
         { '@type': 'PropertyValue', name: 'Social Security Wage Cap', value: '$176,100' },
       ]},
       faqsToJsonLd(ILLINOIS_FAQS),
@@ -284,8 +284,8 @@ function getIncomeTaxJsonLd() {
       { '@type': 'WebApplication', name: 'Income Tax Calculator 2026', url: `${SITE_URL}/income-tax-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
       { '@type': 'Dataset', name: '2026 Federal Income Tax Data', description: 'Federal income tax brackets, standard deductions, and FICA rates for 2026.', creator: { '@type': 'Organization', name: 'TheTaxCalc', url: SITE_URL }, license: `${SITE_URL}/terms`, variableMeasured: [
         { '@type': 'PropertyValue', name: 'Federal Tax Brackets', value: '10% – 37%' },
-        { '@type': 'PropertyValue', name: 'Standard Deduction (Single)', value: '$15,000' },
-        { '@type': 'PropertyValue', name: 'Standard Deduction (Married)', value: '$30,000' },
+        { '@type': 'PropertyValue', name: 'Standard Deduction (Single)', value: '$16,100' },
+        { '@type': 'PropertyValue', name: 'Standard Deduction (Married)', value: '$32,200' },
         { '@type': 'PropertyValue', name: 'Social Security Wage Cap', value: '$176,100' },
         { '@type': 'PropertyValue', name: 'FICA Rate', value: '7.65%' },
       ]},
@@ -325,8 +325,8 @@ function getTaxRefundJsonLd() {
       ]},
       { '@type': 'WebApplication', name: 'Tax Refund Calculator 2026', url: `${SITE_URL}/tax-refund-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
       { '@type': 'Dataset', name: '2026 Tax Refund Key Rates', description: 'Key tax refund rates, deductions, and credit amounts for 2026 tax filing.', creator: { '@type': 'Organization', name: 'TheTaxCalc', url: SITE_URL }, license: `${SITE_URL}/terms`, variableMeasured: [
-        { '@type': 'PropertyValue', name: 'Standard Deduction (Single)', value: '$15,000' },
-        { '@type': 'PropertyValue', name: 'Standard Deduction (Married)', value: '$30,000' },
+        { '@type': 'PropertyValue', name: 'Standard Deduction (Single)', value: '$16,100' },
+        { '@type': 'PropertyValue', name: 'Standard Deduction (Married)', value: '$32,200' },
         { '@type': 'PropertyValue', name: 'Child Tax Credit', value: '$2,000 per child' },
         { '@type': 'PropertyValue', name: 'Refundable CTC Portion', value: 'Up to $1,700' },
         { '@type': 'PropertyValue', name: 'EIC Maximum (3+ children)', value: '$7,430' },

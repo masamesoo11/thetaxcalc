@@ -77,7 +77,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     letter: 'D',
     definition:
       'Tax deductions reduce your taxable income. You can choose the standard deduction (a flat amount) or itemize deductions (mortgage interest, state/local taxes up to $10,000, charitable contributions). You should pick whichever gives you the larger deduction.',
-    figure2026: 'Standard deduction: $15,000 (single), $30,000 (MFJ), $22,500 (HoH)',
+    figure2026: 'Standard deduction: $16,100 (single), $32,200 (MFJ), $24,150 (HoH)',
     calculatorLink: '/paycheck-calculator',
     calculatorLabel: 'Paycheck Calculator',
   },
@@ -121,7 +121,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     definition:
       'Your filing status determines your tax rates, standard deduction, and eligibility for certain credits. The five filing statuses are: Single, Married Filing Jointly (MFJ), Married Filing Separately (MFS), Head of Household (HoH), and Qualifying Surviving Spouse (QSS). Choosing the correct status can significantly affect your tax bill.',
     example:
-      'A single filer gets a $15,000 standard deduction in 2026, while Head of Household gets $22,500 — a $7,500 difference in taxable income.',
+      'A single filer gets a $16,100 standard deduction in 2026, while Head of Household gets $24,150 — a $8,050 difference in taxable income.',
     calculatorLink: '/paycheck-calculator',
     calculatorLabel: 'Paycheck Calculator',
   },
@@ -153,8 +153,8 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     slug: 'head-of-household',
     letter: 'H',
     definition:
-      'Head of Household is a filing status for unmarried individuals who pay more than half the cost of maintaining a home for themselves and a qualifying dependent. It offers a larger standard deduction ($22,500 in 2026) and wider tax brackets compared to Single filing status.',
-    figure2026: 'Standard deduction: $22,500; wider 12% bracket up to ~$64,100',
+      'Head of Household is a filing status for unmarried individuals who pay more than half the cost of maintaining a home for themselves and a qualifying dependent. It offers a larger standard deduction ($24,150 in 2026) and wider tax brackets compared to Single filing status.',
+    figure2026: 'Standard deduction: $24,150; wider 12% bracket up to ~$64,100',
     calculatorLink: '/paycheck-calculator',
     calculatorLabel: 'Paycheck Calculator',
   },
@@ -299,7 +299,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     letter: 'S',
     definition:
       'The standard deduction is a flat amount that reduces your taxable income. You can claim it instead of itemizing deductions. The amount varies by filing status and is adjusted annually for inflation. Most taxpayers take the standard deduction because it exceeds their potential itemized deductions.',
-    figure2026: '$15,000 (single), $30,000 (MFJ), $22,500 (HoH); additional $2,000 for age 65+ or blind',
+    figure2026: '$16,100 (single), $32,200 (MFJ), $24,150 (HoH); additional $2,000 for age 65+ or blind',
     calculatorLink: '/paycheck-calculator',
     calculatorLabel: 'Paycheck Calculator',
   },
@@ -333,7 +333,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     definition:
       'Taxable income is the portion of your income that is subject to federal income tax after subtracting deductions (standard or itemized) from your AGI. It is the amount to which the tax brackets are applied to calculate your federal tax liability.',
     example:
-      'If your AGI is $80,000 and you take the $15,000 standard deduction (single), your taxable income is $65,000. Only this amount is subject to the bracket rates.',
+      'If your AGI is $80,000 and you take the $16,100 standard deduction (single), your taxable income is $63,900. Only this amount is subject to the bracket rates.',
     calculatorLink: '/paycheck-calculator',
     calculatorLabel: 'Paycheck Calculator',
   },

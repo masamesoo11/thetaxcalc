@@ -162,7 +162,7 @@ function getIllinoisJsonLd() {
       { '@type': 'Dataset', name: '2026 Illinois Tax Rates', variableMeasured: [
         { name: 'Illinois Flat Tax Rate', value: '4.95%' },
         { name: 'Illinois Personal Exemption', value: '$2,775' },
-        { name: 'Federal Standard Deduction (Single)', value: '$15,000' },
+        { name: 'Federal Standard Deduction (Single)', value: '$16,100' },
         { name: 'Social Security Wage Cap', value: '$176,100' },
       ]},
       faqsToJsonLd(ILLINOIS_FAQS),
@@ -332,8 +332,8 @@ function getTaxRefundJsonLd() {
       { '@type': 'WebApplication', name: 'Tax Refund Calculator 2026', url: `${SITE_URL}/tax-refund-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
       { '@type': 'MathSolver', name: 'Tax Refund Math Solver', description: 'Computes estimated tax refund: Refund = Total Taxes Withheld - (Federal Tax Owed + State Tax Owed), where Federal Tax Owed uses progressive brackets with standard/itemized deductions and tax credits.', mathExpression: 'Refund = (Fed_Withheld + State_Withheld) - (Fed_Tax(Gross - Deduction) - Credits + State_Tax)' },
       { '@type': 'Dataset', name: '2026 Tax Refund Key Rates', variableMeasured: [
-        { name: 'Standard Deduction (Single)', value: '$15,000' },
-        { name: 'Standard Deduction (Married)', value: '$30,000' },
+        { name: 'Standard Deduction (Single)', value: '$16,100' },
+        { name: 'Standard Deduction (Married)', value: '$32,200' },
         { name: 'Child Tax Credit', value: '$2,000 per child' },
         { name: 'Refundable CTC Portion', value: 'Up to $1,700' },
         { name: 'EIC Maximum (3+ children)', value: '$7,430' },
@@ -400,7 +400,7 @@ function getGeorgiaJsonLd() {
         { name: 'Georgia Flat Tax Rate', value: '5.49%' },
         { name: 'Georgia Standard Deduction (Single)', value: '$5,400' },
         { name: 'Georgia Standard Deduction (Married)', value: '$7,100' },
-        { name: 'Federal Standard Deduction (Single)', value: '$15,000' },
+        { name: 'Federal Standard Deduction (Single)', value: '$16,100' },
       ]},
       faqsToJsonLd(GEORGIA_FAQS),
     ],
@@ -439,8 +439,8 @@ function getIrsWithholdingJsonLd() {
       { '@type': 'WebApplication', name: 'IRS Withholding Calculator 2026', url: `${SITE_URL}/irs-withholding-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
       { '@type': 'MathSolver', name: 'IRS Withholding Math Solver', description: 'Computes optimal W-4 withholding: Withholding = (Annual Tax Owed - Credits) / Pay Periods, compared to current withholding.', mathExpression: 'Withholding_Period = (Tax_Owed - Credits) / N_Periods' },
       { '@type': 'Dataset', name: '2026 IRS Withholding Data', variableMeasured: [
-        { name: 'Standard Deduction (Single)', value: '$15,000' },
-        { name: 'Standard Deduction (Married)', value: '$30,000' },
+        { name: 'Standard Deduction (Single)', value: '$16,100' },
+        { name: 'Standard Deduction (Married)', value: '$32,200' },
         { name: 'Child Tax Credit', value: '$2,000 per child' },
         { name: 'Underpayment Penalty Threshold', value: '90% of tax owed or 100% of prior year' },
       ]},
@@ -553,14 +553,14 @@ function getCalculatorContent(type: string): CalculatorContent {
       return {
         howItWorks: [
           'Look at your pay stub sometime. That number at the bottom — the one that actually hits your bank — is way smaller than the number at the top. This calculator tells you why, line by line. All withholding calculations follow <a href="https://www.irs.gov/publications/p15t" target="_blank" rel="noopener noreferrer nofollow">IRS Publication 15-T</a>.',
-          'Here\'s what comes out of every paycheck. Federal tax uses progressive brackets from 10% up to 37%, with standard deductions of $15,000 (single) or $30,000 (married). Then <a href="/glossary">FICA</a>: 6.2% for Social Security on income up to $176,100, and 1.45% for Medicare on everything. Make over $200,000? Add another 0.9% Medicare surtax on the amount above that.',
+          'Here\'s what comes out of every paycheck. Federal tax uses progressive brackets from 10% up to 37%, with standard deductions of $16,100 (single) or $32,200 (married). Then <a href="/glossary">FICA</a>: 6.2% for Social Security on income up to $176,100, and 1.45% for Medicare on everything. Make over $200,000? Add another 0.9% Medicare surtax on the amount above that.',
           'My buddy in Chicago and I compared stubs once. Same salary, same filing status. He walked away with about $3,800 less for the year because Illinois takes 4.95% and my state takes nothing. That\'s when it hit me — state tax is not a small factor. We cover five states here: Illinois at 4.95% flat, Texas at 0%, Florida at 0%, California at 1%–13.3% progressive, and New York at 4%–10.9% plus a potential NYC tax.',
           'A couple things that help soften the blow:\n- <a href="/401k-retirement-calculator">401(k) contributions</a> reduce taxable income at both federal and state level\n- HSA contributions do the same\n- These pre-tax deductions are basically a discount on your tax bill',
           'Bottom line — you\'ll see your net pay, effective tax rate, and marginal rate. Most people think their effective rate is higher than it actually is. Go ahead, see for yourself.',
         ],
         keyRates: [
           { label: 'Federal Tax Brackets', value: '10% – 37%' },
-          { label: 'Standard Deduction (Single)', value: '$15,000' },
+          { label: 'Standard Deduction (Single)', value: '$16,100' },
           { label: 'Social Security Rate', value: '6.2% (up to $176,100)' },
           { label: 'Medicare Rate', value: '1.45% (no cap)' },
           { label: 'Additional Medicare Tax', value: '0.9% (above $200K)' },
@@ -617,7 +617,7 @@ function getCalculatorContent(type: string): CalculatorContent {
           { label: 'Texas State Income Tax', value: '0%' },
           { label: 'TX Avg Property Tax Rate', value: '~1.71%' },
           { label: 'TX Avg Combined Sales Tax', value: '8.2%' },
-          { label: 'Federal Standard Deduction', value: '$15,000 (single)' },
+          { label: 'Federal Standard Deduction', value: '$16,100 (single)' },
           { label: 'Social Security Rate', value: '6.2% (up to $176,100)' },
         ],
         faqs: TEXAS_FAQS,
@@ -647,7 +647,7 @@ function getCalculatorContent(type: string): CalculatorContent {
           { label: 'FL Avg Property Tax Rate', value: '~0.86%' },
           { label: 'FL Avg Combined Sales Tax', value: '7.0%' },
           { label: 'Homestead Exemption', value: 'Up to $50,000' },
-          { label: 'Federal Standard Deduction', value: '$15,000 (single)' },
+          { label: 'Federal Standard Deduction', value: '$16,100 (single)' },
         ],
         faqs: FLORIDA_FAQS,
         relatedCalculators: [
@@ -665,7 +665,7 @@ function getCalculatorContent(type: string): CalculatorContent {
       return {
         howItWorks: [
           'California has the highest state income tax in the country. Top rate is 13.3%, and it starts at $698,271 of taxable income for single filers. Even at a modest salary you\'re probably paying 6%–9.3% to the state. I won\'t pretend that doesn\'t sting.',
-          'The state uses <a href="https://www.ftb.ca.gov/" target="_blank" rel="noopener noreferrer nofollow">nine progressive brackets</a>. Standard deduction for 2026 is $6,083 (single) or $12,166 (married). After that deduction, each slice of your income gets its own rate — 1% on the first $10,099, climbing all the way to 13.3% above $698,271. Same principle as federal brackets: only the income within each bracket gets that rate. On top of this, you\'re paying federal progressive brackets with the $15,000 standard deduction, plus FICA at 7.65%. Pre-tax deductions like <a href="/401k-retirement-calculator">401(k) contributions</a> are huge in California because they cut your taxable income at both federal and state level. At 13.3% for high earners, that state deduction is worth a lot.',
+          'The state uses <a href="https://www.ftb.ca.gov/" target="_blank" rel="noopener noreferrer nofollow">nine progressive brackets</a>. Standard deduction for 2026 is $6,083 (single) or $12,166 (married). After that deduction, each slice of your income gets its own rate — 1% on the first $10,099, climbing all the way to 13.3% above $698,271. Same principle as federal brackets: only the income within each bracket gets that rate. On top of this, you\'re paying federal progressive brackets with the $16,100 standard deduction, plus FICA at 7.65%. Pre-tax deductions like <a href="/401k-retirement-calculator">401(k) contributions</a> are huge in California because they cut your taxable income at both federal and state level. At 13.3% for high earners, that state deduction is worth a lot.',
           'One thing that catches people off guard: California property taxes are actually pretty reasonable. Average effective rate around 0.71%. Proposition 13 caps annual assessed value increases at 2%, so your tax bill doesn\'t spiral even if your home\'s market value goes crazy. Of course, when the median house costs $800K, even a low rate gives you a hefty bill. And at least Social Security benefits aren\'t taxed by the state.',
           'A coworker of mine was offered a $130K job in San Francisco and almost took it without running the numbers. California state tax alone on that salary is roughly $8,500. The same job in <a href="/texas-tax-calculator">Texas</a>? $0 state tax. That\'s not chump change. <a href="/relocation-calculator">Do the math before you accept that offer</a>.',
         ],
@@ -848,13 +848,13 @@ function getCalculatorContent(type: string): CalculatorContent {
         howItWorks: [
           'Your tax refund is simply the difference between what was withheld from your paychecks throughout the year and what you actually owe in taxes. If your employer withheld more than your total tax bill, the government sends you a refund. If they withheld less, you write a check. This <a href="/tax-refund-calculator">tax refund calculator</a> helps you figure out which scenario you\'re looking at before you file.',
           'The calculation goes like this: start with your total income, subtract deductions (standard or itemized) to get taxable income, apply the federal tax brackets, subtract any credits you qualify for, and that\'s your federal tax owed. Compare it to what was already withheld. The difference is your refund — or your balance due.',
-          'The standard deduction for 2026 is $15,000 (single), $30,000 (married filing jointly), or $22,500 (head of household). Most people take the standard — about 90% of taxpayers. But if you have significant mortgage interest, charitable donations, or state/local taxes (SALT, capped at $10,000), itemizing might save you more. This calculator lets you try both.',
+          'The standard deduction for 2026 is $16,100 (single), $32,200 (married filing jointly), or $24,150 (head of household). Most people take the standard — about 90% of taxpayers. But if you have significant mortgage interest, charitable donations, or state/local taxes (SALT, capped at $10,000), itemizing might save you more. This calculator lets you try both.',
           'Tax credits are better than deductions — they reduce your tax bill dollar for dollar, while deductions only reduce your taxable income. The <a href="https://www.irs.gov/credits-deductions/individuals/child-tax-credit" target="_blank" rel="noopener noreferrer nofollow">Child Tax Credit</a> gives you $2,000 per qualifying child (up to $1,700 refundable). The Earned Income Credit can be worth up to $7,430 for families with three or more children. These credits can turn a small refund into a big one.',
           'A quick note on refund timing: if you e-file and choose direct deposit, most refunds arrive within 21 days. Paper returns take 6–8 weeks. The IRS typically starts accepting returns in late January, and filing early usually means faster processing. Just make sure you have all your documents (W-2, 1099, etc.) before you file.',
         ],
         keyRates: [
-          { label: 'Standard Deduction (Single)', value: '$15,000' },
-          { label: 'Standard Deduction (Married)', value: '$30,000' },
+          { label: 'Standard Deduction (Single)', value: '$16,100' },
+          { label: 'Standard Deduction (Married)', value: '$32,200' },
           { label: 'Child Tax Credit', value: '$2,000/child' },
           { label: 'Refundable Portion', value: 'Up to $1,700' },
           { label: 'EIC Max (3+ children)', value: '$7,430' },
@@ -921,7 +921,7 @@ function getCalculatorContent(type: string): CalculatorContent {
       return {
         howItWorks: [
           'Georgia charges a flat 5.49% income tax rate for 2026. That\'s it — one rate for everybody, whether you\'re making $40K or $400K. The state moved to a flat tax system recently, and the rate has been gradually decreasing. Georgia offers a standard deduction of $5,400 for single filers and $7,100 for married filing jointly, which comes off the top before the 5.49% applies. On a $75,000 salary (single), you\'re taxed on $69,600 after the deduction, which comes to about $3,821 in state tax.',
-          'On top of Georgia state tax, you\'ve got the federal progressive brackets with the $15,000 standard deduction, plus FICA at 7.65% combined. So for a single person earning $75,000, the total tax picture looks like this: roughly $8,580 federal, $5,738 FICA, and $3,821 Georgia state tax. That leaves you with about $56,861 take-home — an effective total tax rate of about 24.2%.',
+          'On top of Georgia state tax, you\'ve got the federal progressive brackets with the $16,100 standard deduction, plus FICA at 7.65% combined. So for a single person earning $75,000, the total tax picture looks like this: roughly $7,670 federal, $5,738 FICA, and $3,821 Georgia state tax. That leaves you with about $57,771 take-home — an effective total tax rate of about 23.0%.',
           'Georgia does offer some tax benefits worth noting. Social Security income is not taxed at the state level, and retirees aged 62+ can exclude up to $35,000 of retirement income ($70,000 for couples). That makes Georgia surprisingly competitive for retirees compared to states with higher flat rates like Illinois at 4.95% (though Illinois has a broader retirement income exemption). Property taxes in Georgia average about 0.87% — quite reasonable compared to the national average of 1.1%.',
           'If you\'re considering a move to Georgia, the flat tax is predictable and easier to plan around than progressive brackets. Compare it to <a href="/california-tax-calculator">California\'s 13.3% top rate</a> or <a href="/new-york-tax-calculator">New York\'s 10.9%</a> and the savings are significant for high earners. <a href="/relocation-calculator">Run the relocation calculator</a> to see the difference for your salary.',
         ],
@@ -975,8 +975,8 @@ function getCalculatorContent(type: string): CalculatorContent {
           'Common W-4 mistakes: not updating after getting married, having a second job, or having investment income. Each of these can throw off your withholding significantly. If you and your spouse both work and both check "Married" on your W-4 without accounting for the other\'s income, you\'ll almost certainly underpay. The fix is either Step 2 on the W-4 or using this calculator to figure out the right additional withholding amount.',
         ],
         keyRates: [
-          { label: 'Standard Deduction (Single)', value: '$15,000' },
-          { label: 'Standard Deduction (Married)', value: '$30,000' },
+          { label: 'Standard Deduction (Single)', value: '$16,100' },
+          { label: 'Standard Deduction (Married)', value: '$32,200' },
           { label: 'Safe Harbor (Prior Year)', value: '100% of last year\'s tax' },
           { label: 'Safe Harbor (High Income)', value: '110% if AGI > $150K' },
           { label: 'De Minimis Threshold', value: 'Owe less than $1,000 = no penalty' },

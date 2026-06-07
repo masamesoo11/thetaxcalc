@@ -25,6 +25,7 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { Separator } from '@/components/ui/separator';
+import { Switch } from '@/components/ui/switch';
 import { Badge } from '@/components/ui/badge';
 import {
   Collapsible,
@@ -49,7 +50,7 @@ import {
   type PayFrequency,
   type PaycheckInput,
 } from '@/lib/finance-utils';
-import { FICA_2026, STATE_PROFILES, NEWYORK_COST_OF_LIVING } from '@/lib/tax-config';
+import { FICA_2026, STATE_PROFILES, NEWYORK_COST_OF_LIVING, NYC_TAX_2026 } from '@/lib/tax-config';
 import { useHashParams, updateHashState } from '@/hooks/use-hash-state';
 
 export function NewYorkCalculator() {
@@ -63,6 +64,7 @@ export function NewYorkCalculator() {
   const [filingStatus, setFilingStatus] = useState<'single' | 'married' | 'head_of_household'>(() => (hashParams.filing as 'single' | 'married' | 'head_of_household') || 'single');
   const [retirement401k, setRetirement401k] = useState<number>(() => hashParams.k401k ? Number(hashParams.k401k) : 0);
   const [hsaContribution, setHsaContribution] = useState<number>(() => hashParams.hsa ? Number(hashParams.hsa) : 0);
+  const [nycResident, setNycResident] = useState<boolean>(() => hashParams.nyc === '1' || false);
   const [advancedOpen, setAdvancedOpen] = useState(false);
   const [homeValue, setHomeValue] = useState<number>(() => hashParams.homeValue ? Number(hashParams.homeValue) : NEWYORK_COST_OF_LIVING.averageHomeValue);
   const [annualSpending, setAnnualSpending] = useState<number>(() => hashParams.spending ? Number(hashParams.spending) : 52000);
@@ -77,8 +79,9 @@ export function NewYorkCalculator() {
       hsa: hsaContribution,
       homeValue,
       spending: annualSpending,
+      nyc: nycResident ? '1' : '0',
     });
-  }, [salary, payFrequency, hoursPerWeek, filingStatus, retirement401k, hsaContribution, homeValue, annualSpending]);
+  }, [salary, payFrequency, hoursPerWeek, filingStatus, retirement401k, hsaContribution, homeValue, annualSpending, nycResident]);
 
   const result = useMemo(() => {
     let annualSalary = salary;
@@ -96,8 +99,9 @@ export function NewYorkCalculator() {
       hsaContribution,
       stateKey,
       filingStatus,
+      nycResident,
     });
-  }, [salary, payFrequency, hoursPerWeek, retirement401k, hsaContribution, filingStatus]);
+  }, [salary, payFrequency, hoursPerWeek, retirement401k, hsaContribution, filingStatus, nycResident]);
 
   const colResult = useMemo(() => calculateNewYorkCostOfLiving(homeValue, annualSpending), [homeValue, annualSpending]);
 
@@ -227,6 +231,19 @@ export function NewYorkCalculator() {
                     </SelectContent>
                   </Select>
                 </div>
+              </div>
+              <div className="flex items-center gap-3 rounded-lg bg-amber-500/5 border border-amber-500/20 p-3">
+                <Switch
+                  id="nyc-resident"
+                  checked={nycResident}
+                  onCheckedChange={setNycResident}
+                />
+                <Label htmlFor="nyc-resident" className="text-sm font-medium cursor-pointer">
+                  I live in New York City
+                  <span className="block text-xs text-muted-foreground font-normal">
+                    Adds NYC income tax (3.078%–3.876%)
+                  </span>
+                </Label>
               </div>
             </CardContent>
           </Card>
@@ -366,6 +383,17 @@ export function NewYorkCalculator() {
                   <span className="flex items-center gap-1.5 text-sm text-muted-foreground"><TrendingDown className="h-3.5 w-3.5 text-amber-400" />NY State Tax (4%–10.9%)</span>
                   <span className="text-sm font-medium text-amber-400">-{formatCurrency(result.stateTax)}</span>
                 </div>
+                {nycResident && result.nycTax > 0 && (
+                  <div className="flex items-center justify-between">
+                    <span className="flex items-center gap-1.5 text-sm text-muted-foreground">
+                      <TrendingDown className="h-3.5 w-3.5 text-red-400" />
+                      NYC City Tax (3.078%–3.876%)
+                    </span>
+                    <span className="text-sm font-medium text-red-400">
+                      -{formatCurrency(result.nycTax)}
+                    </span>
+                  </div>
+                )}
                 {result.retirement401k > 0 && (
                   <div className="flex items-center justify-between">
                     <span className="text-sm text-muted-foreground">401(k)</span>
@@ -402,6 +430,37 @@ export function NewYorkCalculator() {
                   )}
                   <Separator className="my-1.5 bg-border/30" />
                   <div className="flex justify-between font-medium text-amber-400"><span>NY State Tax</span><span>{formatCurrency(nyBreakdown.nyTax)}</span></div>
+                  {nycResident && result.nycTax > 0 && (
+                    <>
+                      <Separator className="my-1.5 bg-border/30" />
+                      <p className="text-xs font-medium text-red-400 mt-1">NYC City Tax Breakdown</p>
+                      <div className="mt-1 space-y-1 text-xs text-muted-foreground">
+                        {(() => {
+                          const nycBrackets = NYC_TAX_2026.brackets[filingStatus] ?? NYC_TAX_2026.brackets.single;
+                          let remaining = nyBreakdown.nyTaxableIncome;
+                          const details: { range: string; rate: string; tax: number }[] = [];
+                          for (const bracket of nycBrackets) {
+                            if (remaining <= 0) break;
+                            const bracketWidth = bracket.max === null ? remaining : bracket.max - bracket.min;
+                            const taxableInBracket = Math.min(remaining, bracketWidth);
+                            const bracketTax = taxableInBracket * bracket.rate;
+                            remaining -= taxableInBracket;
+                            const rangeLabel = bracket.max === null
+                              ? `$${bracket.min.toLocaleString()}+`
+                              : `$${bracket.min.toLocaleString()} – $${bracket.max.toLocaleString()}`;
+                            details.push({ range: rangeLabel, rate: `${(bracket.rate * 100).toFixed(3)}%`, tax: bracketTax });
+                          }
+                          return details.map((b, i) => (
+                            <div key={i} className="flex justify-between">
+                              <span>{b.range} @ {b.rate}</span>
+                              <span>{formatCurrency(b.tax)}</span>
+                            </div>
+                          ));
+                        })()}
+                        <div className="flex justify-between font-medium text-red-400"><span>NYC City Tax</span><span>{formatCurrency(result.nycTax)}</span></div>
+                      </div>
+                    </>
+                  )}
                 </div>
               </div>
 
@@ -473,7 +532,7 @@ export function NewYorkCalculator() {
               </TableRow>
               <TableRow>
                 <TableCell>Federal Standard Deduction</TableCell>
-                <TableCell className="font-medium">$15,000</TableCell>
+                <TableCell className="font-medium">$16,100</TableCell>
                 <TableCell>Applied to federal tax calculation only</TableCell>
               </TableRow>
               <TableRow>
@@ -493,11 +552,11 @@ export function NewYorkCalculator() {
           <p>New York Standard Deduction (Single): -$8,100.00</p>
           <p>New York Taxable Income: $91,900.00</p>
           <p>New York State Tax (4%–6.85% brackets): $4,941.38</p>
-          <p>Federal Tax (after $15,000 std deduction): $13,753.00</p>
+          <p>Federal Tax (after $16,100 std deduction): $13,170.00</p>
           <p>FICA Total (7.65%): $7,650.00</p>
-          <p>Total Deductions: $26,344.38</p>
-          <p>Net Annual Take-Home: $73,655.62</p>
-          <p>Monthly Take-Home: $6,137.97</p>
+          <p>Total Deductions: $25,761.38</p>
+          <p>Net Annual Take-Home: $74,238.62</p>
+          <p>Monthly Take-Home: $6,186.55</p>
           <p>Estimated COL Burden (Property + Sales Tax): $11,310.40/yr</p>
           <p>Note: NYC residents pay additional city income tax of 3.078%–3.876%</p>
         </div>
