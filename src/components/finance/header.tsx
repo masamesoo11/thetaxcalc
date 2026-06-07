@@ -22,6 +22,7 @@ import {
   Receipt,
   Clock,
   FileText,
+  Code2,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { COMPONENT_KEY_TO_SLUG } from '@/lib/calculator-routes';
@@ -52,6 +53,8 @@ const CALC_ITEMS = [
 const MORE_LINKS = [
   { key: 'compare', href: '/compare', label: 'Compare States', icon: ArrowRightLeft, desc: 'State vs state taxes' },
   { key: 'salary', href: '/salary', label: 'Salary After Tax', icon: TrendingUp, desc: 'Take-home pay by salary' },
+  { key: 'tax-data', href: '/tax-data', label: 'Tax Data', icon: BarChart3, desc: 'All 50 states — cite & embed' },
+  { key: 'widgets', href: '/widgets', label: 'Free Widgets', icon: Code2, desc: 'Embed calculators on your site' },
   { key: 'glossary', href: '/glossary', label: 'Tax Glossary', icon: BookOpen, desc: '25+ tax terms explained' },
   { key: 'blog', href: '/blog', label: 'Blog', icon: BookOpen, desc: 'Tax guides & tips' },
 ];
@@ -233,6 +236,32 @@ export function Header() {
           >
             <TrendingUp className="h-4 w-4" />
             Salary
+          </Link>
+
+          {/* Tax Data */}
+          <Link
+            href="/tax-data"
+            className={`flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium transition-all ${
+              pathname === '/tax-data'
+                ? 'bg-emerald-500/12 text-emerald-400'
+                : 'text-muted-foreground hover:bg-muted/50 hover:text-foreground'
+            }`}
+          >
+            <BarChart3 className="h-4 w-4" />
+            Data
+          </Link>
+
+          {/* Widgets */}
+          <Link
+            href="/widgets"
+            className={`flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium transition-all ${
+              pathname === '/widgets'
+                ? 'bg-emerald-500/12 text-emerald-400'
+                : 'text-muted-foreground hover:bg-muted/50 hover:text-foreground'
+            }`}
+          >
+            <Code2 className="h-4 w-4" />
+            Widgets
           </Link>
         </nav>
 

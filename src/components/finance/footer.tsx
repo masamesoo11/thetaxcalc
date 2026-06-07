@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { DollarSign, ArrowRight, ArrowRightLeft, Mail, ExternalLink, BookOpen, MapPin, Calculator, Shield, Home, TrendingUp, Receipt, Clock, FileText } from 'lucide-react';
+import { DollarSign, ArrowRight, ArrowRightLeft, Mail, ExternalLink, BookOpen, MapPin, Calculator, Shield, Home, TrendingUp, Receipt, Clock, FileText, BarChart3, Code2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 
@@ -241,6 +241,24 @@ export function Footer() {
                   Tax Blog & Guides
                 </Link>
               </li>
+              <li>
+                <Link
+                  href="/tax-data"
+                  className="flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-emerald-400"
+                >
+                  <BarChart3 className="h-3.5 w-3.5" />
+                  Tax Data & Statistics
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/widgets"
+                  className="flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-emerald-400"
+                >
+                  <Code2 className="h-3.5 w-3.5" />
+                  Free Widgets
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -314,6 +332,9 @@ export function Footer() {
               </Link>
               <Link href="/resources" className="hover:text-emerald-400 transition-colors">
                 Tax Data
+              </Link>
+              <Link href="/tax-data" className="hover:text-emerald-400 transition-colors">
+                Tax Statistics
               </Link>
               <Link href="/widgets" className="hover:text-emerald-400 transition-colors">
                 Free Widgets
