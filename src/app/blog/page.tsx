@@ -5,6 +5,7 @@ import { BlogFilterClient } from './blog-filter-client';
 import { Breadcrumb } from '@/components/finance/breadcrumb';
 import { SITE_URL } from '@/lib/site-config';
 import { getCalculatorAuthor, authorToJsonLd } from '@/lib/authors';
+import { AuthorBioCard } from '@/components/finance/author-bio-card';
 
 
 
@@ -87,6 +88,9 @@ export default async function BlogPage() {
           <p className="font-medium text-foreground">Short version: we do the homework so you don&apos;t have to. Your wallet will thank you.</p>
         </div>
       </section>
+
+      {/* Author Bio Card — E-E-A-T */}
+      <AuthorBioCard authorId="rachel-mitchell" />
 
       {/* Internal Links: Calculator CTA */}
       <section className="mt-12 rounded-xl border border-emerald-500/20 bg-emerald-500/5 p-6">

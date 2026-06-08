@@ -546,3 +546,35 @@ Stage Summary:
 - All data corrections applied ($184,500 SS cap, $16,100 std deduction, 7 states)
 - Agent Browser verification confirmed: homepage, paycheck calculator, resources page all working correctly
 ---
+Task ID: 2
+Agent: Author Bio Card Agent
+Task: Add visible Author Bio Card component for E-E-A-T compliance on calculator and blog pages
+
+Work Log:
+- Created `/src/components/finance/author-bio-card.tsx` — Server component (no 'use client') displaying compact author bio card
+  - Accepts `authorId` prop (string: 'rachel-mitchell' | 'david-chen' | 'sarah-johnson')
+  - Imports author data via `getAuthor(authorId)` from `@/lib/authors`
+  - Displays: author name (linked to /about#author-id), credentials badge, title, bio (2-line clamp), "Verified Expert" badge with check-circle icon, review date "Reviewed: January 2026", data verification notice
+  - Styled: rounded-xl card with emerald accent border, gradient background, initials avatar, compact layout
+  - Returns null gracefully if author not found
+- Modified `/src/app/[calculator]/page.tsx`:
+  - Added import for AuthorBioCard component
+  - Added `const author = getAuthorForCalculator(calculator);` after content fetch (line ~1300)
+  - Inserted `<AuthorBioCard authorId={author.id} />` after FAQ section, before Related Articles section
+- Modified `/src/app/blog/page.tsx`:
+  - Added import for AuthorBioCard component
+  - Added `<AuthorBioCard authorId="rachel-mitchell" />` after "Why read this blog?" section, before Calculator CTA section
+- Modified `/src/app/blog/[slug]/page.tsx`:
+  - Added import for AuthorBioCard component
+  - Added `<AuthorBioCard authorId={author.id} />` after article content, before "Try Our Calculators" section
+  - Uses dynamic author based on blog post category (already available via `getAuthorForCalculator`)
+- Lint passes cleanly (0 errors, 0 warnings)
+- Dev server running correctly
+
+Stage Summary:
+- 1 new file created: author-bio-card.tsx
+- 3 files modified: [calculator]/page.tsx, blog/page.tsx, blog/[slug]/page.tsx
+- All calculator pages now show a visible author bio card after the FAQ section
+- All blog pages show Rachel Mitchell's bio card; blog posts show the category-specific author
+- Key E-E-A-T benefit: Google quality raters can now see identifiable, credentialed experts attributed to YMYL content directly on the page (not just in metadata/JSON-LD)
+---

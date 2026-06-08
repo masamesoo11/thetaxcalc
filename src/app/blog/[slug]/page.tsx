@@ -6,6 +6,7 @@ import { BLOG_CONTENT } from '@/lib/blog-content';
 import { SITE_URL } from '@/lib/site-config';
 import { BlogTableOfContents, type TocEntry } from './blog-toc';
 import { getCalculatorAuthor, authorToJsonLd, getAuthorForCalculator } from '@/lib/authors';
+import { AuthorBioCard } from '@/components/finance/author-bio-card';
 
 export function generateStaticParams() {
   return getPublishedSlugs().map(slug => ({ slug }));
@@ -429,6 +430,9 @@ export default async function BlogDetailPage({
           <Link href="/blog" className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors">← Back to Blog</Link>
         </div>
       </article>
+
+      {/* Author Bio Card — E-E-A-T */}
+      <AuthorBioCard authorId={author.id} />
 
       {/* Internal Links: Try Our Calculators */}
       <section className="mb-8 rounded-xl border border-emerald-500/20 bg-emerald-500/5 p-6">
