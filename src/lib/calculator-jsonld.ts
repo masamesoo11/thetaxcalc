@@ -17,6 +17,13 @@ import {
   INCOME_TAX_FAQS,
   TAX_CALC_FAQS,
   TAX_REFUND_FAQS,
+  OVERTIME_FAQS,
+  GEORGIA_FAQS,
+  LOTTERY_TAX_FAQS,
+  IRS_WITHHOLDING_FAQS,
+  PROPERTY_TAX_FAQS,
+  BONUS_TAX_FAQS,
+  VIRGINIA_FAQS,
 } from '@/lib/faq-data';
 import { SITE_URL } from '@/lib/site-config';
 
@@ -94,7 +101,7 @@ function getIllinoisJsonLd() {
         { '@type': 'PropertyValue', name: 'Illinois Flat Tax Rate', value: '4.95%' },
         { '@type': 'PropertyValue', name: 'Illinois Personal Exemption', value: '$2,775' },
         { '@type': 'PropertyValue', name: 'Federal Standard Deduction (Single)', value: '$16,100' },
-        { '@type': 'PropertyValue', name: 'Social Security Wage Cap', value: '$176,100' },
+        { '@type': 'PropertyValue', name: 'Social Security Wage Cap', value: '$184,500' },
       ]},
       faqsToJsonLd(ILLINOIS_FAQS),
     ],
@@ -286,7 +293,7 @@ function getIncomeTaxJsonLd() {
         { '@type': 'PropertyValue', name: 'Federal Tax Brackets', value: '10% – 37%' },
         { '@type': 'PropertyValue', name: 'Standard Deduction (Single)', value: '$16,100' },
         { '@type': 'PropertyValue', name: 'Standard Deduction (Married)', value: '$32,200' },
-        { '@type': 'PropertyValue', name: 'Social Security Wage Cap', value: '$176,100' },
+        { '@type': 'PropertyValue', name: 'Social Security Wage Cap', value: '$184,500' },
         { '@type': 'PropertyValue', name: 'FICA Rate', value: '7.65%' },
       ]},
       faqsToJsonLd(INCOME_TAX_FAQS),
@@ -336,10 +343,146 @@ function getTaxRefundJsonLd() {
   };
 }
 
+function getOvertimeJsonLd() {
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      { '@type': 'BreadcrumbList', itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+        { '@type': 'ListItem', position: 2, name: 'Overtime Tax Calculator', item: `${SITE_URL}/overtime-tax-calculator` },
+      ]},
+      { '@type': 'WebApplication', name: 'Overtime Tax Calculator 2026', url: `${SITE_URL}/overtime-tax-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
+      { '@type': 'Dataset', name: '2026 Overtime Tax Data', description: 'Federal overtime tax exemption data and FICA rates for 2026 under the One Big Beautiful Bill Act.', creator: { '@type': 'Organization', name: 'TheTaxCalc', url: SITE_URL }, license: `${SITE_URL}/terms`, variableMeasured: [
+        { '@type': 'PropertyValue', name: 'OT Federal Tax Exemption', value: '2025–2028' },
+        { '@type': 'PropertyValue', name: 'OT FICA Rate', value: '7.65%' },
+        { '@type': 'PropertyValue', name: 'OT Multiplier', value: '1.5x' },
+      ]},
+      faqsToJsonLd(OVERTIME_FAQS),
+    ],
+  };
+}
+
+function getGeorgiaJsonLd() {
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      { '@type': 'BreadcrumbList', itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+        { '@type': 'ListItem', position: 2, name: 'Georgia Paycheck Calculator', item: `${SITE_URL}/georgia-tax-calculator` },
+      ]},
+      { '@type': 'WebApplication', name: 'Georgia Paycheck Calculator 2026', url: `${SITE_URL}/georgia-tax-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
+      { '@type': 'Dataset', name: '2026 Georgia Tax Rates', description: 'Key Georgia tax rates and federal brackets for 2026 paycheck calculations.', creator: { '@type': 'Organization', name: 'TheTaxCalc', url: SITE_URL }, license: `${SITE_URL}/terms`, variableMeasured: [
+        { '@type': 'PropertyValue', name: 'Georgia Flat Tax Rate', value: '5.49%' },
+        { '@type': 'PropertyValue', name: 'Georgia Standard Deduction (Single)', value: '$5,400' },
+        { '@type': 'PropertyValue', name: 'Federal Standard Deduction (Single)', value: '$16,100' },
+      ]},
+      faqsToJsonLd(GEORGIA_FAQS),
+    ],
+  };
+}
+
+function getLotteryJsonLd() {
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      { '@type': 'BreadcrumbList', itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+        { '@type': 'ListItem', position: 2, name: 'Lottery Tax Calculator', item: `${SITE_URL}/lottery-tax-calculator` },
+      ]},
+      { '@type': 'WebApplication', name: 'Lottery Tax Calculator 2026', url: `${SITE_URL}/lottery-tax-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
+      { '@type': 'Dataset', name: '2026 Lottery Tax Rates', description: 'Federal and state tax withholding rates for lottery winnings in 2026.', creator: { '@type': 'Organization', name: 'TheTaxCalc', url: SITE_URL }, license: `${SITE_URL}/terms`, variableMeasured: [
+        { '@type': 'PropertyValue', name: 'Federal Withholding Rate', value: '24%' },
+        { '@type': 'PropertyValue', name: 'Top Marginal Federal Rate', value: '37%' },
+        { '@type': 'PropertyValue', name: 'Lump Sum vs Annuity', value: 'Both supported' },
+      ]},
+      faqsToJsonLd(LOTTERY_TAX_FAQS),
+    ],
+  };
+}
+
+function getIrsWithholdingJsonLd() {
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      { '@type': 'BreadcrumbList', itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+        { '@type': 'ListItem', position: 2, name: 'IRS Withholding Calculator', item: `${SITE_URL}/irs-withholding-calculator` },
+      ]},
+      { '@type': 'WebApplication', name: 'IRS Withholding Calculator 2026', url: `${SITE_URL}/irs-withholding-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
+      { '@type': 'Dataset', name: '2026 IRS Withholding Data', description: 'Federal withholding rates and W-4 optimization data for 2026 based on IRS Publication 15-T.', creator: { '@type': 'Organization', name: 'TheTaxCalc', url: SITE_URL }, license: `${SITE_URL}/terms`, variableMeasured: [
+        { '@type': 'PropertyValue', name: 'Standard Deduction (Single)', value: '$16,100' },
+        { '@type': 'PropertyValue', name: 'Standard Deduction (Married)', value: '$32,200' },
+        { '@type': 'PropertyValue', name: 'Child Tax Credit', value: '$2,000' },
+        { '@type': 'PropertyValue', name: 'Based On', value: 'IRS Publication 15-T' },
+      ]},
+      faqsToJsonLd(IRS_WITHHOLDING_FAQS),
+    ],
+  };
+}
+
+function getPropertyTaxJsonLd() {
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      { '@type': 'BreadcrumbList', itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+        { '@type': 'ListItem', position: 2, name: 'Property Tax Calculator', item: `${SITE_URL}/property-tax-calculator` },
+      ]},
+      { '@type': 'WebApplication', name: 'Property Tax Calculator 2026', url: `${SITE_URL}/property-tax-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
+      { '@type': 'Dataset', name: '2026 US Property Tax Rates', description: 'Average effective property tax rates for all 50 US states for 2026.', creator: { '@type': 'Organization', name: 'TheTaxCalc', url: SITE_URL }, license: `${SITE_URL}/terms`, variableMeasured: [
+        { '@type': 'PropertyValue', name: 'Highest Rate', value: '2.23% (NJ)' },
+        { '@type': 'PropertyValue', name: 'Lowest Rate', value: '0.27% (HI)' },
+        { '@type': 'PropertyValue', name: 'US Average', value: '~1.1%' },
+        { '@type': 'PropertyValue', name: 'States Covered', value: 'All 50' },
+      ]},
+      faqsToJsonLd(PROPERTY_TAX_FAQS),
+    ],
+  };
+}
+
+function getBonusTaxJsonLd() {
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      { '@type': 'BreadcrumbList', itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+        { '@type': 'ListItem', position: 2, name: 'Bonus Tax Calculator', item: `${SITE_URL}/bonus-tax-calculator` },
+      ]},
+      { '@type': 'WebApplication', name: 'Bonus Tax Calculator 2026', url: `${SITE_URL}/bonus-tax-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
+      { '@type': 'Dataset', name: '2026 Bonus Tax Rates', description: 'Supplemental wage tax rates for 2026 including flat rate and aggregate methods.', creator: { '@type': 'Organization', name: 'TheTaxCalc', url: SITE_URL }, license: `${SITE_URL}/terms`, variableMeasured: [
+        { '@type': 'PropertyValue', name: 'Flat Supplemental Rate', value: '22%' },
+        { '@type': 'PropertyValue', name: 'Flat Rate Threshold', value: '$1 million' },
+        { '@type': 'PropertyValue', name: 'Rate Above Threshold', value: '37%' },
+      ]},
+      faqsToJsonLd(BONUS_TAX_FAQS),
+    ],
+  };
+}
+
+function getVirginiaJsonLd() {
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      { '@type': 'BreadcrumbList', itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+        { '@type': 'ListItem', position: 2, name: 'Virginia Paycheck Calculator', item: `${SITE_URL}/virginia-tax-calculator` },
+      ]},
+      { '@type': 'WebApplication', name: 'Virginia Paycheck Calculator 2026', url: `${SITE_URL}/virginia-tax-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
+      { '@type': 'Dataset', name: '2026 Virginia Tax Rates', description: 'Key Virginia tax rates including progressive income tax brackets for 2026.', creator: { '@type': 'Organization', name: 'TheTaxCalc', url: SITE_URL }, license: `${SITE_URL}/terms`, variableMeasured: [
+        { '@type': 'PropertyValue', name: 'Virginia Tax Brackets', value: '2% – 5.75%' },
+        { '@type': 'PropertyValue', name: 'Virginia Standard Deduction (Single)', value: '$8,000' },
+        { '@type': 'PropertyValue', name: 'Federal Standard Deduction (Single)', value: '$16,100' },
+      ]},
+      faqsToJsonLd(VIRGINIA_FAQS),
+    ],
+  };
+}
+
 // ─── Public API ──────────────────────────────────────────────────────────────
 
 export function getCalculatorJsonLd(type: string): object {
   switch (type) {
+    case 'home': return getHomeJsonLd();
     case 'illinois': return getIllinoisJsonLd();
     case 'texas': return getTexasJsonLd();
     case 'florida': return getFloridaJsonLd();
@@ -354,6 +497,13 @@ export function getCalculatorJsonLd(type: string): object {
     case 'income-tax': return getIncomeTaxJsonLd();
     case 'tax-calc': return getTaxCalcJsonLd();
     case 'tax-refund': return getTaxRefundJsonLd();
+    case 'overtime': return getOvertimeJsonLd();
+    case 'georgia': return getGeorgiaJsonLd();
+    case 'lottery': return getLotteryJsonLd();
+    case 'irs-withholding': return getIrsWithholdingJsonLd();
+    case 'property-tax': return getPropertyTaxJsonLd();
+    case 'bonus-tax': return getBonusTaxJsonLd();
+    case 'virginia': return getVirginiaJsonLd();
     default: return getHomeJsonLd();
   }
 }
