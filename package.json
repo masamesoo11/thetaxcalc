@@ -6,7 +6,6 @@
     "dev": "next dev -p 3000",
     "build": "next build",
     "build:cf": "npx @cloudflare/next-on-pages && node scripts/fix-routes.js",
-    "postbuild": "node scripts/fix-routes.js",
     "start": "npx serve out",
     "lint": "eslint .",
     "db:push": "prisma db push",
