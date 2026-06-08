@@ -617,3 +617,109 @@ Stage Summary:
 - About page now has dedicated "Our Tax Experts" section with 3 named, credentialed professionals
 - Anchor IDs on about page enable deep linking from AuthorBioCard author name links
 - Major E-E-A-T improvement: Google quality raters can now see identifiable experts on every page
+---
+Task ID: 3
+Agent: Robots & Sitemap Fix Agent
+Task: Fix robots.txt and sitemap for Google Search Console warnings
+
+Work Log:
+- Fixed `/home/z/my-project/public/robots.txt`:
+  - Removed all 10 individual AI bot User-Agent entries (GPTBot, ChatGPT-User, Google-Extended, CCBot, PerplexityBot, YouBot, ClaudeBot, Applebot-Extended, Twitterbot, facebookexternalhit)
+  - Replaced with single catch-all `User-Agent: *` rule with Allow: / and Disallow: /api/ and /admin/
+  - Added comment explaining why AI bots are NOT listed separately (avoids GSC "rule ignored by Googlebot" warnings)
+  - Removed Host: directive (not in robots.txt spec, can cause warnings)
+  - Kept Sitemap directive pointing to https://thetaxcalc.com/sitemap.xml
+
+- Fixed `/home/z/my-project/src/app/robots.ts`:
+  - Removed all 10 individual AI bot rule objects (GPTBot, ChatGPT-User, Google-Extended, CCBot, PerplexityBot, YouBot, ClaudeBot, Applebot-Extended, Twitterbot, facebookexternalhit)
+  - Replaced with single catch-all rule: `userAgent: '*', allow: '/', disallow: ['/api/', '/admin/']`
+  - Added detailed comment explaining why separate AI bot User-Agent groups were removed (Googlebot ignores rules for other user-agents causing "rule ignored" warnings in GSC)
+  - Kept sitemap reference using SITE_URL
+  - Removed host directive comment (no longer relevant)
+
+- Fixed `/home/z/my-project/src/app/sitemap.ts`:
+  - Replaced `new Date().toISOString()` (dynamic "now") with actual last modification dates for ALL pages
+  - Problem: using `now` for every page meant Google saw ALL pages as "just changed" on every sitemap fetch — a known negative signal
+  - Added `TAX_DATA_UPDATED = '2026-01-15'` constant: date when 2026 tax data (brackets, std deductions, FICA) was last updated
+  - Added `STATIC_PAGE_UPDATED = '2026-02-01'` constant: date of recent static page refresh
+  - Homepage: lastModified = '2026-01-15'
+  - Calculator pages: lastModified = '2026-01-15' (all updated when 2026 tax data was published)
+  - State sales tax pages: lastModified = '2026-01-15'
+  - Salary pages: lastModified = '2026-01-15'
+  - Static pages (about, glossary, resources, widgets, tax-data, compare, federal-tax-brackets, blog index): lastModified = '2026-02-01'
+  - Privacy/Terms: lastModified = '2025-12-01'
+  - Blog posts: kept using `post.updatedAt || post.createdAt || TAX_DATA_UPDATED` (uses actual dates, only falls back to static date)
+  - Removed unused `const now = new Date().toISOString();` line
+  - Added code comment explaining why dynamic dates are avoided
+
+Stage Summary:
+- 3 files modified: public/robots.txt, src/app/robots.ts, src/app/sitemap.ts
+- robots.txt simplified from 37 lines (10 individual bot groups) to 10 lines (1 catch-all group)
+- GSC "rule ignored by Googlebot" warnings eliminated (no more separate AI bot User-Agent groups)
+- Sitemap no longer signals "all pages just changed" on every fetch (critical SEO fix)
+- All changes are backward compatible (same effective rules, just cleaner representation)
+---
+Task ID: 2
+Agent: IndexNow Integration Agent
+Task: Create IndexNow API integration for instant search engine indexing
+
+Work Log:
+- Created key verification file at `/public/d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9.txt` with the IndexNow API key content
+- Created IndexNow utility library at `/src/lib/indexnow.ts` with:
+  - `submitToIndexNow(urls: string[])` — Submits URLs to 3 IndexNow endpoints (api.indexnow.org, bing.com/indexnow, yandex.com/indexnow) in parallel
+  - `submitAllPagesToIndexNow()` — Generates all site URLs from sitemap config and submits in batches (max 100 URLs per request)
+  - `getAllSiteUrls()` — Builds complete list of all site URLs from: calculators (20), sales tax pages (51), salary pages (27), comparison pages (11), blog posts (14+), and static pages (8)
+  - `isValidUrl()` / `filterValidUrls()` — Validates URLs belong to thetaxcalc.com domain
+  - Proper TypeScript types: `IndexNowRequestBody`, `IndexNowResult`, `SubmitResult`
+  - Rate limiting: MAX_URLS_PER_REQUEST = 100, 1-second delay between batches
+  - Imports SITE_URL from `@/lib/site-config`, sitemap data from calculator-routes, salary-calculations, compare-config, state-sales-tax-data, blog-index
+- Created API route at `/src/app/api/indexnow/route.ts` with:
+  - POST handler: Accepts `{ urls: string[] }` for specific URLs or `{ all: true }` for all site pages
+  - GET handler: Returns service health check with configuration info
+  - Validates URL count (max 100), URL type (strings only), URL domain (thetaxcalc.com only)
+  - Edge runtime compatible
+  - Proper error handling with descriptive messages (400, 422, 500 status codes)
+  - 207 Multi-Status response when partial success
+- Lint passes cleanly (0 errors, 0 warnings)
+- Verified: GET /api/indexnow returns service info, key file accessible at /d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9.txt
+
+Stage Summary:
+- 3 new files created: key verification file, utility library, API route
+- IndexNow integration complete: can submit individual URLs or all site pages to Bing, Yandex, and IndexNow API
+- All site URLs (~130+) automatically generated from existing sitemap configuration
+- Full TypeScript with proper types and error handling
+- Lint clean, API endpoint verified working
+---
+Task ID: 1-6
+Agent: Main Agent
+Task: حل مشكلة "تم اكتشاف الصفحة - لم تتم فهرستها" لـ 31 صفحة + إصلاح تحذير robots.txt
+
+Work Log:
+- تشخيص مشكلة "Discovered - currently not indexed" لـ 31 صفحة في Google Search Console
+- الصفحات المتأثرة: /401k-retirement-calculator, /about, /blog, /blog/* (8+ مقالات)
+- السبب الرئيسي: موقع جديد بدون باكلينكس + محتوى YMYL يحتاج وقت أطول للفهرسة
+- إنشاء IndexNow API Integration:
+  - ملف مفتاح التحقق: /public/d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9.txt
+  - مكتبة /src/lib/indexnow.ts مع submitToIndexNow() و submitAllPagesToIndexNow()
+  - API route في /src/app/api/indexnow/route.ts (POST للإرسال، GET للتشخيص)
+  - يدعم 3 endpoints: api.indexnow.org, bing.com/indexnow, yandex.com/indexnow
+- إنشاء Sitemap Ping API:
+  - /src/app/api/ping-search-engines/route.ts
+  - يرسل ping لجوجل وبينج عند تحديث الـ sitemap
+- تبسيط robots.txt:
+  - إزالة 10 قواعد فردية للبوتات (GPTBot, ClaudeBot, etc.) التي تسبب تحذيرات Googlebot
+  - استبدالها بقاعدة واحدة User-Agent: * مع Allow: /
+  - إضافة تعليق يشرح سبب الإزالة
+- تحديث robots.ts ليتطابق مع robots.txt المبسط
+- إصلاح sitemap.ts:
+  - استبدال new Date().toISOString() (كان يجعل جوجل يرى كل الصفحات كأنها تغيرت الآن)
+  - استخدام تواريخ فعلية: TAX_DATA_UPDATED = '2026-01-15', STATIC_PAGE_UPDATED = '2026-02-01'
+  - مقالات المدونة تستخدم تاريخ updatedAt/createdAt الحقيقي
+- Lint يمر بدون أخطاء
+
+Stage Summary:
+- 6 ملفات جديدة/معدلة لتحسين الأرشفة
+- IndexNow API يسمح بضغط محركات البحث فوراً عند نشر محتوى جديد
+- Sitemap Ping API يخطر جوجل وبينج بتحديث الـ sitemap
+- robots.txt مبسط بدون تحذيرات
+- sitemap بتواريخ حقيقية بدل تواريخ ديناميكية مزيفة
