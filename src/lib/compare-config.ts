@@ -142,7 +142,7 @@ function buildCompareConfig(slug: string): CompareConfig | null {
     slug,
     state1: s1,
     state2: s2,
-    metaTitle: `${s1.name} vs ${s2.name} Taxes 2026 — How Much More Do You Keep?`,
+    metaTitle: `${s1.name} vs ${s2.name} Taxes 2026 | Compare`,
     metaDesc: `${s1.name} vs ${s2.name} taxes compared: see your take-home pay difference at $75K & $150K. Income tax, property tax, sales tax — all 2026 numbers.`,
     h1: `${s1.name} vs ${s2.name} Tax Comparison`,
     keywords: [

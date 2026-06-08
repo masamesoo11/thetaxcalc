@@ -6,7 +6,7 @@ import { ProtectedEmail } from '@/components/finance/protected-email';
 import { SITE_URL } from '@/lib/site-config';
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy — TheTaxCalc Tax Calculators',
+  title: 'Privacy Policy',
   description:
     'TheTaxCalc Privacy Policy — learn how we collect, use, and protect your personal information when using our free tax calculators.',
   keywords: ['privacy policy', 'thetaxcalc privacy', 'tax calculator privacy', 'data protection', 'calculator data security', 'browser calculations'],
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'Privacy Policy — TheTaxCalc Tax Calculators',
+    title: 'Privacy Policy — Tax Calculators',
     description: 'Learn how TheTaxCalc collects, uses, and protects your personal information when using our free tax calculators.',
     url: `${SITE_URL}/privacy`,
     siteName: 'TheTaxCalc',

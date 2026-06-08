@@ -12,7 +12,17 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       {
-        // HTML pages — allow CDN/browser caching for SEO performance
+        // All HTML pages (App Router routes without file extension)
+        // Must come BEFORE the catch-all rule so it takes priority
+        // This is critical: Next.js App Router pages like /mortgage-calculator
+        // do NOT have .html extensions, so the rule below would never match them.
+        source: '/:path((?!_next|api|admin|favicon|icon|logo|author|d4e5f6).*)',
+        headers: [
+          { key: 'Cache-Control', value: 'public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800' },
+        ],
+      },
+      {
+        // Static file extensions — allow CDN/browser caching for SEO performance
         // Google needs cacheable pages for efficient crawling & Core Web Vitals
         source: '/(.*)\\.(html|xml|txt|json)',
         headers: [

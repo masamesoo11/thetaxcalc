@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { FileQuestion, Home, Calculator, ArrowRight } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Page Not Found — TheTaxCalc',
+  title: 'Page Not Found',
   description: 'The page you are looking for does not exist. Try our free tax calculators instead.',
   robots: { index: false, follow: false },
 };

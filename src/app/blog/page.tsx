@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     languages: { 'en-US': `${SITE_URL}/blog`, 'x-default': `${SITE_URL}/blog` },
   },
   openGraph: {
-    title: 'TheTaxCalc Blog — Expert Tax Guides & Tips',
+    title: 'Tax Blog — Expert Guides & Tips',
     description: 'Expert tax guides, state-by-state comparisons, and financial tips for 2026.',
     url: `${SITE_URL}/blog`,
     siteName: 'TheTaxCalc',

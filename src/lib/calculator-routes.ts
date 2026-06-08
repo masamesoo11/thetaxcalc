@@ -28,7 +28,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     description:
       'Free paycheck tax calculator for 2026. Calculate take-home pay after federal, FICA & state taxes. No sign-up required. Supports IL, TX, FL, CA, NY with 401(k) and HSA deductions.',
     h1: 'Free Paycheck Calculator',
-    metaTitle: 'Paycheck Tax Calculator 2026 — Federal & State',
+    metaTitle: 'Paycheck Calculator 2026 | Federal & State',
     metaDesc:
       'Free paycheck tax calculator for 2026. Calculate take-home pay after federal, FICA & state taxes. No sign-up. Covers IL, TX, FL, CA, NY.',
     keywords: [
@@ -42,7 +42,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     componentKey: 'home',
     category: 'paycheck',
     breadcrumbLabel: 'Paycheck Calculator',
-    ogTitle: 'Free 2026 Paycheck Tax Calculator — Federal & State Take-Home Pay',
+    ogTitle: 'Paycheck Tax Calculator 2026 — Federal & State Take-Home',
     ogDescription:
       'Free paycheck tax calculator for 2026. Take-home pay after federal, FICA & state taxes. No sign-up. IL, TX, FL, CA, NY.',
     canonicalPath: '/paycheck-calculator',
@@ -54,7 +54,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     description:
       'Free Illinois tax calculator for 2026. Calculate take-home pay after 4.95% flat state tax, $2,775 personal exemption, federal tax & FICA. No sign-up.',
     h1: 'Free Illinois Tax Calculator',
-    metaTitle: 'Free Illinois Tax Calculator 2026 | 4.95% Flat',
+    metaTitle: 'IL Tax Calculator 2026 | 4.95% Flat',
     metaDesc:
       'Free Illinois tax calculator 2026. Take-home pay after 4.95% flat tax and $2,775 exemption. No sign-up. 401(k) and HSA included.',
     keywords: [
@@ -66,7 +66,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     componentKey: 'illinois',
     category: 'paycheck',
     breadcrumbLabel: 'Illinois',
-    ogTitle: 'Free Illinois Tax Calculator 2026 — 4.95% Flat Tax Rate',
+    ogTitle: 'Illinois Tax Calculator 2026 — 4.95% Flat Rate',
     ogDescription:
       'Free Illinois tax calculator. Take-home pay after 4.95% flat tax and $2,775 exemption. No sign-up. 2026 data.',
     canonicalPath: '/illinois-tax-calculator',
@@ -78,7 +78,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     description:
       'Free Texas tax calculator for 2026. Calculate take-home pay with 0% state income tax. Includes federal tax, FICA, property tax analysis & cost-of-living. No sign-up.',
     h1: 'Free Texas Tax Calculator',
-    metaTitle: 'Free Texas Tax Calculator 2026 | 0% Income Tax',
+    metaTitle: 'TX Tax Calculator 2026 | 0% Income Tax',
     metaDesc:
       'Free Texas tax calculator 2026. Take-home pay with 0% state tax. Property tax & cost-of-living analysis. No sign-up required.',
     keywords: [
@@ -90,7 +90,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     componentKey: 'texas',
     category: 'paycheck',
     breadcrumbLabel: 'Texas',
-    ogTitle: 'Free Texas Tax Calculator 2026 — 0% State Income Tax',
+    ogTitle: 'Texas Tax Calculator 2026 — 0% State Income Tax',
     ogDescription:
       'Free Texas tax calculator. Take-home pay with 0% state tax. Property tax & cost-of-living. No sign-up.',
     canonicalPath: '/texas-tax-calculator',
@@ -102,7 +102,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     description:
       'Free Florida tax calculator for 2026. Calculate take-home pay with 0% state income tax. Includes homestead exemption, property tax & cost-of-living. No sign-up.',
     h1: 'Free Florida Tax Calculator',
-    metaTitle: 'Florida Tax Calculator 2026 | 0% Income Tax',
+    metaTitle: 'FL Tax Calculator 2026 | 0% Income Tax',
     metaDesc:
       'Free Florida tax calculator 2026. Take-home pay with 0% state tax & homestead exemption. No sign-up. Property tax info included.',
     keywords: [
@@ -114,7 +114,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     componentKey: 'florida',
     category: 'paycheck',
     breadcrumbLabel: 'Florida',
-    ogTitle: 'Free Florida Tax Calculator 2026 — 0% State Income Tax',
+    ogTitle: 'Florida Tax Calculator 2026 — 0% State Income Tax',
     ogDescription:
       'Free Florida tax calculator. Take-home pay with 0% state tax & homestead exemption. No sign-up.',
     canonicalPath: '/florida-tax-calculator',
@@ -122,11 +122,11 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
   },
   {
     slug: 'california-tax-calculator',
-    title: 'Free California Tax Calculator 2026 — 1% to 13.3% Progressive',
+    title: 'California Tax Calculator 2026 | 1-13.3% Progressive',
     description:
       'Free California tax calculator for 2026. Calculate take-home pay after progressive state tax (1%–13.3%), federal tax & FICA. No sign-up. 401(k) and HSA deductions.',
     h1: 'Free California Tax Calculator',
-    metaTitle: 'Free California Tax Calculator 2026 | 1-13.3%',
+    metaTitle: 'CA Tax Calculator 2026 | 1-13.3%',
     metaDesc:
       'Free California tax calculator 2026. Take-home pay after progressive tax (1%–13.3%). No sign-up. 401(k) and HSA included.',
     keywords: [
@@ -138,7 +138,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     componentKey: 'california',
     category: 'paycheck',
     breadcrumbLabel: 'California',
-    ogTitle: 'Free California Tax Calculator 2026 — Progressive 1%–13.3%',
+    ogTitle: 'California Tax Calculator 2026 — Progressive 1-13.3%',
     ogDescription:
       'Free California tax calculator. Take-home pay after progressive tax (1%–13.3%). No sign-up. 2026 data.',
     canonicalPath: '/california-tax-calculator',
@@ -150,7 +150,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     description:
       'Free New York tax calculator for 2026. Calculate take-home pay after progressive state tax (4%–10.9%), NYC tax, federal tax & FICA. No sign-up.',
     h1: 'Free New York Tax Calculator',
-    metaTitle: 'Free NY Tax Calculator 2026 | NYC Tax Included',
+    metaTitle: 'NY Tax Calculator 2026 | NYC Tax',
     metaDesc:
       'Free New York tax calculator 2026. Take-home pay after state tax (4%–10.9%) & NYC tax. No sign-up. 401(k) included.',
     keywords: [
@@ -162,7 +162,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     componentKey: 'newyork',
     category: 'paycheck',
     breadcrumbLabel: 'New York',
-    ogTitle: 'Free New York Tax Calculator 2026 — State & NYC Tax',
+    ogTitle: 'New York Tax Calculator 2026 — State & NYC Tax',
     ogDescription:
       'Free New York tax calculator. Take-home pay after state tax (4%–10.9%) & NYC tax. No sign-up. 2026 data.',
     canonicalPath: '/new-york-tax-calculator',
@@ -170,11 +170,11 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
   },
   {
     slug: 'mortgage-calculator',
-    title: 'Free Mortgage Calculator 2026 — Monthly Payment & Amortization',
+    title: 'Mortgage Calculator 2026 | Payment & Amortization',
     description:
       'Free mortgage calculator with extra payments, amortization schedule, and payoff comparison. Calculate monthly payment using M = P × [r(1+r)^n] / [(1+r)^n - 1]. No sign-up.',
     h1: 'Free Mortgage Calculator',
-    metaTitle: 'Free Mortgage Calculator 2026 | Amortization',
+    metaTitle: 'Mortgage Calculator 2026 | Amortization',
     metaDesc:
       'Free mortgage calculator with extra payments, amortization & payoff comparison. No sign-up. Calculate monthly payment and interest.',
     keywords: [
@@ -186,7 +186,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     componentKey: 'mortgage',
     category: 'mortgage',
     breadcrumbLabel: 'Mortgage',
-    ogTitle: 'Free Mortgage Calculator 2026 — Amortization & Extra Payments',
+    ogTitle: 'Mortgage Calculator 2026 — Amortization & Extra Payments',
     ogDescription:
       'Free mortgage calculator. Monthly payment, amortization & extra payment savings. No sign-up.',
     canonicalPath: '/mortgage-calculator',
@@ -198,7 +198,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     description:
       'Free 401(k) retirement calculator for 2026. Project your balance with employer match, compound growth & annual contributions. No sign-up. Visual charts included.',
     h1: 'Free 401(k) Calculator',
-    metaTitle: 'Free 401(k) Calculator 2026 | Projections',
+    metaTitle: '401(k) Calculator 2026 | Projections',
     metaDesc:
       'Free 401(k) calculator 2026. Project balance with employer match & compound growth. No sign-up. Visual charts included.',
     keywords: [
@@ -209,7 +209,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     componentKey: 'retirement',
     category: 'retirement',
     breadcrumbLabel: '401(k)',
-    ogTitle: 'Free 401(k) Calculator 2026 — Projection & Compound Growth',
+    ogTitle: '401(k) Calculator 2026 — Projection & Compound Growth',
     ogDescription:
       'Free 401(k) calculator. Project balance with employer match & compound growth. No sign-up.',
     canonicalPath: '/401k-retirement-calculator',
@@ -217,11 +217,11 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
   },
   {
     slug: 'relocation-calculator',
-    title: 'Free Relocation Calculator 2026 — Compare Take-Home Pay by State',
+    title: 'Relocation Calculator 2026 | Compare Take-Home',
     description:
       'Free relocation salary calculator for 2026. Compare take-home pay in IL, TX, FL, CA, NY. Find the salary you need to maintain your lifestyle. No sign-up.',
     h1: 'Free Relocation Calculator',
-    metaTitle: 'Relocation Calculator 2026 | Compare States',
+    metaTitle: 'Relocation Calculator 2026 | Compare',
     metaDesc:
       'Free relocation calculator 2026. Compare take-home pay in IL, TX, FL, CA, NY. No sign-up. Find equivalent salary by state.',
     keywords: [
@@ -233,7 +233,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     componentKey: 'relocation',
     category: 'paycheck',
     breadcrumbLabel: 'Relocate',
-    ogTitle: 'Free Relocation Calculator 2026 — Compare Take-Home Pay',
+    ogTitle: 'Relocation Calculator 2026 — Compare Take-Home Pay',
     ogDescription:
       'Free relocation calculator. Compare take-home pay in IL, TX, FL, CA, NY. No sign-up.',
     canonicalPath: '/relocation-calculator',
@@ -241,11 +241,11 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
   },
   {
     slug: 'capital-gains-calculator',
-    title: 'Free Capital Gains Tax Calculator 2026 — Short & Long-Term Rates',
+    title: 'Capital Gains Calculator 2026 | Short & Long',
     description:
       'Free capital gains tax calculator for 2026. Calculate short-term (up to 37%) and long-term (0%, 15%, 20% + 3.8% NIIT) rates. No sign-up. Strategies included.',
     h1: 'Free Capital Gains Calculator',
-    metaTitle: 'Capital Gains Calculator 2026 | Short & Long',
+    metaTitle: 'Capital Gains Calc 2026 | Short & Long',
     metaDesc:
       'Free capital gains tax calculator 2026. Short-term (up to 37%) & long-term (0%/15%/20% + NIIT). No sign-up.',
     keywords: [
@@ -257,7 +257,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     componentKey: 'capital-gains',
     category: 'investment',
     breadcrumbLabel: 'Capital Gains',
-    ogTitle: 'Free Capital Gains Calculator 2026 — Short & Long-Term',
+    ogTitle: 'Capital Gains Calculator 2026 — Short & Long-Term',
     ogDescription:
       'Free capital gains calculator. Short-term up to 37%, long-term 0%/15%/20% + NIIT. No sign-up.',
     canonicalPath: '/capital-gains-calculator',
@@ -265,11 +265,11 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
   },
   {
     slug: 'self-employment-tax-calculator',
-    title: 'Free Self-Employment Tax Calculator 2026 — 15.3% SE Tax + 1099',
+    title: 'Self-Employment Calculator 2026 | 15.3% SE Tax',
     description:
       'Free self-employment tax calculator for 2026. Calculate SE tax (15.3% on 92.35% of net income), half deduction, quarterly estimates, 1099 & federal + state tax. No sign-up.',
     h1: 'Free Self-Employment Tax Calculator',
-    metaTitle: 'SE Tax Calculator 2026 | 1099 & Self-Employed',
+    metaTitle: 'SE Tax Calculator 2026 | 1099 & SE',
     metaDesc:
       'Free self-employment tax calculator 2026. 15.3% SE tax, 1099, quarterly estimates & half deduction. No sign-up required.',
     keywords: [
@@ -282,7 +282,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     componentKey: 'self-employment',
     category: 'business',
     breadcrumbLabel: 'Self-Employment',
-    ogTitle: 'Free SE Tax Calculator 2026 — 1099 & Self-Employed',
+    ogTitle: 'SE Tax Calculator 2026 — 1099 & Self-Employed',
     ogDescription:
       'Free self-employment tax calculator. 15.3% SE tax, 1099, quarterly estimates & half deduction. No sign-up.',
     canonicalPath: '/self-employment-tax-calculator',
@@ -294,7 +294,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     description:
       'Free sales tax calculator for 2026. Calculate sales tax for any US state with combined rates. Includes reverse sales tax calculator. No sign-up required.',
     h1: 'Free Sales Tax Calculator',
-    metaTitle: 'Sales Tax Calculator 2026 | 50 States & Reverse',
+    metaTitle: 'Sales Tax Calculator 2026 | 50 States',
     metaDesc:
       'Free sales tax calculator 2026. Calculate sales tax for any US state with combined rates. Includes reverse calculator. No sign-up required.',
     keywords: [
@@ -306,7 +306,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     componentKey: 'sales-tax',
     category: 'paycheck',
     breadcrumbLabel: 'Sales Tax Calculator',
-    ogTitle: 'Free Sales Tax Calculator 2026 — All 50 States & Reverse',
+    ogTitle: 'Sales Tax Calculator 2026 — All 50 States & Reverse',
     ogDescription:
       'Free sales tax calculator 2026. Calculate sales tax for any US state with combined rates. Includes reverse calculator. No sign-up.',
     canonicalPath: '/sales-tax-calculator',
@@ -314,11 +314,11 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
   },
   {
     slug: 'tax-refund-calculator',
-    title: 'Free Tax Refund Calculator 2026 — Estimate Your Federal & State Refund',
+    title: 'Tax Refund Calculator 2026 | Federal & State',
     description:
       'Free tax refund calculator for 2026. Estimate your federal and state tax refund based on income, withholding, deductions, and credits. No sign-up required.',
     h1: 'Free Tax Refund Calculator',
-    metaTitle: 'Tax Refund Calculator 2026 | Federal & State',
+    metaTitle: 'Tax Refund Calculator 2026 | Fed & State',
     metaDesc:
       'Free tax refund calculator 2026. Estimate your federal and state refund based on income, withholding, deductions & credits. No sign-up required.',
     keywords: [
@@ -333,7 +333,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     componentKey: 'tax-refund',
     category: 'paycheck',
     breadcrumbLabel: 'Tax Refund Calculator',
-    ogTitle: 'Free Tax Refund Calculator 2026 — Estimate Your Refund',
+    ogTitle: 'Tax Refund Calculator 2026 — Estimate Your Refund',
     ogDescription:
       'Free tax refund calculator 2026. Estimate your federal and state refund. No sign-up required.',
     canonicalPath: '/tax-refund-calculator',
@@ -345,7 +345,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     description:
       'Free overtime tax calculator for 2026. Calculate your after-tax overtime pay at 1.5x rate. See how much OT you actually keep after federal, FICA & state taxes. No sign-up.',
     h1: 'Free Overtime Tax Calculator',
-    metaTitle: 'Overtime Tax Calculator 2026 | After-Tax OT',
+    metaTitle: 'Overtime Tax Calc 2026 | After-Tax OT',
     metaDesc:
       'Free overtime tax calculator 2026. Calculate after-tax overtime pay at 1.5x rate. Federal, FICA & state taxes included. No sign-up required.',
     keywords: [
@@ -357,7 +357,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     componentKey: 'overtime',
     category: 'paycheck',
     breadcrumbLabel: 'Overtime Tax',
-    ogTitle: 'Free Overtime Tax Calculator 2026 — After-Tax OT Pay',
+    ogTitle: 'Overtime Tax Calculator 2026 — After-Tax OT Pay',
     ogDescription:
       'Free overtime tax calculator 2026. Calculate after-tax overtime pay. Federal, FICA & state taxes. No sign-up.',
     canonicalPath: '/overtime-tax-calculator',
@@ -365,11 +365,11 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
   },
   {
     slug: 'georgia-tax-calculator',
-    title: 'Georgia Paycheck Calculator 2026 — See Your Take-Home After 5.49% Tax',
+    title: 'Georgia Tax Calculator 2026 | After 5.49%',
     description:
       'How much do you keep after Georgia 5.49% flat tax? Calculate your 2026 take-home pay after state, federal & FICA taxes. Instant results, no sign-up.',
     h1: 'Free Georgia Tax Calculator',
-    metaTitle: 'Georgia Paycheck Calculator 2026 | After 5.49%',
+    metaTitle: 'GA Tax Calculator 2026 | After 5.49%',
     metaDesc:
       'How much do you keep after Georgia 5.49% tax? Calculate 2026 take-home pay after state, federal & FICA. Instant results, no sign-up.',
     keywords: [
@@ -381,7 +381,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     componentKey: 'georgia',
     category: 'paycheck',
     breadcrumbLabel: 'Georgia',
-    ogTitle: 'Free Georgia Tax Calculator 2026 — 5.49% Flat Tax',
+    ogTitle: 'Georgia Tax Calculator 2026 — 5.49% Flat Tax',
     ogDescription:
       'Free Georgia tax calculator. Take-home pay after 5.49% flat state tax and federal tax. No sign-up. 2026 data.',
     canonicalPath: '/georgia-tax-calculator',
@@ -389,11 +389,11 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
   },
   {
     slug: 'lottery-tax-calculator',
-    title: 'Lottery Tax Calculator 2026 — What You REALLY Keep After Taxes',
+    title: 'Lottery Tax Calculator 2026 | After-Tax Payout',
     description:
       'Surprised how much tax on lottery winnings? 24% federal + state taxes can take 40%+. See your actual payout after all taxes. Free calculator, no sign-up.',
     h1: 'Free Lottery Tax Calculator',
-    metaTitle: 'Lottery Tax Calculator 2026 | After-Tax Payout',
+    metaTitle: 'Lottery Tax Calc 2026 | After-Tax Payout',
     metaDesc:
       'How much tax on lottery winnings? 24% federal + state can take 40%+. See your actual payout after all taxes. Free, no sign-up.',
     keywords: [
@@ -405,7 +405,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     componentKey: 'lottery',
     category: 'investment',
     breadcrumbLabel: 'Lottery Tax',
-    ogTitle: 'Free Lottery Tax Calculator 2026 — After-Tax Winnings',
+    ogTitle: 'Lottery Tax Calculator 2026 — After-Tax Winnings',
     ogDescription:
       'Free lottery tax calculator. After-tax winnings with 24% federal withholding and state taxes. No sign-up.',
     canonicalPath: '/lottery-tax-calculator',
@@ -417,7 +417,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     description:
       'Free IRS withholding calculator for 2026. Optimize your W-4 to avoid owing taxes or overpaying. Based on IRS Publication 15-T. No sign-up.',
     h1: 'Free IRS Withholding Calculator',
-    metaTitle: 'IRS Withholding Calculator 2026 | W-4 Help',
+    metaTitle: 'IRS Withholding Calc 2026 | W-4 Help',
     metaDesc:
       'Free IRS withholding calculator 2026. Optimize your W-4 to avoid penalties and overpayment. No sign-up required.',
     keywords: [
@@ -430,7 +430,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     componentKey: 'irs-withholding',
     category: 'paycheck',
     breadcrumbLabel: 'IRS Withholding',
-    ogTitle: 'Free IRS Withholding Calculator 2026 — W-4 Optimization',
+    ogTitle: 'IRS Withholding Calculator 2026 — W-4 Optimization',
     ogDescription:
       'Free IRS withholding calculator. Optimize your W-4 to avoid penalties. No sign-up. 2026 data.',
     canonicalPath: '/irs-withholding-calculator',
@@ -442,7 +442,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     description:
       'Free property tax calculator for 2026. Calculate annual property tax for any US state with average effective rates. Includes homestead exemptions. No sign-up.',
     h1: 'Free Property Tax Calculator',
-    metaTitle: 'Property Tax Calculator 2026 | 50 States',
+    metaTitle: 'Property Tax Calc 2026 | 50 States',
     metaDesc:
       'Free property tax calculator 2026. Calculate annual property tax for any US state with effective rates. No sign-up required.',
     keywords: [
@@ -454,7 +454,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     componentKey: 'property-tax',
     category: 'mortgage',
     breadcrumbLabel: 'Property Tax',
-    ogTitle: 'Free Property Tax Calculator 2026 — All 50 States',
+    ogTitle: 'Property Tax Calculator 2026 — All 50 States',
     ogDescription:
       'Free property tax calculator. Calculate annual property tax for any US state. No sign-up.',
     canonicalPath: '/property-tax-calculator',
@@ -462,11 +462,11 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
   },
   {
     slug: 'bonus-tax-calculator',
-    title: 'Bonus Tax Calculator 2026 — How Much of Your Bonus Do You Keep?',
+    title: 'Bonus Tax Calculator 2026 | After-Tax Amount',
     description:
       'Your $5K bonus may only be $3,400 after taxes. Compare 22% flat vs aggregate method and see your real take-home. Free, instant, no sign-up.',
     h1: 'Free Bonus Tax Calculator',
-    metaTitle: 'Bonus Tax Calculator 2026 | After-Tax Amount',
+    metaTitle: 'Bonus Tax Calc 2026 | After-Tax Amount',
     metaDesc:
       '$5K bonus → only $3,400 take-home? Compare 22% flat vs aggregate and see your real after-tax bonus. Free, instant.',
     keywords: [
@@ -478,7 +478,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     componentKey: 'bonus-tax',
     category: 'business',
     breadcrumbLabel: 'Bonus Tax',
-    ogTitle: 'Free Bonus Tax Calculator 2026 — 22% Flat vs Aggregate',
+    ogTitle: 'Bonus Tax Calculator 2026 — 22% Flat vs Aggregate',
     ogDescription:
       'Free bonus tax calculator. Compare 22% flat vs aggregate method. No sign-up. 2026 data.',
     canonicalPath: '/bonus-tax-calculator',
@@ -486,11 +486,11 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
   },
   {
     slug: 'virginia-tax-calculator',
-    title: 'Virginia Paycheck Calculator 2026 — Take-Home After 2-5.75% Tax',
+    title: 'Virginia Tax Calculator 2026 | 2-5.75% Rate',
     description:
       'Calculate your 2026 Virginia take-home pay after progressive state tax (2%–5.75%), federal tax & FICA. See real numbers instantly. No sign-up.',
     h1: 'Free Virginia Tax Calculator',
-    metaTitle: 'Virginia Tax Calculator 2026 | 2-5.75% Rate',
+    metaTitle: 'VA Tax Calculator 2026 | 2-5.75% Rate',
     metaDesc:
       'Calculate 2026 Virginia take-home after 2%-5.75% state tax, federal & FICA. See real numbers instantly. No sign-up.',
     keywords: [
@@ -502,7 +502,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     componentKey: 'virginia',
     category: 'paycheck',
     breadcrumbLabel: 'Virginia',
-    ogTitle: 'Free Virginia Tax Calculator 2026 — 2%–5.75% Progressive',
+    ogTitle: 'Virginia Tax Calculator 2026 — 2%-5.75% Progressive',
     ogDescription:
       'Free Virginia tax calculator. Take-home pay after progressive tax (2%–5.75%). No sign-up. 2026 data.',
     canonicalPath: '/virginia-tax-calculator',

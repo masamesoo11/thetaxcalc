@@ -37,7 +37,7 @@ import {
 // ─── Home Page Metadata ───────────────────────────────────────────────────────
 
 export const metadata: Metadata = {
-  title: 'Free 2026 Tax Calculator — Paycheck, Take-Home Pay & More',
+  title: '2026 Tax Calculator — Paycheck & Take-Home Pay',
   description:
     'Free 2026 tax calculator — paycheck, take-home pay after federal, FICA & state taxes. Also mortgage, 401(k), self-employment & capital gains. No sign-up.',
   authors: [{ name: 'Rachel Mitchell, CPA', url: `${SITE_URL}/about#rachel-mitchell` }],

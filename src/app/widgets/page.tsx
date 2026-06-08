@@ -17,7 +17,7 @@ import { getCalculatorAuthor, authorToJsonLd } from '@/lib/authors';
 import { AuthorBioCard } from '@/components/finance/author-bio-card';
 
 export const metadata: Metadata = {
-  title: 'Free Tax Calculator Widgets — Embed on Your Site',
+  title: 'Tax Calculator Widgets — Embed on Your Site',
   description:
     'Add free tax calculator widgets to your website. Embeddable paycheck, mortgage, sales tax, and capital gains calculators. No signup, no cost.',
   keywords: [
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'Free Tax Calculator Widgets — Embed on Your Site',
+    title: 'Tax Calculator Widgets — Embed on Your Site',
     description:
       'Add free tax calculator widgets to your website. Embeddable paycheck, mortgage, sales tax, and capital gains calculators. No signup, no cost.',
     url: `${SITE_URL}/widgets`,
@@ -54,13 +54,13 @@ export const metadata: Metadata = {
         url: `${SITE_URL}/opengraph-image.png`,
         width: 1200,
         height: 630,
-        alt: 'Free Tax Calculator Widgets — TheTaxCalc',
+        alt: 'Tax Calculator Widgets — TheTaxCalc',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Free Tax Calculator Widgets — Embed on Your Site',
+    title: 'Tax Calculator Widgets — Embed on Your Site',
     description:
       'Add free tax calculator widgets to your website. Embeddable paycheck, mortgage, sales tax, and capital gains calculators. No signup, no cost.',
     images: [`${SITE_URL}/opengraph-image.png`],
@@ -99,7 +99,7 @@ const widgetsJsonLd = {
     authorToJsonLd(getCalculatorAuthor()),
     {
       '@type': 'WebPage',
-      name: 'Free Tax Calculator Widgets',
+      name: 'Tax Calculator Widgets',
       description:
         'Add free tax calculator widgets to your website. Embeddable paycheck, mortgage, sales tax, and capital gains calculators. No signup, no cost.',
       url: `${SITE_URL}/widgets`,

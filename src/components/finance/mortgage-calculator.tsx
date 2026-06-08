@@ -1,12 +1,12 @@
 'use client';
 
 import { useEffect, useMemo, useState } from 'react';
+import dynamic from 'next/dynamic';
 import {
   Home,
   DollarSign,
   Percent,
   Clock,
-  TrendingDown,
   Zap,
   BarChart3,
   Info,
@@ -24,17 +24,10 @@ import {
 } from '@/components/ui/select';
 import { Separator } from '@/components/ui/separator';
 import { Badge } from '@/components/ui/badge';
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from '@/components/ui/table';
 import { Progress } from '@/components/ui/progress';
+import { Skeleton } from '@/components/ui/skeleton';
 import { AdSlot } from './ad-slot';
-import { FAQSection, MORTGAGE_FAQS } from './faq-sections';
+
 import {
   calculateMortgage,
   formatCurrency,
@@ -42,6 +35,27 @@ import {
 } from '@/lib/finance-utils';
 import { MORTGAGE_DEFAULTS } from '@/lib/tax-config';
 import { useHashParams, updateHashState } from '@/hooks/use-hash-state';
+
+const MortgageAmortizationTable = dynamic(
+  () => import('./mortgage-amortization-table').then((m) => ({ default: m.MortgageAmortizationTable })),
+  {
+    ssr: false,
+    loading: () => (
+      <Card className="border-border/50 bg-card/80">
+        <CardHeader>
+          <CardTitle className="flex items-center gap-2 text-lg">
+            <BarChart3 className="h-5 w-5 text-emerald-400" />
+            Amortization Schedule
+          </CardTitle>
+          <CardDescription>Loading...</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <Skeleton className="h-64 w-full" />
+        </CardContent>
+      </Card>
+    ),
+  }
+);
 
 export function MortgageCalculator() {
   const hashParams = useHashParams();
@@ -74,30 +88,6 @@ export function MortgageCalculator() {
 
   const downPaymentPercent = homePrice > 0 ? (downPayment / homePrice) * 100 : 0;
   const principalVsInterest = result.totalCost > 0 ? (result.loanAmount / result.totalCost) * 100 : 0;
-
-  const yearlySummary = useMemo(() => {
-    const years: { year: number; principal: number; interest: number; balance: number; cumulativeInterest: number }[] = [];
-    let yearPrincipal = 0;
-    let yearInterest = 0;
-
-    for (const entry of result.amortizationSchedule) {
-      yearPrincipal += entry.principal;
-      yearInterest += entry.interest;
-
-      if (entry.month % 12 === 0 || entry.balance <= 0) {
-        years.push({
-          year: Math.ceil(entry.month / 12),
-          principal: yearPrincipal,
-          interest: yearInterest,
-          balance: entry.balance,
-          cumulativeInterest: entry.cumulativeInterest,
-        });
-        yearPrincipal = 0;
-        yearInterest = 0;
-      }
-    }
-    return years;
-  }, [result.amortizationSchedule]);
 
   return (
     <div className="space-y-6">
@@ -334,41 +324,7 @@ export function MortgageCalculator() {
         </div>
       </div>
 
-      <Card className="border-border/50 bg-card/80">
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2 text-lg">
-            <BarChart3 className="h-5 w-5 text-emerald-400" />
-            Amortization Schedule
-          </CardTitle>
-          <CardDescription>Yearly breakdown of principal vs interest payments</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <div className="max-h-96 overflow-y-auto pr-1" style={{ scrollbarWidth: 'thin' }}>
-            <Table>
-              <TableHeader>
-                <TableRow>
-                  <TableHead>Year</TableHead>
-                  <TableHead className="text-right">Principal</TableHead>
-                  <TableHead className="text-right">Interest</TableHead>
-                  <TableHead className="text-right">Balance</TableHead>
-                  <TableHead className="text-right">Cum. Interest</TableHead>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                {yearlySummary.map((yr) => (
-                  <TableRow key={yr.year}>
-                    <TableCell className="font-medium">{yr.year}</TableCell>
-                    <TableCell className="text-right text-emerald-400">{formatCurrency(yr.principal)}</TableCell>
-                    <TableCell className="text-right text-red-400">{formatCurrency(yr.interest)}</TableCell>
-                    <TableCell className="text-right">{formatCurrency(yr.balance)}</TableCell>
-                    <TableCell className="text-right text-muted-foreground">{formatCurrency(yr.cumulativeInterest)}</TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
-            </Table>
-          </div>
-        </CardContent>
-      </Card>
+      <MortgageAmortizationTable amortizationSchedule={result.amortizationSchedule} />
 
       <Card className="border-border/50 bg-card/80">
         <CardHeader>
@@ -401,23 +357,6 @@ export function MortgageCalculator() {
           </p>
         </CardContent>
       </Card>
-
-      <div className="rounded-xl border border-border/30 bg-muted/10 p-6" aria-hidden="true">
-        <h2 className="text-xl font-bold text-foreground">Mortgage Example: $350,000 Home at 6.5% (2026)</h2>
-        <div className="mt-3 space-y-1 text-sm text-muted-foreground">
-          <p>Home Price: $350,000.00</p>
-          <p>Down Payment: $70,000.00 (20%)</p>
-          <p>Loan Amount: $280,000.00</p>
-          <p>Interest Rate: 6.5% APR</p>
-          <p>Loan Term: 30 years (360 payments)</p>
-          <p>Monthly Payment: $1,769.35</p>
-          <p>Total Interest Paid: $356,966.77</p>
-          <p>Total Cost of Loan: $636,966.77</p>
-          <p>With $200/mo Extra: Pay off in 24.8 years, save $76,856.29 in interest</p>
-        </div>
-      </div>
-
-      <FAQSection title="Mortgage Calculator FAQ — How to Save Thousands on Your Home Loan" faqs={MORTGAGE_FAQS} />
 
       <AdSlot position="mid-content" />
     </div>

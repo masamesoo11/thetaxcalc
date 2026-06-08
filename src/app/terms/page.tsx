@@ -6,7 +6,7 @@ import { ProtectedEmail } from '@/components/finance/protected-email';
 import { SITE_URL } from '@/lib/site-config';
 
 export const metadata: Metadata = {
-  title: 'Terms of Use — TheTaxCalc Tax Calculators',
+  title: 'Terms of Use',
   description:
     'TheTaxCalc Terms of Use — understand the terms and conditions for using our free tax calculators, website, and financial tools.',
   keywords: ['terms of use', 'thetaxcalc terms', 'tax calculator terms', 'usage agreement', 'legal terms', 'disclaimer'],
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'Terms of Use — TheTaxCalc Tax Calculators',
+    title: 'Terms of Use — Tax Calculators',
     description: 'Understand the terms and conditions for using TheTaxCalc free tax calculators and website.',
     url: `${SITE_URL}/terms`,
     siteName: 'TheTaxCalc',

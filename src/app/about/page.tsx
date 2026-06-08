@@ -23,20 +23,20 @@ import { getCalculatorAuthor, authorToJsonLd, AUTHORS } from '@/lib/authors';
 import { AuthorBioCard } from '@/components/finance/author-bio-card';
 
 export const metadata: Metadata = {
-  title: 'About TheTaxCalc — Free 2026 Calculators',
-  description:
-    'Learn about TheTaxCalc — our mission to provide free, accurate tax calculators. Understand your take-home pay after federal, FICA, and state taxes.',
-  authors: [{ name: 'Rachel Mitchell, CPA' }],
-  keywords: ['about thetaxcalc', 'tax calculator about', 'tax tool mission', 'free tax calculator', 'tax data accuracy', 'tax calculator team'],
-  alternates: {
-    canonical: `${SITE_URL}/about`,
-    languages: {
-      'en-US': `${SITE_URL}/about`,
-      'x-default': `${SITE_URL}/about`,
+    title: 'About — Free 2026 Calculators',
+    description:
+      'Learn about TheTaxCalc — our mission to provide free, accurate tax calculators. Understand your take-home pay after federal, FICA, and state taxes.',
+    authors: [{ name: 'Rachel Mitchell, CPA' }],
+    keywords: ['about thetaxcalc', 'tax calculator about', 'tax tool mission', 'free tax calculator', 'tax data accuracy', 'tax calculator team'],
+    alternates: {
+      canonical: `${SITE_URL}/about`,
+      languages: {
+        'en-US': `${SITE_URL}/about`,
+        'x-default': `${SITE_URL}/about`,
+      },
     },
-  },
-  openGraph: {
-    title: 'About TheTaxCalc — Free 2026 Calculators',
+    openGraph: {
+      title: 'About — Free 2026 Tax Calculators',
     description:
       'Learn about TheTaxCalc — our mission to provide free, accurate tax calculators for every American.',
     url: `${SITE_URL}/about`,
