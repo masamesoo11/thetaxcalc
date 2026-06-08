@@ -22,6 +22,7 @@ import {
   Calculator,
 } from 'lucide-react';
 import { Breadcrumb } from '@/components/finance/breadcrumb';
+import { getCalculatorAuthor, authorToJsonLd } from '@/lib/authors';
 
 // ─── Page Metadata ─────────────────────────────────────────────────────────────
 
@@ -35,6 +36,7 @@ export const metadata: Metadata = {
     '$100000 after tax', '$150000 after tax', 'salary by state',
     'take home pay calculator', 'after tax income',
   ],
+  authors: [{ name: 'Rachel Mitchell, CPA' }],
   alternates: {
     canonical: `${SITE_URL}/salary`,
     languages: {
@@ -79,7 +81,10 @@ const salaryPageJsonLd = {
       url: `${SITE_URL}/salary`,
       inLanguage: 'en-US',
       dateModified: '2026-01-01',
+      author: authorToJsonLd(getCalculatorAuthor()),
+      reviewedBy: authorToJsonLd(getCalculatorAuthor()),
     },
+    authorToJsonLd(getCalculatorAuthor()),
     {
       '@type': 'CollectionPage',
       name: 'Salary After Tax Pages',
@@ -248,7 +253,7 @@ export default function SalaryLandingPage() {
               {
                 step: '2',
                 title: 'FICA Payroll Tax',
-                desc: '6.2% Social Security (up to $176,100 cap) + 1.45% Medicare on all wages. Additional 0.9% above $200,000.',
+                desc: '6.2% Social Security (up to $184,500 cap) + 1.45% Medicare on all wages. Additional 0.9% above $200,000.',
               },
               {
                 step: '3',

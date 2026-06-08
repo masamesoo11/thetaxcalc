@@ -1179,7 +1179,7 @@ export function OvertimeTaxCalculator() {
           </p>
           <p>
             <strong className="text-foreground">What&apos;s still taxed?</strong> Overtime pay remains subject to FICA taxes — Social
-            Security (6.2% up to the wage cap of $176,100 in 2026) and Medicare (1.45% on all wages, plus 0.9%
+            Security (6.2% up to the wage cap of $184,500 in 2026) and Medicare (1.45% on all wages, plus 0.9%
             additional Medicare tax above $200,000). Most states also continue to tax overtime income at the state level.
             Only states with no income tax (like Texas and Florida) effectively provide full state-level exemption.
           </p>

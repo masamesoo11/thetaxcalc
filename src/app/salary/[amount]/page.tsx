@@ -11,6 +11,7 @@ import {
   fmt,
 } from '@/lib/salary-calculations';
 import { DynamicSalaryPage } from './dynamic-salary-page';
+import { getCalculatorAuthor, authorToJsonLd } from '@/lib/authors';
 
 export function generateStaticParams() {
   return SALARY_AMOUNTS.map((amount) => ({ amount: String(amount) }));
@@ -51,7 +52,7 @@ export async function generateMetadata({
       'salary calculator 2026',
       'take home pay calculator',
     ],
-    authors: [{ name: 'TheTaxCalc' }],
+    authors: [{ name: 'Rachel Mitchell, CPA' }],
     alternates: {
       canonical: `${baseUrl}${path}`,
       languages: {
@@ -103,7 +104,10 @@ function generateJsonLd(salary: number) {
         url: `${SITE_URL}${path}`,
         inLanguage: 'en-US',
         dateModified: '2026-01-01',
+        author: authorToJsonLd(getCalculatorAuthor()),
+        reviewedBy: authorToJsonLd(getCalculatorAuthor()),
       },
+      authorToJsonLd(getCalculatorAuthor()),
       {
         '@type': 'FAQPage',
         mainEntity: faqs.map((faq) => ({

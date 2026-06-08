@@ -386,7 +386,7 @@ export function SalaryClientPage({ amountStr }: SalaryClientPageProps) {
           </div>
           <p className="mt-4 text-xs text-muted-foreground">
             Showing top 6 states by take-home pay. All calculations assume {filingStatusLabel[filingStatus]} filing status with standard deduction ($16,100 single / $32,200 married / $24,150 HOH), and no pre-tax deductions (401(k), HSA).
-            FICA includes Social Security (6.2% up to $176,100) and Medicare (1.45% + 0.9% additional above $200,000 single / $250,000 married).
+            FICA includes Social Security (6.2% up to $184,500) and Medicare (1.45% + 0.9% additional above $200,000 single / $250,000 married).
             Full 50-state comparison available in the table above.
           </p>
         </section>

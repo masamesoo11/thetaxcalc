@@ -8,6 +8,7 @@ import {
 import { calculatePaycheck, formatCurrency } from '@/lib/finance-utils';
 import { COMPARISON_SLUGS } from '@/lib/compare-config';
 import { DynamicComparePage } from './dynamic-compare-page';
+import { getCalculatorAuthor, authorToJsonLd } from '@/lib/authors';
 
 export function generateStaticParams() {
   return COMPARISON_SLUGS.map((slug) => ({ states: slug }));
@@ -34,7 +35,7 @@ export async function generateMetadata({
     title: config.metaTitle,
     description: config.metaDesc,
     keywords: config.keywords,
-    authors: [{ name: 'TheTaxCalc' }],
+    authors: [{ name: 'Rachel Mitchell, CPA' }],
     alternates: {
       canonical: `${baseUrl}${canonicalPath}`,
       languages: {
@@ -94,7 +95,10 @@ function buildJsonLd(
         url: `${baseUrl}${canonicalPath}`,
         inLanguage: 'en-US',
         dateModified: '2026-01-01',
+        author: authorToJsonLd(getCalculatorAuthor()),
+        reviewedBy: authorToJsonLd(getCalculatorAuthor()),
       },
+      authorToJsonLd(getCalculatorAuthor()),
       {
         '@type': 'FAQPage',
         mainEntity: faqs.map((faq) => ({

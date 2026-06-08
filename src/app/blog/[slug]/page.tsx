@@ -5,6 +5,7 @@ import { getPublishedPostsMeta, getPostMeta, getPublishedSlugs } from '@/lib/blo
 import { BLOG_CONTENT } from '@/lib/blog-content';
 import { SITE_URL } from '@/lib/site-config';
 import { BlogTableOfContents, type TocEntry } from './blog-toc';
+import { getCalculatorAuthor, authorToJsonLd, getAuthorForCalculator } from '@/lib/authors';
 
 export function generateStaticParams() {
   return getPublishedSlugs().map(slug => ({ slug }));
@@ -300,6 +301,8 @@ export default async function BlogDetailPage({
     notFound();
   }
 
+  const author = getAuthorForCalculator(post.category || 'home');
+
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Article',
@@ -307,7 +310,7 @@ export default async function BlogDetailPage({
     description: post.excerpt || post.metaDesc || '',
     datePublished: post.createdAt,
     dateModified: post.updatedAt,
-    author: { '@type': 'Organization', name: 'TheTaxCalc', url: SITE_URL },
+    author: authorToJsonLd(author),
     publisher: { '@type': 'Organization', name: 'TheTaxCalc', url: SITE_URL },
     mainEntityOfPage: { '@type': 'WebPage', '@id': `${SITE_URL}/blog/${slug}` },
     keywords: post.tags || '',
@@ -386,7 +389,7 @@ export default async function BlogDetailPage({
           {post.excerpt && <p className="text-lg text-muted-foreground leading-relaxed">{post.excerpt}</p>}
 
           <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground border-b border-border/30 pb-4">
-            <span>By TheTaxCalc Team</span>
+            <span>By {author.name}, {author.credentials}</span>
             <span><time dateTime={post.createdAt}>{formatDate(post.createdAt)}</time></span>
             {post.updatedAt && post.updatedAt !== post.createdAt && (
               <span>Updated <time dateTime={post.updatedAt}>{formatDate(post.updatedAt)}</time></span>

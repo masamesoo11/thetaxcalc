@@ -13,6 +13,7 @@ import Link from 'next/link';
 import { Breadcrumb } from '@/components/finance/breadcrumb';
 import { WidgetsGrid } from '@/components/finance/widgets-grid';
 import { SITE_URL } from '@/lib/site-config';
+import { getCalculatorAuthor, authorToJsonLd } from '@/lib/authors';
 
 export const metadata: Metadata = {
   title: 'Free Tax Calculator Widgets — Embed on Your Website | TheTaxCalc',
@@ -31,6 +32,7 @@ export const metadata: Metadata = {
     'website widget',
     'embeddable calculator',
   ],
+  authors: [{ name: 'Rachel Mitchell, CPA' }],
   alternates: {
     canonical: `${SITE_URL}/widgets`,
     languages: {
@@ -93,12 +95,15 @@ const widgetsJsonLd = {
         worstRating: '1',
       },
     },
+    authorToJsonLd(getCalculatorAuthor()),
     {
       '@type': 'WebPage',
       name: 'Free Tax Calculator Widgets',
       description:
         'Add free tax calculator widgets to your website. Embeddable paycheck, mortgage, sales tax, and capital gains calculators. No signup, no cost.',
       url: `${SITE_URL}/widgets`,
+      author: authorToJsonLd(getCalculatorAuthor()),
+      reviewedBy: authorToJsonLd(getCalculatorAuthor()),
       breadcrumb: {
         '@type': 'BreadcrumbList',
         itemListElement: [

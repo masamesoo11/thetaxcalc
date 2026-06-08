@@ -353,11 +353,11 @@ If you're an employee, you see these deductions on every paycheck. If you're sel
 
 | Component | Rate | Wage Base |
 |-----------|------|-----------|
-| Employee share | 6.20% | Up to $176,100 |
-| Employer share | 6.20% | Up to $176,100 |
-| **Total** | **12.40%** | Up to $176,100 |
+| Employee share | 6.20% | Up to $184,500 |
+| Employer share | 6.20% | Up to $184,500 |
+| **Total** | **12.40%** | Up to $184,500 |
 
-The **wage base** is the maximum amount of earnings subject to Social Security tax. For 2026, it's $176,100 (up from $174,000 in 2025). Any income above this amount is NOT subject to Social Security tax.
+The **wage base** is the maximum amount of earnings subject to Social Security tax. For 2026, it's $184,500 (up from $176,100 in 2025). Any income above this amount is NOT subject to Social Security tax.
 
 ### Medicare Tax (HI)
 
@@ -416,10 +416,10 @@ You can deduct **half of your self-employment tax** (the "employer share") as an
 
 ### Example 2: Employee Earning $250,000 (Single)
 
-- Social Security: $176,100 × 6.20% = **$10,918.20**
+- Social Security: $184,500 × 6.20% = **$11,439.00**
 - Medicare: $250,000 × 1.45% = **$3,625**
 - Additional Medicare: ($250,000 - $200,000) × 0.9% = **$450**
-- Total FICA: **$14,993.20** per year
+- Total FICA: **$15,514.00** per year
 
 ### Example 3: Self-Employed Earning $100,000
 
@@ -575,7 +575,7 @@ The first thing every self-employed person needs to understand is **self-employm
 
 Here's the breakdown:
 
-- **Social Security (OASDI)**: 12.4% on net earnings up to $176,100
+- **Social Security (OASDI)**: 12.4% on net earnings up to $184,500
 - **Medicare (HI)**: 2.9% on all net earnings
 - **Additional Medicare**: +0.9% on earnings over $200,000 (single) or $250,000 (married filing jointly)
 

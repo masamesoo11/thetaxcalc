@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { ArrowRightLeft, ArrowRight, Zap, TrendingDown, Scale, BookOpen, ChevronDown, AlertTriangle, Home, Receipt, PiggyBank, DollarSign, Percent } from 'lucide-react';
 import { getAllCompareConfigs } from '@/lib/compare-config';
 import { SITE_URL } from '@/lib/site-config';
+import { getCalculatorAuthor, authorToJsonLd } from '@/lib/authors';
 
 // ─── Metadata ────────────────────────────────────────────────────────────────
 
@@ -15,6 +16,7 @@ export const metadata: Metadata = {
     'texas vs florida taxes', 'compare state income tax', 'state tax rates comparison',
     'best state for taxes', 'lowest tax state', 'relocate for lower taxes',
   ],
+  authors: [{ name: 'Rachel Mitchell, CPA' }],
   alternates: {
     canonical: `${SITE_URL}/compare`,
     languages: {
@@ -52,11 +54,14 @@ const compareListingJsonLd = {
         { '@type': 'ListItem', position: 2, name: 'State Tax Comparisons', item: `${SITE_URL}/compare` },
       ],
     },
+    authorToJsonLd(getCalculatorAuthor()),
     {
       '@type': 'CollectionPage',
       name: 'State vs State Tax Comparisons',
       description: 'Side-by-side tax comparisons for Illinois, Texas, Florida, California, and New York.',
       url: `${SITE_URL}/compare`,
+      author: authorToJsonLd(getCalculatorAuthor()),
+      reviewedBy: authorToJsonLd(getCalculatorAuthor()),
       about: {
         '@type': 'Thing',
         name: 'State Income Tax Comparison',

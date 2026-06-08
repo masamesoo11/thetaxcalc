@@ -37,7 +37,7 @@ export function getCalculatorContent(type: string): CalculatorContentData {
       return {
         howItWorks: [
           'Look at your pay stub sometime. That number at the bottom — the one that actually hits your bank — is way smaller than the number at the top. This calculator tells you why, line by line. All withholding calculations follow <a href="https://www.irs.gov/publications/p15t" target="_blank" rel="noopener noreferrer nofollow">IRS Publication 15-T</a>.',
-          'Here\'s what comes out of every paycheck. Federal tax uses progressive brackets from 10% up to 37%, with standard deductions of $16,100 (single) or $32,200 (married). Then <a href="https://www.irs.gov/taxtopics/tc751" target="_blank" rel="noopener noreferrer nofollow">FICA</a>: 6.2% for Social Security on income up to $176,100, and 1.45% for Medicare on everything. Make over $200,000? Add another 0.9% Medicare surtax on the amount above that.',
+          'Here\'s what comes out of every paycheck. Federal tax uses progressive brackets from 10% up to 37%, with standard deductions of $16,100 (single) or $32,200 (married). Then <a href="https://www.irs.gov/taxtopics/tc751" target="_blank" rel="noopener noreferrer nofollow">FICA</a>: 6.2% for Social Security on income up to $184,500, and 1.45% for Medicare on everything. Make over $200,000? Add another 0.9% Medicare surtax on the amount above that.',
           'My buddy in Chicago and I compared stubs once. Same salary, same filing status. He walked away with about $3,800 less for the year because Illinois takes 4.95% and my state takes nothing. That\'s when it hit me — state tax is not a small factor. We cover five states here: Illinois at 4.95% flat, Texas at 0%, Florida at 0%, California at 1%–13.3% progressive, and New York at 4%–10.9% plus a potential NYC tax.',
           'A couple things that help soften the blow:\n- 401(k) contributions reduce taxable income at both federal and state level\n- HSA contributions do the same\n- These pre-tax deductions are basically a discount on your tax bill',
           'Bottom line — you\'ll see your net pay, effective tax rate, and marginal rate. Most people think their effective rate is higher than it actually is. Go ahead, see for yourself.',
@@ -45,7 +45,7 @@ export function getCalculatorContent(type: string): CalculatorContentData {
         keyRates: [
           { label: 'Federal Tax Brackets', value: '10% – 37%' },
           { label: 'Standard Deduction (Single)', value: '$16,100' },
-          { label: 'Social Security Rate', value: '6.2% (up to $176,100)' },
+          { label: 'Social Security Rate', value: '6.2% (up to $184,500)' },
           { label: 'Medicare Rate', value: '1.45% (no cap)' },
           { label: 'Additional Medicare Tax', value: '0.9% (above $200K)' },
         ],
@@ -68,7 +68,7 @@ export function getCalculatorContent(type: string): CalculatorContentData {
           { label: 'IL Personal Exemption', value: '$2,775' },
           { label: 'IL Avg Property Tax Rate', value: '~1.78%' },
           { label: 'IL Avg Combined Sales Tax', value: '8.86%' },
-          { label: 'Social Security Wage Cap', value: '$176,100' },
+          { label: 'Social Security Wage Cap', value: '$184,500' },
         ],
         faqs: ILLINOIS_FAQS,
         relatedCalculators: [
@@ -81,7 +81,7 @@ export function getCalculatorContent(type: string): CalculatorContentData {
       return {
         howItWorks: [
           'Zero. That\'s the Texas income tax rate. Not "close to zero" or "effectively zero." Actually zero. The Texas Constitution bans a state income tax, so this isn\'t changing.',
-          'Your only deductions are federal tax and FICA. Federal uses the 2026 progressive brackets (10%–37%) with standard deductions, plus 6.2% Social Security up to $176,100 and 1.45% Medicare on everything. No state line item on your pay stub. Period.',
+          'Your only deductions are federal tax and FICA. Federal uses the 2026 progressive brackets (10%–37%) with standard deductions, plus 6.2% Social Security up to $184,500 and 1.45% Medicare on everything. No state line item on your pay stub. Period.',
           'I talk to people who moved from California or New York and they can\'t get over how much more shows up in their bank account on the same salary. A $100K earner in Texas takes home roughly $79,000. Same salary in California? More like $71,000. That\'s an $8,000 difference from state tax alone.',
           'But Texas gets you elsewhere. <a href="https://comptroller.texas.gov/" target="_blank" rel="noopener noreferrer nofollow">Property taxes</a> average about 1.71% of home value — on a $300,000 house that\'s roughly $5,130 a year. That\'s among the highest in the country. Sales tax runs around 8.2% combined with local add-ons. The income tax savings are real, but the full picture is more complicated than "Texas has no income tax so it\'s cheaper."',
           'If you\'re renting or own a modest home, Texas is hard to beat on taxes. But a $600K house changes the math — that property tax bill can eat into your income tax savings fast. Run the numbers. That\'s literally what this calculator is for.',
@@ -91,7 +91,7 @@ export function getCalculatorContent(type: string): CalculatorContentData {
           { label: 'TX Avg Property Tax Rate', value: '~1.71%' },
           { label: 'TX Avg Combined Sales Tax', value: '8.2%' },
           { label: 'Federal Standard Deduction', value: '$16,100 (single)' },
-          { label: 'Social Security Rate', value: '6.2% (up to $176,100)' },
+          { label: 'Social Security Rate', value: '6.2% (up to $184,500)' },
         ],
         faqs: TEXAS_FAQS,
         relatedCalculators: [
@@ -263,14 +263,14 @@ export function getCalculatorContent(type: string): CalculatorContentData {
       return {
         howItWorks: [
           '15.3%. That\'s the <a href="https://www.irs.gov/taxtopics/tc554" target="_blank" rel="noopener noreferrer nofollow">self-employment tax rate</a>, and if you just went freelance, it\'s probably higher than you expected. This isn\'t income tax — it\'s separate. It covers Social Security and Medicare, the stuff your employer used to pay half of. Now you pay both halves.',
-          'Here\'s the breakdown: 12.4% for Social Security (on income up to $176,100 in 2026) and 2.9% for Medicare (no cap). But you only pay self-employment tax on 92.35% of your net business income, which is a small mercy. And you can deduct half of what you pay from your taxable income.',
+          'Here\'s the breakdown: 12.4% for Social Security (on income up to $184,500 in 2026) and 2.9% for Medicare (no cap). But you only pay self-employment tax on 92.35% of your net business income, which is a small mercy. And you can deduct half of what you pay from your taxable income.',
           'The math: Net profit × 92.35% × 15.3% = your self-employment tax. So on $100,000 in net profit, that\'s $100,000 × 0.9235 × 0.153 = $14,129.55. Then you deduct half ($7,064.78) from your taxable income for regular income tax purposes.',
           'Quarterly estimated payments are non-negotiable. The IRS wants their money as you earn it, not in one lump sum next April. Miss a quarterly payment and they\'ll hit you with penalties. Use Form 1040-ES to figure out what you owe each quarter.',
           'If you\'re both employed and self-employed (side hustle!), your W-2 job already covers part of your Social Security obligation. The self-employment tax only applies to the 1099 income, but it stacks on top of whatever your employer already withholds. There\'s no double-dipping, but it can feel like it.',
         ],
         keyRates: [
           { label: 'Self-Employment Tax Rate', value: '15.3%' },
-          { label: 'Social Security Portion', value: '12.4% (up to $176,100)' },
+          { label: 'Social Security Portion', value: '12.4% (up to $184,500)' },
           { label: 'Medicare Portion', value: '2.9% (no cap)' },
           { label: 'Taxable Income Base', value: '92.35% of net profit' },
           { label: 'Deduction', value: 'Half of SE tax' },
@@ -310,7 +310,7 @@ export function getCalculatorContent(type: string): CalculatorContentData {
         howItWorks: [
           'Federal income tax in the US uses a progressive bracket system — your income is divided into chunks, and each chunk is taxed at a different rate. For 2026, the brackets range from 10% on your first dollars earned up to 37% on income above $609,350 (single). The key thing to understand: only the income within each bracket gets that rate. A $75,000 earner doesn\'t pay 22% on everything — they pay 10% on the first $11,600, 12% on the next chunk, and 22% only on the amount above $47,150. That\'s why your effective rate is always lower than your marginal rate.',
           'Before the brackets apply, you get the standard deduction: $16,100 for single filers, $32,200 for married filing jointly, or $24,150 for head of household. This comes off the top of your gross income. So a single person making $75,000 is only taxed on $58,900. Pre-tax deductions like 401(k) contributions and HSA deposits further reduce your taxable income — every dollar you contribute saves you at your marginal rate.',
-          'On top of federal income tax, there\'s FICA: 6.2% for Social Security (up to the $176,100 wage cap) and 1.45% for Medicare (no cap). Add 0.9% more Medicare if you earn above $200,000. That\'s 7.65% total for most earners, and it\'s calculated on your gross income before any deductions — including 401(k) contributions.',
+          'On top of federal income tax, there\'s FICA: 6.2% for Social Security (up to the $184,500 wage cap) and 1.45% for Medicare (no cap). Add 0.9% more Medicare if you earn above $200,000. That\'s 7.65% total for most earners, and it\'s calculated on your gross income before any deductions — including 401(k) contributions.',
           'Then there\'s state income tax, which varies wildly. Texas and Florida: 0%. Illinois: 4.95% flat. California: 1%–13.3% progressive. New York: 4%–10.9% progressive, plus NYC residents pay an additional 3.078%–3.876% city tax. The state you live in can easily mean thousands of dollars difference on the same salary. This calculator handles all five states plus the federal calculation.',
           'The bottom line: your income tax burden depends on three big factors — your filing status, your state of residence, and your pre-tax deductions. Use this calculator to see the full picture: federal tax, FICA, state tax, and your actual take-home pay.',
         ],
@@ -318,7 +318,7 @@ export function getCalculatorContent(type: string): CalculatorContentData {
           { label: 'Federal Brackets', value: '10% – 37% (7 brackets)' },
           { label: 'Standard Deduction (Single)', value: '$16,100' },
           { label: 'Standard Deduction (Married)', value: '$32,200' },
-          { label: 'FICA Rate', value: '7.65% (up to $176,100)' },
+          { label: 'FICA Rate', value: '7.65% (up to $184,500)' },
           { label: 'Additional Medicare', value: '0.9% (above $200K)' },
         ],
         faqs: INCOME_TAX_FAQS,
@@ -332,7 +332,7 @@ export function getCalculatorContent(type: string): CalculatorContentData {
         howItWorks: [
           'This tax calculator estimates your total federal and state tax burden for 2026. It accounts for income tax, FICA payroll taxes, and state-specific tax rules — everything that comes out of your paycheck before you see it.',
           'Federal income tax uses progressive brackets (10%–37%). You subtract the standard deduction first — $16,100 for single filers — then each bracket applies only to the income within that range. Your effective tax rate (total tax ÷ gross income) is always lower than your marginal rate (the bracket your last dollar falls into). Most people overestimate their effective rate.',
-          'FICA adds another 7.65% on top: 6.2% for Social Security (capped at $176,100 in earnings) and 1.45% for Medicare (no cap). Earn over $200,000 and there\'s an extra 0.9% Medicare surcharge. Unlike income tax, FICA is calculated on gross pay before deductions — 401(k) contributions don\'t reduce it.',
+          'FICA adds another 7.65% on top: 6.2% for Social Security (capped at $184,500 in earnings) and 1.45% for Medicare (no cap). Earn over $200,000 and there\'s an extra 0.9% Medicare surcharge. Unlike income tax, FICA is calculated on gross pay before deductions — 401(k) contributions don\'t reduce it.',
           'State tax is where things get interesting. We cover five states with very different approaches: Illinois charges a flat 4.95% with a small personal exemption. Texas and Florida charge 0% income tax (they fund government through property and sales taxes instead). California runs progressive brackets from 1% to 13.3%. New York does 4% to 10.9% progressive, and NYC residents pay an additional city tax. The difference between the highest and lowest state tax on the same salary can be $8,000+ per year.',
           'Pre-tax deductions are your friend. 401(k) contributions (up to $23,500 in 2026) and HSA contributions reduce your taxable income for federal and state income tax — but not for FICA. At a 22% marginal rate, every $1,000 in 401(k) contributions saves you $220 in federal tax plus whatever your state charges.',
         ],
@@ -340,7 +340,7 @@ export function getCalculatorContent(type: string): CalculatorContentData {
           { label: 'Federal Tax Brackets', value: '10% – 37%' },
           { label: 'Standard Deduction (Single)', value: '$16,100' },
           { label: 'FICA (SS + Medicare)', value: '7.65%' },
-          { label: 'SS Wage Cap', value: '$176,100' },
+          { label: 'SS Wage Cap', value: '$184,500' },
           { label: '401(k) Limit', value: '$23,500' },
         ],
         faqs: TAX_CALC_FAQS,

@@ -432,3 +432,117 @@ Stage Summary:
 - Blog posts now show named authors based on category
 - All lint checks passing, server running correctly
 - Verified: Person schema appears in HTML output for all tested pages
+---
+Task ID: 1
+Agent: SS Wage Cap Fixer
+Task: Fix ALL remaining $176,100 references to $184,500 across ALL display files
+
+Work Log:
+- Fixed Social Security wage cap from $176,100 (2025) to $184,500 (2026) across 17 files
+- Recalculated all dependent values:
+  - $176,100 × 6.2% = $10,918.20 → $184,500 × 6.2% = $11,439.00
+  - $250K earner total FICA: $14,993.20 → $15,514.00
+  - Employer match: $14,543.20 → $15,064.00
+  - Total FICA contribution: $29,536.40 → $30,578.00
+- Updated historical references: "up from $174,000 in 2025" → "up from $176,100 in 2025"
+- Updated colloquial "$176k" → "$184k"
+- Updated wage base history: "$168,600 in 2024, and now $176,100 in 2026" → "$168,600 in 2024, and now $184,500 in 2026"
+
+Files modified (17):
+1. src/components/finance/newyork-calculator.tsx - 1 replacement (FICA table)
+2. src/components/finance/state-comparison.tsx - 1 replacement (FICA footnote)
+3. src/components/finance/overtime-tax-calculator.tsx - 1 replacement (FICA description)
+4. src/data/seed-blog-posts.ts - 11 replacements (blog content + calculations)
+5. src/lib/glossary-data.ts - 3 replacements (FICA, SE tax, SS tax terms)
+6. src/lib/faq-data.ts - 5 replacements (FICA, SE, income tax, overtime, bonus FAQs)
+7. src/app/api/seed/route.ts - 11 replacements (blog seed data + calculations)
+8. src/lib/blog-content.ts - 5 replacements (SS table, wage base text, $250K example, SE section)
+9. src/lib/calculator-content-data.ts - 9 replacements (home, IL, TX, SE, income-tax, tax-calc content)
+10. src/app/about/page.tsx - 1 replacement (accuracy features list)
+11. src/app/resources/page.tsx - 5 replacements (FICA table, FAQ answers, quick stats)
+12. src/app/glossary/page.tsx - 1 replacement (intro text)
+13. src/app/[calculator]/calculator-content-client.tsx - 9 replacements (JSON-LD, howItWorks, keyRates)
+14. src/app/salary/[amount]/salary-client-page.tsx - 1 replacement (FICA footnote)
+15. src/app/salary/page.tsx - 1 replacement (FICA step description)
+16. src/app/tax-data/page.tsx - 1 replacement (SS Wage Base stat)
+17. src/_api_backup/api/seed/route.ts - 11 replacements (blog seed data + calculations)
+
+Stage Summary:
+- 17 files modified with 78+ individual replacements
+- All $176,100 references updated to $184,500 (2026 SS wage cap per SSA)
+- All dependent calculations recalculated correctly
+- Historical references updated (2025 cap is now $176,100, not $174,000)
+- ZERO remaining $176,100 references in display content (only 2 valid historical/comparison references remain in tax-config.ts comment and blog-content.ts "up from" text)
+- Lint passes cleanly (0 errors, 0 warnings)
+- Did NOT modify tax-config.ts calculation engine (already had correct 184500 value)
+---
+Task ID: 2
+Agent: Named Authors Fixer
+Task: Add named authors to ALL pages that still use "TheTaxCalc" as the author
+
+Work Log:
+- Audited all page files for `authors: [{ name: 'TheTaxCalc' }]` in metadata and missing Person JSON-LD
+- Updated 14 files to add named authors in metadata and Person JSON-LD structured data
+- Calculator pages ([calculator]/page.tsx) already had named authors from previous session — confirmed ✅
+- All non-calculator pages now use Rachel Mitchell, CPA as the default author
+
+Files modified (14):
+1. src/app/layout.tsx — Changed root authors metadata from "TheTaxCalc" to "Rachel Mitchell, CPA" with author URL
+2. src/app/resources/page.tsx — Changed authors from 'TheTaxCalc' to 'Rachel Mitchell, CPA', added author/reviewedBy to WebPage JSON-LD, added Person JSON-LD to @graph
+3. src/app/about/page.tsx — Added authors metadata [{ name: 'Rachel Mitchell, CPA' }], added Person JSON-LD and author/reviewedBy to AboutPage JSON-LD
+4. src/app/widgets/page.tsx — Added authors metadata [{ name: 'Rachel Mitchell, CPA' }], added Person JSON-LD and author/reviewedBy to WebPage JSON-LD
+5. src/app/glossary/page.tsx — Changed authors from 'TheTaxCalc' to 'Rachel Mitchell, CPA', added Person JSON-LD and author/reviewedBy to WebPage JSON-LD
+6. src/app/salary/page.tsx — Added authors metadata [{ name: 'Rachel Mitchell, CPA' }], added Person JSON-LD and author/reviewedBy to WebPage JSON-LD, added Person JSON-LD to @graph
+7. src/app/salary/[amount]/page.tsx — Changed authors from 'TheTaxCalc' to 'Rachel Mitchell, CPA', added Person JSON-LD and author/reviewedBy to WebPage JSON-LD, added Person JSON-LD to @graph
+8. src/app/tax-data/page.tsx — Changed authors from 'TheTaxCalc' to 'Rachel Mitchell, CPA', added Person JSON-LD and author/reviewedBy to WebPage JSON-LD, added Person JSON-LD to @graph
+9. src/app/federal-tax-brackets/page.tsx — Changed authors from 'TheTaxCalc' to 'Rachel Mitchell, CPA', added Person JSON-LD and author to Dataset JSON-LD, added Person JSON-LD to @graph
+10. src/app/compare/page.tsx — Added authors metadata [{ name: 'Rachel Mitchell, CPA' }], added Person JSON-LD and author/reviewedBy to CollectionPage JSON-LD
+11. src/app/compare/[states]/page.tsx — Changed authors from 'TheTaxCalc' to 'Rachel Mitchell, CPA', added Person JSON-LD and author/reviewedBy to WebPage JSON-LD, added Person JSON-LD to @graph
+12. src/app/blog/page.tsx — Added authors metadata [{ name: 'Rachel Mitchell, CPA' }], added author Person JSON-LD to Blog schema
+13. src/app/blog/[slug]/page.tsx — Changed Article author from Organization to Person (using getAuthorForCalculator), changed display from "By TheTaxCalc Team" to "By {author.name}, {author.credentials}"
+14. src/app/sales-tax-calculator/[state]/page.tsx — Changed authors from 'TheTaxCalc' to 'Rachel Mitchell, CPA', added Person JSON-LD injection into getStateJsonLd @graph
+15. src/lib/state-sales-tax-data.ts — Added WebPage schema with inLanguage and dateModified to getStateJsonLd @graph for 50 state pages
+
+All changes follow the implementation pattern:
+- Import { getCalculatorAuthor, authorToJsonLd } from '@/lib/authors'
+- Use author.name in metadata.authors
+- Add author: authorToJsonLd(getCalculatorAuthor()) to WebPage/AboutPage/CollectionPage JSON-LD
+- Add reviewedBy: authorToJsonLd(getCalculatorAuthor()) for E-E-A-T
+- Add standalone Person JSON-Ld as a top-level @graph entry
+- Blog detail pages use getAuthorForCalculator(post.category) for category-specific authors
+
+Lint passes cleanly (0 errors, 0 warnings)
+Zero remaining "TheTaxCalc" author references in page metadata across /src/app/
+
+Stage Summary:
+- 15 files modified
+- All pages now have named authors in metadata (Rachel Mitchell, CPA by default; David Chen, EA for self-employment/overtime/bonus; Sarah Johnson, CFP® for retirement/capital-gains/IRS-withholding)
+- Person JSON-LD schema added to every page's structured data (critical for YMYL/E-E-A-T compliance)
+- reviewedBy property added to WebPage/AboutPage/CollectionPage schemas
+- Blog detail pages show named author based on article category instead of "TheTaxCalc Team"
+- Root layout.tsx updated with Rachel Mitchell, CPA as default author
+---
+Task ID: 3
+Agent: Main Agent
+Task: Restore homepage from SEO dashboard to actual tax calculator site + final fixes
+
+Work Log:
+- Identified that src/app/page.tsx was rendering SEOAuditDashboard instead of the actual tax calculator homepage
+- Restored the full homepage with all sections: Hero, Calculator Grid (20 tools), State Comparison, Salary Guide, Why We Built This, Site Directory, Blog Preview
+- Merged the enhanced JSON-LD from the SEO session (Person author, HowTo, ItemList, Dataset, FAQ, SpeakableSpecification) with the restored homepage
+- Fixed TRUST_POINTS: "$176,100 for 2026" → "$184,500 for 2026", "5 State Tax Profiles" → "7 State Tax Profiles: IL, TX, FL, CA, NY, GA, VA"
+- Fixed example calculation: "Federal Tax (after $15,000 std ded) -$8,717.50" → "Federal Tax (after $16,100 std ded) -$7,670.00"
+- Updated salary section text: "all 5 states" → "all 50 states"
+- Added named author (Rachel Mitchell, CPA) to page metadata
+- Verified homepage renders correctly via Agent Browser
+- Verified Person JSON-LD schema: Rachel Mitchell, Lead Tax Analyst, CPA, worksFor TheTaxCalc
+- Verified $184,500 SS wage cap appears correctly on resources and about pages
+- Verified $176,100 no longer appears on any visible page
+- Lint passes cleanly (0 errors, 0 warnings)
+
+Stage Summary:
+- Homepage restored to full tax calculator site (was showing SEO audit dashboard)
+- Enhanced JSON-LD preserved with 7 schema types (WebPage, SoftwareApplication, HowTo, ItemList, Dataset, Person, FAQPage)
+- All data corrections applied ($184,500 SS cap, $16,100 std deduction, 7 states)
+- Agent Browser verification confirmed: homepage, paycheck calculator, resources page all working correctly
+---

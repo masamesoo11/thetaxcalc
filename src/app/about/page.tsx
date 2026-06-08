@@ -19,11 +19,13 @@ import Link from 'next/link';
 import { Breadcrumb } from '@/components/finance/breadcrumb';
 import { ProtectedEmail } from '@/components/finance/protected-email';
 import { SITE_URL } from '@/lib/site-config';
+import { getCalculatorAuthor, authorToJsonLd } from '@/lib/authors';
 
 export const metadata: Metadata = {
   title: 'About TheTaxCalc — Free 2026 Calculators',
   description:
     'Learn about TheTaxCalc — our mission to provide free, accurate tax calculators. Understand your take-home pay after federal, FICA, and state taxes.',
+  authors: [{ name: 'Rachel Mitchell, CPA' }],
   keywords: ['about thetaxcalc', 'tax calculator about', 'tax tool mission', 'free tax calculator', 'tax data accuracy', 'tax calculator team'],
   alternates: {
     canonical: `${SITE_URL}/about`,
@@ -74,11 +76,14 @@ const organizationJsonLd = {
         worstRating: '1',
       },
     },
+    authorToJsonLd(getCalculatorAuthor()),
     {
       '@type': 'AboutPage',
       name: 'About TheTaxCalc',
       description: 'Learn about TheTaxCalc — our mission to provide free, accurate tax calculators for every American.',
       url: `${SITE_URL}/about`,
+      author: authorToJsonLd(getCalculatorAuthor()),
+      reviewedBy: authorToJsonLd(getCalculatorAuthor()),
       mainEntity: {
         '@type': 'Organization',
         name: 'TheTaxCalc',
@@ -308,7 +313,7 @@ export default function AboutPage() {
             <li>2026 Federal income tax brackets (10% through 37%)</li>
             <li>2026 Standard deductions by filing status</li>
             <li>FICA rates: Social Security (6.2%) + Medicare (1.45%)</li>
-            <li>2026 Social Security wage cap: $176,100</li>
+            <li>2026 Social Security wage cap: $184,500</li>
             <li>Additional Medicare Tax: 0.9% above $200,000</li>
             <li>State-specific tax rates and exemptions for IL, TX, FL, CA, NY</li>
             <li>2026 401(k) contribution limits ($23,500 + catch-up)</li>

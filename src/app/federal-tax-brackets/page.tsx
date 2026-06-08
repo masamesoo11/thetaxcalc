@@ -13,6 +13,7 @@ import {
   HelpCircle,
 } from 'lucide-react';
 import { BracketsTabs } from './brackets-tabs';
+import { getCalculatorAuthor, authorToJsonLd } from '@/lib/authors';
 
 // ─── Page Metadata ──────────────────────────────────────────────────────────────
 
@@ -37,7 +38,7 @@ export const metadata: Metadata = {
     'tax bracket calculator',
     'how federal tax brackets work',
   ],
-  authors: [{ name: 'TheTaxCalc' }],
+  authors: [{ name: 'Rachel Mitchell, CPA' }],
   alternates: {
     canonical: `${SITE_URL}/federal-tax-brackets`,
     languages: {
@@ -125,10 +126,12 @@ const faqJsonLd = {
         },
       ],
     },
+    authorToJsonLd(getCalculatorAuthor()),
     {
       '@type': 'Dataset',
       name: '2026 Federal Income Tax Brackets',
       description: 'Official 2026 federal tax brackets for all filing statuses with standard deductions.',
+      author: authorToJsonLd(getCalculatorAuthor()),
       variableMeasured: [
         { name: '10% Bracket Upper Limit (Single)', value: '$11,925' },
         { name: '12% Bracket Upper Limit (Single)', value: '$48,475' },

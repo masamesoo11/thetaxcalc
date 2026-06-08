@@ -5,6 +5,7 @@ import { GLOSSARY_TERMS, FAQ_TERMS, getGlossaryLetters } from '@/lib/glossary-da
 import { GlossaryClient } from './glossary-client';
 import { Breadcrumb } from '@/components/finance/breadcrumb';
 import { SITE_URL } from '@/lib/site-config';
+import { getCalculatorAuthor, authorToJsonLd } from '@/lib/authors';
 
 // ─── Page Metadata ────────────────────────────────────────────────────────────
 
@@ -22,7 +23,7 @@ export const metadata: Metadata = {
     'estate tax exemption 2026', 'state income tax rates',
     'payroll tax explained', '2026 tax terms',
   ],
-  authors: [{ name: 'TheTaxCalc' }],
+  authors: [{ name: 'Rachel Mitchell, CPA' }],
   alternates: {
     canonical: `${SITE_URL}/glossary`,
     languages: {
@@ -75,6 +76,7 @@ function getGlossaryJsonLd() {
           { '@type': 'ListItem', position: 2, name: 'Tax Glossary', item: `${SITE_URL}/glossary` },
         ],
       },
+      authorToJsonLd(getCalculatorAuthor()),
       {
         '@type': 'WebPage',
         name: 'Tax Glossary — 2026 Tax Terms Explained',
@@ -83,6 +85,8 @@ function getGlossaryJsonLd() {
         url: `${SITE_URL}/glossary`,
         inLanguage: 'en-US',
         dateModified: '2026-01-01',
+        author: authorToJsonLd(getCalculatorAuthor()),
+        reviewedBy: authorToJsonLd(getCalculatorAuthor()),
       },
       {
         '@type': 'FAQPage',
@@ -294,7 +298,7 @@ export default function GlossaryPage() {
           <div className="space-y-3 text-sm text-muted-foreground leading-relaxed">
             <p>
               Here&apos;s the thing — tax laws change every single year, and 2026 is no exception. New brackets.
-              A Social Security wage cap of $176,100. Standard deductions at $16,100 (single), $32,200 (married),
+              A Social Security wage cap of $184,500. Standard deductions at $16,100 (single), $32,200 (married),
               $24,150 (HOH). If you don&apos;t know what these numbers mean, you&apos;re basically guessing at your own
               finances. And guessing with the IRS? Not a great strategy.
             </p>

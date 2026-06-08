@@ -7,6 +7,7 @@ import { Header } from "@/components/finance/header";
 import { Footer } from "@/components/finance/footer";
 import { ClientAnalytics } from "@/components/finance/client-analytics";
 import { SITE_URL, SITE_HOME_URL } from '@/lib/site-config';
+import { getCalculatorAuthor, authorToJsonLd } from '@/lib/authors';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,7 +26,7 @@ export const metadata: Metadata = {
   },
   description:
     "Free 2026 tax calculator — paycheck, take-home pay, federal & state taxes. Plus mortgage, 401(k), self-employment & capital gains tools. No sign-up.",
-  authors: [{ name: "TheTaxCalc" }],
+  authors: [{ name: "Rachel Mitchell, CPA", url: `${SITE_URL}/about#rachel-mitchell` }],
   creator: "TheTaxCalc",
   publisher: "TheTaxCalc",
   icons: {

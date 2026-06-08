@@ -538,7 +538,7 @@ export function NewYorkCalculator() {
               <TableRow>
                 <TableCell>FICA Total Rate</TableCell>
                 <TableCell className="font-medium text-orange-400">7.65%</TableCell>
-                <TableCell>6.2% SS (up to $176,100) + 1.45% Medicare</TableCell>
+                <TableCell>6.2% SS (up to $184,500) + 1.45% Medicare</TableCell>
               </TableRow>
             </TableBody>
           </Table>

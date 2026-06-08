@@ -110,7 +110,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     letter: 'F',
     definition:
       'FICA stands for Federal Insurance Contributions Act. It is the mandatory payroll tax that funds Social Security and Medicare. Employees pay 7.65% (6.2% for Social Security + 1.45% for Medicare), and employers match that for a total of 15.3%. Self-employed individuals pay the full 15.3% as self-employment tax.',
-    figure2026: 'Social Security: 6.2% up to $176,100 wage cap; Medicare: 1.45% (no cap)',
+    figure2026: 'Social Security: 6.2% up to $184,500 wage cap; Medicare: 1.45% (no cap)',
     calculatorLink: '/paycheck-calculator',
     calculatorLabel: 'Paycheck Calculator',
   },
@@ -279,7 +279,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     letter: 'S',
     definition:
       'Self-employment tax is the 15.3% tax that self-employed individuals pay to cover both the employee and employer portions of Social Security (12.4%) and Medicare (2.9%). It applies to 92.35% of your net business income. You can deduct half of your SE tax on your federal return.',
-    figure2026: '15.3% on 92.35% of net self-employment income; Social Security cap at $176,100',
+    figure2026: '15.3% on 92.35% of net self-employment income; Social Security cap at $184,500',
     calculatorLink: '/self-employment-tax-calculator',
     calculatorLabel: 'Self-Employment Calculator',
   },
@@ -289,7 +289,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     letter: 'S',
     definition:
       'Social Security tax (OASDI) is the 6.2% payroll tax (employee portion) that funds retirement, disability, and survivor benefits. It applies only to wages up to the annual wage base cap. Income above the cap is not subject to Social Security tax.',
-    figure2026: '6.2% on wages up to $176,100 wage cap for 2026',
+    figure2026: '6.2% on wages up to $184,500 wage cap for 2026',
     calculatorLink: '/paycheck-calculator',
     calculatorLabel: 'Paycheck Calculator',
   },

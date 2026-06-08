@@ -10,6 +10,7 @@ import {
 } from '@/lib/state-sales-tax-data';
 import { SITE_URL } from '@/lib/site-config';
 import { StateSalesTaxClientPage } from './state-sales-tax-client';
+import { getCalculatorAuthor, authorToJsonLd } from '@/lib/authors';
 
 // ─── Static Params ───────────────────────────────────────────────────────────
 
@@ -38,7 +39,7 @@ export async function generateMetadata({
     title: seo.metaTitle,
     description: seo.metaDesc,
     keywords: seo.keywords,
-    authors: [{ name: 'TheTaxCalc' }],
+    authors: [{ name: `${getCalculatorAuthor().name}, ${getCalculatorAuthor().credentials}` }],
     alternates: {
       canonical: `${baseUrl}${seo.canonicalPath}`,
     },
@@ -84,6 +85,12 @@ export default async function StateSalesTaxPage({
   const seo = getStateSEOMeta(stateKey);
   const content = getStateContent(stateKey);
   const jsonLd = getStateJsonLd(stateKey, SITE_URL);
+  const author = getCalculatorAuthor();
+
+  // Inject author Person schema into JSON-LD graph
+  if (jsonLd && jsonLd['@graph'] && Array.isArray(jsonLd['@graph'])) {
+    jsonLd['@graph'].push(authorToJsonLd(author));
+  }
 
   return (
     <main className="min-h-screen bg-background">

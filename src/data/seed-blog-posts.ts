@@ -362,9 +362,9 @@ FICA has two pieces, and they work differently enough that it's worth understand
 
 ## Social Security Tax (The One With a Cap)
 
-The Social Security part — technically called OASDI, which stands for something nobody remembers — takes **6.2%** of your wages. Your employer kicks in another 6.2%, so the total is 12.4%. But here's the thing: it only applies up to a certain amount of income. For 2026, that cutoff is **$176,100**.
+The Social Security part — technically called OASDI, which stands for something nobody remembers — takes **6.2%** of your wages. Your employer kicks in another 6.2%, so the total is 12.4%. But here's the thing: it only applies up to a certain amount of income. For 2026, that cutoff is **$184,500**.
 
-Once you've earned $176,100 in a year, Social Security tax stops. Your paychecks get a little bigger for the rest of the year, which is a nice little bonus that high earners enjoy around August or September. (If you make over $176k, you know exactly what I'm talking about. That fourth-quarter paycheck bump is a real feeling.)
+Once you've earned $184,500 in a year, Social Security tax stops. Your paychecks get a little bigger for the rest of the year, which is a nice little bonus that high earners enjoy around August or September. (If you make over $184k, you know exactly what I'm talking about. That fourth-quarter paycheck bump is a real feeling.)
 
 This cap is also why FICA is somewhat regressive — high earners pay a smaller *percentage* of their total income toward Social Security than middle-income workers do. The 6.2% stops hitting them after they cross the threshold. Make sense?
 
@@ -376,9 +376,9 @@ And if you're a higher earner, there's an extra kick: once your wages go over $2
 
 ## How It All Adds Up
 
-For most people making under $176,100, the total employee FICA rate is **7.65%** (6.2% Social Security + 1.45% Medicare). The employer pays the same 7.65% on your behalf. Combined, that's 15.3% of your wages going toward FICA.
+For most people making under $184,500, the total employee FICA rate is **7.65%** (6.2% Social Security + 1.45% Medicare). The employer pays the same 7.65% on your behalf. Combined, that's 15.3% of your wages going toward FICA.
 
-Once you pass $176,100, your employee share drops to just 1.45% (Medicare only) until you hit $200,000. Above $200,000, you're paying 2.35% (1.45% Medicare + 0.9% additional Medicare).
+Once you pass $184,500, your employee share drops to just 1.45% (Medicare only) until you hit $200,000. Above $200,000, you're paying 2.35% (1.45% Medicare + 0.9% additional Medicare).
 
 Let's look at some real numbers so this isn't just abstract.
 
@@ -392,18 +392,18 @@ Your employer also pays $6,120. So the government is actually collecting $12,240
 
 ## Example 2: Making $250,000
 
-- Social Security: $176,100 × 6.2% = $10,918.20 (capped!)
+- Social Security: $184,500 × 6.2% = $11,439.00 (capped!)
 - Medicare: $250,000 × 1.45% = $3,625.00
 - Additional Medicare: ($250,000 − $200,000) × 0.9% = $450.00
-- **Your total FICA: $14,993.20 per year**
+- **Your total FICA: $15,514.00 per year**
 
-Your employer pays $10,918.20 + $3,625.00 = $14,543.20 (they don't pay the additional 0.9%). Total FICA contribution: **$29,536.40**.
+Your employer pays $11,439.00 + $3,625.00 = $15,064.00 (they don't pay the additional 0.9%). Total FICA contribution: **$30,578.00**.
 
 Notice something? The person making $250,000 is paying roughly 6% of their income in FICA. The person making $80,000 is paying 7.65%. That's the regressive nature of the Social Security cap at work.
 
 ## Self-Employment Tax — The Double Whammy
 
-Okay, freelancers and solopreneurs, this is where it hurts. When you're self-employed, you pay **both** the employee and employer shares. It's called self-employment tax (our [self-employment tax calculator](/self-employment-tax-calculator) does the math for you), and the rate is **15.3%** on earnings up to $176,100 (12.4% for Social Security + 2.9% for Medicare). Above that, it drops to 2.9% for Medicare, and above $200,000 it goes to 3.8%.
+Okay, freelancers and solopreneurs, this is where it hurts. When you're self-employed, you pay **both** the employee and employer shares. It's called self-employment tax (our [self-employment tax calculator](/self-employment-tax-calculator) does the math for you), and the rate is **15.3%** on earnings up to $184,500 (12.4% for Social Security + 2.9% for Medicare). Above that, it drops to 2.9% for Medicare, and above $200,000 it goes to 3.8%.
 
 Yeah. Fifteen point three percent. On top of your regular income tax. It's a lot. A LOT.
 
@@ -417,7 +417,7 @@ FICA isn't optional. There's no form to fill out, no deduction to claim, no loop
 
 FICA is separate from income tax. You pay both. They're different things funding different programs. Your income tax goes to the general fund; FICA specifically funds Social Security and Medicare.
 
-The Social Security wage base goes up every year. It was $160,200 in 2023, $168,600 in 2024, and now $176,100 in 2026. If your income is in that range, you might notice your year-end paycheck bump shrinking over time as the cap rises.
+The Social Security wage base goes up every year. It was $160,200 in 2023, $168,600 in 2024, and now $184,500 in 2026. If your income is in that range, you might notice your year-end paycheck bump shrinking over time as the cap rises.
 
 Your future Social Security benefits depend on what you pay in. The SSA looks at your 35 highest-earning years of FICA contributions to calculate your retirement benefit. So those years when you earned less? They matter. And years with zero FICA contributions? They count as zeros in the average. Ouch.
 

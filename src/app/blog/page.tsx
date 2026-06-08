@@ -4,6 +4,7 @@ import { getPublishedPostsMeta, type BlogPostMeta } from '@/lib/blog-index';
 import { BlogFilterClient } from './blog-filter-client';
 import { Breadcrumb } from '@/components/finance/breadcrumb';
 import { SITE_URL } from '@/lib/site-config';
+import { getCalculatorAuthor, authorToJsonLd } from '@/lib/authors';
 
 
 
@@ -13,6 +14,7 @@ export const metadata: Metadata = {
   title: 'Tax Blog — 2026 Guides, Tips & News',
   description: 'Expert tax guides, state comparisons, and financial tips updated for 2026. Clear explanations and free calculators to help you keep more of your money.',
   keywords: ['tax blog', 'tax tips', 'tax guide', 'tax news', 'state tax comparison', 'tax planning', 'financial tips'],
+  authors: [{ name: 'Rachel Mitchell, CPA' }],
   alternates: {
     canonical: `${SITE_URL}/blog`,
     languages: { 'en-US': `${SITE_URL}/blog`, 'x-default': `${SITE_URL}/blog` },
@@ -42,6 +44,7 @@ export default async function BlogPage() {
     '@context': 'https://schema.org', '@type': 'Blog',
     name: 'TheTaxCalc Blog', description: 'Expert tax guides, state-by-state comparisons, and financial tips from TheTaxCalc.',
     url: `${SITE_URL}/blog`, publisher: { '@type': 'Organization', name: 'TheTaxCalc', url: SITE_URL },
+    author: authorToJsonLd(getCalculatorAuthor()),
   };
 
   const itemListJsonLd = {

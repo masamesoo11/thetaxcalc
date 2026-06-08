@@ -440,6 +440,14 @@ export function getStateJsonLd(stateKey: string, siteUrl: string) {
         ],
       },
       {
+        '@type': 'WebPage',
+        name: `${state.name} Sales Tax Calculator 2026`,
+        description: `Calculate sales tax for ${state.name}. ${state.noStateTax ? 'No state sales tax.' : `Combined rate: ${combinedPct}%.`} Free, no sign-up required.`,
+        url,
+        inLanguage: 'en-US',
+        dateModified: '2026-01-01',
+      },
+      {
         '@type': 'WebApplication',
         name: `${state.name} Sales Tax Calculator 2026`,
         url,

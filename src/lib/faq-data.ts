@@ -15,7 +15,7 @@ export const HOME_FAQS: FAQItem[] = [
   {
     question: 'What is FICA and how much does it take from my paycheck?',
     answer:
-      "FICA is the payroll tax that funds Social Security and Medicare. You pay 6.2% for Social Security (capped at $176,100 in earnings for 2026) and 1.45% for Medicare with no cap. So that's 7.65% total coming out of every paycheck. And if you earn over $200,000, there's an extra 0.9% Medicare surcharge on everything above that. Your employer matches what you pay, but that's their problem — you just see the 7.65% on your pay stub.",
+      "FICA is the payroll tax that funds Social Security and Medicare. You pay 6.2% for Social Security (capped at $184,500 in earnings for 2026) and 1.45% for Medicare with no cap. So that's 7.65% total coming out of every paycheck. And if you earn over $200,000, there's an extra 0.9% Medicare surcharge on everything above that. Your employer matches what you pay, but that's their problem — you just see the 7.65% on your pay stub.",
   },
   {
     question: 'How much is taken out of a $75,000 salary in taxes?',
@@ -226,7 +226,7 @@ export const SELF_EMPLOYMENT_FAQS: FAQItem[] = [
   {
     question: 'What is the self-employment tax rate for 2026?',
     answer:
-      "15.3% on 92.35% of your net business income. That's 12.4% for Social Security (capped at $176,100 in income) and 2.9% for Medicare (no cap). Once you cross $200K in net SE income, tack on another 0.9% Medicare surcharge on everything above that. Basically, you're covering both the employee and employer sides of FICA since you are both.",
+      "15.3% on 92.35% of your net business income. That's 12.4% for Social Security (capped at $184,500 in income) and 2.9% for Medicare (no cap). Once you cross $200K in net SE income, tack on another 0.9% Medicare surcharge on everything above that. Basically, you're covering both the employee and employer sides of FICA since you are both.",
   },
   {
     question: 'How do quarterly estimated tax payments work?',
@@ -472,7 +472,7 @@ export const INCOME_TAX_FAQS: FAQItem[] = [
   {
     question: 'What is FICA and how does it affect my income tax?',
     answer:
-      "FICA is separate from income tax — it's 6.2% for Social Security (up to $176,100) plus 1.45% for Medicare (no cap), totaling 7.65%. Add 0.9% more Medicare if you earn above $200,000. Unlike income tax, FICA is calculated on gross pay before any deductions, including 401(k) contributions.",
+      "FICA is separate from income tax — it's 6.2% for Social Security (up to $184,500) plus 1.45% for Medicare (no cap), totaling 7.65%. Add 0.9% more Medicare if you earn above $200,000. Unlike income tax, FICA is calculated on gross pay before any deductions, including 401(k) contributions.",
   },
   {
     question: 'How do state income taxes differ from federal?',
@@ -543,7 +543,7 @@ export const OVERTIME_FAQS: FAQItem[] = [
   {
     question: 'Is FICA (Social Security and Medicare) still taken from overtime pay?',
     answer:
-      "Yes, absolutely. The No Tax on Overtime law only exempts overtime pay from federal income tax. FICA taxes — 6.2% for Social Security (up to the $176,100 wage cap for 2026) and 1.45% for Medicare (no cap) — still apply to all wages including overtime. If you earn over $200,000, the additional 0.9% Medicare tax also applies. Don't confuse the income tax exemption with a total tax exemption.",
+      "Yes, absolutely. The No Tax on Overtime law only exempts overtime pay from federal income tax. FICA taxes — 6.2% for Social Security (up to the $184,500 wage cap for 2026) and 1.45% for Medicare (no cap) — still apply to all wages including overtime. If you earn over $200,000, the additional 0.9% Medicare tax also applies. Don't confuse the income tax exemption with a total tax exemption.",
   },
 ];
 
@@ -566,7 +566,7 @@ export const BONUS_TAX_FAQS: FAQItem[] = [
   {
     question: 'Does FICA apply to bonuses?',
     answer:
-      "Yes, always. FICA taxes (6.2% for Social Security up to the $176,100 wage cap in 2026, plus 1.45% for Medicare with no cap) apply to all wages including bonuses, regardless of which federal income tax method your employer uses. If your total income exceeds $200,000, there's an additional 0.9% Medicare surtax on wages above that threshold. FICA is calculated on gross wages before any deductions — there's no way around it.",
+      "Yes, always. FICA taxes (6.2% for Social Security up to the $184,500 wage cap in 2026, plus 1.45% for Medicare with no cap) apply to all wages including bonuses, regardless of which federal income tax method your employer uses. If your total income exceeds $200,000, there's an additional 0.9% Medicare surtax on wages above that threshold. FICA is calculated on gross wages before any deductions — there's no way around it.",
   },
   {
     question: 'Are bonuses taxed at a higher rate?',

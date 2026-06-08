@@ -18,6 +18,7 @@ import {
 import { Breadcrumb } from '@/components/finance/breadcrumb';
 import { CiteButton } from '@/components/finance/cite-button';
 import { SITE_URL } from '@/lib/site-config';
+import { getCalculatorAuthor, authorToJsonLd } from '@/lib/authors';
 
 // ─── Page Metadata ────────────────────────────────────────────────────────────
 
@@ -41,7 +42,7 @@ export const metadata: Metadata = {
     'tax reference data',
     'free tax data',
   ],
-  authors: [{ name: 'TheTaxCalc' }],
+  authors: [{ name: 'Rachel Mitchell, CPA' }],
   alternates: {
     canonical: `${SITE_URL}/resources`,
     languages: {
@@ -170,10 +171,10 @@ const STATE_TAX_DATA = [
 // ─── Data: FICA Tax Rates ─────────────────────────────────────────────────────
 
 const FICA_DATA = [
-  { component: 'Social Security (OASDI)', rate: '6.2%', wageBase: '$176,100', notes: 'Employer matches 6.2%' },
+  { component: 'Social Security (OASDI)', rate: '6.2%', wageBase: '$184,500', notes: 'Employer matches 6.2%' },
   { component: 'Medicare (HI)', rate: '1.45%', wageBase: 'No cap', notes: 'Employer matches 1.45%' },
   { component: 'Additional Medicare', rate: '0.9%', wageBase: '>$200,000', notes: 'Employee only; no employer match' },
-  { component: 'Self-Employment Tax', rate: '15.3%', wageBase: '92.35% of net SE income', notes: 'Social Security portion capped at $176,100' },
+  { component: 'Self-Employment Tax', rate: '15.3%', wageBase: '92.35% of net SE income', notes: 'Social Security portion capped at $184,500' },
 ];
 
 // ─── Data: Standard Deductions ────────────────────────────────────────────────
@@ -223,11 +224,11 @@ const FAQ_ITEMS = [
   },
   {
     q: 'What is the Social Security wage base for 2026?',
-    a: 'The Social Security (OASDI) wage base for 2026 is $176,100. This means the 6.2% Social Security tax applies only to the first $176,100 of earned income. Any wages above this amount are not subject to Social Security tax, though the 1.45% Medicare tax still applies with no cap.',
+    a: 'The Social Security (OASDI) wage base for 2026 is $184,500. This means the 6.2% Social Security tax applies only to the first $184,500 of earned income. Any wages above this amount are not subject to Social Security tax, though the 1.45% Medicare tax still applies with no cap.',
   },
   {
     q: 'What is the self-employment tax rate for 2026?',
-    a: 'The self-employment tax rate for 2026 is 15.3%, applied to 92.35% of your net self-employment income. This breaks down to 12.4% for Social Security (capped at the $176,100 wage base) and 2.9% for Medicare (no cap). If your earned income exceeds $200,000 ($250,000 for married filing jointly), you also owe the 0.9% Additional Medicare Tax.',
+    a: 'The self-employment tax rate for 2026 is 15.3%, applied to 92.35% of your net self-employment income. This breaks down to 12.4% for Social Security (capped at the $184,500 wage base) and 2.9% for Medicare (no cap). If your earned income exceeds $200,000 ($250,000 for married filing jointly), you also owe the 0.9% Additional Medicare Tax.',
   },
   {
     q: 'Which states have no income tax?',
@@ -300,6 +301,8 @@ function getJsonLd() {
         url: `${SITE_URL}/resources`,
         inLanguage: 'en-US',
         dateModified: '2026-01-15',
+        author: authorToJsonLd(getCalculatorAuthor()),
+        reviewedBy: authorToJsonLd(getCalculatorAuthor()),
         breadcrumb: {
           '@type': 'BreadcrumbList',
           itemListElement: [
@@ -308,6 +311,7 @@ function getJsonLd() {
           ],
         },
       },
+      authorToJsonLd(getCalculatorAuthor()),
       {
         '@type': 'FAQPage',
         mainEntity: faqEntries,
@@ -417,7 +421,7 @@ export default function ResourcesPage() {
           {[
             { label: 'Federal Brackets', value: '7 rates', detail: '3 filing statuses' },
             { label: 'States Covered', value: '7', detail: 'IL, TX, FL, CA, NY, GA, VA' },
-            { label: 'SS Wage Base', value: '$176,100', detail: '6.2% OASDI' },
+            { label: 'SS Wage Base', value: '$184,500', detail: '6.2% OASDI' },
             { label: '401(k) Limit', value: '$23,500', detail: '+$7,500 catch-up' },
           ].map((stat) => (
             <div
