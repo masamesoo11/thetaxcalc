@@ -12,6 +12,15 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       {
+        // HTML pages — allow CDN/browser caching for SEO performance
+        // Google needs cacheable pages for efficient crawling & Core Web Vitals
+        source: '/(.*)\\.(html|xml|txt|json)',
+        headers: [
+          { key: 'Cache-Control', value: 'public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800' },
+        ],
+      },
+      {
+        // All pages — security headers (no Cache-Control here!)
         source: '/(.*)',
         headers: [
           { key: 'X-Content-Type-Options', value: 'nosniff' },
@@ -23,14 +32,20 @@ const nextConfig: NextConfig = {
             key: 'Content-Security-Policy',
             value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https://www.google-analytics.com https://www.googletagmanager.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://www.google-analytics.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self';",
           },
-          { key: 'Cache-Control', value: 'no-store, must-revalidate' },
         ],
       },
       {
-        // Allow caching for static assets
+        // Static assets — long-term caching
         source: '/_next/:path*',
         headers: [
           { key: 'Cache-Control', value: 'public, max-age=31536000, immutable' },
+        ],
+      },
+      {
+        // Static files (images, icons, etc.) — medium-term caching
+        source: '/(.*)\\.(png|jpg|jpeg|svg|ico|webp|woff2|woff)',
+        headers: [
+          { key: 'Cache-Control', value: 'public, max-age=86400, stale-while-revalidate=31536000' },
         ],
       },
     ];
