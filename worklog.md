@@ -723,3 +723,27 @@ Stage Summary:
 - Sitemap Ping API يخطر جوجل وبينج بتحديث الـ sitemap
 - robots.txt مبسط بدون تحذيرات
 - sitemap بتواريخ حقيقية بدل تواريخ ديناميكية مزيفة
+
+---
+Task ID: 1
+Agent: static-files-agent
+Task: Create static sitemap.xml and robots.txt in public/
+
+Work Log:
+- Created robots.txt in /home/z/my-project/public/robots.txt with proper rules (Allow /, Disallow /api/ and /admin/, Sitemap reference)
+- Generated comprehensive sitemap.xml in /home/z/my-project/public/sitemap.xml with 132 URLs:
+  - 12 static pages (home, about, widgets, resources, glossary, salary, compare, blog, federal-tax-brackets, tax-data, privacy, terms)
+  - 20 calculator pages (from CALCULATOR_ROUTES: paycheck, IL, TX, FL, CA, NY, mortgage, 401k, relocation, capital-gains, self-employment, sales-tax, tax-refund, overtime, GA, lottery, IRS-withholding, property-tax, bonus-tax, VA)
+  - 26 salary pages (from SALARY_AMOUNTS: $30K–$500K)
+  - 10 comparison pages (from COMPARISON_SLUGS: IL-vs-TX, IL-vs-FL, etc.)
+  - 50 state sales tax pages (from ALL_STATE_KEYS: all 50 US states)
+  - 14 blog posts (from BLOG_INDEX slugs)
+- Used lastmod dates: 2026-01-01 for tax-related content, 2025-03-01 for structural pages
+- Priorities: 1.0 (home), 0.9 (calculators), 0.8 (salary landing, federal-brackets), 0.7 (state/compare/salary/blog pages), 0.6 (glossary/tax-data/blog posts), 0.3 (privacy/terms)
+- Validated XML structure: 132 url entries with matching open/close tags, proper XML declaration, well-formed urlset
+
+Stage Summary:
+- robots.txt and sitemap.xml created in public/ directory
+- All 132 URLs from the site are included in the sitemap
+- Static files replace previously deleted dynamic routes (src/app/sitemap.ts and src/app/robots.ts)
+- No code changes needed — pure static file generation
