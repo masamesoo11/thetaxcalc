@@ -28,9 +28,9 @@ import { SITE_URL } from '@/lib/site-config';
 // ─── Page Metadata ────────────────────────────────────────────────────────────
 
 export const metadata: Metadata = {
-  title: '2026 Tax Data & Statistics — All 50 States | TheTaxCalc',
+  title: '2026 Tax Data & Statistics — All 50 States',
   description:
-    'Free, citable 2026 tax data for all 50 US states. Sales tax rates, federal brackets, FICA rates, no-income-tax states, and more. Download CSV, embed charts, cite freely.',
+    'Free 2026 tax data for all 50 states. Sales tax rates, federal brackets, FICA & no-tax states. Download CSV, embed charts, cite freely.',
   keywords: [
     '2026 tax data',
     'sales tax rates by state 2026',
@@ -55,9 +55,9 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: '2026 Tax Data & Statistics — All 50 States | TheTaxCalc',
+    title: '2026 Tax Data & Statistics — All 50 States',
     description:
-      'Free, citable 2026 tax data for all 50 states. Sales tax rates, federal brackets, FICA rates, and more. Download CSV, embed charts, cite freely.',
+      'Free 2026 tax data for 50 states. Sales tax, brackets, FICA & no-tax states. CSV & charts.',
     url: `${SITE_URL}/tax-data`,
     siteName: 'TheTaxCalc',
     type: 'website',
@@ -73,9 +73,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: '2026 Tax Data & Statistics — All 50 States | TheTaxCalc',
+    title: '2026 Tax Data & Statistics — All 50 States',
     description:
-      'Free, citable 2026 tax data for all 50 states. Sales tax rates, federal brackets, FICA rates. Download CSV, embed charts.',
+      'Free 2026 tax data for 50 states. Sales tax, brackets, FICA & no-tax states. CSV & charts.',
   },
 };
 

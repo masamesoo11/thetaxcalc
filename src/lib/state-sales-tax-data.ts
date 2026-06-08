@@ -194,7 +194,7 @@ export function getStateSEOMeta(stateKey: string): StateSEOMeta {
   if (state.noStateTax) {
     return {
       metaTitle: `${name} Sales Tax Calculator 2026 | 0% Tax`,
-      metaDesc: `Free ${name} sales tax calculator for 2026. ${name} has 0% state sales tax${state.abbreviation === 'AK' ? ', but local taxes may apply (avg 1.82%)' : ' — no sales tax at all'}. See what taxes apply and what doesn't. No sign-up required.`,
+      metaDesc: `Free ${name} sales tax calculator 2026. 0% state sales tax${state.abbreviation === 'AK' ? ', local avg 1.82%' : ''}. No sign-up.`,
       h1: `${name} Sales Tax Calculator`,
       ogTitle: `${name} Sales Tax Calculator 2026 — 0% State Sales Tax`,
       ogDescription: `Free ${name} sales tax calculator. ${name} has no state sales tax. See details and exemptions. No sign-up required.`,
@@ -215,7 +215,7 @@ export function getStateSEOMeta(stateKey: string): StateSEOMeta {
 
   return {
     metaTitle: `${name} Sales Tax 2026 | ${combinedPct}% Combined`,
-    metaDesc: `Free ${name} sales tax calculator for 2026. Calculate sales tax at ${statePct}% state + ${localPct}% average local = ${combinedPct}% combined rate. Includes reverse calculator and tax-exempt items. No sign-up required.`,
+    metaDesc: `Free ${name} sales tax calculator 2026. ${statePct}% state + ${localPct}% local = ${combinedPct}% combined. Reverse calc & exemptions. No sign-up.`,
     h1: `${name} Sales Tax Calculator`,
     ogTitle: `${name} Sales Tax Calculator 2026 — ${statePct}% State + Local Rates`,
     ogDescription: `Free ${name} sales tax calculator. ${statePct}% state + ${localPct}% local = ${combinedPct}% combined rate. Reverse calculator & exemptions included. No sign-up.`,

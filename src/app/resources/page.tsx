@@ -26,7 +26,7 @@ import { AuthorBioCard } from '@/components/finance/author-bio-card';
 export const metadata: Metadata = {
   title: '2026 Tax Data, Brackets & Rates — Free Reference',
   description:
-    'Free 2026 federal tax brackets, FICA rates, state income tax comparison, standard deductions, and 401(k) limits. Sourced from IRS publications. Cite and link freely.',
+    'Free 2026 federal tax brackets, FICA rates, state tax comparison, deductions & 401(k) limits. IRS-sourced. Cite freely.',
   keywords: [
     '2026 federal tax brackets',
     '2026 tax rates',
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: '2026 Tax Data, Brackets & Rates — Free Reference',
     description:
-      'Free 2026 federal tax brackets, FICA rates, state income tax comparison, standard deductions, and 401(k) limits. Sourced from IRS publications. Cite and link freely.',
+      'Free 2026 federal tax brackets, FICA rates, state tax comparison, deductions & 401(k) limits. IRS-sourced. Cite freely.',
     url: `${SITE_URL}/resources`,
     siteName: 'TheTaxCalc',
     type: 'website',
@@ -298,7 +298,7 @@ function getJsonLd() {
         '@type': 'WebPage',
         name: '2026 Tax Data, Brackets & Rates — Free Reference',
         description:
-          'Free 2026 federal tax brackets, FICA rates, state income tax comparison, standard deductions, and 401(k) limits. Sourced from IRS publications. Cite and link freely.',
+          'Free 2026 federal tax brackets, FICA rates, state tax comparison, deductions & 401(k) limits. IRS-sourced. Cite freely.',
         url: `${SITE_URL}/resources`,
         inLanguage: 'en-US',
         dateModified: '2026-01-15',
