@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import { SITE_URL, SITE_HOME_URL } from '@/lib/site-config';
+import { getCalculatorAuthor, authorToJsonLd } from '@/lib/authors';
 import SEOAuditDashboard from '@/components/seo-audit-dashboard';
 
 // ─── Home Page Metadata ───────────────────────────────────────────────────────
@@ -46,6 +47,8 @@ export const metadata: Metadata = {
 
 // ─── JSON-LD Structured Data ───────────────────────────────────────────────────
 
+const homeAuthor = getCalculatorAuthor();
+
 const homeJsonLd = {
   '@context': 'https://schema.org',
   '@graph': [
@@ -57,6 +60,8 @@ const homeJsonLd = {
       url: SITE_URL,
       inLanguage: 'en-US',
       dateModified: '2026-06-06',
+      author: authorToJsonLd(homeAuthor),
+      reviewedBy: authorToJsonLd(homeAuthor),
       isPartOf: {
         '@type': 'WebSite',
         name: 'TheTaxCalc',
@@ -172,6 +177,7 @@ const homeJsonLd = {
         { '@type': 'PropertyValue', name: '401(k) Contribution Limit', value: '$23,500' },
       ],
     },
+    authorToJsonLd(homeAuthor),
     {
       '@type': 'FAQPage',
       mainEntity: [

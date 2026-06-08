@@ -31,7 +31,7 @@ export interface FICAConfig {
   additionalMedicareRate: number; // 0.009 above threshold
   additionalMedicareThreshold: number; // $200,000 (single) - statutory, not indexed
   additionalMedicareThresholdMFJ: number; // $250,000 (married filing jointly) - statutory
-  socialSecurityWageCap: number; // $176,100 for 2026
+  socialSecurityWageCap: number; // $184,500 for 2026
   totalRate: number; // 0.0765
 }
 

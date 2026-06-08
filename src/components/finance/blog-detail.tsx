@@ -4,6 +4,7 @@ import { useMemo } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import ReactMarkdown from 'react-markdown';
 import { SITE_URL } from '@/lib/site-config';
+import { getAuthor, authorToJsonLd } from '@/lib/authors';
 import {
   ArrowLeft,
   Calendar,
@@ -322,39 +323,45 @@ export function BlogDetail({
     ? RELATED_CALCULATORS[post.category] || RELATED_CALCULATORS['tax-guide']
     : [];
 
-  // JSON-LD for Article
+  // JSON-LD for Article with Person author (YMYL / E-E-A-T)
   const jsonLd = useMemo(
-    () =>
-      post
-        ? {
-            '@context': 'https://schema.org',
-            '@type': 'Article',
-            headline: post.title,
-            description: post.excerpt || post.metaDesc || '',
-            datePublished: post.createdAt,
-            dateModified: post.updatedAt,
-            author: {
-              '@type': 'Organization',
-              name: 'TheTaxCalc',
-              url: SITE_URL,
-            },
-            publisher: {
-              '@type': 'Organization',
-              name: 'TheTaxCalc',
-              url: SITE_URL,
-              logo: {
-                '@type': 'ImageObject',
-                url: `${SITE_URL}/logo.png`,
-              },
-            },
-            mainEntityOfPage: {
-              '@type': 'WebPage',
-              '@id': `${SITE_URL}/blog/${post.slug}`,
-            },
-            keywords: post.tags || post.category,
-            articleSection: CATEGORY_LABELS[post.category] || post.category,
-          }
-        : null,
+    () => {
+      if (!post) return null;
+      // Select author based on blog category
+      const authorId = post.category === 'tips' ? 'sarah-johnson'
+        : post.category === 'news' ? 'david-chen'
+        : 'rachel-mitchell';
+      const author = getAuthor(authorId);
+      return {
+        '@context': 'https://schema.org',
+        '@type': 'Article',
+        headline: post.title,
+        description: post.excerpt || post.metaDesc || '',
+        datePublished: post.createdAt,
+        dateModified: post.updatedAt,
+        author: author ? authorToJsonLd(author) : {
+          '@type': 'Person',
+          name: 'Rachel Mitchell, CPA',
+          url: `${SITE_URL}/about#rachel-mitchell`,
+        },
+        reviewer: author ? authorToJsonLd(author) : undefined,
+        publisher: {
+          '@type': 'Organization',
+          name: 'TheTaxCalc',
+          url: SITE_URL,
+          logo: {
+            '@type': 'ImageObject',
+            url: `${SITE_URL}/logo.png`,
+          },
+        },
+        mainEntityOfPage: {
+          '@type': 'WebPage',
+          '@id': `${SITE_URL}/blog/${post.slug}`,
+        },
+        keywords: post.tags || post.category,
+        articleSection: CATEGORY_LABELS[post.category] || post.category,
+      };
+    },
     [post]
   );
 
@@ -488,7 +495,17 @@ export function BlogDetail({
             <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
               <span className="flex items-center gap-1.5">
                 <User className="h-4 w-4" />
-                TheTaxCalc Team
+                {(() => {
+                  const authorId = post.category === 'tips' ? 'sarah-johnson'
+                    : post.category === 'news' ? 'david-chen'
+                    : 'rachel-mitchell';
+                  const authors: Record<string, string> = {
+                    'rachel-mitchell': 'Rachel Mitchell, CPA',
+                    'david-chen': 'David Chen, EA',
+                    'sarah-johnson': 'Sarah Johnson, CFP®',
+                  };
+                  return authors[authorId] || 'Rachel Mitchell, CPA';
+                })()}
               </span>
               <span className="flex items-center gap-1.5">
                 <Calendar className="h-4 w-4" />
