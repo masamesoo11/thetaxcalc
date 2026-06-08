@@ -19,7 +19,8 @@ import Link from 'next/link';
 import { Breadcrumb } from '@/components/finance/breadcrumb';
 import { ProtectedEmail } from '@/components/finance/protected-email';
 import { SITE_URL } from '@/lib/site-config';
-import { getCalculatorAuthor, authorToJsonLd } from '@/lib/authors';
+import { getCalculatorAuthor, authorToJsonLd, AUTHORS } from '@/lib/authors';
+import { AuthorBioCard } from '@/components/finance/author-bio-card';
 
 export const metadata: Metadata = {
   title: 'About TheTaxCalc — Free 2026 Calculators',
@@ -444,6 +445,86 @@ export default function AboutPage() {
             <span>Last reviewed: January 2026</span>
           </div>
         </div>
+      </section>
+
+      {/* ─── Our Tax Experts (E-E-A-T) ──────────────────────────── */}
+      <section className="mb-12">
+        <div className="flex items-center gap-3 mb-6">
+          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-500/10">
+            <ClipboardCheck className="h-5 w-5 text-emerald-400" />
+          </div>
+          <h2 className="text-2xl font-bold text-foreground">Our Tax Experts</h2>
+        </div>
+        <p className="text-muted-foreground leading-relaxed mb-6">
+          Every calculator and article on TheTaxCalc is written and reviewed by credentialed
+          tax professionals. Their expertise covers the full range of topics our calculators
+          address — from federal income tax and FICA to self-employment, retirement planning,
+          and capital gains.
+        </p>
+        <div className="grid gap-6 sm:grid-cols-1 lg:grid-cols-3">
+          {Object.values(AUTHORS).map((author) => (
+            <div
+              key={author.id}
+              id={author.id}
+              className="scroll-mt-24 rounded-xl border border-emerald-500/20 bg-gradient-to-br from-emerald-500/5 to-card/80 p-6"
+            >
+              {/* Avatar */}
+              <div className="flex h-14 w-14 items-center justify-center rounded-full bg-emerald-500/15 text-base font-bold text-emerald-400 ring-2 ring-emerald-500/30 mb-4">
+                {author.name.split(' ').map((n) => n[0]).join('')}
+              </div>
+              {/* Name & Credentials */}
+              <div className="flex flex-wrap items-center gap-2 mb-1">
+                <h3 className="text-lg font-semibold text-foreground">{author.name}</h3>
+                <span className="inline-flex items-center rounded-md bg-emerald-500/15 px-2 py-0.5 text-xs font-semibold text-emerald-400 ring-1 ring-emerald-500/25">
+                  {author.credentials}
+                </span>
+                <span className="inline-flex items-center gap-1 rounded-md bg-emerald-500/10 px-2 py-0.5 text-[11px] font-medium text-emerald-400/90 ring-1 ring-emerald-500/20">
+                  <svg className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5} aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  Verified Expert
+                </span>
+              </div>
+              {/* Title */}
+              <p className="text-sm text-muted-foreground mb-3">
+                {author.title}, TheTaxCalc
+              </p>
+              {/* Bio */}
+              <p className="text-sm text-muted-foreground/80 leading-relaxed mb-4">
+                {author.bio}
+              </p>
+              {/* Specialties */}
+              <div className="flex flex-wrap gap-1.5">
+                {author.knowsAbout.slice(0, 4).map((topic) => (
+                  <span
+                    key={topic}
+                    className="inline-flex items-center rounded-md bg-muted/30 px-2 py-0.5 text-[11px] text-muted-foreground"
+                  >
+                    {topic}
+                  </span>
+                ))}
+              </div>
+              {/* LinkedIn */}
+              {author.sameAs[0] && (
+                <a
+                  href={author.sameAs[0]}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-4 inline-flex items-center gap-1.5 text-xs text-emerald-400 hover:text-emerald-300 transition-colors"
+                >
+                  <svg className="h-3.5 w-3.5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                  </svg>
+                  LinkedIn Profile
+                </a>
+              )}
+            </div>
+          ))}
+        </div>
+        <p className="mt-4 text-xs text-muted-foreground">
+          All tax data and calculation methodologies on TheTaxCalc are reviewed by our expert team
+          and verified against official IRS publications and state revenue department sources.
+        </p>
       </section>
 
       {/* FAQ */}

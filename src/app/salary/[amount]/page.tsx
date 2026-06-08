@@ -12,6 +12,7 @@ import {
 } from '@/lib/salary-calculations';
 import { DynamicSalaryPage } from './dynamic-salary-page';
 import { getCalculatorAuthor, authorToJsonLd } from '@/lib/authors';
+import { AuthorBioCard } from '@/components/finance/author-bio-card';
 
 export function generateStaticParams() {
   return SALARY_AMOUNTS.map((amount) => ({ amount: String(amount) }));
@@ -158,6 +159,13 @@ export default async function SalaryAmountPage({
 
       {/* Interactive Client Component with Filing Status & NYC toggle */}
       <DynamicSalaryPage amountStr={amountStr} />
+
+      {/* ─── Author Attribution (E-E-A-T) ──────────────────────── */}
+      <section className="py-12 border-t border-border/20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <AuthorBioCard authorId="rachel-mitchell" />
+        </div>
+      </section>
     </>
   );
 }

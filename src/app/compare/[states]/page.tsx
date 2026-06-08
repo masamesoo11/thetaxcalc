@@ -9,6 +9,7 @@ import { calculatePaycheck, formatCurrency } from '@/lib/finance-utils';
 import { COMPARISON_SLUGS } from '@/lib/compare-config';
 import { DynamicComparePage } from './dynamic-compare-page';
 import { getCalculatorAuthor, authorToJsonLd } from '@/lib/authors';
+import { AuthorBioCard } from '@/components/finance/author-bio-card';
 
 export function generateStaticParams() {
   return COMPARISON_SLUGS.map((slug) => ({ states: slug }));
@@ -141,6 +142,13 @@ export default async function CompareStatesPage({
 
       {/* Interactive Client Component with Filing Status selector */}
       <DynamicComparePage states={states} />
+
+      {/* ─── Author Attribution (E-E-A-T) ──────────────────────── */}
+      <section className="py-12 border-t border-border/20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <AuthorBioCard authorId="rachel-mitchell" />
+        </div>
+      </section>
     </>
   );
 }

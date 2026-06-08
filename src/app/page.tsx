@@ -5,6 +5,7 @@ import { SALARY_AMOUNTS, formatSalaryCompact } from '@/lib/salary-calculations';
 import { getPublishedPostsMeta } from '@/lib/blog-index';
 import { COMPARISON_SLUGS, COMPARE_STATES, parseComparisonSlug } from '@/lib/compare-config';
 import { getCalculatorAuthor, authorToJsonLd } from '@/lib/authors';
+import { AuthorBioCard } from '@/components/finance/author-bio-card';
 import {
   DollarSign,
   MapPin,
@@ -972,6 +973,13 @@ export default function HomePage() {
               <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
+        </div>
+      </section>
+
+      {/* ─── Author Attribution (E-E-A-T) ──────────────────────── */}
+      <section className="py-12 border-t border-border/20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <AuthorBioCard authorId="rachel-mitchell" />
         </div>
       </section>
     </>

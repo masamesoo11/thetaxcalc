@@ -9,7 +9,6 @@ export default function robots(): MetadataRoute.Robots {
     rules: [
       {
         // AI crawlers — allow full access (generates backlinks/mentions)
-        // No disallow needed — these bots don't need /api/ or /admin/
         userAgent: 'GPTBot',
         allow: '/',
       },
@@ -62,6 +61,8 @@ export default function robots(): MetadataRoute.Robots {
       },
     ],
     sitemap: `${SITE_URL}/sitemap.xml`,
-    host: SITE_URL,
+    // NOTE: 'host' directive removed — it's not part of the robots.txt spec
+    // and Googlebot ignores it, causing a "rule ignored" warning in Search Console.
+    // The canonical URL is already declared via <link rel="canonical"> and sitemap.
   };
 }

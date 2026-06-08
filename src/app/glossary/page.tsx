@@ -6,6 +6,7 @@ import { GlossaryClient } from './glossary-client';
 import { Breadcrumb } from '@/components/finance/breadcrumb';
 import { SITE_URL } from '@/lib/site-config';
 import { getCalculatorAuthor, authorToJsonLd } from '@/lib/authors';
+import { AuthorBioCard } from '@/components/finance/author-bio-card';
 
 // ─── Page Metadata ────────────────────────────────────────────────────────────
 
@@ -310,6 +311,13 @@ export default function GlossaryPage() {
               is involved.
             </p>
           </div>
+        </div>
+      </section>
+
+      {/* ─── Author Attribution (E-E-A-T) ──────────────────────── */}
+      <section className="py-12 border-t border-border/20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <AuthorBioCard authorId="rachel-mitchell" />
         </div>
       </section>
     </div>

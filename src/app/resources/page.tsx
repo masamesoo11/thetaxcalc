@@ -19,6 +19,7 @@ import { Breadcrumb } from '@/components/finance/breadcrumb';
 import { CiteButton } from '@/components/finance/cite-button';
 import { SITE_URL } from '@/lib/site-config';
 import { getCalculatorAuthor, authorToJsonLd } from '@/lib/authors';
+import { AuthorBioCard } from '@/components/finance/author-bio-card';
 
 // ─── Page Metadata ────────────────────────────────────────────────────────────
 
@@ -1036,6 +1037,13 @@ export default function ResourcesPage() {
               ))}
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* ─── Author Attribution (E-E-A-T) ──────────────────────── */}
+      <section className="py-12 border-t border-border/20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <AuthorBioCard authorId="rachel-mitchell" />
         </div>
       </section>
     </div>

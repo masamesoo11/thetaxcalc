@@ -23,6 +23,7 @@ import {
 } from 'lucide-react';
 import { Breadcrumb } from '@/components/finance/breadcrumb';
 import { getCalculatorAuthor, authorToJsonLd } from '@/lib/authors';
+import { AuthorBioCard } from '@/components/finance/author-bio-card';
 
 // ─── Page Metadata ─────────────────────────────────────────────────────────────
 
@@ -429,6 +430,11 @@ export default function SalaryLandingPage() {
               </div>
             </div>
           </div>
+        </section>
+
+        {/* ─── Author Attribution (E-E-A-T) ──────────────────────── */}
+        <section className="py-12 border-t border-border/20">
+          <AuthorBioCard authorId="rachel-mitchell" />
         </section>
       </div>
     </>
