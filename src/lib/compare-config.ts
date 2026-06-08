@@ -142,8 +142,8 @@ function buildCompareConfig(slug: string): CompareConfig | null {
     slug,
     state1: s1,
     state2: s2,
-    metaTitle: `${s1.name} vs ${s2.name} Tax Comparison 2026`,
-    metaDesc: `Compare ${s1.name} vs ${s2.name} taxes for 2026. Income tax, property tax, sales tax, and take-home pay at $75K and $150K salaries.`,
+    metaTitle: `${s1.name} vs ${s2.name} Taxes 2026 — How Much More Do You Keep?`,
+    metaDesc: `${s1.name} vs ${s2.name} taxes compared: see your take-home pay difference at $75K & $150K. Income tax, property tax, sales tax — all 2026 numbers.`,
     h1: `${s1.name} vs ${s2.name} Tax Comparison`,
     keywords: [
       `${s1.name.toLowerCase()} vs ${s2.name.toLowerCase()} taxes`,
@@ -155,8 +155,8 @@ function buildCompareConfig(slug: string): CompareConfig | null {
       `move from ${s1.name} to ${s2.name} taxes`,
       `relocate ${s1.name} to ${s2.name} salary`,
     ],
-    ogTitle: `${s1.name} vs ${s2.name} Tax Comparison 2026`,
-    ogDescription: `Compare ${s1.name} vs ${s2.name} taxes. Income tax, property tax, sales tax, and take-home pay at $75K and $150K.`,
+    ogTitle: `${s1.name} vs ${s2.name} — Which State Saves You More in 2026?`,
+    ogDescription: `${s1.name} vs ${s2.name} take-home pay comparison. See real dollar differences at $75K & $150K salaries for 2026.`,
     faqs: buildFaqs(s1, s2),
   };
 }

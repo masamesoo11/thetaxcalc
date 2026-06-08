@@ -33,8 +33,8 @@ export async function generateMetadata({
   const baseUrl = SITE_URL;
   const path = `/salary/${amountStr}`;
 
-  const title = `${formatted} After Tax 2026 — Take-Home Pay`;
-  const description = `See your take-home pay on a ${formatted} salary in 2026. Compare net pay across all 50 states after federal, FICA, and state tax.`;
+  const title = `${formatted} Salary After Tax 2026 — What You Actually Take Home`;
+  const description = `How much is ${formatted} after tax in 2026? See your real take-home pay by state — Texas, California, New York, Florida & more. Federal, FICA & state taxes included.`;
 
   return {
     title,

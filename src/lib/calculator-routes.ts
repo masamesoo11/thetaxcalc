@@ -365,13 +365,13 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
   },
   {
     slug: 'georgia-tax-calculator',
-    title: 'Free Georgia Tax Calculator 2026 — 5.49% Flat Tax',
+    title: 'Georgia Paycheck Calculator 2026 — See Your Take-Home After 5.49% Tax',
     description:
-      'Free Georgia tax calculator for 2026. Calculate take-home pay after 5.49% flat state tax, federal tax & FICA. Includes standard deductions. No sign-up.',
+      'How much do you keep after Georgia 5.49% flat tax? Calculate your 2026 take-home pay after state, federal & FICA taxes. Instant results, no sign-up.',
     h1: 'Free Georgia Tax Calculator',
-    metaTitle: 'Free Georgia Tax Calculator 2026 | 5.49% Flat Tax',
+    metaTitle: 'Georgia Paycheck Calculator 2026 | See Take-Home After 5.49%',
     metaDesc:
-      'Free Georgia tax calculator 2026. Take-home pay after 5.49% flat state tax and federal tax. No sign-up required.',
+      'How much do you keep after Georgia 5.49% tax? Calculate 2026 take-home pay after state, federal & FICA. Instant results, no sign-up.',
     keywords: [
       'free Georgia tax calculator', 'Georgia tax calculator', 'GA paycheck calculator',
       'Georgia income tax', 'Georgia 5.49% tax', 'Georgia take home pay',
@@ -389,13 +389,13 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
   },
   {
     slug: 'lottery-tax-calculator',
-    title: 'Free Lottery Tax Calculator 2026 — After-Tax Winnings',
+    title: 'Lottery Tax Calculator 2026 — What You REALLY Keep After Taxes',
     description:
-      'Free lottery tax calculator for 2026. Calculate after-tax lottery winnings with 24% federal withholding and state taxes. See your actual payout. No sign-up.',
+      'Surprised how much tax on lottery winnings? 24% federal + state taxes can take 40%+. See your actual payout after all taxes. Free calculator, no sign-up.',
     h1: 'Free Lottery Tax Calculator',
-    metaTitle: 'Free Lottery Tax Calculator 2026 | After-Tax Winnings',
+    metaTitle: 'Lottery Tax Calculator 2026 | What You REALLY Keep After Tax',
     metaDesc:
-      'Free lottery tax calculator 2026. After-tax winnings with 24% federal withholding and state taxes. No sign-up required.',
+      'How much tax on lottery winnings? 24% federal + state can take 40%+. See your actual payout after all taxes. Free, no sign-up.',
     keywords: [
       'free lottery tax calculator', 'lottery tax calculator', 'lottery winnings tax',
       'lottery tax rate', 'after tax lottery winnings', 'powerball tax calculator',
@@ -462,13 +462,13 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
   },
   {
     slug: 'bonus-tax-calculator',
-    title: 'Free Bonus Tax Calculator 2026 — 22% Flat vs Aggregate Method',
+    title: 'Bonus Tax Calculator 2026 — How Much of Your Bonus Do You Keep?',
     description:
-      'Free bonus tax calculator for 2026. Compare 22% flat rate vs aggregate method for supplemental wages. See your after-tax bonus. No sign-up.',
+      'Your $5K bonus may only be $3,400 after taxes. Compare 22% flat vs aggregate method and see your real take-home. Free, instant, no sign-up.',
     h1: 'Free Bonus Tax Calculator',
-    metaTitle: 'Free Bonus Tax Calculator 2026 | 22% Flat vs Aggregate',
+    metaTitle: 'Bonus Tax Calculator 2026 | How Much of Your Bonus Do You Keep?',
     metaDesc:
-      'Free bonus tax calculator 2026. Compare 22% flat vs aggregate method for supplemental wages. No sign-up required.',
+      '$5K bonus → only $3,400 take-home? Compare 22% flat vs aggregate and see your real after-tax bonus. Free, instant.',
     keywords: [
       'free bonus tax calculator', 'bonus tax calculator', 'bonus tax rate',
       'supplemental wage calculator', '22% bonus tax', 'aggregate method bonus',
@@ -486,13 +486,13 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
   },
   {
     slug: 'virginia-tax-calculator',
-    title: 'Free Virginia Tax Calculator 2026 — 2% to 5.75% Progressive',
+    title: 'Virginia Paycheck Calculator 2026 — Take-Home After 2-5.75% Tax',
     description:
-      'Free Virginia tax calculator for 2026. Calculate take-home pay after progressive state tax (2%–5.75%), federal tax & FICA. No sign-up.',
+      'Calculate your 2026 Virginia take-home pay after progressive state tax (2%–5.75%), federal tax & FICA. See real numbers instantly. No sign-up.',
     h1: 'Free Virginia Tax Calculator',
-    metaTitle: 'Free Virginia Tax Calculator 2026 | 2-5.75% Progressive',
+    metaTitle: 'Virginia Paycheck Calculator 2026 | Take-Home After 2-5.75%',
     metaDesc:
-      'Free Virginia tax calculator 2026. Take-home pay after progressive tax (2%–5.75%) and federal tax. No sign-up required.',
+      'Calculate 2026 Virginia take-home after 2%-5.75% state tax, federal & FICA. See real numbers instantly. No sign-up.',
     keywords: [
       'free Virginia tax calculator', 'Virginia tax calculator', 'VA paycheck calculator',
       'Virginia income tax', 'Virginia 5.75% tax', 'Virginia take home pay',
