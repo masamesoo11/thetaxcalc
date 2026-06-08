@@ -30,10 +30,13 @@ import {
   FAQItem,
 } from '@/lib/faq-data';
 import { CalculatorClientPage } from './calculator-client-page';
-import { getAllPosts } from '@/lib/blog-db';
+import { getPublishedPostsMeta } from '@/lib/blog-index';
 import { SITE_URL } from '@/lib/site-config';
 import { ShareButtons } from '@/components/finance/share-buttons';
 import { LinkToUs } from '@/components/finance/link-to-us';
+
+export const dynamic = 'force-static';
+export const revalidate = false;
 
 export function generateStaticParams() {
   return getCalculatorSlugs().map((slug) => ({ calculator: slug }));
@@ -1286,17 +1289,11 @@ export default async function CalculatorPage({
   const jsonLd = getJsonLdForType(config.jsonLdType);
   const content = getCalculatorContent(config.jsonLdType);
 
-  // Fetch related blog posts from KV database
+  // Fetch related blog posts from static data (no async DB call)
   const blogSlugs = CALCULATOR_BLOG_SLUGS[config.jsonLdType] ?? [];
-  let relatedPosts: { slug: string; title: string; excerpt: string | null }[] = [];
-  try {
-    const allPosts = await getAllPosts();
-    relatedPosts = allPosts
-      .filter((p) => blogSlugs.includes(p.slug))
-      .map((p) => ({ slug: p.slug, title: p.title, excerpt: p.excerpt || null }));
-  } catch {
-    // KV not available — skip related posts
-  }
+  const relatedPosts = getPublishedPostsMeta()
+    .filter((p) => blogSlugs.includes(p.slug))
+    .map((p) => ({ slug: p.slug, title: p.title, excerpt: p.excerpt || null }));
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">

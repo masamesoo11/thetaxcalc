@@ -747,3 +747,28 @@ Stage Summary:
 - All 132 URLs from the site are included in the sitemap
 - Static files replace previously deleted dynamic routes (src/app/sitemap.ts and src/app/robots.ts)
 - No code changes needed — pure static file generation
+
+---
+Task ID: 1
+Agent: SSR-to-SSG Fix Agent
+Task: Fix slow mortgage calculator page — TTFB 11,243ms → target <600ms by converting SSR to SSG
+
+Work Log:
+- Identified root cause: `src/app/[calculator]/page.tsx` was running as SSR instead of SSG on Cloudflare Pages
+- The `await getAllPosts()` call in the server component forced Next.js to treat it as dynamic, causing every request to go through Cloudflare Workers instead of being served from CDN
+- Verified that `getAllPosts()` in `src/lib/blog-db.ts` is entirely static — it just calls `getPublishedPostsMeta()` from `src/lib/blog-index.ts` which returns a static array, then maps it with content from `BLOG_CONTENT`
+- Made 3 changes to `src/app/[calculator]/page.tsx`:
+  1. Replaced `import { getAllPosts } from '@/lib/blog-db'` with `import { getPublishedPostsMeta } from '@/lib/blog-index'` — direct static import, no async wrapper, no BLOG_CONTENT needed (only slug/title/excerpt used)
+  2. Added `export const dynamic = 'force-static'` and `export const revalidate = false` after imports, before generateStaticParams — forces Next.js to pre-render all calculator pages at build time
+  3. Replaced async blog fetching code with synchronous static data access:
+     - Before: `const allPosts = await getAllPosts()` with try/catch and `let relatedPosts` 
+     - After: `const relatedPosts = getPublishedPostsMeta().filter(...).map(...)` — fully synchronous, no async/await, no try/catch needed
+- Removed the only `await` call in the page component (other than `await params` which is required by Next.js 16)
+- Lint passes cleanly (0 errors, 0 warnings)
+
+Stage Summary:
+- 1 file modified: `src/app/[calculator]/page.tsx`
+- Root cause: `await getAllPosts()` forced SSR on every request, routing through Cloudflare Workers instead of CDN
+- Fix: Replace async DB call with synchronous static import + add `force-static` / `revalidate = false` exports
+- Expected impact: TTFB drops from ~11,243ms to <600ms (pages served from Cloudflare CDN cache)
+- All 20 calculator pages (paycheck, mortgage, IL, TX, FL, CA, NY, etc.) will be pre-rendered at build time and served statically

@@ -144,7 +144,7 @@ export const BLOG_INDEX: BlogPostMeta[] = [
     "coverImage": "",
     "published": true,
     "featured": true,
-    "metaTitle": "Sales Tax by State 2026: Complete Rate Guide | TheTaxCalc",
+    "metaTitle": "Sales Tax by State 2026: Complete Rate Guide",
     "metaDesc": "Complete guide to sales tax rates for all 50 US states in 2026. State rates, local rates, combined rates, and tax-exempt items. Free calculator included.",
     "createdAt": "2026-06-01T12:00:00.000Z",
     "updatedAt": "2026-06-01T12:00:00.000Z"
@@ -159,7 +159,7 @@ export const BLOG_INDEX: BlogPostMeta[] = [
     "coverImage": "",
     "published": true,
     "featured": true,
-    "metaTitle": "No Tax on Overtime 2025-2028: Complete Guide | TheTaxCalc",
+    "metaTitle": "No Tax on Overtime 2025-2028: Complete Guide",
     "metaDesc": "Complete guide to the No Tax on Overtime law for 2025-2028. Calculate your savings, understand eligibility, and see how FICA and state taxes still apply.",
     "createdAt": "2026-06-01T12:00:00.000Z",
     "updatedAt": "2026-06-01T12:00:00.000Z"
@@ -174,7 +174,7 @@ export const BLOG_INDEX: BlogPostMeta[] = [
     "coverImage": "",
     "published": true,
     "featured": false,
-    "metaTitle": "How Are Bonuses Taxed 2026? 22% Flat vs Aggregate | TheTaxCalc",
+    "metaTitle": "Bonus Tax 2026 | 22% Flat vs Aggregate",
     "metaDesc": "Complete guide to bonus taxation in 2026. Understand the 22% flat rate vs aggregate method, FICA on bonuses, and state taxes. Free bonus tax calculator.",
     "createdAt": "2026-06-01T12:00:00.000Z",
     "updatedAt": "2026-06-01T12:00:00.000Z"
@@ -189,7 +189,7 @@ export const BLOG_INDEX: BlogPostMeta[] = [
     "coverImage": "",
     "published": true,
     "featured": false,
-    "metaTitle": "Property Tax by State 2026: Rates for All 50 States | TheTaxCalc",
+    "metaTitle": "Property Tax by State 2026 | 50 State Rates",
     "metaDesc": "Complete guide to property tax rates for all 50 US states in 2026. See which states have the highest and lowest property taxes. Free property tax calculator.",
     "createdAt": "2026-06-01T12:00:00.000Z",
     "updatedAt": "2026-06-01T12:00:00.000Z"
@@ -204,7 +204,7 @@ export const BLOG_INDEX: BlogPostMeta[] = [
     "coverImage": "",
     "published": true,
     "featured": false,
-    "metaTitle": "Lottery Tax 2026: How Much You Keep After Winning | TheTaxCalc",
+    "metaTitle": "Lottery Tax 2026 | After-Tax Winnings",
     "metaDesc": "Complete guide to lottery taxes in 2026. Federal tax, state tax, lump sum vs annuity, and how much you actually keep. Free lottery tax calculator.",
     "createdAt": "2026-06-01T12:00:00.000Z",
     "updatedAt": "2026-06-01T12:00:00.000Z"
@@ -219,7 +219,7 @@ export const BLOG_INDEX: BlogPostMeta[] = [
     "coverImage": "",
     "published": true,
     "featured": false,
-    "metaTitle": "IRS Withholding & W-4 Guide 2026 | TheTaxCalc",
+    "metaTitle": "IRS Withholding & W-4 Guide 2026",
     "metaDesc": "Complete guide to IRS withholding and W-4 form for 2026. Calculate your recommended withholding, optimize your paycheck, and avoid tax surprises.",
     "createdAt": "2026-06-01T12:00:00.000Z",
     "updatedAt": "2026-06-01T12:00:00.000Z"

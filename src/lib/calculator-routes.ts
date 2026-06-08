@@ -490,7 +490,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     description:
       'Calculate your 2026 Virginia take-home pay after progressive state tax (2%–5.75%), federal tax & FICA. See real numbers instantly. No sign-up.',
     h1: 'Free Virginia Tax Calculator',
-    metaTitle: 'Virginia Paycheck Calculator 2026 | After 2-5.75%',
+    metaTitle: 'Virginia Tax Calculator 2026 | 2-5.75% Rate',
     metaDesc:
       'Calculate 2026 Virginia take-home after 2%-5.75% state tax, federal & FICA. See real numbers instantly. No sign-up.',
     keywords: [

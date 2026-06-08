@@ -193,7 +193,7 @@ export function getStateSEOMeta(stateKey: string): StateSEOMeta {
 
   if (state.noStateTax) {
     return {
-      metaTitle: `${name} Sales Tax Calculator 2026 | 0% Tax`,
+      metaTitle: `${name} Sales Tax 2026 | 0% Rate`,
       metaDesc: `Free ${name} sales tax calculator 2026. 0% state sales tax${state.abbreviation === 'AK' ? ', local avg 1.82%' : ''}. No sign-up.`,
       h1: `${name} Sales Tax Calculator`,
       ogTitle: `${name} Sales Tax Calculator 2026 — 0% State Sales Tax`,
