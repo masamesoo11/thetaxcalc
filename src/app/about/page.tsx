@@ -469,9 +469,20 @@ export default function AboutPage() {
               className="scroll-mt-24 rounded-xl border border-emerald-500/20 bg-gradient-to-br from-emerald-500/5 to-card/80 p-6"
             >
               {/* Avatar */}
-              <div className="flex h-14 w-14 items-center justify-center rounded-full bg-emerald-500/15 text-base font-bold text-emerald-400 ring-2 ring-emerald-500/30 mb-4">
-                {author.name.split(' ').map((n) => n[0]).join('')}
-              </div>
+              {author.image ? (
+                <img
+                  src={author.image}
+                  alt={`${author.name}, ${author.credentials} — ${author.title}`}
+                  width={56}
+                  height={56}
+                  className="h-14 w-14 rounded-full object-cover ring-2 ring-emerald-500/30 mb-4"
+                  loading="lazy"
+                />
+              ) : (
+                <div className="flex h-14 w-14 items-center justify-center rounded-full bg-emerald-500/15 text-base font-bold text-emerald-400 ring-2 ring-emerald-500/30 mb-4">
+                  {author.name.split(' ').map((n) => n[0]).join('')}
+                </div>
+              )}
               {/* Name & Credentials */}
               <div className="flex flex-wrap items-center gap-2 mb-1">
                 <h3 className="text-lg font-semibold text-foreground">{author.name}</h3>

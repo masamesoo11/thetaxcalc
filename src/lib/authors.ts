@@ -42,6 +42,7 @@ export const AUTHORS: Record<string, AuthorProfile> = {
     sameAs: [
       'https://www.linkedin.com/in/rachelmitchellcpa/',
     ],
+    image: `${SITE_URL}/author-rachel-mitchell.png`,
     knowsAbout: [
       'Federal Income Tax',
       'State Income Tax',
@@ -66,6 +67,7 @@ export const AUTHORS: Record<string, AuthorProfile> = {
     sameAs: [
       'https://www.linkedin.com/in/davidchenea/',
     ],
+    image: `${SITE_URL}/author-david-chen.png`,
     knowsAbout: [
       'Self-Employment Tax',
       'Estimated Tax Payments',
@@ -90,6 +92,7 @@ export const AUTHORS: Record<string, AuthorProfile> = {
     sameAs: [
       'https://www.linkedin.com/in/sarahjohnsoncfp/',
     ],
+    image: `${SITE_URL}/author-sarah-johnson.png`,
     knowsAbout: [
       'Retirement Planning',
       '401(k) Optimization',
@@ -144,7 +147,7 @@ export function getAuthorForCalculator(calculatorType: string): AuthorProfile {
 // ─── JSON-LD Person Schema Generator ──────────────────────────────────────
 
 export function authorToJsonLd(author: AuthorProfile) {
-  return {
+  const schema: Record<string, unknown> = {
     '@type': 'Person' as const,
     name: author.name,
     url: author.url,
@@ -158,6 +161,10 @@ export function authorToJsonLd(author: AuthorProfile) {
       url: author.worksFor.url,
     },
   };
+  if (author.image) {
+    schema.image = author.image;
+  }
+  return schema;
 }
 
 /**

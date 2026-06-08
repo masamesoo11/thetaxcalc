@@ -26,13 +26,24 @@ export function AuthorBioCard({ authorId }: AuthorBioCardProps) {
       className="rounded-xl border border-emerald-500/20 bg-gradient-to-br from-emerald-500/5 to-card/80 p-5 sm:p-6"
     >
       <div className="flex items-start gap-4">
-        {/* Avatar placeholder with initials */}
-        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-emerald-500/15 text-sm font-bold text-emerald-400 ring-1 ring-emerald-500/30">
-          {author.name
-            .split(' ')
-            .map((n) => n[0])
-            .join('')}
-        </div>
+        {/* Author photo or initials fallback */}
+        {author.image ? (
+          <img
+            src={author.image}
+            alt={`${author.name}, ${author.credentials}`}
+            width={48}
+            height={48}
+            className="h-12 w-12 shrink-0 rounded-full object-cover ring-1 ring-emerald-500/30"
+            loading="lazy"
+          />
+        ) : (
+          <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-emerald-500/15 text-sm font-bold text-emerald-400 ring-1 ring-emerald-500/30">
+            {author.name
+              .split(' ')
+              .map((n) => n[0])
+              .join('')}
+          </div>
+        )}
 
         <div className="min-w-0 flex-1">
           {/* Name + credentials badge */}
