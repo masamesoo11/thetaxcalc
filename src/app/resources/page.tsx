@@ -24,7 +24,7 @@ import { AuthorBioCard } from '@/components/finance/author-bio-card';
 // ─── Page Metadata ────────────────────────────────────────────────────────────
 
 export const metadata: Metadata = {
-  title: '2026 Tax Data, Brackets & Rates — Free Reference | TheTaxCalc',
+  title: '2026 Tax Data, Brackets & Rates — Free Reference',
   description:
     'Free 2026 federal tax brackets, FICA rates, state income tax comparison, standard deductions, and 401(k) limits. Sourced from IRS publications. Cite and link freely.',
   keywords: [
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: '2026 Tax Data, Brackets & Rates — Free Reference | TheTaxCalc',
+    title: '2026 Tax Data, Brackets & Rates — Free Reference',
     description:
       'Free 2026 federal tax brackets, FICA rates, state income tax comparison, standard deductions, and 401(k) limits. Sourced from IRS publications. Cite and link freely.',
     url: `${SITE_URL}/resources`,
@@ -70,7 +70,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: '2026 Tax Data, Brackets & Rates — Free Reference | TheTaxCalc',
+    title: '2026 Tax Data, Brackets & Rates — Free Reference',
     description:
       'Free 2026 federal tax brackets, FICA rates, state income tax comparison, standard deductions, and 401(k) limits. Sourced from IRS publications.',
   },

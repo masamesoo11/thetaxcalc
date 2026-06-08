@@ -193,7 +193,7 @@ export function getStateSEOMeta(stateKey: string): StateSEOMeta {
 
   if (state.noStateTax) {
     return {
-      metaTitle: `${name} Sales Tax Calculator 2026 | 0% Sales Tax (No State Tax)`,
+      metaTitle: `${name} Sales Tax Calculator 2026 | 0% Tax`,
       metaDesc: `Free ${name} sales tax calculator for 2026. ${name} has 0% state sales tax${state.abbreviation === 'AK' ? ', but local taxes may apply (avg 1.82%)' : ' — no sales tax at all'}. See what taxes apply and what doesn't. No sign-up required.`,
       h1: `${name} Sales Tax Calculator`,
       ogTitle: `${name} Sales Tax Calculator 2026 — 0% State Sales Tax`,
@@ -214,7 +214,7 @@ export function getStateSEOMeta(stateKey: string): StateSEOMeta {
   const combinedPct = pct(state.combinedRate);
 
   return {
-    metaTitle: `${name} Sales Tax Calculator 2026 | ${statePct}% State + ${localPct}% Local`,
+    metaTitle: `${name} Sales Tax 2026 | ${combinedPct}% Combined`,
     metaDesc: `Free ${name} sales tax calculator for 2026. Calculate sales tax at ${statePct}% state + ${localPct}% average local = ${combinedPct}% combined rate. Includes reverse calculator and tax-exempt items. No sign-up required.`,
     h1: `${name} Sales Tax Calculator`,
     ogTitle: `${name} Sales Tax Calculator 2026 — ${statePct}% State + Local Rates`,

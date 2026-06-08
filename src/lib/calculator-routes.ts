@@ -28,7 +28,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     description:
       'Free paycheck tax calculator for 2026. Calculate take-home pay after federal, FICA & state taxes. No sign-up required. Supports IL, TX, FL, CA, NY with 401(k) and HSA deductions.',
     h1: 'Free Paycheck Calculator',
-    metaTitle: 'Free Paycheck Tax Calculator 2026 — Federal & State',
+    metaTitle: 'Paycheck Tax Calculator 2026 — Federal & State',
     metaDesc:
       'Free paycheck tax calculator for 2026. Calculate take-home pay after federal, FICA & state taxes. No sign-up. Covers IL, TX, FL, CA, NY.',
     keywords: [
@@ -102,7 +102,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     description:
       'Free Florida tax calculator for 2026. Calculate take-home pay with 0% state income tax. Includes homestead exemption, property tax & cost-of-living. No sign-up.',
     h1: 'Free Florida Tax Calculator',
-    metaTitle: 'Free Florida Tax Calculator 2026 | 0% Income Tax',
+    metaTitle: 'Florida Tax Calculator 2026 | 0% Income Tax',
     metaDesc:
       'Free Florida tax calculator 2026. Take-home pay with 0% state tax & homestead exemption. No sign-up. Property tax info included.',
     keywords: [
@@ -221,7 +221,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     description:
       'Free relocation salary calculator for 2026. Compare take-home pay in IL, TX, FL, CA, NY. Find the salary you need to maintain your lifestyle. No sign-up.',
     h1: 'Free Relocation Calculator',
-    metaTitle: 'Free Relocation Calculator 2026 | Compare States',
+    metaTitle: 'Relocation Calculator 2026 | Compare States',
     metaDesc:
       'Free relocation calculator 2026. Compare take-home pay in IL, TX, FL, CA, NY. No sign-up. Find equivalent salary by state.',
     keywords: [
@@ -245,7 +245,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     description:
       'Free capital gains tax calculator for 2026. Calculate short-term (up to 37%) and long-term (0%, 15%, 20% + 3.8% NIIT) rates. No sign-up. Strategies included.',
     h1: 'Free Capital Gains Calculator',
-    metaTitle: 'Free Capital Gains Calculator 2026 | Short & Long',
+    metaTitle: 'Capital Gains Calculator 2026 | Short & Long',
     metaDesc:
       'Free capital gains tax calculator 2026. Short-term (up to 37%) & long-term (0%/15%/20% + NIIT). No sign-up.',
     keywords: [
@@ -269,7 +269,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     description:
       'Free self-employment tax calculator for 2026. Calculate SE tax (15.3% on 92.35% of net income), half deduction, quarterly estimates, 1099 & federal + state tax. No sign-up.',
     h1: 'Free Self-Employment Tax Calculator',
-    metaTitle: 'Free SE Tax Calculator 2026 | 1099 & Self-Employed',
+    metaTitle: 'SE Tax Calculator 2026 | 1099 & Self-Employed',
     metaDesc:
       'Free self-employment tax calculator 2026. 15.3% SE tax, 1099, quarterly estimates & half deduction. No sign-up required.',
     keywords: [
@@ -294,7 +294,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     description:
       'Free sales tax calculator for 2026. Calculate sales tax for any US state with combined rates. Includes reverse sales tax calculator. No sign-up required.',
     h1: 'Free Sales Tax Calculator',
-    metaTitle: 'Free Sales Tax Calculator 2026 | All 50 States & Reverse',
+    metaTitle: 'Sales Tax Calculator 2026 | 50 States & Reverse',
     metaDesc:
       'Free sales tax calculator 2026. Calculate sales tax for any US state with combined rates. Includes reverse calculator. No sign-up required.',
     keywords: [
@@ -318,7 +318,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     description:
       'Free tax refund calculator for 2026. Estimate your federal and state tax refund based on income, withholding, deductions, and credits. No sign-up required.',
     h1: 'Free Tax Refund Calculator',
-    metaTitle: 'Free Tax Refund Calculator 2026 | Federal & State Estimate',
+    metaTitle: 'Tax Refund Calculator 2026 | Federal & State',
     metaDesc:
       'Free tax refund calculator 2026. Estimate your federal and state refund based on income, withholding, deductions & credits. No sign-up required.',
     keywords: [
@@ -345,7 +345,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     description:
       'Free overtime tax calculator for 2026. Calculate your after-tax overtime pay at 1.5x rate. See how much OT you actually keep after federal, FICA & state taxes. No sign-up.',
     h1: 'Free Overtime Tax Calculator',
-    metaTitle: 'Free Overtime Tax Calculator 2026 | After-Tax OT Pay',
+    metaTitle: 'Overtime Tax Calculator 2026 | After-Tax OT',
     metaDesc:
       'Free overtime tax calculator 2026. Calculate after-tax overtime pay at 1.5x rate. Federal, FICA & state taxes included. No sign-up required.',
     keywords: [
@@ -369,7 +369,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     description:
       'How much do you keep after Georgia 5.49% flat tax? Calculate your 2026 take-home pay after state, federal & FICA taxes. Instant results, no sign-up.',
     h1: 'Free Georgia Tax Calculator',
-    metaTitle: 'Georgia Paycheck Calculator 2026 | See Take-Home After 5.49%',
+    metaTitle: 'Georgia Paycheck Calculator 2026 | After 5.49%',
     metaDesc:
       'How much do you keep after Georgia 5.49% tax? Calculate 2026 take-home pay after state, federal & FICA. Instant results, no sign-up.',
     keywords: [
@@ -393,7 +393,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     description:
       'Surprised how much tax on lottery winnings? 24% federal + state taxes can take 40%+. See your actual payout after all taxes. Free calculator, no sign-up.',
     h1: 'Free Lottery Tax Calculator',
-    metaTitle: 'Lottery Tax Calculator 2026 | What You REALLY Keep After Tax',
+    metaTitle: 'Lottery Tax Calculator 2026 | After-Tax Payout',
     metaDesc:
       'How much tax on lottery winnings? 24% federal + state can take 40%+. See your actual payout after all taxes. Free, no sign-up.',
     keywords: [
@@ -417,7 +417,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     description:
       'Free IRS withholding calculator for 2026. Optimize your W-4 to avoid owing taxes or overpaying. Based on IRS Publication 15-T. No sign-up.',
     h1: 'Free IRS Withholding Calculator',
-    metaTitle: 'Free IRS Withholding Calculator 2026 | W-4 Optimization',
+    metaTitle: 'IRS Withholding Calculator 2026 | W-4 Help',
     metaDesc:
       'Free IRS withholding calculator 2026. Optimize your W-4 to avoid penalties and overpayment. No sign-up required.',
     keywords: [
@@ -442,7 +442,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     description:
       'Free property tax calculator for 2026. Calculate annual property tax for any US state with average effective rates. Includes homestead exemptions. No sign-up.',
     h1: 'Free Property Tax Calculator',
-    metaTitle: 'Free Property Tax Calculator 2026 | All 50 States',
+    metaTitle: 'Property Tax Calculator 2026 | 50 States',
     metaDesc:
       'Free property tax calculator 2026. Calculate annual property tax for any US state with effective rates. No sign-up required.',
     keywords: [
@@ -466,7 +466,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     description:
       'Your $5K bonus may only be $3,400 after taxes. Compare 22% flat vs aggregate method and see your real take-home. Free, instant, no sign-up.',
     h1: 'Free Bonus Tax Calculator',
-    metaTitle: 'Bonus Tax Calculator 2026 | How Much of Your Bonus Do You Keep?',
+    metaTitle: 'Bonus Tax Calculator 2026 | After-Tax Amount',
     metaDesc:
       '$5K bonus → only $3,400 take-home? Compare 22% flat vs aggregate and see your real after-tax bonus. Free, instant.',
     keywords: [
@@ -490,7 +490,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     description:
       'Calculate your 2026 Virginia take-home pay after progressive state tax (2%–5.75%), federal tax & FICA. See real numbers instantly. No sign-up.',
     h1: 'Free Virginia Tax Calculator',
-    metaTitle: 'Virginia Paycheck Calculator 2026 | Take-Home After 2-5.75%',
+    metaTitle: 'Virginia Paycheck Calculator 2026 | After 2-5.75%',
     metaDesc:
       'Calculate 2026 Virginia take-home after 2%-5.75% state tax, federal & FICA. See real numbers instantly. No sign-up.',
     keywords: [

@@ -17,7 +17,7 @@ import { getCalculatorAuthor, authorToJsonLd } from '@/lib/authors';
 import { AuthorBioCard } from '@/components/finance/author-bio-card';
 
 export const metadata: Metadata = {
-  title: 'Free Tax Calculator Widgets — Embed on Your Website | TheTaxCalc',
+  title: 'Free Tax Calculator Widgets — Embed on Your Site',
   description:
     'Add free tax calculator widgets to your website. Embeddable paycheck, mortgage, sales tax, and capital gains calculators. No signup, no cost.',
   keywords: [
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'Free Tax Calculator Widgets — Embed on Your Website | TheTaxCalc',
+    title: 'Free Tax Calculator Widgets — Embed on Your Site',
     description:
       'Add free tax calculator widgets to your website. Embeddable paycheck, mortgage, sales tax, and capital gains calculators. No signup, no cost.',
     url: `${SITE_URL}/widgets`,
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Free Tax Calculator Widgets — Embed on Your Website | TheTaxCalc',
+    title: 'Free Tax Calculator Widgets — Embed on Your Site',
     description:
       'Add free tax calculator widgets to your website. Embeddable paycheck, mortgage, sales tax, and capital gains calculators. No signup, no cost.',
     images: [`${SITE_URL}/opengraph-image.png`],
