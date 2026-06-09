@@ -1581,3 +1581,61 @@ Stage Summary:
 - Root cause: Production site needs redeployment with updated code to resolve both 404 errors
 - After redeployment: YouTube link will disappear from all 131 pages, /self-employment-calculator will 301 redirect
 
+---
+Task ID: 5
+Agent: Main Agent
+Task: Fix ALL remaining 4xx errors reported by WebSite Auditor (Twitter 404, LinkedIn 404, CA FTB 403, self-employment-calculator 404)
+
+Work Log:
+- Removed Twitter/X link from footer.tsx SOCIAL_LINKS (account @TheTaxCalc returns 404)
+- Removed LinkedIn link from footer.tsx (was already removed in previous session but production not updated)
+- Cleared SOCIAL_LINKS array entirely (no active social profiles exist)
+- Hidden "Follow Us" section in footer (no social links to display)
+- Removed Twitter from JSON-LD sameAs in layout.tsx (was causing 404 on every page)
+- Changed ftb.ca.gov/ → ftb.ca.gov/forms in footer.tsx RESOURCE_LINKS (root URL blocks bots with 403)
+- Changed ftb.ca.gov/ → ftb.ca.gov/forms in 4 content files (calculator-content-data.ts, _content.ts, calculator-content-client.tsx, about/page.tsx)
+- Changed ftb.ca.gov → ftb.ca.gov/forms in db.ts and seed/route.ts
+- Added 301 redirect in next.config.ts from /self-employment-calculator → /self-employment-tax-calculator (previous session)
+- All changes committed and pushed to GitHub for production deployment
+
+Stage Summary:
+- 8 files modified to fix ALL 4xx errors
+- Twitter/X and LinkedIn completely removed from site (no active social profiles)
+- CA FTB URL changed to /forms subpath (avoids 403 bot blocking)
+- Self-employment-calculator 301 redirect active
+- Production deployment triggered via GitHub push
+
+
+---
+Task ID: 4
+Agent: Main Agent
+Task: Fix /sales-tax-calculator/delaware Connection Timeout (Screaming Frog Status Code 0)
+
+Work Log:
+- Investigated Screaming Frog report: /sales-tax-calculator/delaware returning Connection Timeout (Status Code 0)
+- Confirmed page works correctly locally (200 OK) and on production (200 OK, 0.07s response)
+- Tested with Screaming Frog user agent: 5.6s response time (slow but 200 OK)
+- Root cause identified: cf-cache-status: DYNAMIC on ALL pages — Cloudflare CDN NOT caching any HTML
+- The _headers file Cache-Control rules were NOT overriding Next.js function-set headers on Cloudflare Pages
+- Added export const revalidate = 86400 to all dynamic route pages:
+  - /sales-tax-calculator/[state]/page.tsx (50 state pages)
+  - /salary/[amount]/page.tsx
+  - /compare/[states]/page.tsx
+  - /blog/[slug]/page.tsx
+  - /[calculator]/page.tsx
+  - /mortgage-calculator/page.tsx
+- Added export const dynamicParams = false to prevent dynamic rendering of unknown slugs
+- Created src/middleware.ts to set Cache-Control header for CDN caching
+- Updated public/_headers with wildcard caching rules for /sales-tax-calculator/*, /salary/*, /compare/*, /blog/*
+- Simplified public/_routes.json to remove HTML pages from exclude list (was blocking middleware)
+- Pushed 4 commits to GitHub for Cloudflare Pages deployment
+- Verified all 50 state pages return 200 OK on production (0.06-0.29s)
+- Screaming Frog user agent also gets 200 OK on Delaware page
+
+Stage Summary:
+- All 50 state sales tax pages confirmed working (HTTP 200)
+- Screaming Frog Connection Timeout was transient — page works fine now
+- Added ISR revalidate=86400 to 6 page files for Cloudflare CDN caching
+- Created middleware.ts to override Cache-Control headers
+- CDN caching (cf-cache-status: HIT) requires Cloudflare Dashboard Cache Rule configuration
+- User action needed: Set up Cloudflare Cache Rule in dashboard for CDN edge caching
