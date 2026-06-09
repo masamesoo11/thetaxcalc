@@ -231,6 +231,14 @@ const jsonLd = {
       ],
     },
     {
+      '@id': `${SITE_URL}/tax-data#breadcrumb`,
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+        { '@type': 'ListItem', position: 2, name: 'Tax Data & Statistics' },
+      ],
+    },
+    {
       '@id': `${SITE_URL}/tax-data#webpage`,
       '@type': 'WebPage',
       name: '2026 Tax Data & Statistics — All 50 States',
@@ -241,13 +249,7 @@ const jsonLd = {
       dateModified: '2026-01-15',
       author: { '@id': `${SITE_URL}/tax-data#author` },
       publisher: { '@id': `${SITE_URL}/#organization` },
-      breadcrumb: {
-        '@type': 'BreadcrumbList',
-        itemListElement: [
-          { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
-          { '@type': 'ListItem', position: 2, name: 'Tax Data & Statistics' },
-        ],
-      },
+      breadcrumb: { '@id': `${SITE_URL}/tax-data#breadcrumb` },
     },
     {
       '@id': `${SITE_URL}/tax-data#author`,

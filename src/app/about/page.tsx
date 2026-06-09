@@ -47,6 +47,15 @@ export const metadata: Metadata = {
   },
 };
 
+const ABOUT_FAQS = [
+  { question: 'Is TheTaxCalc really free? What\'s the catch?', answer: 'No catch. Because all calculations run in your browser and we don\'t store any of your data, our server costs are minimal. No premium tiers, no paywalls, no "unlock full results for $9.99." Just free calculators.' },
+  { question: 'How accurate are the calculations?', answer: 'We use the same data the IRS and state revenue departments publish — the 2026 brackets, standard deductions, FICA rates, the works. Every methodology is reviewed by tax professionals. Our tools give you solid estimates, not guarantees. For filing your actual return, talk to a CPA.' },
+  { question: 'Does TheTaxCalc store my salary or financial data?', answer: 'Nope. When you type your salary into one of our calculators, that number stays in your browser. It never gets sent to our servers. We don\'t have accounts, we don\'t use tracking cookies on calculations, and we couldn\'t tie your data to you even if we wanted to.' },
+  { question: 'Why only seven states for income tax?', answer: 'We picked seven states that represent the full range of tax situations in the US — from zero-income-tax states (TX, FL) to the highest-tax states (CA, NY), plus flat-tax states (IL, GA) and a progressive state (VA). We also cover all 50 states for sales tax calculations.' },
+  { question: 'When do you update tax brackets?', answer: 'As soon as the IRS and state revenue departments publish new figures — usually late Q4 or early Q1. Our 2026 data is current as of January 2026.' },
+  { question: 'Can I use this to file my taxes?', answer: 'Please don\'t. Our calculators are for estimation and planning. When it\'s time to actually file, use real tax preparation software or work with a CPA who knows your situation. We\'re a starting point, not a substitute.' },
+];
+
 const organizationJsonLd = {
   '@context': 'https://schema.org',
   '@graph': [
@@ -68,11 +77,25 @@ const organizationJsonLd = {
       name: 'About TheTaxCalc',
       description: 'Learn about TheTaxCalc — our mission to provide free, accurate tax calculators for every American.',
       url: `${SITE_URL}/about`,
+      inLanguage: 'en-US',
       dateModified: '2026-02-01',
       author: { '@id': `${SITE_URL}/about#author` },
       reviewedBy: { '@id': `${SITE_URL}/about#author` },
       publisher: { '@id': `${SITE_URL}/#organization` },
       mainEntity: { '@id': `${SITE_URL}/#organization` },
+      breadcrumb: { '@id': `${SITE_URL}/about#breadcrumb` },
+    },
+    {
+      '@id': `${SITE_URL}/about#faq`,
+      '@type': 'FAQPage',
+      mainEntity: ABOUT_FAQS.map((faq) => ({
+        '@type': 'Question',
+        name: faq.question,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: faq.answer,
+        },
+      })),
     },
   ],
 };

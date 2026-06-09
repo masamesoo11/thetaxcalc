@@ -40,15 +40,15 @@ const privacyJsonLd = {
       ],
     },
     {
+      '@id': `${SITE_URL}/privacy#webpage`,
       '@type': 'WebPage',
       name: 'Privacy Policy — TheTaxCalc',
       description: 'Learn how TheTaxCalc collects, uses, and protects your personal information when using our free tax calculators.',
       url: `${SITE_URL}/privacy`,
-      isPartOf: {
-        '@type': 'WebSite',
-        name: 'TheTaxCalc',
-        url: SITE_URL,
-      },
+      inLanguage: 'en-US',
+      isPartOf: { '@id': `${SITE_URL}/#website` },
+      publisher: { '@id': `${SITE_URL}/#organization` },
+      breadcrumb: { '@id': `${SITE_URL}/privacy#breadcrumb` },
     },
   ],
 };

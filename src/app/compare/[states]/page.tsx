@@ -78,6 +78,7 @@ function buildJsonLd(
     '@context': 'https://schema.org',
     '@graph': [
       {
+        '@id': `${baseUrl}${canonicalPath}#breadcrumb`,
         '@type': 'BreadcrumbList',
         itemListElement: [
           { '@type': 'ListItem', position: 1, name: 'Home', item: baseUrl },
@@ -99,12 +100,15 @@ function buildJsonLd(
         dateModified: '2026-01-01',
         author: { '@id': authorId },
         reviewedBy: { '@id': authorId },
+        publisher: { '@id': `${baseUrl}/#organization` },
+        breadcrumb: { '@id': `${baseUrl}${canonicalPath}#breadcrumb` },
       },
       {
         '@id': authorId,
         ...authorToJsonLd(getCalculatorAuthor()),
       },
       {
+        '@id': `${baseUrl}${canonicalPath}#faq`,
         '@type': 'FAQPage',
         mainEntity: faqs.map((faq) => ({
           '@type': 'Question',

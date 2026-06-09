@@ -40,15 +40,15 @@ const termsJsonLd = {
       ],
     },
     {
+      '@id': `${SITE_URL}/terms#webpage`,
       '@type': 'WebPage',
       name: 'Terms of Use — TheTaxCalc',
       description: 'Understand the terms and conditions for using TheTaxCalc free tax calculators and website.',
       url: `${SITE_URL}/terms`,
-      isPartOf: {
-        '@type': 'WebSite',
-        name: 'TheTaxCalc',
-        url: SITE_URL,
-      },
+      inLanguage: 'en-US',
+      isPartOf: { '@id': `${SITE_URL}/#website` },
+      publisher: { '@id': `${SITE_URL}/#organization` },
+      breadcrumb: { '@id': `${SITE_URL}/terms#breadcrumb` },
     },
   ],
 };

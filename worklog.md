@@ -1362,3 +1362,30 @@ Stage Summary:
 - Dead code marked as deprecated to prevent future bugs
 - All verified via programmatic JSON-LD analysis (homepage, about, blog, calculator, resources, tax-data, federal-tax-brackets, widgets, glossary, compare, salary all passing)
 - Server OOM after first page compile is sandbox memory limitation, not a code bug
+---
+Task ID: 1
+Agent: Main Agent
+Task: Fix Structured Data (JSON-LD) errors across 17 pages
+
+Work Log:
+- Conducted comprehensive audit of all 21 files containing JSON-LD structured data
+- Identified critical issues: missing @id references, duplicate WebSite schemas, missing FAQPage schemas, inline BreadcrumbList, dead deprecated code
+- Deleted `src/lib/calculator-jsonld.ts` — deprecated dead code with known bugs (zero imports, wrong breadcrumb names, duplicate FAQPage)
+- Fixed `compare/[states]/page.tsx` — added @id to BreadcrumbList and FAQPage, added publisher and breadcrumb references to WebPage
+- Fixed `terms/page.tsx` — added @id to WebPage, replaced duplicate inline WebSite with @id reference to layout.tsx's #website, added publisher and breadcrumb references
+- Fixed `privacy/page.tsx` — same fixes as terms: @id on WebPage, removed duplicate WebSite, proper @id references
+- Fixed `tax-data/page.tsx` — extracted BreadcrumbList from inline WebPage property to separate @graph node with @id
+- Fixed `mortgage-calculator/page.tsx` — added WebPage schema with @id, author, reviewedBy, publisher, and breadcrumb references
+- Fixed `about/page.tsx` — added FAQPage schema with @id (page had visible FAQ section but was missing FAQPage structured data), added inLanguage and breadcrumb to WebPage
+- Fixed `state-sales-tax-data.ts` — added @id to all 5 schema nodes (BreadcrumbList, WebPage, WebApplication, Dataset, FAQPage), added publisher/reviewedBy/breadcrumb references, changed Dataset creator from inline Organization to @id reference, changed license from URL path to proper Creative Commons URL
+- Cleaned deprecated JSON-LD code from `calculator-content-client.tsx` (sub-agent removed ~300 lines of dead JSON-LD functions)
+
+Stage Summary:
+- 9 files modified, 1 file deleted
+- All pages now use consistent @id references for proper graph linking
+- Duplicate WebSite schemas removed from terms and privacy pages (layout.tsx already defines #website sitewide)
+- BreadcrumbList now properly extracted as separate @graph nodes where it was inline
+- Missing FAQPage schemas added to about page
+- Missing WebPage schemas added to mortgage-calculator page
+- All schema nodes in state-sales-tax-data.ts now have @id for proper deduplication
+- Dev server running, browser verification confirmed all fixes work correctly

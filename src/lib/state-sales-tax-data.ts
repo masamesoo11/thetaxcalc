@@ -434,6 +434,7 @@ export function getStateJsonLd(stateKey: string, siteUrl: string) {
     '@context': 'https://schema.org',
     '@graph': [
       {
+        '@id': `${url}#breadcrumb`,
         '@type': 'BreadcrumbList',
         itemListElement: [
           { '@type': 'ListItem', position: 1, name: 'Home', item: siteUrl },
@@ -442,32 +443,40 @@ export function getStateJsonLd(stateKey: string, siteUrl: string) {
         ],
       },
       {
+        '@id': `${url}#webpage`,
         '@type': 'WebPage',
         name: `${state.name} Sales Tax Calculator 2026`,
         description: `Calculate sales tax for ${state.name}. ${state.noStateTax ? 'No state sales tax.' : `Combined rate: ${combinedPct}%.`} Free, no sign-up required.`,
         url,
         inLanguage: 'en-US',
         dateModified: '2026-01-01',
-        author: { '@id': `${siteUrl}/sales-tax-calculator/${stateKey}#author` },
+        author: { '@id': `${url}#author` },
+        reviewedBy: { '@id': `${url}#author` },
+        publisher: { '@id': `${siteUrl}/#organization` },
+        breadcrumb: { '@id': `${url}#breadcrumb` },
       },
       {
+        '@id': `${url}#webapp`,
         '@type': 'WebApplication',
         name: `${state.name} Sales Tax Calculator 2026`,
         url,
         applicationCategory: 'FinanceApplication',
         operatingSystem: 'Web',
         offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
-        author: { '@id': `${siteUrl}/sales-tax-calculator/${stateKey}#author` },
+        author: { '@id': `${url}#author` },
+        publisher: { '@id': `${siteUrl}/#organization` },
       },
       {
+        '@id': `${url}#dataset`,
         '@type': 'Dataset',
         name: `2026 ${state.name} Sales Tax Rates`,
         description: `Combined state and local sales tax rates for ${state.name} in 2026.`,
-        creator: { '@type': 'Organization', name: 'TheTaxCalc', url: siteUrl },
-        license: `${siteUrl}/terms`,
+        creator: { '@id': `${siteUrl}/#organization` },
+        license: 'https://creativecommons.org/licenses/by/4.0/',
         variableMeasured,
       },
       {
+        '@id': `${url}#faq`,
         '@type': 'FAQPage',
         mainEntity: content.faqs.map((faq) => ({
           '@type': 'Question',
