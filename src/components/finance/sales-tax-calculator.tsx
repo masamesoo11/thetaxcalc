@@ -1180,7 +1180,7 @@ export function SalesTaxCalculator() {
               { label: 'Paycheck Calculator', href: '/paycheck-calculator' },
               { label: 'Tax Refund Calculator', href: '/tax-refund-calculator' },
               { label: 'Capital Gains Calculator', href: '/capital-gains-calculator' },
-              { label: 'Self-Employment Calculator', href: '/self-employment-calculator' },
+              { label: 'Self-Employment Calculator', href: '/self-employment-tax-calculator' },
               { label: 'Mortgage Calculator', href: '/mortgage-calculator' },
               { label: 'State Comparison', href: '/compare' },
             ].map((link) => (
