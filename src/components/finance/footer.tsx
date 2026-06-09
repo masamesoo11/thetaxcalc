@@ -41,8 +41,6 @@ const RESOURCE_LINKS = [
 
 const SOCIAL_LINKS = [
   { label: 'Twitter / X', url: 'https://twitter.com/TheTaxCalc' },
-  { label: 'LinkedIn', url: 'https://www.linkedin.com/company/thetaxcalc' },
-  { label: 'YouTube', url: 'https://www.youtube.com/@TheTaxCalc' },
 ];
 
 export function Footer() {

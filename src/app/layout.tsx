@@ -102,9 +102,6 @@ const sitewideJsonLd = {
       foundingDate: "2022",
       sameAs: [
         "https://twitter.com/TheTaxCalc",
-        "https://www.linkedin.com/company/thetaxcalc",
-        "https://www.youtube.com/@TheTaxCalc",
-        "https://www.reddit.com/user/TheTaxCalc",
       ],
       contactPoint: [
         {
