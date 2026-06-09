@@ -15,6 +15,13 @@ import { AuthorBioCard } from '@/components/finance/author-bio-card';
 
 // ─── Static Params ───────────────────────────────────────────────────────────
 
+// ISR: Revalidate every 24 hours — enables Cloudflare CDN edge caching
+// Without this, cf-cache-status = DYNAMIC → no CDN cache → Connection Timeout under crawl load
+export const revalidate = 86400;
+
+// Only serve pre-generated state pages (50 states) — return 404 for unknown slugs
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return ALL_STATE_KEYS.map((state) => ({ state }));
 }

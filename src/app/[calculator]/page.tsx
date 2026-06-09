@@ -14,7 +14,9 @@ import { getJsonLdForType } from './_jsonld';
 import { getCalculatorContent } from './_content';
 
 export const dynamic = 'force-static';
-export const revalidate = false;
+// ISR: Revalidate every 24 hours — enables Cloudflare CDN edge caching
+// Without this, cf-cache-status = DYNAMIC → no CDN cache → Connection Timeout under crawl load
+export const revalidate = 86400;
 
 export function generateStaticParams() {
   return getCalculatorSlugs().map((slug) => ({ calculator: slug }));

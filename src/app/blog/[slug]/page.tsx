@@ -8,6 +8,9 @@ import { BlogTableOfContents, type TocEntry } from './blog-toc';
 import { getCalculatorAuthor, authorToJsonLd, getAuthorForCalculator } from '@/lib/authors';
 import { AuthorBioCard } from '@/components/finance/author-bio-card';
 
+// ISR: Revalidate every 24 hours — enables Cloudflare CDN edge caching
+export const revalidate = 86400;
+
 export function generateStaticParams() {
   return getPublishedSlugs().map(slug => ({ slug }));
 }

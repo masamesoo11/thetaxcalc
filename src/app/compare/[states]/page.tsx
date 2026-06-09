@@ -11,6 +11,11 @@ import { DynamicComparePage } from './dynamic-compare-page';
 import { getCalculatorAuthor, authorToJsonLd } from '@/lib/authors';
 import { AuthorBioCard } from '@/components/finance/author-bio-card';
 
+// ISR: Revalidate every 24 hours — enables Cloudflare CDN edge caching
+export const revalidate = 86400;
+
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return COMPARISON_SLUGS.map((slug) => ({ states: slug }));
 }

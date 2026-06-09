@@ -8,7 +8,8 @@ import { MortgageCalculatorClient } from './mortgage-calculator-client';
 
 // ─── Static generation ──────────────────────────────────────────────────────
 export const dynamic = 'force-static';
-export const revalidate = false;
+// ISR: Revalidate every 24 hours — enables Cloudflare CDN edge caching
+export const revalidate = 86400;
 
 // ─── Mortgage-only config (avoids importing the entire calculator-routes.ts) ──
 const CONFIG = {
