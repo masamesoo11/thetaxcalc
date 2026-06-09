@@ -72,14 +72,14 @@ const widgetsJsonLd = {
   '@graph': [
     {
       '@id': `${SITE_URL}/widgets#software`,
-      '@type': 'SoftwareApplication',
+      '@type': 'WebApplication',
       name: 'TheTaxCalc Widgets',
       url: `${SITE_URL}/widgets`,
       applicationCategory: 'FinanceApplication',
       operatingSystem: 'Web',
       offers: {
         '@type': 'Offer',
-        price: '0',
+        price: 0,
         priceCurrency: 'USD',
       },
       description:
@@ -102,22 +102,15 @@ const widgetsJsonLd = {
       author: { '@id': `${SITE_URL}/widgets#author` },
       reviewedBy: { '@id': `${SITE_URL}/widgets#author` },
       publisher: { '@id': `${SITE_URL}/#organization` },
-      breadcrumb: {
-        '@type': 'BreadcrumbList',
-        itemListElement: [
-          {
-            '@type': 'ListItem',
-            position: 1,
-            name: 'Home',
-            item: SITE_URL,
-          },
-          {
-            '@type': 'ListItem',
-            position: 2,
-            name: 'Free Widgets',
-          },
-        ],
-      },
+      breadcrumb: { '@id': `${SITE_URL}/widgets#breadcrumb` },
+    },
+    {
+      '@id': `${SITE_URL}/widgets#breadcrumb`,
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+        { '@type': 'ListItem', position: 2, name: 'Free Widgets' },
+      ],
     },
     {
       '@id': `${SITE_URL}/widgets#faq`,

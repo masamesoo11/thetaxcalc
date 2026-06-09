@@ -51,58 +51,8 @@ function getTakeHome(
 }
 
 // ─── JSON-LD Generator ──────────────────────────────────────────────────────
-
-function buildJsonLd(
-  slug: string,
-  s1: CompareStateData,
-  s2: CompareStateData,
-  faqs: { question: string; answer: string }[]
-) {
-  const baseUrl = SITE_URL;
-  const canonicalPath = `/compare/${slug}`;
-
-  return {
-    '@context': 'https://schema.org',
-    '@graph': [
-      {
-        '@id': `${baseUrl}/compare/${slug}#breadcrumb`,
-        '@type': 'BreadcrumbList',
-        itemListElement: [
-          { '@type': 'ListItem', position: 1, name: 'Home', item: baseUrl },
-          { '@type': 'ListItem', position: 2, name: 'State Tax Comparisons', item: `${baseUrl}/compare` },
-          {
-            '@type': 'ListItem',
-            position: 3,
-            name: `${s1.name} vs ${s2.name} Taxes`,
-            item: `${baseUrl}${canonicalPath}`,
-          },
-        ],
-      },
-      {
-        '@id': `${baseUrl}/compare/${slug}#webpage`,
-        '@type': 'WebPage',
-        name: `${s1.name} vs ${s2.name} Tax Comparison 2026`,
-        description: `Side-by-side comparison of ${s1.name} and ${s2.name} taxes. Income tax, property tax, sales tax, and take-home pay analysis.`,
-        url: `${baseUrl}${canonicalPath}`,
-        inLanguage: 'en-US',
-        dateModified: '2026-01-01',
-        publisher: { '@id': `${baseUrl}/#organization` },
-      },
-      {
-        '@id': `${baseUrl}/compare/${slug}#faq`,
-        '@type': 'FAQPage',
-        mainEntity: faqs.map((faq) => ({
-          '@type': 'Question',
-          name: faq.question,
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: faq.answer,
-          },
-        })),
-      },
-    ],
-  };
-}
+// NOTE: JSON-LD is now generated server-side in page.tsx to avoid duplicate
+// structured data. This client component handles UI only.
 
 // ─── Comparison Table Row ────────────────────────────────────────────────────
 
@@ -242,15 +192,8 @@ export function CompareClientPage({ states }: CompareClientPageProps) {
   const betterAt150k = takeHome150k_1.net >= takeHome150k_2.net ? s1.name : s2.name;
   const savingsAt150k = Math.abs(takeHome150k_1.net - takeHome150k_2.net);
 
-  const jsonLd = buildJsonLd(states, s1, s2, faqs);
-
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-
       {/* H1 + Intro */}
       <section className="mb-10">
         <div className="inline-flex items-center gap-2 rounded-full bg-emerald-500/10 border border-emerald-500/20 px-4 py-1.5 text-sm text-emerald-400 mb-4">

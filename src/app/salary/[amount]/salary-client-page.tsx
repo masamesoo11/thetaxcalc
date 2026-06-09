@@ -83,56 +83,8 @@ const STATE_KEY_TO_SLUG: Record<string, string> = {
 };
 
 // ─── JSON-LD Schema ───────────────────────────────────────────────────────────
-
-function generateJsonLd(salary: number, filingStatus: FilingStatus = 'single') {
-  const calc = calculateSalaryTakeHome(salary, filingStatus);
-  const formatted = formatSalary(salary);
-  const faqs = generateFAQs(salary, filingStatus);
-  const path = `/salary/${salary}`;
-
-  return {
-    '@context': 'https://schema.org',
-    '@graph': [
-      {
-        '@type': 'BreadcrumbList',
-        itemListElement: [
-          { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
-          { '@type': 'ListItem', position: 2, name: 'Salary After Tax', item: `${SITE_URL}/salary` },
-          { '@type': 'ListItem', position: 3, name: `${formatted} After Tax`, item: `${SITE_URL}${path}` },
-        ],
-      },
-      {
-        '@type': 'WebPage',
-        name: `${formatted} After Tax in 2026 — Take-Home Pay by State`,
-        description: `Calculate your take-home pay on a ${formatted} salary in 2026. Compare net pay across IL, TX, FL, CA, and NY.`,
-        url: `${SITE_URL}${path}`,
-        inLanguage: 'en-US',
-        dateModified: '2026-01-01',
-      },
-      {
-        '@type': 'FAQPage',
-        mainEntity: faqs.map((faq) => ({
-          '@type': 'Question',
-          name: faq.question,
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: faq.answer,
-          },
-        })),
-      },
-      {
-        '@type': 'Dataset',
-        name: `${formatted} Take-Home Pay by State (2026)`,
-        description: `Net annual pay after federal tax, FICA, and state income tax on a ${formatted} salary for Single filer with standard deduction.`,
-        variableMeasured: calc.states.map((s) => ({
-          '@type': 'PropertyValue',
-          name: `Net Pay in ${s.stateName}`,
-          value: fmt(s.netAnnual),
-        })),
-      },
-    ],
-  };
-}
+// NOTE: JSON-LD is now generated server-side in page.tsx to avoid duplicate
+// structured data. This client component handles UI only.
 
 // ─── Client Component ──────────────────────────────────────────────────────
 
@@ -148,8 +100,6 @@ export function SalaryClientPage({ amountStr }: SalaryClientPageProps) {
 
   const calc = calculateSalaryTakeHome(salary, filingStatus, nycResident);
   const faqs = generateFAQs(salary, filingStatus);
-  const jsonLd = generateJsonLd(salary, filingStatus);
-
   const sortedStates = [...calc.states].sort((a, b) => b.netAnnual - a.netAnnual);
   const currentIndex = SALARY_AMOUNTS.indexOf(salary as (typeof SALARY_AMOUNTS)[number]);
   const prevSalary = currentIndex > 0 ? SALARY_AMOUNTS[currentIndex - 1] : null;
@@ -162,13 +112,7 @@ export function SalaryClientPage({ amountStr }: SalaryClientPageProps) {
   };
 
   return (
-    <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-
-      <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+    <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
         {/* Breadcrumb */}
         <nav aria-label="Breadcrumb" className="mb-6 flex items-center gap-1.5 text-sm text-muted-foreground">
           <Link href="/" className="hover:text-foreground transition-colors">Home</Link>
@@ -516,6 +460,6 @@ export function SalaryClientPage({ amountStr }: SalaryClientPageProps) {
           </div>
         </section>
       </div>
-    </>
+    </div>
   );
 }
