@@ -1560,3 +1560,24 @@ Stage Summary:
 - Footer now shows only Twitter/X in social links
 - JSON-LD schema sameAs array cleaned to only include Twitter
 - Site verified working with Agent Browser
+---
+Task ID: 4
+Agent: Main Agent
+Task: Fix remaining 4xx errors from WebSite Auditor report (YouTube 404 on 131 pages + /self-employment-calculator 404 on 45 pages)
+
+Work Log:
+- Searched entire codebase for youtube.com/@TheTaxCalc references: ZERO found in source code
+- Confirmed YouTube link was already removed in previous session from footer.tsx and layout.tsx JSON-LD
+- Searched entire codebase for /self-employment-calculator URL (without "tax-"): ZERO found in source code
+- All links correctly point to /self-employment-tax-calculator (with "tax-")
+- Added 301 redirect in next.config.ts from /self-employment-calculator → /self-employment-tax-calculator as SEO safety net
+- Verified redirect works: HTTP 308 Permanent Redirect with Location: /self-employment-tax-calculator
+- Verified target page works: HTTP 200 for /self-employment-tax-calculator
+- Conclusion: Both errors are caused by the PRODUCTION SITE (thetaxcalc.com) still serving OLD code that has not been redeployed
+
+Stage Summary:
+- No source code changes needed for YouTube link (already removed in previous session)
+- Added next.config.ts redirect: /self-employment-calculator → /self-employment-tax-calculator (301 permanent)
+- Root cause: Production site needs redeployment with updated code to resolve both 404 errors
+- After redeployment: YouTube link will disappear from all 131 pages, /self-employment-calculator will 301 redirect
+

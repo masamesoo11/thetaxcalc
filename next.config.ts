@@ -9,6 +9,17 @@ const nextConfig: NextConfig = {
     unoptimized: true,
   },
   allowedDevOrigins: ['http://127.0.0.1:3000', 'http://localhost:3000', 'http://0.0.0.0:3000', 'http://21.0.11.18:3000', 'http://21.0.12.240:3000'],
+  async redirects() {
+    return [
+      {
+        // SEO safety net: redirect the old/incorrect slug to the correct one
+        // WebSite Auditor reported /self-employment-calculator as 404 on 45 pages
+        source: '/self-employment-calculator',
+        destination: '/self-employment-tax-calculator',
+        permanent: true, // 301 — tells search engines to update their index
+      },
+    ];
+  },
   async headers() {
     return [
       {
