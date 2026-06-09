@@ -154,7 +154,7 @@ export function AdminGate({ children }: { children: React.ReactNode }) {
           {/* Hint */}
           <div className="mt-6 rounded-lg bg-muted/30 p-3 text-xs text-muted-foreground text-center">
             <p>Default password: <code className="text-emerald-400 font-mono">thetaxcalc2026</code></p>
-            <p className="mt-1">Change it in <code className="text-muted-foreground/80">src/components/finance/admin-gate.tsx</code></p>
+            <p className="mt-1">Change it in <code className="text-muted-foreground">src/components/finance/admin-gate.tsx</code></p>
           </div>
         </div>
 

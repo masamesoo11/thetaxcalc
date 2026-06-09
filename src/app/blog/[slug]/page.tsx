@@ -386,9 +386,9 @@ export default async function BlogDetailPage({
 
       <nav aria-label="Breadcrumb" className="mb-6 flex items-center gap-1.5 text-sm text-muted-foreground">
         <Link href="/" className="hover:text-foreground transition-colors">Home</Link>
-        <span className="text-muted-foreground/50">/</span>
+        <span className="text-muted-foreground" aria-hidden="true">/</span>
         <Link href="/blog" className="hover:text-foreground transition-colors">Blog</Link>
-        <span className="text-muted-foreground/50">/</span>
+        <span className="text-muted-foreground" aria-hidden="true">/</span>
         <span className="truncate text-foreground font-medium max-w-[200px] sm:max-w-none">{post.title}</span>
       </nav>
 

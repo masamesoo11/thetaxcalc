@@ -119,13 +119,13 @@ export default async function StateSalesTaxPage({
                 Home
               </Link>
             </li>
-            <li className="text-muted-foreground/50">/</li>
+            <li className="text-muted-foreground" aria-hidden="true">/</li>
             <li>
               <Link href="/sales-tax-calculator" className="hover:text-foreground transition-colors">
                 Sales Tax Calculator
               </Link>
             </li>
-            <li className="text-muted-foreground/50">/</li>
+            <li className="text-muted-foreground" aria-hidden="true">/</li>
             <li className="text-foreground font-medium">{stateData.name}</li>
           </ol>
         </nav>

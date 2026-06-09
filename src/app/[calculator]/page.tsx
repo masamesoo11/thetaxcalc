@@ -296,7 +296,7 @@ export default async function CalculatorPage({
       {/* Breadcrumb — Semantic HTML for SEO */}
       <nav aria-label="Breadcrumb" className="mb-6 flex items-center gap-1.5 text-sm text-muted-foreground">
         <Link href="/" className="hover:text-foreground transition-colors">Home</Link>
-        <span className="text-muted-foreground/50">/</span>
+        <span className="text-muted-foreground" aria-hidden="true">/</span>
         <span className="text-foreground font-medium">{config.breadcrumbLabel}</span>
       </nav>
 
@@ -318,7 +318,7 @@ export default async function CalculatorPage({
           {config.description}
         </p>
         {/* E-E-A-T: Last reviewed date */}
-        <p className="mt-2 text-xs text-muted-foreground/60">
+        <p className="mt-2 text-xs text-muted-foreground">
           Last reviewed: January 2026 · Tax data verified against IRS Publication 15-T &amp; state revenue departments
         </p>
       </div>

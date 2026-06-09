@@ -185,7 +185,7 @@ export function GlossaryClient() {
         <div className="py-16 text-center">
           <BookOpen className="mx-auto h-12 w-12 text-muted-foreground/30" />
           <p className="mt-4 text-lg font-medium text-muted-foreground">No matching terms found</p>
-          <p className="mt-1 text-sm text-muted-foreground/60">Try a different search term or clear the filter</p>
+          <p className="mt-1 text-sm text-muted-foreground">Try a different search term or clear the filter</p>
           <button
             onClick={clearSearch}
             className="mt-4 inline-flex items-center gap-2 rounded-xl bg-emerald-500/10 px-4 py-2 text-sm font-medium text-emerald-400 hover:bg-emerald-500/20 transition-colors"

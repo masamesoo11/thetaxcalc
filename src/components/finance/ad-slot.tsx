@@ -63,10 +63,10 @@ export function AdSlot({ position = 'after-results', className = '' }: AdSlotPro
       data-ad-position={position}
     >
       <div className="flex flex-col items-center justify-center px-4 py-6 text-center">
-        <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground/40">
+        <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
           Financial Insights
         </p>
-        <p className="mt-1 text-[11px] text-muted-foreground/25">
+        <p className="mt-1 text-[11px] text-muted-foreground">
           Relevant financial offers &amp; tools
         </p>
         <div className="mt-2 h-px w-16 bg-gradient-to-r from-transparent via-emerald-500/20 to-transparent" />

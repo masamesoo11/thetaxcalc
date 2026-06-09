@@ -72,7 +72,7 @@ function ComparisonRow({
   return (
     <div className="grid grid-cols-[1fr_1fr_1fr] gap-4 items-center py-3.5 border-b border-border/15 last:border-b-0">
       <div className="flex items-center gap-2.5 text-sm text-muted-foreground">
-        <Icon className="h-4 w-4 shrink-0 text-muted-foreground/70" />
+        <Icon className="h-4 w-4 shrink-0 text-muted-foreground" />
         <span>{label}</span>
       </div>
       <div

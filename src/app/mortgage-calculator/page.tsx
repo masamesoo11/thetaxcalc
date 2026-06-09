@@ -187,7 +187,7 @@ export default async function MortgageCalculatorPage() {
       {/* Breadcrumb */}
       <nav aria-label="Breadcrumb" className="mb-6 flex items-center gap-1.5 text-sm text-muted-foreground">
         <Link href="/" className="hover:text-foreground transition-colors">Home</Link>
-        <span className="text-muted-foreground/50">/</span>
+        <span className="text-muted-foreground" aria-hidden="true">/</span>
         <span className="text-foreground font-medium">{CONFIG.breadcrumbLabel}</span>
       </nav>
 
@@ -208,7 +208,7 @@ export default async function MortgageCalculatorPage() {
         <p className="mt-2 text-muted-foreground max-w-2xl mx-auto">
           {CONFIG.description}
         </p>
-        <p className="mt-2 text-xs text-muted-foreground/60">
+        <p className="mt-2 text-xs text-muted-foreground">
           Last reviewed: January 2026 · By {author.name}, {author.credentials} · Tax data verified against IRS Publication 15-T &amp; state revenue departments
         </p>
       </div>

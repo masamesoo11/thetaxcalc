@@ -434,7 +434,7 @@ function WidgetCard({ widget, compact = false }: { widget: WidgetInfo; compact?:
               />
             </div>
           </div>
-          <p className="text-[11px] text-muted-foreground/60 mt-2 leading-relaxed">
+          <p className="text-[11px] text-muted-foreground mt-2 leading-relaxed">
             Tip: Use <code className="bg-muted/30 px-1 rounded text-[10px]">100%</code> for responsive width. Minimum recommended height: 600px.
           </p>
         </div>

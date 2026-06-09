@@ -896,7 +896,7 @@ export default function HomePage() {
                       <span className="text-xs font-semibold text-foreground/70 group-hover:text-emerald-400 transition-colors">{s1.abbreviation}</span>
                       <span className="text-[10px] text-emerald-500/60">vs</span>
                       <span className="text-xs font-semibold text-foreground/70 group-hover:text-emerald-400 transition-colors">{s2.abbreviation}</span>
-                      <span className="ml-auto text-[11px] text-muted-foreground/50 group-hover:text-emerald-400/70 transition-colors hidden sm:inline">{s1.name} vs {s2.name}</span>
+                      <span className="ml-auto text-[11px] text-muted-foreground group-hover:text-emerald-400/70 transition-colors hidden sm:inline">{s1.name} vs {s2.name}</span>
                     </Link>
                   );
                 })}

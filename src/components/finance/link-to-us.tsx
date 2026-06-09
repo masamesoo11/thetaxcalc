@@ -98,7 +98,7 @@ export function LinkToUs({ url, title, slug }: LinkToUsProps) {
               {copiedEmbed ? <Check className="h-3 w-3" /> : <Code2 className="h-3 w-3" />}
             </Button>
           </div>
-          <p className="text-[10px] text-muted-foreground/60">
+          <p className="text-[10px] text-muted-foreground">
             Customize the width and height to fit your layout. The calculator adapts to any size.
           </p>
         </div>

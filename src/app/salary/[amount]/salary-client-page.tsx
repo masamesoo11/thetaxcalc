@@ -116,9 +116,9 @@ export function SalaryClientPage({ amountStr }: SalaryClientPageProps) {
         {/* Breadcrumb */}
         <nav aria-label="Breadcrumb" className="mb-6 flex items-center gap-1.5 text-sm text-muted-foreground">
           <Link href="/" className="hover:text-foreground transition-colors">Home</Link>
-          <span className="text-muted-foreground/50">/</span>
+          <span className="text-muted-foreground" aria-hidden="true">/</span>
           <Link href="/salary" className="hover:text-foreground transition-colors">Salary</Link>
-          <span className="text-muted-foreground/50">/</span>
+          <span className="text-muted-foreground" aria-hidden="true">/</span>
           <span className="text-foreground font-medium">{calc.salaryFormatted} After Tax</span>
         </nav>
 
@@ -169,7 +169,7 @@ export function SalaryClientPage({ amountStr }: SalaryClientPageProps) {
               className="h-4 w-4 rounded border-border/50 text-emerald-600 focus:ring-emerald-500/30 accent-emerald-600"
             />
             <span className="text-sm text-muted-foreground">
-              NYC Resident <span className="text-xs text-muted-foreground/60">(adds 3.078%–3.876% city income tax for New York)</span>
+              NYC Resident <span className="text-xs text-muted-foreground">(adds 3.078%–3.876% city income tax for New York)</span>
             </span>
           </label>
         </section>

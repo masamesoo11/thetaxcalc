@@ -83,12 +83,12 @@ export function AuthorBioCard({ authorId }: AuthorBioCardProps) {
           </p>
 
           {/* Bio — truncated to 2 lines */}
-          <p className="mt-2 text-sm leading-relaxed text-muted-foreground/80 line-clamp-2">
+          <p className="mt-2 text-sm leading-relaxed text-muted-foreground line-clamp-2">
             {author.bio}
           </p>
 
           {/* Review date + data verification notice */}
-          <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-muted-foreground/60">
+          <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-muted-foreground">
             <span className="inline-flex items-center gap-1">
               <svg
                 className="h-3 w-3 text-emerald-500/60"

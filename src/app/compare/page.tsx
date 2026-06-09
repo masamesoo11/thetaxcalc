@@ -96,7 +96,7 @@ export default function CompareLandingPage() {
       {/* Breadcrumb */}
       <nav aria-label="Breadcrumb" className="mb-6 flex items-center gap-1.5 text-sm text-muted-foreground">
         <Link href="/" className="hover:text-foreground transition-colors">Home</Link>
-        <span className="text-muted-foreground/50">/</span>
+        <span className="text-muted-foreground" aria-hidden="true">/</span>
         <span className="text-foreground font-medium">State Tax Comparisons</span>
       </nav>
 

@@ -201,7 +201,7 @@ export default function FederalTaxBracketsPage() {
           {/* Breadcrumb */}
           <nav aria-label="Breadcrumb" className="mb-8 flex items-center gap-1.5 text-sm text-muted-foreground">
             <Link href="/" className="hover:text-foreground transition-colors">Home</Link>
-            <ChevronRight className="h-3.5 w-3.5 text-muted-foreground/50" />
+            <ChevronRight className="h-3.5 w-3.5 text-muted-foreground" />
             <span className="text-foreground font-medium">Federal Tax Brackets</span>
           </nav>
 

@@ -507,7 +507,7 @@ export default function AboutPage() {
                 {author.title}, TheTaxCalc
               </p>
               {/* Bio */}
-              <p className="text-sm text-muted-foreground/80 leading-relaxed mb-4">
+              <p className="text-sm text-muted-foreground leading-relaxed mb-4">
                 {author.bio}
               </p>
               {/* Specialties */}

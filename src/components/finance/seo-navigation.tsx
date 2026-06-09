@@ -61,7 +61,7 @@ export function SeoNavigation() {
                 </li>
               ))}
               {SALARY_AMOUNTS.length > 10 && (
-                <li className="text-xs text-muted-foreground/50 pl-2">
+                <li className="text-xs text-muted-foreground pl-2">
                   + {SALARY_AMOUNTS.length - 10} more salary levels
                 </li>
               )}

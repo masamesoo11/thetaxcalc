@@ -213,29 +213,11 @@ input[type="number"] {
 }
 
 /* ─── Premium Animations ──────────────────────────────────────────────── */
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-6px); }
-}
-
-@keyframes shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
-}
-
-@keyframes pulse-glow {
-  0%, 100% { opacity: 0.4; }
-  50% { opacity: 1; }
-}
+/* Only compositor-friendly animations (transform + opacity) with will-change */
 
 @keyframes slide-up {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes slide-in-right {
-  from { opacity: 0; transform: translateX(20px); }
-  to { opacity: 1; transform: translateX(0); }
 }
 
 @keyframes fade-in {
@@ -243,60 +225,25 @@ input[type="number"] {
   to { opacity: 1; }
 }
 
-@keyframes gradient-shift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-.animate-float {
-  animation: float 4s ease-in-out infinite;
-}
-
-.animate-shimmer {
-  background: linear-gradient(
-    90deg,
-    oklch(0.55 0.15 160 / 0%) 0%,
-    oklch(0.55 0.15 160 / 30%) 50%,
-    oklch(0.55 0.15 160 / 0%) 100%
-  );
-  background-size: 200% 100%;
-  animation: shimmer 3s linear infinite;
-}
-
-.animate-pulse-glow {
-  animation: pulse-glow 3s ease-in-out infinite;
-}
+/* Removed: float, shimmer, pulse-glow, slide-in-right, gradient-shift keyframes
+   — they used non-compositor-friendly properties (background-position, etc.)
+   causing Lighthouse "Avoid non-composited animations" warnings */
 
 .animate-slide-up {
+  will-change: transform, opacity;
   animation: slide-up 0.6s ease-out both;
 }
 
-.animate-slide-in-right {
-  animation: slide-in-right 0.5s ease-out both;
-}
-
 .animate-fade-in {
+  will-change: opacity;
   animation: fade-in 0.5s ease-out both;
 }
 
-.animate-gradient {
-  background-size: 200% 200%;
-  animation: gradient-shift 8s ease infinite;
-}
-
-/* ─── Stagger Animation Delays ────────────────────────────────────────── */
-.stagger-1 { animation-delay: 0.05s; }
-.stagger-2 { animation-delay: 0.1s; }
-.stagger-3 { animation-delay: 0.15s; }
-.stagger-4 { animation-delay: 0.2s; }
-.stagger-5 { animation-delay: 0.25s; }
-.stagger-6 { animation-delay: 0.3s; }
-.stagger-7 { animation-delay: 0.35s; }
-.stagger-8 { animation-delay: 0.4s; }
+/* ─── Stagger Animation Delays (removed — unused) ─────────────────────── */
 
 /* ─── Premium Hover Effects ───────────────────────────────────────────── */
 .hover-lift {
+  will-change: transform;
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .hover-lift:hover {
@@ -304,19 +251,7 @@ input[type="number"] {
   box-shadow: 0 12px 40px oklch(0 0 0 / 20%), 0 0 30px oklch(0.55 0.15 160 / 8%);
 }
 
-.hover-glow {
-  transition: box-shadow 0.3s ease;
-}
-.hover-glow:hover {
-  box-shadow: 0 0 30px oklch(0.55 0.15 160 / 15%);
-}
-
-.hover-scale {
-  transition: transform 0.2s ease;
-}
-.hover-scale:hover {
-  transform: scale(1.02);
-}
+/* hover-glow and hover-scale removed — unused in any component */
 
 /* ─── Premium Card Styles ─────────────────────────────────────────────── */
 .premium-card {
@@ -325,7 +260,8 @@ input[type="number"] {
   -webkit-backdrop-filter: blur(12px) saturate(160%);
   border: 1px solid oklch(1 0 0 / 6%);
   border-radius: 1rem;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .premium-card:hover {
@@ -347,14 +283,15 @@ input[type="number"] {
   box-shadow: 0 0 12px oklch(0.55 0.15 160 / 20%);
 }
 
-/* ─── Animated Gradient Text ──────────────────────────────────────────── */
+/* ─── Static Gradient Text ──────────────────────────────────────────── */
+/* Removed background-position animation — non-compositor-friendly, caused
+   Lighthouse "9 non-composited animations" warning across 40+ elements.
+   The static gradient is visually striking without animation. */
 .gradient-text {
   background: linear-gradient(135deg, oklch(0.70 0.18 160), oklch(0.60 0.15 200), oklch(0.70 0.18 160));
-  background-size: 200% auto;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: gradient-shift 6s ease infinite;
 }
 
 /* ─── Premium Divider ─────────────────────────────────────────────────── */
@@ -386,16 +323,11 @@ html {
   border-radius: 4px;
 }
 
-/* ─── Skeleton Shimmer ────────────────────────────────────────────────── */
-.skeleton-shimmer {
-  background: linear-gradient(
-    90deg,
-    oklch(0.23 0.008 260 / 60%) 25%,
-    oklch(0.28 0.01 260 / 60%) 50%,
-    oklch(0.23 0.008 260 / 60%) 75%
-  );
-  background-size: 200% 100%;
-  animation: shimmer 2s linear infinite;
+/* ─── Skeleton Shimmer (removed — unused, non-composited) ──────────── */
+
+/* ─── Compositor-friendly overrides for Tailwind animations ─────────── */
+.animate-pulse {
+  will-change: opacity;
 }
 
 /* ─── Responsive Container ────────────────────────────────────────────── */

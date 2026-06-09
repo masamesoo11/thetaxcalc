@@ -423,7 +423,7 @@ export function NewYorkCalculator() {
                     </div>
                   ))}
                   {nyBreakdown.bracketDetails.length > 6 && (
-                    <div className="flex justify-between text-muted-foreground/60">
+                    <div className="flex justify-between text-muted-foreground">
                       <span>+{nyBreakdown.bracketDetails.length - 6} more brackets</span>
                       <span></span>
                     </div>
