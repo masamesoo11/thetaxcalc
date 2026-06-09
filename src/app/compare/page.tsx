@@ -49,20 +49,26 @@ const compareListingJsonLd = {
   '@context': 'https://schema.org',
   '@graph': [
     {
+      '@id': `${SITE_URL}/compare#breadcrumb`,
       '@type': 'BreadcrumbList',
       itemListElement: [
         { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
         { '@type': 'ListItem', position: 2, name: 'State Tax Comparisons', item: `${SITE_URL}/compare` },
       ],
     },
-    authorToJsonLd(getCalculatorAuthor()),
     {
+      '@id': `${SITE_URL}/compare#author`,
+      ...authorToJsonLd(getCalculatorAuthor()),
+    },
+    {
+      '@id': `${SITE_URL}/compare#collectionpage`,
       '@type': 'CollectionPage',
       name: 'State vs State Tax Comparisons',
       description: 'Side-by-side tax comparisons for Illinois, Texas, Florida, California, and New York.',
       url: `${SITE_URL}/compare`,
-      author: authorToJsonLd(getCalculatorAuthor()),
-      reviewedBy: authorToJsonLd(getCalculatorAuthor()),
+      author: { '@id': `${SITE_URL}/compare#author` },
+      reviewedBy: { '@id': `${SITE_URL}/compare#author` },
+      publisher: { '@id': `${SITE_URL}/#organization` },
       about: {
         '@type': 'Thing',
         name: 'State Income Tax Comparison',

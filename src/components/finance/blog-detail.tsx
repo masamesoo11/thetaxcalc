@@ -334,26 +334,19 @@ export function BlogDetail({
       const author = getAuthor(authorId);
       return {
         '@context': 'https://schema.org',
+        '@id': `${SITE_URL}/blog/${post.slug}#article`,
         '@type': 'Article',
         headline: post.title,
         description: post.excerpt || post.metaDesc || '',
         datePublished: post.createdAt,
         dateModified: post.updatedAt,
-        author: author ? authorToJsonLd(author) : {
+        author: author ? { '@id': `${SITE_URL}/blog/${post.slug}#author` } : {
           '@type': 'Person',
           name: 'Rachel Mitchell, CPA',
           url: `${SITE_URL}/about#rachel-mitchell`,
         },
-        reviewer: author ? authorToJsonLd(author) : undefined,
-        publisher: {
-          '@type': 'Organization',
-          name: 'TheTaxCalc',
-          url: SITE_URL,
-          logo: {
-            '@type': 'ImageObject',
-            url: `${SITE_URL}/logo.png`,
-          },
-        },
+        reviewer: author ? { '@id': `${SITE_URL}/blog/${post.slug}#author` } : undefined,
+        publisher: { '@id': `${SITE_URL}/#organization` },
         mainEntityOfPage: {
           '@type': 'WebPage',
           '@id': `${SITE_URL}/blog/${post.slug}`,
@@ -371,6 +364,7 @@ export function BlogDetail({
       post
         ? {
             '@context': 'https://schema.org',
+            '@id': `${SITE_URL}/blog/${post.slug}#breadcrumb`,
             '@type': 'BreadcrumbList',
             itemListElement: [
               { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },

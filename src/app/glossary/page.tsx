@@ -71,14 +71,19 @@ function getGlossaryJsonLd() {
     '@context': 'https://schema.org',
     '@graph': [
       {
+        '@id': `${SITE_URL}/glossary#breadcrumb`,
         '@type': 'BreadcrumbList',
         itemListElement: [
           { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
           { '@type': 'ListItem', position: 2, name: 'Tax Glossary', item: `${SITE_URL}/glossary` },
         ],
       },
-      authorToJsonLd(getCalculatorAuthor()),
       {
+        '@id': `${SITE_URL}/glossary#author`,
+        ...authorToJsonLd(getCalculatorAuthor()),
+      },
+      {
+        '@id': `${SITE_URL}/glossary#webpage`,
         '@type': 'WebPage',
         name: 'Tax Glossary — 2026 Tax Terms Explained',
         description:
@@ -86,18 +91,24 @@ function getGlossaryJsonLd() {
         url: `${SITE_URL}/glossary`,
         inLanguage: 'en-US',
         dateModified: '2026-01-01',
-        author: authorToJsonLd(getCalculatorAuthor()),
-        reviewedBy: authorToJsonLd(getCalculatorAuthor()),
+        author: { '@id': `${SITE_URL}/glossary#author` },
+        reviewedBy: { '@id': `${SITE_URL}/glossary#author` },
+        publisher: { '@id': `${SITE_URL}/#organization` },
       },
       {
+        '@id': `${SITE_URL}/glossary#faq`,
         '@type': 'FAQPage',
         mainEntity: faqEntries,
       },
       {
+        '@id': `${SITE_URL}/glossary#dataset`,
         '@type': 'Dataset',
         name: '2026 Tax Glossary Terms',
         description: 'Definitions and 2026 figures for common U.S. tax terms.',
+        license: 'https://creativecommons.org/licenses/by/4.0/',
+        creator: { '@id': `${SITE_URL}/#organization` },
         variableMeasured: GLOSSARY_TERMS.map((t) => ({
+          '@type': 'PropertyValue',
           name: t.term,
           description: t.definition,
           ...(t.figure2026 ? { value: t.figure2026 } : {}),

@@ -269,32 +269,32 @@ function getJsonLd() {
     '@context': 'https://schema.org',
     '@graph': [
       {
+        '@id': `${SITE_URL}/resources#dataset`,
         '@type': 'Dataset',
         name: '2026 U.S. Tax Reference Data',
         description:
           'Comprehensive 2026 federal tax brackets, FICA rates, state income tax comparison, standard deductions, retirement contribution limits, and key tax deadlines. Sourced from IRS publications and state revenue departments.',
         url: `${SITE_URL}/resources`,
-        creator: {
-          '@type': 'Organization',
-          name: 'TheTaxCalc',
-          url: SITE_URL,
-        },
+        creator: { '@id': `${SITE_URL}/#organization` },
+        publisher: { '@id': `${SITE_URL}/#organization` },
+        license: 'https://creativecommons.org/licenses/by/4.0/',
         temporalCoverage: '2026',
         spatialCoverage: {
           '@type': 'Place',
           name: 'United States',
         },
         variableMeasured: [
-          { name: 'Federal Income Tax Brackets', description: '7 marginal tax rates for Single, MFJ, and HOH filing statuses' },
-          { name: 'FICA Tax Rates', description: 'Social Security, Medicare, and self-employment tax rates and wage bases' },
-          { name: 'State Income Tax Rates', description: 'Income tax rates for IL, TX, FL, CA, NY, GA, VA' },
-          { name: 'Standard Deductions', description: '2026 standard deduction amounts by filing status' },
-          { name: 'Retirement Contribution Limits', description: '401(k), IRA, HSA, and SIMPLE IRA limits with catch-up provisions' },
-          { name: 'Tax Deadlines', description: 'Key filing and payment deadlines for the 2026 tax year' },
-          { name: 'No-Income-Tax States', description: 'Nine U.S. states that levy no state income tax on wages' },
+          { '@type': 'PropertyValue', name: 'Federal Income Tax Brackets', description: '7 marginal tax rates for Single, MFJ, and HOH filing statuses' },
+          { '@type': 'PropertyValue', name: 'FICA Tax Rates', description: 'Social Security, Medicare, and self-employment tax rates and wage bases' },
+          { '@type': 'PropertyValue', name: 'State Income Tax Rates', description: 'Income tax rates for IL, TX, FL, CA, NY, GA, VA' },
+          { '@type': 'PropertyValue', name: 'Standard Deductions', description: '2026 standard deduction amounts by filing status' },
+          { '@type': 'PropertyValue', name: 'Retirement Contribution Limits', description: '401(k), IRA, HSA, and SIMPLE IRA limits with catch-up provisions' },
+          { '@type': 'PropertyValue', name: 'Tax Deadlines', description: 'Key filing and payment deadlines for the 2026 tax year' },
+          { '@type': 'PropertyValue', name: 'No-Income-Tax States', description: 'Nine U.S. states that levy no state income tax on wages' },
         ],
       },
       {
+        '@id': `${SITE_URL}/resources#webpage`,
         '@type': 'WebPage',
         name: '2026 Tax Data, Brackets & Rates — Free Reference',
         description:
@@ -302,8 +302,9 @@ function getJsonLd() {
         url: `${SITE_URL}/resources`,
         inLanguage: 'en-US',
         dateModified: '2026-01-15',
-        author: authorToJsonLd(getCalculatorAuthor()),
-        reviewedBy: authorToJsonLd(getCalculatorAuthor()),
+        author: { '@id': `${SITE_URL}/resources#author` },
+        reviewedBy: { '@id': `${SITE_URL}/resources#author` },
+        publisher: { '@id': `${SITE_URL}/#organization` },
         breadcrumb: {
           '@type': 'BreadcrumbList',
           itemListElement: [
@@ -312,8 +313,12 @@ function getJsonLd() {
           ],
         },
       },
-      authorToJsonLd(getCalculatorAuthor()),
       {
+        '@id': `${SITE_URL}/resources#author`,
+        ...authorToJsonLd(getCalculatorAuthor()),
+      },
+      {
+        '@id': `${SITE_URL}/resources#faq`,
         '@type': 'FAQPage',
         mainEntity: faqEntries,
       },

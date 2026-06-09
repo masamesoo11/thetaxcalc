@@ -69,6 +69,7 @@ const salaryPageJsonLd = {
   '@context': 'https://schema.org',
   '@graph': [
     {
+      '@id': `${SITE_URL}/salary#breadcrumb`,
       '@type': 'BreadcrumbList',
       itemListElement: [
         { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
@@ -76,21 +77,28 @@ const salaryPageJsonLd = {
       ],
     },
     {
+      '@id': `${SITE_URL}/salary#webpage`,
       '@type': 'WebPage',
       name: 'Salary After Tax Calculator 2026 — Take-Home Pay by State',
       description: 'See your take-home pay for every salary from $30K to $500K. Compare after-tax income across IL, TX, FL, CA, NY.',
       url: `${SITE_URL}/salary`,
       inLanguage: 'en-US',
       dateModified: '2026-01-01',
-      author: authorToJsonLd(getCalculatorAuthor()),
-      reviewedBy: authorToJsonLd(getCalculatorAuthor()),
+      author: { '@id': `${SITE_URL}/salary#author` },
+      reviewedBy: { '@id': `${SITE_URL}/salary#author` },
+      publisher: { '@id': `${SITE_URL}/#organization` },
     },
-    authorToJsonLd(getCalculatorAuthor()),
     {
+      '@id': `${SITE_URL}/salary#author`,
+      ...authorToJsonLd(getCalculatorAuthor()),
+    },
+    {
+      '@id': `${SITE_URL}/salary#collection`,
       '@type': 'CollectionPage',
       name: 'Salary After Tax Pages',
       description: 'Programmatic salary pages showing after-tax take-home pay for salaries from $30,000 to $500,000 across 5 states.',
       url: `${SITE_URL}/salary`,
+      publisher: { '@id': `${SITE_URL}/#organization` },
       hasPart: SALARY_AMOUNTS.map((amount) => ({
         '@type': 'WebPage',
         name: `$${amount.toLocaleString()} After Tax in 2026`,

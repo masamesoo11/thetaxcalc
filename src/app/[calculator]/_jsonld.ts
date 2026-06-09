@@ -21,11 +21,13 @@ import {
   VIRGINIA_FAQS,
 } from '@/lib/faq-data';
 import { SITE_URL } from '@/lib/site-config';
+import { getAuthorForCalculator, authorToJsonLd } from '@/lib/authors';
 
 // ─── JSON-LD FAQ Helper ─────────────────────────────────────────────────────────
 
-export function faqsToJsonLd(faqs: { question: string; answer: string }[]) {
+export function faqsToJsonLd(faqs: { question: string; answer: string }[], id?: string) {
   return {
+    ...(id ? { '@id': id } : {}),
     '@type': 'FAQPage' as const,
     mainEntity: faqs.map((faq) => ({
       '@type': 'Question',
@@ -38,29 +40,97 @@ export function faqsToJsonLd(faqs: { question: string; answer: string }[]) {
   };
 }
 
+// ─── Shared Schema Fragments ─────────────────────────────────────────────────
+
+/** BreadcrumbList for calculator pages — with @id for proper graph linking */
+function breadcrumbJsonLd(id: string, position2Name: string, position2Url: string) {
+  return {
+    '@id': id,
+    '@type': 'BreadcrumbList' as const,
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+      { '@type': 'ListItem', position: 2, name: position2Name, item: `${SITE_URL}${position2Url}` },
+    ],
+  };
+}
+
+/**
+ * WebApplication for calculator pages.
+ * Uses @id reference for author and publisher to avoid duplication.
+ */
+function webAppJsonLd(id: string, name: string, urlPath: string, authorId: string) {
+  return {
+    '@id': id,
+    '@type': 'WebApplication' as const,
+    name,
+    url: `${SITE_URL}${urlPath}`,
+    applicationCategory: 'FinanceApplication',
+    operatingSystem: 'Web',
+    offers: {
+      '@type': 'Offer',
+      price: '0',
+      priceCurrency: 'USD',
+    },
+    author: { '@id': authorId },
+    publisher: { '@id': `${SITE_URL}/#organization` },
+  };
+}
+
+/**
+ * Dataset for tax rate data.
+ * Uses @id reference to Organization from layout.tsx.
+ * License points to Creative Commons (valid for Google Dataset Search).
+ * PropertyValue.value uses QuantitativeValue for numeric data.
+ */
+function datasetJsonLd(id: string, name: string, description: string, variables: { name: string; value: string; unitText?: string }[]) {
+  return {
+    '@id': id,
+    '@type': 'Dataset' as const,
+    name,
+    description,
+    creator: { '@id': `${SITE_URL}/#organization` },
+    license: 'https://creativecommons.org/licenses/by/4.0/',
+    variableMeasured: variables.map((v) => ({
+      '@type': 'PropertyValue',
+      name: v.name,
+      value: v.value,
+      ...(v.unitText ? { unitText: v.unitText } : {}),
+    })),
+  };
+}
+
 // ─── JSON-LD Schema Generators ───────────────────────────────────────────────
 
 function getHomeJsonLd() {
+  const author = getAuthorForCalculator('home');
+  const authorId = `${SITE_URL}/paycheck-calculator#author`;
+  const baseId = `${SITE_URL}/paycheck-calculator`;
   return {
     '@context': 'https://schema.org',
     '@graph': [
       {
+        '@id': `${baseId}#webpage`,
         '@type': 'WebPage',
         name: 'Paycheck Calculator — Federal, FICA & State Tax Take-Home Pay',
         description:
           'Free 2026 paycheck calculator. Instantly compute your take-home pay after federal tax, FICA (Social Security + Medicare), and state income tax deductions.',
-        url: `${SITE_URL}/paycheck-calculator`,
+        url: baseId,
         inLanguage: 'en-US',
         dateModified: '2026-01-01',
-        breadcrumb: {
-          '@type': 'BreadcrumbList',
-          itemListElement: [
-            { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
-            { '@type': 'ListItem', position: 2, name: 'Paycheck Calculator', item: `${SITE_URL}/paycheck-calculator` },
-          ],
-        },
+        author: { '@id': authorId },
+        publisher: { '@id': `${SITE_URL}/#organization` },
+        breadcrumb: { '@id': `${baseId}#breadcrumb` },
       },
       {
+        '@id': `${baseId}#breadcrumb`,
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+          { '@type': 'ListItem', position: 2, name: 'Paycheck Calculator', item: baseId },
+        ],
+      },
+      {
+        '@id': `${baseId}#software`,
         '@type': 'SoftwareApplication',
         name: 'TheTaxCalc Paycheck Calculator',
         applicationCategory: 'FinanceApplication',
@@ -68,6 +138,7 @@ function getHomeJsonLd() {
         offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
       },
       {
+        '@id': `${baseId}#howto`,
         '@type': 'HowTo',
         name: 'How to Calculate Your Take-Home Pay',
         step: [
@@ -78,371 +149,376 @@ function getHomeJsonLd() {
           { '@type': 'HowToStep', name: 'View Instant Results', text: 'See your net take-home pay, effective tax rate, and full deduction breakdown' },
         ],
       },
-      faqsToJsonLd(HOME_FAQS),
+      { '@id': authorId, ...authorToJsonLd(author) },
+      faqsToJsonLd(HOME_FAQS, `${baseId}#faq`),
     ],
   };
 }
 
 function getIllinoisJsonLd() {
+  const author = getAuthorForCalculator('illinois');
+  const authorId = `${SITE_URL}/illinois-tax-calculator#author`;
+  const baseId = `${SITE_URL}/illinois-tax-calculator`;
   return {
     '@context': 'https://schema.org',
     '@graph': [
-      { '@type': 'BreadcrumbList', itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
-        { '@type': 'ListItem', position: 2, name: 'Illinois Paycheck Calculator', item: `${SITE_URL}/illinois-tax-calculator` },
-      ]},
-      { '@type': 'WebApplication', name: 'Illinois Paycheck Calculator 2026', url: `${SITE_URL}/illinois-tax-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
-      { '@type': 'MathSolver', name: 'Illinois Paycheck Math Solver', description: 'Computes net take-home pay: Net = Gross - Federal Tax - FICA - IL State Tax, where IL Tax = (Gross - Personal Exemption) × 4.95%', mathExpression: 'Net = G - Fed(G - StdDed) - FICA(G) - (G - Exempt) × 0.0495' },
-      { '@type': 'Dataset', name: '2026 Illinois Tax Rates', variableMeasured: [
-        { name: 'Illinois Flat Tax Rate', value: '4.95%' },
-        { name: 'Illinois Personal Exemption', value: '$2,775' },
-        { name: 'Federal Standard Deduction (Single)', value: '$16,100' },
-        { name: 'Social Security Wage Cap', value: '$176,100' },
-      ]},
-      faqsToJsonLd(ILLINOIS_FAQS),
+      breadcrumbJsonLd(`${baseId}#breadcrumb`, 'Illinois Paycheck Calculator', '/illinois-tax-calculator'),
+      webAppJsonLd(`${baseId}#webapp`, 'Illinois Paycheck Calculator 2026', '/illinois-tax-calculator', authorId),
+      datasetJsonLd(`${baseId}#dataset`, '2026 Illinois Tax Rates', 'Key Illinois tax rates and federal brackets for 2026 paycheck calculations.', [
+        { name: 'Illinois Flat Tax Rate', value: '4.95%', unitText: 'percent' },
+        { name: 'Illinois Personal Exemption', value: '2775', unitText: 'USD' },
+        { name: 'Federal Standard Deduction (Single)', value: '16100', unitText: 'USD' },
+        { name: 'Social Security Wage Cap', value: '184500', unitText: 'USD' },
+      ]),
+      { '@id': authorId, ...authorToJsonLd(author) },
+      faqsToJsonLd(ILLINOIS_FAQS, `${baseId}#faq`),
     ],
   };
 }
 
 function getTexasJsonLd() {
+  const author = getAuthorForCalculator('texas');
+  const authorId = `${SITE_URL}/texas-tax-calculator#author`;
+  const baseId = `${SITE_URL}/texas-tax-calculator`;
   return {
     '@context': 'https://schema.org',
     '@graph': [
-      { '@type': 'BreadcrumbList', itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
-        { '@type': 'ListItem', position: 2, name: 'Texas Paycheck Calculator', item: `${SITE_URL}/texas-tax-calculator` },
-      ]},
-      { '@type': 'WebApplication', name: 'Texas Paycheck Calculator 2026', url: `${SITE_URL}/texas-tax-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
-      { '@type': 'MathSolver', name: 'Texas Paycheck Math Solver', description: 'Computes net take-home pay in Texas: Net = Gross - Federal Tax - FICA. Texas has 0% state income tax.', mathExpression: 'Net = G - Fed(G - StdDed) - FICA(G)' },
-      { '@type': 'Dataset', name: '2026 Texas Tax & Cost of Living Data', variableMeasured: [
-        { name: 'Texas State Income Tax Rate', value: '0%' },
-        { name: 'Texas Average Effective Property Tax Rate', value: '1.71%' },
-        { name: 'Texas Average Combined Sales Tax Rate', value: '8.2%' },
-      ]},
-      faqsToJsonLd(TEXAS_FAQS),
+      breadcrumbJsonLd(`${baseId}#breadcrumb`, 'Texas Paycheck Calculator', '/texas-tax-calculator'),
+      webAppJsonLd(`${baseId}#webapp`, 'Texas Paycheck Calculator 2026', '/texas-tax-calculator', authorId),
+      datasetJsonLd(`${baseId}#dataset`, '2026 Texas Tax & Cost of Living Data', 'Texas tax rates and cost of living data for 2026, including property and sales tax information.', [
+        { name: 'Texas State Income Tax Rate', value: '0%', unitText: 'percent' },
+        { name: 'Texas Average Effective Property Tax Rate', value: '1.71%', unitText: 'percent' },
+        { name: 'Texas Average Combined Sales Tax Rate', value: '8.2%', unitText: 'percent' },
+      ]),
+      { '@id': authorId, ...authorToJsonLd(author) },
+      faqsToJsonLd(TEXAS_FAQS, `${baseId}#faq`),
     ],
   };
 }
 
 function getFloridaJsonLd() {
+  const author = getAuthorForCalculator('florida');
+  const authorId = `${SITE_URL}/florida-tax-calculator#author`;
+  const baseId = `${SITE_URL}/florida-tax-calculator`;
   return {
     '@context': 'https://schema.org',
     '@graph': [
-      { '@type': 'BreadcrumbList', itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
-        { '@type': 'ListItem', position: 2, name: 'Florida Paycheck Calculator', item: `${SITE_URL}/florida-tax-calculator` },
-      ]},
-      { '@type': 'WebApplication', name: 'Florida Paycheck Calculator 2026', url: `${SITE_URL}/florida-tax-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
-      { '@type': 'Dataset', name: '2026 Florida Tax & Cost of Living Data', variableMeasured: [
-        { name: 'Florida State Income Tax Rate', value: '0%' },
-        { name: 'Florida Average Effective Property Tax Rate', value: '0.86%' },
-        { name: 'Florida Average Combined Sales Tax Rate', value: '7.0%' },
-      ]},
-      faqsToJsonLd(FLORIDA_FAQS),
+      breadcrumbJsonLd(`${baseId}#breadcrumb`, 'Florida Paycheck Calculator', '/florida-tax-calculator'),
+      webAppJsonLd(`${baseId}#webapp`, 'Florida Paycheck Calculator 2026', '/florida-tax-calculator', authorId),
+      datasetJsonLd(`${baseId}#dataset`, '2026 Florida Tax & Cost of Living Data', 'Florida tax rates and cost of living data for 2026, including property and sales tax information.', [
+        { name: 'Florida State Income Tax Rate', value: '0%', unitText: 'percent' },
+        { name: 'Florida Average Effective Property Tax Rate', value: '0.86%', unitText: 'percent' },
+        { name: 'Florida Average Combined Sales Tax Rate', value: '7.0%', unitText: 'percent' },
+      ]),
+      { '@id': authorId, ...authorToJsonLd(author) },
+      faqsToJsonLd(FLORIDA_FAQS, `${baseId}#faq`),
     ],
   };
 }
 
 function getCaliforniaJsonLd() {
+  const author = getAuthorForCalculator('california');
+  const authorId = `${SITE_URL}/california-tax-calculator#author`;
+  const baseId = `${SITE_URL}/california-tax-calculator`;
   return {
     '@context': 'https://schema.org',
     '@graph': [
-      { '@type': 'BreadcrumbList', itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
-        { '@type': 'ListItem', position: 2, name: 'California Paycheck Calculator', item: `${SITE_URL}/california-tax-calculator` },
-      ]},
-      { '@type': 'WebApplication', name: 'California Paycheck Calculator 2026', url: `${SITE_URL}/california-tax-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
-      { '@type': 'MathSolver', name: 'California Paycheck Math Solver', description: 'Computes net take-home pay with CA progressive tax brackets 1%-13.3%.', mathExpression: 'Net = G - Fed(G - StdDed) - FICA(G) - CA_Progressive(G - StdDed_CA)' },
-      { '@type': 'Dataset', name: '2026 California Tax Rates', variableMeasured: [
-        { name: 'California Top Marginal Tax Rate', value: '13.3%' },
-        { name: 'California Standard Deduction (Single)', value: '$6,083' },
-        { name: 'California Average Combined Sales Tax', value: '8.82%' },
-      ]},
-      faqsToJsonLd(CALIFORNIA_FAQS),
+      breadcrumbJsonLd(`${baseId}#breadcrumb`, 'California Paycheck Calculator', '/california-tax-calculator'),
+      webAppJsonLd(`${baseId}#webapp`, 'California Paycheck Calculator 2026', '/california-tax-calculator', authorId),
+      datasetJsonLd(`${baseId}#dataset`, '2026 California Tax Rates', 'Key California tax rates including progressive income tax brackets for 2026.', [
+        { name: 'California Top Marginal Tax Rate', value: '13.3%', unitText: 'percent' },
+        { name: 'California Standard Deduction (Single)', value: '6083', unitText: 'USD' },
+        { name: 'California Average Combined Sales Tax', value: '8.82%', unitText: 'percent' },
+      ]),
+      { '@id': authorId, ...authorToJsonLd(author) },
+      faqsToJsonLd(CALIFORNIA_FAQS, `${baseId}#faq`),
     ],
   };
 }
 
 function getNewYorkJsonLd() {
+  const author = getAuthorForCalculator('newyork');
+  const authorId = `${SITE_URL}/new-york-tax-calculator#author`;
+  const baseId = `${SITE_URL}/new-york-tax-calculator`;
   return {
     '@context': 'https://schema.org',
     '@graph': [
-      { '@type': 'BreadcrumbList', itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
-        { '@type': 'ListItem', position: 2, name: 'New York Paycheck Calculator', item: `${SITE_URL}/new-york-tax-calculator` },
-      ]},
-      { '@type': 'WebApplication', name: 'New York Paycheck Calculator 2026', url: `${SITE_URL}/new-york-tax-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
-      { '@type': 'MathSolver', name: 'New York Paycheck Math Solver', description: 'Computes net take-home pay with NY progressive tax brackets 4%-10.9% plus potential NYC tax.', mathExpression: 'Net = G - Fed(G - StdDed) - FICA(G) - NY_Progressive(G - StdDed_NY) - NYC_Tax' },
-      { '@type': 'Dataset', name: '2026 New York Tax Rates', variableMeasured: [
-        { name: 'New York Top Marginal Tax Rate', value: '10.9%' },
-        { name: 'New York Standard Deduction (Single)', value: '$8,100' },
-        { name: 'NYC Income Tax Rate Range', value: '3.078% - 3.876%' },
-      ]},
-      faqsToJsonLd(NEWYORK_FAQS),
+      breadcrumbJsonLd(`${baseId}#breadcrumb`, 'New York Paycheck Calculator', '/new-york-tax-calculator'),
+      webAppJsonLd(`${baseId}#webapp`, 'New York Paycheck Calculator 2026', '/new-york-tax-calculator', authorId),
+      datasetJsonLd(`${baseId}#dataset`, '2026 New York Tax Rates', 'Key New York tax rates including progressive income tax brackets and NYC tax for 2026.', [
+        { name: 'New York Top Marginal Tax Rate', value: '10.9%', unitText: 'percent' },
+        { name: 'New York Standard Deduction (Single)', value: '8100', unitText: 'USD' },
+        { name: 'NYC Income Tax Rate Range', value: '3.078% - 3.876%', unitText: 'percent' },
+      ]),
+      { '@id': authorId, ...authorToJsonLd(author) },
+      faqsToJsonLd(NEWYORK_FAQS, `${baseId}#faq`),
     ],
   };
 }
 
 function getMortgageJsonLd() {
+  const author = getAuthorForCalculator('mortgage');
+  const authorId = `${SITE_URL}/mortgage-calculator#author`;
+  const baseId = `${SITE_URL}/mortgage-calculator`;
   return {
     '@context': 'https://schema.org',
     '@graph': [
-      { '@type': 'BreadcrumbList', itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
-        { '@type': 'ListItem', position: 2, name: 'Mortgage Calculator', item: `${SITE_URL}/mortgage-calculator` },
-      ]},
-      { '@type': 'WebApplication', name: 'Mortgage Calculator with Extra Payments', url: `${SITE_URL}/mortgage-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
-      { '@type': 'MathSolver', name: 'Mortgage Amortization Solver', description: 'Computes monthly payment using M = P × [r(1+r)^n] / [(1+r)^n - 1]', mathExpression: 'M = P × [r(1+r)^n] / [(1+r)^n - 1]' },
-      faqsToJsonLd(MORTGAGE_FAQS),
+      breadcrumbJsonLd(`${baseId}#breadcrumb`, 'Mortgage Calculator', '/mortgage-calculator'),
+      webAppJsonLd(`${baseId}#webapp`, 'Mortgage Calculator with Extra Payments', '/mortgage-calculator', authorId),
+      { '@id': authorId, ...authorToJsonLd(author) },
+      faqsToJsonLd(MORTGAGE_FAQS, `${baseId}#faq`),
     ],
   };
 }
 
 function getRetirementJsonLd() {
+  const author = getAuthorForCalculator('retirement');
+  const authorId = `${SITE_URL}/401k-retirement-calculator#author`;
+  const baseId = `${SITE_URL}/401k-retirement-calculator`;
   return {
     '@context': 'https://schema.org',
     '@graph': [
-      { '@type': 'BreadcrumbList', itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
-        { '@type': 'ListItem', position: 2, name: '401(k) Retirement Projection', item: `${SITE_URL}/401k-retirement-calculator` },
-      ]},
-      { '@type': 'WebApplication', name: '401(k) Retirement Projection Calculator 2026', url: `${SITE_URL}/401k-retirement-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
-      { '@type': 'MathSolver', name: '401(k) Compound Growth Solver', description: 'Computes projected 401(k) balance using annual contributions + employer match with compound annual growth.', mathExpression: 'B(n) = Σ C_annual × (1 + r)^(n-i)' },
-      faqsToJsonLd(RETIREMENT_FAQS),
+      breadcrumbJsonLd(`${baseId}#breadcrumb`, '401(k) Retirement Projection', '/401k-retirement-calculator'),
+      webAppJsonLd(`${baseId}#webapp`, '401(k) Retirement Projection Calculator 2026', '/401k-retirement-calculator', authorId),
+      { '@id': authorId, ...authorToJsonLd(author) },
+      faqsToJsonLd(RETIREMENT_FAQS, `${baseId}#faq`),
     ],
   };
 }
 
 function getRelocationJsonLd() {
+  const author = getAuthorForCalculator('home');
+  const authorId = `${SITE_URL}/relocation-calculator#author`;
+  const baseId = `${SITE_URL}/relocation-calculator`;
   return {
     '@context': 'https://schema.org',
     '@graph': [
-      { '@type': 'BreadcrumbList', itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
-        { '@type': 'ListItem', position: 2, name: 'Salary Relocation Calculator', item: `${SITE_URL}/relocation-calculator` },
-      ]},
-      { '@type': 'WebApplication', name: 'Salary Relocation Calculator 2026', url: `${SITE_URL}/relocation-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
-      faqsToJsonLd(RELOCATION_FAQS),
+      breadcrumbJsonLd(`${baseId}#breadcrumb`, 'Salary Relocation Calculator', '/relocation-calculator'),
+      webAppJsonLd(`${baseId}#webapp`, 'Salary Relocation Calculator 2026', '/relocation-calculator', authorId),
+      { '@id': authorId, ...authorToJsonLd(author) },
+      faqsToJsonLd(RELOCATION_FAQS, `${baseId}#faq`),
     ],
   };
 }
 
 function getCapitalGainsJsonLd() {
+  const author = getAuthorForCalculator('capital-gains');
+  const authorId = `${SITE_URL}/capital-gains-calculator#author`;
+  const baseId = `${SITE_URL}/capital-gains-calculator`;
   return {
     '@context': 'https://schema.org',
     '@graph': [
-      { '@type': 'BreadcrumbList', itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
-        { '@type': 'ListItem', position: 2, name: 'Capital Gains Tax Calculator', item: `${SITE_URL}/capital-gains-calculator` },
-      ]},
-      { '@type': 'WebApplication', name: 'Capital Gains Tax Calculator 2026', url: `${SITE_URL}/capital-gains-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
-      faqsToJsonLd(CAPITAL_GAINS_FAQS),
+      breadcrumbJsonLd(`${baseId}#breadcrumb`, 'Capital Gains Tax Calculator', '/capital-gains-calculator'),
+      webAppJsonLd(`${baseId}#webapp`, 'Capital Gains Tax Calculator 2026', '/capital-gains-calculator', authorId),
+      { '@id': authorId, ...authorToJsonLd(author) },
+      faqsToJsonLd(CAPITAL_GAINS_FAQS, `${baseId}#faq`),
     ],
   };
 }
 
 function getSelfEmploymentJsonLd() {
+  const author = getAuthorForCalculator('self-employment');
+  const authorId = `${SITE_URL}/self-employment-tax-calculator#author`;
+  const baseId = `${SITE_URL}/self-employment-tax-calculator`;
   return {
     '@context': 'https://schema.org',
     '@graph': [
-      { '@type': 'BreadcrumbList', itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
-        { '@type': 'ListItem', position: 2, name: 'Self-Employment Tax Calculator', item: `${SITE_URL}/self-employment-tax-calculator` },
-      ]},
-      { '@type': 'WebApplication', name: 'Self-Employment Tax Calculator 2026', url: `${SITE_URL}/self-employment-tax-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
-      faqsToJsonLd(SELF_EMPLOYMENT_FAQS),
+      breadcrumbJsonLd(`${baseId}#breadcrumb`, 'Self-Employment Tax Calculator', '/self-employment-tax-calculator'),
+      webAppJsonLd(`${baseId}#webapp`, 'Self-Employment Tax Calculator 2026', '/self-employment-tax-calculator', authorId),
+      { '@id': authorId, ...authorToJsonLd(author) },
+      faqsToJsonLd(SELF_EMPLOYMENT_FAQS, `${baseId}#faq`),
     ],
   };
 }
 
 function getTaxRefundJsonLd() {
+  const author = getAuthorForCalculator('home');
+  const authorId = `${SITE_URL}/tax-refund-calculator#author`;
+  const baseId = `${SITE_URL}/tax-refund-calculator`;
   return {
     '@context': 'https://schema.org',
     '@graph': [
-      { '@type': 'BreadcrumbList', itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
-        { '@type': 'ListItem', position: 2, name: 'Tax Refund Calculator', item: `${SITE_URL}/tax-refund-calculator` },
-      ]},
-      { '@type': 'WebApplication', name: 'Tax Refund Calculator 2026', url: `${SITE_URL}/tax-refund-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
-      { '@type': 'MathSolver', name: 'Tax Refund Math Solver', description: 'Computes estimated tax refund: Refund = Total Taxes Withheld - (Federal Tax Owed + State Tax Owed), where Federal Tax Owed uses progressive brackets with standard/itemized deductions and tax credits.', mathExpression: 'Refund = (Fed_Withheld + State_Withheld) - (Fed_Tax(Gross - Deduction) - Credits + State_Tax)' },
-      { '@type': 'Dataset', name: '2026 Tax Refund Key Rates', variableMeasured: [
-        { name: 'Standard Deduction (Single)', value: '$16,100' },
-        { name: 'Standard Deduction (Married)', value: '$32,200' },
-        { name: 'Child Tax Credit', value: '$2,000 per child' },
-        { name: 'Refundable CTC Portion', value: 'Up to $1,700' },
-        { name: 'EIC Maximum (3+ children)', value: '$7,430' },
-      ]},
-      faqsToJsonLd(TAX_REFUND_FAQS),
+      breadcrumbJsonLd(`${baseId}#breadcrumb`, 'Tax Refund Calculator', '/tax-refund-calculator'),
+      webAppJsonLd(`${baseId}#webapp`, 'Tax Refund Calculator 2026', '/tax-refund-calculator', authorId),
+      datasetJsonLd(`${baseId}#dataset`, '2026 Tax Refund Key Rates', 'Key tax refund rates, deductions, and credit amounts for 2026 tax filing.', [
+        { name: 'Standard Deduction (Single)', value: '16100', unitText: 'USD' },
+        { name: 'Standard Deduction (Married)', value: '32200', unitText: 'USD' },
+        { name: 'Child Tax Credit', value: '2000', unitText: 'USD per child' },
+        { name: 'Refundable CTC Portion', value: '1700', unitText: 'USD' },
+        { name: 'EIC Maximum (3+ children)', value: '7430', unitText: 'USD' },
+      ]),
+      { '@id': authorId, ...authorToJsonLd(author) },
+      faqsToJsonLd(TAX_REFUND_FAQS, `${baseId}#faq`),
     ],
   };
 }
 
 function getSalesTaxJsonLd() {
+  const author = getAuthorForCalculator('home');
+  const authorId = `${SITE_URL}/sales-tax-calculator#author`;
+  const baseId = `${SITE_URL}/sales-tax-calculator`;
   return {
     '@context': 'https://schema.org',
     '@graph': [
-      { '@type': 'BreadcrumbList', itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
-        { '@type': 'ListItem', position: 2, name: 'Sales Tax Calculator', item: `${SITE_URL}/sales-tax-calculator` },
-      ]},
-      { '@type': 'WebApplication', name: 'Sales Tax Calculator 2026', url: `${SITE_URL}/sales-tax-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
-      { '@type': 'MathSolver', name: 'Sales Tax Math Solver', description: 'Computes sales tax amount and total price: Tax = Price × Rate, Total = Price + Tax. Reverse: Original = Total ÷ (1 + Rate).', mathExpression: 'Tax = P × R; Total = P × (1 + R); Reverse: P = Total ÷ (1 + R)' },
-      { '@type': 'Dataset', name: '2026 US Sales Tax Rates', variableMeasured: [
-        { name: 'Average US Combined Rate', value: '~6.6%' },
-        { name: 'Highest Combined Rate', value: '9.56% (Louisiana/Tennessee)' },
+      breadcrumbJsonLd(`${baseId}#breadcrumb`, 'Sales Tax Calculator', '/sales-tax-calculator'),
+      webAppJsonLd(`${baseId}#webapp`, 'Sales Tax Calculator 2026', '/sales-tax-calculator', authorId),
+      datasetJsonLd(`${baseId}#dataset`, '2026 US Sales Tax Rates', 'Combined state and local sales tax rates for all 50 US states for 2026.', [
+        { name: 'Average US Combined Rate', value: '6.6%', unitText: 'percent' },
+        { name: 'Highest Combined Rate', value: '9.56%', unitText: 'percent' },
         { name: 'No Sales Tax States', value: 'DE, MT, NH, OR' },
-        { name: 'California Combined Rate', value: '8.82%' },
-        { name: 'Texas Combined Rate', value: '8.20%' },
-      ]},
-      faqsToJsonLd(SALES_TAX_FAQS),
+        { name: 'California Combined Rate', value: '8.82%', unitText: 'percent' },
+        { name: 'Texas Combined Rate', value: '8.20%', unitText: 'percent' },
+      ]),
+      { '@id': authorId, ...authorToJsonLd(author) },
+      faqsToJsonLd(SALES_TAX_FAQS, `${baseId}#faq`),
     ],
   };
 }
 
 function getOvertimeJsonLd() {
+  const author = getAuthorForCalculator('overtime');
+  const authorId = `${SITE_URL}/overtime-tax-calculator#author`;
+  const baseId = `${SITE_URL}/overtime-tax-calculator`;
   return {
     '@context': 'https://schema.org',
     '@graph': [
-      { '@type': 'BreadcrumbList', itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
-        { '@type': 'ListItem', position: 2, name: 'Overtime Tax Calculator', item: `${SITE_URL}/overtime-tax-calculator` },
-      ]},
-      { '@type': 'WebApplication', name: 'Overtime Tax Calculator 2026', url: `${SITE_URL}/overtime-tax-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
-      { '@type': 'MathSolver', name: 'Overtime Tax Math Solver', description: 'Computes after-tax overtime pay: OT Pay = Hours × Rate × 1.5, After-Tax = OT Pay × (1 - Marginal Rate - FICA - State Rate).', mathExpression: 'After-Tax OT = H × R × 1.5 × (1 - Fed_Marginal - FICA - State)' },
-      { '@type': 'Dataset', name: '2026 Overtime Tax Data', variableMeasured: [
+      breadcrumbJsonLd(`${baseId}#breadcrumb`, 'Overtime Tax Calculator', '/overtime-tax-calculator'),
+      webAppJsonLd(`${baseId}#webapp`, 'Overtime Tax Calculator 2026', '/overtime-tax-calculator', authorId),
+      datasetJsonLd(`${baseId}#dataset`, '2026 Overtime Tax Data', 'Federal overtime tax data and FICA rates for 2026 under the One Big Beautiful Bill Act.', [
         { name: 'Federal Overtime Rate', value: '1.5x (time and a half)' },
         { name: 'Federal Tax on OT', value: 'Taxed at marginal rate' },
-        { name: 'FICA Rate', value: '7.65%' },
-        { name: 'Effective OT Tax Rate', value: 'Typically 25%–35%' },
-      ]},
-      faqsToJsonLd(OVERTIME_FAQS),
+        { name: 'FICA Rate', value: '7.65%', unitText: 'percent' },
+        { name: 'Effective OT Tax Rate', value: '25%–35%', unitText: 'percent' },
+      ]),
+      { '@id': authorId, ...authorToJsonLd(author) },
+      faqsToJsonLd(OVERTIME_FAQS, `${baseId}#faq`),
     ],
   };
 }
 
 function getGeorgiaJsonLd() {
+  const author = getAuthorForCalculator('home');
+  const authorId = `${SITE_URL}/georgia-tax-calculator#author`;
+  const baseId = `${SITE_URL}/georgia-tax-calculator`;
   return {
     '@context': 'https://schema.org',
     '@graph': [
-      { '@type': 'BreadcrumbList', itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
-        { '@type': 'ListItem', position: 2, name: 'Georgia Tax Calculator', item: `${SITE_URL}/georgia-tax-calculator` },
-      ]},
-      { '@type': 'WebApplication', name: 'Georgia Tax Calculator 2026', url: `${SITE_URL}/georgia-tax-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
-      { '@type': 'MathSolver', name: 'Georgia Paycheck Math Solver', description: 'Computes net take-home pay: Net = Gross - Federal Tax - FICA - GA State Tax, where GA Tax = (Gross - StdDed) × 5.49%.', mathExpression: 'Net = G - Fed(G - StdDed) - FICA(G) - (G - StdDed_GA) × 0.0549' },
-      { '@type': 'Dataset', name: '2026 Georgia Tax Rates', variableMeasured: [
-        { name: 'Georgia Flat Tax Rate', value: '5.49%' },
-        { name: 'Georgia Standard Deduction (Single)', value: '$5,400' },
-        { name: 'Georgia Standard Deduction (Married)', value: '$7,100' },
-        { name: 'Federal Standard Deduction (Single)', value: '$16,100' },
-      ]},
-      faqsToJsonLd(GEORGIA_FAQS),
+      breadcrumbJsonLd(`${baseId}#breadcrumb`, 'Georgia Tax Calculator', '/georgia-tax-calculator'),
+      webAppJsonLd(`${baseId}#webapp`, 'Georgia Tax Calculator 2026', '/georgia-tax-calculator', authorId),
+      datasetJsonLd(`${baseId}#dataset`, '2026 Georgia Tax Rates', 'Key Georgia tax rates and federal brackets for 2026 paycheck calculations.', [
+        { name: 'Georgia Flat Tax Rate', value: '5.49%', unitText: 'percent' },
+        { name: 'Georgia Standard Deduction (Single)', value: '5400', unitText: 'USD' },
+        { name: 'Georgia Standard Deduction (Married)', value: '7100', unitText: 'USD' },
+        { name: 'Federal Standard Deduction (Single)', value: '16100', unitText: 'USD' },
+      ]),
+      { '@id': authorId, ...authorToJsonLd(author) },
+      faqsToJsonLd(GEORGIA_FAQS, `${baseId}#faq`),
     ],
   };
 }
 
 function getLotteryJsonLd() {
+  const author = getAuthorForCalculator('home');
+  const authorId = `${SITE_URL}/lottery-tax-calculator#author`;
+  const baseId = `${SITE_URL}/lottery-tax-calculator`;
   return {
     '@context': 'https://schema.org',
     '@graph': [
-      { '@type': 'BreadcrumbList', itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
-        { '@type': 'ListItem', position: 2, name: 'Lottery Tax Calculator', item: `${SITE_URL}/lottery-tax-calculator` },
-      ]},
-      { '@type': 'WebApplication', name: 'Lottery Tax Calculator 2026', url: `${SITE_URL}/lottery-tax-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
-      { '@type': 'MathSolver', name: 'Lottery Tax Math Solver', description: 'Computes after-tax lottery winnings: After-Tax = Winnings × (1 - Federal Rate - State Rate), where federal withholding is 24%.', mathExpression: 'After-Tax = W × (1 - 0.24 - StateRate)' },
-      { '@type': 'Dataset', name: '2026 Lottery Tax Rates', variableMeasured: [
-        { name: 'Federal Withholding Rate', value: '24%' },
-        { name: 'Top Federal Marginal Rate', value: '37%' },
+      breadcrumbJsonLd(`${baseId}#breadcrumb`, 'Lottery Tax Calculator', '/lottery-tax-calculator'),
+      webAppJsonLd(`${baseId}#webapp`, 'Lottery Tax Calculator 2026', '/lottery-tax-calculator', authorId),
+      datasetJsonLd(`${baseId}#dataset`, '2026 Lottery Tax Rates', 'Federal and state tax withholding rates for lottery winnings in 2026.', [
+        { name: 'Federal Withholding Rate', value: '24%', unitText: 'percent' },
+        { name: 'Top Federal Marginal Rate', value: '37%', unitText: 'percent' },
         { name: 'States with No Lottery Tax', value: 'CA, DE, FL, NH, PA, SD, TN, TX, WA, WY' },
-        { name: 'Average State Lottery Tax', value: '~4%–8%' },
-      ]},
-      faqsToJsonLd(LOTTERY_TAX_FAQS),
+        { name: 'Average State Lottery Tax', value: '4%–8%', unitText: 'percent' },
+      ]),
+      { '@id': authorId, ...authorToJsonLd(author) },
+      faqsToJsonLd(LOTTERY_TAX_FAQS, `${baseId}#faq`),
     ],
   };
 }
 
 function getIrsWithholdingJsonLd() {
+  const author = getAuthorForCalculator('irs-withholding');
+  const authorId = `${SITE_URL}/irs-withholding-calculator#author`;
+  const baseId = `${SITE_URL}/irs-withholding-calculator`;
   return {
     '@context': 'https://schema.org',
     '@graph': [
-      { '@type': 'BreadcrumbList', itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
-        { '@type': 'ListItem', position: 2, name: 'IRS Withholding Calculator', item: `${SITE_URL}/irs-withholding-calculator` },
-      ]},
-      { '@type': 'WebApplication', name: 'IRS Withholding Calculator 2026', url: `${SITE_URL}/irs-withholding-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
-      { '@type': 'MathSolver', name: 'IRS Withholding Math Solver', description: 'Computes optimal W-4 withholding: Withholding = (Annual Tax Owed - Credits) / Pay Periods, compared to current withholding.', mathExpression: 'Withholding_Period = (Tax_Owed - Credits) / N_Periods' },
-      { '@type': 'Dataset', name: '2026 IRS Withholding Data', variableMeasured: [
-        { name: 'Standard Deduction (Single)', value: '$16,100' },
-        { name: 'Standard Deduction (Married)', value: '$32,200' },
-        { name: 'Child Tax Credit', value: '$2,000 per child' },
+      breadcrumbJsonLd(`${baseId}#breadcrumb`, 'IRS Withholding Calculator', '/irs-withholding-calculator'),
+      webAppJsonLd(`${baseId}#webapp`, 'IRS Withholding Calculator 2026', '/irs-withholding-calculator', authorId),
+      datasetJsonLd(`${baseId}#dataset`, '2026 IRS Withholding Data', 'Federal withholding rates and W-4 optimization data for 2026 based on IRS Publication 15-T.', [
+        { name: 'Standard Deduction (Single)', value: '16100', unitText: 'USD' },
+        { name: 'Standard Deduction (Married)', value: '32200', unitText: 'USD' },
+        { name: 'Child Tax Credit', value: '2000', unitText: 'USD per child' },
         { name: 'Underpayment Penalty Threshold', value: '90% of tax owed or 100% of prior year' },
-      ]},
-      faqsToJsonLd(IRS_WITHHOLDING_FAQS),
+      ]),
+      { '@id': authorId, ...authorToJsonLd(author) },
+      faqsToJsonLd(IRS_WITHHOLDING_FAQS, `${baseId}#faq`),
     ],
   };
 }
 
 function getPropertyTaxJsonLd() {
+  const author = getAuthorForCalculator('home');
+  const authorId = `${SITE_URL}/property-tax-calculator#author`;
+  const baseId = `${SITE_URL}/property-tax-calculator`;
   return {
     '@context': 'https://schema.org',
     '@graph': [
-      { '@type': 'BreadcrumbList', itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
-        { '@type': 'ListItem', position: 2, name: 'Property Tax Calculator', item: `${SITE_URL}/property-tax-calculator` },
-      ]},
-      { '@type': 'WebApplication', name: 'Property Tax Calculator 2026', url: `${SITE_URL}/property-tax-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
-      { '@type': 'MathSolver', name: 'Property Tax Math Solver', description: 'Computes annual property tax: Tax = Assessed Value × Effective Rate. Some states apply assessment ratios.', mathExpression: 'Tax = Assessed_Value × Effective_Rate' },
-      { '@type': 'Dataset', name: '2026 US Property Tax Rates', variableMeasured: [
-        { name: 'US Average Effective Rate', value: '~1.1%' },
-        { name: 'Highest Rate (NJ)', value: '~2.49%' },
-        { name: 'Lowest Rate (HI)', value: '~0.29%' },
-        { name: 'TX Average Rate', value: '~1.71%' },
-        { name: 'FL Average Rate', value: '~0.86%' },
-      ]},
-      faqsToJsonLd(PROPERTY_TAX_FAQS),
+      breadcrumbJsonLd(`${baseId}#breadcrumb`, 'Property Tax Calculator', '/property-tax-calculator'),
+      webAppJsonLd(`${baseId}#webapp`, 'Property Tax Calculator 2026', '/property-tax-calculator', authorId),
+      datasetJsonLd(`${baseId}#dataset`, '2026 US Property Tax Rates', 'Average effective property tax rates for all 50 US states for 2026.', [
+        { name: 'US Average Effective Rate', value: '1.1%', unitText: 'percent' },
+        { name: 'Highest Rate (NJ)', value: '2.49%', unitText: 'percent' },
+        { name: 'Lowest Rate (HI)', value: '0.29%', unitText: 'percent' },
+        { name: 'TX Average Rate', value: '1.71%', unitText: 'percent' },
+        { name: 'FL Average Rate', value: '0.86%', unitText: 'percent' },
+      ]),
+      { '@id': authorId, ...authorToJsonLd(author) },
+      faqsToJsonLd(PROPERTY_TAX_FAQS, `${baseId}#faq`),
     ],
   };
 }
 
 function getBonusTaxJsonLd() {
+  const author = getAuthorForCalculator('bonus-tax');
+  const authorId = `${SITE_URL}/bonus-tax-calculator#author`;
+  const baseId = `${SITE_URL}/bonus-tax-calculator`;
   return {
     '@context': 'https://schema.org',
     '@graph': [
-      { '@type': 'BreadcrumbList', itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
-        { '@type': 'ListItem', position: 2, name: 'Bonus Tax Calculator', item: `${SITE_URL}/bonus-tax-calculator` },
-      ]},
-      { '@type': 'WebApplication', name: 'Bonus Tax Calculator 2026', url: `${SITE_URL}/bonus-tax-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
-      { '@type': 'MathSolver', name: 'Bonus Tax Math Solver', description: 'Computes after-tax bonus using flat 22% method or aggregate method: Flat = Bonus × (1 - 0.22 - FICA - State), Aggregate blends bonus with regular wages.', mathExpression: 'Flat: After-Tax = B × (1 - 0.22 - FICA - State); Aggregate: Tax = Progressive(Income + Bonus)' },
-      { '@type': 'Dataset', name: '2026 Bonus Tax Rates', variableMeasured: [
-        { name: 'Federal Flat Withholding Rate', value: '22%' },
-        { name: 'FICA Rate', value: '7.65%' },
-        { name: 'Bonus Under $1M Federal Rate', value: '22% flat' },
-        { name: 'Bonus Over $1M Federal Rate', value: '37% flat' },
-      ]},
-      faqsToJsonLd(BONUS_TAX_FAQS),
+      breadcrumbJsonLd(`${baseId}#breadcrumb`, 'Bonus Tax Calculator', '/bonus-tax-calculator'),
+      webAppJsonLd(`${baseId}#webapp`, 'Bonus Tax Calculator 2026', '/bonus-tax-calculator', authorId),
+      datasetJsonLd(`${baseId}#dataset`, '2026 Bonus Tax Rates', 'Supplemental wage tax rates for 2026 including flat rate and aggregate methods.', [
+        { name: 'Federal Flat Withholding Rate', value: '22%', unitText: 'percent' },
+        { name: 'FICA Rate', value: '7.65%', unitText: 'percent' },
+        { name: 'Bonus Under $1M Federal Rate', value: '22% flat', unitText: 'percent' },
+        { name: 'Bonus Over $1M Federal Rate', value: '37% flat', unitText: 'percent' },
+      ]),
+      { '@id': authorId, ...authorToJsonLd(author) },
+      faqsToJsonLd(BONUS_TAX_FAQS, `${baseId}#faq`),
     ],
   };
 }
 
 function getVirginiaJsonLd() {
+  const author = getAuthorForCalculator('home');
+  const authorId = `${SITE_URL}/virginia-tax-calculator#author`;
+  const baseId = `${SITE_URL}/virginia-tax-calculator`;
   return {
     '@context': 'https://schema.org',
     '@graph': [
-      { '@type': 'BreadcrumbList', itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
-        { '@type': 'ListItem', position: 2, name: 'Virginia Tax Calculator', item: `${SITE_URL}/virginia-tax-calculator` },
-      ]},
-      { '@type': 'WebApplication', name: 'Virginia Tax Calculator 2026', url: `${SITE_URL}/virginia-tax-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
-      { '@type': 'MathSolver', name: 'Virginia Paycheck Math Solver', description: 'Computes net take-home pay: Net = Gross - Federal Tax - FICA - VA State Tax, where VA Tax uses progressive brackets 2%-5.75%.', mathExpression: 'Net = G - Fed(G - StdDed) - FICA(G) - VA_Progressive(G - StdDed_VA)' },
-      { '@type': 'Dataset', name: '2026 Virginia Tax Rates', variableMeasured: [
-        { name: 'Virginia Top Marginal Rate', value: '5.75%' },
-        { name: 'Virginia Standard Deduction (Single)', value: '$8,000' },
-        { name: 'Virginia Standard Deduction (Married)', value: '$16,000' },
-        { name: 'VA Tax Brackets', value: '2% – 5.75% (4 brackets)' },
-      ]},
-      faqsToJsonLd(VIRGINIA_FAQS),
+      breadcrumbJsonLd(`${baseId}#breadcrumb`, 'Virginia Tax Calculator', '/virginia-tax-calculator'),
+      webAppJsonLd(`${baseId}#webapp`, 'Virginia Paycheck Calculator 2026', '/virginia-tax-calculator', authorId),
+      datasetJsonLd(`${baseId}#dataset`, '2026 Virginia Tax Rates', 'Key Virginia tax rates including progressive income tax brackets for 2026.', [
+        { name: 'Virginia Top Marginal Rate', value: '5.75%', unitText: 'percent' },
+        { name: 'Virginia Standard Deduction (Single)', value: '8000', unitText: 'USD' },
+        { name: 'Virginia Standard Deduction (Married)', value: '16000', unitText: 'USD' },
+        { name: 'VA Tax Brackets', value: '2% – 5.75% (4 brackets)', unitText: 'percent' },
+      ]),
+      { '@id': authorId, ...authorToJsonLd(author) },
+      faqsToJsonLd(VIRGINIA_FAQS, `${baseId}#faq`),
     ],
   };
 }

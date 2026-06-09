@@ -274,11 +274,13 @@ const TRUST_POINTS = [
 // ─── JSON-LD Structured Data ───────────────────────────────────────────────────
 
 const homeAuthor = getCalculatorAuthor();
+const homeAuthorId = `${SITE_URL}#author`;
 
 const homeJsonLd = {
   '@context': 'https://schema.org',
   '@graph': [
     {
+      '@id': `${SITE_URL}/#webpage`,
       '@type': 'WebPage',
       name: 'TheTaxCalc — Free 2026 Tax & Paycheck Calculator',
       description:
@@ -286,25 +288,24 @@ const homeJsonLd = {
       url: SITE_URL,
       inLanguage: 'en-US',
       dateModified: '2026-06-06',
-      author: authorToJsonLd(homeAuthor),
-      reviewedBy: authorToJsonLd(homeAuthor),
-      isPartOf: {
-        '@type': 'WebSite',
-        name: 'TheTaxCalc',
-        url: SITE_URL,
-      },
-      breadcrumb: {
-        '@type': 'BreadcrumbList',
-        itemListElement: [
-          { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
-        ],
-      },
+      author: { '@id': homeAuthorId },
+      publisher: { '@id': `${SITE_URL}/#organization` },
+      isPartOf: { '@id': `${SITE_URL}/#website` },
+      breadcrumb: { '@id': `${SITE_URL}/#breadcrumb` },
       speakable: {
         '@type': 'SpeakableSpecification',
         cssSelector: ['h1', '.speakable-summary'],
       },
     },
     {
+      '@id': `${SITE_URL}/#breadcrumb`,
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+      ],
+    },
+    {
+      '@id': `${SITE_URL}/#software`,
       '@type': 'SoftwareApplication',
       name: 'TheTaxCalc Paycheck Calculator',
       applicationCategory: 'FinanceApplication',
@@ -314,15 +315,9 @@ const homeJsonLd = {
         price: '0',
         priceCurrency: 'USD',
       },
-      aggregateRating: {
-        '@type': 'AggregateRating',
-        ratingValue: '4.8',
-        reviewCount: '1240',
-        bestRating: '5',
-        worstRating: '1',
-      },
     },
     {
+      '@id': `${SITE_URL}/#howto`,
       '@type': 'HowTo',
       name: 'How to Calculate Your Take-Home Pay After Taxes',
       description:
@@ -357,6 +352,7 @@ const homeJsonLd = {
       ],
     },
     {
+      '@id': `${SITE_URL}/#itemlist`,
       '@type': 'ItemList',
       name: 'Free 2026 Tax Calculators',
       description: '20 free tax calculators for 2026 covering paycheck, state tax, mortgage, retirement, and more.',
@@ -385,26 +381,24 @@ const homeJsonLd = {
       ],
     },
     {
+      '@id': `${SITE_URL}/#dataset`,
       '@type': 'Dataset',
       name: '2026 Federal Tax Brackets and Rates',
       description: 'Official 2026 federal income tax brackets, standard deductions, and FICA rates used by TheTaxCalc calculators.',
-      creator: {
-        '@type': 'Organization',
-        name: 'TheTaxCalc',
-        url: SITE_URL,
-      },
-      license: `${SITE_URL}/terms`,
+      creator: { '@id': `${SITE_URL}/#organization` },
+      license: 'https://creativecommons.org/licenses/by/4.0/',
       variableMeasured: [
-        { '@type': 'PropertyValue', name: 'Federal Tax Brackets', value: '10% – 37%' },
-        { '@type': 'PropertyValue', name: 'Standard Deduction (Single)', value: '$16,100' },
-        { '@type': 'PropertyValue', name: 'Standard Deduction (Married)', value: '$32,200' },
-        { '@type': 'PropertyValue', name: 'FICA Rate', value: '7.65%' },
-        { '@type': 'PropertyValue', name: 'Social Security Wage Cap', value: '$184,500' },
-        { '@type': 'PropertyValue', name: '401(k) Contribution Limit', value: '$23,500' },
+        { '@type': 'PropertyValue', name: 'Federal Tax Brackets', value: '10% – 37%', unitText: 'percent' },
+        { '@type': 'PropertyValue', name: 'Standard Deduction (Single)', value: '16100', unitText: 'USD' },
+        { '@type': 'PropertyValue', name: 'Standard Deduction (Married)', value: '32200', unitText: 'USD' },
+        { '@type': 'PropertyValue', name: 'FICA Rate', value: '7.65%', unitText: 'percent' },
+        { '@type': 'PropertyValue', name: 'Social Security Wage Cap', value: '184500', unitText: 'USD' },
+        { '@type': 'PropertyValue', name: '401(k) Contribution Limit', value: '23500', unitText: 'USD' },
       ],
     },
-    authorToJsonLd(homeAuthor),
+    { '@id': homeAuthorId, ...authorToJsonLd(homeAuthor) },
     {
+      '@id': `${SITE_URL}/#faq`,
       '@type': 'FAQPage',
       mainEntity: [
         {

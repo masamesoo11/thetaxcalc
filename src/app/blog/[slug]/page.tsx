@@ -306,13 +306,14 @@ export default async function BlogDetailPage({
 
   const jsonLd = {
     '@context': 'https://schema.org',
+    '@id': `${SITE_URL}/blog/${slug}#article`,
     '@type': 'Article',
     headline: post.title,
     description: post.excerpt || post.metaDesc || '',
     datePublished: post.createdAt,
     dateModified: post.updatedAt,
-    author: authorToJsonLd(author),
-    publisher: { '@type': 'Organization', name: 'TheTaxCalc', url: SITE_URL },
+    author: { '@id': `${SITE_URL}/blog/${slug}#author` },
+    publisher: { '@id': `${SITE_URL}/#organization` },
     mainEntityOfPage: { '@type': 'WebPage', '@id': `${SITE_URL}/blog/${slug}` },
     keywords: post.tags || '',
     articleSection: CATEGORY_LABELS[post.category] || post.category,
@@ -320,6 +321,7 @@ export default async function BlogDetailPage({
 
   const breadcrumbsJsonLd = {
     '@context': 'https://schema.org',
+    '@id': `${SITE_URL}/blog/${slug}#breadcrumb`,
     '@type': 'BreadcrumbList',
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },

@@ -65,6 +65,7 @@ function buildJsonLd(
     '@context': 'https://schema.org',
     '@graph': [
       {
+        '@id': `${baseUrl}/compare/${slug}#breadcrumb`,
         '@type': 'BreadcrumbList',
         itemListElement: [
           { '@type': 'ListItem', position: 1, name: 'Home', item: baseUrl },
@@ -78,14 +79,17 @@ function buildJsonLd(
         ],
       },
       {
+        '@id': `${baseUrl}/compare/${slug}#webpage`,
         '@type': 'WebPage',
         name: `${s1.name} vs ${s2.name} Tax Comparison 2026`,
         description: `Side-by-side comparison of ${s1.name} and ${s2.name} taxes. Income tax, property tax, sales tax, and take-home pay analysis.`,
         url: `${baseUrl}${canonicalPath}`,
         inLanguage: 'en-US',
         dateModified: '2026-01-01',
+        publisher: { '@id': `${baseUrl}/#organization` },
       },
       {
+        '@id': `${baseUrl}/compare/${slug}#faq`,
         '@type': 'FAQPage',
         mainEntity: faqs.map((faq) => ({
           '@type': 'Question',

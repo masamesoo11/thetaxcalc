@@ -71,6 +71,7 @@ const widgetsJsonLd = {
   '@context': 'https://schema.org',
   '@graph': [
     {
+      '@id': `${SITE_URL}/widgets#software`,
       '@type': 'SoftwareApplication',
       name: 'TheTaxCalc Widgets',
       url: `${SITE_URL}/widgets`,
@@ -83,28 +84,23 @@ const widgetsJsonLd = {
       },
       description:
         'Free embeddable tax calculator widgets for your website. Includes paycheck, mortgage, sales tax, capital gains, self-employment, and 401(k) calculators.',
-      provider: {
-        '@type': 'Organization',
-        name: 'TheTaxCalc',
-        url: SITE_URL,
-      },
-      aggregateRating: {
-        '@type': 'AggregateRating',
-        ratingValue: '4.8',
-        reviewCount: '1240',
-        bestRating: '5',
-        worstRating: '1',
-      },
+      provider: { '@id': `${SITE_URL}/#organization` },
+      publisher: { '@id': `${SITE_URL}/#organization` },
     },
-    authorToJsonLd(getCalculatorAuthor()),
     {
+      '@id': `${SITE_URL}/widgets#author`,
+      ...authorToJsonLd(getCalculatorAuthor()),
+    },
+    {
+      '@id': `${SITE_URL}/widgets#webpage`,
       '@type': 'WebPage',
       name: 'Tax Calculator Widgets',
       description:
         'Add free tax calculator widgets to your website. Embeddable paycheck, mortgage, sales tax, and capital gains calculators. No signup, no cost.',
       url: `${SITE_URL}/widgets`,
-      author: authorToJsonLd(getCalculatorAuthor()),
-      reviewedBy: authorToJsonLd(getCalculatorAuthor()),
+      author: { '@id': `${SITE_URL}/widgets#author` },
+      reviewedBy: { '@id': `${SITE_URL}/widgets#author` },
+      publisher: { '@id': `${SITE_URL}/#organization` },
       breadcrumb: {
         '@type': 'BreadcrumbList',
         itemListElement: [
@@ -124,6 +120,7 @@ const widgetsJsonLd = {
       },
     },
     {
+      '@id': `${SITE_URL}/widgets#faq`,
       '@type': 'FAQPage',
       mainEntity: [
         {

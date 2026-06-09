@@ -197,29 +197,28 @@ const jsonLd = {
   '@context': 'https://schema.org',
   '@graph': [
     {
+      '@id': `${SITE_URL}/tax-data#dataset`,
       '@type': 'Dataset',
       name: '2026 U.S. Tax Data & Statistics — All 50 States',
       description:
         'Comprehensive 2026 federal tax brackets, sales tax rates for all 50 states, FICA rates, standard deductions, retirement contribution limits, and key tax deadlines. Free to cite and embed.',
       url: `${SITE_URL}/tax-data`,
-      creator: {
-        '@type': 'Organization',
-        name: 'TheTaxCalc',
-        url: SITE_URL,
-      },
+      creator: { '@id': `${SITE_URL}/#organization` },
+      publisher: { '@id': `${SITE_URL}/#organization` },
+      license: 'https://creativecommons.org/licenses/by/4.0/',
       temporalCoverage: '2026',
       spatialCoverage: {
         '@type': 'Place',
         name: 'United States',
       },
       variableMeasured: [
-        { name: 'State Sales Tax Rates', description: 'Combined state and local sales tax rates for all 50 US states' },
-        { name: 'Federal Income Tax Brackets', description: '7 marginal tax rates for Single, MFJ, and HOH filing statuses' },
-        { name: 'FICA Tax Rates', description: 'Social Security, Medicare, and self-employment tax rates and wage bases' },
-        { name: 'No-Income-Tax States', description: '9 US states with zero state income tax on wages' },
-        { name: 'Standard Deductions', description: '2026 standard deduction amounts by filing status' },
-        { name: 'Retirement Contribution Limits', description: '401(k), IRA, HSA limits with catch-up provisions' },
-        { name: 'Key Tax Deadlines', description: 'Important filing and payment deadlines for the 2026 tax year' },
+        { '@type': 'PropertyValue', name: 'State Sales Tax Rates', description: 'Combined state and local sales tax rates for all 50 US states' },
+        { '@type': 'PropertyValue', name: 'Federal Income Tax Brackets', description: '7 marginal tax rates for Single, MFJ, and HOH filing statuses' },
+        { '@type': 'PropertyValue', name: 'FICA Tax Rates', description: 'Social Security, Medicare, and self-employment tax rates and wage bases' },
+        { '@type': 'PropertyValue', name: 'No-Income-Tax States', description: '9 US states with zero state income tax on wages' },
+        { '@type': 'PropertyValue', name: 'Standard Deductions', description: '2026 standard deduction amounts by filing status' },
+        { '@type': 'PropertyValue', name: 'Retirement Contribution Limits', description: '401(k), IRA, HSA limits with catch-up provisions' },
+        { '@type': 'PropertyValue', name: 'Key Tax Deadlines', description: 'Important filing and payment deadlines for the 2026 tax year' },
       ],
       distribution: [
         {
@@ -231,6 +230,7 @@ const jsonLd = {
       ],
     },
     {
+      '@id': `${SITE_URL}/tax-data#webpage`,
       '@type': 'WebPage',
       name: '2026 Tax Data & Statistics — All 50 States',
       description:
@@ -238,6 +238,7 @@ const jsonLd = {
       url: `${SITE_URL}/tax-data`,
       inLanguage: 'en-US',
       dateModified: '2026-01-15',
+      publisher: { '@id': `${SITE_URL}/#organization` },
       breadcrumb: {
         '@type': 'BreadcrumbList',
         itemListElement: [
@@ -247,6 +248,7 @@ const jsonLd = {
       },
     },
     {
+      '@id': `${SITE_URL}/tax-data#faq`,
       '@type': 'FAQPage',
       mainEntity: FAQ_ITEMS.map((faq) => ({
         '@type': 'Question',

@@ -80,13 +80,13 @@ const MORTGAGE_CONTENT = {
 const MORTGAGE_JSONLD = {
   '@context': 'https://schema.org',
   '@graph': [
-    { '@type': 'BreadcrumbList', itemListElement: [
+    { '@id': `${SITE_URL}/mortgage-calculator#breadcrumb`, '@type': 'BreadcrumbList', itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
       { '@type': 'ListItem', position: 2, name: 'Mortgage Calculator', item: `${SITE_URL}/mortgage-calculator` },
     ]},
-    { '@type': 'WebApplication', name: 'Mortgage Calculator with Extra Payments', url: `${SITE_URL}/mortgage-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
-    { '@type': 'MathSolver', name: 'Mortgage Amortization Solver', description: 'Computes monthly payment using M = P × [r(1+r)^n] / [(1+r)^n - 1]', mathExpression: 'M = P × [r(1+r)^n] / [(1+r)^n - 1]' },
+    { '@id': `${SITE_URL}/mortgage-calculator#webapp`, '@type': 'WebApplication', name: 'Mortgage Calculator with Extra Payments', url: `${SITE_URL}/mortgage-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' }, author: { '@id': `${SITE_URL}/mortgage-calculator#author` }, publisher: { '@id': `${SITE_URL}/#organization` } },
     {
+      '@id': `${SITE_URL}/mortgage-calculator#faq`,
       '@type': 'FAQPage',
       mainEntity: MORTGAGE_CONTENT.faqs.map((faq) => ({
         '@type': 'Question',
@@ -154,18 +154,22 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function MortgageCalculatorPage() {
   const author = getAuthorForCalculator('mortgage');
 
-  // Add author Person schema to JSON-LD
+  // Add author Person schema to JSON-LD with @id for proper deduplication
   const jsonLdWithAuthor = {
     ...MORTGAGE_JSONLD,
     '@graph': [
       ...MORTGAGE_JSONLD['@graph'],
       {
+        '@id': `${SITE_URL}/mortgage-calculator#author`,
         '@type': 'Person',
         name: author.name,
-        jobTitle: author.title,
+        jobTitle: `${author.title}, ${author.credentials}`,
         url: `${SITE_URL}/about#${author.id}`,
-        worksFor: { '@type': 'Organization', name: 'TheTaxCalc', url: SITE_URL },
+        description: author.bio,
         knowsAbout: author.knowsAbout,
+        sameAs: author.sameAs,
+        worksFor: { '@type': 'Organization', name: 'TheTaxCalc', url: SITE_URL },
+        ...(author.image ? { image: author.image } : {}),
       },
     ],
   };

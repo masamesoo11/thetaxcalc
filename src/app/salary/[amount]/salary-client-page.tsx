@@ -125,6 +125,7 @@ function generateJsonLd(salary: number, filingStatus: FilingStatus = 'single') {
         name: `${formatted} Take-Home Pay by State (2026)`,
         description: `Net annual pay after federal tax, FICA, and state income tax on a ${formatted} salary for Single filer with standard deduction.`,
         variableMeasured: calc.states.map((s) => ({
+          '@type': 'PropertyValue',
           name: `Net Pay in ${s.stateName}`,
           value: fmt(s.netAnnual),
         })),

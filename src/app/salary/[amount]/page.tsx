@@ -91,6 +91,7 @@ function generateJsonLd(salary: number) {
     '@context': 'https://schema.org',
     '@graph': [
       {
+        '@id': `${SITE_URL}/salary/${salary}#breadcrumb`,
         '@type': 'BreadcrumbList',
         itemListElement: [
           { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
@@ -99,17 +100,23 @@ function generateJsonLd(salary: number) {
         ],
       },
       {
+        '@id': `${SITE_URL}/salary/${salary}#webpage`,
         '@type': 'WebPage',
         name: `${formatted} After Tax in 2026 — Take-Home Pay by State`,
         description: `Calculate your take-home pay on a ${formatted} salary in 2026. Compare net pay across all 50 states.`,
         url: `${SITE_URL}${path}`,
         inLanguage: 'en-US',
         dateModified: '2026-01-01',
-        author: authorToJsonLd(getCalculatorAuthor()),
-        reviewedBy: authorToJsonLd(getCalculatorAuthor()),
+        author: { '@id': `${SITE_URL}/salary/${salary}#author` },
+        reviewedBy: { '@id': `${SITE_URL}/salary/${salary}#author` },
+        publisher: { '@id': `${SITE_URL}/#organization` },
       },
-      authorToJsonLd(getCalculatorAuthor()),
       {
+        '@id': `${SITE_URL}/salary/${salary}#author`,
+        ...authorToJsonLd(getCalculatorAuthor()),
+      },
+      {
+        '@id': `${SITE_URL}/salary/${salary}#faq`,
         '@type': 'FAQPage',
         mainEntity: faqs.map((faq) => ({
           '@type': 'Question',
@@ -121,10 +128,14 @@ function generateJsonLd(salary: number) {
         })),
       },
       {
+        '@id': `${SITE_URL}/salary/${salary}#dataset`,
         '@type': 'Dataset',
         name: `${formatted} Take-Home Pay by State (2026)`,
         description: `Net annual pay after federal tax, FICA, and state income tax on a ${formatted} salary for Single filer with standard deduction.`,
+        license: 'https://creativecommons.org/licenses/by/4.0/',
+        creator: { '@id': `${SITE_URL}/#organization` },
         variableMeasured: calc.states.map((s) => ({
+          '@type': 'PropertyValue',
           name: `Net Pay in ${s.stateName}`,
           value: fmt(s.netAnnual),
         })),

@@ -42,14 +42,14 @@ export default async function BlogPage() {
   }
 
   const jsonLd = {
-    '@context': 'https://schema.org', '@type': 'Blog',
+    '@context': 'https://schema.org', '@id': `${SITE_URL}/blog#blog`, '@type': 'Blog',
     name: 'TheTaxCalc Blog', description: 'Expert tax guides, state-by-state comparisons, and financial tips from TheTaxCalc.',
-    url: `${SITE_URL}/blog`, publisher: { '@type': 'Organization', name: 'TheTaxCalc', url: SITE_URL },
-    author: authorToJsonLd(getCalculatorAuthor()),
+    url: `${SITE_URL}/blog`, publisher: { '@id': `${SITE_URL}/#organization` },
+    author: { '@id': `${SITE_URL}/blog#author` },
   };
 
   const itemListJsonLd = {
-    '@context': 'https://schema.org', '@type': 'ItemList',
+    '@context': 'https://schema.org', '@id': `${SITE_URL}/blog#itemlist`, '@type': 'ItemList',
     name: 'TheTaxCalc Blog — Tax Guides, Tips & News',
     description: 'Expert tax guides, state-by-state comparisons, and financial tips from TheTaxCalc.',
     numberOfItems: posts.length,
