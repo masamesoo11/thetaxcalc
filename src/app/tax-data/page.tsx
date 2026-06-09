@@ -28,7 +28,7 @@ import { SITE_URL } from '@/lib/site-config';
 // ─── Page Metadata ────────────────────────────────────────────────────────────
 
 export const metadata: Metadata = {
-  title: '2026 Tax Data & Statistics — All 50 States',
+  title: { absolute: '2026 Tax Data & Statistics — All 50 States' },
   description:
     'Free 2026 tax data for all 50 states. Sales tax rates, federal brackets, FICA & no-tax states. Download CSV, embed charts, cite freely.',
   keywords: [

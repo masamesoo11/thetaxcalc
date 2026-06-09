@@ -33,11 +33,11 @@ export async function generateMetadata({
   const baseUrl = SITE_URL;
   const path = `/salary/${amountStr}`;
 
-  const title = `${formatted} After Tax 2026 | Take-Home Pay`;
+  const title = `${formatted} After Tax in 2026 — Take-Home Pay by State`;
   const description = `How much is ${formatted} after tax in 2026? See your real take-home pay by state — Texas, California, New York, Florida & more. Federal, FICA & state taxes included.`;
 
   return {
-    title,
+    title: { absolute: title },
     description,
     keywords: [
       `${formatted} after tax`,
@@ -68,7 +68,7 @@ export async function generateMetadata({
       siteName: 'TheTaxCalc',
       type: 'website',
       locale: 'en_US',
-      images: [{ url: `${baseUrl}/opengraph-image.png`, width: 1200, height: 630, alt: `${formatted} After Tax 2026 — TheTaxCalc` }],
+      images: [{ url: `${baseUrl}/opengraph-image.png`, width: 1200, height: 630, alt: `${formatted} After Tax in 2026 — Take-Home Pay` }],
     },
     twitter: {
       card: 'summary_large_image',

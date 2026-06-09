@@ -33,7 +33,7 @@ export async function generateMetadata({
   const canonicalPath = `/compare/${states}`;
 
   return {
-    title: config.metaTitle,
+    title: { absolute: config.metaTitle },
     description: config.metaDesc,
     keywords: config.keywords,
     authors: [{ name: 'Rachel Mitchell, CPA' }],

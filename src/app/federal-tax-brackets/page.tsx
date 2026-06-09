@@ -19,7 +19,7 @@ import { AuthorBioCard } from '@/components/finance/author-bio-card';
 // ─── Page Metadata ──────────────────────────────────────────────────────────────
 
 export const metadata: Metadata = {
-  title: '2026 Federal Tax Brackets — Rates',
+  title: { absolute: '2026 Federal Tax Brackets — Rates & Deductions' },
   description:
     '2026 federal tax brackets for all filing statuses. Standard deductions, progressive rates, and effective vs marginal rates explained.',
   keywords: [

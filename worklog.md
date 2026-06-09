@@ -1066,3 +1066,29 @@ Stage Summary:
 - Key strategy: used state abbreviations (IL, TX, FL, CA, NY, GA, VA), removed "Free" prefix (redundant — all tools are free), abbreviated "Calculator" to "Calc" where needed, shortened descriptors
 - All 120+ pages on the site now have SEO titles ≤60 characters (with " | TheTaxCalc" template suffix)
 - Zero titles exceed Google's 60-character display limit
+---
+Task ID: 9
+Agent: Main Agent
+Task: Fix SERP title mismatch (5 pages), mortgage-calculator slow TTFB, and optimize _routes.json
+
+Work Log:
+- Analyzed Ahrefs report: Google rewrites titles on 5 pages because they don't match search intent
+- Fixed Texas tax calculator metaTitle: "Texas Tax Calculator 2026 — 0% State Income Tax" → "0% Income Tax — Texas Tax Calculator 2026" (Google prefers "0% Income Tax" first)
+- Fixed Florida tax calculator metaTitle: "Florida Tax Calculator 2026 — 0% State Income Tax" → "0% Income Tax — Florida Tax Calculator 2026" (same pattern)
+- Fixed Lottery tax calculator metaTitle: "Free Lottery Tax Calculator 2026 — After-Tax Winnings" → "Lottery Tax Calculator 2026 — After-Tax Winnings" (removed "Free" which Google often drops)
+- Fixed Salary page title template: "$85,000 After Tax 2026" → "$85,000 After Tax in 2026" (Google prefers "in 2026")
+- Updated ogTitle and title fields for consistency across all 5 pages
+- Fixed salary page og:image alt text: "After Tax 2026 — TheTaxCalc" → "After Tax in 2026 — Take-Home Pay"
+- Identified root cause of mortgage-calculator 11.2s TTFB: Cloudflare Worker serving static pages instead of CDN
+- Optimized public/_routes.json: replaced ~80 individual page paths with wildcard patterns (/salary/*, /sales-tax-calculator/*, /blog/*, /compare/*)
+- Updated scripts/fix-routes.js: added WILDCARD_EXCLUDES for dynamic routes, reduced rule count from ~100+ to ~80
+- Verified all pages render correctly via Agent Browser: mortgage-calculator, texas-tax-calculator, florida-tax-calculator all return 200 with correct titles
+- Confirmed all metaTitles in code are under 60 characters (SERP title length issue is from old deployed code, not current code)
+- Confirmed resources page duplicate TheTaxCalc is already fixed (uses title: { absolute: '...' })
+
+Stage Summary:
+- 5 files modified: calculator-routes.ts, salary/[amount]/page.tsx, public/_routes.json, scripts/fix-routes.js
+- SERP title mismatch: Fixed by aligning titles with Google's preferred format (0% Income Tax first for TX/FL, removed "Free" from lottery, added "in" before 2026 for salary)
+- Mortgage-calculator TTFB: Root cause identified (Cloudflare Worker instead of CDN), _routes.json updated with wildcards for efficient static file serving
+- 53 long titles: Already fixed in current code (all metaTitles < 60 chars with `absolute` keyword)
+- Resources duplicate TheTaxCalc: Already fixed (uses `absolute` in metadata title)

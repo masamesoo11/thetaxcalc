@@ -74,11 +74,11 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
   },
   {
     slug: 'texas-tax-calculator',
-    title: 'Free Texas Tax Calculator 2026 — 0% State Income Tax',
+    title: '0% Income Tax — Texas Tax Calculator 2026',
     description:
       'Free Texas tax calculator for 2026. Calculate take-home pay with 0% state income tax. Includes federal tax, FICA, property tax analysis & cost-of-living. No sign-up.',
     h1: 'Free Texas Tax Calculator',
-    metaTitle: 'TX Tax Calculator 2026 | 0% Income Tax',
+    metaTitle: '0% Income Tax — Texas Tax Calculator 2026',
     metaDesc:
       'Free Texas tax calculator 2026. Take-home pay with 0% state tax. Property tax & cost-of-living analysis. No sign-up required.',
     keywords: [
@@ -90,7 +90,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     componentKey: 'texas',
     category: 'paycheck',
     breadcrumbLabel: 'Texas',
-    ogTitle: 'Texas Tax Calculator 2026 — 0% State Income Tax',
+    ogTitle: '0% Income Tax — Texas Tax Calculator 2026',
     ogDescription:
       'Free Texas tax calculator. Take-home pay with 0% state tax. Property tax & cost-of-living. No sign-up.',
     canonicalPath: '/texas-tax-calculator',
@@ -98,11 +98,11 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
   },
   {
     slug: 'florida-tax-calculator',
-    title: 'Free Florida Tax Calculator 2026 — 0% State Income Tax',
+    title: '0% Income Tax — Florida Tax Calculator 2026',
     description:
       'Free Florida tax calculator for 2026. Calculate take-home pay with 0% state income tax. Includes homestead exemption, property tax & cost-of-living. No sign-up.',
     h1: 'Free Florida Tax Calculator',
-    metaTitle: 'FL Tax Calculator 2026 | 0% Income Tax',
+    metaTitle: '0% Income Tax — Florida Tax Calculator 2026',
     metaDesc:
       'Free Florida tax calculator 2026. Take-home pay with 0% state tax & homestead exemption. No sign-up. Property tax info included.',
     keywords: [
@@ -114,7 +114,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     componentKey: 'florida',
     category: 'paycheck',
     breadcrumbLabel: 'Florida',
-    ogTitle: 'Florida Tax Calculator 2026 — 0% State Income Tax',
+    ogTitle: '0% Income Tax — Florida Tax Calculator 2026',
     ogDescription:
       'Free Florida tax calculator. Take-home pay with 0% state tax & homestead exemption. No sign-up.',
     canonicalPath: '/florida-tax-calculator',
@@ -150,7 +150,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     description:
       'Free New York tax calculator for 2026. Calculate take-home pay after progressive state tax (4%–10.9%), NYC tax, federal tax & FICA. No sign-up.',
     h1: 'Free New York Tax Calculator',
-    metaTitle: 'NY Tax Calculator 2026 | NYC Tax',
+    metaTitle: 'New York Tax Calculator 2026 — State & NYC Tax',
     metaDesc:
       'Free New York tax calculator 2026. Take-home pay after state tax (4%–10.9%) & NYC tax. No sign-up. 401(k) included.',
     keywords: [
@@ -389,11 +389,11 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
   },
   {
     slug: 'lottery-tax-calculator',
-    title: 'Lottery Tax Calculator 2026 | After-Tax Payout',
+    title: 'Lottery Tax Calculator 2026 | After-Tax Winnings',
     description:
       'Surprised how much tax on lottery winnings? 24% federal + state taxes can take 40%+. See your actual payout after all taxes. Free calculator, no sign-up.',
     h1: 'Free Lottery Tax Calculator',
-    metaTitle: 'Lottery Tax Calc 2026 | After-Tax Payout',
+    metaTitle: 'Lottery Tax Calculator 2026 — After-Tax Winnings',
     metaDesc:
       'How much tax on lottery winnings? 24% federal + state can take 40%+. See your actual payout after all taxes. Free, no sign-up.',
     keywords: [

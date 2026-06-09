@@ -8,7 +8,7 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
-  allowedDevOrigins: ['http://127.0.0.1:3000', 'http://localhost:3000', 'http://0.0.0.0:3000', 'http://21.0.11.18:3000'],
+  allowedDevOrigins: ['http://127.0.0.1:3000', 'http://localhost:3000', 'http://0.0.0.0:3000', 'http://21.0.11.18:3000', 'http://21.0.12.240:3000'],
   async headers() {
     return [
       {

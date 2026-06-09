@@ -24,7 +24,7 @@ import { AuthorBioCard } from '@/components/finance/author-bio-card';
 // ─── Page Metadata ────────────────────────────────────────────────────────────
 
 export const metadata: Metadata = {
-  title: '2026 Tax Brackets & Rates | Free Reference',
+  title: { absolute: '2026 Tax Brackets & Rates — Free Tax Reference' },
   description:
     'Free 2026 federal tax brackets, FICA rates, state tax comparison, deductions & 401(k) limits. IRS-sourced. Cite freely.',
   keywords: [

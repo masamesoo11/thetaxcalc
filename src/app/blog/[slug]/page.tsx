@@ -46,7 +46,7 @@ export async function generateMetadata({
   const metaDesc = post.metaDesc || post.excerpt || `Read ${post.title} on TheTaxCalc — expert tax guides and financial tips.`;
 
   return {
-    title: metaTitle,
+    title: { absolute: metaTitle },
     description: metaDesc,
     keywords: post.tags ? post.tags.split(',').map((t) => t.trim()) : [],
     alternates: {

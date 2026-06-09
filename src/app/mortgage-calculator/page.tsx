@@ -118,7 +118,7 @@ const NEXT_STEPS = [
 export async function generateMetadata(): Promise<Metadata> {
   const author = getAuthorForCalculator('mortgage');
   return {
-    title: CONFIG.metaTitle,
+    title: { absolute: CONFIG.metaTitle },
     description: CONFIG.metaDesc,
     keywords: CONFIG.keywords,
     authors: [{ name: author.name, url: `${SITE_URL}/about#${author.id}` }],

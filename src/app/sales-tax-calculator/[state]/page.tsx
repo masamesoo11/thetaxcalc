@@ -37,7 +37,7 @@ export async function generateMetadata({
   const baseUrl = SITE_URL;
 
   return {
-    title: seo.metaTitle,
+    title: { absolute: seo.metaTitle },
     description: seo.metaDesc,
     keywords: seo.keywords,
     authors: [{ name: `${getCalculatorAuthor().name}, ${getCalculatorAuthor().credentials}` }],

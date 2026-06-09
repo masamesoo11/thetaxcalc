@@ -37,7 +37,7 @@ export async function generateMetadata({
   const baseUrl = SITE_URL;
 
   return {
-    title: config.metaTitle,
+    title: { absolute: config.metaTitle },
     description: config.metaDesc,
     keywords: config.keywords,
     authors: [{ name: 'TheTaxCalc' }],
