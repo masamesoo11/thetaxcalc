@@ -37,6 +37,8 @@
   Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https://www.google-analytics.com https://www.googletagmanager.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://www.google-analytics.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self';
 
 # === Calculator pages — aggressive CDN caching ===
+# Includes both the main page AND sub-routes (wildcard *)
+
 /mortgage-calculator
   Cache-Control: public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800
 
@@ -103,10 +105,26 @@
 /tax-calculator
   Cache-Control: public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800
 
-# === Other static pages ===
-/federal-tax-brackets
+# === Dynamic sub-route pages — CDN caching (CRITICAL for crawl performance) ===
+# These wildcard rules cover the 50 state pages, salary pages, blog posts, etc.
+# Without these, every sub-page request hits the origin → Connection Timeout under crawl load
+
+/sales-tax-calculator/*
   Cache-Control: public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800
 
+/salary/*
+  Cache-Control: public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800
+
+/compare/*
+  Cache-Control: public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800
+
+/blog/*
+  Cache-Control: public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800
+
+/federal-tax-brackets/*
+  Cache-Control: public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800
+
+# === Other static pages ===
 /about
   Cache-Control: public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800
 
@@ -129,4 +147,7 @@
   Cache-Control: public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800
 
 /tax-data
+  Cache-Control: public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800
+
+/federal-tax-brackets
   Cache-Control: public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800
