@@ -673,19 +673,12 @@ interface CalculatorContentClientProps {
 }
 
 export function CalculatorContentClient({ jsonLdType }: CalculatorContentClientProps) {
-  const jsonLd = getJsonLdForType(jsonLdType);
   const content = getCalculatorContent(jsonLdType);
 
   if (!content.howItWorks.length) return null;
 
   return (
     <div className="mt-12 space-y-10">
-      {/* JSON-LD Structured Data */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-
       {/* How This Calculator Works */}
       <section className="rounded-xl border border-border/30 bg-card/50 p-6 sm:p-8">
         <h2 className="text-2xl font-bold text-foreground mb-4">

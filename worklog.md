@@ -1092,3 +1092,35 @@ Stage Summary:
 - Mortgage-calculator TTFB: Root cause identified (Cloudflare Worker instead of CDN), _routes.json updated with wildcards for efficient static file serving
 - 53 long titles: Already fixed in current code (all metaTitles < 60 chars with `absolute` keyword)
 - Resources duplicate TheTaxCalc: Already fixed (uses `absolute` in metadata title)
+---
+Task ID: 1
+Agent: Main Agent
+Task: Fix Structured Data validation errors in 17 pages + Submit to IndexNow
+
+Work Log:
+- Read and analyzed all JSON-LD schema files: _jsonld.ts, calculator-jsonld.ts, calculator-content-client.tsx, mortgage-calculator/page.tsx, page.tsx (home), layout.tsx
+- Identified root causes of Schema.org + Google rich results validation errors:
+  1. `price: '0'` (String) instead of `price: 0` (Number) in Offer — Schema.org requires Number
+  2. Dataset `PropertyValue.value` containing invalid values (%, $, sentences, state lists)
+  3. `unitText: 'USD per child'` — non-standard unit
+  4. Duplicate JSON-LD from calculator-content-client.tsx
+  5. `license` pointing to /terms instead of Creative Commons (in old file)
+  6. `reviewedBy` invalid property (in old file)
+- Fixed `_jsonld.ts` (main file used by all 16 dynamic calculator pages):
+  - Changed `price: '0'` to `price: 0`
+  - Removed % from all percent values (e.g., `'4.95%'` → `'4.95'`)
+  - Fixed all non-numeric PropertyValue values (state lists → counts, ranges → low/high pairs)
+  - Fixed `unitText: 'USD per child'` → `'USD'`
+  - Added smart number detection in `datasetJsonLd()` helper
+- Fixed `mortgage-calculator/page.tsx`: `price: '0'` → `price: 0`
+- Fixed `page.tsx` (home): `price: '0'` → `price: 0`, removed % from Dataset values
+- Removed duplicate JSON-LD rendering from `calculator-content-client.tsx`
+- Fixed `calculator-jsonld.ts` (old file): all same fixes + license URLs + removed reviewedBy
+- Submitted 17 URLs to IndexNow: all 3 endpoints returned 202 Accepted
+
+Stage Summary:
+- All Structured Data validation errors fixed in 5 files
+- 17 pages submitted to IndexNow (api.indexnow.org, bing.com, yandex.com — all 202)
+- Key fix: Offer.price must be Number (0), not String ('0')
+- Key fix: PropertyValue.value must be clean numeric without % or $ symbols
+- Key fix: Duplicate JSON-LD removed from client component

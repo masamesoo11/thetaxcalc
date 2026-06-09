@@ -312,7 +312,7 @@ const homeJsonLd = {
       operatingSystem: 'Web',
       offers: {
         '@type': 'Offer',
-        price: '0',
+        price: 0,
         priceCurrency: 'USD',
       },
     },
@@ -388,10 +388,10 @@ const homeJsonLd = {
       creator: { '@id': `${SITE_URL}/#organization` },
       license: 'https://creativecommons.org/licenses/by/4.0/',
       variableMeasured: [
-        { '@type': 'PropertyValue', name: 'Federal Tax Brackets', value: '10% – 37%', unitText: 'percent' },
+        { '@type': 'PropertyValue', name: 'Federal Tax Brackets', value: '10 – 37', unitText: 'percent' },
         { '@type': 'PropertyValue', name: 'Standard Deduction (Single)', value: '16100', unitText: 'USD' },
         { '@type': 'PropertyValue', name: 'Standard Deduction (Married)', value: '32200', unitText: 'USD' },
-        { '@type': 'PropertyValue', name: 'FICA Rate', value: '7.65%', unitText: 'percent' },
+        { '@type': 'PropertyValue', name: 'FICA Rate', value: '7.65', unitText: 'percent' },
         { '@type': 'PropertyValue', name: 'Social Security Wage Cap', value: '184500', unitText: 'USD' },
         { '@type': 'PropertyValue', name: '401(k) Contribution Limit', value: '23500', unitText: 'USD' },
       ],
