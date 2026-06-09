@@ -64,10 +64,11 @@ const organizationJsonLd = {
     },
     {
       '@id': `${SITE_URL}/about#aboutpage`,
-      '@type': 'AboutPage',
+      '@type': 'WebPage',
       name: 'About TheTaxCalc',
       description: 'Learn about TheTaxCalc — our mission to provide free, accurate tax calculators for every American.',
       url: `${SITE_URL}/about`,
+      dateModified: '2026-02-01',
       author: { '@id': `${SITE_URL}/about#author` },
       reviewedBy: { '@id': `${SITE_URL}/about#author` },
       publisher: { '@id': `${SITE_URL}/#organization` },

@@ -345,11 +345,16 @@ export function BlogDetail({
           name: 'Rachel Mitchell, CPA',
           url: `${SITE_URL}/about#rachel-mitchell`,
         },
-        reviewer: author ? { '@id': `${SITE_URL}/blog/${post.slug}#author` } : undefined,
         publisher: { '@id': `${SITE_URL}/#organization` },
         mainEntityOfPage: {
           '@type': 'WebPage',
           '@id': `${SITE_URL}/blog/${post.slug}`,
+        },
+        image: {
+          '@type': 'ImageObject',
+          url: `${SITE_URL}/opengraph-image.png`,
+          width: 1200,
+          height: 630,
         },
         keywords: post.tags || post.category,
         articleSection: CATEGORY_LABELS[post.category] || post.category,

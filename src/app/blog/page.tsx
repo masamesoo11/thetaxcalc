@@ -41,36 +41,45 @@ export default async function BlogPage() {
     posts = [];
   }
 
+  const author = getCalculatorAuthor();
+
   const jsonLd = {
-    '@context': 'https://schema.org', '@id': `${SITE_URL}/blog#blog`, '@type': 'Blog',
-    name: 'TheTaxCalc Blog', description: 'Expert tax guides, state-by-state comparisons, and financial tips from TheTaxCalc.',
-    url: `${SITE_URL}/blog`, publisher: { '@id': `${SITE_URL}/#organization` },
-    author: { '@id': `${SITE_URL}/blog#author` },
-  };
-
-  const itemListJsonLd = {
-    '@context': 'https://schema.org', '@id': `${SITE_URL}/blog#itemlist`, '@type': 'ItemList',
-    name: 'TheTaxCalc Blog — Tax Guides, Tips & News',
-    description: 'Expert tax guides, state-by-state comparisons, and financial tips from TheTaxCalc.',
-    numberOfItems: posts.length,
-    itemListElement: posts.slice(0, 10).map((post, i) => ({
-      '@type': 'ListItem', position: i + 1, url: `${SITE_URL}/blog/${post.slug}`, name: post.title,
-    })),
-  };
-
-  return (
-    <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListJsonLd) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
-        '@context': 'https://schema.org',
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@id': `${SITE_URL}/blog#author`,
+        ...authorToJsonLd(author),
+      },
+      {
+        '@id': `${SITE_URL}/blog#blog`, '@type': 'Blog',
+        name: 'TheTaxCalc Blog', description: 'Expert tax guides, state-by-state comparisons, and financial tips from TheTaxCalc.',
+        url: `${SITE_URL}/blog`, publisher: { '@id': `${SITE_URL}/#organization` },
+        author: { '@id': `${SITE_URL}/blog#author` },
+        dateModified: '2026-02-01',
+      },
+      {
+        '@id': `${SITE_URL}/blog#itemlist`, '@type': 'ItemList',
+        name: 'TheTaxCalc Blog — Tax Guides, Tips & News',
+        description: 'Expert tax guides, state-by-state comparisons, and financial tips from TheTaxCalc.',
+        numberOfItems: posts.length,
+        itemListElement: posts.slice(0, 10).map((post, i) => ({
+          '@type': 'ListItem', position: i + 1, url: `${SITE_URL}/blog/${post.slug}`, name: post.title,
+        })),
+      },
+      {
         '@id': `${SITE_URL}/blog#breadcrumb`,
         '@type': 'BreadcrumbList',
         itemListElement: [
           { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
           { '@type': 'ListItem', position: 2, name: 'Blog' },
         ],
-      }) }} />
+      },
+    ],
+  };
+
+  return (
+    <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
       <Breadcrumb items={[{ label: 'Blog' }]} />
 

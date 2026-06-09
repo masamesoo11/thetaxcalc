@@ -448,6 +448,7 @@ export function getStateJsonLd(stateKey: string, siteUrl: string) {
         url,
         inLanguage: 'en-US',
         dateModified: '2026-01-01',
+        author: { '@id': `${siteUrl}/sales-tax-calculator/${stateKey}#author` },
       },
       {
         '@type': 'WebApplication',
@@ -456,6 +457,7 @@ export function getStateJsonLd(stateKey: string, siteUrl: string) {
         applicationCategory: 'FinanceApplication',
         operatingSystem: 'Web',
         offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+        author: { '@id': `${siteUrl}/sales-tax-calculator/${stateKey}#author` },
       },
       {
         '@type': 'Dataset',

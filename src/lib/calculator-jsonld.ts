@@ -1,3 +1,9 @@
+/**
+ * @deprecated This file is dead code. The canonical JSON-LD source is `@/app/[calculator]/_jsonld.ts`.
+ * This file contains bugs (wrong breadcrumb names, incorrect URL mappings, duplicate FAQPage entries)
+ * and should not be used. Kept for reference only.
+ */
+
 // ─── Calculator JSON-LD Schema Generators for Server & Client Components ───────
 // This file has NO 'use client' so it can be imported by both Server and Client components.
 

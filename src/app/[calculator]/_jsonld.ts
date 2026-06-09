@@ -19,6 +19,8 @@ import {
   PROPERTY_TAX_FAQS,
   BONUS_TAX_FAQS,
   VIRGINIA_FAQS,
+  INCOME_TAX_FAQS,
+  TAX_CALC_FAQS,
 } from '@/lib/faq-data';
 import { SITE_URL } from '@/lib/site-config';
 import { getAuthorForCalculator, authorToJsonLd } from '@/lib/authors';
@@ -74,6 +76,24 @@ function webAppJsonLd(id: string, name: string, urlPath: string, authorId: strin
     },
     author: { '@id': authorId },
     publisher: { '@id': `${SITE_URL}/#organization` },
+  };
+}
+
+/**
+ * WebPage for calculator pages.
+ * Uses @id reference for author to avoid duplication.
+ */
+function webPageJsonLd(id: string, name: string, urlPath: string, description: string, authorId: string) {
+  return {
+    '@id': id,
+    '@type': 'WebPage' as const,
+    url: `${SITE_URL}${urlPath}`,
+    name,
+    description,
+    inLanguage: 'en-US',
+    dateModified: '2026-01-15',
+    author: { '@id': authorId },
+    reviewedBy: { '@id': authorId },
   };
 }
 
@@ -172,6 +192,7 @@ function getIllinoisJsonLd() {
   return {
     '@context': 'https://schema.org',
     '@graph': [
+      webPageJsonLd(`${baseId}#webpage`, 'Illinois Paycheck Calculator 2026', '/illinois-tax-calculator', 'Free Illinois paycheck calculator with 4.95% flat state income tax for 2026 take-home pay estimates.', authorId),
       breadcrumbJsonLd(`${baseId}#breadcrumb`, 'Illinois Paycheck Calculator', '/illinois-tax-calculator'),
       webAppJsonLd(`${baseId}#webapp`, 'Illinois Paycheck Calculator 2026', '/illinois-tax-calculator', authorId),
       datasetJsonLd(`${baseId}#dataset`, '2026 Illinois Tax Rates', 'Key Illinois tax rates and federal brackets for 2026 paycheck calculations.', [
@@ -193,6 +214,7 @@ function getTexasJsonLd() {
   return {
     '@context': 'https://schema.org',
     '@graph': [
+      webPageJsonLd(`${baseId}#webpage`, 'Texas Paycheck Calculator 2026', '/texas-tax-calculator', 'Free Texas paycheck calculator — no state income tax, only federal and FICA deductions for 2026.', authorId),
       breadcrumbJsonLd(`${baseId}#breadcrumb`, 'Texas Paycheck Calculator', '/texas-tax-calculator'),
       webAppJsonLd(`${baseId}#webapp`, 'Texas Paycheck Calculator 2026', '/texas-tax-calculator', authorId),
       datasetJsonLd(`${baseId}#dataset`, '2026 Texas Tax & Cost of Living Data', 'Texas tax rates and cost of living data for 2026, including property and sales tax information.', [
@@ -213,6 +235,7 @@ function getFloridaJsonLd() {
   return {
     '@context': 'https://schema.org',
     '@graph': [
+      webPageJsonLd(`${baseId}#webpage`, 'Florida Paycheck Calculator 2026', '/florida-tax-calculator', 'Free Florida paycheck calculator — no state income tax, only federal and FICA deductions for 2026.', authorId),
       breadcrumbJsonLd(`${baseId}#breadcrumb`, 'Florida Paycheck Calculator', '/florida-tax-calculator'),
       webAppJsonLd(`${baseId}#webapp`, 'Florida Paycheck Calculator 2026', '/florida-tax-calculator', authorId),
       datasetJsonLd(`${baseId}#dataset`, '2026 Florida Tax & Cost of Living Data', 'Florida tax rates and cost of living data for 2026, including property and sales tax information.', [
@@ -233,6 +256,7 @@ function getCaliforniaJsonLd() {
   return {
     '@context': 'https://schema.org',
     '@graph': [
+      webPageJsonLd(`${baseId}#webpage`, 'California Paycheck Calculator 2026', '/california-tax-calculator', 'Free California paycheck calculator with progressive state income tax (1%–13.3%) for 2026.', authorId),
       breadcrumbJsonLd(`${baseId}#breadcrumb`, 'California Paycheck Calculator', '/california-tax-calculator'),
       webAppJsonLd(`${baseId}#webapp`, 'California Paycheck Calculator 2026', '/california-tax-calculator', authorId),
       datasetJsonLd(`${baseId}#dataset`, '2026 California Tax Rates', 'Key California tax rates including progressive income tax brackets for 2026.', [
@@ -253,6 +277,7 @@ function getNewYorkJsonLd() {
   return {
     '@context': 'https://schema.org',
     '@graph': [
+      webPageJsonLd(`${baseId}#webpage`, 'New York Paycheck Calculator 2026', '/new-york-tax-calculator', 'Free New York paycheck calculator with progressive state tax (4%–10.9%) and NYC city tax for 2026.', authorId),
       breadcrumbJsonLd(`${baseId}#breadcrumb`, 'New York Paycheck Calculator', '/new-york-tax-calculator'),
       webAppJsonLd(`${baseId}#webapp`, 'New York Paycheck Calculator 2026', '/new-york-tax-calculator', authorId),
       datasetJsonLd(`${baseId}#dataset`, '2026 New York Tax Rates', 'Key New York tax rates including progressive income tax brackets and NYC tax for 2026.', [
@@ -274,6 +299,7 @@ function getMortgageJsonLd() {
   return {
     '@context': 'https://schema.org',
     '@graph': [
+      webPageJsonLd(`${baseId}#webpage`, 'Mortgage Calculator with Extra Payments', '/mortgage-calculator', 'Free mortgage calculator with extra payments, amortization schedule, and payoff date for 2026.', authorId),
       breadcrumbJsonLd(`${baseId}#breadcrumb`, 'Mortgage Calculator', '/mortgage-calculator'),
       webAppJsonLd(`${baseId}#webapp`, 'Mortgage Calculator with Extra Payments', '/mortgage-calculator', authorId),
       { '@id': authorId, ...authorToJsonLd(author) },
@@ -289,6 +315,7 @@ function getRetirementJsonLd() {
   return {
     '@context': 'https://schema.org',
     '@graph': [
+      webPageJsonLd(`${baseId}#webpage`, '401(k) Retirement Projection Calculator 2026', '/401k-retirement-calculator', 'Free 401(k) retirement projection calculator with employer match, contribution limits, and growth estimates for 2026.', authorId),
       breadcrumbJsonLd(`${baseId}#breadcrumb`, '401(k) Retirement Projection', '/401k-retirement-calculator'),
       webAppJsonLd(`${baseId}#webapp`, '401(k) Retirement Projection Calculator 2026', '/401k-retirement-calculator', authorId),
       { '@id': authorId, ...authorToJsonLd(author) },
@@ -304,6 +331,7 @@ function getRelocationJsonLd() {
   return {
     '@context': 'https://schema.org',
     '@graph': [
+      webPageJsonLd(`${baseId}#webpage`, 'Salary Relocation Calculator 2026', '/relocation-calculator', 'Free salary relocation calculator — compare take-home pay across states for your 2026 move.', authorId),
       breadcrumbJsonLd(`${baseId}#breadcrumb`, 'Salary Relocation Calculator', '/relocation-calculator'),
       webAppJsonLd(`${baseId}#webapp`, 'Salary Relocation Calculator 2026', '/relocation-calculator', authorId),
       { '@id': authorId, ...authorToJsonLd(author) },
@@ -319,6 +347,7 @@ function getCapitalGainsJsonLd() {
   return {
     '@context': 'https://schema.org',
     '@graph': [
+      webPageJsonLd(`${baseId}#webpage`, 'Capital Gains Tax Calculator 2026', '/capital-gains-calculator', 'Free capital gains tax calculator with short-term and long-term rates for 2026.', authorId),
       breadcrumbJsonLd(`${baseId}#breadcrumb`, 'Capital Gains Tax Calculator', '/capital-gains-calculator'),
       webAppJsonLd(`${baseId}#webapp`, 'Capital Gains Tax Calculator 2026', '/capital-gains-calculator', authorId),
       { '@id': authorId, ...authorToJsonLd(author) },
@@ -334,6 +363,7 @@ function getSelfEmploymentJsonLd() {
   return {
     '@context': 'https://schema.org',
     '@graph': [
+      webPageJsonLd(`${baseId}#webpage`, 'Self-Employment Tax Calculator 2026', '/self-employment-tax-calculator', 'Free self-employment tax calculator with 15.3% SE tax, quarterly estimates, and deductions for 2026.', authorId),
       breadcrumbJsonLd(`${baseId}#breadcrumb`, 'Self-Employment Tax Calculator', '/self-employment-tax-calculator'),
       webAppJsonLd(`${baseId}#webapp`, 'Self-Employment Tax Calculator 2026', '/self-employment-tax-calculator', authorId),
       { '@id': authorId, ...authorToJsonLd(author) },
@@ -349,6 +379,7 @@ function getTaxRefundJsonLd() {
   return {
     '@context': 'https://schema.org',
     '@graph': [
+      webPageJsonLd(`${baseId}#webpage`, 'Tax Refund Calculator 2026', '/tax-refund-calculator', 'Free tax refund calculator — estimate your 2026 refund based on withholdings, deductions, and credits.', authorId),
       breadcrumbJsonLd(`${baseId}#breadcrumb`, 'Tax Refund Calculator', '/tax-refund-calculator'),
       webAppJsonLd(`${baseId}#webapp`, 'Tax Refund Calculator 2026', '/tax-refund-calculator', authorId),
       datasetJsonLd(`${baseId}#dataset`, '2026 Tax Refund Key Rates', 'Key tax refund rates, deductions, and credit amounts for 2026 tax filing.', [
@@ -371,6 +402,7 @@ function getSalesTaxJsonLd() {
   return {
     '@context': 'https://schema.org',
     '@graph': [
+      webPageJsonLd(`${baseId}#webpage`, 'Sales Tax Calculator 2026', '/sales-tax-calculator', 'Free sales tax calculator with combined state and local rates for all 50 US states for 2026.', authorId),
       breadcrumbJsonLd(`${baseId}#breadcrumb`, 'Sales Tax Calculator', '/sales-tax-calculator'),
       webAppJsonLd(`${baseId}#webapp`, 'Sales Tax Calculator 2026', '/sales-tax-calculator', authorId),
       datasetJsonLd(`${baseId}#dataset`, '2026 US Sales Tax Rates', 'Combined state and local sales tax rates for all 50 US states for 2026.', [
@@ -393,6 +425,7 @@ function getOvertimeJsonLd() {
   return {
     '@context': 'https://schema.org',
     '@graph': [
+      webPageJsonLd(`${baseId}#webpage`, 'Overtime Tax Calculator 2026', '/overtime-tax-calculator', 'Free overtime tax calculator with federal OT exemption under the One Big Beautiful Bill Act for 2026.', authorId),
       breadcrumbJsonLd(`${baseId}#breadcrumb`, 'Overtime Tax Calculator', '/overtime-tax-calculator'),
       webAppJsonLd(`${baseId}#webapp`, 'Overtime Tax Calculator 2026', '/overtime-tax-calculator', authorId),
       datasetJsonLd(`${baseId}#dataset`, '2026 Overtime Tax Data', 'Federal overtime tax data and FICA rates for 2026 under the One Big Beautiful Bill Act.', [
@@ -414,6 +447,7 @@ function getGeorgiaJsonLd() {
   return {
     '@context': 'https://schema.org',
     '@graph': [
+      webPageJsonLd(`${baseId}#webpage`, 'Georgia Tax Calculator 2026', '/georgia-tax-calculator', 'Free Georgia paycheck calculator with 5.49% flat state income tax for 2026 take-home pay estimates.', authorId),
       breadcrumbJsonLd(`${baseId}#breadcrumb`, 'Georgia Tax Calculator', '/georgia-tax-calculator'),
       webAppJsonLd(`${baseId}#webapp`, 'Georgia Tax Calculator 2026', '/georgia-tax-calculator', authorId),
       datasetJsonLd(`${baseId}#dataset`, '2026 Georgia Tax Rates', 'Key Georgia tax rates and federal brackets for 2026 paycheck calculations.', [
@@ -435,6 +469,7 @@ function getLotteryJsonLd() {
   return {
     '@context': 'https://schema.org',
     '@graph': [
+      webPageJsonLd(`${baseId}#webpage`, 'Lottery Tax Calculator 2026', '/lottery-tax-calculator', 'Free lottery tax calculator — federal and state withholding rates on lottery winnings for 2026.', authorId),
       breadcrumbJsonLd(`${baseId}#breadcrumb`, 'Lottery Tax Calculator', '/lottery-tax-calculator'),
       webAppJsonLd(`${baseId}#webapp`, 'Lottery Tax Calculator 2026', '/lottery-tax-calculator', authorId),
       datasetJsonLd(`${baseId}#dataset`, '2026 Lottery Tax Rates', 'Federal and state tax withholding rates for lottery winnings in 2026.', [
@@ -457,6 +492,7 @@ function getIrsWithholdingJsonLd() {
   return {
     '@context': 'https://schema.org',
     '@graph': [
+      webPageJsonLd(`${baseId}#webpage`, 'IRS Withholding Calculator 2026', '/irs-withholding-calculator', 'Free IRS withholding calculator — optimize your W-4 allowances and avoid underpayment penalties for 2026.', authorId),
       breadcrumbJsonLd(`${baseId}#breadcrumb`, 'IRS Withholding Calculator', '/irs-withholding-calculator'),
       webAppJsonLd(`${baseId}#webapp`, 'IRS Withholding Calculator 2026', '/irs-withholding-calculator', authorId),
       datasetJsonLd(`${baseId}#dataset`, '2026 IRS Withholding Data', 'Federal withholding rates and W-4 optimization data for 2026 based on IRS Publication 15-T.', [
@@ -478,6 +514,7 @@ function getPropertyTaxJsonLd() {
   return {
     '@context': 'https://schema.org',
     '@graph': [
+      webPageJsonLd(`${baseId}#webpage`, 'Property Tax Calculator 2026', '/property-tax-calculator', 'Free property tax calculator with average effective rates for all 50 US states for 2026.', authorId),
       breadcrumbJsonLd(`${baseId}#breadcrumb`, 'Property Tax Calculator', '/property-tax-calculator'),
       webAppJsonLd(`${baseId}#webapp`, 'Property Tax Calculator 2026', '/property-tax-calculator', authorId),
       datasetJsonLd(`${baseId}#dataset`, '2026 US Property Tax Rates', 'Average effective property tax rates for all 50 US states for 2026.', [
@@ -500,6 +537,7 @@ function getBonusTaxJsonLd() {
   return {
     '@context': 'https://schema.org',
     '@graph': [
+      webPageJsonLd(`${baseId}#webpage`, 'Bonus Tax Calculator 2026', '/bonus-tax-calculator', 'Free bonus tax calculator with supplemental withholding rates (22% flat and aggregate method) for 2026.', authorId),
       breadcrumbJsonLd(`${baseId}#breadcrumb`, 'Bonus Tax Calculator', '/bonus-tax-calculator'),
       webAppJsonLd(`${baseId}#webapp`, 'Bonus Tax Calculator 2026', '/bonus-tax-calculator', authorId),
       datasetJsonLd(`${baseId}#dataset`, '2026 Bonus Tax Rates', 'Supplemental wage tax rates for 2026 including flat rate and aggregate methods.', [
@@ -521,6 +559,7 @@ function getVirginiaJsonLd() {
   return {
     '@context': 'https://schema.org',
     '@graph': [
+      webPageJsonLd(`${baseId}#webpage`, 'Virginia Paycheck Calculator 2026', '/virginia-tax-calculator', 'Free Virginia paycheck calculator with progressive state income tax (2%–5.75%) for 2026.', authorId),
       breadcrumbJsonLd(`${baseId}#breadcrumb`, 'Virginia Tax Calculator', '/virginia-tax-calculator'),
       webAppJsonLd(`${baseId}#webapp`, 'Virginia Paycheck Calculator 2026', '/virginia-tax-calculator', authorId),
       datasetJsonLd(`${baseId}#dataset`, '2026 Virginia Tax Rates', 'Key Virginia tax rates including progressive income tax brackets for 2026.', [
@@ -532,6 +571,53 @@ function getVirginiaJsonLd() {
       ]),
       { '@id': authorId, ...authorToJsonLd(author) },
       faqsToJsonLd(VIRGINIA_FAQS, `${baseId}#faq`),
+    ],
+  };
+}
+
+function getIncomeTaxJsonLd() {
+  const author = getAuthorForCalculator('home');
+  const authorId = `${SITE_URL}/income-tax-calculator#author`;
+  const baseId = `${SITE_URL}/income-tax-calculator`;
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      webPageJsonLd(`${baseId}#webpage`, 'Income Tax Calculator 2026', '/income-tax-calculator', 'Free federal income tax calculator with progressive brackets (10%–37%), standard deductions, and FICA for 2026.', authorId),
+      breadcrumbJsonLd(`${baseId}#breadcrumb`, 'Income Tax Calculator', '/income-tax-calculator'),
+      webAppJsonLd(`${baseId}#webapp`, 'Income Tax Calculator 2026', '/income-tax-calculator', authorId),
+      datasetJsonLd(`${baseId}#dataset`, '2026 Federal Income Tax Data', 'Federal income tax brackets, standard deductions, and FICA rates for 2026.', [
+        { name: 'Federal Tax Brackets', value: '10', unitText: 'percent' },
+        { name: 'Federal Top Marginal Rate', value: '37', unitText: 'percent' },
+        { name: 'Standard Deduction (Single)', value: '16100', unitText: 'USD' },
+        { name: 'Standard Deduction (Married)', value: '32200', unitText: 'USD' },
+        { name: 'Social Security Wage Cap', value: '184500', unitText: 'USD' },
+        { name: 'FICA Rate', value: '7.65', unitText: 'percent' },
+      ]),
+      { '@id': authorId, ...authorToJsonLd(author) },
+      faqsToJsonLd(INCOME_TAX_FAQS, `${baseId}#faq`),
+    ],
+  };
+}
+
+function getTaxCalcJsonLd() {
+  const author = getAuthorForCalculator('home');
+  const authorId = `${SITE_URL}/tax-calculator#author`;
+  const baseId = `${SITE_URL}/tax-calculator`;
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      webPageJsonLd(`${baseId}#webpage`, 'Tax Calculator 2026', '/tax-calculator', 'Free tax calculator — estimate your total federal and state tax burden with brackets, FICA, and deductions for 2026.', authorId),
+      breadcrumbJsonLd(`${baseId}#breadcrumb`, 'Tax Calculator', '/tax-calculator'),
+      webAppJsonLd(`${baseId}#webapp`, 'Tax Calculator 2026', '/tax-calculator', authorId),
+      datasetJsonLd(`${baseId}#dataset`, '2026 Tax Rate Data', 'Federal and state tax rate data for 2026 paycheck calculations.', [
+        { name: 'Federal Tax Brackets', value: '10', unitText: 'percent' },
+        { name: 'Federal Top Marginal Rate', value: '37', unitText: 'percent' },
+        { name: 'FICA Rate', value: '7.65', unitText: 'percent' },
+        { name: 'IL Flat Rate', value: '4.95', unitText: 'percent' },
+        { name: 'CA Top Rate', value: '13.3', unitText: 'percent' },
+      ]),
+      { '@id': authorId, ...authorToJsonLd(author) },
+      faqsToJsonLd(TAX_CALC_FAQS, `${baseId}#faq`),
     ],
   };
 }
@@ -557,6 +643,8 @@ export function getJsonLdForType(type: string) {
     case 'property-tax': return getPropertyTaxJsonLd();
     case 'bonus-tax': return getBonusTaxJsonLd();
     case 'virginia': return getVirginiaJsonLd();
+    case 'income-tax': return getIncomeTaxJsonLd();
+    case 'tax-calc': return getTaxCalcJsonLd();
     default: return getHomeJsonLd();
   }
 }

@@ -24,6 +24,7 @@ import {
   DataEmbedSnippets,
 } from '@/components/finance/tax-data-client';
 import { SITE_URL } from '@/lib/site-config';
+import { getCalculatorAuthor, authorToJsonLd } from '@/lib/authors';
 
 // ─── Page Metadata ────────────────────────────────────────────────────────────
 
@@ -46,7 +47,7 @@ export const metadata: Metadata = {
     'tax data for journalists',
     'citable tax data',
   ],
-  authors: [{ name: 'TheTaxCalc' }],
+  authors: [{ name: 'Rachel Mitchell, CPA' }],
   alternates: {
     canonical: `${SITE_URL}/tax-data`,
     languages: {
@@ -114,20 +115,20 @@ const FEDERAL_BRACKETS = {
 // ─── Data: FICA Tax Rates ─────────────────────────────────────────────────────
 
 const FICA_DATA = [
-  { component: 'Social Security (OASDI)', rate: '6.2%', wageBase: '$176,100', maxTax: '$10,918.20', notes: 'Employer matches 6.2%' },
+  { component: 'Social Security (OASDI)', rate: '6.2%', wageBase: '$184,500', maxTax: '$11,439.00', notes: 'Employer matches 6.2%' },
   { component: 'Medicare (HI)', rate: '1.45%', wageBase: 'No cap', maxTax: 'No limit', notes: 'Employer matches 1.45%' },
   { component: 'Additional Medicare', rate: '0.9%', wageBase: '>$200,000', maxTax: 'Varies', notes: 'Employee only; no employer match' },
-  { component: 'Self-Employment Tax', rate: '15.3%', wageBase: '92.35% of net SE income', maxTax: '$20,157.80 (SS portion)', notes: 'Social Security portion capped at $176,100' },
+  { component: 'Self-Employment Tax', rate: '15.3%', wageBase: '92.35% of net SE income', maxTax: '$22,878.00 (SS portion)', notes: 'Social Security portion capped at $184,500' },
 ];
 
 // ─── Data: Standard Deductions ────────────────────────────────────────────────
 
 const STANDARD_DEDUCTIONS = [
-  { filingStatus: 'Single', amount: '$15,000' },
-  { filingStatus: 'Married Filing Jointly', amount: '$30,000' },
-  { filingStatus: 'Head of Household', amount: '$22,500' },
-  { filingStatus: 'Married Filing Separately', amount: '$15,000' },
-  { filingStatus: 'Additional (Age 65+ or Blind)', amount: '$1,600 (S/MFS) / $1,300 (MFJ/QW)' },
+  { filingStatus: 'Single', amount: '$16,100' },
+  { filingStatus: 'Married Filing Jointly', amount: '$32,200' },
+  { filingStatus: 'Head of Household', amount: '$24,150' },
+  { filingStatus: 'Married Filing Separately', amount: '$16,100' },
+  { filingStatus: 'Additional (Age 65+ or Blind)', amount: '$2,000 (S/MFS/HOH) / $1,600 (MFJ/QW)' },
 ];
 
 // ─── Data: Retirement Contribution Limits ──────────────────────────────────────
@@ -183,7 +184,7 @@ const FAQ_ITEMS = [
   },
   {
     q: 'What is the Social Security wage base for 2026?',
-    a: 'The 2026 Social Security (OASDI) wage base is $176,100. The 6.2% Social Security tax applies only to the first $176,100 of earned income, for a maximum employee contribution of $10,918.20.',
+    a: 'The 2026 Social Security (OASDI) wage base is $184,500. The 6.2% Social Security tax applies only to the first $184,500 of earned income, for a maximum employee contribution of $11,439.00.',
   },
   {
     q: 'How much can I contribute to my 401(k) in 2026?',
@@ -212,13 +213,13 @@ const jsonLd = {
         name: 'United States',
       },
       variableMeasured: [
-        { '@type': 'PropertyValue', name: 'State Sales Tax Rates', description: 'Combined state and local sales tax rates for all 50 US states' },
-        { '@type': 'PropertyValue', name: 'Federal Income Tax Brackets', description: '7 marginal tax rates for Single, MFJ, and HOH filing statuses' },
-        { '@type': 'PropertyValue', name: 'FICA Tax Rates', description: 'Social Security, Medicare, and self-employment tax rates and wage bases' },
-        { '@type': 'PropertyValue', name: 'No-Income-Tax States', description: '9 US states with zero state income tax on wages' },
-        { '@type': 'PropertyValue', name: 'Standard Deductions', description: '2026 standard deduction amounts by filing status' },
-        { '@type': 'PropertyValue', name: 'Retirement Contribution Limits', description: '401(k), IRA, HSA limits with catch-up provisions' },
-        { '@type': 'PropertyValue', name: 'Key Tax Deadlines', description: 'Important filing and payment deadlines for the 2026 tax year' },
+        { '@type': 'PropertyValue', name: 'State Sales Tax Rates', description: 'Combined state and local sales tax rates for all 50 US states', value: '50 states' },
+        { '@type': 'PropertyValue', name: 'Federal Income Tax Brackets', description: '7 marginal tax rates for Single, MFJ, and HOH filing statuses', value: '7 brackets' },
+        { '@type': 'PropertyValue', name: 'FICA Tax Rates', description: 'Social Security, Medicare, and self-employment tax rates and wage bases', value: '7.65% + 1.45%' },
+        { '@type': 'PropertyValue', name: 'No-Income-Tax States', description: '9 US states with zero state income tax on wages', value: '9 states' },
+        { '@type': 'PropertyValue', name: 'Standard Deductions', description: '2026 standard deduction amounts by filing status', value: '$16,100 / $32,200 / $24,150' },
+        { '@type': 'PropertyValue', name: 'Retirement Contribution Limits', description: '401(k), IRA, HSA limits with catch-up provisions', value: '$23,500 / $7,000 / $4,300' },
+        { '@type': 'PropertyValue', name: 'Key Tax Deadlines', description: 'Important filing and payment deadlines for the 2026 tax year', value: '12 deadlines' },
       ],
       distribution: [
         {
@@ -238,6 +239,7 @@ const jsonLd = {
       url: `${SITE_URL}/tax-data`,
       inLanguage: 'en-US',
       dateModified: '2026-01-15',
+      author: { '@id': `${SITE_URL}/tax-data#author` },
       publisher: { '@id': `${SITE_URL}/#organization` },
       breadcrumb: {
         '@type': 'BreadcrumbList',
@@ -246,6 +248,10 @@ const jsonLd = {
           { '@type': 'ListItem', position: 2, name: 'Tax Data & Statistics' },
         ],
       },
+    },
+    {
+      '@id': `${SITE_URL}/tax-data#author`,
+      ...authorToJsonLd(getCalculatorAuthor()),
     },
     {
       '@id': `${SITE_URL}/tax-data#faq`,
@@ -373,7 +379,7 @@ export default function TaxDataPage() {
             { label: 'States Covered', value: '50', detail: 'Sales tax data' },
             { label: 'Federal Brackets', value: '7 rates', detail: '3 filing statuses' },
             { label: 'No-Tax States', value: '9', detail: 'No income tax on wages' },
-            { label: 'SS Wage Base', value: '$176,100', detail: '6.2% OASDI' },
+            { label: 'SS Wage Base', value: '$184,500', detail: '6.2% OASDI' },
             { label: '401(k) Limit', value: '$23,500', detail: '+$7,500 catch-up' },
           ].map((stat) => (
             <div
@@ -549,8 +555,8 @@ export default function TaxDataPage() {
           </div>
           <div className="rounded-lg border border-border/30 bg-card/50 p-4">
             <p className="text-xs font-semibold text-foreground mb-1">Max SS Tax (Employee)</p>
-            <p className="text-lg font-bold text-emerald-400">$10,918</p>
-            <p className="text-xs text-muted-foreground">6.2% × $176,100</p>
+            <p className="text-lg font-bold text-emerald-400">$11,439</p>
+            <p className="text-xs text-muted-foreground">6.2% × $184,500</p>
           </div>
         </div>
       </section>

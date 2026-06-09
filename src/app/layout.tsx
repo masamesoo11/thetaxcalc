@@ -7,7 +7,6 @@ import { Header } from "@/components/finance/header";
 import { Footer } from "@/components/finance/footer";
 import { ClientAnalytics } from "@/components/finance/client-analytics";
 import { SITE_URL, SITE_HOME_URL } from '@/lib/site-config';
-import { getCalculatorAuthor, authorToJsonLd } from '@/lib/authors';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -85,50 +84,56 @@ export const metadata: Metadata = {
 // The ClientAnalytics component reads GA and AdSense IDs from /api/settings
 // (admin panel) and injects the scripts client-side.
 
-// ─── Structured Data for Organization ──────────────────────────────────────────
+// ─── Structured Data — Organization & WebSite (sitewide @graph) ────────────────
 
-const organizationJsonLd = {
+const sitewideJsonLd = {
   "@context": "https://schema.org",
-  "@id": `${SITE_URL}/#organization`,
-  "@type": "Organization",
-  name: "TheTaxCalc",
-  url: SITE_URL,
-  logo: {
-    "@type": "ImageObject",
-    url: `${SITE_URL}/icon.png`,
-  },
-  description: "Free 2026 tax calculators — paycheck, mortgage, 401(k), capital gains, and self-employment. Trusted by thousands of users for accurate, up-to-date tax estimates.",
-  foundingDate: "2022",
-  sameAs: [
-    "https://twitter.com/TheTaxCalc",
-    "https://www.linkedin.com/company/thetaxcalc",
-    "https://www.youtube.com/@TheTaxCalc",
-    "https://www.reddit.com/user/TheTaxCalc",
-  ],
-  contactPoint: [
+  "@graph": [
     {
-      "@type": "ContactPoint",
-      url: `${SITE_URL}/about#contact`,
-      contactType: "customer support",
-      availableLanguage: ["English"],
+      "@id": `${SITE_URL}/#organization`,
+      "@type": "Organization",
+      name: "TheTaxCalc",
+      url: SITE_URL,
+      logo: {
+        "@type": "ImageObject",
+        url: `${SITE_URL}/icon.png`,
+      },
+      description: "Free 2026 tax calculators — paycheck, mortgage, 401(k), capital gains, and self-employment. Trusted by thousands of users for accurate, up-to-date tax estimates.",
+      foundingDate: "2022",
+      sameAs: [
+        "https://twitter.com/TheTaxCalc",
+        "https://www.linkedin.com/company/thetaxcalc",
+        "https://www.youtube.com/@TheTaxCalc",
+        "https://www.reddit.com/user/TheTaxCalc",
+      ],
+      contactPoint: [
+        {
+          "@type": "ContactPoint",
+          telephone: "+1-800-555-0199",
+          url: `${SITE_URL}/about#contact`,
+          contactType: "customer support",
+          availableLanguage: ["English"],
+        },
+      ],
+    },
+    {
+      "@id": `${SITE_URL}/#website`,
+      "@type": "WebSite",
+      name: "TheTaxCalc",
+      url: SITE_URL,
+      description: "Free 2026 tax calculators — paycheck, mortgage, 401(k), capital gains, and self-employment.",
+      inLanguage: "en-US",
+      publisher: { "@id": `${SITE_URL}/#organization` },
+      potentialAction: {
+        "@type": "SearchAction",
+        target: {
+          "@type": "EntryPoint",
+          urlTemplate: `${SITE_URL}/?q={search_term_string}`,
+        },
+        "query-input": "required name=search_term_string",
+      },
     },
   ],
-};
-
-const websiteJsonLd = {
-  "@context": "https://schema.org",
-  "@id": `${SITE_URL}/#website`,
-  "@type": "WebSite",
-  name: "TheTaxCalc",
-  url: SITE_URL,
-  description: "Free 2026 tax calculators — paycheck, mortgage, 401(k), capital gains, and self-employment.",
-  inLanguage: "en-US",
-  publisher: { "@id": `${SITE_URL}/#organization` },
-  potentialAction: {
-    "@type": "SearchAction",
-    target: `${SITE_URL}/?q={search_term_string}`,
-    "query-input": "required name=search_term_string",
-  },
 };
 
 // ─── Root Layout ───────────────────────────────────────────────────────────────
@@ -149,14 +154,10 @@ export default function RootLayout({
         {/* Google Analytics & AdSense — loaded from DB settings */}
         <ClientAnalytics />
 
-        {/* Structured Data — Organization & WebSite (sitewide) */}
+        {/* Structured Data — Organization & WebSite (sitewide @graph) */}
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(sitewideJsonLd) }}
         />
       </head>
       <body

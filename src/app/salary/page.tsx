@@ -101,8 +101,10 @@ const salaryPageJsonLd = {
       publisher: { '@id': `${SITE_URL}/#organization` },
       hasPart: SALARY_AMOUNTS.map((amount) => ({
         '@type': 'WebPage',
+        '@id': `${SITE_URL}/salary/${amount}#webpage`,
         name: `$${amount.toLocaleString()} After Tax in 2026`,
         url: `${SITE_URL}/salary/${amount}`,
+        dateModified: '2026-01-01',
       })),
     },
   ],

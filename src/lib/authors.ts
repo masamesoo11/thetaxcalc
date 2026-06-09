@@ -167,34 +167,3 @@ export function authorToJsonLd(author: AuthorProfile) {
   return schema;
 }
 
-/**
- * Generate a full author-review JSON-LD block for a page.
- * Used to satisfy Google's E-E-A-T requirements for YMYL content.
- */
-export function authorReviewJsonLd(author: AuthorProfile, reviewDate: string) {
-  return {
-    '@type': 'Person' as const,
-    name: author.name,
-    url: author.url,
-    jobTitle: `${author.title}, ${author.credentials}`,
-    description: author.bio,
-    knowsAbout: author.knowsAbout,
-    sameAs: author.sameAs,
-    worksFor: {
-      '@type': 'Organization' as const,
-      name: author.worksFor.name,
-      url: author.worksFor.url,
-    },
-    // Custom property for review attribution
-    hasCredential: {
-      '@type': 'EducationalOccupationalCredential',
-      credentialCategory: 'Professional Certification',
-      recognizedBy: {
-        '@type': 'Organization',
-        name: author.credentials === 'CPA' ? 'American Institute of Certified Public Accountants (AICPA)' :
-               author.credentials === 'EA' ? 'Internal Revenue Service (IRS)' :
-               'Certified Financial Planner Board of Standards',
-      },
-    },
-  };
-}

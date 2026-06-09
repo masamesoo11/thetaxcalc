@@ -306,27 +306,39 @@ export default async function BlogDetailPage({
 
   const jsonLd = {
     '@context': 'https://schema.org',
-    '@id': `${SITE_URL}/blog/${slug}#article`,
-    '@type': 'Article',
-    headline: post.title,
-    description: post.excerpt || post.metaDesc || '',
-    datePublished: post.createdAt,
-    dateModified: post.updatedAt,
-    author: { '@id': `${SITE_URL}/blog/${slug}#author` },
-    publisher: { '@id': `${SITE_URL}/#organization` },
-    mainEntityOfPage: { '@type': 'WebPage', '@id': `${SITE_URL}/blog/${slug}` },
-    keywords: post.tags || '',
-    articleSection: CATEGORY_LABELS[post.category] || post.category,
-  };
-
-  const breadcrumbsJsonLd = {
-    '@context': 'https://schema.org',
-    '@id': `${SITE_URL}/blog/${slug}#breadcrumb`,
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
-      { '@type': 'ListItem', position: 2, name: 'Blog', item: `${SITE_URL}/blog` },
-      { '@type': 'ListItem', position: 3, name: post.title },
+    '@graph': [
+      {
+        '@id': `${SITE_URL}/blog/${slug}#author`,
+        ...authorToJsonLd(author),
+      },
+      {
+        '@id': `${SITE_URL}/blog/${slug}#article`,
+        '@type': 'Article',
+        headline: post.title,
+        description: post.excerpt || post.metaDesc || '',
+        image: {
+          '@type': 'ImageObject',
+          url: `${SITE_URL}/opengraph-image.png`,
+          width: 1200,
+          height: 630,
+        },
+        datePublished: post.createdAt,
+        dateModified: post.updatedAt,
+        author: { '@id': `${SITE_URL}/blog/${slug}#author` },
+        publisher: { '@id': `${SITE_URL}/#organization` },
+        mainEntityOfPage: { '@type': 'WebPage', '@id': `${SITE_URL}/blog/${slug}` },
+        keywords: post.tags || '',
+        articleSection: CATEGORY_LABELS[post.category] || post.category,
+      },
+      {
+        '@id': `${SITE_URL}/blog/${slug}#breadcrumb`,
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+          { '@type': 'ListItem', position: 2, name: 'Blog', item: `${SITE_URL}/blog` },
+          { '@type': 'ListItem', position: 3, name: post.title },
+        ],
+      },
     ],
   };
 
@@ -365,7 +377,6 @@ export default async function BlogDetailPage({
   return (
     <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbsJsonLd) }} />
 
       <nav aria-label="Breadcrumb" className="mb-6 flex items-center gap-1.5 text-sm text-muted-foreground">
         <Link href="/" className="hover:text-foreground transition-colors">Home</Link>

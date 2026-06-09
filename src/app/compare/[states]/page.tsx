@@ -72,6 +72,7 @@ function buildJsonLd(
 ) {
   const baseUrl = SITE_URL;
   const canonicalPath = `/compare/${slug}`;
+  const authorId = `${baseUrl}${canonicalPath}#author`;
 
   return {
     '@context': 'https://schema.org',
@@ -89,16 +90,20 @@ function buildJsonLd(
         ],
       },
       {
+        '@id': `${baseUrl}${canonicalPath}#webpage`,
         '@type': 'WebPage',
         name: `${s1.name} vs ${s2.name} Tax Comparison 2026`,
         description: `Side-by-side comparison of ${s1.name} and ${s2.name} taxes. Income tax, property tax, sales tax, and take-home pay analysis.`,
         url: `${baseUrl}${canonicalPath}`,
         inLanguage: 'en-US',
         dateModified: '2026-01-01',
-        author: authorToJsonLd(getCalculatorAuthor()),
-        reviewedBy: authorToJsonLd(getCalculatorAuthor()),
+        author: { '@id': authorId },
+        reviewedBy: { '@id': authorId },
       },
-      authorToJsonLd(getCalculatorAuthor()),
+      {
+        '@id': authorId,
+        ...authorToJsonLd(getCalculatorAuthor()),
+      },
       {
         '@type': 'FAQPage',
         mainEntity: faqs.map((faq) => ({

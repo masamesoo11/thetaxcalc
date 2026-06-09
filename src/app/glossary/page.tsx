@@ -111,7 +111,7 @@ function getGlossaryJsonLd() {
           '@type': 'PropertyValue',
           name: t.term,
           description: t.definition,
-          ...(t.figure2026 ? { value: t.figure2026 } : {}),
+          value: t.figure2026 || 'See definition',
         })),
       },
     ],

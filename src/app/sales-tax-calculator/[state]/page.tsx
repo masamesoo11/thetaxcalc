@@ -90,7 +90,7 @@ export default async function StateSalesTaxPage({
 
   // Inject author Person schema into JSON-LD graph
   if (jsonLd && jsonLd['@graph'] && Array.isArray(jsonLd['@graph'])) {
-    jsonLd['@graph'].push(authorToJsonLd(author));
+    jsonLd['@graph'].push({ '@id': `${SITE_URL}/sales-tax-calculator/${stateKey}#author`, ...authorToJsonLd(author) });
   }
 
   return (

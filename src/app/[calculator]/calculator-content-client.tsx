@@ -21,7 +21,12 @@ import {
 import { SITE_URL } from '@/lib/site-config';
 
 // ─── JSON-LD FAQ Helper ─────────────────────────────────────────────────────────
+// NOTE: All JSON-LD functions below (faqsToJsonLd, getHomeJsonLd, get*JsonLd, getJsonLdForType)
+// are DEPRECATED dead code. The canonical JSON-LD source is `@/app/[calculator]/_jsonld.ts`.
+// These contain bugs (duplicate FAQPage entries, wrong breadcrumb names/URLs, IRS Withholding
+// mapped to home JSON-LD) and are NOT called by the active page. Kept for reference only.
 
+/** @deprecated Dead code — use `@/app/[calculator]/_jsonld.ts` instead */
 function faqsToJsonLd(faqs: { question: string; answer: string }[]) {
   return {
     '@type': 'FAQPage' as const,
@@ -37,7 +42,9 @@ function faqsToJsonLd(faqs: { question: string; answer: string }[]) {
 }
 
 // ─── JSON-LD Schema Generators ───────────────────────────────────────────────
+// All functions in this section are @deprecated dead code. See note above.
 
+/** @deprecated Dead code — use `@/app/[calculator]/_jsonld.ts` instead */
 function getHomeJsonLd() {
   return {
     '@context': 'https://schema.org',
@@ -293,6 +300,7 @@ function getTaxCalcJsonLd() {
   };
 }
 
+/** @deprecated Dead code — use `@/app/[calculator]/_jsonld.ts` instead */
 function getJsonLdForType(type: string) {
   switch (type) {
     case 'illinois': return getIllinoisJsonLd();

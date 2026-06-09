@@ -66,6 +66,7 @@ const compareListingJsonLd = {
       name: 'State vs State Tax Comparisons',
       description: 'Side-by-side tax comparisons for Illinois, Texas, Florida, California, and New York.',
       url: `${SITE_URL}/compare`,
+      dateModified: '2026-02-01',
       author: { '@id': `${SITE_URL}/compare#author` },
       reviewedBy: { '@id': `${SITE_URL}/compare#author` },
       publisher: { '@id': `${SITE_URL}/#organization` },

@@ -98,6 +98,7 @@ const widgetsJsonLd = {
       description:
         'Add free tax calculator widgets to your website. Embeddable paycheck, mortgage, sales tax, and capital gains calculators. No signup, no cost.',
       url: `${SITE_URL}/widgets`,
+      dateModified: '2026-02-01',
       author: { '@id': `${SITE_URL}/widgets#author` },
       reviewedBy: { '@id': `${SITE_URL}/widgets#author` },
       publisher: { '@id': `${SITE_URL}/#organization` },
