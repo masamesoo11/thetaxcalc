@@ -19,6 +19,10 @@
     "/author-david-chen.png",
     "/author-sarah-johnson.png",
     "/d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9.txt",
-    "/disavow.txt"
+    "/disavow.txt",
+    "/salary/*",
+    "/sales-tax-calculator/*",
+    "/blog/*",
+    "/compare/*"
   ]
 }

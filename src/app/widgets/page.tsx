@@ -72,7 +72,7 @@ const widgetsJsonLd = {
   '@graph': [
     {
       '@id': `${SITE_URL}/widgets#software`,
-      '@type': 'WebApplication',
+      '@type': 'SoftwareApplication',
       name: 'TheTaxCalc Widgets',
       url: `${SITE_URL}/widgets`,
       applicationCategory: 'FinanceApplication',

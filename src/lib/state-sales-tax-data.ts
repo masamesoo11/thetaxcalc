@@ -414,22 +414,6 @@ export function getStateJsonLd(stateKey: string, siteUrl: string) {
   const combinedPct = pct(state.combinedRate);
   const url = `${siteUrl}/sales-tax-calculator/${stateKey}`;
 
-  const variableMeasured = state.noStateTax
-    ? [
-        { '@type': 'PropertyValue', name: `${state.name} State Sales Tax Rate`, value: '0%' },
-        ...(stateKey === 'alaska'
-          ? [{ '@type': 'PropertyValue', name: 'Alaska Average Local Rate', value: `${localPct}%` }]
-          : []),
-        { '@type': 'PropertyValue', name: 'No Sales Tax States', value: 'DE, MT, NH, OR (AK: local only)' },
-      ]
-    : [
-        { '@type': 'PropertyValue', name: `${state.name} State Rate`, value: `${statePct}%` },
-        { '@type': 'PropertyValue', name: `${state.name} Average Local Rate`, value: `${localPct}%` },
-        { '@type': 'PropertyValue', name: `${state.name} Combined Rate`, value: `${combinedPct}%` },
-        ...(state.groceryExempt ? [{ '@type': 'PropertyValue', name: `${state.name} Grocery Exemption`, value: 'Yes — groceries are exempt' }] : []),
-        ...(state.clothingExempt ? [{ '@type': 'PropertyValue', name: `${state.name} Clothing Exemption`, value: 'Yes — clothing is exempt' }] : []),
-      ];
-
   return {
     '@context': 'https://schema.org',
     '@graph': [
@@ -457,7 +441,7 @@ export function getStateJsonLd(stateKey: string, siteUrl: string) {
       },
       {
         '@id': `${url}#webapp`,
-        '@type': 'WebApplication',
+        '@type': 'SoftwareApplication',
         name: `${state.name} Sales Tax Calculator 2026`,
         url,
         applicationCategory: 'FinanceApplication',
@@ -466,15 +450,7 @@ export function getStateJsonLd(stateKey: string, siteUrl: string) {
         author: { '@id': `${url}#author` },
         publisher: { '@id': `${siteUrl}/#organization` },
       },
-      {
-        '@id': `${url}#dataset`,
-        '@type': 'Dataset',
-        name: `2026 ${state.name} Sales Tax Rates`,
-        description: `Combined state and local sales tax rates for ${state.name} in 2026.`,
-        creator: { '@id': `${siteUrl}/#organization` },
-        license: 'https://creativecommons.org/licenses/by/4.0/',
-        variableMeasured,
-      },
+      // Dataset removed — Google flags "Invalid value in field itemtype" for Dataset on calculator pages
       {
         '@id': `${url}#faq`,
         '@type': 'FAQPage',

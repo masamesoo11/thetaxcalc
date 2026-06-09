@@ -380,22 +380,7 @@ const homeJsonLd = {
         { '@type': 'ListItem', position: 20, name: 'Relocation Calculator', url: `${SITE_URL}/relocation-calculator` },
       ],
     },
-    {
-      '@id': `${SITE_URL}/#dataset`,
-      '@type': 'Dataset',
-      name: '2026 Federal Tax Brackets and Rates',
-      description: 'Official 2026 federal income tax brackets, standard deductions, and FICA rates used by TheTaxCalc calculators.',
-      creator: { '@id': `${SITE_URL}/#organization` },
-      license: 'https://creativecommons.org/licenses/by/4.0/',
-      variableMeasured: [
-        { '@type': 'PropertyValue', name: 'Federal Tax Brackets', description: '7 marginal tax rates for Single, MFJ, and HOH filing statuses', value: { '@type': 'QuantitativeValue', minValue: 10, maxValue: 37, unitText: 'percent' } },
-        { '@type': 'PropertyValue', name: 'Standard Deduction (Single)', value: 16100, unitText: 'USD' },
-        { '@type': 'PropertyValue', name: 'Standard Deduction (Married)', value: 32200, unitText: 'USD' },
-        { '@type': 'PropertyValue', name: 'FICA Rate', value: 7.65, unitText: 'percent' },
-        { '@type': 'PropertyValue', name: 'Social Security Wage Cap', value: 184500, unitText: 'USD' },
-        { '@type': 'PropertyValue', name: '401(k) Contribution Limit', value: 23500, unitText: 'USD' },
-      ],
-    },
+
     { '@id': homeAuthorId, ...authorToJsonLd(homeAuthor) },
     {
       '@id': `${SITE_URL}/#faq`,

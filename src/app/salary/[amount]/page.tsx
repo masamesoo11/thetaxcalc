@@ -132,20 +132,7 @@ function generateJsonLd(salary: number) {
           },
         })),
       },
-      {
-        '@id': `${SITE_URL}/salary/${salary}#dataset`,
-        '@type': 'Dataset',
-        name: `${formatted} Take-Home Pay by State (2026)`,
-        description: `Net annual pay after federal tax, FICA, and state income tax on a ${formatted} salary for Single filer with standard deduction.`,
-        license: 'https://creativecommons.org/licenses/by/4.0/',
-        creator: { '@id': `${SITE_URL}/#organization` },
-        variableMeasured: calc.states.map((s) => ({
-          '@type': 'PropertyValue',
-          name: `Net Pay in ${s.stateName}`,
-          value: Math.round(s.netAnnual),
-          unitText: 'USD',
-        })),
-      },
+
     ],
   };
 }

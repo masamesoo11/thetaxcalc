@@ -15,9 +15,11 @@ import { AuthorBioCard } from '@/components/finance/author-bio-card';
 
 // ─── Static Params ───────────────────────────────────────────────────────────
 
-// ISR: Revalidate every 24 hours — enables Cloudflare CDN edge caching
-// Without this, cf-cache-status = DYNAMIC → no CDN cache → Connection Timeout under crawl load
-export const revalidate = 86400;
+// CRITICAL: force-static ensures pages are pre-built as static HTML at build time
+// and served directly from Cloudflare CDN. Without this, @cloudflare/next-on-pages
+// routes ISR pages through the Worker, which times out under crawl load
+// (Connection Timeout, Status Code 0). CDN caching is handled by _headers.
+export const dynamic = 'force-static';
 
 // Only serve pre-generated state pages (50 states) — return 404 for unknown slugs
 export const dynamicParams = false;

@@ -197,39 +197,7 @@ const FAQ_ITEMS = [
 const jsonLd = {
   '@context': 'https://schema.org',
   '@graph': [
-    {
-      '@id': `${SITE_URL}/tax-data#dataset`,
-      '@type': 'Dataset',
-      name: '2026 U.S. Tax Data & Statistics — All 50 States',
-      description:
-        'Comprehensive 2026 federal tax brackets, sales tax rates for all 50 states, FICA rates, standard deductions, retirement contribution limits, and key tax deadlines. Free to cite and embed.',
-      url: `${SITE_URL}/tax-data`,
-      creator: { '@id': `${SITE_URL}/#organization` },
-      publisher: { '@id': `${SITE_URL}/#organization` },
-      license: 'https://creativecommons.org/licenses/by/4.0/',
-      temporalCoverage: '2026',
-      spatialCoverage: {
-        '@type': 'Place',
-        name: 'United States',
-      },
-      variableMeasured: [
-        { '@type': 'PropertyValue', name: 'State Sales Tax Rates', description: 'Combined state and local sales tax rates for all 50 US states', value: '50 states' },
-        { '@type': 'PropertyValue', name: 'Federal Income Tax Brackets', description: '7 marginal tax rates for Single, MFJ, and HOH filing statuses', value: '7 brackets' },
-        { '@type': 'PropertyValue', name: 'FICA Tax Rates', description: 'Social Security, Medicare, and self-employment tax rates and wage bases', value: '7.65% + 1.45%' },
-        { '@type': 'PropertyValue', name: 'No-Income-Tax States', description: '9 US states with zero state income tax on wages', value: '9 states' },
-        { '@type': 'PropertyValue', name: 'Standard Deductions', description: '2026 standard deduction amounts by filing status', value: '$16,100 / $32,200 / $24,150' },
-        { '@type': 'PropertyValue', name: 'Retirement Contribution Limits', description: '401(k), IRA, HSA limits with catch-up provisions', value: '$23,500 / $7,000 / $4,300' },
-        { '@type': 'PropertyValue', name: 'Key Tax Deadlines', description: 'Important filing and payment deadlines for the 2026 tax year', value: '12 deadlines' },
-      ],
-      distribution: [
-        {
-          '@type': 'DataDownload',
-          name: 'Sales Tax Rates CSV',
-          encodingFormat: 'text/csv',
-          contentUrl: `${SITE_URL}/tax-data#sales-tax-all-states`,
-        },
-      ],
-    },
+
     {
       '@id': `${SITE_URL}/tax-data#breadcrumb`,
       '@type': 'BreadcrumbList',

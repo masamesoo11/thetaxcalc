@@ -86,7 +86,7 @@ const MORTGAGE_JSONLD = {
       { '@type': 'ListItem', position: 2, name: 'Mortgage Calculator' },
     ]},
     { '@id': `${SITE_URL}/mortgage-calculator#webpage`, '@type': 'WebPage', name: 'Mortgage Calculator with Extra Payments', description: 'Free mortgage calculator with extra payments, amortization schedule, and payoff comparison for 2026.', url: `${SITE_URL}/mortgage-calculator`, inLanguage: 'en-US', dateModified: '2026-01-15', author: { '@id': `${SITE_URL}/mortgage-calculator#author` }, reviewedBy: { '@id': `${SITE_URL}/mortgage-calculator#author` }, publisher: { '@id': `${SITE_URL}/#organization` }, breadcrumb: { '@id': `${SITE_URL}/mortgage-calculator#breadcrumb` } },
-    { '@id': `${SITE_URL}/mortgage-calculator#webapp`, '@type': 'WebApplication', name: 'Mortgage Calculator with Extra Payments', url: `${SITE_URL}/mortgage-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: 0, priceCurrency: 'USD' }, author: { '@id': `${SITE_URL}/mortgage-calculator#author` }, publisher: { '@id': `${SITE_URL}/#organization` } },
+    { '@id': `${SITE_URL}/mortgage-calculator#webapp`, '@type': 'SoftwareApplication', name: 'Mortgage Calculator with Extra Payments', url: `${SITE_URL}/mortgage-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: 0, priceCurrency: 'USD' }, author: { '@id': `${SITE_URL}/mortgage-calculator#author` }, publisher: { '@id': `${SITE_URL}/#organization` } },
     {
       '@id': `${SITE_URL}/mortgage-calculator#faq`,
       '@type': 'FAQPage',

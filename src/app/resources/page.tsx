@@ -268,31 +268,7 @@ function getJsonLd() {
   return {
     '@context': 'https://schema.org',
     '@graph': [
-      {
-        '@id': `${SITE_URL}/resources#dataset`,
-        '@type': 'Dataset',
-        name: '2026 U.S. Tax Reference Data',
-        description:
-          'Comprehensive 2026 federal tax brackets, FICA rates, state income tax comparison, standard deductions, retirement contribution limits, and key tax deadlines. Sourced from IRS publications and state revenue departments.',
-        url: `${SITE_URL}/resources`,
-        creator: { '@id': `${SITE_URL}/#organization` },
-        publisher: { '@id': `${SITE_URL}/#organization` },
-        license: 'https://creativecommons.org/licenses/by/4.0/',
-        temporalCoverage: '2026',
-        spatialCoverage: {
-          '@type': 'Place',
-          name: 'United States',
-        },
-        variableMeasured: [
-          { '@type': 'PropertyValue', name: 'Federal Income Tax Brackets', description: '7 marginal tax rates for Single, MFJ, and HOH filing statuses', value: '7 brackets (10%–37%)' },
-          { '@type': 'PropertyValue', name: 'FICA Tax Rates', description: 'Social Security, Medicare, and self-employment tax rates and wage bases', value: '7.65% employee / 15.3% SE' },
-          { '@type': 'PropertyValue', name: 'State Income Tax Rates', description: 'Income tax rates for IL, TX, FL, CA, NY, GA, VA', value: '0%–13.3% across 7 states' },
-          { '@type': 'PropertyValue', name: 'Standard Deductions', description: '2026 standard deduction amounts by filing status', value: '$16,100 (S) / $32,200 (MFJ) / $24,150 (HOH)' },
-          { '@type': 'PropertyValue', name: 'Retirement Contribution Limits', description: '401(k), IRA, HSA, and SIMPLE IRA limits with catch-up provisions', value: '$23,500 401(k) / $7,000 IRA' },
-          { '@type': 'PropertyValue', name: 'Tax Deadlines', description: 'Key filing and payment deadlines for the 2026 tax year', value: '12 key dates in 2026' },
-          { '@type': 'PropertyValue', name: 'No-Income-Tax States', description: 'Nine U.S. states that levy no state income tax on wages', value: '9 states (AK, FL, NV, NH, SD, TN, TX, WA, WY)' },
-        ],
-      },
+
       {
         '@id': `${SITE_URL}/resources#webpage`,
         '@type': 'WebPage',
