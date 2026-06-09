@@ -46,6 +46,8 @@ const privacyJsonLd = {
       description: 'Learn how TheTaxCalc collects, uses, and protects your personal information when using our free tax calculators.',
       url: `${SITE_URL}/privacy`,
       inLanguage: 'en-US',
+      dateModified: '2026-03-04',
+      author: { '@id': `${SITE_URL}/#organization` },
       isPartOf: { '@id': `${SITE_URL}/#website` },
       publisher: { '@id': `${SITE_URL}/#organization` },
       breadcrumb: { '@id': `${SITE_URL}/privacy#breadcrumb` },

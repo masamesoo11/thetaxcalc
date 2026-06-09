@@ -1389,3 +1389,136 @@ Stage Summary:
 - Missing WebPage schemas added to mortgage-calculator page
 - All schema nodes in state-sales-tax-data.ts now have @id for proper deduplication
 - Dev server running, browser verification confirmed all fixes work correctly
+
+---
+Task ID: 2+11
+Agent: JSON-LD Fixer
+Task: Fix JSON-LD structured data errors in _jsonld.ts
+
+Work Log:
+- Fixed `getHomeJsonLd()` function (the `default` case in `getJsonLdForType` switch):
+  - Changed `authorId` from `${SITE_URL}/paycheck-calculator#author` to `${SITE_URL}/#author`
+  - Changed `baseId` from `${SITE_URL}/paycheck-calculator` to `${SITE_URL}`
+  - This fixes all downstream @id references that use `${baseId}`:
+    - `${baseId}#webpage` → `${SITE_URL}#webpage` (was incorrectly `${SITE_URL}/paycheck-calculator#webpage`)
+    - `${baseId}#breadcrumb` → `${SITE_URL}#breadcrumb`
+    - `${baseId}#software` → `${SITE_URL}#software`
+    - `${baseId}#howto` → `${SITE_URL}#howto`
+    - `${baseId}#faq` → `${SITE_URL}#faq`
+  - Also fixes `url: baseId` which now correctly resolves to `${SITE_URL}` instead of `${SITE_URL}/paycheck-calculator`
+  - The `author: { '@id': authorId }` reference now correctly points to `${SITE_URL}/#author`
+- Verified `datasetJsonLd()` helper (lines 106-130) correctly converts numeric string values to JavaScript `Number` type via `Number(v.value)` check — no changes needed
+- Verified `getHomeJsonLd()` does not contain a Dataset object with inline PropertyValue, so no string-to-number conversion issue exists there
+- Pre-existing lint errors (3 `require()` style imports) are unrelated to this change
+
+Stage Summary:
+- 1 file modified: `/src/app/[calculator]/_jsonld.ts`
+- 2 lines changed (authorId and baseId in getHomeJsonLd function)
+- Fix ensures the default/home JSON-LD schema uses the correct site root URL instead of the paycheck-calculator URL
+- All @id references in the home page JSON-LD graph now correctly point to the site root (e.g., `https://thetaxcalc.com#webpage` instead of `https://thetaxcalc.com/paycheck-calculator#webpage`)
+---
+Task ID: 1
+Agent: JSON-LD Structured Data Fixer
+Task: Fix Dataset variableMeasured PropertyValue values from strings to proper number types in homepage JSON-LD
+
+Work Log:
+- Fixed 6 PropertyValue entries in the Dataset JSON-LD on `/src/app/page.tsx` (lines 390-397)
+- Changed 5 string values to JavaScript numbers:
+  - `value: '16100'` → `value: 16100` (Standard Deduction Single)
+  - `value: '32200'` → `value: 32200` (Standard Deduction Married)
+  - `value: '7.65'` → `value: 7.65` (FICA Rate)
+  - `value: '184500'` → `value: 184500` (Social Security Wage Cap)
+  - `value: '23500'` → `value: 23500` (401(k) Contribution Limit)
+- Changed `value: '10 – 37'` to a structured QuantitativeValue object:
+  - `value: { '@type': 'QuantitativeValue', minValue: 10, maxValue: 37, unitText: 'percent' }`
+  - Added `description: '7 marginal tax rates for Single, MFJ, and HOH filing statuses'` to the Federal Tax Brackets PropertyValue
+- Pre-existing lint errors (3 require() style import warnings in kv-blog.ts) remain unchanged — not introduced by this edit
+- No new lint errors introduced
+
+Stage Summary:
+- 1 file modified: `/src/app/page.tsx`
+- All Dataset variableMeasured PropertyValue values now use proper schema.org types (numbers instead of strings, QuantitativeValue for ranges)
+- Fixes Google Rich Results Test structured data validation errors where string values were used where Number or StructuredValue was expected
+---
+Task ID: 3+4+5
+Agent: JSON-LD Structured Data Fixer
+Task: Fix JSON-LD structured data errors in resources, federal-tax-brackets, and glossary pages
+
+Work Log:
+- **Fix 1 — resources/page.tsx BreadcrumbList extraction**:
+  - Extracted inline BreadcrumbList from WebPage `breadcrumb` property and made it a separate @graph entry with `@id: ${SITE_URL}/resources#breadcrumb`
+  - Changed WebPage breadcrumb from inline object to `@id` reference: `breadcrumb: { '@id': `${SITE_URL}/resources#breadcrumb` }`
+  - Added new BreadcrumbList entry to @graph array before the author entry
+  - This follows the proper @graph linking pattern used throughout the site (e.g., federal-tax-brackets page already had this pattern correct)
+
+- **Fix 2 — federal-tax-brackets/page.tsx PropertyValue numeric values**:
+  - Changed 9 string `value` fields to actual numbers in the Dataset `variableMeasured` array:
+    - `value: '11925'` → `value: 11925` (10% bracket)
+    - `value: '48475'` → `value: 48475` (12% bracket)
+    - `value: '103350'` → `value: 103350` (22% bracket)
+    - `value: '197300'` → `value: 197300` (24% bracket)
+    - `value: '250525'` → `value: 250525` (32% bracket)
+    - `value: '626350'` → `value: 626350` (35% bracket)
+    - `value: '16100'` → `value: 16100` (Standard Deduction Single)
+    - `value: '32200'` → `value: 32200` (Standard Deduction MFJ)
+    - `value: '24150'` → `value: 24150` (Standard Deduction HOH)
+  - Kept `value: 'Over $626,350'` as string (it's a description, not a number)
+
+- **Fix 3 — glossary/page.tsx variableMeasured numeric conversion**:
+  - Updated `getGlossaryJsonLd()` function to convert numeric string values in `figure2026` to actual numbers
+  - Changed from simple `t.figure2026 || 'See definition'` to smart conversion:
+    - Parse rawValue with `Number(rawValue)`
+    - If the result is a valid number and the string isn't empty, use the number
+    - Otherwise keep the original string value (e.g., "See definition", percentage strings, etc.)
+  - This ensures terms like "Standard Deduction" with `figure2026: "16100"` produce `value: 16100` (number) instead of `value: "16100"` (string)
+
+Files modified (3):
+1. src/app/resources/page.tsx — BreadcrumbList extracted to separate @graph entry
+2. src/app/federal-tax-brackets/page.tsx — 9 PropertyValue values changed from strings to numbers
+3. src/app/glossary/page.tsx — variableMeasured mapping updated with numeric conversion logic
+
+Stage Summary:
+- 3 files modified with targeted JSON-LD structured data fixes
+- BreadcrumbList now properly uses @id-referencing pattern in resources page (consistent with site-wide convention)
+- PropertyValue values in federal-tax-brackets now use actual numbers instead of numeric strings (schema.org best practice)
+- Glossary variableMeasured now intelligently converts numeric strings to numbers while preserving non-numeric values
+- No new lint errors introduced (pre-existing errors in salary-client-page.tsx and supervisor.js are unrelated)
+
+---
+Task ID: 6+7
+Agent: JSON-LD Fixer
+Task: Fix JSON-LD structured data errors in salary, terms, and privacy pages
+
+Work Log:
+- Fixed `/src/app/salary/[amount]/page.tsx` — Dataset variableMeasured PropertyValue.value was using `fmt(s.netAnnual)` which returns formatted currency strings like "$60,545.00". PropertyValue.value should use actual numbers, not formatted currency strings. Changed to `Math.round(s.netAnnual)` with `unitText: 'USD'` for proper schema.org compliance.
+- Fixed `/src/app/terms/page.tsx` — WebPage schema was missing `dateModified` and `author` properties (recommended by Google for all WebPage types). Added `dateModified: '2026-03-04'` (matching the page's lastUpdated date) and `author: { '@id': `${SITE_URL}/#organization` }` to the WebPage object.
+- Fixed `/src/app/privacy/page.tsx` — Same issue as terms page. Added `dateModified: '2026-03-04'` and `author: { '@id': `${SITE_URL}/#organization` }` to the WebPage object in privacyJsonLd.
+- Lint passes cleanly for all 3 modified files (0 errors, 0 warnings).
+
+Stage Summary:
+- 3 files modified: salary/[amount]/page.tsx, terms/page.tsx, privacy/page.tsx
+- Fix 1: PropertyValue.value now uses numeric values (Math.round) instead of formatted currency strings, with unitText: 'USD'
+- Fix 2 & 3: WebPage schemas on terms and privacy pages now include dateModified and author properties for Google-recommended compliance
+---
+Task ID: 8+9+10
+Agent: JSON-LD Fix Agent
+Task: Fix JSON-LD structured data errors in tax-data, blog, and compare pages
+
+Work Log:
+- Fixed `/src/app/tax-data/page.tsx`:
+  - Issue A: Changed DataDownload `contentUrl` from `${SITE_URL}/tax-data` (same page, misleading) to `${SITE_URL}/tax-data#sales-tax-all-states` (points to the section with the CSV download button)
+  - Issue B: Added `reviewedBy: { '@id': `${SITE_URL}/tax-data#author` }` to the WebPage schema object (was missing, only had `author`)
+- Fixed `/src/app/blog/[slug]/page.tsx`:
+  - Issue A: Changed `keywords: post.tags || ''` (plain string, empty string when no tags) to `keywords: post.tags ? post.tags.split(',').map((t: string) => t.trim()).filter(Boolean) : undefined` (array of individual keywords per Google recommendation, omitted when no tags)
+  - Issue B: Moved `wordCount` calculation from after the jsonLd definition to before it, then added `wordCount: wordCount` to the Article schema object (Google recommends this for Article types)
+- Fixed `/src/app/compare/page.tsx`:
+  - Issue: Changed `about` property from `@type: 'Thing'` (too generic) to `@type: 'Service'` with `name`, `description`, and `provider` properties for better semantic specificity
+- All 3 modified files pass lint cleanly (0 errors, 0 warnings)
+- Dev server running normally
+
+Stage Summary:
+- 3 files modified with 5 JSON-LD structured data fixes
+- tax-data: contentUrl now points to correct section, WebPage has reviewedBy
+- blog: keywords properly formatted as array, wordCount added to Article schema
+- compare: about property uses Service type instead of generic Thing
+- No new lint errors introduced

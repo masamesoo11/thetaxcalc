@@ -107,12 +107,16 @@ function getGlossaryJsonLd() {
         description: 'Definitions and 2026 figures for common U.S. tax terms.',
         license: 'https://creativecommons.org/licenses/by/4.0/',
         creator: { '@id': `${SITE_URL}/#organization` },
-        variableMeasured: GLOSSARY_TERMS.map((t) => ({
-          '@type': 'PropertyValue',
-          name: t.term,
-          description: t.definition,
-          value: t.figure2026 || 'See definition',
-        })),
+        variableMeasured: GLOSSARY_TERMS.map((t) => {
+          const rawValue = t.figure2026 || 'See definition';
+          const numVal = Number(rawValue);
+          return {
+            '@type': 'PropertyValue',
+            name: t.term,
+            description: t.definition,
+            value: !isNaN(numVal) && rawValue.trim() !== '' ? numVal : rawValue,
+          };
+        }),
       },
     ],
   };

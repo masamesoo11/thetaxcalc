@@ -71,8 +71,10 @@ const compareListingJsonLd = {
       reviewedBy: { '@id': `${SITE_URL}/compare#author` },
       publisher: { '@id': `${SITE_URL}/#organization` },
       about: {
-        '@type': 'Thing',
+        '@type': 'Service',
         name: 'State Income Tax Comparison',
+        description: 'Side-by-side comparison of state tax rates, property tax, and take-home pay',
+        provider: { '@id': `${SITE_URL}/#organization` },
       },
     },
   ],

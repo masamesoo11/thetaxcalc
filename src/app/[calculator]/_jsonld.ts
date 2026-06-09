@@ -133,8 +133,8 @@ function datasetJsonLd(id: string, name: string, description: string, variables:
 
 function getHomeJsonLd() {
   const author = getAuthorForCalculator('home');
-  const authorId = `${SITE_URL}/paycheck-calculator#author`;
-  const baseId = `${SITE_URL}/paycheck-calculator`;
+  const authorId = `${SITE_URL}/#author`;
+  const baseId = `${SITE_URL}`;
   return {
     '@context': 'https://schema.org',
     '@graph': [

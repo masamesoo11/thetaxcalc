@@ -305,13 +305,15 @@ function getJsonLd() {
         author: { '@id': `${SITE_URL}/resources#author` },
         reviewedBy: { '@id': `${SITE_URL}/resources#author` },
         publisher: { '@id': `${SITE_URL}/#organization` },
-        breadcrumb: {
-          '@type': 'BreadcrumbList',
-          itemListElement: [
-            { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
-            { '@type': 'ListItem', position: 2, name: 'Tax Data & Resources' },
-          ],
-        },
+        breadcrumb: { '@id': `${SITE_URL}/resources#breadcrumb` },
+      },
+      {
+        '@id': `${SITE_URL}/resources#breadcrumb`,
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+          { '@type': 'ListItem', position: 2, name: 'Tax Data & Resources' },
+        ],
       },
       {
         '@id': `${SITE_URL}/resources#author`,

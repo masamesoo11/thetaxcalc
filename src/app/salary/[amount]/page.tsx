@@ -137,7 +137,8 @@ function generateJsonLd(salary: number) {
         variableMeasured: calc.states.map((s) => ({
           '@type': 'PropertyValue',
           name: `Net Pay in ${s.stateName}`,
-          value: fmt(s.netAnnual),
+          value: Math.round(s.netAnnual),
+          unitText: 'USD',
         })),
       },
     ],

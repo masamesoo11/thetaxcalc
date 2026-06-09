@@ -304,6 +304,9 @@ export default async function BlogDetailPage({
 
   const author = getAuthorForCalculator(post.category || 'home');
 
+  // Estimate word count for schema
+  const wordCount = post.content ? post.content.split(/\s+/).filter(Boolean).length : 0;
+
   const jsonLd = {
     '@context': 'https://schema.org',
     '@graph': [
@@ -327,7 +330,8 @@ export default async function BlogDetailPage({
         author: { '@id': `${SITE_URL}/blog/${slug}#author` },
         publisher: { '@id': `${SITE_URL}/#organization` },
         mainEntityOfPage: { '@type': 'WebPage', '@id': `${SITE_URL}/blog/${slug}` },
-        keywords: post.tags || '',
+        keywords: post.tags ? post.tags.split(',').map((t: string) => t.trim()).filter(Boolean) : undefined,
+        wordCount: wordCount,
         articleSection: CATEGORY_LABELS[post.category] || post.category,
       },
       {
@@ -346,7 +350,6 @@ export default async function BlogDetailPage({
   const tagList = post.tags ? post.tags.split(',').map((t) => t.trim()).filter(Boolean) : [];
 
   // Estimate reading time (avg 200 words/min)
-  const wordCount = post.content ? post.content.split(/\s+/).filter(Boolean).length : 0;
   const readingTime = Math.max(1, Math.ceil(wordCount / 200));
 
   // All posts for related articles
