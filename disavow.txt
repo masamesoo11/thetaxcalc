@@ -1,0 +1,55 @@
+# ============================================================
+# Google Disavow File for thetaxcalc.com
+# Generated: June 9, 2026
+# Purpose: Disavow toxic/spam backlinks from Negative SEO attack
+# All domains below are PBN, fake SEO services, or spam sites
+# that automatically generate fake testimonials mentioning thetaxcalc.com
+# ============================================================
+
+# --- PBN / SEO Service Shop Domains ---
+domain:linkrankpro.shop
+domain:netranko.shop
+domain:geko-backlinks.site
+domain:high-quality-backlinks.site
+domain:linkseopro.shop
+domain:seolinkpro.shop
+domain:rankboss.shop
+domain:ranklinkx.shop
+domain:premiumseolinks.shop
+domain:linkrankboost.shop
+domain:seorankflow.shop
+domain:pbnseolinks.shop
+domain:ranklinkerpro.shop
+domain:toplinkranker.shop
+domain:ranklinkpro.shop
+domain:authoritybacklinks.shop
+domain:buyseobacklinks.shop
+domain:rankxlinks.shop
+domain:ranksupreme.shop
+
+# --- ITXoft Fake Review Domains ---
+domain:itxoft-seo-for-modern-business.site
+domain:itxoft-results-focused-seo.site
+domain:itxoft-seo-for-higher-rankings.site
+domain:itxoft-professional-seo-services.site
+domain:itxoft-affordable-seo-services.site
+
+# --- Fiverr Fake Review Domains ---
+domain:fiverr-quality-seo-at-affordable-rates.site
+domain:fiverr-seo-for-business-growth.site
+domain:fiverr-seo-for-small-businesses.site
+domain:fiverr-affordable-seo-services.site
+domain:fiverr-cost-effective-seo.site
+
+# --- Rank Optimizer / Link Booster Domains ---
+domain:rank-optimizer.website
+domain:linkbooster.website
+domain:rank-your.site
+
+# --- SEOPXL Spam Domains ---
+domain:seopxl-performance-authority-engine.shop
+domain:seopxl-organic-boost-lab.shop
+
+# --- Other Spam Domains ---
+domain:seodaro.com
+
