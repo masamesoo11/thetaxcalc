@@ -84,7 +84,7 @@ export function GlossaryClient() {
       <div className="mb-8 space-y-4">
         {/* Search Input */}
         <div className="relative max-w-xl mx-auto">
-          <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground/60" />
+          <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
           <input
             type="text"
             value={searchQuery}
@@ -93,7 +93,7 @@ export function GlossaryClient() {
               setActiveLetter(null);
             }}
             placeholder='Search tax terms — e.g. "FICA", "standard deduction", "capital gains"...'
-            className="w-full rounded-xl border border-border/30 bg-card/60 py-3.5 pl-12 pr-10 text-foreground placeholder:text-muted-foreground/50 backdrop-blur-sm transition-all focus:border-emerald-500/40 focus:outline-none focus:ring-2 focus:ring-emerald-500/20"
+            className="w-full rounded-xl border border-border/30 bg-card/60 py-3.5 pl-12 pr-10 text-foreground placeholder:text-muted-foreground backdrop-blur-sm transition-all focus:border-emerald-500/40 focus:outline-none focus:ring-2 focus:ring-emerald-500/20"
             aria-label="Search tax glossary terms"
           />
           {searchQuery && (
@@ -139,7 +139,7 @@ export function GlossaryClient() {
                     ? 'bg-emerald-500/20 text-emerald-400 shadow-sm shadow-emerald-500/10'
                     : isAvailable
                       ? 'text-muted-foreground hover:bg-muted/30 hover:text-foreground'
-                      : 'text-muted-foreground/25 cursor-not-allowed'
+                      : 'text-muted-foreground/40 cursor-not-allowed'
                 }`}
                 aria-label={`Jump to letter ${letter}`}
                 aria-current={isActive ? 'true' : undefined}
@@ -183,7 +183,7 @@ export function GlossaryClient() {
         </div>
       ) : (
         <div className="py-16 text-center">
-          <BookOpen className="mx-auto h-12 w-12 text-muted-foreground/30" />
+          <BookOpen className="mx-auto h-12 w-12 text-muted-foreground/50" />
           <p className="mt-4 text-lg font-medium text-muted-foreground">No matching terms found</p>
           <p className="mt-1 text-sm text-muted-foreground">Try a different search term or clear the filter</p>
           <button

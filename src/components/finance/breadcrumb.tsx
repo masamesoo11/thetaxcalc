@@ -14,15 +14,15 @@ interface BreadcrumbItem {
 export function Breadcrumb({ items }: { items: BreadcrumbItem[] }) {
   return (
     <nav aria-label="Breadcrumb" className="mb-6 flex items-center gap-1.5 text-sm text-muted-foreground">
-      <Link href="/" className="hover:text-foreground transition-colors flex items-center gap-1">
+      <Link href="/" className="underline underline-offset-2 decoration-muted-foreground/40 hover:decoration-foreground hover:text-foreground transition-colors flex items-center gap-1">
         <Home className="h-3.5 w-3.5" />
         <span className="hidden sm:inline">Home</span>
       </Link>
       {items.map((item, i) => (
         <span key={i} className="flex items-center gap-1.5">
-          <ChevronRight className="h-3.5 w-3.5 text-muted-foreground/50" />
+          <ChevronRight className="h-3.5 w-3.5 text-muted-foreground" />
           {item.href ? (
-            <Link href={item.href} className="hover:text-foreground transition-colors">
+            <Link href={item.href} className="underline underline-offset-2 decoration-muted-foreground/40 hover:decoration-foreground hover:text-foreground transition-colors">
               {item.label}
             </Link>
           ) : (

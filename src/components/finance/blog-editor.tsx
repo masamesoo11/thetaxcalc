@@ -742,7 +742,7 @@ export function BlogEditor({ editSlug, onNavigate }: BlogEditorProps) {
                 </div>
               ) : (
                 <div className="flex flex-col items-center justify-center py-12 text-center">
-                  <FileText className="h-12 w-12 text-muted-foreground/30" />
+                  <FileText className="h-12 w-12 text-muted-foreground/50" />
                   <p className="mt-3 text-sm text-muted-foreground">
                     Start writing to see a preview of your post
                   </p>

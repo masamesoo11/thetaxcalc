@@ -890,7 +890,7 @@ export function TaxRefundCalculator() {
                 </>
               ) : (
                 <div className="py-8 text-center">
-                  <Calculator className="mx-auto h-12 w-12 text-muted-foreground/30" />
+                  <Calculator className="mx-auto h-12 w-12 text-muted-foreground/50" />
                   <p className="mt-3 text-sm text-muted-foreground">
                     Enter your income and withholding details, then click Calculate
                   </p>
