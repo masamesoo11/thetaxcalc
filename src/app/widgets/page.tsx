@@ -114,7 +114,6 @@ const widgetsJsonLd = {
             '@type': 'ListItem',
             position: 2,
             name: 'Free Widgets',
-            item: `${SITE_URL}/widgets`,
           },
         ],
       },

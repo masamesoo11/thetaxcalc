@@ -71,18 +71,15 @@ const faqJsonLd = {
   '@context': 'https://schema.org',
   '@graph': [
     {
+      '@id': `${SITE_URL}/federal-tax-brackets#breadcrumb`,
       '@type': 'BreadcrumbList',
       itemListElement: [
         { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
-        {
-          '@type': 'ListItem',
-          position: 2,
-          name: '2026 Federal Tax Brackets',
-          item: `${SITE_URL}/federal-tax-brackets`,
-        },
+        { '@type': 'ListItem', position: 2, name: '2026 Federal Tax Brackets' },
       ],
     },
     {
+      '@id': `${SITE_URL}/federal-tax-brackets#faq`,
       '@type': 'FAQPage',
       mainEntity: [
         {
@@ -127,23 +124,25 @@ const faqJsonLd = {
         },
       ],
     },
-    authorToJsonLd(getCalculatorAuthor()),
+    { '@id': `${SITE_URL}/federal-tax-brackets#author`, ...authorToJsonLd(getCalculatorAuthor()) },
     {
+      '@id': `${SITE_URL}/federal-tax-brackets#dataset`,
       '@type': 'Dataset',
       name: '2026 Federal Income Tax Brackets',
       description: 'Official 2026 federal tax brackets for all filing statuses with standard deductions.',
-      author: authorToJsonLd(getCalculatorAuthor()),
+      creator: { '@id': `${SITE_URL}/#organization` },
+      license: 'https://creativecommons.org/licenses/by/4.0/',
       variableMeasured: [
-        { '@type': 'PropertyValue', name: '10% Bracket Upper Limit (Single)', value: '$11,925' },
-        { '@type': 'PropertyValue', name: '12% Bracket Upper Limit (Single)', value: '$48,475' },
-        { '@type': 'PropertyValue', name: '22% Bracket Upper Limit (Single)', value: '$103,350' },
-        { '@type': 'PropertyValue', name: '24% Bracket Upper Limit (Single)', value: '$197,300' },
-        { '@type': 'PropertyValue', name: '32% Bracket Upper Limit (Single)', value: '$250,525' },
-        { '@type': 'PropertyValue', name: '35% Bracket Upper Limit (Single)', value: '$626,350' },
+        { '@type': 'PropertyValue', name: '10% Bracket Upper Limit (Single)', value: 11925, unitText: 'USD' },
+        { '@type': 'PropertyValue', name: '12% Bracket Upper Limit (Single)', value: 48475, unitText: 'USD' },
+        { '@type': 'PropertyValue', name: '22% Bracket Upper Limit (Single)', value: 103350, unitText: 'USD' },
+        { '@type': 'PropertyValue', name: '24% Bracket Upper Limit (Single)', value: 197300, unitText: 'USD' },
+        { '@type': 'PropertyValue', name: '32% Bracket Upper Limit (Single)', value: 250525, unitText: 'USD' },
+        { '@type': 'PropertyValue', name: '35% Bracket Upper Limit (Single)', value: 626350, unitText: 'USD' },
         { '@type': 'PropertyValue', name: '37% Bracket Threshold (Single)', value: 'Over $626,350' },
-        { '@type': 'PropertyValue', name: 'Standard Deduction (Single)', value: '$16,100' },
-        { '@type': 'PropertyValue', name: 'Standard Deduction (MFJ)', value: '$32,200' },
-        { '@type': 'PropertyValue', name: 'Standard Deduction (HOH)', value: '$24,150' },
+        { '@type': 'PropertyValue', name: 'Standard Deduction (Single)', value: 16100, unitText: 'USD' },
+        { '@type': 'PropertyValue', name: 'Standard Deduction (MFJ)', value: 32200, unitText: 'USD' },
+        { '@type': 'PropertyValue', name: 'Standard Deduction (HOH)', value: 24150, unitText: 'USD' },
       ],
     },
   ],

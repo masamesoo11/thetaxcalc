@@ -243,7 +243,7 @@ const jsonLd = {
         '@type': 'BreadcrumbList',
         itemListElement: [
           { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
-          { '@type': 'ListItem', position: 2, name: 'Tax Data & Statistics', item: `${SITE_URL}/tax-data` },
+          { '@type': 'ListItem', position: 2, name: 'Tax Data & Statistics' },
         ],
       },
     },

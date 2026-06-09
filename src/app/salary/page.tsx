@@ -73,7 +73,7 @@ const salaryPageJsonLd = {
       '@type': 'BreadcrumbList',
       itemListElement: [
         { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
-        { '@type': 'ListItem', position: 2, name: 'Salary After Tax', item: `${SITE_URL}/salary` },
+        { '@type': 'ListItem', position: 2, name: 'Salary After Tax' },
       ],
     },
     {

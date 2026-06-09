@@ -85,7 +85,6 @@ function buildJsonLd(
             '@type': 'ListItem',
             position: 3,
             name: `${s1.name} vs ${s2.name} Taxes`,
-            item: `${baseUrl}${canonicalPath}`,
           },
         ],
       },

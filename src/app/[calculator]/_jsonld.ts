@@ -42,14 +42,15 @@ export function faqsToJsonLd(faqs: { question: string; answer: string }[], id?: 
 
 // ─── Shared Schema Fragments ─────────────────────────────────────────────────
 
-/** BreadcrumbList for calculator pages — with @id for proper graph linking */
-function breadcrumbJsonLd(id: string, position2Name: string, position2Url: string) {
+/** BreadcrumbList for calculator pages — with @id for proper graph linking
+ *  Google: "Don't include the item property for the last item (current page)" */
+function breadcrumbJsonLd(id: string, position2Name: string, _position2Url: string) {
   return {
     '@id': id,
     '@type': 'BreadcrumbList' as const,
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
-      { '@type': 'ListItem', position: 2, name: position2Name, item: `${SITE_URL}${position2Url}` },
+      { '@type': 'ListItem', position: 2, name: position2Name },
     ],
   };
 }
@@ -135,7 +136,7 @@ function getHomeJsonLd() {
         '@type': 'BreadcrumbList',
         itemListElement: [
           { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
-          { '@type': 'ListItem', position: 2, name: 'Paycheck Calculator', item: baseId },
+          { '@type': 'ListItem', position: 2, name: 'Paycheck Calculator' },
         ],
       },
       {
@@ -375,7 +376,7 @@ function getSalesTaxJsonLd() {
       datasetJsonLd(`${baseId}#dataset`, '2026 US Sales Tax Rates', 'Combined state and local sales tax rates for all 50 US states for 2026.', [
         { name: 'Average US Combined Rate', value: '6.6', unitText: 'percent' },
         { name: 'Highest Combined Rate', value: '9.56', unitText: 'percent' },
-        { name: 'No Sales Tax States Count', value: '5' },
+        { name: 'No Sales Tax States Count', value: '5', unitText: 'states' },
         { name: 'California Combined Rate', value: '8.82', unitText: 'percent' },
         { name: 'Texas Combined Rate', value: '8.20', unitText: 'percent' },
       ]),
@@ -395,7 +396,7 @@ function getOvertimeJsonLd() {
       breadcrumbJsonLd(`${baseId}#breadcrumb`, 'Overtime Tax Calculator', '/overtime-tax-calculator'),
       webAppJsonLd(`${baseId}#webapp`, 'Overtime Tax Calculator 2026', '/overtime-tax-calculator', authorId),
       datasetJsonLd(`${baseId}#dataset`, '2026 Overtime Tax Data', 'Federal overtime tax data and FICA rates for 2026 under the One Big Beautiful Bill Act.', [
-        { name: 'Federal Overtime Multiplier', value: '1.5' },
+        { name: 'Federal Overtime Multiplier', value: '1.5', unitText: 'x' },
         { name: 'FICA Rate', value: '7.65', unitText: 'percent' },
         { name: 'Effective OT Tax Rate (low)', value: '25', unitText: 'percent' },
         { name: 'Effective OT Tax Rate (high)', value: '35', unitText: 'percent' },
@@ -439,7 +440,7 @@ function getLotteryJsonLd() {
       datasetJsonLd(`${baseId}#dataset`, '2026 Lottery Tax Rates', 'Federal and state tax withholding rates for lottery winnings in 2026.', [
         { name: 'Federal Withholding Rate', value: '24', unitText: 'percent' },
         { name: 'Top Federal Marginal Rate', value: '37', unitText: 'percent' },
-        { name: 'States with No Lottery Tax', value: '10' },
+        { name: 'States with No Lottery Tax', value: '10', unitText: 'states' },
         { name: 'Average State Lottery Tax (low)', value: '4', unitText: 'percent' },
         { name: 'Average State Lottery Tax (high)', value: '8', unitText: 'percent' },
       ]),
@@ -527,7 +528,7 @@ function getVirginiaJsonLd() {
         { name: 'Virginia Lowest Rate', value: '2', unitText: 'percent' },
         { name: 'Virginia Standard Deduction (Single)', value: '8000', unitText: 'USD' },
         { name: 'Virginia Standard Deduction (Married)', value: '16000', unitText: 'USD' },
-        { name: 'Virginia Tax Brackets Count', value: '4' },
+        { name: 'Virginia Tax Brackets Count', value: '4', unitText: 'brackets' },
       ]),
       { '@id': authorId, ...authorToJsonLd(author) },
       faqsToJsonLd(VIRGINIA_FAQS, `${baseId}#faq`),

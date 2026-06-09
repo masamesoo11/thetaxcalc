@@ -96,7 +96,7 @@ function generateJsonLd(salary: number) {
         itemListElement: [
           { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
           { '@type': 'ListItem', position: 2, name: 'Salary After Tax', item: `${SITE_URL}/salary` },
-          { '@type': 'ListItem', position: 3, name: `${formatted} After Tax`, item: `${SITE_URL}${path}` },
+          { '@type': 'ListItem', position: 3, name: `${formatted} After Tax` },
         ],
       },
       {

@@ -53,7 +53,7 @@ const compareListingJsonLd = {
       '@type': 'BreadcrumbList',
       itemListElement: [
         { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
-        { '@type': 'ListItem', position: 2, name: 'State Tax Comparisons', item: `${SITE_URL}/compare` },
+        { '@type': 'ListItem', position: 2, name: 'State Tax Comparisons' },
       ],
     },
     {

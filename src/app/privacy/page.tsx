@@ -30,15 +30,27 @@ export const metadata: Metadata = {
 
 const privacyJsonLd = {
   '@context': 'https://schema.org',
-  '@type': 'WebPage',
-  name: 'Privacy Policy — TheTaxCalc',
-  description: 'Learn how TheTaxCalc collects, uses, and protects your personal information when using our free tax calculators.',
-  url: `${SITE_URL}/privacy`,
-  isPartOf: {
-    '@type': 'WebSite',
-    name: 'TheTaxCalc',
-    url: SITE_URL,
-  },
+  '@graph': [
+    {
+      '@id': `${SITE_URL}/privacy#breadcrumb`,
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+        { '@type': 'ListItem', position: 2, name: 'Privacy Policy' },
+      ],
+    },
+    {
+      '@type': 'WebPage',
+      name: 'Privacy Policy — TheTaxCalc',
+      description: 'Learn how TheTaxCalc collects, uses, and protects your personal information when using our free tax calculators.',
+      url: `${SITE_URL}/privacy`,
+      isPartOf: {
+        '@type': 'WebSite',
+        name: 'TheTaxCalc',
+        url: SITE_URL,
+      },
+    },
+  ],
 };
 
 export default function PrivacyPage() {

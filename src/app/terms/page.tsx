@@ -30,15 +30,27 @@ export const metadata: Metadata = {
 
 const termsJsonLd = {
   '@context': 'https://schema.org',
-  '@type': 'WebPage',
-  name: 'Terms of Use — TheTaxCalc',
-  description: 'Understand the terms and conditions for using TheTaxCalc free tax calculators and website.',
-  url: `${SITE_URL}/terms`,
-  isPartOf: {
-    '@type': 'WebSite',
-    name: 'TheTaxCalc',
-    url: SITE_URL,
-  },
+  '@graph': [
+    {
+      '@id': `${SITE_URL}/terms#breadcrumb`,
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+        { '@type': 'ListItem', position: 2, name: 'Terms of Use' },
+      ],
+    },
+    {
+      '@type': 'WebPage',
+      name: 'Terms of Use — TheTaxCalc',
+      description: 'Understand the terms and conditions for using TheTaxCalc free tax calculators and website.',
+      url: `${SITE_URL}/terms`,
+      isPartOf: {
+        '@type': 'WebSite',
+        name: 'TheTaxCalc',
+        url: SITE_URL,
+      },
+    },
+  ],
 };
 
 export default function TermsPage() {

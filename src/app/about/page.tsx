@@ -51,6 +51,14 @@ const organizationJsonLd = {
   '@context': 'https://schema.org',
   '@graph': [
     {
+      '@id': `${SITE_URL}/about#breadcrumb`,
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+        { '@type': 'ListItem', position: 2, name: 'About' },
+      ],
+    },
+    {
       '@id': `${SITE_URL}/about#author`,
       ...authorToJsonLd(getCalculatorAuthor()),
     },

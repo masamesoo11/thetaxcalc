@@ -438,7 +438,7 @@ export function getStateJsonLd(stateKey: string, siteUrl: string) {
         itemListElement: [
           { '@type': 'ListItem', position: 1, name: 'Home', item: siteUrl },
           { '@type': 'ListItem', position: 2, name: 'Sales Tax Calculator', item: `${siteUrl}/sales-tax-calculator` },
-          { '@type': 'ListItem', position: 3, name: `${state.name} Sales Tax`, item: url },
+          { '@type': 'ListItem', position: 3, name: `${state.name} Sales Tax` },
         ],
       },
       {
