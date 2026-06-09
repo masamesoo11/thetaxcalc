@@ -143,7 +143,7 @@ const defaultLinks: ExternalLinkRecord[] = [
   { id: uuid(), label: 'Illinois Department of Revenue', url: 'https://www2.illinois.gov/rev', category: 'state-revenue', isActive: true, sortOrder: 3, createdAt: now, updatedAt: now },
   { id: uuid(), label: 'Texas Comptroller of Public Accounts', url: 'https://comptroller.texas.gov', category: 'state-revenue', isActive: true, sortOrder: 4, createdAt: now, updatedAt: now },
   { id: uuid(), label: 'Florida Department of Revenue', url: 'https://floridarevenue.com', category: 'state-revenue', isActive: true, sortOrder: 5, createdAt: now, updatedAt: now },
-  { id: uuid(), label: 'California Franchise Tax Board', url: 'https://www.ftb.ca.gov', category: 'state-revenue', isActive: true, sortOrder: 6, createdAt: now, updatedAt: now },
+  { id: uuid(), label: 'California Franchise Tax Board', url: 'https://www.ftb.ca.gov/forms', category: 'state-revenue', isActive: true, sortOrder: 6, createdAt: now, updatedAt: now },
 ];
 
 for (const link of defaultLinks) {

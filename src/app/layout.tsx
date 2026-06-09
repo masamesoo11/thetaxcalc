@@ -101,9 +101,7 @@ const sitewideJsonLd = {
       },
       description: "Free 2026 tax calculators — paycheck, mortgage, 401(k), capital gains, and self-employment. Trusted by thousands of users for accurate, up-to-date tax estimates.",
       foundingDate: "2022",
-      sameAs: [
-        "https://twitter.com/TheTaxCalc",
-      ],
+      sameAs: [] as string[],
       contactPoint: [
         {
           "@type": "ContactPoint",

@@ -375,7 +375,7 @@ export default function AboutPage() {
                 State rates come from each state&apos;s Department of Revenue directly. Illinois?{' '}
                 <a href="https://revenue.illinois.gov/" target="_blank" rel="noopener noreferrer nofollow" className="text-emerald-400 hover:text-emerald-300 underline">IDOR</a>.
                 California?{' '}
-                <a href="https://www.ftb.ca.gov/" target="_blank" rel="noopener noreferrer nofollow" className="text-emerald-400 hover:text-emerald-300 underline">FTB</a>.
+                <a href="https://www.ftb.ca.gov/forms" target="_blank" rel="noopener noreferrer nofollow" className="text-emerald-400 hover:text-emerald-300 underline">FTB</a>.
                 New York?{' '}
                 <a href="https://www.tax.ny.gov/" target="_blank" rel="noopener noreferrer nofollow" className="text-emerald-400 hover:text-emerald-300 underline">NYS Department of Taxation and Finance</a>.
               </p>

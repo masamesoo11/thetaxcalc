@@ -35,13 +35,11 @@ const RESOURCE_LINKS = [
   { label: 'IL Revenue Dept', url: 'https://revenue.illinois.gov/', category: 'government' },
   { label: 'TX Comptroller', url: 'https://comptroller.texas.gov/', category: 'government' },
   { label: 'FL Revenue Dept', url: 'https://floridarevenue.com/', category: 'government' },
-  { label: 'CA FTB', url: 'https://www.ftb.ca.gov/', category: 'government' },
+  { label: 'CA FTB', url: 'https://www.ftb.ca.gov/forms', category: 'government' },
   { label: 'NY Tax & Finance', url: 'https://www.tax.ny.gov/', category: 'government' },
 ];
 
-const SOCIAL_LINKS = [
-  { label: 'Twitter / X', url: 'https://twitter.com/TheTaxCalc' },
-];
+const SOCIAL_LINKS: { label: string; url: string }[] = [];
 
 export function Footer() {
   const [email, setEmail] = useState('');
@@ -280,23 +278,7 @@ export function Footer() {
                 </li>
               ))}
             </ul>
-            {/* Social Links */}
-            <div className="mt-4 pt-4 border-t border-border/20">
-              <h5 className="mb-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground">Follow Us</h5>
-              <div className="flex gap-3">
-                {SOCIAL_LINKS.map((link) => (
-                  <a
-                    key={link.url}
-                    href={link.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-xs text-muted-foreground hover:text-emerald-400 transition-colors"
-                  >
-                    {link.label}
-                  </a>
-                ))}
-              </div>
-            </div>
+            {/* Social Links — hidden while no active social profiles exist */}
           </div>
         </div>
       </div>

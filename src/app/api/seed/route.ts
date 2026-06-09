@@ -529,7 +529,7 @@ const externalLinks = [
   },
   {
     label: 'California Franchise Tax Board',
-    url: 'https://www.ftb.ca.gov',
+    url: 'https://www.ftb.ca.gov/forms',
     category: 'state-revenue',
     isActive: true,
     sortOrder: 6,
