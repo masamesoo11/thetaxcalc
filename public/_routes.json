@@ -3,8 +3,6 @@
   "include": ["/*"],
   "exclude": [
     "/_next/static/*",
-    "/robots.txt",
-    "/sitemap.xml",
     "/feed.xml",
     "/favicon.ico",
     "/favicon.svg",
