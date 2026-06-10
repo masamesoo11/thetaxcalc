@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { DollarSign, ArrowRight, ArrowRightLeft, Mail, ExternalLink, BookOpen, MapPin, Calculator, Shield, Home, TrendingUp, Receipt, Clock, FileText, BarChart3, Code2 } from 'lucide-react';
+import { DollarSign, ArrowRight, ArrowRightLeft, Mail, ExternalLink, BookOpen, MapPin, Calculator, Shield, Home, TrendingUp, Receipt, Clock, FileText, BarChart3, Code2, FileCheck } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 
@@ -27,6 +27,7 @@ const CALCULATOR_LINKS = [
   { href: '/bonus-tax-calculator', label: 'Bonus Tax Calculator', icon: DollarSign },
   { href: '/virginia-tax-calculator', label: 'Virginia Tax Calculator', icon: MapPin },
   { href: '/relocation-calculator', label: 'Relocation Calculator', icon: MapPin },
+  { href: '/freefile-irs', label: 'IRS Free File Guide', icon: FileCheck },
 ];
 
 const RESOURCE_LINKS = [

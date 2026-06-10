@@ -23,6 +23,7 @@ import {
   Clock,
   FileText,
   Code2,
+  FileCheck,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { COMPONENT_KEY_TO_SLUG } from '@/lib/calculator-routes';
@@ -51,6 +52,7 @@ const CALC_ITEMS = [
 ];
 
 const MORE_LINKS = [
+  { key: 'freefile-irs', href: '/freefile-irs', label: 'IRS Free File', icon: FileCheck, desc: 'Free federal tax filing' },
   { key: 'compare', href: '/compare', label: 'Compare States', icon: ArrowRightLeft, desc: 'State vs state taxes' },
   { key: 'salary', href: '/salary', label: 'Salary After Tax', icon: TrendingUp, desc: 'Take-home pay by salary' },
   { key: 'tax-data', href: '/tax-data', label: 'Tax Data', icon: BarChart3, desc: 'All 50 states — cite & embed' },
@@ -151,7 +153,7 @@ export function Header() {
                 <div className="mb-3 flex items-center gap-2 px-2">
                   <Zap className="h-4 w-4 text-emerald-400" />
                   <span className="text-sm font-semibold text-foreground">Tax Calculators</span>
-                  <span className="ml-auto text-[10px] text-muted-foreground">20 tools</span>
+                  <span className="ml-auto text-[10px] text-muted-foreground">21 tools</span>
                 </div>
                 <div className="divider-glow mb-3" />
                 <div className="grid grid-cols-2 gap-1">

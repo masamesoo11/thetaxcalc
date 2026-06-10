@@ -260,6 +260,15 @@ const CALCULATOR_CARDS = [
     badgeColor: 'bg-blue-500/20 text-blue-400',
     gradient: 'from-blue-600/20 to-indigo-600/10',
   },
+  {
+    href: '/freefile-irs',
+    title: 'IRS Free File Guide',
+    desc: 'File federal taxes for free with IRS Free File. Eligibility checker, provider comparison, and step-by-step guide',
+    icon: FileText,
+    badge: '100K+ Searches',
+    badgeColor: 'bg-emerald-500/20 text-emerald-400',
+    gradient: 'from-emerald-600/20 to-teal-600/10',
+  },
 ];
 
 const TRUST_POINTS = [
@@ -284,7 +293,7 @@ const homeJsonLd = {
       '@type': 'WebPage',
       name: 'TheTaxCalc — Free 2026 Tax & Paycheck Calculator',
       description:
-        'Free 2026 tax calculators — paycheck, mortgage, 401(k), capital gains, and self-employment. 20 tools covering 7 states.',
+        'Free 2026 tax calculators — paycheck, mortgage, 401(k), capital gains, and self-employment. 21 tools covering 7 states.',
       url: SITE_URL,
       inLanguage: 'en-US',
       dateModified: '2026-06-06',
@@ -355,8 +364,8 @@ const homeJsonLd = {
       '@id': `${SITE_URL}/#itemlist`,
       '@type': 'ItemList',
       name: 'Free 2026 Tax Calculators',
-      description: '20 free tax calculators for 2026 covering paycheck, state tax, mortgage, retirement, and more.',
-      numberOfItems: 20,
+      description: '21 free tax calculators and tools for 2026 covering paycheck, state tax, mortgage, retirement, IRS Free File, and more.',
+      numberOfItems: 21,
       itemListElement: [
         { '@type': 'ListItem', position: 1, name: 'Paycheck Calculator', url: `${SITE_URL}/paycheck-calculator` },
         { '@type': 'ListItem', position: 2, name: 'Illinois Tax Calculator', url: `${SITE_URL}/illinois-tax-calculator` },
@@ -378,6 +387,7 @@ const homeJsonLd = {
         { '@type': 'ListItem', position: 18, name: 'Bonus Tax Calculator', url: `${SITE_URL}/bonus-tax-calculator` },
         { '@type': 'ListItem', position: 19, name: 'Lottery Tax Calculator', url: `${SITE_URL}/lottery-tax-calculator` },
         { '@type': 'ListItem', position: 20, name: 'Relocation Calculator', url: `${SITE_URL}/relocation-calculator` },
+        { '@type': 'ListItem', position: 21, name: 'IRS Free File Guide', url: `${SITE_URL}/freefile-irs` },
       ],
     },
 
@@ -514,7 +524,7 @@ export default function HomePage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-10 text-center">
             <h2 className="text-3xl font-bold text-foreground">
-              20 Free <span className="gradient-text">Tax Calculators</span>
+              21 Free <span className="gradient-text">Tax Tools</span>
             </h2>
             <p className="mt-3 text-muted-foreground max-w-xl mx-auto">
               Pick the one you need. They&apos;re all free, they all use 2026 data, and none of them will
@@ -755,7 +765,7 @@ export default function HomePage() {
                   <Calculator className="h-4 w-4 text-emerald-400" />
                 </div>
                 <h3 className="text-base font-semibold text-foreground">Tax Calculators</h3>
-                <span className="ml-auto text-[10px] font-semibold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 rounded-full px-2 py-0.5">20 Tools</span>
+                <span className="ml-auto text-[10px] font-semibold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 rounded-full px-2 py-0.5">21 Tools</span>
               </div>
               <ul className="space-y-2">
                 {CALCULATOR_CARDS.map((card) => (
