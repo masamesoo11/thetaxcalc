@@ -1639,3 +1639,29 @@ Stage Summary:
 - Created middleware.ts to override Cache-Control headers
 - CDN caching (cf-cache-status: HIT) requires Cloudflare Dashboard Cache Rule configuration
 - User action needed: Set up Cloudflare Cache Rule in dashboard for CDN edge caching
+
+---
+Task ID: 5
+Agent: Main Agent
+Task: SEO improvements for TheTaxCalc.com - Fix MathSolver GSC error, add Featured Snippets, improve titles, add HowTo schema
+
+Work Log:
+- Confirmed MathSolver JSON-LD was already removed from codebase (GSC error from cached version)
+- Added `snippetAnswer` field to CalculatorRouteConfig interface in calculator-routes.ts
+- Added Featured Snippet paragraphs for all 20 calculators (40-60 word direct answers)
+- Updated metaTitle for all 20 calculators with "Free" prefix and better CTR wording
+- Added HowTo schema helper function `howToJsonLd()` to _jsonld.ts
+- Added HowTo schema to all 21 calculator JSON-LD graphs (home + 20 types)
+- Updated page.tsx to display Featured Snippet paragraph after H1
+- Fixed mortgage-calculator separate page with same improvements (title, snippet, HowTo schema)
+- Verified all pages load correctly with Agent Browser
+- Verified JSON-LD contains: WebPage, BreadcrumbList, SoftwareApplication, HowTo, Person, FAQPage
+- Confirmed NO MathSolver in any JSON-LD output
+
+Stage Summary:
+- MathSolver GSC error will resolve on re-crawl (already removed from code)
+- All 20 calculators now have Featured Snippet paragraphs targeting position zero
+- All 20 calculators now have HowTo schema for rich results
+- All 20 metaTitles improved with "Free" + year + key differentiator
+- Mortgage page's separate route also updated with all improvements
+- Files modified: calculator-routes.ts, _jsonld.ts, page.tsx, mortgage-calculator/page.tsx

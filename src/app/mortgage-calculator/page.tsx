@@ -17,7 +17,7 @@ const CONFIG = {
   title: 'Mortgage Calculator 2026 | Payment & Amortization',
   description: 'Free mortgage calculator with extra payments, amortization schedule, and payoff comparison. Calculate monthly payment using M = P × [r(1+r)^n] / [(1+r)^n - 1]. No sign-up.',
   h1: 'Free Mortgage Calculator',
-  metaTitle: 'Mortgage Calculator 2026 | Amortization',
+  metaTitle: 'Free Mortgage Calculator 2026 — Amortization & Extra',
   metaDesc: 'Free mortgage calculator with extra payments, amortization & payoff comparison. No sign-up. Calculate monthly payment and interest.',
   keywords: [
     'free mortgage calculator', 'mortgage calculator', 'home loan calculator',
@@ -29,6 +29,7 @@ const CONFIG = {
   ogTitle: 'Mortgage Calculator 2026 — Amortization & Extra Payments',
   ogDescription: 'Free mortgage calculator. Monthly payment, amortization & extra payment savings. No sign-up.',
   canonicalPath: '/mortgage-calculator',
+  snippetAnswer: 'Your monthly mortgage payment is calculated using M = P × [r(1+r)^n] / [(1+r)^n - 1], where P is the loan amount, r is the monthly rate, and n is total payments. On a $280,000 loan at 6.5% for 30 years, your monthly payment is approximately $1,769.',
 } as const;
 
 // ─── Mortgage-only content (avoids importing _content.ts with all 20 calculators) ──
@@ -87,6 +88,12 @@ const MORTGAGE_JSONLD = {
     ]},
     { '@id': `${SITE_URL}/mortgage-calculator#webpage`, '@type': 'WebPage', name: 'Mortgage Calculator with Extra Payments', description: 'Free mortgage calculator with extra payments, amortization schedule, and payoff comparison for 2026.', url: `${SITE_URL}/mortgage-calculator`, inLanguage: 'en-US', dateModified: '2026-01-15', author: { '@id': `${SITE_URL}/mortgage-calculator#author` }, reviewedBy: { '@id': `${SITE_URL}/mortgage-calculator#author` }, publisher: { '@id': `${SITE_URL}/#organization` }, breadcrumb: { '@id': `${SITE_URL}/mortgage-calculator#breadcrumb` } },
     { '@id': `${SITE_URL}/mortgage-calculator#webapp`, '@type': 'SoftwareApplication', name: 'Mortgage Calculator with Extra Payments', url: `${SITE_URL}/mortgage-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: 0, priceCurrency: 'USD' }, author: { '@id': `${SITE_URL}/mortgage-calculator#author` }, publisher: { '@id': `${SITE_URL}/#organization` } },
+    { '@id': `${SITE_URL}/mortgage-calculator#howto`, '@type': 'HowTo', name: 'How to Calculate Your Mortgage Payment', step: [
+      { '@type': 'HowToStep', position: 1, name: 'Enter Loan Amount', text: 'Input the total mortgage principal' },
+      { '@type': 'HowToStep', position: 2, name: 'Set Interest Rate and Term', text: 'Enter the annual rate and choose 15, 20, or 30 years' },
+      { '@type': 'HowToStep', position: 3, name: 'Add Extra Payments', text: 'Optional: enter monthly extra payments to see payoff savings' },
+      { '@type': 'HowToStep', position: 4, name: 'View Amortization', text: 'See monthly payment breakdown, total interest, and payoff date' },
+    ] },
     {
       '@id': `${SITE_URL}/mortgage-calculator#faq`,
       '@type': 'FAQPage',
@@ -207,6 +214,10 @@ export default async function MortgageCalculatorPage() {
         </h1>
         <p className="mt-2 text-muted-foreground max-w-2xl mx-auto">
           {CONFIG.description}
+        </p>
+        {/* Featured Snippet — Direct answer for position zero */}
+        <p className="mt-3 text-sm text-foreground max-w-2xl mx-auto leading-relaxed">
+          {CONFIG.snippetAnswer}
         </p>
         <p className="mt-2 text-xs text-muted-foreground">
           Last reviewed: January 2026 · By {author.name}, {author.credentials} · Tax data verified against IRS Publication 15-T &amp; state revenue departments

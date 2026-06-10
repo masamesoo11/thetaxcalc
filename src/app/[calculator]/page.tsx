@@ -317,6 +317,10 @@ export default async function CalculatorPage({
         <p className="mt-2 text-muted-foreground max-w-2xl mx-auto">
           {config.description}
         </p>
+        {/* Featured Snippet — Direct answer for position zero */}
+        <p className="mt-3 text-sm text-foreground max-w-2xl mx-auto leading-relaxed">
+          {config.snippetAnswer}
+        </p>
         {/* E-E-A-T: Last reviewed date */}
         <p className="mt-2 text-xs text-muted-foreground">
           Last reviewed: January 2026 · Tax data verified against IRS Publication 15-T &amp; state revenue departments
