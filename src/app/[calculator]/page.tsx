@@ -93,6 +93,8 @@ const CALCULATOR_BLOG_SLUGS: Record<string, string[]> = {
   'property-tax': ['florida-vs-texas-tax-comparison', '2026-federal-tax-brackets-explained'],
   'bonus-tax': ['2026-federal-tax-brackets-explained', 'how-fica-taxes-work-2026'],
   virginia: ['2026-federal-tax-brackets-explained', 'florida-vs-texas-tax-comparison'],
+  'income-tax': ['2026-federal-tax-brackets-explained', 'how-fica-taxes-work-2026'],
+  'tax-calc': ['2026-federal-tax-brackets-explained', 'how-fica-taxes-work-2026'],
 };
 
 // ─── Helper: Other States for Comparison ──────────────────────────────────────
@@ -251,6 +253,20 @@ function getNextSteps(type: string): { href: string; icon: string; title: string
         { href: '/compare', icon: '\u{1F4CA}', title: 'State Comparison', description: 'Side-by-side tax comparison' },
         { href: '/mortgage-calculator', icon: '\u{1F3E0}', title: 'Mortgage Calculator', description: 'Housing costs in your new state' },
         { href: '/salary', icon: '\u{1F4B0}', title: 'Salary After Tax', description: 'Take-home for every salary level' },
+      ];
+    case 'income-tax':
+      return [
+        { href: '/tax-refund-calculator', icon: '\u{1F4CB}', title: 'Tax Refund Calculator', description: 'Will you get a refund or owe more?' },
+        { href: '/irs-withholding-calculator', icon: '\u{1F4B5}', title: 'IRS Withholding', description: 'Optimize your W-4 for accurate withholding' },
+        { href: '/self-employment-tax-calculator', icon: '\u{1F4BC}', title: 'Self-Employment Tax', description: 'Calculate SE tax for 1099 income' },
+        { href: '/salary', icon: '\u{1F4B0}', title: 'Salary After Tax', description: 'Take-home pay for every salary level' },
+      ];
+    case 'tax-calc':
+      return [
+        { href: '/paycheck-calculator', icon: '\u{1F4B5}', title: 'Paycheck Calculator', description: 'Full paycheck take-home breakdown' },
+        { href: '/tax-refund-calculator', icon: '\u{1F4CB}', title: 'Tax Refund Calculator', description: 'Estimate your 2026 refund' },
+        { href: '/compare', icon: '\u{1F4CA}', title: 'Compare States', description: 'Side-by-side tax comparison' },
+        { href: '/salary', icon: '\u{1F4B0}', title: 'Salary After Tax', description: 'Take-home pay at every level' },
       ];
     default:
       return [

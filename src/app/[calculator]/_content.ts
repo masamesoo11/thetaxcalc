@@ -19,6 +19,8 @@ import {
   PROPERTY_TAX_FAQS,
   BONUS_TAX_FAQS,
   VIRGINIA_FAQS,
+  INCOME_TAX_FAQS,
+  TAX_CALC_FAQS,
   FAQItem,
 } from '@/lib/faq-data';
 
@@ -546,6 +548,58 @@ export function getCalculatorContent(type: string): CalculatorContent {
           { slug: 'illinois-tax-calculator', label: 'Illinois Calculator (4.95%)' },
           { slug: 'california-tax-calculator', label: 'California Calculator' },
           { slug: 'relocation-calculator', label: 'Relocation Calculator' },
+          { slug: 'salary', label: 'Salary After Tax' },
+        ],
+      };
+    case 'income-tax':
+      return {
+        howItWorks: [
+          'Federal income tax uses a progressive bracket system for 2026. Your income is divided into chunks — each chunk gets taxed at a different rate. The brackets range from 10% on your first dollars earned up to 37% on income above $609,350 (single). Only the income within each bracket gets that rate, so a $75,000 earner pays 10% on the first $11,600, 12% on the next chunk, and 22% only on the amount above $47,150. Your effective rate — the blended average — is always lower than your marginal rate.',
+          'Before brackets apply, you subtract the standard deduction: $16,100 for single filers, $32,200 for married filing jointly, or $24,150 for head of household. About 90% of taxpayers take the standard deduction. If your mortgage interest, charitable contributions, and state/local taxes (SALT, capped at $10,000) add up to more, itemizing might save you more — but most people are better off with the standard.',
+          'On top of federal income tax, you pay <a href="/glossary">FICA</a>: 6.2% for Social Security (on income up to $176,100) and 1.45% for Medicare (no cap). Earn over $200,000? Add another 0.9% Medicare surtax on the amount above that. That\'s 7.65% total coming out of every paycheck, or 8.55% above $200K.',
+          'Then there\'s state income tax — which varies wildly. Texas and Florida charge 0%. Illinois charges a flat 4.95%. California goes up to 13.3%. New York hits 10.9% plus NYC tax if you live in the city. The state you live in can easily mean a difference of $5,000–$10,000 in annual take-home pay on a $100K salary. <a href="/compare">Compare your state</a> to see the difference.',
+          'Pre-tax deductions like <a href="/401k-retirement-calculator">401(k) contributions</a> and HSA deposits reduce your taxable income at both the federal and state level (but not FICA). Contribute $10,000 to a 401(k) on a $75K salary and you\'re only taxed on $65K — that could save you over $2,200 in federal tax alone if you\'re in the 22% bracket. The 2026 401(k) limit is $23,500.',
+        ],
+        keyRates: [
+          { label: 'Federal Tax Brackets', value: '10% – 37%' },
+          { label: 'Standard Deduction (Single)', value: '$16,100' },
+          { label: 'Standard Deduction (Married)', value: '$32,200' },
+          { label: 'FICA Rate', value: '7.65%' },
+          { label: 'Social Security Cap', value: '$176,100' },
+        ],
+        faqs: INCOME_TAX_FAQS,
+        relatedCalculators: [
+          { slug: 'paycheck-calculator', label: 'Paycheck Calculator' },
+          { slug: 'tax-refund-calculator', label: 'Tax Refund Calculator' },
+          { slug: 'irs-withholding-calculator', label: 'IRS Withholding Calculator' },
+          { slug: 'self-employment-tax-calculator', label: 'Self-Employment Calculator' },
+          { slug: 'capital-gains-calculator', label: 'Capital Gains Calculator' },
+          { slug: 'salary', label: 'Salary After Tax' },
+        ],
+      };
+    case 'tax-calc':
+      return {
+        howItWorks: [
+          'This tax calculator estimates your total tax burden — federal income tax, FICA, and state income tax — all in one place. Federal tax uses progressive brackets from 10% to 37%, with standard deductions of $16,100 (single) or $32,200 (married). FICA adds 7.65% for Social Security and Medicare. Then your state takes its cut, ranging from 0% in Texas and Florida to 13.3% in California.',
+          'The calculation is straightforward: start with your gross income, subtract pre-tax deductions (401(k), HSA), apply the standard deduction, then run through the federal brackets. Add FICA. Add state tax based on where you live. The result is your total tax burden and your take-home pay. Our calculator handles all 50 states with current 2026 rates.',
+          'Here\'s what surprises most people: your marginal rate and your effective rate are very different. A $75,000 single filer has a marginal rate of 22% — that\'s what hits your last dollar earned. But the effective federal rate is only about 11–12% because the first chunks of income are taxed at 10% and 12%. Knowing both numbers matters for financial decisions.',
+          'The biggest lever most people have? Pre-tax deductions. Every dollar you put in a <a href="/401k-retirement-calculator">401(k)</a> reduces your taxable income at both federal and state levels. On a $75K salary, contributing $10K to a 401(k) saves you roughly $2,200 in federal tax plus whatever your state tax would have been on that $10K. It\'s essentially a discount on your tax bill.',
+          'Curious how your state compares? <a href="/compare">Try our state comparison tool</a> to see take-home pay side by side. The difference between Texas (0% state tax) and California (up to 13.3%) on a $100K salary is roughly $8,000 per year — that\'s a car payment, a vacation, or a serious chunk of retirement savings.',
+        ],
+        keyRates: [
+          { label: 'Federal Tax Brackets', value: '10% – 37%' },
+          { label: 'Standard Deduction (Single)', value: '$16,100' },
+          { label: 'FICA Rate', value: '7.65% (Social Security + Medicare)' },
+          { label: 'State Tax Range', value: '0% (TX/FL) – 13.3% (CA)' },
+          { label: '2026 401(k) Limit', value: '$23,500' },
+        ],
+        faqs: TAX_CALC_FAQS,
+        relatedCalculators: [
+          { slug: 'paycheck-calculator', label: 'Paycheck Calculator' },
+          { slug: 'income-tax-calculator', label: 'Income Tax Calculator' },
+          { slug: 'tax-refund-calculator', label: 'Tax Refund Calculator' },
+          { slug: 'irs-withholding-calculator', label: 'IRS Withholding Calculator' },
+          { slug: 'compare', label: 'Compare States' },
           { slug: 'salary', label: 'Salary After Tax' },
         ],
       };

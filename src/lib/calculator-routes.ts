@@ -29,9 +29,9 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     description:
       'Free paycheck tax calculator for 2026. Calculate take-home pay after federal, FICA & state taxes. No sign-up required. Supports IL, TX, FL, CA, NY with 401(k) and HSA deductions.',
     h1: 'Free Paycheck Calculator',
-    metaTitle: 'Free Paycheck Calculator 2026 — Federal & State Tax',
+    metaTitle: 'Free Paycheck Calculator 2026 — Estimate Take-Home Pay',
     metaDesc:
-      'Free paycheck tax calculator for 2026. Calculate take-home pay after federal, FICA & state taxes. No sign-up. Covers IL, TX, FL, CA, NY.',
+      'Free paycheck calculator 2026. Estimate take-home pay after federal, FICA & state taxes. No sign-up. Covers all 50 states. 401(k) & HSA included.',
     keywords: [
       'free paycheck tax calculator', 'free tax calculator for paycheck',
       'free tax calculator federal and state', 'free tax calculator for 2026',
@@ -39,6 +39,11 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
       'after tax salary', 'net pay calculator', '2026 paycheck calculator',
       'FICA calculator', 'federal tax calculator',
       'free tax calculator no sign up', 'free tax calculator online',
+      'free paycheck calculator', 'free tax estimator', 'free wage calculator',
+      'free hourly paycheck calculator', 'free payroll calculator hourly',
+      'free hourly payroll calculator', 'free online paycheck calculator',
+      'free paycheck tax calculator', 'free paycheck estimator',
+      'free calculator for paycheck',
     ],
     componentKey: 'home',
     category: 'paycheck',
@@ -292,13 +297,17 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     h1: 'Free Self-Employment Tax Calculator',
     metaTitle: 'Free Self-Employment Tax Calculator 2026 — 15.3%',
     metaDesc:
-      'Free self-employment tax calculator 2026. 15.3% SE tax, 1099, quarterly estimates & half deduction. No sign-up required.',
+      'Free self-employment tax calculator 2026. 15.3% SE tax, 1099, quarterly estimates & half deduction. No sign-up. LLC & freelance.',
     keywords: [
       'free self employment tax calculator', 'free tax calculator for self employed',
       'free tax calculator for 1099', 'SE tax calculator', 'self employed tax',
       '15.3% self employment tax', 'quarterly estimated tax', 'freelance tax calculator',
       '1099 tax calculator', 'self employment tax rate 2026',
       'free tax calculator for 2026',
+      'free 1099 tax calculator', 'free tax calculator for self employed',
+      'free employee tax calculator', 'llc tax calculator free',
+      'free payroll tax calculator', 'free employee payroll tax calculator',
+      'freelance tax calculator free',
     ],
     componentKey: 'self-employment',
     category: 'business',
@@ -325,6 +334,8 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
       'sales tax by state', 'calculate sales tax', 'sales tax rate',
       'state sales tax rates 2026', 'sales tax percentage', 'combined sales tax rate',
       'free tax calculator for 2026', 'online sales tax calculator',
+      'free ifta calculator', 'free ifta tax calculator',
+      'free ifta fuel tax calculator', 'calculadora de taxes gratis',
     ],
     componentKey: 'sales-tax',
     category: 'paycheck',
@@ -343,9 +354,9 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     description:
       'Free tax refund calculator for 2026. Estimate your federal and state tax refund based on income, withholding, deductions, and credits. No sign-up required.',
     h1: 'Free Tax Refund Calculator',
-    metaTitle: 'Free Tax Refund Calculator 2026 — Federal & State',
+    metaTitle: 'Free Tax Refund Calculator 2026 — Estimate Refund',
     metaDesc:
-      'Free tax refund calculator 2026. Estimate your federal and state refund based on income, withholding, deductions & credits. No sign-up required.',
+      'Free tax refund calculator 2026. Estimate your refund based on income, withholding, deductions & credits. No sign-up. Covers all 50 states.',
     keywords: [
       'free tax refund calculator', 'tax refund calculator', 'tax refund calculator 2026',
       'free tax calculator for 2026', 'free tax estimator with deductions',
@@ -354,6 +365,12 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
       'free tax calculator with dependents', 'irs refund calculator',
       'free tax refund calculator 2026', 'tax refund calculator with itemized deductions',
       'child tax credit calculator', 'earned income credit calculator',
+      'free tax refund estimate calculator', 'free estimate tax refund',
+      'estimate my tax return free', 'free income tax refund calculator',
+      'free income tax refund estimator', 'free tax return estimate',
+      'free tax back calculator', 'free tax rebate calculator',
+      'tax refund free estimate', 'free tax return estimate calculator',
+      'turbotax income tax refund calculator',
     ],
     componentKey: 'tax-refund',
     category: 'paycheck',
@@ -380,6 +397,8 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
       'overtime calculator 2026', 'after tax overtime pay', 'overtime tax rate',
       '1.5x overtime calculator', 'time and a half calculator', 'overtime take home pay',
       'how much overtime is taxed', 'no tax on overtime calculator', 'free tax calculator for 2026',
+      'free hourly paycheck calculator', 'free hourly payroll calculator',
+      'free payroll calculator hourly',
     ],
     componentKey: 'overtime',
     category: 'paycheck',
@@ -450,15 +469,19 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     description:
       'Free IRS withholding calculator for 2026. Optimize your W-4 to avoid owing taxes or overpaying. Based on IRS Publication 15-T. No sign-up.',
     h1: 'Free IRS Withholding Calculator',
-    metaTitle: 'Free IRS Withholding Calculator 2026 — W-4 Help',
+    metaTitle: 'Free IRS Withholding Calculator 2026 — W-4 & FreeFile',
     metaDesc:
-      'Free IRS withholding calculator 2026. Optimize your W-4 to avoid penalties and overpayment. No sign-up required.',
+      'Free IRS withholding calculator 2026. Optimize W-4, avoid penalties & estimate refund. IRS FreeFile compatible. No sign-up.',
     keywords: [
       'free IRS withholding calculator', 'IRS withholding calculator', 'W-4 calculator',
       'withholding calculator 2026', 'tax withholding estimator', 'W-4 optimization',
       'paycheck withholding calculator', 'IRS tax withholding',
       'free tax calculator for 2026', 'federal withholding calculator',
       'adjust W-4 allowances', 'IRS Publication 15-T',
+      'free federal withholding calculator', 'free federal tax withholding calculator',
+      'irs free tax calculator', 'irs free tax estimator', 'freefile irs',
+      'free irs penalty and interest calculator', 'federal withholding calculator',
+      'irs tax withholding estimator',
     ],
     componentKey: 'irs-withholding',
     category: 'paycheck',
@@ -511,6 +534,8 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
       'supplemental wage calculator', '22% bonus tax', 'aggregate method bonus',
       'after tax bonus calculator', 'year end bonus tax',
       'free tax calculator for 2026', 'bonus withholding calculator',
+      'free payroll calculator', 'free paycheck stub calculator',
+      'calculate payroll check free', 'paystub calculator free',
     ],
     componentKey: 'bonus-tax',
     category: 'business',
@@ -548,6 +573,61 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     jsonLdType: 'virginia',
     snippetAnswer:
       "In Virginia, your take-home pay equals gross salary minus federal tax, FICA (7.65%), and progressive state income tax (2%–5.75%). Virginia's standard deduction is $8,500 for single filers. A $75,000 single filer pays approximately $3,460 in Virginia state tax.",
+  },
+  {
+    slug: 'income-tax-calculator',
+    title: 'Free Income Tax Calculator 2026 — Federal Brackets & Take-Home',
+    description:
+      'Free income tax calculator for 2026. Calculate your federal income tax using progressive brackets (10%–37%), standard deductions, FICA, and state tax. No sign-up required.',
+    h1: 'Free Income Tax Calculator',
+    metaTitle: 'Free Income Tax Calculator 2026 — Federal & State',
+    metaDesc:
+      'Free income tax calculator 2026. Estimate federal tax with brackets (10%–37%), standard deductions & FICA. No sign-up. All 50 states.',
+    keywords: [
+      'free income tax calculator', 'free income tax estimator', 'income tax calculator',
+      'free federal income tax calculator', 'free income tax estimate calculator',
+      'free calculator for income tax', 'free income tax return calculator',
+      'free salary tax calculator', 'income tax estimator', 'federal income tax calculator',
+      'free tax calculator 2026', 'free income tax refund calculator',
+      'free online tax calculator', 'free estimates income tax', 'irs income tax calculator',
+    ],
+    componentKey: 'income-tax',
+    category: 'paycheck',
+    breadcrumbLabel: 'Income Tax Calculator',
+    ogTitle: 'Free Income Tax Calculator 2026 — Federal & State',
+    ogDescription:
+      'Free income tax calculator 2026. Estimate federal tax with brackets, deductions & FICA. No sign-up.',
+    canonicalPath: '/income-tax-calculator',
+    jsonLdType: 'income-tax',
+    snippetAnswer:
+      'Your federal income tax is calculated using progressive brackets: 10% on the first $11,600 (single), 12% up to $47,150, 22% up to $100,525, and up to 37% on income above $609,350. After the $16,100 standard deduction, a $75,000 single filer owes about $7,670 in federal tax plus $5,738 in FICA.',
+  },
+  {
+    slug: 'tax-calculator',
+    title: 'Free Tax Calculator 2026 — Estimate Your Tax & Take-Home Pay',
+    description:
+      'Free tax calculator for 2026. Estimate your total federal and state tax burden with progressive brackets, FICA, standard deductions, and pre-tax contributions. No sign-up.',
+    h1: 'Free Tax Calculator',
+    metaTitle: 'Free Tax Calculator 2026 — Estimate Your Tax Refund',
+    metaDesc:
+      'Free tax calculator 2026. Estimate federal & state tax, FICA, deductions & refund. No sign-up. Covers all 50 states with 2026 brackets.',
+    keywords: [
+      'free tax estimator', 'free tax calculator', 'free tax calculate', 'free tax cal',
+      'free tax calculators', 'tax calculator 2026', 'free online tax estimator',
+      'free estimate tax refund', 'free tax return calculator', 'estimate my tax return free',
+      'free tax filing calculator', 'free tax estimate calculator', 'free tax refund estimate',
+      'free tax return estimate', 'tax estimator', 'free tax calculator online',
+    ],
+    componentKey: 'tax-calc',
+    category: 'paycheck',
+    breadcrumbLabel: 'Tax Calculator',
+    ogTitle: 'Free Tax Calculator 2026 — Estimate Your Tax & Refund',
+    ogDescription:
+      'Free tax calculator 2026. Estimate federal & state tax, FICA & refund. No sign-up. All 50 states.',
+    canonicalPath: '/tax-calculator',
+    jsonLdType: 'tax-calc',
+    snippetAnswer:
+      'Your total tax burden includes federal income tax (10%–37% progressive brackets), FICA (7.65% for Social Security and Medicare), and state income tax (0%–13.3% depending on state). A $75,000 single filer takes home approximately $61,600 in Texas (0% state tax) versus $58,000 in Illinois (4.95% flat tax).',
   },
 ];
 

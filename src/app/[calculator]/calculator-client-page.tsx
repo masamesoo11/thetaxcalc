@@ -159,6 +159,10 @@ export function CalculatorClientPage({ componentKey }: CalculatorClientPageProps
       return <BonusTaxCalculator />;
     case 'virginia':
       return <VirginiaCalculator />;
+    case 'income-tax':
+      return <PaycheckCalculator />;
+    case 'tax-calc':
+      return <PaycheckCalculator />;
     default:
       return <PaycheckCalculator />;
   }

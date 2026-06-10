@@ -1665,3 +1665,95 @@ Stage Summary:
 - All 20 metaTitles improved with "Free" + year + key differentiator
 - Mortgage page's separate route also updated with all improvements
 - Files modified: calculator-routes.ts, _jsonld.ts, page.tsx, mortgage-calculator/page.tsx
+
+---
+Task ID: 1
+Agent: Route Addition Agent
+Task: Add two new calculator routes (income-tax-calculator and tax-calculator) for SEO keyword targeting
+
+Work Log:
+- Added 2 new entries to `CALCULATOR_ROUTES` in `/src/lib/calculator-routes.ts`:
+  - `income-tax-calculator` (slug: 'income-tax-calculator', componentKey: 'income-tax', jsonLdType: 'income-tax')
+  - `tax-calculator` (slug: 'tax-calculator', componentKey: 'tax-calc', jsonLdType: 'tax-calc')
+  - Both use category: 'paycheck', same as other paycheck calculators
+- Added `INCOME_TAX_FAQS` and `TAX_CALC_FAQS` imports to `/src/app/[calculator]/_content.ts`
+- Added `case 'income-tax'` and `case 'tax-calc'` content blocks to `getCalculatorContent()` in `_content.ts`:
+  - Each includes howItWorks (5 paragraphs), keyRates (5 items), faqs, relatedCalculators (6 items)
+  - Content is SEO-optimized with HTML links to related calculators and glossary
+- Added `case 'income-tax'` and `case 'tax-calc'` to `CalculatorClientPage` switch in `calculator-client-page.tsx`:
+  - Both return `<PaycheckCalculator />` (same as 'home' case)
+- Added entries to `CALCULATOR_BLOG_SLUGS` in `page.tsx` for both new routes
+- Added `case 'income-tax'` and `case 'tax-calc'` to `getNextSteps()` function with relevant CTA links
+- `getFaqHeading()` already had cases for 'income-tax' and 'tax-calc' (confirmed)
+- Sitemap.ts auto-includes new routes via `CALCULATOR_ROUTES` iteration (confirmed)
+- Lint passes: no new errors introduced (4 pre-existing errors in unrelated files)
+
+Stage Summary:
+- 4 files modified: calculator-routes.ts, _content.ts, calculator-client-page.tsx, page.tsx
+- 2 new calculator routes available: /income-tax-calculator and /tax-calculator
+- Both routes use PaycheckCalculator component with distinct SEO framing
+- JSON-LD schemas and FAQ data already existed for these routes
+- Sitemap automatically includes the new routes
+---
+Task ID: 2
+Agent: Keyword Update Agent
+Task: Update keywords and metadata in calculator-routes.ts based on Google Ads Keyword Planner research
+
+Work Log:
+- Updated paycheck-calculator: changed metaTitle to "Free Paycheck Calculator 2026 — Estimate Take-Home Pay", updated metaDesc to mention "all 50 states" and "401(k) & HSA included", added 10 new keywords including 'free paycheck calculator', 'free tax estimator', 'free hourly paycheck calculator', 'free payroll calculator hourly', etc.
+- Updated tax-refund-calculator: changed metaTitle to "Free Tax Refund Calculator 2026 — Estimate Refund", updated metaDesc to mention "all 50 states", added 12 new keywords including 'free tax refund estimate calculator', 'estimate my tax return free', 'turbotax income tax refund calculator', etc.
+- Updated irs-withholding-calculator: changed metaTitle to "Free IRS Withholding Calculator 2026 — W-4 & FreeFile", updated metaDesc to mention "IRS FreeFile compatible", added 8 new keywords including 'freefile irs', 'free federal withholding calculator', 'irs tax withholding estimator', etc.
+- Updated self-employment-tax-calculator: updated metaDesc to mention "LLC & freelance", added 7 new keywords including 'free 1099 tax calculator', 'llc tax calculator free', 'freelance tax calculator free', etc.
+- Updated sales-tax-calculator: added 4 new keywords including 'free ifta calculator', 'calculadora de taxes gratis' (Spanish keyword targeting), etc.
+- Updated bonus-tax-calculator: added 4 new keywords including 'free payroll calculator', 'free paycheck stub calculator', 'paystub calculator free', etc.
+- Updated overtime-tax-calculator: added 3 new keywords including 'free hourly paycheck calculator', 'free hourly payroll calculator', 'free payroll calculator hourly'
+- Lint for calculator-routes.ts passes cleanly (0 errors, 0 warnings)
+- Pre-existing lint errors in other files (salary-client-page.tsx, product-hunt-banner.tsx, supervisor.js) are unrelated to this change
+
+Stage Summary:
+- 1 file modified: src/lib/calculator-routes.ts
+- 7 calculator route entries updated with keyword and metadata improvements
+- Total new keywords added: 48 across all 7 calculators
+- Key high-value keywords targeted: 'freefile irs' (100K-1M searches), 'free tax estimator' (10K-100K), 'free paycheck calculator' (1K-10K), 'calculadora de taxes gratis' (1K-10K, Spanish)
+- metaTitle and metaDesc updates focus on high-intent search terms and broader state coverage ("all 50 states")
+
+---
+Task ID: 1
+Agent: Main Agent
+Task: Add income-tax-calculator and tax-calculator routes targeting high-volume keywords from Google Ads research
+
+Work Log:
+- Analyzed keyword research data from Google Ads Keyword Planner (100+ keywords)
+- Added 2 new calculator routes to calculator-routes.ts: income-tax-calculator (targets "free income tax calculator" 1K-10K, "free federal income tax calculator" +900%) and tax-calculator (targets "free tax estimator" 10K-100K, "free tax calculator" variants)
+- Added content cases to _content.ts for both new pages (howItWorks, keyRates, FAQs, relatedCalculators)
+- Added component mappings in calculator-client-page.tsx (both use PaycheckCalculator component)
+- Added blog slug mappings, FAQ headings, and next steps to page.tsx
+- JSON-LD already existed in _jsonld.ts, FAQ data already existed in faq-data.ts
+- Both new pages verified: HTTP 200, correct titles, FAQPage + SoftwareApplication structured data
+
+Stage Summary:
+- 2 new routes added: /income-tax-calculator and /tax-calculator
+- Targets "free tax estimator" (10K-100K searches), "free income tax calculator" (1K-10K), "free federal income tax calculator" (+900% growth)
+- Uses existing PaycheckCalculator component with different SEO framing
+- All structured data valid: SoftwareApplication (not MathSolver), FAQPage, BreadcrumbList, HowTo, WebPage
+
+---
+Task ID: 2
+Agent: Main Agent
+Task: Update meta titles, descriptions, and keywords across ALL calculators based on keyword research
+
+Work Log:
+- Updated paycheck-calculator: metaTitle changed to "Estimate Take-Home Pay", added 10 new keywords including "free paycheck calculator", "free tax estimator", "free hourly paycheck calculator"
+- Updated tax-refund-calculator: metaTitle changed to "Estimate Refund", added 12 new keywords including "free tax refund calculator", "free estimate tax refund", "turbotax income tax refund calculator"
+- Updated irs-withholding-calculator: metaTitle changed to "W-4 & FreeFile", added 8 new keywords including "freefile irs" (100K-1M), "free federal withholding calculator" (+900%)
+- Updated self-employment-tax-calculator: added 7 new keywords including "free 1099 tax calculator", "llc tax calculator free", "freelance tax calculator free"
+- Updated sales-tax-calculator: added 4 new keywords including "calculadora de taxes gratis" (Spanish), "free ifta calculator"
+- Updated bonus-tax-calculator: added 4 new keywords including "free payroll calculator", "paystub calculator free"
+- Updated overtime-tax-calculator: added 3 new keywords including "free hourly payroll calculator"
+
+Stage Summary:
+- 48 new keywords added across 7 calculator routes
+- Key high-value additions: "freefile irs" (100K-1M searches), "free tax estimator" (10K-100K), "free federal withholding calculator" (+900% growth)
+- Meta titles optimized for CTR: "Estimate Take-Home Pay", "Estimate Refund", "W-4 & FreeFile"
+- Spanish keyword "calculadora de taxes gratis" added for bilingual search coverage
+- All pages verified: HTTP 200, correct meta titles showing in HTML
