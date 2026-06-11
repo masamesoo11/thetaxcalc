@@ -149,6 +149,20 @@ const OregonCalculator = dynamic(
   { loading: () => <CalculatorSkeleton />, ssr: false }
 );
 
+// Generic state calculator for the 27 remaining states
+const GenericStateCalculator = dynamic(
+  () => import('@/components/finance/generic-state-calculator').then((m) => ({ default: m.GenericStateCalculator })),
+  { loading: () => <CalculatorSkeleton />, ssr: false }
+);
+
+// Set of componentKeys handled by GenericStateCalculator
+const GENERIC_STATE_KEYS = new Set([
+  'alaska', 'nevada', 'southdakota', 'wyoming', 'newhampshire',
+  'idaho', 'kentucky', 'mississippi', 'utah',
+  'alabama', 'arkansas', 'connecticut', 'delaware', 'hawaii', 'iowa', 'kansas', 'louisiana', 'maine',
+  'montana', 'nebraska', 'newmexico', 'northdakota', 'oklahoma', 'rhodeisland', 'southcarolina', 'vermont', 'westvirginia',
+]);
+
 function CalculatorSkeleton() {
   return (
     <div className="space-y-6">
@@ -256,6 +270,10 @@ export function CalculatorClientPage({ componentKey }: CalculatorClientPageProps
     case 'oregon':
       return <OregonCalculator />;
     default:
+      // Check if it's a generic state key
+      if (GENERIC_STATE_KEYS.has(componentKey)) {
+        return <GenericStateCalculator stateKey={componentKey} />;
+      }
       return <PaycheckCalculator />;
   }
 }

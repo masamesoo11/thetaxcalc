@@ -1219,8 +1219,52 @@ export const OREGON_FAQS: FAQItem[] = [
       "Oregon has a unique 'kicker' law: if state revenue collections exceed projections by more than 2%, the surplus is refunded to taxpayers. The refund is a percentage of your prior year's tax liability. In recent years, kickers have ranged from 1-5% of state tax paid. It's not guaranteed every year, but when it happens, it's a nice bonus. Think of it as a retroactive tax cut when the state collects too much.",
   },
   {
-    question: 'How does Oregon's overall tax burden compare?',
+    question: "How does Oregon's overall tax burden compare?",
     answer:
       "Oregon's overall burden depends heavily on your income and spending patterns. High earners pay a lot in income tax (up to 9.9%), but the lack of sales tax saves thousands per year. For a $75K earner spending $40K annually, Oregon's income tax (~$5,200) minus sales tax savings (~$3,000) makes the effective burden comparable to a state charging around 3% income tax with 7.5% sales tax. Property taxes are moderate at about 0.90%. Oregon is expensive for high earners but reasonable for moderate earners who spend carefully.",
+  },
+];
+
+
+export const GENERIC_STATE_FAQS: FAQItem[] = [
+  {
+    question: 'How is my take-home pay calculated?',
+    answer:
+      "Your take-home pay is what's left after three main deductions come out of your gross salary. First, federal income tax applies using progressive brackets (10%–37%) after subtracting the standard deduction and any pre-tax contributions. Second, FICA takes 7.65% for Social Security (6.2%, capped at $184,500 in 2026) and Medicare (1.45%, no cap). Third, your state income tax is calculated based on your state's own brackets and deductions — which vary widely, from 0% in states like Texas and Florida to over 13% in California. Subtract all three, and what's left is your take-home pay.",
+  },
+  {
+    question: 'What is FICA and why is it deducted from my paycheck?',
+    answer:
+      "FICA stands for Federal Insurance Contributions Act, and it funds two major programs: Social Security and Medicare. You pay 6.2% of your wages for Social Security (capped at $184,500 in earnings for 2026) and 1.45% for Medicare with no income cap. That's 7.65% total coming out of every paycheck. Your employer matches that amount on their end, but you only see your 7.65% on your pay stub. If you earn over $200,000, there's an additional 0.9% Medicare surcharge on everything above that threshold. Unlike federal and state income taxes, FICA is not reduced by pre-tax contributions like 401(k) — only HSA and some other specific deductions can lower it.",
+  },
+  {
+    question: 'Does this calculator account for 401(k) and HSA contributions?',
+    answer:
+      "Yes. Traditional 401(k) contributions reduce your taxable income for both federal and state income tax purposes, which lowers the income tax withheld from each paycheck. For 2026, you can contribute up to $23,500 to a 401(k) ($31,000 if you're 50+, and even more with the 60–63 catch-up). HSA contributions also reduce your taxable income — the 2026 limit is $4,300 for individual coverage or $8,550 for family. Note that neither 401(k) nor HSA contributions reduce FICA taxes, only income taxes. Roth 401(k) contributions are made after-tax, so they don't reduce your current taxable income but grow tax-free.",
+  },
+  {
+    question: 'How does filing status affect my paycheck?',
+    answer:
+      "Your filing status determines your standard deduction and tax brackets, which directly impacts how much federal tax is withheld from each paycheck. For 2026, the standard deduction is $16,100 for single filers, $32,200 for married filing jointly, and $24,150 for head of household. A higher standard deduction means less taxable income and less tax withheld. Married filing jointly generally results in the lowest tax burden because the brackets are exactly double the single brackets, and the standard deduction is twice as large. Head of household falls in between. Your filing status also affects state taxes in most states that have an income tax.",
+  },
+  {
+    question: 'Is this calculator accurate for 2026?',
+    answer:
+      "Yes. This calculator uses the official 2026 federal tax brackets, standard deductions, and FICA rates published by the IRS, along with the most current state income tax brackets, deductions, and exemptions for each state. The federal brackets are adjusted annually for inflation, and the 2026 standard deduction is $16,100 for single filers, $32,200 for married filing jointly, and $24,150 for head of household. While the calculator provides accurate estimates based on these rates, it may not account for every possible deduction, credit, or special situation — for a complete tax picture, consult a tax professional.",
+  },
+  {
+    question: 'What is the difference between effective and marginal tax rate?',
+    answer:
+      "Your marginal tax rate is the rate applied to your last dollar of income — essentially the highest bracket you fall into. Your effective tax rate is your total tax divided by your total income, which gives you an overall average. For example, a single filer making $75,000 has a marginal rate of 22%, but because the first $11,600 is taxed at 10%, the next chunk at 12%, and only the amount above $47,150 at 22%, their effective federal rate is closer to 11–12%. The effective rate is what actually matters for understanding your overall tax burden, while the marginal rate tells you how much tax you'd save with each dollar of deduction.",
+  },
+  {
+    question: 'How do state taxes affect my take-home pay?',
+    answer:
+      "State income taxes can make a significant difference in your take-home pay, and the gap between states is massive. Nine states (Alaska, Florida, Nevada, New Hampshire, South Dakota, Tennessee, Texas, Washington, and Wyoming) charge no state income tax on wages. On the other end, California's top rate hits 13.3%. For a $100,000 salary, living in a no-tax state versus California could mean a difference of over $6,000 per year in take-home pay. Most states fall somewhere in between, with effective rates ranging from 2% to 7% for middle-income earners. Some states use flat rates (like Illinois at 4.95%) while most use progressive brackets similar to the federal system.",
+  },
+  {
+    question: 'Are there additional local taxes not shown here?',
+    answer:
+      "Yes, some cities and counties levy additional income taxes that this calculator may not include. The most notable example is New York City, which charges its own income tax of roughly 3.1%–3.9% on top of New York State's tax. Other cities with local income taxes include Philadelphia (about 3.75%), Detroit, and various municipalities in Ohio, Pennsylvania, Indiana, and Kentucky. Additionally, some states allow local school district taxes or occupational license fees. If you live in one of these areas, your actual take-home pay may be lower than what this calculator shows. Check your local government's website for any additional withholding requirements.",
   },
 ];
