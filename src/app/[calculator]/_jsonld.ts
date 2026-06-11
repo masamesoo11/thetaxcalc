@@ -19,6 +19,22 @@ import {
   PROPERTY_TAX_FAQS,
   BONUS_TAX_FAQS,
   VIRGINIA_FAQS,
+  NORTHCAROLINA_FAQS,
+  PENNSYLVANIA_FAQS,
+  OHIO_FAQS,
+  MICHIGAN_FAQS,
+  NEWJERSEY_FAQS,
+  COLORADO_FAQS,
+  ARIZONA_FAQS,
+  WASHINGTON_FAQS,
+  MASSACHUSETTS_FAQS,
+  INDIANA_FAQS,
+  TENNESSEE_FAQS,
+  MISSOURI_FAQS,
+  MARYLAND_FAQS,
+  WISCONSIN_FAQS,
+  MINNESOTA_FAQS,
+  OREGON_FAQS,
   INCOME_TAX_FAQS,
   TAX_CALC_FAQS,
 } from '@/lib/faq-data';
@@ -461,6 +477,262 @@ function getVirginiaJsonLd() {
   };
 }
 
+function getNorthCarolinaJsonLd() {
+  const author = getAuthorForCalculator('home');
+  const authorId = `${SITE_URL}/north-carolina-tax-calculator#author`;
+  const baseId = `${SITE_URL}/north-carolina-tax-calculator`;
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      webPageJsonLd(`${baseId}#webpage`, 'North Carolina Tax Calculator 2026', '/north-carolina-tax-calculator', 'Free North Carolina paycheck calculator with 4.5% flat state income tax for 2026 take-home pay estimates.', authorId),
+      breadcrumbJsonLd(`${baseId}#breadcrumb`, 'North Carolina Tax Calculator', '/north-carolina-tax-calculator'),
+      webAppJsonLd(`${baseId}#webapp`, 'North Carolina Tax Calculator 2026', '/north-carolina-tax-calculator', authorId),
+      { '@id': authorId, ...authorToJsonLd(author) },
+      faqsToJsonLd(NORTHCAROLINA_FAQS, `${baseId}#faq`),
+    ],
+  };
+}
+
+function getPennsylvaniaJsonLd() {
+  const author = getAuthorForCalculator('home');
+  const authorId = `${SITE_URL}/pennsylvania-tax-calculator#author`;
+  const baseId = `${SITE_URL}/pennsylvania-tax-calculator`;
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      webPageJsonLd(`${baseId}#webpage`, 'Pennsylvania Tax Calculator 2026', '/pennsylvania-tax-calculator', 'Free Pennsylvania paycheck calculator with 3.07% flat state income tax for 2026 take-home pay estimates.', authorId),
+      breadcrumbJsonLd(`${baseId}#breadcrumb`, 'Pennsylvania Tax Calculator', '/pennsylvania-tax-calculator'),
+      webAppJsonLd(`${baseId}#webapp`, 'Pennsylvania Tax Calculator 2026', '/pennsylvania-tax-calculator', authorId),
+      { '@id': authorId, ...authorToJsonLd(author) },
+      faqsToJsonLd(PENNSYLVANIA_FAQS, `${baseId}#faq`),
+    ],
+  };
+}
+
+function getOhioJsonLd() {
+  const author = getAuthorForCalculator('home');
+  const authorId = `${SITE_URL}/ohio-tax-calculator#author`;
+  const baseId = `${SITE_URL}/ohio-tax-calculator`;
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      webPageJsonLd(`${baseId}#webpage`, 'Ohio Tax Calculator 2026', '/ohio-tax-calculator', 'Free Ohio paycheck calculator with progressive state income tax (0%–3.99%) for 2026 take-home pay estimates.', authorId),
+      breadcrumbJsonLd(`${baseId}#breadcrumb`, 'Ohio Tax Calculator', '/ohio-tax-calculator'),
+      webAppJsonLd(`${baseId}#webapp`, 'Ohio Tax Calculator 2026', '/ohio-tax-calculator', authorId),
+      { '@id': authorId, ...authorToJsonLd(author) },
+      faqsToJsonLd(OHIO_FAQS, `${baseId}#faq`),
+    ],
+  };
+}
+
+function getMichiganJsonLd() {
+  const author = getAuthorForCalculator('home');
+  const authorId = `${SITE_URL}/michigan-tax-calculator#author`;
+  const baseId = `${SITE_URL}/michigan-tax-calculator`;
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      webPageJsonLd(`${baseId}#webpage`, 'Michigan Tax Calculator 2026', '/michigan-tax-calculator', 'Free Michigan paycheck calculator with 4.25% flat state income tax for 2026 take-home pay estimates.', authorId),
+      breadcrumbJsonLd(`${baseId}#breadcrumb`, 'Michigan Tax Calculator', '/michigan-tax-calculator'),
+      webAppJsonLd(`${baseId}#webapp`, 'Michigan Tax Calculator 2026', '/michigan-tax-calculator', authorId),
+      { '@id': authorId, ...authorToJsonLd(author) },
+      faqsToJsonLd(MICHIGAN_FAQS, `${baseId}#faq`),
+    ],
+  };
+}
+
+function getNewJerseyJsonLd() {
+  const author = getAuthorForCalculator('home');
+  const authorId = `${SITE_URL}/new-jersey-tax-calculator#author`;
+  const baseId = `${SITE_URL}/new-jersey-tax-calculator`;
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      webPageJsonLd(`${baseId}#webpage`, 'New Jersey Tax Calculator 2026', '/new-jersey-tax-calculator', 'Free New Jersey paycheck calculator with progressive state income tax (1.4%–10.75%) for 2026.', authorId),
+      breadcrumbJsonLd(`${baseId}#breadcrumb`, 'New Jersey Tax Calculator', '/new-jersey-tax-calculator'),
+      webAppJsonLd(`${baseId}#webapp`, 'New Jersey Tax Calculator 2026', '/new-jersey-tax-calculator', authorId),
+      { '@id': authorId, ...authorToJsonLd(author) },
+      faqsToJsonLd(NEWJERSEY_FAQS, `${baseId}#faq`),
+    ],
+  };
+}
+
+function getColoradoJsonLd() {
+  const author = getAuthorForCalculator('home');
+  const authorId = `${SITE_URL}/colorado-tax-calculator#author`;
+  const baseId = `${SITE_URL}/colorado-tax-calculator`;
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      webPageJsonLd(`${baseId}#webpage`, 'Colorado Tax Calculator 2026', '/colorado-tax-calculator', 'Free Colorado paycheck calculator with 4.4% flat state income tax for 2026 take-home pay estimates.', authorId),
+      breadcrumbJsonLd(`${baseId}#breadcrumb`, 'Colorado Tax Calculator', '/colorado-tax-calculator'),
+      webAppJsonLd(`${baseId}#webapp`, 'Colorado Tax Calculator 2026', '/colorado-tax-calculator', authorId),
+      { '@id': authorId, ...authorToJsonLd(author) },
+      faqsToJsonLd(COLORADO_FAQS, `${baseId}#faq`),
+    ],
+  };
+}
+
+function getArizonaJsonLd() {
+  const author = getAuthorForCalculator('home');
+  const authorId = `${SITE_URL}/arizona-tax-calculator#author`;
+  const baseId = `${SITE_URL}/arizona-tax-calculator`;
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      webPageJsonLd(`${baseId}#webpage`, 'Arizona Tax Calculator 2026', '/arizona-tax-calculator', 'Free Arizona paycheck calculator with 2.5% flat state income tax for 2026 take-home pay estimates.', authorId),
+      breadcrumbJsonLd(`${baseId}#breadcrumb`, 'Arizona Tax Calculator', '/arizona-tax-calculator'),
+      webAppJsonLd(`${baseId}#webapp`, 'Arizona Tax Calculator 2026', '/arizona-tax-calculator', authorId),
+      { '@id': authorId, ...authorToJsonLd(author) },
+      faqsToJsonLd(ARIZONA_FAQS, `${baseId}#faq`),
+    ],
+  };
+}
+
+function getWashingtonJsonLd() {
+  const author = getAuthorForCalculator('home');
+  const authorId = `${SITE_URL}/washington-tax-calculator#author`;
+  const baseId = `${SITE_URL}/washington-tax-calculator`;
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      webPageJsonLd(`${baseId}#webpage`, 'Washington Tax Calculator 2026', '/washington-tax-calculator', 'Free Washington paycheck calculator — no state income tax, only federal and FICA deductions for 2026.', authorId),
+      breadcrumbJsonLd(`${baseId}#breadcrumb`, 'Washington Tax Calculator', '/washington-tax-calculator'),
+      webAppJsonLd(`${baseId}#webapp`, 'Washington Tax Calculator 2026', '/washington-tax-calculator', authorId),
+      { '@id': authorId, ...authorToJsonLd(author) },
+      faqsToJsonLd(WASHINGTON_FAQS, `${baseId}#faq`),
+    ],
+  };
+}
+
+function getMassachusettsJsonLd() {
+  const author = getAuthorForCalculator('home');
+  const authorId = `${SITE_URL}/massachusetts-tax-calculator#author`;
+  const baseId = `${SITE_URL}/massachusetts-tax-calculator`;
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      webPageJsonLd(`${baseId}#webpage`, 'Massachusetts Tax Calculator 2026', '/massachusetts-tax-calculator', 'Free Massachusetts paycheck calculator with 5% flat state income tax and 9% surtax over $1M for 2026 take-home pay estimates.', authorId),
+      breadcrumbJsonLd(`${baseId}#breadcrumb`, 'Massachusetts Tax Calculator', '/massachusetts-tax-calculator'),
+      webAppJsonLd(`${baseId}#webapp`, 'Massachusetts Tax Calculator 2026', '/massachusetts-tax-calculator', authorId),
+      { '@id': authorId, ...authorToJsonLd(author) },
+      faqsToJsonLd(MASSACHUSETTS_FAQS, `${baseId}#faq`),
+    ],
+  };
+}
+
+function getIndianaJsonLd() {
+  const author = getAuthorForCalculator('home');
+  const authorId = `${SITE_URL}/indiana-tax-calculator#author`;
+  const baseId = `${SITE_URL}/indiana-tax-calculator`;
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      webPageJsonLd(`${baseId}#webpage`, 'Indiana Tax Calculator 2026', '/indiana-tax-calculator', 'Free Indiana paycheck calculator with 3.05% flat state income tax for 2026 take-home pay estimates.', authorId),
+      breadcrumbJsonLd(`${baseId}#breadcrumb`, 'Indiana Tax Calculator', '/indiana-tax-calculator'),
+      webAppJsonLd(`${baseId}#webapp`, 'Indiana Tax Calculator 2026', '/indiana-tax-calculator', authorId),
+      { '@id': authorId, ...authorToJsonLd(author) },
+      faqsToJsonLd(INDIANA_FAQS, `${baseId}#faq`),
+    ],
+  };
+}
+
+function getTennesseeJsonLd() {
+  const author = getAuthorForCalculator('home');
+  const authorId = `${SITE_URL}/tennessee-tax-calculator#author`;
+  const baseId = `${SITE_URL}/tennessee-tax-calculator`;
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      webPageJsonLd(`${baseId}#webpage`, 'Tennessee Tax Calculator 2026', '/tennessee-tax-calculator', 'Free Tennessee paycheck calculator — no state income tax, only federal and FICA deductions for 2026.', authorId),
+      breadcrumbJsonLd(`${baseId}#breadcrumb`, 'Tennessee Tax Calculator', '/tennessee-tax-calculator'),
+      webAppJsonLd(`${baseId}#webapp`, 'Tennessee Tax Calculator 2026', '/tennessee-tax-calculator', authorId),
+      { '@id': authorId, ...authorToJsonLd(author) },
+      faqsToJsonLd(TENNESSEE_FAQS, `${baseId}#faq`),
+    ],
+  };
+}
+
+function getMissouriJsonLd() {
+  const author = getAuthorForCalculator('home');
+  const authorId = `${SITE_URL}/missouri-tax-calculator#author`;
+  const baseId = `${SITE_URL}/missouri-tax-calculator`;
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      webPageJsonLd(`${baseId}#webpage`, 'Missouri Tax Calculator 2026', '/missouri-tax-calculator', 'Free Missouri paycheck calculator with progressive state income tax (2%–4.8%) for 2026 take-home pay estimates.', authorId),
+      breadcrumbJsonLd(`${baseId}#breadcrumb`, 'Missouri Tax Calculator', '/missouri-tax-calculator'),
+      webAppJsonLd(`${baseId}#webapp`, 'Missouri Tax Calculator 2026', '/missouri-tax-calculator', authorId),
+      { '@id': authorId, ...authorToJsonLd(author) },
+      faqsToJsonLd(MISSOURI_FAQS, `${baseId}#faq`),
+    ],
+  };
+}
+
+function getMarylandJsonLd() {
+  const author = getAuthorForCalculator('home');
+  const authorId = `${SITE_URL}/maryland-tax-calculator#author`;
+  const baseId = `${SITE_URL}/maryland-tax-calculator`;
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      webPageJsonLd(`${baseId}#webpage`, 'Maryland Tax Calculator 2026', '/maryland-tax-calculator', 'Free Maryland paycheck calculator with progressive state income tax (2%–5.75%) plus county taxes for 2026.', authorId),
+      breadcrumbJsonLd(`${baseId}#breadcrumb`, 'Maryland Tax Calculator', '/maryland-tax-calculator'),
+      webAppJsonLd(`${baseId}#webapp`, 'Maryland Tax Calculator 2026', '/maryland-tax-calculator', authorId),
+      { '@id': authorId, ...authorToJsonLd(author) },
+      faqsToJsonLd(MARYLAND_FAQS, `${baseId}#faq`),
+    ],
+  };
+}
+
+function getWisconsinJsonLd() {
+  const author = getAuthorForCalculator('home');
+  const authorId = `${SITE_URL}/wisconsin-tax-calculator#author`;
+  const baseId = `${SITE_URL}/wisconsin-tax-calculator`;
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      webPageJsonLd(`${baseId}#webpage`, 'Wisconsin Tax Calculator 2026', '/wisconsin-tax-calculator', 'Free Wisconsin paycheck calculator with progressive state income tax (3.54%–7.65%) for 2026 take-home pay estimates.', authorId),
+      breadcrumbJsonLd(`${baseId}#breadcrumb`, 'Wisconsin Tax Calculator', '/wisconsin-tax-calculator'),
+      webAppJsonLd(`${baseId}#webapp`, 'Wisconsin Tax Calculator 2026', '/wisconsin-tax-calculator', authorId),
+      { '@id': authorId, ...authorToJsonLd(author) },
+      faqsToJsonLd(WISCONSIN_FAQS, `${baseId}#faq`),
+    ],
+  };
+}
+
+function getMinnesotaJsonLd() {
+  const author = getAuthorForCalculator('home');
+  const authorId = `${SITE_URL}/minnesota-tax-calculator#author`;
+  const baseId = `${SITE_URL}/minnesota-tax-calculator`;
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      webPageJsonLd(`${baseId}#webpage`, 'Minnesota Tax Calculator 2026', '/minnesota-tax-calculator', 'Free Minnesota paycheck calculator with progressive state income tax (5.35%–9.85%) for 2026 take-home pay estimates.', authorId),
+      breadcrumbJsonLd(`${baseId}#breadcrumb`, 'Minnesota Tax Calculator', '/minnesota-tax-calculator'),
+      webAppJsonLd(`${baseId}#webapp`, 'Minnesota Tax Calculator 2026', '/minnesota-tax-calculator', authorId),
+      { '@id': authorId, ...authorToJsonLd(author) },
+      faqsToJsonLd(MINNESOTA_FAQS, `${baseId}#faq`),
+    ],
+  };
+}
+
+function getOregonJsonLd() {
+  const author = getAuthorForCalculator('home');
+  const authorId = `${SITE_URL}/oregon-tax-calculator#author`;
+  const baseId = `${SITE_URL}/oregon-tax-calculator`;
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      webPageJsonLd(`${baseId}#webpage`, 'Oregon Tax Calculator 2026', '/oregon-tax-calculator', 'Free Oregon paycheck calculator with progressive state income tax (4.75%–9.9%) and no sales tax for 2026.', authorId),
+      breadcrumbJsonLd(`${baseId}#breadcrumb`, 'Oregon Tax Calculator', '/oregon-tax-calculator'),
+      webAppJsonLd(`${baseId}#webapp`, 'Oregon Tax Calculator 2026', '/oregon-tax-calculator', authorId),
+      { '@id': authorId, ...authorToJsonLd(author) },
+      faqsToJsonLd(OREGON_FAQS, `${baseId}#faq`),
+    ],
+  };
+}
+
 function getIncomeTaxJsonLd() {
   const author = getAuthorForCalculator('home');
   const authorId = `${SITE_URL}/income-tax-calculator#author`;
@@ -514,6 +786,22 @@ export function getJsonLdForType(type: string) {
     case 'property-tax': return getPropertyTaxJsonLd();
     case 'bonus-tax': return getBonusTaxJsonLd();
     case 'virginia': return getVirginiaJsonLd();
+    case 'northcarolina': return getNorthCarolinaJsonLd();
+    case 'pennsylvania': return getPennsylvaniaJsonLd();
+    case 'ohio': return getOhioJsonLd();
+    case 'michigan': return getMichiganJsonLd();
+    case 'newjersey': return getNewJerseyJsonLd();
+    case 'colorado': return getColoradoJsonLd();
+    case 'arizona': return getArizonaJsonLd();
+    case 'washington': return getWashingtonJsonLd();
+    case 'massachusetts': return getMassachusettsJsonLd();
+    case 'indiana': return getIndianaJsonLd();
+    case 'tennessee': return getTennesseeJsonLd();
+    case 'missouri': return getMissouriJsonLd();
+    case 'maryland': return getMarylandJsonLd();
+    case 'wisconsin': return getWisconsinJsonLd();
+    case 'minnesota': return getMinnesotaJsonLd();
+    case 'oregon': return getOregonJsonLd();
     case 'income-tax': return getIncomeTaxJsonLd();
     case 'tax-calc': return getTaxCalcJsonLd();
     default: return getHomeJsonLd();

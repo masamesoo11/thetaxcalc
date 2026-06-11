@@ -485,6 +485,390 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     jsonLdType: 'bonus-tax',
   },
   {
+    slug: 'north-carolina-tax-calculator',
+    title: 'North Carolina Tax Calculator 2026 | 4.5% Flat Rate',
+    description:
+      'Calculate your 2026 North Carolina take-home pay after 4.5% flat state tax, federal tax & FICA. Standard deduction $12,750. No sign-up.',
+    h1: 'Free North Carolina Tax Calculator',
+    metaTitle: 'NC Tax Calculator 2026 | 4.5% Flat',
+    metaDesc:
+      'Free North Carolina tax calculator 2026. Take-home pay after 4.5% flat tax and $12,750 standard deduction. No sign-up.',
+    keywords: [
+      'free North Carolina tax calculator', 'North Carolina tax calculator', 'NC paycheck calculator',
+      'North Carolina income tax', 'North Carolina 4.5% tax', 'North Carolina take home pay',
+      'North Carolina salary calculator', 'NC flat tax rate',
+      'free tax calculator for 2026', 'NC state tax 2026',
+    ],
+    componentKey: 'northcarolina',
+    category: 'paycheck',
+    breadcrumbLabel: 'North Carolina',
+    ogTitle: 'North Carolina Tax Calculator 2026 — 4.5% Flat Rate',
+    ogDescription:
+      'Free North Carolina tax calculator. Take-home pay after 4.5% flat state tax and federal tax. No sign-up. 2026 data.',
+    canonicalPath: '/north-carolina-tax-calculator',
+    jsonLdType: 'northcarolina',
+  },
+  {
+    slug: 'pennsylvania-tax-calculator',
+    title: 'Pennsylvania Tax Calculator 2026 | 3.07% Flat Rate',
+    description:
+      'Calculate your 2026 Pennsylvania take-home pay after 3.07% flat state tax, federal tax & FICA. No state deductions. No sign-up.',
+    h1: 'Free Pennsylvania Tax Calculator',
+    metaTitle: 'PA Tax Calculator 2026 | 3.07% Flat',
+    metaDesc:
+      'Free Pennsylvania tax calculator 2026. Take-home pay after 3.07% flat tax. No state deductions. No sign-up.',
+    keywords: [
+      'free Pennsylvania tax calculator', 'Pennsylvania tax calculator', 'PA paycheck calculator',
+      'Pennsylvania income tax', 'Pennsylvania 3.07% tax', 'Pennsylvania take home pay',
+      'Pennsylvania salary calculator', 'PA flat tax rate',
+      'free tax calculator for 2026', 'PA state tax 2026',
+    ],
+    componentKey: 'pennsylvania',
+    category: 'paycheck',
+    breadcrumbLabel: 'Pennsylvania',
+    ogTitle: 'Pennsylvania Tax Calculator 2026 — 3.07% Flat Rate',
+    ogDescription:
+      'Free Pennsylvania tax calculator. Take-home pay after 3.07% flat state tax. No sign-up. 2026 data.',
+    canonicalPath: '/pennsylvania-tax-calculator',
+    jsonLdType: 'pennsylvania',
+  },
+  {
+    slug: 'ohio-tax-calculator',
+    title: 'Ohio Tax Calculator 2026 | 0% to 3.99% Progressive',
+    description:
+      'Calculate your 2026 Ohio take-home pay after progressive state tax (0%–3.99%), federal tax & FICA. First $26,050 tax-free. No sign-up.',
+    h1: 'Free Ohio Tax Calculator',
+    metaTitle: 'OH Tax Calculator 2026 | 0-3.99%',
+    metaDesc:
+      'Free Ohio tax calculator 2026. Take-home pay after progressive tax (0%–3.99%). First $26,050 tax-free. No sign-up.',
+    keywords: [
+      'free Ohio tax calculator', 'Ohio tax calculator', 'OH paycheck calculator',
+      'Ohio income tax', 'Ohio 3.99% tax', 'Ohio take home pay',
+      'Ohio salary calculator', 'Ohio progressive tax',
+      'free tax calculator for 2026', 'Ohio state tax 2026',
+    ],
+    componentKey: 'ohio',
+    category: 'paycheck',
+    breadcrumbLabel: 'Ohio',
+    ogTitle: 'Ohio Tax Calculator 2026 — 0% to 3.99% Progressive',
+    ogDescription:
+      'Free Ohio tax calculator. Take-home pay after progressive tax (0%–3.99%). No sign-up. 2026 data.',
+    canonicalPath: '/ohio-tax-calculator',
+    jsonLdType: 'ohio',
+  },
+  {
+    slug: 'michigan-tax-calculator',
+    title: 'Michigan Tax Calculator 2026 | 4.25% Flat Rate',
+    description:
+      'Calculate your 2026 Michigan take-home pay after 4.25% flat state tax, federal tax & FICA. $5,500 personal exemption. No sign-up.',
+    h1: 'Free Michigan Tax Calculator',
+    metaTitle: 'MI Tax Calculator 2026 | 4.25% Flat',
+    metaDesc:
+      'Free Michigan tax calculator 2026. Take-home pay after 4.25% flat tax and $5,500 personal exemption. No sign-up.',
+    keywords: [
+      'free Michigan tax calculator', 'Michigan tax calculator', 'MI paycheck calculator',
+      'Michigan income tax', 'Michigan 4.25% tax', 'Michigan take home pay',
+      'Michigan salary calculator', 'Michigan flat tax rate',
+      'free tax calculator for 2026', 'MI state tax 2026',
+    ],
+    componentKey: 'michigan',
+    category: 'paycheck',
+    breadcrumbLabel: 'Michigan',
+    ogTitle: 'Michigan Tax Calculator 2026 — 4.25% Flat Rate',
+    ogDescription:
+      'Free Michigan tax calculator. Take-home pay after 4.25% flat state tax and federal tax. No sign-up. 2026 data.',
+    canonicalPath: '/michigan-tax-calculator',
+    jsonLdType: 'michigan',
+  },
+  {
+    slug: 'new-jersey-tax-calculator',
+    title: 'New Jersey Tax Calculator 2026 | 1.4% to 10.75%',
+    description:
+      'Calculate your 2026 New Jersey take-home pay after progressive state tax (1.4%–10.75%), federal tax & FICA. No sign-up.',
+    h1: 'Free New Jersey Tax Calculator',
+    metaTitle: 'NJ Tax Calculator 2026 | 1.4-10.75%',
+    metaDesc:
+      'Free New Jersey tax calculator 2026. Take-home pay after progressive tax (1.4%–10.75%). No sign-up.',
+    keywords: [
+      'free New Jersey tax calculator', 'New Jersey tax calculator', 'NJ paycheck calculator',
+      'New Jersey income tax', 'New Jersey 10.75% tax', 'New Jersey take home pay',
+      'New Jersey salary calculator', 'NJ progressive tax',
+      'free tax calculator for 2026', 'NJ state tax 2026',
+    ],
+    componentKey: 'newjersey',
+    category: 'paycheck',
+    breadcrumbLabel: 'New Jersey',
+    ogTitle: 'New Jersey Tax Calculator 2026 — 1.4% to 10.75%',
+    ogDescription:
+      'Free New Jersey tax calculator. Take-home pay after progressive tax (1.4%–10.75%). No sign-up. 2026 data.',
+    canonicalPath: '/new-jersey-tax-calculator',
+    jsonLdType: 'newjersey',
+  },
+  {
+    slug: 'colorado-tax-calculator',
+    title: 'Colorado Tax Calculator 2026 | 4.4% Flat Rate',
+    description:
+      'Calculate your 2026 Colorado take-home pay after 4.4% flat state tax, federal tax & FICA. Uses federal taxable income. No sign-up.',
+    h1: 'Free Colorado Tax Calculator',
+    metaTitle: 'CO Tax Calculator 2026 | 4.4% Flat',
+    metaDesc:
+      'Free Colorado tax calculator 2026. Take-home pay after 4.4% flat tax. Uses federal taxable income. No sign-up.',
+    keywords: [
+      'free Colorado tax calculator', 'Colorado tax calculator', 'CO paycheck calculator',
+      'Colorado income tax', 'Colorado 4.4% tax', 'Colorado take home pay',
+      'Colorado salary calculator', 'Colorado flat tax rate',
+      'free tax calculator for 2026', 'CO state tax 2026',
+    ],
+    componentKey: 'colorado',
+    category: 'paycheck',
+    breadcrumbLabel: 'Colorado',
+    ogTitle: 'Colorado Tax Calculator 2026 — 4.4% Flat Rate',
+    ogDescription:
+      'Free Colorado tax calculator. Take-home pay after 4.4% flat state tax and federal tax. No sign-up. 2026 data.',
+    canonicalPath: '/colorado-tax-calculator',
+    jsonLdType: 'colorado',
+  },
+  {
+    slug: 'arizona-tax-calculator',
+    title: 'Arizona Tax Calculator 2026 | 2.5% Flat Rate',
+    description:
+      'Calculate your 2026 Arizona take-home pay after 2.5% flat state tax, federal tax & FICA. One of the lowest state rates. No sign-up.',
+    h1: 'Free Arizona Tax Calculator',
+    metaTitle: 'AZ Tax Calculator 2026 | 2.5% Flat',
+    metaDesc:
+      'Free Arizona tax calculator 2026. Take-home pay after 2.5% flat tax. One of the lowest state rates. No sign-up.',
+    keywords: [
+      'free Arizona tax calculator', 'Arizona tax calculator', 'AZ paycheck calculator',
+      'Arizona income tax', 'Arizona 2.5% tax', 'Arizona take home pay',
+      'Arizona salary calculator', 'Arizona flat tax rate',
+      'free tax calculator for 2026', 'AZ state tax 2026',
+    ],
+    componentKey: 'arizona',
+    category: 'paycheck',
+    breadcrumbLabel: 'Arizona',
+    ogTitle: 'Arizona Tax Calculator 2026 — 2.5% Flat Rate',
+    ogDescription:
+      'Free Arizona tax calculator. Take-home pay after 2.5% flat state tax. No sign-up. 2026 data.',
+    canonicalPath: '/arizona-tax-calculator',
+    jsonLdType: 'arizona',
+  },
+  {
+    slug: 'washington-tax-calculator',
+    title: '0% Income Tax — Washington Tax Calculator 2026',
+    description:
+      'Free Washington tax calculator for 2026. Calculate take-home pay with 0% state income tax. Includes property tax & sales tax analysis. No sign-up.',
+    h1: 'Free Washington Tax Calculator',
+    metaTitle: '0% Income Tax — Washington Tax Calculator 2026',
+    metaDesc:
+      'Free Washington tax calculator 2026. Take-home pay with 0% state tax. Property & sales tax analysis. No sign-up.',
+    keywords: [
+      'free Washington tax calculator', 'Washington tax calculator', 'WA paycheck calculator',
+      'Washington no income tax', 'Washington take home pay', 'Washington salary calculator',
+      'Washington property tax', 'Washington sales tax',
+      'free tax calculator for 2026', 'WA state tax 2026',
+    ],
+    componentKey: 'washington',
+    category: 'paycheck',
+    breadcrumbLabel: 'Washington',
+    ogTitle: '0% Income Tax — Washington Tax Calculator 2026',
+    ogDescription:
+      'Free Washington tax calculator. Take-home pay with 0% state tax. Property & sales tax. No sign-up.',
+    canonicalPath: '/washington-tax-calculator',
+    jsonLdType: 'washington',
+  },
+  {
+    slug: 'massachusetts-tax-calculator',
+    title: 'Massachusetts Tax Calculator 2026 | 5% Flat & 9% Surtax',
+    description:
+      'Calculate your 2026 Massachusetts take-home pay after 5% flat state tax (9% surtax over $1M), federal tax & FICA. No sign-up.',
+    h1: 'Free Massachusetts Tax Calculator',
+    metaTitle: 'Massachusetts Tax Calculator 2026 | 5% Flat & 9% Surtax',
+    metaDesc:
+      'Free Massachusetts tax calculator 2026. Take-home pay after 5% flat tax and 9% surtax over $1M. No sign-up.',
+    keywords: [
+      'free Massachusetts tax calculator', 'Massachusetts tax calculator', 'MA paycheck calculator',
+      'Massachusetts income tax', 'Massachusetts 5% tax', 'Massachusetts 9% surtax',
+      'Massachusetts take home pay', 'Massachusetts salary calculator', 'MA flat tax rate',
+      'free tax calculator for 2026', 'MA state tax 2026',
+    ],
+    componentKey: 'massachusetts',
+    category: 'paycheck',
+    breadcrumbLabel: 'Massachusetts',
+    ogTitle: 'Massachusetts Tax Calculator 2026 — 5% Flat & 9% Surtax',
+    ogDescription:
+      'Free Massachusetts tax calculator. Take-home pay after 5% flat state tax and 9% surtax over $1M. No sign-up. 2026 data.',
+    canonicalPath: '/massachusetts-tax-calculator',
+    jsonLdType: 'massachusetts',
+  },
+  {
+    slug: 'indiana-tax-calculator',
+    title: 'Indiana Tax Calculator 2026 | 3.05% Flat Rate',
+    description:
+      'Calculate your 2026 Indiana take-home pay after 3.05% flat state tax, federal tax & FICA. No sign-up.',
+    h1: 'Free Indiana Tax Calculator',
+    metaTitle: 'Indiana Tax Calculator 2026 | 3.05% Flat Rate',
+    metaDesc:
+      'Free Indiana tax calculator 2026. Take-home pay after 3.05% flat tax. No sign-up.',
+    keywords: [
+      'free Indiana tax calculator', 'Indiana tax calculator', 'IN paycheck calculator',
+      'Indiana income tax', 'Indiana 3.05% tax', 'Indiana take home pay',
+      'Indiana salary calculator', 'IN flat tax rate',
+      'free tax calculator for 2026', 'IN state tax 2026',
+    ],
+    componentKey: 'indiana',
+    category: 'paycheck',
+    breadcrumbLabel: 'Indiana',
+    ogTitle: 'Indiana Tax Calculator 2026 — 3.05% Flat Rate',
+    ogDescription:
+      'Free Indiana tax calculator. Take-home pay after 3.05% flat state tax. No sign-up. 2026 data.',
+    canonicalPath: '/indiana-tax-calculator',
+    jsonLdType: 'indiana',
+  },
+  {
+    slug: 'tennessee-tax-calculator',
+    title: '0% Income Tax — Tennessee Tax Calculator 2026',
+    description:
+      'Free Tennessee tax calculator for 2026. Calculate take-home pay with 0% state income tax. Includes property tax & sales tax analysis. No sign-up.',
+    h1: 'Free Tennessee Tax Calculator',
+    metaTitle: '0% Income Tax — Tennessee Tax Calculator 2026',
+    metaDesc:
+      'Free Tennessee tax calculator 2026. Take-home pay with 0% state tax. Property & sales tax analysis. No sign-up.',
+    keywords: [
+      'free Tennessee tax calculator', 'Tennessee tax calculator', 'TN paycheck calculator',
+      'Tennessee no income tax', 'Tennessee take home pay', 'Tennessee salary calculator',
+      'Tennessee property tax', 'Tennessee sales tax',
+      'free tax calculator for 2026', 'TN state tax 2026',
+    ],
+    componentKey: 'tennessee',
+    category: 'paycheck',
+    breadcrumbLabel: 'Tennessee',
+    ogTitle: '0% Income Tax — Tennessee Tax Calculator 2026',
+    ogDescription:
+      'Free Tennessee tax calculator. Take-home pay with 0% state tax. Property & sales tax. No sign-up.',
+    canonicalPath: '/tennessee-tax-calculator',
+    jsonLdType: 'tennessee',
+  },
+  {
+    slug: 'missouri-tax-calculator',
+    title: 'Missouri Tax Calculator 2026 | 2-4.8% Rate',
+    description:
+      'Calculate your 2026 Missouri take-home pay after progressive state tax (2%–4.8%), federal tax & FICA. No sign-up.',
+    h1: 'Free Missouri Tax Calculator',
+    metaTitle: 'Missouri Tax Calculator 2026 | 2-4.8% Rate',
+    metaDesc:
+      'Free Missouri tax calculator 2026. Take-home pay after progressive tax (2%–4.8%). No sign-up.',
+    keywords: [
+      'free Missouri tax calculator', 'Missouri tax calculator', 'MO paycheck calculator',
+      'Missouri income tax', 'Missouri 4.8% tax', 'Missouri take home pay',
+      'Missouri salary calculator', 'MO progressive tax',
+      'free tax calculator for 2026', 'MO state tax 2026',
+    ],
+    componentKey: 'missouri',
+    category: 'paycheck',
+    breadcrumbLabel: 'Missouri',
+    ogTitle: 'Missouri Tax Calculator 2026 — 2%-4.8% Progressive',
+    ogDescription:
+      'Free Missouri tax calculator. Take-home pay after progressive tax (2%–4.8%). No sign-up. 2026 data.',
+    canonicalPath: '/missouri-tax-calculator',
+    jsonLdType: 'missouri',
+  },
+  {
+    slug: 'maryland-tax-calculator',
+    title: 'Maryland Tax Calculator 2026 | 2-5.75% + County Tax',
+    description:
+      'Calculate your 2026 Maryland take-home pay after progressive state tax (2%–5.75%) plus county taxes, federal tax & FICA. No sign-up.',
+    h1: 'Free Maryland Tax Calculator',
+    metaTitle: 'Maryland Tax Calculator 2026 | 2-5.75% + County Tax',
+    metaDesc:
+      'Free Maryland tax calculator 2026. Take-home pay after progressive tax (2%–5.75%) plus county taxes. No sign-up.',
+    keywords: [
+      'free Maryland tax calculator', 'Maryland tax calculator', 'MD paycheck calculator',
+      'Maryland income tax', 'Maryland 5.75% tax', 'Maryland take home pay',
+      'Maryland salary calculator', 'Maryland county tax',
+      'free tax calculator for 2026', 'MD state tax 2026',
+    ],
+    componentKey: 'maryland',
+    category: 'paycheck',
+    breadcrumbLabel: 'Maryland',
+    ogTitle: 'Maryland Tax Calculator 2026 — 2%-5.75% + County Tax',
+    ogDescription:
+      'Free Maryland tax calculator. Take-home pay after progressive tax (2%–5.75%) plus county taxes. No sign-up. 2026 data.',
+    canonicalPath: '/maryland-tax-calculator',
+    jsonLdType: 'maryland',
+  },
+  {
+    slug: 'wisconsin-tax-calculator',
+    title: 'Wisconsin Tax Calculator 2026 | 3.54-7.65%',
+    description:
+      'Calculate your 2026 Wisconsin take-home pay after progressive state tax (3.54%–7.65%), federal tax & FICA. No sign-up.',
+    h1: 'Free Wisconsin Tax Calculator',
+    metaTitle: 'Wisconsin Tax Calculator 2026 | 3.54-7.65%',
+    metaDesc:
+      'Free Wisconsin tax calculator 2026. Take-home pay after progressive tax (3.54%–7.65%). No sign-up.',
+    keywords: [
+      'free Wisconsin tax calculator', 'Wisconsin tax calculator', 'WI paycheck calculator',
+      'Wisconsin income tax', 'Wisconsin 7.65% tax', 'Wisconsin take home pay',
+      'Wisconsin salary calculator', 'WI progressive tax',
+      'free tax calculator for 2026', 'WI state tax 2026',
+    ],
+    componentKey: 'wisconsin',
+    category: 'paycheck',
+    breadcrumbLabel: 'Wisconsin',
+    ogTitle: 'Wisconsin Tax Calculator 2026 — 3.54%-7.65% Progressive',
+    ogDescription:
+      'Free Wisconsin tax calculator. Take-home pay after progressive tax (3.54%–7.65%). No sign-up. 2026 data.',
+    canonicalPath: '/wisconsin-tax-calculator',
+    jsonLdType: 'wisconsin',
+  },
+  {
+    slug: 'minnesota-tax-calculator',
+    title: 'Minnesota Tax Calculator 2026 | 5.35-9.85%',
+    description:
+      'Calculate your 2026 Minnesota take-home pay after progressive state tax (5.35%–9.85%), federal tax & FICA. No sign-up.',
+    h1: 'Free Minnesota Tax Calculator',
+    metaTitle: 'Minnesota Tax Calculator 2026 | 5.35-9.85%',
+    metaDesc:
+      'Free Minnesota tax calculator 2026. Take-home pay after progressive tax (5.35%–9.85%). No sign-up.',
+    keywords: [
+      'free Minnesota tax calculator', 'Minnesota tax calculator', 'MN paycheck calculator',
+      'Minnesota income tax', 'Minnesota 9.85% tax', 'Minnesota take home pay',
+      'Minnesota salary calculator', 'MN progressive tax',
+      'free tax calculator for 2026', 'MN state tax 2026',
+    ],
+    componentKey: 'minnesota',
+    category: 'paycheck',
+    breadcrumbLabel: 'Minnesota',
+    ogTitle: 'Minnesota Tax Calculator 2026 — 5.35%-9.85% Progressive',
+    ogDescription:
+      'Free Minnesota tax calculator. Take-home pay after progressive tax (5.35%–9.85%). No sign-up. 2026 data.',
+    canonicalPath: '/minnesota-tax-calculator',
+    jsonLdType: 'minnesota',
+  },
+  {
+    slug: 'oregon-tax-calculator',
+    title: 'Oregon Tax Calculator 2026 | 4.75-9.9% Rate',
+    description:
+      'Calculate your 2026 Oregon take-home pay after progressive state tax (4.75%–9.9%), federal tax & FICA. No sales tax. No sign-up.',
+    h1: 'Free Oregon Tax Calculator',
+    metaTitle: 'Oregon Tax Calculator 2026 | 4.75-9.9% Rate',
+    metaDesc:
+      'Free Oregon tax calculator 2026. Take-home pay after progressive tax (4.75%–9.9%). No sales tax. No sign-up.',
+    keywords: [
+      'free Oregon tax calculator', 'Oregon tax calculator', 'OR paycheck calculator',
+      'Oregon income tax', 'Oregon 9.9% tax', 'Oregon take home pay',
+      'Oregon salary calculator', 'Oregon no sales tax',
+      'free tax calculator for 2026', 'OR state tax 2026',
+    ],
+    componentKey: 'oregon',
+    category: 'paycheck',
+    breadcrumbLabel: 'Oregon',
+    ogTitle: 'Oregon Tax Calculator 2026 — 4.75%-9.9% Progressive',
+    ogDescription:
+      'Free Oregon tax calculator. Take-home pay after progressive tax (4.75%–9.9%). No sales tax. No sign-up. 2026 data.',
+    canonicalPath: '/oregon-tax-calculator',
+    jsonLdType: 'oregon',
+  },
+  {
     slug: 'virginia-tax-calculator',
     title: 'Virginia Tax Calculator 2026 | 2-5.75% Rate',
     description:

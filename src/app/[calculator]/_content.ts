@@ -19,6 +19,22 @@ import {
   PROPERTY_TAX_FAQS,
   BONUS_TAX_FAQS,
   VIRGINIA_FAQS,
+  NORTHCAROLINA_FAQS,
+  PENNSYLVANIA_FAQS,
+  OHIO_FAQS,
+  MICHIGAN_FAQS,
+  NEWJERSEY_FAQS,
+  COLORADO_FAQS,
+  ARIZONA_FAQS,
+  WASHINGTON_FAQS,
+  MASSACHUSETTS_FAQS,
+  INDIANA_FAQS,
+  TENNESSEE_FAQS,
+  MISSOURI_FAQS,
+  MARYLAND_FAQS,
+  WISCONSIN_FAQS,
+  MINNESOTA_FAQS,
+  OREGON_FAQS,
   FAQItem,
 } from '@/lib/faq-data';
 
@@ -545,6 +561,385 @@ export function getCalculatorContent(type: string): CalculatorContent {
           { slug: 'georgia-tax-calculator', label: 'Georgia Calculator (5.49%)' },
           { slug: 'illinois-tax-calculator', label: 'Illinois Calculator (4.95%)' },
           { slug: 'california-tax-calculator', label: 'California Calculator' },
+          { slug: 'relocation-calculator', label: 'Relocation Calculator' },
+          { slug: 'salary', label: 'Salary After Tax' },
+        ],
+      };
+    case 'northcarolina':
+      return {
+        howItWorks: [
+          'North Carolina charges a flat 4.5% income tax rate for 2026. One rate, no brackets, no surprises. The state has been steadily reducing its flat rate over the past few years, dropping from 5.25% down to the current 4.5%. North Carolina offers a standard deduction of $12,750 for single filers and $25,500 for married filing jointly — that\'s one of the highest state standard deductions in the country, which softens the impact of the flat rate considerably.',
+          'Let\'s run the numbers. A single person earning $75,000: after the $12,750 standard deduction, taxable income is $62,250. North Carolina tax comes to $2,801.25. Add federal tax and FICA, and you\'re looking at roughly $58,500 take-home. That\'s competitive with most flat-tax states, and the generous standard deduction means lower-income earners pay very little state tax.',
+          'North Carolina doesn\'t tax Social Security benefits at the state level, which is good news for retirees. Property taxes average about 0.82% — quite reasonable. The combined state and local sales tax averages around 7.1%. Compared to <a href="/georgia-tax-calculator">Georgia\'s 5.49%</a> or <a href="/illinois-tax-calculator">Illinois\' 4.95%</a>, North Carolina\'s 4.5% rate is actually the lowest among neighboring flat-tax states. <a href="/relocation-calculator">Run the relocation calculator</a> to compare for your specific salary.',
+        ],
+        keyRates: [
+          { label: 'NC Flat Tax Rate', value: '4.5%' },
+          { label: 'NC Standard Deduction (Single)', value: '$12,750' },
+          { label: 'NC Standard Deduction (Married)', value: '$25,500' },
+          { label: 'NC Avg Property Tax Rate', value: '~0.82%' },
+          { label: 'NC Avg Combined Sales Tax', value: '~7.1%' },
+        ],
+        faqs: NORTHCAROLINA_FAQS,
+        relatedCalculators: [
+          { slug: 'paycheck-calculator', label: 'Paycheck Calculator' },
+          { slug: 'georgia-tax-calculator', label: 'Georgia Calculator (5.49%)' },
+          { slug: 'illinois-tax-calculator', label: 'Illinois Calculator (4.95%)' },
+          { slug: 'relocation-calculator', label: 'Relocation Calculator' },
+          { slug: 'salary', label: 'Salary After Tax' },
+        ],
+      };
+    case 'pennsylvania':
+      return {
+        howItWorks: [
+          'Pennsylvania has a flat 3.07% income tax rate — one of the lowest flat rates in the country. The catch? There\'s no state standard deduction and no personal exemption. Every dollar of taxable income gets hit with 3.07%, period. For a $75,000 salary, that\'s $2,302.50 in state tax. The low rate helps, but the lack of deductions means the tax applies to your full income from dollar one.',
+          'On top of the state tax, Pennsylvania allows local earned income taxes (EIT) that vary by municipality. Philadelphia is the big one — residents pay an additional 3.75% city wage tax (non-residents working in Philly pay 3.44%). That brings the combined state and city rate to 6.82% for Philadelphia residents, which is more than double the base state rate. Most other municipalities have much lower EIT rates, typically 1%–2%.',
+          'Pennsylvania doesn\'t tax Social Security benefits or most retirement income, including pensions and 401(k) distributions for residents 59½ and older. Property taxes average about 1.36%, which is above the national average. Combined sales tax is 6% statewide with some local add-ons. At 3.07% base rate, Pennsylvania is attractive for earners outside Philadelphia — <a href="/relocation-calculator">compare it to neighboring states</a> like <a href="/new-jersey-tax-calculator">New Jersey</a> or <a href="/ohio-tax-calculator">Ohio</a> to see the difference.',
+        ],
+        keyRates: [
+          { label: 'PA Flat Tax Rate', value: '3.07%' },
+          { label: 'PA Standard Deduction', value: 'None' },
+          { label: 'Philadelphia Wage Tax', value: '3.75% (residents)' },
+          { label: 'PA Avg Property Tax Rate', value: '~1.36%' },
+          { label: 'PA State Sales Tax', value: '6%' },
+        ],
+        faqs: PENNSYLVANIA_FAQS,
+        relatedCalculators: [
+          { slug: 'paycheck-calculator', label: 'Paycheck Calculator' },
+          { slug: 'new-jersey-tax-calculator', label: 'New Jersey Calculator' },
+          { slug: 'ohio-tax-calculator', label: 'Ohio Calculator' },
+          { slug: 'relocation-calculator', label: 'Relocation Calculator' },
+          { slug: 'salary', label: 'Salary After Tax' },
+        ],
+      };
+    case 'ohio':
+      return {
+        howItWorks: [
+          'Ohio uses a progressive income tax with brackets ranging from 0% to 3.99% for 2026. The first $26,050 of taxable income is completely tax-free at the state level — that\'s a significant exemption that benefits low and middle-income earners. After that, rates climb through several brackets up to 3.99% on income above $115,300. The standard deduction is $0, but that first $26,050 exemption more than makes up for it for most people.',
+          'Here\'s how it works in practice. A single person earning $75,000: after the $26,050 exempt amount, roughly $48,950 is subject to Ohio\'s progressive brackets. The Ohio tax comes to about $2,050 — significantly less than a flat 4% would suggest because of that large tax-free threshold. Add federal tax and FICA, and you\'re looking at a competitive take-home amount.',
+          'Ohio does allow municipal income taxes, which can range from 0.5% to 3% depending on where you live and work. Columbus charges 2.5%, Cleveland 2.5%, Cincinnati 1.8%. These local taxes are on top of the state rate, so the actual combined rate can be noticeably higher. Social Security benefits are not taxed at the state level, and property taxes average about 1.41%. <a href="/relocation-calculator">Compare Ohio to neighbors</a> like <a href="/pennsylvania-tax-calculator">Pennsylvania (3.07%)</a> or <a href="/michigan-tax-calculator">Michigan (4.25%)</a> to see how it stacks up.',
+        ],
+        keyRates: [
+          { label: 'OH Tax Brackets', value: '0% – 3.99% (4 brackets)' },
+          { label: 'OH Tax-Free Threshold', value: '$26,050' },
+          { label: 'OH Top Rate Threshold', value: '$115,300' },
+          { label: 'OH Avg Property Tax Rate', value: '~1.41%' },
+          { label: 'Columbus City Tax', value: '2.5%' },
+        ],
+        faqs: OHIO_FAQS,
+        relatedCalculators: [
+          { slug: 'paycheck-calculator', label: 'Paycheck Calculator' },
+          { slug: 'pennsylvania-tax-calculator', label: 'Pennsylvania Calculator' },
+          { slug: 'michigan-tax-calculator', label: 'Michigan Calculator' },
+          { slug: 'relocation-calculator', label: 'Relocation Calculator' },
+          { slug: 'salary', label: 'Salary After Tax' },
+        ],
+      };
+    case 'michigan':
+      return {
+        howItWorks: [
+          'Michigan charges a flat 4.25% income tax rate for 2026. Simple, predictable, and easy to calculate. Michigan offers a $5,500 personal exemption for single filers and $11,000 for married filing jointly, which comes off the top before the 4.25% applies. On a $75,000 salary (single), you\'re taxed on $69,500 after the exemption, which comes to $2,953.75 in state tax.',
+          'On top of Michigan state tax, the city of Detroit levies its own income tax: 2.4% for residents and 1.2% for non-residents working in the city. A few other Michigan cities also have local income taxes (Grand Rapids at 1.5% for residents, for example), but most of the state doesn\'t. If you\'re outside those cities, it\'s just the 4.25% flat rate plus federal and FICA.',
+          'Michigan doesn\'t tax Social Security benefits, and military pensions are fully exempt. Property taxes average about 1.38%, which is somewhat high. The state sales tax is 6% with no local add-ons (Michigan is one of the few states that doesn\'t allow local sales taxes). At 4.25%, Michigan\'s rate sits between <a href="/illinois-tax-calculator">Illinois (4.95%)</a> and <a href="/pennsylvania-tax-calculator">Pennsylvania (3.07%)</a>. <a href="/relocation-calculator">Use the relocation calculator</a> to compare for your salary.',
+        ],
+        keyRates: [
+          { label: 'MI Flat Tax Rate', value: '4.25%' },
+          { label: 'MI Personal Exemption', value: '$5,500' },
+          { label: 'Detroit City Tax (Residents)', value: '2.4%' },
+          { label: 'MI Avg Property Tax Rate', value: '~1.38%' },
+          { label: 'MI State Sales Tax', value: '6% (no local)' },
+        ],
+        faqs: MICHIGAN_FAQS,
+        relatedCalculators: [
+          { slug: 'paycheck-calculator', label: 'Paycheck Calculator' },
+          { slug: 'illinois-tax-calculator', label: 'Illinois Calculator (4.95%)' },
+          { slug: 'ohio-tax-calculator', label: 'Ohio Calculator' },
+          { slug: 'relocation-calculator', label: 'Relocation Calculator' },
+          { slug: 'salary', label: 'Salary After Tax' },
+        ],
+      };
+    case 'newjersey':
+      return {
+        howItWorks: [
+          'New Jersey has a progressive income tax with brackets ranging from 1.4% to 10.75% for 2026. The 1.4% rate applies to your first $20,000 of taxable income (single), then climbs through several brackets to a top rate of 10.75% on income above $1,000,000. The standard deduction is $1,000 for single filers and $2,000 for married filing jointly — that\'s not a typo, it\'s really that low. New Jersey relies on its bracket structure rather than a generous standard deduction.',
+          'For a single person earning $100,000, New Jersey tax comes to roughly $4,700 after applying the progressive brackets. That\'s an effective state rate of about 4.7%, which is moderate. But if you\'re a high earner making $500,000+, New Jersey becomes very expensive — the top brackets kick in hard. The 10.75% top rate on income over $1 million makes New Jersey one of the highest-tax states for top earners, second only to <a href="/california-tax-calculator">California\'s 13.3%</a>.',
+          'New Jersey does offer some relief: Social Security benefits are not taxed, and retirement income exclusions are available for seniors (up to $100,000 for couples 62+). Property taxes are the highest in the nation at an average of 2.26%, which is a major factor in the total tax burden. Sales tax is 6.625% statewide. New Jersey doesn\'t allow local income taxes, unlike neighboring <a href="/pennsylvania-tax-calculator">Pennsylvania</a> with its Philadelphia wage tax. <a href="/relocation-calculator">Compare New Jersey to other states</a> to see the full picture.',
+        ],
+        keyRates: [
+          { label: 'NJ Tax Brackets', value: '1.4% – 10.75% (7 brackets)' },
+          { label: 'NJ Standard Deduction (Single)', value: '$1,000' },
+          { label: 'NJ Top Rate Threshold', value: '$1,000,000' },
+          { label: 'NJ Avg Property Tax Rate', value: '~2.26%' },
+          { label: 'NJ State Sales Tax', value: '6.625%' },
+        ],
+        faqs: NEWJERSEY_FAQS,
+        relatedCalculators: [
+          { slug: 'paycheck-calculator', label: 'Paycheck Calculator' },
+          { slug: 'pennsylvania-tax-calculator', label: 'Pennsylvania Calculator' },
+          { slug: 'new-york-tax-calculator', label: 'New York Calculator' },
+          { slug: 'relocation-calculator', label: 'Relocation Calculator' },
+          { slug: 'salary', label: 'Salary After Tax' },
+        ],
+      };
+    case 'colorado':
+      return {
+        howItWorks: [
+          'Colorado charges a flat 4.4% income tax rate for 2026. The rate has been dropping — it was 4.55% in 2023 and 4.4% in 2024, and it stays at 4.4% for 2026. Colorado\'s approach is unique: instead of calculating state taxable income separately, it uses your federal taxable income as the starting point and applies the 4.4% rate on top. That means your federal standard deduction ($16,100 single, $32,200 married) automatically reduces your Colorado taxable income too.',
+          'Since Colorado uses federal taxable income, pre-tax deductions like <a href="/401k-retirement-calculator">401(k) contributions</a> reduce your state tax bill as well. On a $75,000 salary with the federal standard deduction, your Colorado taxable income is $58,900, and the state tax comes to $2,591.60. The federal deduction pass-through makes Colorado\'s effective tax burden lower than the 4.4% headline rate would suggest.',
+          'Colorado doesn\'t tax Social Security benefits, and offers a modest retirement income deduction for seniors 65 and older ($24,000 per person). Property taxes are very low, averaging about 0.55% — among the lowest in the country. Sales tax averages 7.72% combined with local add-ons. At 4.4%, Colorado is competitive with <a href="/arizona-tax-calculator">Arizona\'s 2.5%</a> and <a href="/north-carolina-tax-calculator">North Carolina\'s 4.5%</a> for flat-tax states. <a href="/relocation-calculator">Run the relocation calculator</a> for your salary.',
+        ],
+        keyRates: [
+          { label: 'CO Flat Tax Rate', value: '4.4%' },
+          { label: 'CO Tax Base', value: 'Federal taxable income' },
+          { label: 'CO Avg Property Tax Rate', value: '~0.55%' },
+          { label: 'CO Avg Combined Sales Tax', value: '~7.72%' },
+          { label: 'Retirement Deduction (65+)', value: '$24,000/person' },
+        ],
+        faqs: COLORADO_FAQS,
+        relatedCalculators: [
+          { slug: 'paycheck-calculator', label: 'Paycheck Calculator' },
+          { slug: 'arizona-tax-calculator', label: 'Arizona Calculator (2.5%)' },
+          { slug: 'north-carolina-tax-calculator', label: 'North Carolina Calculator (4.5%)' },
+          { slug: 'relocation-calculator', label: 'Relocation Calculator' },
+          { slug: 'salary', label: 'Salary After Tax' },
+        ],
+      };
+    case 'arizona':
+      return {
+        howItWorks: [
+          'Arizona charges a flat 2.5% income tax rate for 2026. That\'s one of the lowest state income tax rates in the country — only states with zero income tax beat it. Arizona moved to a flat tax system in 2023, consolidating its previous progressive brackets into this single rate. The standard deduction is $13,850 for single filers and $27,700 for married filing jointly, mirroring the federal standard deduction amounts.',
+          'At 2.5%, the state tax on a $75,000 salary (single) comes to roughly $1,528.75 after the $13,850 standard deduction. That\'s remarkably low — less than half of what you\'d pay in <a href="/illinois-tax-calculator">Illinois (4.95%)</a> or <a href="/georgia-tax-calculator">Georgia (5.49%)</a> on the same income. Add federal tax and FICA, and you\'re looking at one of the best take-home pay rates among states that do have an income tax.',
+          'Arizona doesn\'t tax Social Security benefits, and military retirement pay is fully exempt. Property taxes average about 0.63% — quite reasonable. Combined sales tax averages around 8.37% with local add-ons, which is on the higher side. But if you\'re looking at the income tax picture alone, Arizona is hard to beat among states that still levy one. Compare Arizona to <a href="/colorado-tax-calculator">Colorado (4.4%)</a> or <a href="/washington-tax-calculator">Washington (0%)</a> to see the difference, or <a href="/relocation-calculator">use the relocation calculator</a> for your salary.',
+        ],
+        keyRates: [
+          { label: 'AZ Flat Tax Rate', value: '2.5%' },
+          { label: 'AZ Standard Deduction (Single)', value: '$13,850' },
+          { label: 'AZ Standard Deduction (Married)', value: '$27,700' },
+          { label: 'AZ Avg Property Tax Rate', value: '~0.63%' },
+          { label: 'AZ Avg Combined Sales Tax', value: '~8.37%' },
+        ],
+        faqs: ARIZONA_FAQS,
+        relatedCalculators: [
+          { slug: 'paycheck-calculator', label: 'Paycheck Calculator' },
+          { slug: 'colorado-tax-calculator', label: 'Colorado Calculator (4.4%)' },
+          { slug: 'washington-tax-calculator', label: 'Washington Calculator (0%)' },
+          { slug: 'relocation-calculator', label: 'Relocation Calculator' },
+          { slug: 'salary', label: 'Salary After Tax' },
+        ],
+      };
+    case 'washington':
+      return {
+        howItWorks: [
+          'Zero. Washington state has no personal income tax — just like <a href="/texas-tax-calculator">Texas</a> and <a href="/florida-tax-calculator">Florida</a>. Your paycheck only has federal tax and FICA deductions. No state line item, period. Washington is one of nine states with no income tax, and it\'s the only one on the West Coast.',
+          'Your only deductions are federal tax (2026 progressive brackets with standard deductions) plus FICA at 7.65% combined. A $100,000 earner in Washington takes home roughly $79,000 — the same as Texas and Florida. Compare that to <a href="/california-tax-calculator">California</a> where the same salary yields about $71,000 after state tax. That\'s an $8,000 difference that stays in your pocket.',
+          'But Washington gets you on the other end. <a href="https://dor.wa.gov/" target="blank" rel="noopener noreferrer nofollow">Property taxes</a> average about 0.98% — reasonable, but not as low as Colorado\'s 0.55%. The combined sales tax is around 9.0%, one of the highest in the nation. And Washington levies a 7% capital gains tax on long-term gains over $270,000, which is notable since most zero-income-tax states also skip capital gains taxes. The state also has a premium payroll tax on high-wage employers (passed through to employees earning over $147,000 at 0.58%).',
+          'For retirees, Washington is attractive — no tax on Social Security, 401(k) withdrawals, IRA distributions, or pension income. For investors with significant capital gains, the 7% state tax is a drawback that Texas and Florida don\'t have. <a href="/relocation-calculator">Run the numbers</a> for your situation to see if Washington beats the alternatives.',
+        ],
+        keyRates: [
+          { label: 'WA State Income Tax', value: '0%' },
+          { label: 'WA Capital Gains Tax', value: '7% (above $270K)' },
+          { label: 'WA Avg Property Tax Rate', value: '~0.98%' },
+          { label: 'WA Avg Combined Sales Tax', value: '~9.0%' },
+          { label: 'WA Premium Payroll Tax', value: '0.58% (over $147K)' },
+        ],
+        faqs: WASHINGTON_FAQS,
+        relatedCalculators: [
+          { slug: 'paycheck-calculator', label: 'Paycheck Calculator' },
+          { slug: 'texas-tax-calculator', label: 'Texas Calculator (0%)' },
+          { slug: 'florida-tax-calculator', label: 'Florida Calculator (0%)' },
+          { slug: 'california-tax-calculator', label: 'California Calculator' },
+          { slug: 'relocation-calculator', label: 'Relocation Calculator' },
+          { slug: 'capital-gains-calculator', label: 'Capital Gains Calculator' },
+          { slug: 'salary', label: 'Salary After Tax' },
+        ],
+      };
+    case 'massachusetts':
+      return {
+        howItWorks: [
+          'Massachusetts charges a flat 5% income tax rate, with a 9% surtax on income over $1,000,000. For most earners, it\'s a straightforward 5% — no brackets to figure out. The state standard deduction is $4,400 (single) or $8,800 (married). On a $100,000 salary after the standard deduction, you\'d pay about $4,780 in state tax. Simple enough.',
+          'The 9% surtax kicks in on taxable income above $1,000,000, making the effective top marginal rate 9% on that excess income. If you\'re earning seven figures in Massachusetts, that surtax is significant — it turns a $1.5M income into roughly $70,000 more in state tax compared to someone just under the threshold.',
+          'On top of state tax, you\'ve got federal progressive brackets with the standard deduction, plus FICA at 7.65% combined. <a href="/401k-retirement-calculator">401(k) contributions</a> reduce taxable income at both the federal and state level, which is especially valuable here since Massachusetts doesn\'t allow many other state-level deductions.',
+          'Massachusetts doesn\'t tax Social Security benefits. Property taxes average about 1.23%, and the combined sales tax is 6.25% — one of the lower state sales tax rates. No local sales tax add-ons either. <a href="/relocation-calculator">Compare MA to other states</a> to see if the tax picture works for you.',
+        ],
+        keyRates: [
+          { label: 'MA Flat Tax Rate', value: '5%' },
+          { label: 'MA Surtax (over $1M)', value: '9%' },
+          { label: 'MA Standard Deduction (Single)', value: '$4,400' },
+          { label: 'MA Avg Property Tax Rate', value: '~1.23%' },
+          { label: 'MA State Sales Tax', value: '6.25%' },
+        ],
+        faqs: MASSACHUSETTS_FAQS,
+        relatedCalculators: [
+          { slug: 'paycheck-calculator', label: 'Paycheck Calculator' },
+          { slug: 'new-york-tax-calculator', label: 'New York Calculator' },
+          { slug: 'relocation-calculator', label: 'Relocation Calculator' },
+          { slug: 'self-employment-tax-calculator', label: 'Self-Employment Calculator' },
+          { slug: 'salary', label: 'Salary After Tax' },
+        ],
+      };
+    case 'indiana':
+      return {
+        howItWorks: [
+          'Indiana charges a flat 3.05% income tax rate for 2026. That\'s one of the lower flat rates in the country — cheaper than Illinois (4.95%), Michigan (4.25%), and significantly cheaper than most progressive-tax states. The state uses a $1,000 personal exemption per person, and counties can add their own income tax on top (ranging from about 0.5% to 3.38%).',
+          'On a $75,000 salary with the state rate only, you\'d pay about $2,254 in state income tax. But if you live in Marion County (Indianapolis), add roughly another $1,775 in county tax. That county tax is a big deal — it can push your effective Indiana rate from 3.05% to over 5% depending on where you live.',
+          'On top of state and county tax, you\'ve got federal progressive brackets with the standard deduction, plus FICA at 7.65% combined. <a href="/401k-retirement-calculator">401(k) contributions</a> reduce taxable income at both the federal and state level.',
+          'Indiana doesn\'t tax Social Security benefits. Property taxes are reasonable at about 0.85% average effective rate. Combined sales tax is 7%, which is moderate. For a Midwestern state, Indiana\'s overall tax burden is competitive, especially if you\'re in a lower-tax county. <a href="/relocation-calculator">Compare IN to other states</a>.',
+        ],
+        keyRates: [
+          { label: 'IN Flat Tax Rate', value: '3.05%' },
+          { label: 'IN Personal Exemption', value: '$1,000/person' },
+          { label: 'IN County Tax Range', value: '0.5% – 3.38%' },
+          { label: 'IN Avg Property Tax Rate', value: '~0.85%' },
+          { label: 'IN Avg Combined Sales Tax', value: '7.0%' },
+        ],
+        faqs: INDIANA_FAQS,
+        relatedCalculators: [
+          { slug: 'paycheck-calculator', label: 'Paycheck Calculator' },
+          { slug: 'illinois-tax-calculator', label: 'Illinois Calculator' },
+          { slug: 'michigan-tax-calculator', label: 'Michigan Calculator' },
+          { slug: 'relocation-calculator', label: 'Relocation Calculator' },
+          { slug: 'salary', label: 'Salary After Tax' },
+        ],
+      };
+    case 'tennessee':
+      return {
+        howItWorks: [
+          'Zero. Tennessee has no state income tax on wages and salaries. Like <a href="/texas-tax-calculator">Texas</a> and <a href="/florida-tax-calculator">Florida</a>, your paycheck only has federal tax and FICA deductions. No state line item, period.',
+          'Tennessee used to tax investment income (the "Hall Tax") but fully repealed it starting in 2021. So now there\'s truly no state income tax of any kind. Your only deductions are federal progressive brackets with the standard deduction, plus FICA at 7.65% combined.',
+          'A $100,000 earner in Tennessee takes home roughly $79,000 — the same as Texas and Florida. Compare that to <a href="/california-tax-calculator">California</a> where the same salary yields about $71,000 after state tax. That\'s an $8,000 difference that stays in your pocket.',
+          'But Tennessee compensates with higher sales taxes. The combined sales tax averages around 9.56% — one of the highest in the nation. Property taxes are relatively low at about 0.71% average effective rate. For retirees, Tennessee is attractive: no tax on Social Security, IRA withdrawals, 401(k) distributions, or pension income. <a href="/relocation-calculator">Run the numbers</a> for your situation.',
+        ],
+        keyRates: [
+          { label: 'TN State Income Tax', value: '0%' },
+          { label: 'TN Avg Combined Sales Tax', value: '~9.56%' },
+          { label: 'TN Avg Property Tax Rate', value: '~0.71%' },
+          { label: 'Federal Standard Deduction', value: '$16,100 (single)' },
+          { label: 'Social Security Rate', value: '6.2% (up to $176,100)' },
+        ],
+        faqs: TENNESSEE_FAQS,
+        relatedCalculators: [
+          { slug: 'paycheck-calculator', label: 'Paycheck Calculator' },
+          { slug: 'texas-tax-calculator', label: 'Texas Calculator (0%)' },
+          { slug: 'florida-tax-calculator', label: 'Florida Calculator (0%)' },
+          { slug: 'relocation-calculator', label: 'Relocation Calculator' },
+          { slug: 'salary', label: 'Salary After Tax' },
+        ],
+      };
+    case 'missouri':
+      return {
+        howItWorks: [
+          'Missouri uses a progressive income tax system with rates ranging from 2% to 4.8% for 2026. The standard deduction is $14,200 (single) or $28,400 (married). Most middle-income earners land in the 3.5%–4.8% range, which is moderate compared to neighboring states.',
+          'On a $75,000 salary filing single, after the $14,200 standard deduction, your Missouri state tax comes to roughly $2,500–$2,700. Compare that to Illinois at 4.95% flat on the same income ($3,450) and Missouri looks pretty good. But compare it to <a href="/tennessee-tax-calculator">Tennessee</a> at 0% and the difference is obvious.',
+          'On top of Missouri tax, you\'ve got federal progressive brackets with the standard deduction, plus FICA at 7.65% combined. <a href="/401k-retirement-calculator">401(k) contributions</a> reduce taxable income at both the federal and state level. Missouri also allows a deduction for federal income tax paid, which softens the blow somewhat.',
+          'Missouri doesn\'t tax Social Security benefits for most retirees. Property taxes average about 1.01%, and combined sales tax is around 8.33%. Kansas City and St. Louis have additional city earnings taxes of 1%. <a href="/relocation-calculator">Compare MO to other states</a> to see where you come out ahead.',
+        ],
+        keyRates: [
+          { label: 'MO Tax Brackets', value: '2% – 4.8%' },
+          { label: 'MO Standard Deduction (Single)', value: '$14,200' },
+          { label: 'MO Avg Property Tax Rate', value: '~1.01%' },
+          { label: 'MO Avg Combined Sales Tax', value: '8.33%' },
+          { label: 'KC/STL City Earnings Tax', value: '1%' },
+        ],
+        faqs: MISSOURI_FAQS,
+        relatedCalculators: [
+          { slug: 'paycheck-calculator', label: 'Paycheck Calculator' },
+          { slug: 'illinois-tax-calculator', label: 'Illinois Calculator' },
+          { slug: 'tennessee-tax-calculator', label: 'Tennessee Calculator (0%)' },
+          { slug: 'relocation-calculator', label: 'Relocation Calculator' },
+          { slug: 'salary', label: 'Salary After Tax' },
+        ],
+      };
+    case 'maryland':
+      return {
+        howItWorks: [
+          'Maryland uses a progressive income tax system with state rates from 2% to 5.75% for 2026. But here\'s the catch: every Maryland county (and Baltimore City) adds its own local income tax on top, ranging from 2.25% to 3.28%. Your actual combined state + county rate can reach over 8% at the top bracket.',
+          'On a $100,000 salary filing single in Montgomery County (3.28% local rate), your combined state and county tax would be roughly $5,700. The same salary in <a href="/virginia-tax-calculator">Virginia</a> would be about $5,100 in state tax. The county tax makes Maryland more expensive than the state rate alone suggests.',
+          'On top of state and county tax, you\'ve got federal progressive brackets with the standard deduction, plus FICA at 7.65% combined. <a href="/401k-retirement-calculator">401(k) contributions</a> reduce taxable income at both the federal and state level — and since Maryland\'s top combined rate can exceed 8%, those pre-tax deductions are worth even more.',
+          'Maryland doesn\'t tax Social Security benefits. Property taxes average about 1.1%, and combined sales tax is 6%, which is on the lower side. For retirees, Maryland excludes up to $34,300 of pension and retirement income from state tax. <a href="/relocation-calculator">Compare MD to other states</a>.',
+        ],
+        keyRates: [
+          { label: 'MD State Tax Brackets', value: '2% – 5.75%' },
+          { label: 'MD County Tax Range', value: '2.25% – 3.28%' },
+          { label: 'MD Max Combined Rate', value: '~9.03%' },
+          { label: 'MD Avg Property Tax Rate', value: '~1.1%' },
+          { label: 'MD State Sales Tax', value: '6%' },
+        ],
+        faqs: MARYLAND_FAQS,
+        relatedCalculators: [
+          { slug: 'paycheck-calculator', label: 'Paycheck Calculator' },
+          { slug: 'virginia-tax-calculator', label: 'Virginia Calculator' },
+          { slug: 'pennsylvania-tax-calculator', label: 'Pennsylvania Calculator' },
+          { slug: 'relocation-calculator', label: 'Relocation Calculator' },
+          { slug: 'salary', label: 'Salary After Tax' },
+        ],
+      };
+    case 'wisconsin':
+      return {
+        howItWorks: [
+          'Wisconsin uses a progressive income tax system with four brackets ranging from 3.54% to 7.65% for 2026. The standard deduction is $13,910 (single) or $25,800 (married). The top rate of 7.65% kicks in at $280,950 of taxable income for single filers.',
+          'On a $100,000 salary filing single, after the standard deduction, your Wisconsin state tax comes to roughly $4,900. That\'s more expensive than neighboring states like <a href="/indiana-tax-calculator">Indiana</a> (3.05% flat, about $2,900) and <a href="/michigan-tax-calculator">Michigan</a> (4.25% flat, about $3,800).',
+          'On top of Wisconsin tax, you\'ve got federal progressive brackets with the standard deduction, plus FICA at 7.65% combined. <a href="/401k-retirement-calculator">401(k) contributions</a> reduce taxable income at both the federal and state level — and at a 7.65% top state rate, every dollar you shelter is worth more.',
+          'Wisconsin doesn\'t tax Social Security benefits. Property taxes, however, are among the highest in the nation at about 1.85% average effective rate. Combined sales tax is 5.46% (the state rate is 5%, with minimal local add-ons). For retirees, the high property taxes can offset the moderate income tax. <a href="/relocation-calculator">Compare WI to other states</a>.',
+        ],
+        keyRates: [
+          { label: 'WI Tax Brackets', value: '3.54% – 7.65%' },
+          { label: 'WI Standard Deduction (Single)', value: '$13,910' },
+          { label: 'WI Avg Property Tax Rate', value: '~1.85%' },
+          { label: 'WI Avg Combined Sales Tax', value: '5.46%' },
+          { label: 'WI Top Rate Threshold (Single)', value: '$280,950' },
+        ],
+        faqs: WISCONSIN_FAQS,
+        relatedCalculators: [
+          { slug: 'paycheck-calculator', label: 'Paycheck Calculator' },
+          { slug: 'minnesota-tax-calculator', label: 'Minnesota Calculator' },
+          { slug: 'michigan-tax-calculator', label: 'Michigan Calculator' },
+          { slug: 'relocation-calculator', label: 'Relocation Calculator' },
+          { slug: 'salary', label: 'Salary After Tax' },
+        ],
+      };
+    case 'minnesota':
+      return {
+        howItWorks: [
+          'Minnesota has one of the highest state income tax rates in the country, with four progressive brackets ranging from 5.35% to 9.85% for 2026. The standard deduction is $14,975 (single) or $27,675 (married). The top rate of 9.85% kicks in at $183,340 of taxable income for single filers — much lower threshold than <a href="/california-tax-calculator">California</a>\'s top bracket.',
+          'On a $100,000 salary filing single, after the standard deduction, your Minnesota state tax comes to roughly $5,800. That\'s among the highest in the Midwest. Compare to <a href="/wisconsin-tax-calculator">Wisconsin</a> at about $4,900 on the same salary, or <a href="/indiana-tax-calculator">Indiana</a> at about $2,900.',
+          'On top of Minnesota tax, you\'ve got federal progressive brackets with the standard deduction, plus FICA at 7.65% combined. <a href="/401k-retirement-calculator">401(k) contributions</a> are critical in Minnesota — at a 9.85% top state rate, every dollar you shelter saves you nearly 10 cents in state tax alone.',
+          'Minnesota doesn\'t tax Social Security benefits for most retirees. Property taxes are moderate at about 1.12%, and the state sales tax is 6.875% (averaging about 7.49% with local taxes). For high earners, Minnesota\'s combined tax burden is significant. <a href="/relocation-calculator">Compare MN to other states</a> to see if it\'s worth it.',
+        ],
+        keyRates: [
+          { label: 'MN Tax Brackets', value: '5.35% – 9.85%' },
+          { label: 'MN Standard Deduction (Single)', value: '$14,975' },
+          { label: 'MN Top Rate Threshold (Single)', value: '$183,340' },
+          { label: 'MN Avg Property Tax Rate', value: '~1.12%' },
+          { label: 'MN Avg Combined Sales Tax', value: '7.49%' },
+        ],
+        faqs: MINNESOTA_FAQS,
+        relatedCalculators: [
+          { slug: 'paycheck-calculator', label: 'Paycheck Calculator' },
+          { slug: 'wisconsin-tax-calculator', label: 'Wisconsin Calculator' },
+          { slug: 'california-tax-calculator', label: 'California Calculator' },
+          { slug: 'relocation-calculator', label: 'Relocation Calculator' },
+          { slug: 'salary', label: 'Salary After Tax' },
+        ],
+      };
+    case 'oregon':
+      return {
+        howItWorks: [
+          'Oregon uses a progressive income tax system with four brackets ranging from 4.75% to 9.9% for 2026. The standard deduction is $2,830 (single) or $5,660 (married) — notably lower than most states. The top rate of 9.9% kicks in at $125,000 of taxable income for single filers, making it one of the easiest top brackets to reach.',
+          'On a $100,000 salary filing single, your Oregon state tax comes to roughly $7,300. That\'s steep — more than <a href="/california-tax-calculator">California</a> on the same income. The low standard deduction means more of your income is subject to tax from the start.',
+          'But here\'s the trade-off: Oregon has no state sales tax. Zero. On a $50,000 annual spending habit, that\'s roughly $3,000–$4,000 you\'d save compared to living in a high-sales-tax state like <a href="/tennessee-tax-calculator">Tennessee</a> (9.56%) or <a href="/louisiana">Louisiana</a>. Whether Oregon works for you depends heavily on your spending vs. earning ratio.',
+          'On top of Oregon tax, you\'ve got federal progressive brackets with the standard deduction, plus FICA at 7.65% combined. <a href="/401k-retirement-calculator">401(k) contributions</a> are extremely valuable in Oregon — at a 9.9% top rate, every pre-tax dollar saves you almost 10 cents in state tax. Oregon doesn\'t tax Social Security benefits. Property taxes average about 1.05%. <a href="/relocation-calculator">Compare OR to other states</a>.',
+        ],
+        keyRates: [
+          { label: 'OR Tax Brackets', value: '4.75% – 9.9%' },
+          { label: 'OR Standard Deduction (Single)', value: '$2,830' },
+          { label: 'OR Top Rate Threshold (Single)', value: '$125,000' },
+          { label: 'OR State Sales Tax', value: '0%' },
+          { label: 'OR Avg Property Tax Rate', value: '~1.05%' },
+        ],
+        faqs: OREGON_FAQS,
+        relatedCalculators: [
+          { slug: 'paycheck-calculator', label: 'Paycheck Calculator' },
+          { slug: 'california-tax-calculator', label: 'California Calculator' },
+          { slug: 'washington-tax-calculator', label: 'Washington Calculator (0%)' },
           { slug: 'relocation-calculator', label: 'Relocation Calculator' },
           { slug: 'salary', label: 'Salary After Tax' },
         ],

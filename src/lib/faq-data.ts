@@ -694,6 +694,39 @@ export const GEORGIA_FAQS: FAQItem[] = [
   },
 ];
 
+export const ARIZONA_FAQS: FAQItem[] = [
+  {
+    question: 'How much is Arizona state income tax in 2026?',
+    answer:
+      "Arizona uses a flat 2.5% rate — one of the lowest state income tax rates in the entire country. It doesn't matter if you make $30K or $300K, the rate is the same. Arizona transitioned from a progressive bracket system to this flat rate, and it's a big win for most taxpayers, especially higher earners who used to face top rates above 4%.",
+  },
+  {
+    question: 'What is the Arizona standard deduction for 2026?',
+    answer:
+      "Arizona's standard deduction matches the federal one: $14,600 for single filers, $29,200 for married filing jointly, and $21,900 for head of household. That's notably higher than states like Georgia ($5,400 single) or California ($6,083 single). A single filer earning $75K subtracts $14,600 before the 2.5% rate applies, bringing taxable income down to $60,400 — only about $1,510 in state tax.",
+  },
+  {
+    question: 'Does Arizona have a personal exemption?',
+    answer:
+      "Nope, Arizona doesn't offer a personal exemption. But the generous standard deduction more than makes up for it. Compare Arizona to Georgia: a single filer in Georgia gets $5,400 standard deduction plus a $2,700 personal exemption = $8,100 total reduction. In Arizona, you get $14,600 standard deduction with no personal exemption — that's $6,500 more shaved off your taxable income. The math works in Arizona's favor for most people.",
+  },
+  {
+    question: 'Does Arizona tax Social Security benefits?',
+    answer:
+      "No, Arizona does not tax Social Security benefits. That's been the law since 2021, when Arizona stopped including Social Security in state taxable income. They also don't tax military pensions or up to $2,500 of some other retirement income. Combined with that low 2.5% flat rate, Arizona is actually quite attractive for retirees who still have earned income.",
+  },
+  {
+    question: 'How does Arizona compare to neighboring states for taxes?',
+    answer:
+      "Arizona's 2.5% flat rate beats every neighboring state with an income tax. Nevada has zero income tax, so that wins, but among states that do tax income, Arizona is the lowest in the region. New Mexico goes up to 5.9%, California up to 13.3%, and Utah has a flat 4.65%. Arizona's property taxes are also reasonable at about 0.63% average effective rate, and sales tax averages around 8.37% with local additions. Overall, Arizona is one of the most tax-friendly states in the Southwest.",
+  },
+  {
+    question: 'Is Arizona a good state for high-income earners?',
+    answer:
+      "Absolutely. The 2.5% flat rate is one of the best deals in the country for high earners. On a $300K salary (single), Arizona's state tax after the $14,600 standard deduction is only about $7,135. Compare that to California where the same earner would pay over $20,000 in state tax, or New York at roughly $17,000. Even Illinois at 4.95% would cost about $14,725. Arizona keeps more money in your pocket than almost any state that still has an income tax.",
+  },
+];
+
 export const VIRGINIA_FAQS: FAQItem[] = [
   {
     question: 'How much is Virginia state income tax in 2026?',
@@ -724,5 +757,470 @@ export const VIRGINIA_FAQS: FAQItem[] = [
     question: 'Is Virginia tax-friendly for retirees?',
     answer:
       "Fairly tax-friendly. No tax on Social Security, the age deduction of up to $12,000 per person for those 65+, the $930 personal exemption, and moderate property taxes. Virginia's not in the same league as Florida or Texas for retirees (those have zero income tax), but it's much better than most Northern states. If you're staying in the Mid-Atlantic region for retirement, Virginia is one of the better options.",
+  },
+];
+
+export const NEWJERSEY_FAQS: FAQItem[] = [
+  {
+    question: 'How much is New Jersey state income tax in 2026?',
+    answer:
+      "New Jersey uses a progressive bracket system with seven rates ranging from 1.4% to 10.75%. For a single filer making $75K, the effective rate works out to roughly 2.5% after the personal exemption — that's surprisingly reasonable for most earners. But the top rate of 10.75% on income above $5 million is one of the highest in the nation, right behind California's 13.3%.",
+  },
+  {
+    question: 'Does New Jersey have a standard deduction?',
+    answer:
+      "Nope, New Jersey doesn't offer a standard deduction. Instead, you get a personal exemption of $1,000 (single) or $2,000 (married filing jointly). That's pretty minimal compared to the federal $16,100 standard deduction. New Jersey relies on the progressive brackets and the personal exemption to structure its tax burden — the low starting rate of 1.4% helps soften the blow for lower incomes.",
+  },
+  {
+    question: 'Why are New Jersey property taxes so high?',
+    answer:
+      "New Jersey has the highest property taxes in the nation, averaging about 2.49% of home value — nearly double the national average. On a $450K home, that's over $11,000 a year just in property taxes. The reasons are complex: lots of local government layers, strong public school funding, and limited commercial tax bases in many towns. It's the trade-off for relatively moderate income tax rates at lower brackets. If you own a home in NJ, the property tax bill often exceeds what you pay in state income tax.",
+  },
+  {
+    question: 'Does New Jersey tax Social Security benefits?',
+    answer:
+      "No, New Jersey does not tax Social Security benefits. And for retirees 62 and older, there's an exclusion on other retirement income (pensions, 401(k) withdrawals, IRAs) up to $100,000 for married couples and $75,000 for single filers, subject to income thresholds. That's actually pretty generous — but again, those property taxes don't go away when you retire.",
+  },
+  {
+    question: 'How does New Jersey compare to neighboring states for taxes?',
+    answer:
+      "It depends on your situation. New Jersey's income tax tops out at 10.75%, higher than New York's 10.9% for very high earners but lower for most people since NJ's brackets start at just 1.4%. Pennsylvania has a flat 3.07% income tax — cheaper for high earners but more expensive for low earners compared to NJ's bottom brackets. The real NJ difference is property taxes: at 2.49% average, they're the highest in the country and often the biggest tax burden for homeowners regardless of income.",
+  },
+  {
+    question: 'Is New Jersey tax-friendly for retirees?',
+    answer:
+      "It's a mixed bag. The income tax side is actually decent — no tax on Social Security, and the retirement income exclusion can wipe out state tax on pensions and retirement account withdrawals for many retirees. But the property taxes are brutal and don't go away. Many NJ retirees end up moving to Pennsylvania or elsewhere for lower property taxes. If you rent in retirement, NJ can work. If you own a home, the math gets tough.",
+  },
+];
+
+export const PENNSYLVANIA_FAQS: FAQItem[] = [
+  {
+    question: 'How much is Pennsylvania state income tax in 2026?',
+    answer:
+      "Pennsylvania uses a flat 3.07% income tax rate — one of the lowest flat rates in the country. Whether you make $30K or $300K, the rate is the same. The simplicity is nice, but the lack of deductions means every dollar of income gets taxed at the state level.",
+  },
+  {
+    question: 'Does Pennsylvania have a standard deduction or personal exemption?',
+    answer:
+      "Nope, neither. Pennsylvania has zero standard deduction and zero personal exemption at the state level. That means your entire gross income (minus pre-tax deductions like 401(k) and HSA) is subject to the 3.07% rate. It's unusual — most states offer some kind of deduction or exemption. The tradeoff is that the rate itself is very low, so even without deductions, the total state tax bill stays modest.",
+  },
+  {
+    question: 'What are local earned income taxes in Pennsylvania?',
+    answer:
+      "This is the big one that catches people off guard. Many Pennsylvania municipalities and school districts levy their own earned income taxes (EIT), typically ranging from 1% to 2%. Philadelphia is the most extreme at nearly 4% for residents. Pittsburgh is around 3%. Most other areas are 1–1.5%. These local taxes are on top of the 3.07% state rate, so your actual combined rate could be 4–7% depending on where you live. Always check your specific municipality.",
+  },
+  {
+    question: 'Does Pennsylvania tax Social Security benefits?',
+    answer:
+      "No, Pennsylvania does not tax Social Security benefits. They also don't tax most pension income, 401(k) withdrawals, or IRA distributions for residents 59½ and older. Pennsylvania is actually quite retiree-friendly from an income tax perspective — the 3.07% rate on other income is low, and the retirement income exemptions are generous. Property taxes are a different story though.",
+  },
+  {
+    question: 'How does Pennsylvania compare to neighboring states for taxes?',
+    answer:
+      "Pennsylvania's 3.07% flat rate looks great next to New Jersey (up to 10.75%) and New York (up to 10.9%). Even with a 1–2% local EIT, you're likely paying less than you would across the river. Compared to Ohio (up to 3.99%) it's similar, though Ohio has a standard deduction that PA lacks. Delaware's top rate of 6.6% is much higher. The main caveat: if you live in Philadelphia, the combined 7%+ rate isn't as competitive. For most of PA though, it's a pretty good deal.",
+  },
+  {
+    question: 'How high are Pennsylvania property taxes?',
+    answer:
+      "Pennsylvania's average effective property tax rate is about 1.50%, which is above the national average of around 1.1%. On a $250K home, that's roughly $3,750 a year. Like most states, it varies a lot by county — Chester and Montgomery counties tend to be higher, while some rural areas are lower. School districts drive most of the property tax burden in PA. Combined with the 3.07% income tax and local EIT, the total tax bill is moderate — not the cheapest, not the most expensive.",
+  },
+];
+
+export const OHIO_FAQS: FAQItem[] = [
+  {
+    question: 'How much is Ohio state income tax in 2026?',
+    answer:
+      "Ohio uses a progressive bracket system with five brackets ranging from 0% to 3.99%. The big news: the first $26,050 of taxable income has a 0% rate, so if your Ohio taxable income is below that threshold, you pay zero state income tax. For a single filer making $75K, the effective rate works out to roughly 2% — well below the 3.99% top rate because of that large 0% bracket at the bottom.",
+  },
+  {
+    question: 'What is the Ohio standard deduction for 2026?',
+    answer:
+      "Ohio doesn't have a separate state standard deduction. Instead, Ohio uses your federal adjusted gross income (AGI) as the starting point for calculating state tax. So the federal standard deduction ($16,100 single / $32,200 married / $24,150 head of household) already reduced your AGI before Ohio even looks at it. The first $26,050 of Ohio taxable income is taxed at 0%, which acts like a very large tax-free threshold.",
+  },
+  {
+    question: 'Does Ohio tax Social Security benefits?',
+    answer:
+      "No, Ohio does not tax Social Security benefits. Ohio also provides credits for retirement income — residents 65 and older can claim a senior citizen credit, and there are additional credits for low-income taxpayers. Between the 0% bracket and these credits, many moderate-income retirees pay little or no Ohio income tax.",
+  },
+  {
+    question: 'How does Ohio compare to neighboring states for taxes?',
+    answer:
+      "Ohio's top rate of 3.99% is lower than most neighboring states with income tax. Indiana has a flat 3.05% rate, which is lower at the top end, but Ohio's 0% bracket on the first $26,050 often makes it cheaper for moderate earners. Pennsylvania has a flat 3.07% rate with no standard deduction or 0% bracket. Michigan has a flat 4.25% rate. Kentucky tops out at 4%. West Virginia goes up to 5.12%. So Ohio is competitive, especially for middle-income earners who benefit from that 0% bracket.",
+  },
+  {
+    question: 'Are Ohio tax rates decreasing?',
+    answer:
+      "Yes! Ohio has been gradually reducing its income tax rates in recent years. The 0% bracket has expanded and the top rate has come down from over 4% to 3.99% for 2026. The state legislature has signaled intentions to continue cutting rates, with some proposals to eventually eliminate the income tax entirely. For now, though, 3.99% is the top rate, and the 0% bracket means most middle-income Ohioans have a fairly low effective rate.",
+  },
+  {
+    question: 'Is Ohio tax-friendly for retirees?',
+    answer:
+      "Pretty tax-friendly, actually. No tax on Social Security, the large 0% bracket on the first $26,050 of income, and various senior credits mean many retirees pay very little Ohio income tax. Add in a moderate average property tax rate of about 1.41% and an average combined sales tax rate around 7.25%, and Ohio is more retiree-friendly than you might expect for a state with an income tax. It's no Florida, but it's solid for the Midwest.",
+  },
+];
+
+export const MICHIGAN_FAQS: FAQItem[] = [
+  {
+    question: 'How much is Michigan state income tax in 2026?',
+    answer:
+      "Michigan uses a flat 4.25% income tax rate on all taxable income. Unlike most states with progressive brackets, every dollar above your personal exemption is taxed at the same rate whether you make $30K or $300K. It's similar to Illinois (4.95%) and Indiana (3.05%) — the Great Lakes region likes its flat taxes.",
+  },
+  {
+    question: 'What is the Michigan personal exemption for 2026?',
+    answer:
+      "$5,500 per person for single filers and head of household, $11,000 for married filing jointly (that's $5,500 per spouse). This gets subtracted from your gross income before applying the 4.25% rate. So on a $75K salary as a single filer, you're taxed on $69,500 — works out to about $2,954 in state tax. It's more generous than Illinois's $2,775 exemption but doesn't come close to a standard deduction.",
+  },
+  {
+    question: 'Does Michigan have a standard deduction?',
+    answer:
+      "Nope. Michigan doesn't offer a standard deduction at all. The personal exemption is the only break you get before the flat rate kicks in. Compare that to Georgia which offers both a $5,400 standard deduction AND a $2,700 personal exemption for single filers. Michigan's approach is simpler but less generous for most taxpayers.",
+  },
+  {
+    question: 'What is the Detroit city income tax?',
+    answer:
+      "If you live or work in Detroit, there's an additional city income tax on top of the state tax. Detroit residents pay 2.4% on all income, while non-residents who work in Detroit pay 1.2% on income earned within the city. Several other Michigan cities also levy local income taxes — Grand Rapids, Lansing, and Flint among them. These city taxes are NOT included in this calculator, so if you're in one of those cities, your actual tax burden will be higher.",
+  },
+  {
+    question: 'Does Michigan tax Social Security benefits?',
+    answer:
+      "No, Michigan does not tax Social Security benefits. The state also exempts most pension income and retirement distributions for residents 59½ and older, including 401(k) and IRA withdrawals. That makes Michigan surprisingly retiree-friendly from an income tax perspective, despite the 4.25% rate on other income.",
+  },
+  {
+    question: 'How does Michigan compare to neighboring states for taxes?',
+    answer:
+      "Michigan's 4.25% flat rate is lower than Illinois's 4.95% but higher than Indiana's 3.05% (plus Indiana's county taxes). Ohio uses progressive brackets from 2.765% to 3.99%, and Wisconsin tops out at 7.65%. Michigan sits in the middle — not the cheapest, not the most expensive in the Midwest. Property taxes are moderate (about 1.54% average effective rate) and the 6% state sales tax is reasonable, though Michigan doesn't allow local sales tax add-ons.",
+  },
+];
+
+export const NORTHCAROLINA_FAQS: FAQItem[] = [
+  {
+    question: 'How much is North Carolina state income tax in 2026?',
+    answer:
+      "North Carolina uses a flat 4.5% rate on all taxable income — one rate, no brackets, simple math. The rate has been gradually coming down over the years and is now one of the lower flat rates in the Southeast. Whether that's good or bad depends on your income, but compared to progressive states where the top rate can exceed 9%, 4.5% looks pretty reasonable.",
+  },
+  {
+    question: 'What is the North Carolina standard deduction for 2026?',
+    answer:
+      "$12,750 for single filers, $25,500 for married filing jointly, and $19,125 for head of household. These are actually pretty generous compared to neighboring states — Georgia only offers $5,400 single / $7,100 married, and South Carolina doesn't have its own standard deduction at all. The NC standard deduction is subtracted from your federal AGI before the 4.5% rate applies.",
+  },
+  {
+    question: 'Does North Carolina have a personal exemption?',
+    answer:
+      "Nope. North Carolina eliminated personal exemptions a while back. Your only deduction before the flat rate is the standard deduction. But honestly, with a $12,750 standard deduction for single filers, you're already getting a bigger break than states like Illinois ($2,775 personal exemption, no standard deduction) or Michigan ($5,500 personal exemption, no standard deduction).",
+  },
+  {
+    question: 'Does North Carolina tax Social Security benefits?',
+    answer:
+      "No, North Carolina does not tax Social Security benefits. The state also doesn't tax most pension income for retirees who meet certain requirements. Combined with the low 4.5% flat rate and that generous standard deduction, North Carolina is actually one of the more tax-friendly states in the Southeast for retirees — especially compared to Georgia's 5.49% rate.",
+  },
+  {
+    question: 'How does North Carolina compare to neighboring states for taxes?',
+    answer:
+      "North Carolina's 4.5% flat rate is lower than Georgia's 5.49% and Virginia's top rate of 5.75%. South Carolina has a top rate of 6.4% but uses the federal standard deduction, while Tennessee and Florida have zero income tax. Property taxes in NC are quite reasonable at about 0.82% average effective rate, and the combined sales tax averages around 7.1% (4.75% state + local). Overall, NC sits in a nice middle ground — not as tax-free as Florida or Tennessee, but definitely on the lower end for states that do have income tax.",
+  },
+  {
+    question: 'Is North Carolina tax-friendly for retirees?',
+    answer:
+      "Surprisingly, yes. No tax on Social Security, low flat income tax rate, generous standard deductions, and moderate property taxes. The 4.5% rate on non-Social Security income is well below what you'd pay in most Northeastern or Midwestern states. And if you're a married couple filing jointly, that $25,500 standard deduction shields a big chunk of your retirement income from state tax entirely. North Carolina's been attracting a lot of retirees for good reason.",
+  },
+];
+
+export const COLORADO_FAQS: FAQItem[] = [
+  {
+    question: 'How much is Colorado state income tax in 2026?',
+    answer:
+      "Colorado uses a flat 4.4% income tax rate — same rate whether you make $30K or $300K. The rate has been steadily decreasing over the years, down from 4.63% not too long ago. It's one of the lower flat tax rates among states that have them, sitting below Illinois (4.95%) and Michigan (4.25%) but above Arizona (2.5%) and Indiana (3.05%).",
+  },
+  {
+    question: 'How does Colorado use federal taxable income as a starting point?',
+    answer:
+      "This is what makes Colorado unique among flat-tax states. Instead of starting from your gross income and applying its own deductions, Colorado starts with your federal taxable income — the number on your federal return after the standard deduction (or itemized deductions) has already been subtracted. So the federal standard deduction ($16,100 single / $32,200 married / $24,150 head of household) effectively reduces your Colorado taxable income too. It's a simpler system that avoids redundancy.",
+  },
+  {
+    question: 'What is the Colorado standard deduction for 2026?',
+    answer:
+      "Colorado doesn't have its own separate standard deduction. Since the state uses federal taxable income as its starting point, the federal standard deduction is what counts: $16,100 for single filers, $32,200 for married filing jointly, and $24,150 for head of household. For a single earner making $75K, that means only $58,900 is subject to the 4.4% state rate. It's effectively the same as having a generous state standard deduction without the extra paperwork.",
+  },
+  {
+    question: 'Does Colorado tax Social Security benefits?',
+    answer:
+      "Nope, Colorado does not tax Social Security benefits. The state also allows a deduction for up to $24,000 of retirement income (pensions, 401(k) withdrawals, IRAs) for residents 65 and older, and up to $20,000 for those 55–64. That makes Colorado surprisingly friendly for retirees, especially compared to states like California that tax most retirement income.",
+  },
+  {
+    question: 'How does Colorado compare to neighboring states for taxes?',
+    answer:
+      "Colorado's 4.4% flat rate is quite competitive in the Mountain West. Wyoming and Nevada have zero income tax, so they win on that front. Utah charges 4.65%, Arizona is at 2.5%, and New Mexico goes up to 5.9%. But Colorado's use of federal taxable income means you get the benefit of the federal standard deduction automatically, which narrows the gap with zero-tax states for many earners. Property taxes are also quite low at about 0.55% average effective rate — among the lowest in the nation.",
+  },
+  {
+    question: 'Is Colorado tax-friendly for retirees?',
+    answer:
+      "Actually, yes — more than you might expect. No tax on Social Security, the $24,000 retirement income deduction for those 65+, low property taxes (0.55% average), and the declining flat income tax rate. The 4.4% rate on any remaining taxable income is very manageable. Colorado also has a relatively moderate cost of living compared to coastal states. For retirees who want mountain living without a massive tax bill, Colorado is a strong contender.",
+  },
+];
+
+export const WASHINGTON_FAQS: FAQItem[] = [
+  {
+    question: 'Does Washington have a state income tax?',
+    answer:
+      "Nope, zero on wages and salaries. The Washington Constitution prohibits a state income tax — it would require a constitutional amendment, which is a very high bar. Washington is one of nine states with no personal income tax on wages, making it attractive for high earners.",
+  },
+  {
+    question: 'What is the Washington capital gains tax?',
+    answer:
+      "Washington levies a 7% tax on long-term capital gains above $270,000. This only applies to investment gains — stocks, real estate sales, etc. — and does NOT affect your wage or salary income at all. If your long-term gains are under $270K, you pay nothing. This was introduced in 2022 and survived a state Supreme Court challenge.",
+  },
+  {
+    question: 'How does Washington make up for no income tax?',
+    answer:
+      "Sales tax and B&O taxes are the big ones. The state sales tax is 6.5%, and with local additions the average combined rate is around 9.4% — one of the highest in the nation. Then there's the Business & Occupation (B&O) tax, which is a gross receipts tax on businesses that indirectly affects consumers. Property taxes are moderate at about 0.93% average effective rate.",
+  },
+  {
+    question: 'Is Washington a good state for high-income earners?',
+    answer:
+      "For wage earners, absolutely — zero state income tax means you keep significantly more than in California (up to 13.3%) or Oregon (up to 9.9%). A $200K salary in Washington saves you $10K–$26K compared to those states. The catch is that sales tax adds up fast, and the Seattle area has a very high cost of living. But for pure paycheck impact, Washington is hard to beat.",
+  },
+  {
+    question: 'Does Washington tax retirement income?',
+    answer:
+      "No. Since there's no state income tax, Washington doesn't tax Social Security, 401(k) withdrawals, IRA distributions, or pensions. The 7% capital gains tax could affect retirement accounts that hold taxable investments, but for most retirees drawing from traditional accounts, it's zero state tax. Property taxes are something to watch, though.",
+  },
+  {
+    question: 'What is the Washington B&O tax and does it affect employees?',
+    answer:
+      "The Business & Occupation tax is a gross receipts tax on businesses, not individuals. Rates range from 0.471% to 1.5% depending on the business classification. As a W-2 employee, you don't pay B&O tax directly — your employer does. However, it indirectly increases the cost of goods and services in Washington. Self-employed individuals and independent contractors may need to pay B&O tax on their gross revenue, which is a key difference from states with income tax.",
+  },
+];
+
+export const MASSACHUSETTS_FAQS: FAQItem[] = [
+  {
+    question: 'How much is Massachusetts state income tax in 2026?',
+    answer:
+      "Massachusetts has a flat 5% rate on most income, plus a 4% surtax (the millionaire's tax) on income exceeding $1 million — making the effective top rate 9%. For the vast majority of earners making under $1M, it's just 5%. That's lower than many progressive states' top rates but higher than flat-tax states like Pennsylvania (3.07%) or Indiana (3.05%).",
+  },
+  {
+    question: 'Does Massachusetts have a standard deduction?',
+    answer:
+      "Nope. Massachusetts doesn't offer a standard deduction or personal exemption at the state level. Your entire gross income (minus any pre-tax deductions like 401(k) or HSA) is subject to the 5% rate. That's a drawback compared to states like Georgia or North Carolina that offer standard deductions.",
+  },
+  {
+    question: 'What is the Massachusetts millionaire\'s tax?',
+    answer:
+      "Voters approved a 4% surtax on income above $1 million starting in 2023, bringing the effective rate to 9% on that portion. So if you earn $1.2M, the first $1M is taxed at 5% ($50,000) and the next $200K is taxed at 9% ($18,000). It only affects roughly 1% of Massachusetts taxpayers but generates significant revenue for education and transportation.",
+  },
+  {
+    question: 'Does Massachusetts tax Social Security benefits?',
+    answer:
+      "No. Massachusetts does not tax Social Security benefits. However, most other retirement income — including 401(k) withdrawals, IRA distributions, and pensions — IS taxed at the 5% flat rate. That makes Massachusetts less retiree-friendly than states like Florida or Texas that have no income tax at all.",
+  },
+  {
+    question: 'How does the overall tax burden in Massachusetts compare?',
+    answer:
+      "Massachusetts has a moderate-to-high overall tax burden. The 5% flat income tax is reasonable, but property taxes average 1.15%, the combined sales tax is 6.25% (state only — no local sales tax), and there's no standard deduction. On a $75K salary, you'd pay about $3,750 in state income tax, which is more than Indiana ($2,220 after exemptions) but less than California (around $4,100).",
+  },
+  {
+    question: 'Is Massachusetts tax-friendly for retirees?',
+    answer:
+      "Not particularly. While Social Security is exempt, pensions, 401(k), and IRA withdrawals are all taxed at 5%. Property taxes are above average at 1.15%, and the cost of living in Massachusetts — especially housing near Boston — is among the highest in the country. Florida or New Hampshire (no income tax on wages) are better options for retirees in the region.",
+  },
+];
+
+export const INDIANA_FAQS: FAQItem[] = [
+  {
+    question: 'How much is Indiana state income tax in 2026?',
+    answer:
+      "Indiana has a flat 3.05% state income tax rate — one of the lowest flat rates in the country. It applies to all taxable income regardless of how much you make. The rate has been gradually decreasing over the years (it was 3.15% in 2024), and Indiana law ties future rate reductions to state revenue triggers.",
+  },
+  {
+    question: 'Does Indiana have a standard deduction?',
+    answer:
+      "No. Indiana doesn't offer a standard deduction. Instead, you get a $1,000 personal exemption per person ($2,000 for married filing jointly). It's less generous than states with standard deductions, but the 3.05% rate is low enough that the total tax burden stays manageable. On a $75K salary (single), taxable income = $75,000 - $1,000 = $74,000, and state tax = $2,257.",
+  },
+  {
+    question: 'What are Indiana county taxes?',
+    answer:
+      "Most Indiana counties impose an additional county income tax ranging from about 1.5% to 2% on top of the 3.05% state rate. That means your effective Indiana tax rate is typically 4.55% to 5.05% combined. The county tax is based on where you live (not work), and rates vary significantly. This calculator shows the state portion only — check your county rate for the full picture.",
+  },
+  {
+    question: 'Does Indiana tax retirement income?',
+    answer:
+      "Yes, Indiana taxes most retirement income including 401(k) withdrawals, IRA distributions, and private pensions at the 3.05% flat rate (plus county tax). Social Security benefits are exempt from state tax. Indiana also offers a small pension income exclusion for some government retirees, but it's limited.",
+  },
+  {
+    question: 'How does Indiana compare to neighboring states on taxes?',
+    answer:
+      "Indiana's 3.05% rate is very competitive regionally. Illinois charges 4.95%, Ohio goes up to 3.99%, Michigan is at 4.25%, and Kentucky is 4%. The main catch is Indiana's county taxes, which can push your effective rate over 5%. But even with county tax, Indiana is generally cheaper than its neighbors for most income levels. Property taxes are also moderate at around 0.82% effective rate.",
+  },
+];
+
+export const TENNESSEE_FAQS: FAQItem[] = [
+  {
+    question: 'Does Tennessee have a state income tax?',
+    answer:
+      "No. Tennessee has 0% income tax on wages and salaries. The Hall tax, which previously taxed dividends and interest income, was fully eliminated as of January 1, 2021. Tennessee is one of nine states with no personal income tax on wages, making it attractive for high earners and retirees alike.",
+  },
+  {
+    question: 'How does Tennessee make up for no income tax?',
+    answer:
+      "Sales tax — and it's one of the highest in the nation. The state rate is 7% (highest state rate in the country that charges a traditional sales tax), and with local option taxes, the average combined rate reaches about 9.56%. Tennessee also relies on franchise and excise taxes on businesses, plus property taxes averaging about 0.64% effective rate. There's no state property tax — it's all local.",
+  },
+  {
+    question: 'Is Tennessee really tax-free if sales tax is so high?',
+    answer:
+      "For most wage earners, yes. The math is straightforward: a $75K earner pays $0 in state income tax but might pay $4,000-5,000 in sales tax annually depending on spending. Compare that to a state like Georgia, where the same earner pays about $3,673 in income tax plus lower sales tax. If you're a high earner who doesn't spend extravagantly, Tennessee comes out way ahead. The more you earn relative to what you spend, the bigger the Tennessee advantage.",
+  },
+  {
+    question: 'Does Tennessee tax retirement income?',
+    answer:
+      "No. With the Hall tax eliminated, Tennessee doesn't tax any personal income — not wages, not Social Security, not 401(k) withdrawals, not IRA distributions, not pension income. It's one of the most tax-friendly states for retirees, especially those with significant retirement account distributions that would be taxed in most other states.",
+  },
+  {
+    question: 'What is the true cost of living tax burden in Tennessee?',
+    answer:
+      "For a household earning $75K with a $270K home and typical spending, you're looking at roughly $4,700 a year in non-income taxes — about $1,730 in property taxes plus $2,970 in estimated sales taxes (at the average 9.56% combined rate on $31K in taxable spending). That compares favorably to Georgia ($3,673 income tax + lower sales tax) for most earners.",
+  },
+];
+
+export const MISSOURI_FAQS: FAQItem[] = [
+  {
+    question: 'How much is Missouri state income tax in 2026?',
+    answer:
+      "Missouri uses a progressive income tax system with brackets from 2% to 4.8% as of 2026. The top rate of 4.8% kicks in at relatively low income levels (above $8,099 in taxable income). Missouri has been gradually reducing its top rate in recent years. For a $75K single filer, the effective state tax rate works out to roughly 3.8% after the federal standard deduction is applied.",
+  },
+  {
+    question: 'Does Missouri use federal taxable income?',
+    answer:
+      "Yes! Missouri starts with your federal taxable income, which means the federal standard deduction ($16,100 single, $32,200 married) is automatically applied before calculating Missouri tax. This is a significant benefit — your first $16,100 of income is essentially tax-free at the state level too. Some states require you to add back the federal deduction, but Missouri doesn't.",
+  },
+  {
+    question: 'Does Missouri tax Social Security benefits?',
+    answer:
+      "Missouri does not tax Social Security benefits. Additionally, Missouri offers a deduction for public pension income up to the amount received from federal or Missouri state retirement plans. Private pension income is largely taxable, though. The state also has a property tax credit (Circuit Breaker) for seniors and disabled individuals.",
+  },
+  {
+    question: 'How does Missouri compare to neighboring states on taxes?',
+    answer:
+      "Missouri sits in the middle of the pack regionally. Its top rate of 4.8% is higher than Indiana's flat 3.05% (plus county) and lower than Iowa's top rate. Kansas charges up to 5.7%, Illinois is a flat 4.95%, and Arkansas tops out at 4.4%. Because Missouri uses federal taxable income, the effective rate is often lower than the bracket suggests. Property taxes are moderate at around 0.97%.",
+  },
+  {
+    question: 'Is Missouri a good state for retirees?',
+    answer:
+      "Decent but not great. Social Security is exempt, and there's a public pension deduction. But private pensions and 401(k)/IRA withdrawals are still taxed at up to 4.8%. The property tax circuit breaker helps lower-income seniors. If you're comparing to Illinois (which exempts most retirement income) or Tennessee (no income tax at all), Missouri loses for retirees.",
+  },
+];
+
+export const MARYLAND_FAQS: FAQItem[] = [
+  {
+    question: 'How much is Maryland state income tax in 2026?',
+    answer:
+      "Maryland has a progressive state income tax with brackets from 2% to 5.75%. But here's the catch — every Maryland county also imposes a county income tax ranging from 2.25% to 3.28%. That means your combined top state + county rate can reach 8.03% to 9.03%, which is among the highest in the nation. For a $75K single filer in Montgomery County (3.2% county rate), combined state + county tax is roughly $3,800.",
+  },
+  {
+    question: 'Does Maryland have a standard deduction?',
+    answer:
+      "Yes, but it's small. $2,400 for single filers and $4,800 for married filing jointly. That's much lower than the federal $16,100 standard deduction. Maryland also offers a personal exemption of $3,200 per person ($6,400 married), which further reduces taxable income. Combined, a single filer gets $5,600 in deductions before the tax brackets kick in.",
+  },
+  {
+    question: 'How do Maryland county taxes work?',
+    answer:
+      "Each of Maryland's 23 counties plus Baltimore City imposes its own local income tax, set as a percentage of your Maryland taxable income. Rates range from 2.25% (Worcester County) to 3.28% (Caroline, Dorchester, Howard, Prince George's, Wicomico, and Worcester counties at the high end). Montgomery County charges 3.2%. This calculator shows state tax only — add your county rate for the full picture.",
+  },
+  {
+    question: 'Does Maryland tax Social Security benefits?',
+    answer:
+      "No. Maryland does not tax Social Security benefits. The state also excludes up to $34,300 of pension income from taxation for residents 65 and older (or $29,900 for those 55-64). That's fairly generous. 401(k) and IRA withdrawals above these thresholds are taxable at the full state + county rate.",
+  },
+  {
+    question: 'Is Maryland a high-tax state?',
+    answer:
+      "Yes, Maryland consistently ranks among the top 10 highest-tax states. The combined state + county income tax can reach 9%, property taxes average 1.06%, and the state sales tax is 6% (no local add-ons). For a $100K earner in a high-county-tax area, the total state and local tax burden can exceed $8,000. High property values in the DC suburbs make it even more expensive. The one saving grace: proximity to high-paying DC jobs can offset the tax burden.",
+  },
+];
+
+export const WISCONSIN_FAQS: FAQItem[] = [
+  {
+    question: 'How much is Wisconsin state income tax in 2026?',
+    answer:
+      "Wisconsin uses a progressive income tax with four brackets ranging from 3.54% to 7.65%. The top rate of 7.65% kicks in above $276,270 in taxable income for single filers. For a $75K single filer, the effective state tax rate works out to roughly 4.2% after the standard deduction. That's higher than neighboring Minnesota's bottom bracket but lower than Minnesota's top rate of 9.85%.",
+  },
+  {
+    question: 'What is the Wisconsin standard deduction for 2026?',
+    answer:
+      "Wisconsin offers a standard deduction that varies by filing status: $12,990 for single filers, $24,070 for married filing jointly, and $18,340 for head of household. The deduction phases out at higher income levels. This is separate from the federal standard deduction and applies only to your Wisconsin state tax calculation.",
+  },
+  {
+    question: 'Does Wisconsin tax Social Security benefits?',
+    answer:
+      "No. Wisconsin does not tax Social Security benefits. However, other retirement income — including 401(k) withdrawals, IRA distributions, and most pension income — is fully taxable at the state's regular rates (up to 7.65%). That can be a significant hit for retirees with large retirement account balances. Wisconsin does offer a small retirement income exclusion for seniors with lower incomes.",
+  },
+  {
+    question: 'How does Wisconsin compare to neighboring states on taxes?',
+    answer:
+      "Wisconsin's top rate of 7.65% is higher than all its neighbors except Minnesota (9.85%). Iowa is transitioning to a flat rate around 5.7%, Illinois is flat at 4.95%, and Michigan is flat at 4.25%. However, Wisconsin's standard deduction is more generous than some states, so the effective rate for moderate earners is often lower than the bracket rate suggests. Property taxes are also relatively high at about 1.63%.",
+  },
+  {
+    question: 'Is Wisconsin a good state for retirees?',
+    answer:
+      "Not particularly. While Social Security is exempt, most other retirement income is taxed at rates up to 7.65%. Wisconsin also has high property taxes (1.63% average) and a moderate 5% state sales tax. States like Illinois (no tax on retirement income) or Michigan (tax-exempt pensions) are more retiree-friendly in the region. The main Wisconsin advantage is the Social Security exemption, but that's common across most states.",
+  },
+];
+
+export const MINNESOTA_FAQS: FAQItem[] = [
+  {
+    question: 'How much is Minnesota state income tax in 2026?',
+    answer:
+      "Minnesota has one of the highest state income tax rates in the country, with progressive brackets from 5.35% to 9.85%. The top rate of 9.85% kicks in above $210,260 in taxable income for single filers. For a $75K single filer, the effective rate is roughly 5.8% after the $14,575 standard deduction. Only California (13.3%), Hawaii (11%), and New Jersey (10.75%) have higher top rates.",
+  },
+  {
+    question: 'What is the Minnesota standard deduction for 2026?',
+    answer:
+      "$14,575 for single filers, $29,150 for married filing jointly, and $21,850 for head of household. Minnesota's standard deduction is relatively generous and closely mirrors the federal standard deduction amounts. This significantly reduces the taxable income for most filers before the brackets apply.",
+  },
+  {
+    question: 'Does Minnesota tax Social Security benefits?',
+    answer:
+      "Partially. Minnesota is one of the few states that taxes Social Security benefits, though it does provide a subtraction based on income. For 2026, single filers with less than $78,000 in adjusted gross income can subtract some or all of their Social Security from state taxable income. Above that threshold, more of your benefits are subject to state tax. This is a notable drawback for retirees compared to most other states.",
+  },
+  {
+    question: 'How does Minnesota compare to neighboring states on taxes?',
+    answer:
+      "Minnesota has the highest income tax rates in the Midwest by a significant margin. Wisconsin's top rate is 7.65%, Iowa is around 5.7%, North Dakota tops out at 2.5%, and South Dakota has no income tax at all. On the plus side, Minnesota has a generous standard deduction and various credits (including a working family credit). But for high earners, Minnesota is a tough sell compared to its neighbors. Property taxes are moderate at about 1.08%.",
+  },
+  {
+    question: 'Is Minnesota a high-tax state overall?',
+    answer:
+      "Yes. Minnesota consistently ranks in the top 5-10 highest-tax states nationally. The top income tax rate of 9.85% is fourth-highest in the country, property taxes average 1.08%, and the state sales tax is 6.875% (higher in most cities with local taxes). The total state and local tax burden for a median household is roughly 10-11% of income. The trade-off is robust public services, excellent schools, and high quality-of-life metrics.",
+  },
+];
+
+export const OREGON_FAQS: FAQItem[] = [
+  {
+    question: 'How much is Oregon state income tax in 2026?',
+    answer:
+      "Oregon has a progressive income tax with brackets from 4.75% to 9.9%, making it one of the highest top rates in the nation. The top rate of 9.9% applies above $125,000 in taxable income for single filers. For a $75K single filer, the effective rate is roughly 7.5% after the $2,605 standard deduction. Only California (13.3%) has a higher top rate among states with broad-based income taxes.",
+  },
+  {
+    question: 'Does Oregon have a sales tax?',
+    answer:
+      "No! Oregon is one of only five states with no state sales tax (Delaware, Montana, New Hampshire, and Alaska are the others). This is a huge advantage that partially offsets the high income tax. On $40,000 in annual spending, you'd save roughly $2,800-3,600 compared to living in a state with a 7-9% sales tax. When comparing Oregon to other states, you must factor this in.",
+  },
+  {
+    question: 'What is the Oregon standard deduction for 2026?',
+    answer:
+      "$2,605 for single filers, $5,210 for married filing jointly, and $5,210 for head of household. Oregon's standard deduction is notably low compared to other states. However, Oregon also offers a personal exemption credit of $236 per person (which reduces your tax bill directly rather than your taxable income), and federal tax is deductible on the Oregon return for some filers.",
+  },
+  {
+    question: 'Does Oregon tax Social Security benefits?',
+    answer:
+      "No. Oregon does not tax Social Security benefits. However, most other retirement income — including 401(k) withdrawals, IRA distributions, and pensions — is fully taxable at rates up to 9.9%. For retirees with large retirement account balances, Oregon can be expensive. The lack of sales tax helps, but it doesn't offset the high income tax on retirement distributions.",
+  },
+  {
+    question: 'What is the Oregon kicker refund?',
+    answer:
+      "Oregon has a unique 'kicker' law: if state revenue collections exceed projections by more than 2%, the surplus is refunded to taxpayers. The refund is a percentage of your prior year's tax liability. In recent years, kickers have ranged from 1-5% of state tax paid. It's not guaranteed every year, but when it happens, it's a nice bonus. Think of it as a retroactive tax cut when the state collects too much.",
+  },
+  {
+    question: 'How does Oregon's overall tax burden compare?',
+    answer:
+      "Oregon's overall burden depends heavily on your income and spending patterns. High earners pay a lot in income tax (up to 9.9%), but the lack of sales tax saves thousands per year. For a $75K earner spending $40K annually, Oregon's income tax (~$5,200) minus sales tax savings (~$3,000) makes the effective burden comparable to a state charging around 3% income tax with 7.5% sales tax. Property taxes are moderate at about 0.90%. Oregon is expensive for high earners but reasonable for moderate earners who spend carefully.",
   },
 ];

@@ -104,3 +104,59 @@ Stage Summary:
 - Content area scrolls when there isn't enough space, while header and footer remain fixed
 - All calculator categories and items should be accessible via scrolling on smaller screens
 - File modified: `src/components/finance/header.tsx`
+
+---
+Task ID: 9
+Agent: Shared Config Update Agent
+Task: Update 6 shared configuration files to add 8 new state tax calculators (NC, PA, OH, MI, NJ, CO, AZ, WA)
+
+Work Log:
+- Read worklog.md for context from previous agents
+- Read all 6 target files to understand existing patterns (Georgia/Virginia as templates)
+- Verified all 8 FAQ constants exist in @/lib/faq-data (NORTHCAROLINA_FAQS, PENNSYLVANIA_FAQS, OHIO_FAQS, MICHIGAN_FAQS, NEWJERSEY_FAQS, COLORADO_FAQS, ARIZONA_FAQS, WASHINGTON_FAQS)
+- Updated src/lib/calculator-routes.ts: Added 8 new route entries before Virginia entry
+- Updated src/app/[calculator]/calculator-client-page.tsx: Added 8 dynamic imports and 8 switch cases
+- Updated src/app/[calculator]/_jsonld.ts: Added 8 FAQ imports, 8 JSON-LD generator functions, 8 switch cases
+- Updated src/app/[calculator]/_content.ts: Added 8 FAQ imports, 8 content entries with howItWorks, keyRates, faqs, relatedCalculators
+- Updated src/app/[calculator]/page.tsx: Added 8 blog slug entries, expanded getOtherStates to 15 states, added 8 FAQ heading cases, added 8 getNextSteps cases, updated "Compare with Other States" array to include all 15 state keys
+- Updated src/components/finance/header.tsx: Added 8 items to "By State" category in CALC_CATEGORIES, added 8 entries to KEY_TO_ICON
+- Fixed nested <a> tag issue in Arizona content entry
+- Ran ESLint on all 6 modified files — zero errors
+- Pre-existing lint errors in other files (product-hunt-banner.tsx, supervisor.js) remain unchanged
+
+Stage Summary:
+- All 6 shared configuration files updated with 8 new state calculator entries
+- New states: North Carolina (4.5% flat), Pennsylvania (3.07% flat), Ohio (0%–3.99% progressive), Michigan (4.25% flat), New Jersey (1.4%–10.75% progressive), Colorado (4.4% flat), Arizona (2.5% flat), Washington (0% income tax)
+- Zero lint errors introduced in any modified file
+- All existing functionality preserved — entries follow established patterns
+
+---
+Task ID: 2
+Agent: Main Agent
+Task: Add 8 new state tax calculators (NC, PA, OH, MI, NJ, CO, AZ, WA)
+
+Work Log:
+- Analyzed current state coverage: only 7 states had dedicated calculators (IL, TX, FL, CA, NY, GA, VA)
+- Created 8 new calculator components following the existing Georgia/Virginia patterns
+- Added FAQ data for all 8 states in faq-data.ts
+- Updated faq-sections.tsx to re-export all new FAQ constants
+- Added 8 new route configurations in calculator-routes.ts
+- Added dynamic imports and switch cases in calculator-client-page.tsx
+- Added JSON-LD generators for all 8 states in _jsonld.ts
+- Added content sections (howItWorks, keyRates, faqs, relatedCalculators) in _content.ts
+- Updated page.tsx with blog slugs, FAQ headings, next steps for all 8 states
+- Updated header.tsx navigation with all 8 new states in "By State" category
+- Updated home page (page.tsx) with new calculator cards, updated counts (28 tools, 15 states)
+- Updated home page JSON-LD with all new state entries
+- Updated state comparison preview section with WA, FL, AZ as featured states
+- Zero TypeScript errors in all new/modified files
+- Build succeeds with `npx next build`
+- Dev server tested: NC page rendered successfully (200 status, 309K HTML)
+
+Stage Summary:
+- Added 8 new state tax calculators: North Carolina (4.5% flat), Pennsylvania (3.07% flat), Ohio (0-3.99% progressive), Michigan (4.25% flat), New Jersey (1.4-10.75% progressive), Colorado (4.4% flat), Arizona (2.5% flat), Washington (0% income tax)
+- Total states with dedicated calculators: 15 (up from 7)
+- Total calculators: 28 (up from 20)
+- All shared config files updated consistently
+- Files created: 8 calculator components, FAQ data for 8 states
+- Files modified: calculator-routes.ts, calculator-client-page.tsx, _jsonld.ts, _content.ts, page.tsx (calculator), header.tsx, page.tsx (home), faq-data.ts, faq-sections.tsx

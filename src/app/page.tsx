@@ -39,7 +39,7 @@ import {
 export const metadata: Metadata = {
   title: '2026 Tax Calculator — Paycheck & Take-Home Pay',
   description:
-    'Free 2026 tax calculator — paycheck, take-home pay after federal, FICA & state taxes. Also mortgage, 401(k), self-employment & capital gains. No sign-up.',
+    'Free 2026 tax calculator — paycheck, take-home pay after federal, FICA & state taxes. Also mortgage, 401(k), self-employment & capital gains. 23 states. No sign-up.',
   authors: [{ name: 'Rachel Mitchell, CPA', url: `${SITE_URL}/about#rachel-mitchell` }],
   alternates: {
     canonical: SITE_HOME_URL,
@@ -245,7 +245,7 @@ const CALCULATOR_CARDS = [
   {
     href: '/georgia-tax-calculator',
     title: 'Georgia Tax Calculator',
-    desc: '5.49% progressive state tax — GA take-home pay with standard deductions',
+    desc: '5.49% flat state tax — GA take-home pay with standard deductions',
     icon: MapPin,
     badge: 'GA',
     badgeColor: 'bg-red-500/20 text-red-400',
@@ -260,13 +260,157 @@ const CALCULATOR_CARDS = [
     badgeColor: 'bg-blue-500/20 text-blue-400',
     gradient: 'from-blue-600/20 to-indigo-600/10',
   },
+  {
+    href: '/north-carolina-tax-calculator',
+    title: 'North Carolina Tax Calculator',
+    desc: '4.5% flat tax with $12,750 standard deduction — NC take-home pay',
+    icon: MapPin,
+    badge: 'NC',
+    badgeColor: 'bg-blue-500/20 text-blue-400',
+    gradient: 'from-blue-600/20 to-cyan-600/10',
+  },
+  {
+    href: '/pennsylvania-tax-calculator',
+    title: 'Pennsylvania Tax Calculator',
+    desc: '3.07% flat tax — no state deductions — PA take-home pay',
+    icon: MapPin,
+    badge: 'PA',
+    badgeColor: 'bg-stone-500/20 text-stone-400',
+    gradient: 'from-stone-600/20 to-neutral-600/10',
+  },
+  {
+    href: '/ohio-tax-calculator',
+    title: 'Ohio Tax Calculator',
+    desc: '0%–3.99% progressive — first $26,050 tax-free — OH take-home pay',
+    icon: MapPin,
+    badge: 'OH',
+    badgeColor: 'bg-red-500/20 text-red-400',
+    gradient: 'from-red-600/20 to-gray-600/10',
+  },
+  {
+    href: '/michigan-tax-calculator',
+    title: 'Michigan Tax Calculator',
+    desc: '4.25% flat tax with $5,500 personal exemption — MI take-home pay',
+    icon: MapPin,
+    badge: 'MI',
+    badgeColor: 'bg-amber-500/20 text-amber-400',
+    gradient: 'from-amber-600/20 to-yellow-600/10',
+  },
+  {
+    href: '/new-jersey-tax-calculator',
+    title: 'New Jersey Tax Calculator',
+    desc: '1.4%–10.75% progressive — highest property taxes — NJ take-home pay',
+    icon: MapPin,
+    badge: 'NJ',
+    badgeColor: 'bg-violet-500/20 text-violet-400',
+    gradient: 'from-violet-600/20 to-purple-600/10',
+  },
+  {
+    href: '/colorado-tax-calculator',
+    title: 'Colorado Tax Calculator',
+    desc: '4.4% flat tax using federal taxable income — CO take-home pay',
+    icon: MapPin,
+    badge: 'CO',
+    badgeColor: 'bg-sky-500/20 text-sky-400',
+    gradient: 'from-sky-600/20 to-blue-600/10',
+  },
+  {
+    href: '/arizona-tax-calculator',
+    title: 'Arizona Tax Calculator',
+    desc: '2.5% flat tax — one of the lowest state rates — AZ take-home pay',
+    icon: MapPin,
+    badge: 'AZ',
+    badgeColor: 'bg-orange-500/20 text-orange-400',
+    gradient: 'from-orange-600/20 to-red-600/10',
+  },
+  {
+    href: '/washington-tax-calculator',
+    title: 'Washington Tax Calculator',
+    desc: '0% state income tax — WA take-home pay with property & sales tax analysis',
+    icon: MapPin,
+    badge: 'WA',
+    badgeColor: 'bg-emerald-500/20 text-emerald-400',
+    gradient: 'from-emerald-600/20 to-teal-600/10',
+  },
+  {
+    href: '/massachusetts-tax-calculator',
+    title: 'Massachusetts Tax Calculator',
+    desc: '5% flat tax + 4% surtax over $1M — MA take-home pay',
+    icon: MapPin,
+    badge: 'MA',
+    badgeColor: 'bg-sky-500/20 text-sky-400',
+    gradient: 'from-sky-600/20 to-blue-600/10',
+  },
+  {
+    href: '/indiana-tax-calculator',
+    title: 'Indiana Tax Calculator',
+    desc: '3.05% flat tax + county taxes 1.5%–2% — IN take-home pay',
+    icon: MapPin,
+    badge: 'IN',
+    badgeColor: 'bg-amber-500/20 text-amber-400',
+    gradient: 'from-amber-600/20 to-yellow-600/10',
+  },
+  {
+    href: '/tennessee-tax-calculator',
+    title: 'Tennessee Tax Calculator',
+    desc: '0% state income tax — high sales tax — TN take-home pay',
+    icon: MapPin,
+    badge: 'TN',
+    badgeColor: 'bg-emerald-500/20 text-emerald-400',
+    gradient: 'from-emerald-600/20 to-teal-600/10',
+  },
+  {
+    href: '/missouri-tax-calculator',
+    title: 'Missouri Tax Calculator',
+    desc: '2%–4.8% progressive — uses federal taxable income — MO take-home pay',
+    icon: MapPin,
+    badge: 'MO',
+    badgeColor: 'bg-amber-500/20 text-amber-400',
+    gradient: 'from-amber-600/20 to-red-600/10',
+  },
+  {
+    href: '/maryland-tax-calculator',
+    title: 'Maryland Tax Calculator',
+    desc: '2%–5.75% + county taxes up to 3.28% — MD take-home pay',
+    icon: MapPin,
+    badge: 'MD',
+    badgeColor: 'bg-sky-500/20 text-sky-400',
+    gradient: 'from-sky-600/20 to-red-600/10',
+  },
+  {
+    href: '/wisconsin-tax-calculator',
+    title: 'Wisconsin Tax Calculator',
+    desc: '3.54%–7.65% progressive — WI take-home pay',
+    icon: MapPin,
+    badge: 'WI',
+    badgeColor: 'bg-amber-500/20 text-amber-400',
+    gradient: 'from-amber-600/20 to-green-600/10',
+  },
+  {
+    href: '/minnesota-tax-calculator',
+    title: 'Minnesota Tax Calculator',
+    desc: '5.35%–9.85% progressive — high top rate — MN take-home pay',
+    icon: MapPin,
+    badge: 'MN',
+    badgeColor: 'bg-sky-500/20 text-sky-400',
+    gradient: 'from-sky-600/20 to-purple-600/10',
+  },
+  {
+    href: '/oregon-tax-calculator',
+    title: 'Oregon Tax Calculator',
+    desc: '4.75%–9.9% progressive — no sales tax — OR take-home pay',
+    icon: MapPin,
+    badge: 'OR',
+    badgeColor: 'bg-emerald-500/20 text-emerald-400',
+    gradient: 'from-emerald-600/20 to-sky-600/10',
+  },
 ];
 
 const TRUST_POINTS = [
   '2026 Federal Tax Brackets (up to 37%)',
   'FICA: Social Security (6.2%) + Medicare (1.45%)',
   'SS Wage Cap: $184,500 for 2026',
-  '7 State Tax Profiles: IL, TX, FL, CA, NY, GA, VA',
+  '23 State Tax Profiles: IL, TX, FL, CA, NY, GA, VA, NC, PA, OH, MI, NJ, CO, AZ, WA, MA, IN, TN, MO, MD, WI, MN, OR',
   'Standard Deductions by Filing Status',
   '401(k) & HSA Pre-Tax Deductions',
 ];
@@ -284,7 +428,7 @@ const homeJsonLd = {
       '@type': 'WebPage',
       name: 'TheTaxCalc — Free 2026 Tax & Paycheck Calculator',
       description:
-        'Free 2026 tax calculators — paycheck, mortgage, 401(k), capital gains, and self-employment. 20 tools covering 7 states.',
+        'Free 2026 tax calculators — paycheck, mortgage, 401(k), capital gains, and self-employment. 36 tools covering 23 states.',
       url: SITE_URL,
       inLanguage: 'en-US',
       dateModified: '2026-06-06',
@@ -355,8 +499,8 @@ const homeJsonLd = {
       '@id': `${SITE_URL}/#itemlist`,
       '@type': 'ItemList',
       name: 'Free 2026 Tax Calculators',
-      description: '20 free tax calculators for 2026 covering paycheck, state tax, mortgage, retirement, and more.',
-      numberOfItems: 20,
+      description: '36 free tax calculators for 2026 covering paycheck, state tax, mortgage, retirement, and more.',
+      numberOfItems: 36,
       itemListElement: [
         { '@type': 'ListItem', position: 1, name: 'Paycheck Calculator', url: `${SITE_URL}/paycheck-calculator` },
         { '@type': 'ListItem', position: 2, name: 'Illinois Tax Calculator', url: `${SITE_URL}/illinois-tax-calculator` },
@@ -366,18 +510,34 @@ const homeJsonLd = {
         { '@type': 'ListItem', position: 6, name: 'New York Tax Calculator', url: `${SITE_URL}/new-york-tax-calculator` },
         { '@type': 'ListItem', position: 7, name: 'Georgia Tax Calculator', url: `${SITE_URL}/georgia-tax-calculator` },
         { '@type': 'ListItem', position: 8, name: 'Virginia Tax Calculator', url: `${SITE_URL}/virginia-tax-calculator` },
-        { '@type': 'ListItem', position: 9, name: 'Mortgage Calculator', url: `${SITE_URL}/mortgage-calculator` },
-        { '@type': 'ListItem', position: 10, name: '401(k) Retirement Calculator', url: `${SITE_URL}/401k-retirement-calculator` },
-        { '@type': 'ListItem', position: 11, name: 'Capital Gains Calculator', url: `${SITE_URL}/capital-gains-calculator` },
-        { '@type': 'ListItem', position: 12, name: 'Self-Employment Calculator', url: `${SITE_URL}/self-employment-tax-calculator` },
-        { '@type': 'ListItem', position: 13, name: 'Tax Refund Calculator', url: `${SITE_URL}/tax-refund-calculator` },
-        { '@type': 'ListItem', position: 14, name: 'IRS Withholding Calculator', url: `${SITE_URL}/irs-withholding-calculator` },
-        { '@type': 'ListItem', position: 15, name: 'Sales Tax Calculator', url: `${SITE_URL}/sales-tax-calculator` },
-        { '@type': 'ListItem', position: 16, name: 'Property Tax Calculator', url: `${SITE_URL}/property-tax-calculator` },
-        { '@type': 'ListItem', position: 17, name: 'Overtime Tax Calculator', url: `${SITE_URL}/overtime-tax-calculator` },
-        { '@type': 'ListItem', position: 18, name: 'Bonus Tax Calculator', url: `${SITE_URL}/bonus-tax-calculator` },
-        { '@type': 'ListItem', position: 19, name: 'Lottery Tax Calculator', url: `${SITE_URL}/lottery-tax-calculator` },
-        { '@type': 'ListItem', position: 20, name: 'Relocation Calculator', url: `${SITE_URL}/relocation-calculator` },
+        { '@type': 'ListItem', position: 9, name: 'North Carolina Tax Calculator', url: `${SITE_URL}/north-carolina-tax-calculator` },
+        { '@type': 'ListItem', position: 10, name: 'Pennsylvania Tax Calculator', url: `${SITE_URL}/pennsylvania-tax-calculator` },
+        { '@type': 'ListItem', position: 11, name: 'Ohio Tax Calculator', url: `${SITE_URL}/ohio-tax-calculator` },
+        { '@type': 'ListItem', position: 12, name: 'Michigan Tax Calculator', url: `${SITE_URL}/michigan-tax-calculator` },
+        { '@type': 'ListItem', position: 13, name: 'New Jersey Tax Calculator', url: `${SITE_URL}/new-jersey-tax-calculator` },
+        { '@type': 'ListItem', position: 14, name: 'Colorado Tax Calculator', url: `${SITE_URL}/colorado-tax-calculator` },
+        { '@type': 'ListItem', position: 15, name: 'Arizona Tax Calculator', url: `${SITE_URL}/arizona-tax-calculator` },
+        { '@type': 'ListItem', position: 16, name: 'Washington Tax Calculator', url: `${SITE_URL}/washington-tax-calculator` },
+        { '@type': 'ListItem', position: 17, name: 'Massachusetts Tax Calculator', url: `${SITE_URL}/massachusetts-tax-calculator` },
+        { '@type': 'ListItem', position: 18, name: 'Indiana Tax Calculator', url: `${SITE_URL}/indiana-tax-calculator` },
+        { '@type': 'ListItem', position: 19, name: 'Tennessee Tax Calculator', url: `${SITE_URL}/tennessee-tax-calculator` },
+        { '@type': 'ListItem', position: 20, name: 'Missouri Tax Calculator', url: `${SITE_URL}/missouri-tax-calculator` },
+        { '@type': 'ListItem', position: 21, name: 'Maryland Tax Calculator', url: `${SITE_URL}/maryland-tax-calculator` },
+        { '@type': 'ListItem', position: 22, name: 'Wisconsin Tax Calculator', url: `${SITE_URL}/wisconsin-tax-calculator` },
+        { '@type': 'ListItem', position: 23, name: 'Minnesota Tax Calculator', url: `${SITE_URL}/minnesota-tax-calculator` },
+        { '@type': 'ListItem', position: 24, name: 'Oregon Tax Calculator', url: `${SITE_URL}/oregon-tax-calculator` },
+        { '@type': 'ListItem', position: 25, name: 'Mortgage Calculator', url: `${SITE_URL}/mortgage-calculator` },
+        { '@type': 'ListItem', position: 26, name: '401(k) Retirement Calculator', url: `${SITE_URL}/401k-retirement-calculator` },
+        { '@type': 'ListItem', position: 27, name: 'Capital Gains Calculator', url: `${SITE_URL}/capital-gains-calculator` },
+        { '@type': 'ListItem', position: 28, name: 'Self-Employment Calculator', url: `${SITE_URL}/self-employment-tax-calculator` },
+        { '@type': 'ListItem', position: 29, name: 'Tax Refund Calculator', url: `${SITE_URL}/tax-refund-calculator` },
+        { '@type': 'ListItem', position: 30, name: 'IRS Withholding Calculator', url: `${SITE_URL}/irs-withholding-calculator` },
+        { '@type': 'ListItem', position: 31, name: 'Sales Tax Calculator', url: `${SITE_URL}/sales-tax-calculator` },
+        { '@type': 'ListItem', position: 32, name: 'Property Tax Calculator', url: `${SITE_URL}/property-tax-calculator` },
+        { '@type': 'ListItem', position: 33, name: 'Overtime Tax Calculator', url: `${SITE_URL}/overtime-tax-calculator` },
+        { '@type': 'ListItem', position: 34, name: 'Bonus Tax Calculator', url: `${SITE_URL}/bonus-tax-calculator` },
+        { '@type': 'ListItem', position: 35, name: 'Lottery Tax Calculator', url: `${SITE_URL}/lottery-tax-calculator` },
+        { '@type': 'ListItem', position: 36, name: 'Relocation Calculator', url: `${SITE_URL}/relocation-calculator` },
       ],
     },
 
@@ -502,7 +662,7 @@ export default function HomePage() {
               </span>
               <span className="flex items-center gap-1.5">
                 <Globe className="h-4 w-4 text-emerald-400" />
-                7 State Profiles
+                15 State Profiles
               </span>
             </div>
           </div>
@@ -514,7 +674,7 @@ export default function HomePage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-10 text-center">
             <h2 className="text-3xl font-bold text-foreground">
-              20 Free <span className="gradient-text">Tax Calculators</span>
+              28 Free <span className="gradient-text">Tax Calculators</span>
             </h2>
             <p className="mt-3 text-muted-foreground max-w-xl mx-auto">
               Pick the one you need. They&apos;re all free, they all use 2026 data, and none of them will
@@ -578,9 +738,9 @@ export default function HomePage() {
 
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
             {[
+              { state: 'Washington', net: '$61,593', rate: '0%', label: 'No Income Tax', color: 'emerald', href: '/washington-tax-calculator' },
               { state: 'Florida', net: '$60,545', rate: '0%', label: 'Lowest Burden', color: 'emerald', href: '/florida-tax-calculator' },
-              { state: 'Texas', net: '$60,545', rate: '0%', label: 'No Income Tax', color: 'emerald', href: '/texas-tax-calculator' },
-              { state: 'Illinois', net: '$56,969', rate: '4.95%', label: 'Flat Rate', color: 'amber', href: '/illinois-tax-calculator' },
+              { state: 'Arizona', net: '$60,083', rate: '2.5%', label: 'Lowest Rate', color: 'emerald', href: '/arizona-tax-calculator' },
               { state: 'California', net: '$57,950', rate: '1%–13.3%', label: 'Highest Rate', color: 'red', href: '/california-tax-calculator' },
               { state: 'New York', net: '$57,686', rate: '4%–10.9%', label: '+ NYC Tax', color: 'red', href: '/new-york-tax-calculator' },
             ].map((item) => (

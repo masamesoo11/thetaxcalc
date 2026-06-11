@@ -13,8 +13,10 @@ import {
   NYC_TAX_2026,
   TEXAS_COST_OF_LIVING,
   FLORIDA_COST_OF_LIVING,
+  WASHINGTON_COST_OF_LIVING,
   CALIFORNIA_COST_OF_LIVING,
   NEWYORK_COST_OF_LIVING,
+  TENNESSEE_COST_OF_LIVING,
   type PayFrequency,
   type StateProfile,
   type StateBracket,
@@ -657,6 +659,24 @@ export function calculateFloridaCostOfLiving(
   };
 }
 
+export function calculateWashingtonCostOfLiving(
+  homeValue: number = WASHINGTON_COST_OF_LIVING.averageHomeValue,
+  estimatedAnnualSpending: number = 48000
+): CostOfLivingResult {
+  const annualPropertyTax = homeValue * WASHINGTON_COST_OF_LIVING.averagePropertyTaxRate;
+  const estimatedSalesTaxBurden = estimatedAnnualSpending * WASHINGTON_COST_OF_LIVING.averageSalesTaxRate;
+
+  return {
+    annualPropertyTax: roundCurrency(annualPropertyTax),
+    monthlyPropertyTax: roundCurrency(annualPropertyTax / 12),
+    estimatedSalesTaxBurden: roundCurrency(estimatedSalesTaxBurden),
+    totalAnnualBurden: roundCurrency(annualPropertyTax + estimatedSalesTaxBurden),
+    totalMonthlyBurden: roundCurrency((annualPropertyTax + estimatedSalesTaxBurden) / 12),
+    propertyTaxRate: WASHINGTON_COST_OF_LIVING.averagePropertyTaxRate,
+    avgHomeValue: WASHINGTON_COST_OF_LIVING.averageHomeValue,
+  };
+}
+
 export function calculateCaliforniaCostOfLiving(
   homeValue: number = CALIFORNIA_COST_OF_LIVING.averageHomeValue,
   estimatedAnnualSpending: number = 55000
@@ -690,6 +710,24 @@ export function calculateNewYorkCostOfLiving(
     totalMonthlyBurden: roundCurrency((annualPropertyTax + estimatedSalesTaxBurden) / 12),
     propertyTaxRate: NEWYORK_COST_OF_LIVING.averagePropertyTaxRate,
     avgHomeValue: NEWYORK_COST_OF_LIVING.averageHomeValue,
+  };
+}
+
+export function calculateTennesseeCostOfLiving(
+  homeValue: number = TENNESSEE_COST_OF_LIVING.averageHomeValue,
+  estimatedAnnualSpending: number = 42000
+): CostOfLivingResult {
+  const annualPropertyTax = homeValue * TENNESSEE_COST_OF_LIVING.averagePropertyTaxRate;
+  const estimatedSalesTaxBurden = estimatedAnnualSpending * TENNESSEE_COST_OF_LIVING.averageSalesTaxRate;
+
+  return {
+    annualPropertyTax: roundCurrency(annualPropertyTax),
+    monthlyPropertyTax: roundCurrency(annualPropertyTax / 12),
+    estimatedSalesTaxBurden: roundCurrency(estimatedSalesTaxBurden),
+    totalAnnualBurden: roundCurrency(annualPropertyTax + estimatedSalesTaxBurden),
+    totalMonthlyBurden: roundCurrency((annualPropertyTax + estimatedSalesTaxBurden) / 12),
+    propertyTaxRate: TENNESSEE_COST_OF_LIVING.averagePropertyTaxRate,
+    avgHomeValue: TENNESSEE_COST_OF_LIVING.averageHomeValue,
   };
 }
 

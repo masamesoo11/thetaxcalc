@@ -84,6 +84,70 @@ const VirginiaCalculator = dynamic(
   () => import('@/components/finance/virginia-calculator').then((m) => ({ default: m.VirginiaCalculator })),
   { loading: () => <CalculatorSkeleton />, ssr: false }
 );
+const NorthCarolinaCalculator = dynamic(
+  () => import('@/components/finance/northcarolina-calculator').then((m) => ({ default: m.NorthCarolinaCalculator })),
+  { loading: () => <CalculatorSkeleton />, ssr: false }
+);
+const PennsylvaniaCalculator = dynamic(
+  () => import('@/components/finance/pennsylvania-calculator').then((m) => ({ default: m.PennsylvaniaCalculator })),
+  { loading: () => <CalculatorSkeleton />, ssr: false }
+);
+const OhioCalculator = dynamic(
+  () => import('@/components/finance/ohio-calculator').then((m) => ({ default: m.OhioCalculator })),
+  { loading: () => <CalculatorSkeleton />, ssr: false }
+);
+const MichiganCalculator = dynamic(
+  () => import('@/components/finance/michigan-calculator').then((m) => ({ default: m.MichiganCalculator })),
+  { loading: () => <CalculatorSkeleton />, ssr: false }
+);
+const NewJerseyCalculator = dynamic(
+  () => import('@/components/finance/newjersey-calculator').then((m) => ({ default: m.NewJerseyCalculator })),
+  { loading: () => <CalculatorSkeleton />, ssr: false }
+);
+const ColoradoCalculator = dynamic(
+  () => import('@/components/finance/colorado-calculator').then((m) => ({ default: m.ColoradoCalculator })),
+  { loading: () => <CalculatorSkeleton />, ssr: false }
+);
+const ArizonaCalculator = dynamic(
+  () => import('@/components/finance/arizona-calculator').then((m) => ({ default: m.ArizonaCalculator })),
+  { loading: () => <CalculatorSkeleton />, ssr: false }
+);
+const WashingtonCalculator = dynamic(
+  () => import('@/components/finance/washington-calculator').then((m) => ({ default: m.WashingtonCalculator })),
+  { loading: () => <CalculatorSkeleton />, ssr: false }
+);
+const MassachusettsCalculator = dynamic(
+  () => import('@/components/finance/massachusetts-calculator').then((m) => ({ default: m.MassachusettsCalculator })),
+  { loading: () => <CalculatorSkeleton />, ssr: false }
+);
+const IndianaCalculator = dynamic(
+  () => import('@/components/finance/indiana-calculator').then((m) => ({ default: m.IndianaCalculator })),
+  { loading: () => <CalculatorSkeleton />, ssr: false }
+);
+const TennesseeCalculator = dynamic(
+  () => import('@/components/finance/tennessee-calculator').then((m) => ({ default: m.TennesseeCalculator })),
+  { loading: () => <CalculatorSkeleton />, ssr: false }
+);
+const MissouriCalculator = dynamic(
+  () => import('@/components/finance/missouri-calculator').then((m) => ({ default: m.MissouriCalculator })),
+  { loading: () => <CalculatorSkeleton />, ssr: false }
+);
+const MarylandCalculator = dynamic(
+  () => import('@/components/finance/maryland-calculator').then((m) => ({ default: m.MarylandCalculator })),
+  { loading: () => <CalculatorSkeleton />, ssr: false }
+);
+const WisconsinCalculator = dynamic(
+  () => import('@/components/finance/wisconsin-calculator').then((m) => ({ default: m.WisconsinCalculator })),
+  { loading: () => <CalculatorSkeleton />, ssr: false }
+);
+const MinnesotaCalculator = dynamic(
+  () => import('@/components/finance/minnesota-calculator').then((m) => ({ default: m.MinnesotaCalculator })),
+  { loading: () => <CalculatorSkeleton />, ssr: false }
+);
+const OregonCalculator = dynamic(
+  () => import('@/components/finance/oregon-calculator').then((m) => ({ default: m.OregonCalculator })),
+  { loading: () => <CalculatorSkeleton />, ssr: false }
+);
 
 function CalculatorSkeleton() {
   return (
@@ -159,6 +223,38 @@ export function CalculatorClientPage({ componentKey }: CalculatorClientPageProps
       return <BonusTaxCalculator />;
     case 'virginia':
       return <VirginiaCalculator />;
+    case 'northcarolina':
+      return <NorthCarolinaCalculator />;
+    case 'pennsylvania':
+      return <PennsylvaniaCalculator />;
+    case 'ohio':
+      return <OhioCalculator />;
+    case 'michigan':
+      return <MichiganCalculator />;
+    case 'newjersey':
+      return <NewJerseyCalculator />;
+    case 'colorado':
+      return <ColoradoCalculator />;
+    case 'arizona':
+      return <ArizonaCalculator />;
+    case 'washington':
+      return <WashingtonCalculator />;
+    case 'massachusetts':
+      return <MassachusettsCalculator />;
+    case 'indiana':
+      return <IndianaCalculator />;
+    case 'tennessee':
+      return <TennesseeCalculator />;
+    case 'missouri':
+      return <MissouriCalculator />;
+    case 'maryland':
+      return <MarylandCalculator />;
+    case 'wisconsin':
+      return <WisconsinCalculator />;
+    case 'minnesota':
+      return <MinnesotaCalculator />;
+    case 'oregon':
+      return <OregonCalculator />;
     default:
       return <PaycheckCalculator />;
   }

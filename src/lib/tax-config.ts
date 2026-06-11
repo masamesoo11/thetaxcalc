@@ -1170,21 +1170,21 @@ export const STATE_PROFILES: Record<string, StateProfile> = {
     incomeTaxRate: 0,
     incomeTaxType: 'progressive',
     personalExemption: 0,
-    standardDeduction: 13010,
+    standardDeduction: 12990,
     hasIncomeTax: true,
     description:
-      'Wisconsin has a progressive state income tax with brackets from 3.5% to 7.65% as of 2026. Wisconsin offers a standard deduction that phases out at higher incomes and personal exemptions. The state uses federal adjusted gross income as its starting point.',
+      'Wisconsin has a progressive state income tax with brackets from 3.54% to 7.65% as of 2026. Wisconsin offers a standard deduction that varies by filing status and income level.',
     effectiveDate: '2026-01-01',
     brackets: [
-      { min: 0, max: 13010, rate: 0.035 },
-      { min: 13010, max: 26020, rate: 0.04 },
-      { min: 26020, max: 286260, rate: 0.053 },
-      { min: 286260, max: null, rate: 0.0765 },
+      { min: 0, max: 12620, rate: 0.0354 },
+      { min: 12620, max: 25240, rate: 0.0465 },
+      { min: 25240, max: 276270, rate: 0.0627 },
+      { min: 276270, max: null, rate: 0.0765 },
     ],
     standardDeductionsByFiling: {
-      single: 13010,
-      married: 26020,
-      head_of_household: 16780,
+      single: 12990,
+      married: 24070,
+      head_of_household: 18340,
     },
   },
 };
@@ -1225,6 +1225,13 @@ export const FLORIDA_COST_OF_LIVING = {
   averageAnnualPropertyTax: 3397,
 };
 
+export const WASHINGTON_COST_OF_LIVING = {
+  averagePropertyTaxRate: 0.0093, // 0.93% average effective rate
+  averageSalesTaxRate: 0.094, // 6.5% state + avg local (~9.4% combined)
+  averageHomeValue: 520000,
+  averageAnnualPropertyTax: 4836,
+};
+
 export const CALIFORNIA_COST_OF_LIVING = {
   averagePropertyTaxRate: 0.0071,
   averageSalesTaxRate: 0.0882, // 7.25% state + avg local
@@ -1263,6 +1270,13 @@ export const NYC_TAX_2026 = {
     ],
   },
   standardDeduction: 0, // NYC uses NYS standard deduction
+};
+
+export const TENNESSEE_COST_OF_LIVING = {
+  averagePropertyTaxRate: 0.0064,
+  averageSalesTaxRate: 0.0956, // 7% state + avg local
+  averageHomeValue: 270000,
+  averageAnnualPropertyTax: 1728,
 };
 
 export type PayFrequency = 'annual' | 'monthly' | 'biweekly' | 'weekly' | 'hourly';
