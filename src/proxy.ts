@@ -38,6 +38,14 @@ export async function proxy(request: NextRequest) {
     return NextResponse.next();
   }
 
+  // ─── SEO Redirects ────────────────────────────────────────────────────
+  if (pathname === '/self-employment-calculator') {
+    return NextResponse.redirect(
+      new URL('/self-employment-tax-calculator', request.url),
+      301
+    );
+  }
+
   // ─── Security Headers (applied to all responses) ────────────────────────
   const response = NextResponse.next();
   response.headers.set('X-Content-Type-Options', 'nosniff');

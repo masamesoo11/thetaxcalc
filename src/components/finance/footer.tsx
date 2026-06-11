@@ -28,6 +28,7 @@ const CALCULATOR_LINKS = [
   { href: '/virginia-tax-calculator', label: 'Virginia Tax Calculator', icon: MapPin },
   { href: '/relocation-calculator', label: 'Relocation Calculator', icon: MapPin },
   { href: '/freefile-irs', label: 'IRS Free File Guide', icon: FileCheck },
+  { href: '/home-sale-tax-calculator', label: 'Home Sale Tax Calculator', icon: Home },
 ];
 
 const RESOURCE_LINKS = [
@@ -319,6 +320,9 @@ export function Footer() {
               </Link>
               <Link href="/widgets" className="underline underline-offset-2 decoration-border/50 hover:text-emerald-400 hover:decoration-emerald-400 transition-colors">
                 Free Widgets
+              </Link>
+              <Link href="/freefile-irs" className="underline underline-offset-2 decoration-border/50 hover:text-emerald-400 hover:decoration-emerald-400 transition-colors">
+                IRS Free File
               </Link>
             </div>
           </div>

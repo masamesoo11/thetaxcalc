@@ -459,7 +459,6 @@ export function SalaryClientPage({ amountStr }: SalaryClientPageProps) {
             ) : <span />}
           </div>
         </section>
-      </div>
     </div>
   );
 }

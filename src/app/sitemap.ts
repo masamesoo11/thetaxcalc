@@ -38,9 +38,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     entries.push({ url: `${baseUrl}/salary/${amount}`, lastModified: taxYearUpdate, changeFrequency: 'monthly', priority: 0.8 });
   }
 
-  entries.push({ url: `${baseUrl}/freefile-irs`, lastModified: taxYearUpdate, changeFrequency: 'monthly', priority: 0.95 });
   entries.push({ url: `${baseUrl}/glossary`, lastModified: siteUpdate, changeFrequency: 'monthly', priority: 0.85 });
   entries.push({ url: `${baseUrl}/federal-tax-brackets`, lastModified: taxYearUpdate, changeFrequency: 'monthly', priority: 0.95 });
+  entries.push({ url: `${baseUrl}/freefile-irs`, lastModified: taxYearUpdate, changeFrequency: 'monthly', priority: 0.95 });
+  entries.push({ url: `${baseUrl}/home-sale-tax-calculator`, lastModified: taxYearUpdate, changeFrequency: 'monthly', priority: 0.95 });
   entries.push({ url: `${baseUrl}/about`, lastModified: siteUpdate, changeFrequency: 'monthly', priority: 0.7 });
   entries.push({ url: `${baseUrl}/resources`, lastModified: siteUpdate, changeFrequency: 'monthly', priority: 0.9 });
   entries.push({ url: `${baseUrl}/widgets`, lastModified: siteUpdate, changeFrequency: 'monthly', priority: 0.85 });

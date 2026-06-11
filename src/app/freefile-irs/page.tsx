@@ -299,7 +299,7 @@ export default async function FreefileIrsPage() {
       {/* Next Steps */}
       <section className="mt-8 rounded-xl border border-emerald-500/20 bg-emerald-500/5 p-6 sm:p-8">
         <h3 className="text-lg font-semibold text-foreground mb-3">
-          Related Tax Calculators & Tools
+          Related Tax Calculators &amp; Tools
         </h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
           {NEXT_STEPS.map((step) => (
@@ -418,21 +418,21 @@ export default async function FreefileIrsPage() {
               <div className="rounded-lg border border-emerald-500/20 bg-emerald-500/5 p-4">
                 <h3 className="text-sm font-semibold text-foreground mb-2">VITA — Volunteer Income Tax Assistance</h3>
                 <ul className="space-y-1.5 text-xs text-muted-foreground">
-                  <li>• Free for taxpayers earning ≤ $64,000</li>
-                  <li>• IRS-certified volunteers prepare your return</li>
-                  <li>• Available at libraries, community centers, malls</li>
-                  <li>• Includes persons with disabilities &amp; limited English speakers</li>
-                  <li>• Both federal AND state returns typically included</li>
+                  <li>&#8226; Free for taxpayers earning ≤ $64,000</li>
+                  <li>&#8226; IRS-certified volunteers prepare your return</li>
+                  <li>&#8226; Available at libraries, community centers, malls</li>
+                  <li>&#8226; Includes persons with disabilities &amp; limited English speakers</li>
+                  <li>&#8226; Both federal AND state returns typically included</li>
                 </ul>
               </div>
               <div className="rounded-lg border border-amber-500/20 bg-amber-500/5 p-4">
                 <h3 className="text-sm font-semibold text-foreground mb-2">TCE — Tax Counseling for the Elderly</h3>
                 <ul className="space-y-1.5 text-xs text-muted-foreground">
-                  <li>• Specialized for taxpayers age 60+</li>
-                  <li>• Focus on pensions, retirement, Social Security issues</li>
-                  <li>• AARP Tax-Aide is the largest TCE program</li>
-                  <li>• No income limit for most TCE locations</li>
-                  <li>• Both federal AND state returns typically included</li>
+                  <li>&#8226; Specialized for taxpayers age 60+</li>
+                  <li>&#8226; Focus on pensions, retirement, Social Security issues</li>
+                  <li>&#8226; AARP Tax-Aide is the largest TCE program</li>
+                  <li>&#8226; No income limit for most TCE locations</li>
+                  <li>&#8226; Both federal AND state returns typically included</li>
                 </ul>
               </div>
             </div>
@@ -591,81 +591,47 @@ export default async function FreefileIrsPage() {
           </p>
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             <Link href="/paycheck-calculator" className="group flex items-start gap-3 rounded-lg border border-border/50 p-4 hover:border-emerald-500/30 hover:bg-emerald-500/5 transition-all">
-              <span className="text-lg">💵</span>
-              <div>
-                <span className="text-sm font-medium text-foreground group-hover:text-emerald-400 transition-colors">Paycheck Calculator</span>
-                <p className="text-xs text-muted-foreground mt-0.5">See your take-home pay after federal &amp; state taxes</p>
-              </div>
-            </Link>
-            <Link href="/tax-refund-calculator" className="group flex items-start gap-3 rounded-lg border border-border/50 p-4 hover:border-emerald-500/30 hover:bg-emerald-500/5 transition-all">
               <span className="text-lg">💰</span>
               <div>
-                <span className="text-sm font-medium text-foreground group-hover:text-emerald-400 transition-colors">Tax Refund Calculator</span>
-                <p className="text-xs text-muted-foreground mt-0.5">Estimate your 2025 refund before you file</p>
+                <span className="text-sm font-medium text-foreground group-hover:text-emerald-400 transition-colors">Paycheck Calculator</span>
+                <p className="text-xs text-muted-foreground mt-0.5">See your take-home pay after all taxes</p>
+              </div>
+            </Link>
+            <Link href="/irs-withholding-calculator" className="group flex items-start gap-3 rounded-lg border border-border/50 p-4 hover:border-emerald-500/30 hover:bg-emerald-500/5 transition-all">
+              <span className="text-lg">📋</span>
+              <div>
+                <span className="text-sm font-medium text-foreground group-hover:text-emerald-400 transition-colors">IRS Withholding</span>
+                <p className="text-xs text-muted-foreground mt-0.5">Optimize your W-4 for 2026</p>
               </div>
             </Link>
             <Link href="/self-employment-tax-calculator" className="group flex items-start gap-3 rounded-lg border border-border/50 p-4 hover:border-emerald-500/30 hover:bg-emerald-500/5 transition-all">
               <span className="text-lg">🛡️</span>
               <div>
                 <span className="text-sm font-medium text-foreground group-hover:text-emerald-400 transition-colors">Self-Employment Tax</span>
-                <p className="text-xs text-muted-foreground mt-0.5">15.3% SE tax + quarterly estimated payments</p>
+                <p className="text-xs text-muted-foreground mt-0.5">15.3% SE tax + quarterly estimates</p>
               </div>
             </Link>
-            <Link href="/irs-withholding-calculator" className="group flex items-start gap-3 rounded-lg border border-border/50 p-4 hover:border-emerald-500/30 hover:bg-emerald-500/5 transition-all">
-              <span className="text-lg">📋</span>
+            <Link href="/tax-refund-calculator" className="group flex items-start gap-3 rounded-lg border border-border/50 p-4 hover:border-emerald-500/30 hover:bg-emerald-500/5 transition-all">
+              <span className="text-lg">💵</span>
               <div>
-                <span className="text-sm font-medium text-foreground group-hover:text-emerald-400 transition-colors">IRS Withholding Calculator</span>
-                <p className="text-xs text-muted-foreground mt-0.5">Optimize your W-4 for 2026</p>
+                <span className="text-sm font-medium text-foreground group-hover:text-emerald-400 transition-colors">Tax Refund Calculator</span>
+                <p className="text-xs text-muted-foreground mt-0.5">Estimate your 2025 refund</p>
               </div>
             </Link>
             <Link href="/salary" className="group flex items-start gap-3 rounded-lg border border-border/50 p-4 hover:border-emerald-500/30 hover:bg-emerald-500/5 transition-all">
-              <span className="text-lg">💰</span>
+              <span className="text-lg">📈</span>
               <div>
                 <span className="text-sm font-medium text-foreground group-hover:text-emerald-400 transition-colors">Salary After Tax</span>
-                <p className="text-xs text-muted-foreground mt-0.5">Take-home pay for $30K–$500K across all 50 states</p>
+                <p className="text-xs text-muted-foreground mt-0.5">Take-home pay for all 50 states</p>
               </div>
             </Link>
             <Link href="/federal-tax-brackets" className="group flex items-start gap-3 rounded-lg border border-border/50 p-4 hover:border-emerald-500/30 hover:bg-emerald-500/5 transition-all">
               <span className="text-lg">📋</span>
               <div>
                 <span className="text-sm font-medium text-foreground group-hover:text-emerald-400 transition-colors">Tax Brackets 2026</span>
-                <p className="text-xs text-muted-foreground mt-0.5">Full federal bracket breakdown with examples</p>
+                <p className="text-xs text-muted-foreground mt-0.5">Full federal bracket breakdown</p>
               </div>
             </Link>
-          </div>
-        </section>
-
-        {/* Link & Embed */}
-        <section className="rounded-xl border border-border/30 bg-card/50 p-6 sm:p-8">
-          <p className="text-lg font-semibold text-foreground mb-4">
-            Link to This Guide
-          </p>
-          <p className="text-sm text-muted-foreground mb-4">
-            Want to reference this guide on your website or blog? Copy the HTML below — no attribution required, but appreciated.
-          </p>
-          <div className="space-y-3">
-            <div className="rounded-lg bg-muted/30 p-3">
-              <p className="text-xs font-mono text-muted-foreground break-all">
-                {`<a href="${SITE_URL}${CONFIG.canonicalPath}" title="${CONFIG.h1}">${CONFIG.h1} — TheTaxCalc</a>`}
-              </p>
-            </div>
-            <p className="text-sm text-muted-foreground">
-              Want to <Link href="/widgets" className="text-emerald-400 hover:text-emerald-300 underline">embed calculators on your site</Link>? We offer free embeddable widgets for all our tools.
-            </p>
-            <div className="flex flex-wrap gap-2">
-              <Link
-                href="/widgets"
-                className="inline-flex items-center gap-1.5 rounded-lg border border-emerald-500/30 bg-emerald-500/5 px-3 py-1.5 text-sm font-medium text-emerald-400 hover:bg-emerald-500/10 transition-all"
-              >
-                📎 Free Embed Widgets
-              </Link>
-              <Link
-                href="/resources"
-                className="inline-flex items-center gap-1.5 rounded-lg border border-border/50 px-3 py-1.5 text-sm text-muted-foreground hover:text-emerald-400 hover:border-emerald-500/30 transition-all"
-              >
-                📊 Tax Data & Rates
-              </Link>
-            </div>
           </div>
         </section>
 
@@ -675,29 +641,25 @@ export default async function FreefileIrsPage() {
             Explore More Tools
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-            <Link href="/paycheck-calculator" className="flex items-center gap-2 rounded-lg border border-border/50 p-3 hover:bg-accent/50 transition-colors">
-              <span className="text-sm font-medium">💵 Paycheck Calculator</span>
-              <span className="text-xs text-muted-foreground">Federal & state take-home pay</span>
+            <Link href="/compare" className="flex items-center gap-2 rounded-lg border border-border/50 p-3 hover:bg-accent/50 transition-colors">
+              <span className="text-sm font-medium">📊 Compare States</span>
+              <span className="text-xs text-muted-foreground">Side-by-side tax comparison</span>
             </Link>
-            <Link href="/tax-refund-calculator" className="flex items-center gap-2 rounded-lg border border-border/50 p-3 hover:bg-accent/50 transition-colors">
-              <span className="text-sm font-medium">💰 Tax Refund</span>
-              <span className="text-xs text-muted-foreground">Estimate your refund</span>
+            <Link href="/salary" className="flex items-center gap-2 rounded-lg border border-border/50 p-3 hover:bg-accent/50 transition-colors">
+              <span className="text-sm font-medium">💰 Salary After Tax</span>
+              <span className="text-xs text-muted-foreground">Take-home for $30K–$500K</span>
             </Link>
             <Link href="/federal-tax-brackets" className="flex items-center gap-2 rounded-lg border border-border/50 p-3 hover:bg-accent/50 transition-colors">
               <span className="text-sm font-medium">📋 Tax Brackets 2026</span>
-              <span className="text-xs text-muted-foreground">Federal brackets & rates</span>
+              <span className="text-xs text-muted-foreground">Federal brackets &amp; rates</span>
             </Link>
             <Link href="/glossary" className="flex items-center gap-2 rounded-lg border border-border/50 p-3 hover:bg-accent/50 transition-colors">
               <span className="text-sm font-medium">📖 Tax Glossary</span>
               <span className="text-xs text-muted-foreground">Key terms explained</span>
             </Link>
             <Link href="/blog" className="flex items-center gap-2 rounded-lg border border-border/50 p-3 hover:bg-accent/50 transition-colors">
-              <span className="text-sm font-medium">📝 Tax Guides & Blog</span>
-              <span className="text-xs text-muted-foreground">Expert tax tips & guides</span>
-            </Link>
-            <Link href="/compare" className="flex items-center gap-2 rounded-lg border border-border/50 p-3 hover:bg-accent/50 transition-colors">
-              <span className="text-sm font-medium">📊 Compare States</span>
-              <span className="text-xs text-muted-foreground">Side-by-side tax comparison</span>
+              <span className="text-sm font-medium">📝 Tax Guides &amp; Blog</span>
+              <span className="text-xs text-muted-foreground">Expert tax tips &amp; guides</span>
             </Link>
           </div>
         </section>

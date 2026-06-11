@@ -111,6 +111,12 @@
 /tax-calculator
   Cache-Control: public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800
 
+/freefile-irs
+  Cache-Control: public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800
+
+/home-sale-tax-calculator
+  Cache-Control: public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800
+
 # === Dynamic sub-route pages — CDN caching (CRITICAL for crawl performance) ===
 # These wildcard rules cover the 50 state pages, salary pages, blog posts, etc.
 # Without these, every sub-page request hits the origin → Connection Timeout under crawl load

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useMemo } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import {
@@ -23,36 +23,69 @@ import {
   Clock,
   FileText,
   Code2,
-  FileCheck,
+  Search,
+  Landmark,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { COMPONENT_KEY_TO_SLUG } from '@/lib/calculator-routes';
 
-const CALC_ITEMS = [
-  { key: 'home', href: '/paycheck-calculator', label: 'Paycheck Calculator', icon: DollarSign, desc: 'Federal & state take-home pay' },
-  { key: 'illinois', href: '/illinois-tax-calculator', label: 'Illinois', icon: MapPin, desc: '4.95% flat tax' },
-  { key: 'texas', href: '/texas-tax-calculator', label: 'Texas', icon: MapPin, desc: '0% state income tax' },
-  { key: 'florida', href: '/florida-tax-calculator', label: 'Florida', icon: MapPin, desc: '0% state income tax' },
-  { key: 'california', href: '/california-tax-calculator', label: 'California', icon: MapPin, desc: '1%–13.3% progressive' },
-  { key: 'newyork', href: '/new-york-tax-calculator', label: 'New York', icon: MapPin, desc: '4%–10.9% progressive' },
-  { key: 'mortgage', href: '/mortgage-calculator', label: 'Mortgage', icon: Home, desc: 'Amortization & extra payments' },
-  { key: 'retirement', href: '/401k-retirement-calculator', label: '401(k)', icon: PiggyBank, desc: 'Retirement projection' },
-  { key: 'relocation', href: '/relocation-calculator', label: 'Relocate', icon: ArrowRightLeft, desc: 'Salary by state' },
-  { key: 'capital-gains', href: '/capital-gains-calculator', label: 'Capital Gains', icon: TrendingUp, desc: '0%/15%/20% + NIIT' },
-  { key: 'self-employment', href: '/self-employment-tax-calculator', label: 'Self-Employment', icon: Shield, desc: '15.3% SE tax' },
-  { key: 'tax-refund', href: '/tax-refund-calculator', label: 'Tax Refund', icon: DollarSign, desc: 'Estimate your refund' },
-  { key: 'sales-tax', href: '/sales-tax-calculator', label: 'Sales Tax', icon: Receipt, desc: 'All 50 states & reverse' },
-  { key: 'overtime', href: '/overtime-tax-calculator', label: 'Overtime Tax', icon: Clock, desc: 'No-tax OT savings' },
-  { key: 'georgia', href: '/georgia-tax-calculator', label: 'Georgia', icon: MapPin, desc: '5.49% flat tax' },
-  { key: 'lottery', href: '/lottery-tax-calculator', label: 'Lottery Tax', icon: DollarSign, desc: 'After-tax winnings' },
-  { key: 'irs-withholding', href: '/irs-withholding-calculator', label: 'IRS Withholding', icon: FileText, desc: 'W-4 optimization' },
-  { key: 'property-tax', href: '/property-tax-calculator', label: 'Property Tax', icon: Home, desc: 'All 50 states' },
-  { key: 'bonus-tax', href: '/bonus-tax-calculator', label: 'Bonus Tax', icon: DollarSign, desc: '22% flat vs aggregate' },
-  { key: 'virginia', href: '/virginia-tax-calculator', label: 'Virginia', icon: MapPin, desc: '2%–5.75% progressive' },
+// ─── Calculator Items organized by category ─────────────────────────────────
+
+const CALC_CATEGORIES = [
+  {
+    id: 'income',
+    label: 'Income Tax',
+    icon: DollarSign,
+    items: [
+      { key: 'home', href: '/paycheck-calculator', label: 'Paycheck Calculator', desc: 'Take-home pay' },
+      { key: 'self-employment', href: '/self-employment-tax-calculator', label: 'Self-Employment', desc: '15.3% SE tax' },
+      { key: 'irs-withholding', href: '/irs-withholding-calculator', label: 'IRS Withholding', desc: 'W-4 optimization' },
+      { key: 'overtime', href: '/overtime-tax-calculator', label: 'Overtime Tax', desc: 'No-tax OT savings' },
+      { key: 'bonus-tax', href: '/bonus-tax-calculator', label: 'Bonus Tax', desc: '22% flat vs aggregate' },
+      { key: 'lottery', href: '/lottery-tax-calculator', label: 'Lottery Tax', desc: 'After-tax winnings' },
+    ],
+  },
+  {
+    id: 'state',
+    label: 'By State',
+    icon: MapPin,
+    items: [
+      { key: 'illinois', href: '/illinois-tax-calculator', label: 'Illinois', desc: '4.95% flat' },
+      { key: 'texas', href: '/texas-tax-calculator', label: 'Texas', desc: '0% income tax' },
+      { key: 'florida', href: '/florida-tax-calculator', label: 'Florida', desc: '0% income tax' },
+      { key: 'california', href: '/california-tax-calculator', label: 'California', desc: '1%–13.3%' },
+      { key: 'newyork', href: '/new-york-tax-calculator', label: 'New York', desc: '4%–10.9%' },
+      { key: 'georgia', href: '/georgia-tax-calculator', label: 'Georgia', desc: '5.49% flat' },
+      { key: 'virginia', href: '/virginia-tax-calculator', label: 'Virginia', desc: '2%–5.75%' },
+    ],
+  },
+  {
+    id: 'sales-property',
+    label: 'Sales & Property',
+    icon: Landmark,
+    items: [
+      { key: 'sales-tax', href: '/sales-tax-calculator', label: 'Sales Tax', desc: '50 states & reverse' },
+      { key: 'capital-gains', href: '/capital-gains-calculator', label: 'Capital Gains', desc: '0%/15%/20% + NIIT' },
+      { key: 'property-tax', href: '/property-tax-calculator', label: 'Property Tax', desc: 'All 50 states' },
+    ],
+  },
+  {
+    id: 'financial',
+    label: 'Financial',
+    icon: PiggyBank,
+    items: [
+      { key: 'mortgage', href: '/mortgage-calculator', label: 'Mortgage', desc: 'Amortization' },
+      { key: 'retirement', href: '/401k-retirement-calculator', label: '401(k)', desc: 'Retirement' },
+      { key: 'relocation', href: '/relocation-calculator', label: 'Relocate', desc: 'Salary by state' },
+      { key: 'tax-refund', href: '/tax-refund-calculator', label: 'Tax Refund', desc: 'Estimate refund' },
+    ],
+  },
 ];
 
+// Flat list for mobile & search
+const ALL_CALC_ITEMS = CALC_CATEGORIES.flatMap((cat) => cat.items);
+
 const MORE_LINKS = [
-  { key: 'freefile-irs', href: '/freefile-irs', label: 'IRS Free File', icon: FileCheck, desc: 'Free federal tax filing' },
   { key: 'compare', href: '/compare', label: 'Compare States', icon: ArrowRightLeft, desc: 'State vs state taxes' },
   { key: 'salary', href: '/salary', label: 'Salary After Tax', icon: TrendingUp, desc: 'Take-home pay by salary' },
   { key: 'tax-data', href: '/tax-data', label: 'Tax Data', icon: BarChart3, desc: 'All 50 states — cite & embed' },
@@ -61,20 +94,70 @@ const MORE_LINKS = [
   { key: 'blog', href: '/blog', label: 'Blog', icon: BookOpen, desc: 'Tax guides & tips' },
 ];
 
+// Map key to icon for search results
+const KEY_TO_ICON: Record<string, React.ComponentType<{ className?: string }>> = {
+  home: DollarSign,
+  illinois: MapPin,
+  texas: MapPin,
+  florida: MapPin,
+  california: MapPin,
+  newyork: MapPin,
+  mortgage: Home,
+  retirement: PiggyBank,
+  relocation: ArrowRightLeft,
+  'capital-gains': TrendingUp,
+  'self-employment': Shield,
+  'tax-refund': DollarSign,
+  'sales-tax': Receipt,
+  overtime: Clock,
+  georgia: MapPin,
+  lottery: DollarSign,
+  'irs-withholding': FileText,
+  'property-tax': Home,
+  'bonus-tax': DollarSign,
+  virginia: MapPin,
+};
+
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [calcDropdownOpen, setCalcDropdownOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
   const pathname = usePathname();
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const searchInputRef = useRef<HTMLInputElement>(null);
 
   // Determine if any calculator page is active
-  const isCalcActive = CALC_ITEMS.some((c) => pathname === c.href || pathname.startsWith(c.href + '/'));
+  const isCalcActive = ALL_CALC_ITEMS.some((c) => pathname === c.href || pathname.startsWith(c.href + '/'));
   const isBlogActive = pathname === '/blog' || pathname.startsWith('/blog/');
 
   const closeMobile = () => {
     setMobileMenuOpen(false);
     setCalcDropdownOpen(false);
   };
+
+  // Filter calculators based on search
+  const filteredCategories = useMemo(() => {
+    if (!searchQuery.trim()) return CALC_CATEGORIES;
+    const q = searchQuery.toLowerCase();
+    return CALC_CATEGORIES.map((cat) => ({
+      ...cat,
+      items: cat.items.filter(
+        (item) =>
+          item.label.toLowerCase().includes(q) ||
+          item.desc.toLowerCase().includes(q) ||
+          cat.label.toLowerCase().includes(q)
+      ),
+    })).filter((cat) => cat.items.length > 0);
+  }, [searchQuery]);
+
+  const totalFiltered = filteredCategories.reduce((sum, cat) => sum + cat.items.length, 0);
+
+  // Focus search when dropdown opens
+  useEffect(() => {
+    if (calcDropdownOpen && searchInputRef.current) {
+      setTimeout(() => searchInputRef.current?.focus(), 100);
+    }
+  }, [calcDropdownOpen]);
 
   // Close dropdown on click outside or Escape key
   useEffect(() => {
@@ -111,7 +194,7 @@ export function Header() {
       <div className="h-[2px] bg-gradient-to-r from-transparent via-emerald-500/60 to-transparent" />
 
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8 overflow-visible">
-        {/* Logo — proper <a> for SEO */}
+        {/* Logo */}
         <Link
           href="/"
           className="flex items-center gap-2.5 transition-all hover:opacity-90 group"
@@ -130,8 +213,8 @@ export function Header() {
           {/* Calculators Dropdown */}
           <div className="relative" ref={dropdownRef} style={{ zIndex: 110 }}>
             <button
-              onClick={() => setCalcDropdownOpen(!calcDropdownOpen)}
-              onMouseEnter={() => setCalcDropdownOpen(true)}
+              onClick={() => { setCalcDropdownOpen(!calcDropdownOpen); if (calcDropdownOpen) setSearchQuery(''); }}
+              onMouseEnter={() => { setCalcDropdownOpen(true); }}
               className={`flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium transition-all ${
                 isCalcActive
                   ? 'bg-emerald-500/12 text-emerald-400'
@@ -143,52 +226,122 @@ export function Header() {
               <ChevronDown className={`h-3 w-3 transition-transform ${calcDropdownOpen ? 'rotate-180' : ''}`} />
             </button>
 
-            {/* Mega Dropdown */}
+            {/* Mega Dropdown — Redesigned */}
             {calcDropdownOpen && (
               <div
-                className="absolute left-0 top-full mt-2 w-[520px] rounded-2xl p-4 shadow-2xl shadow-black/60 animate-slide-up dropdown-solid-bg"
+                className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-[640px] max-h-[calc(100vh-90px)] flex flex-col rounded-2xl shadow-2xl shadow-black/60 animate-slide-up dropdown-solid-bg"
                 style={{ zIndex: 9999 }}
-                onMouseLeave={() => setCalcDropdownOpen(false)}
+                onMouseLeave={() => { setCalcDropdownOpen(false); setSearchQuery(''); }}
               >
-                <div className="mb-3 flex items-center gap-2 px-2">
-                  <Zap className="h-4 w-4 text-emerald-400" />
-                  <span className="text-sm font-semibold text-foreground">Tax Calculators</span>
-                  <span className="ml-auto text-[10px] text-muted-foreground">21 tools</span>
-                </div>
-                <div className="divider-glow mb-3" />
-                <div className="grid grid-cols-2 gap-1">
-                  {CALC_ITEMS.map((item) => {
-                    const Icon = item.icon;
-                    const isActive = pathname === item.href;
-                    return (
-                      <Link
-                        key={item.key}
-                        href={item.href}
-                        onClick={() => setCalcDropdownOpen(false)}
-                        className={`flex items-center gap-3 rounded-xl px-3 py-2.5 text-left transition-all ${
-                          isActive
-                            ? 'bg-emerald-500/12 text-emerald-400'
-                            : 'text-muted-foreground hover:bg-muted/30 hover:text-foreground'
-                        }`}
+                {/* Header with Search — fixed, not scrollable */}
+                <div className="shrink-0 px-4 pt-3 pb-2">
+                  <div className="flex items-center gap-2 mb-2">
+                    <Zap className="h-3.5 w-3.5 text-emerald-400" />
+                    <span className="text-xs font-semibold text-foreground">Tax Calculators</span>
+                    <span className="ml-auto text-[10px] text-muted-foreground">{ALL_CALC_ITEMS.length} tools</span>
+                  </div>
+                  {/* Search Input */}
+                  <div className="relative">
+                    <Search className="absolute left-2.5 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-muted-foreground" />
+                    <input
+                      ref={searchInputRef}
+                      type="text"
+                      value={searchQuery}
+                      onChange={(e) => setSearchQuery(e.target.value)}
+                      placeholder="Search calculators..."
+                      className="w-full rounded-lg border border-border/40 bg-muted/30 pl-8 pr-3 py-1.5 text-sm text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:ring-1 focus:ring-emerald-500/50 focus:border-emerald-500/50 transition-all"
+                    />
+                    {searchQuery && (
+                      <button
+                        onClick={() => setSearchQuery('')}
+                        className="absolute right-2.5 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
                       >
-                        <div className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg ${
-                          isActive ? 'bg-emerald-500/20' : 'bg-muted/30'
-                        }`}>
-                          <Icon className={`h-4 w-4 ${isActive ? 'text-emerald-400' : ''}`} />
-                        </div>
-                        <div className="min-w-0">
-                          <p className="text-sm font-medium truncate">{item.label}</p>
-                          <p className="text-[11px] text-muted-foreground truncate">{item.desc}</p>
-                        </div>
-                      </Link>
-                    );
-                  })}
+                        <X className="h-3.5 w-3.5" />
+                      </button>
+                    )}
+                  </div>
+                </div>
+
+                <div className="shrink-0 divider-glow mx-4" />
+
+                {/* Categorized Content — scrollable, fills remaining space */}
+                <div className="flex-1 overflow-y-auto px-4 py-3 custom-scrollbar">
+                  {filteredCategories.length === 0 ? (
+                    <div className="py-6 text-center">
+                      <Search className="h-7 w-7 text-muted-foreground/30 mx-auto mb-2" />
+                      <p className="text-sm text-muted-foreground">No calculators found for &quot;{searchQuery}&quot;</p>
+                    </div>
+                  ) : (
+                    <div className="space-y-3">
+                      {filteredCategories.map((category) => {
+                        const CatIcon = category.icon;
+                        return (
+                          <div key={category.id}>
+                            {/* Category Header */}
+                            <div className="flex items-center gap-1.5 mb-1.5 px-0.5">
+                              <CatIcon className="h-3 w-3 text-muted-foreground" />
+                              <span className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
+                                {category.label}
+                              </span>
+                              <span className="text-[9px] text-muted-foreground/50">
+                                ({category.items.length})
+                              </span>
+                            </div>
+                            {/* Items Grid — 3 columns, compact */}
+                            <div className="grid grid-cols-3 gap-0.5">
+                              {category.items.map((item) => {
+                                const Icon = KEY_TO_ICON[item.key] || Calculator;
+                                const isActive = pathname === item.href;
+                                return (
+                                  <Link
+                                    key={item.key}
+                                    href={item.href}
+                                    onClick={() => setCalcDropdownOpen(false)}
+                                    className={`flex items-center gap-2 rounded-lg px-2 py-1.5 text-left transition-all ${
+                                      isActive
+                                        ? 'bg-emerald-500/12 text-emerald-400'
+                                        : 'text-muted-foreground hover:bg-muted/30 hover:text-foreground'
+                                    }`}
+                                  >
+                                    <div className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-md ${
+                                      isActive ? 'bg-emerald-500/20' : 'bg-muted/30'
+                                    }`}>
+                                      <Icon className={`h-3 w-3 ${isActive ? 'text-emerald-400' : ''}`} />
+                                    </div>
+                                    <div className="min-w-0">
+                                      <p className="text-[12px] font-medium truncate leading-tight">{item.label}</p>
+                                      <p className="text-[9px] text-muted-foreground truncate leading-tight">{item.desc}</p>
+                                    </div>
+                                  </Link>
+                                );
+                              })}
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  )}
+                </div>
+
+                {/* Footer — fixed, not scrollable */}
+                <div className="shrink-0 divider-glow mx-4" />
+                <div className="shrink-0 px-4 py-2 flex items-center justify-between">
+                  <p className="text-[10px] text-muted-foreground">
+                    {searchQuery ? `${totalFiltered} result${totalFiltered !== 1 ? 's' : ''}` : `Showing all ${ALL_CALC_ITEMS.length} calculators`}
+                  </p>
+                  <Link
+                    href="/paycheck-calculator"
+                    onClick={() => setCalcDropdownOpen(false)}
+                    className="text-[11px] font-medium text-emerald-400 hover:text-emerald-300 transition-colors"
+                  >
+                    View all tools →
+                  </Link>
                 </div>
               </div>
             )}
           </div>
 
-          {/* Compare States — proper <Link> for SEO */}
+          {/* Compare States */}
           <Link
             href="/compare"
             className={`flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium transition-all ${
@@ -201,7 +354,7 @@ export function Header() {
             Compare
           </Link>
 
-          {/* Glossary — proper <Link> for SEO */}
+          {/* Glossary */}
           <Link
             href="/glossary"
             className={`flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium transition-all ${
@@ -214,7 +367,7 @@ export function Header() {
             Glossary
           </Link>
 
-          {/* Blog — proper <Link> for SEO */}
+          {/* Blog */}
           <Link
             href="/blog"
             className={`flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium transition-all ${
@@ -227,7 +380,7 @@ export function Header() {
             Blog
           </Link>
 
-          {/* Salary — proper <Link> for SEO */}
+          {/* Salary */}
           <Link
             href="/salary"
             className={`flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium transition-all ${
@@ -292,64 +445,92 @@ export function Header() {
       {/* Mobile Nav */}
       {mobileMenuOpen && (
         <nav className="border-t border-border/30 glass-strong lg:hidden animate-slide-up">
-          <div className="mx-auto max-w-7xl space-y-1 px-4 py-4">
-            {/* Calculators Section */}
-            <div className="mb-3">
-              <div className="flex items-center gap-2 px-3 py-2">
-                <Calculator className="h-4 w-4 text-emerald-400" />
-                <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Calculators</span>
-              </div>
-              <div className="grid grid-cols-2 gap-1">
-                {CALC_ITEMS.map((item) => {
-                  const Icon = item.icon;
-                  const isActive = pathname === item.href;
-                  return (
-                    <Link
-                      key={item.key}
-                      href={item.href}
-                      onClick={closeMobile}
-                      className={`flex items-center gap-2 rounded-lg px-3 py-2.5 text-left text-sm font-medium transition-all ${
-                        isActive
-                          ? 'bg-emerald-500/12 text-emerald-400'
-                          : 'text-muted-foreground hover:bg-muted/30 hover:text-foreground'
-                      }`}
-                    >
-                      <Icon className="h-4 w-4 shrink-0" />
-                      <span className="truncate">{item.label}</span>
-                    </Link>
-                  );
-                })}
-              </div>
+          <div className="mx-auto max-w-7xl px-4 py-4">
+            {/* Mobile Search */}
+            <div className="relative mb-3">
+              <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder="Search calculators..."
+                className="w-full rounded-lg border border-border/40 bg-muted/30 pl-9 pr-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:ring-1 focus:ring-emerald-500/50 transition-all"
+              />
+            </div>
+
+            {/* Calculators by Category */}
+            <div className="mb-3 max-h-[60vh] overflow-y-auto custom-scrollbar">
+              {filteredCategories.map((category) => {
+                const CatIcon = category.icon;
+                return (
+                  <div key={category.id} className="mb-3">
+                    <div className="flex items-center gap-2 px-2 py-1.5">
+                      <CatIcon className="h-3.5 w-3.5 text-emerald-400" />
+                      <span className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">
+                        {category.label}
+                      </span>
+                    </div>
+                    <div className="grid grid-cols-2 gap-0.5">
+                      {category.items.map((item) => {
+                        const Icon = KEY_TO_ICON[item.key] || Calculator;
+                        const isActive = pathname === item.href;
+                        return (
+                          <Link
+                            key={item.key}
+                            href={item.href}
+                            onClick={closeMobile}
+                            className={`flex items-center gap-2 rounded-lg px-2.5 py-2 text-left text-sm font-medium transition-all ${
+                              isActive
+                                ? 'bg-emerald-500/12 text-emerald-400'
+                                : 'text-muted-foreground hover:bg-muted/30 hover:text-foreground'
+                            }`}
+                          >
+                            <Icon className="h-3.5 w-3.5 shrink-0" />
+                            <span className="truncate text-[13px]">{item.label}</span>
+                          </Link>
+                        );
+                      })}
+                    </div>
+                  </div>
+                );
+              })}
+              {filteredCategories.length === 0 && searchQuery && (
+                <div className="py-6 text-center">
+                  <p className="text-sm text-muted-foreground">No calculators found for &quot;{searchQuery}&quot;</p>
+                </div>
+              )}
             </div>
 
             <div className="divider-glow" />
 
             {/* Other Links */}
-            {MORE_LINKS.map((item) => {
-              const Icon = item.icon;
-              const isActive = pathname === item.href || pathname.startsWith(item.href + '/');
-              return (
-                <Link
-                  key={item.key}
-                  href={item.href}
-                  onClick={closeMobile}
-                  className={`flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-all ${
-                    isActive
-                      ? 'bg-emerald-500/12 text-emerald-400'
-                      : 'text-muted-foreground hover:bg-muted/30 hover:text-foreground'
-                  }`}
-                >
-                  <Icon className="h-4 w-4" />
-                  {item.label}
-                </Link>
-              );
-            })}
+            <div className="mt-3 space-y-0.5">
+              {MORE_LINKS.map((item) => {
+                const Icon = item.icon;
+                const isActive = pathname === item.href || pathname.startsWith(item.href + '/');
+                return (
+                  <Link
+                    key={item.key}
+                    href={item.href}
+                    onClick={closeMobile}
+                    className={`flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-all ${
+                      isActive
+                        ? 'bg-emerald-500/12 text-emerald-400'
+                        : 'text-muted-foreground hover:bg-muted/30 hover:text-foreground'
+                    }`}
+                  >
+                    <Icon className="h-4 w-4" />
+                    {item.label}
+                  </Link>
+                );
+              })}
+            </div>
 
             {/* CTA */}
             <Link
               href="/paycheck-calculator"
               onClick={closeMobile}
-              className="mt-3 flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-emerald-600 to-emerald-500 px-4 py-3 text-sm font-semibold text-white shadow-lg shadow-emerald-500/20"
+              className="mt-4 flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-emerald-600 to-emerald-500 px-4 py-3 text-sm font-semibold text-white shadow-lg shadow-emerald-500/20"
             >
               <Globe className="h-4 w-4" />
               Start Calculating
