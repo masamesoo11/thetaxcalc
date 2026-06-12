@@ -33,6 +33,7 @@ import { AdSlot } from './ad-slot';
 import { StateComparisonSection } from './state-comparison';
 import { FAQSection, HOME_FAQS } from './faq-sections';
 import { TaxBreakdownChart } from './tax-breakdown-chart';
+import { ScenarioComparison, type TaxScenario } from './scenario-comparison';
 import {
   calculatePaycheck,
   formatCurrency,
@@ -501,6 +502,21 @@ export function PaycheckCalculator({ defaultState = 'illinois', onStateChange }:
           <p>Bi-Weekly Take-Home: $2,231.39</p>
         </div>
       </div>
+
+      {/* ─── Scenario Comparison ─────────────────────────────── */}
+      <ScenarioComparison
+        defaultScenario={{
+          id: 'default',
+          label: 'Current',
+          salary,
+          payFrequency,
+          stateKey,
+          filingStatus,
+          retirement401k,
+          hsaContribution,
+          nycResident,
+        }}
+      />
 
       {/* ─── State Comparison SEO Section ───────────────────── */}
       <StateComparisonSection />

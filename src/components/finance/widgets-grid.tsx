@@ -244,7 +244,7 @@ const WIDGETS: WidgetInfo[] = [
 ];
 
 function generateEmbedCode(slug: string, width = '100%', height = 600): string {
-  return `<iframe src="https://thetaxcalc.com/${slug}?embed=1" width="${width}" height="${height}" frameborder="0" style="border-radius:12px;" title="Free ${slug.replace(/-/g, ' ')} by TheTaxCalc"></iframe>`;
+  return `<iframe src="https://thetaxcalc.com/${slug}?embed=1" width="${width}" height="${height}" frameborder="0" style="border:1px solid #e5e7eb;border-radius:12px;" title="Free ${slug.replace(/-/g, ' ')} by TheTaxCalc"></iframe>\n<p style="font-size:12px;color:#6b7280;margin-top:4px;">Powered by <a href="https://thetaxcalc.com" target="_blank" rel="noopener" style="color:#10b981;">TheTaxCalc</a> — Free 2026 Tax Calculators</p>`;
 }
 
 function CopyButton({ text, label = 'Copy Code' }: { text: string; label?: string }) {
