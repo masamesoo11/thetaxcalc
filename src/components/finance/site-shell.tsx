@@ -1,19 +1,33 @@
 'use client';
 
+import { useEffect, useRef } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { Suspense } from 'react';
 import { Header } from './header';
 import { Footer } from './footer';
 import { ProductHuntBanner } from './product-hunt-banner';
+import { trackEmbedView } from '@/lib/analytics';
 
 /**
  * Site shell that conditionally renders Header/Footer based on embed mode.
  * When ?embed=1 is in the URL, it hides navigation elements and shows
  * only the calculator content with a "Powered by TheTaxCalc" badge.
+ * Also tracks embed views in GA4.
  */
 function SiteShellInner({ children }: { children: React.ReactNode }) {
   const searchParams = useSearchParams();
   const isEmbed = searchParams.get('embed') === '1';
+  const embedTrackedRef = useRef(false);
+
+  // Track embed views in GA4 (fire once per page load)
+  useEffect(() => {
+    if (isEmbed && !embedTrackedRef.current) {
+      embedTrackedRef.current = true;
+      // Extract the calculator slug from the pathname
+      const slug = window.location.pathname.replace(/^\//, '');
+      trackEmbedView(slug || 'unknown');
+    }
+  }, [isEmbed]);
 
   if (isEmbed) {
     return (

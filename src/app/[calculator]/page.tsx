@@ -10,6 +10,8 @@ import { getPublishedPostsMeta } from '@/lib/blog-index';
 import { SITE_URL } from '@/lib/site-config';
 import { ShareButtons } from '@/components/finance/share-buttons';
 import { LinkToUs } from '@/components/finance/link-to-us';
+import { ScenarioCTABanner } from '@/components/finance/scenario-cta-banner';
+import { CalculatorScenarioSection } from '@/components/finance/calculator-scenario-section';
 import { getJsonLdForType } from './_jsonld';
 import { getCalculatorContent } from './_content';
 
@@ -485,8 +487,20 @@ export default async function CalculatorPage({
         </p>
       </div>
 
+      {/* Scenario Comparison CTA — Above the fold, all calculators */}
+      <ScenarioCTABanner
+        calculatorType={config.componentKey}
+        stateName={config.breadcrumbLabel}
+      />
+
       {/* Client-Side Calculator */}
       <CalculatorClientPage componentKey={config.componentKey} />
+
+      {/* Scenario Comparison — Below calculator for paycheck-type calculators */}
+      <CalculatorScenarioSection
+        calculatorType={config.componentKey}
+        calculatorSlug={config.slug}
+      />
 
       {/* Next Steps */}
       <section className="mt-8 rounded-xl border border-emerald-500/20 bg-emerald-500/5 p-6 sm:p-8">

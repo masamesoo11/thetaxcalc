@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useMemo, useState } from 'react';
-import Link from 'next/link';
 import {
   Calculator,
   ChevronDown,
@@ -12,8 +11,6 @@ import {
   Shield,
   PiggyBank,
   Building2,
-  ArrowRight,
-  ArrowRightLeft,
 } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -46,7 +43,7 @@ import {
 } from '@/lib/finance-utils';
 import { STATE_PROFILES } from '@/lib/tax-config';
 import { useHashParams, updateHashState } from '@/hooks/use-hash-state';
-import { trackScenarioCTAClick } from '@/lib/analytics';
+
 
 interface PaycheckCalculatorProps {
   defaultState?: string;
@@ -122,62 +119,6 @@ export function PaycheckCalculator({ defaultState = 'illinois', onStateChange }:
         <p className="mt-2 text-muted-foreground">
           Instantly compute your take-home pay with federal, FICA, and state tax deductions
         </p>
-      </div>
-
-      {/* ─── Scenario Comparison CTA ──────────────────────────────── */}
-      <div
-        className="mb-4 rounded-xl border border-blue-500/20 bg-gradient-to-r from-blue-500/5 via-blue-500/10 to-blue-500/5 p-4 cursor-pointer hover:border-blue-500/40 transition-colors"
-        onClick={() => {
-          trackScenarioCTAClick('paycheck-calculator');
-          const section = document.getElementById('scenario-comparison');
-          if (section) {
-            section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          }
-        }}
-      >
-        <div className="flex items-center justify-between gap-4">
-          <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-500/10">
-              <ArrowRightLeft className="h-5 w-5 text-blue-400" />
-            </div>
-            <div>
-              <div className="flex items-center gap-2">
-                <h3 className="text-sm font-semibold text-foreground">Compare Tax Scenarios</h3>
-                <Badge variant="outline" className="text-[10px] border-blue-500/30 text-blue-400 px-1.5 py-0">
-                  New
-                </Badge>
-              </div>
-              <p className="text-xs text-muted-foreground mt-0.5">
-                Compare up to 4 scenarios side-by-side — different states, 401(k), or job offers
-              </p>
-            </div>
-          </div>
-          <ArrowRight className="h-4 w-4 text-blue-400 shrink-0" />
-        </div>
-        <div className="flex flex-wrap gap-2 mt-3 pt-3 border-t border-blue-500/10">
-          <Link
-            href="/job-offer-comparison-calculator"
-            className="inline-flex items-center gap-1 rounded-md bg-blue-500/10 border border-blue-500/20 px-2.5 py-1 text-[11px] font-medium text-blue-400 hover:bg-blue-500/20 transition-colors"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <ArrowRightLeft className="h-3 w-3" />
-            Job Offer Comparison
-          </Link>
-          <Link
-            href="/salary-comparison-calculator"
-            className="inline-flex items-center gap-1 rounded-md bg-blue-500/10 border border-blue-500/20 px-2.5 py-1 text-[11px] font-medium text-blue-400 hover:bg-blue-500/20 transition-colors"
-            onClick={(e) => e.stopPropagation()}
-          >
-            Salary by State
-          </Link>
-          <Link
-            href="/paycheck-difference-calculator"
-            className="inline-flex items-center gap-1 rounded-md bg-blue-500/10 border border-blue-500/20 px-2.5 py-1 text-[11px] font-medium text-blue-400 hover:bg-blue-500/20 transition-colors"
-            onClick={(e) => e.stopPropagation()}
-          >
-            Paycheck Difference
-          </Link>
-        </div>
       </div>
 
       {/* ─── 3-Tier Progressive Disclosure Form ──────────── */}

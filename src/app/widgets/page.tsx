@@ -43,6 +43,10 @@ export const metadata: Metadata = {
     'embeddable tax tool',
     'accountant website widget',
     'HR payroll calculator widget',
+    'job offer comparison widget',
+    'salary comparison widget',
+    'paycheck difference widget',
+    'relocation calculator widget',
   ],
   authors: [{ name: 'Rachel Mitchell, CPA' }],
   alternates: {
@@ -271,7 +275,7 @@ export default function WidgetsPage() {
         <div className="flex flex-wrap items-center justify-center gap-6 mt-6 text-sm text-muted-foreground">
           <span className="flex items-center gap-1.5">
             <CheckCircle2 className="h-4 w-4 text-emerald-400" />
-            20 free calculators
+            21+ free calculators
           </span>
           <span className="flex items-center gap-1.5">
             <Shield className="h-4 w-4 text-emerald-400" />
@@ -378,7 +382,7 @@ export default function WidgetsPage() {
               Available <span className="gradient-text">Widgets</span>
             </h2>
             <p className="text-sm text-muted-foreground">
-              20 free calculators ready to embed on your website.
+              21+ free calculators ready to embed on your website.
             </p>
           </div>
         </div>

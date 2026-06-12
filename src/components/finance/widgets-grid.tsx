@@ -242,6 +242,36 @@ const WIDGETS: WidgetInfo[] = [
     defaultHeight: 650,
     color: 'emerald',
   },
+  {
+    slug: 'job-offer-comparison-calculator',
+    title: 'Job Offer Comparison Widget',
+    description:
+      'Compare up to 4 job offers after federal, state, and FICA taxes side by side. Perfect for HR sites and career blogs.',
+    icon: ArrowRightLeft,
+    badge: 'NEW — HR Favorite',
+    defaultHeight: 700,
+    color: 'blue',
+  },
+  {
+    slug: 'salary-comparison-calculator',
+    title: 'Salary Comparison Widget',
+    description:
+      'Compare salaries across different states, filing statuses, and deduction levels. Great for relocation and career sites.',
+    icon: ArrowRightLeft,
+    badge: 'NEW — Most Shared',
+    defaultHeight: 700,
+    color: 'blue',
+  },
+  {
+    slug: 'paycheck-difference-calculator',
+    title: 'Paycheck Difference Widget',
+    description:
+      'See exactly how much take-home pay changes between two states or salaries. Ideal for financial planning and moving guides.',
+    icon: ArrowRightLeft,
+    badge: 'NEW — Relocation',
+    defaultHeight: 700,
+    color: 'blue',
+  },
 ];
 
 function generateEmbedCode(slug: string, width = '100%', height = 600): string {
