@@ -37,9 +37,9 @@ import {
 // ─── Home Page Metadata ───────────────────────────────────────────────────────
 
 export const metadata: Metadata = {
-  title: '2026 Tax Calculator — Paycheck & Take-Home Pay',
+  title: 'Free Tax Calculator 2026 — Paycheck, Income & Take-Home Pay | All 50 States',
   description:
-    'Free 2026 tax calculator — paycheck, take-home pay after federal, FICA & state taxes. Also mortgage, 401(k), self-employment & capital gains. All 50 states. No sign-up.',
+    'Free 2026 tax calculator for all 50 states. Compute paycheck take-home pay after federal, FICA & state income tax. Also sales tax, mortgage, 401(k), capital gains, self-employment & property tax calculators. No sign-up required.',
   authors: [{ name: 'Rachel Mitchell, CPA', url: `${SITE_URL}/about#rachel-mitchell` }],
   alternates: {
     canonical: SITE_HOME_URL,
@@ -52,9 +52,9 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'TheTaxCalc — Free 2026 Tax & Paycheck Calculator',
+    title: 'Free 2026 Tax Calculator — Paycheck, Income & Sales Tax | All 50 States',
     description:
-      'Free 2026 tax calculator. Compute take-home pay after federal, FICA & state taxes for all 50 states. No sign-up.',
+      'Free 2026 tax calculator. Paycheck take-home pay, income tax, sales tax, capital gains & self-employment. All 50 states. No sign-up.',
     url: SITE_HOME_URL,
     siteName: 'TheTaxCalc',
     type: 'website',
@@ -70,9 +70,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'TheTaxCalc — Free 2026 Tax & Paycheck Calculator',
+    title: 'Free 2026 Tax Calculator — Paycheck, Income & Sales Tax | All 50 States',
     description:
-      'Free 2026 tax calculator. Compute take-home pay after federal, FICA & state taxes for all 50 states. No sign-up.',
+      'Free 2026 tax calculator. Paycheck take-home pay, income tax, sales tax, capital gains & self-employment. All 50 states. No sign-up.',
     images: [`${SITE_URL}/opengraph-image.png`],
   },
 };

@@ -28,7 +28,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     description:
       'Free paycheck tax calculator for 2026. Calculate take-home pay after federal, FICA & state taxes. No sign-up required. Supports IL, TX, FL, CA, NY with 401(k) and HSA deductions.',
     h1: 'Free Paycheck Calculator',
-    metaTitle: 'Paycheck Calculator 2026 | Federal & State',
+    metaTitle: 'Free Paycheck Calculator 2026 | After-Tax Take-Home Pay',
     metaDesc:
       'Free paycheck tax calculator for 2026. Calculate take-home pay after federal, FICA & state taxes. No sign-up. Covers IL, TX, FL, CA, NY.',
     keywords: [
@@ -174,7 +174,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     description:
       'Free mortgage calculator with extra payments, amortization schedule, and payoff comparison. Calculate monthly payment using M = P × [r(1+r)^n] / [(1+r)^n - 1]. No sign-up.',
     h1: 'Free Mortgage Calculator',
-    metaTitle: 'Mortgage Calculator 2026 | Amortization',
+    metaTitle: 'Free Mortgage Calculator 2026 | Payment & Amortization',
     metaDesc:
       'Free mortgage calculator with extra payments, amortization & payoff comparison. No sign-up. Calculate monthly payment and interest.',
     keywords: [
@@ -198,7 +198,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     description:
       'Free 401(k) retirement calculator for 2026. Project your balance with employer match, compound growth & annual contributions. No sign-up. Visual charts included.',
     h1: 'Free 401(k) Calculator',
-    metaTitle: '401(k) Calculator 2026 | Projections',
+    metaTitle: 'Free 401(k) Calculator 2026 | Retirement Projections',
     metaDesc:
       'Free 401(k) calculator 2026. Project balance with employer match & compound growth. No sign-up. Visual charts included.',
     keywords: [
@@ -245,7 +245,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     description:
       'Free capital gains tax calculator for 2026. Calculate short-term (up to 37%) and long-term (0%, 15%, 20% + 3.8% NIIT) rates. No sign-up. Strategies included.',
     h1: 'Free Capital Gains Calculator',
-    metaTitle: 'Capital Gains Calc 2026 | Short & Long',
+    metaTitle: 'Free Capital Gains Tax Calculator 2026 | Short & Long-Term',
     metaDesc:
       'Free capital gains tax calculator 2026. Short-term (up to 37%) & long-term (0%/15%/20% + NIIT). No sign-up.',
     keywords: [
@@ -269,7 +269,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     description:
       'Free self-employment tax calculator for 2026. Calculate SE tax (15.3% on 92.35% of net income), half deduction, quarterly estimates, 1099 & federal + state tax. No sign-up.',
     h1: 'Free Self-Employment Tax Calculator',
-    metaTitle: 'SE Tax Calculator 2026 | 1099 & SE',
+    metaTitle: 'Free Self-Employment Tax Calculator 2026 | 1099 & SE',
     metaDesc:
       'Free self-employment tax calculator 2026. 15.3% SE tax, 1099, quarterly estimates & half deduction. No sign-up required.',
     keywords: [
@@ -294,7 +294,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     description:
       'Free sales tax calculator for 2026. Calculate sales tax for any US state with combined rates. Includes reverse sales tax calculator. No sign-up required.',
     h1: 'Free Sales Tax Calculator',
-    metaTitle: 'Sales Tax Calculator 2026 | 50 States',
+    metaTitle: 'Free Sales Tax Calculator 2026 | All 50 States & Reverse',
     metaDesc:
       'Free sales tax calculator 2026. Calculate sales tax for any US state with combined rates. Includes reverse calculator. No sign-up required.',
     keywords: [
@@ -442,7 +442,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     description:
       'Free property tax calculator for 2026. Calculate annual property tax for any US state with average effective rates. Includes homestead exemptions. No sign-up.',
     h1: 'Free Property Tax Calculator',
-    metaTitle: 'Property Tax Calc 2026 | 50 States',
+    metaTitle: 'Free Property Tax Calculator 2026 | All 50 States',
     metaDesc:
       'Free property tax calculator 2026. Calculate annual property tax for any US state with effective rates. No sign-up required.',
     keywords: [
