@@ -1,6 +1,5 @@
-# === Allow indexing on all pages ===
+# === Security headers for all pages ===
 /*
-  X-Robots-Tag: all
   X-Content-Type-Options: nosniff
   X-Frame-Options: DENY
   Referrer-Policy: strict-origin-when-cross-origin
