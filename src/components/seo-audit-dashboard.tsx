@@ -294,7 +294,7 @@ const ACTION_PLAN = [
     impact: 'HIGH',
     effort: 'MEDIUM',
     timeline: '3-4 months',
-    description: 'Only 7 states covered vs. competitors covering all 50. Each state page is a separate keyword opportunity ("Ohio tax calculator", "Pennsylvania paycheck calculator"). Your direct competitor paychecktaxcalculator.net covers all 50 states.',
+    description: 'All 50 states are now covered with dedicated calculators. Each state page targets a separate keyword opportunity ("Ohio tax calculator", "Pennsylvania paycheck calculator"). Ensure state-specific long-tail keywords are optimized.',
     steps: [
       'Prioritize the top 15 states by population (OH, PA, GA already done, add NC, MI, NJ, VA done, etc.)',
       'Create state tax data files with brackets, deductions, and credits for each state',

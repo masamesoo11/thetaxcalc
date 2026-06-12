@@ -24,9 +24,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     entries.push({ url: `${baseUrl}${route.canonicalPath}`, lastModified: taxYearUpdate, changeFrequency: 'monthly', priority });
   }
 
-  // Sales Tax Calculator main page
-  entries.push({ url: `${baseUrl}/sales-tax-calculator`, lastModified: taxYearUpdate, changeFrequency: 'monthly', priority: 0.95 });
-
   // 50 state sales tax pages
   for (const stateKey of ALL_STATE_KEYS) {
     entries.push({ url: `${baseUrl}/sales-tax-calculator/${stateKey}`, lastModified: taxYearUpdate, changeFrequency: 'monthly', priority: 0.82 });

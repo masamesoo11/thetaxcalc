@@ -505,9 +505,6 @@ export function PaycheckCalculator({ defaultState = 'illinois', onStateChange }:
       {/* ─── State Comparison SEO Section ───────────────────── */}
       <StateComparisonSection />
 
-      {/* ─── FAQ Section ────────────────────────────────────── */}
-      <FAQSection title="Frequently Asked Questions About Paycheck Calculations" faqs={HOME_FAQS} />
-
       <AdSlot position="mid-content" />
     </div>
   );

@@ -39,7 +39,7 @@ import {
 export const metadata: Metadata = {
   title: '2026 Tax Calculator — Paycheck & Take-Home Pay',
   description:
-    'Free 2026 tax calculator — paycheck, take-home pay after federal, FICA & state taxes. Also mortgage, 401(k), self-employment & capital gains. 23 states. No sign-up.',
+    'Free 2026 tax calculator — paycheck, take-home pay after federal, FICA & state taxes. Also mortgage, 401(k), self-employment & capital gains. All 50 states. No sign-up.',
   authors: [{ name: 'Rachel Mitchell, CPA', url: `${SITE_URL}/about#rachel-mitchell` }],
   alternates: {
     canonical: SITE_HOME_URL,
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'TheTaxCalc — Free 2026 Tax & Paycheck Calculator',
     description:
-      'Free 2026 tax calculator. Compute take-home pay after federal, FICA & state taxes for IL, TX, FL, CA, NY. No sign-up.',
+      'Free 2026 tax calculator. Compute take-home pay after federal, FICA & state taxes for all 50 states. No sign-up.',
     url: SITE_HOME_URL,
     siteName: 'TheTaxCalc',
     type: 'website',
@@ -72,7 +72,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'TheTaxCalc — Free 2026 Tax & Paycheck Calculator',
     description:
-      'Free 2026 tax calculator. Compute take-home pay after federal, FICA & state taxes for IL, TX, FL, CA, NY. No sign-up.',
+      'Free 2026 tax calculator. Compute take-home pay after federal, FICA & state taxes for all 50 states. No sign-up.',
     images: [`${SITE_URL}/opengraph-image.png`],
   },
 };
@@ -428,7 +428,7 @@ const homeJsonLd = {
       '@type': 'WebPage',
       name: 'TheTaxCalc — Free 2026 Tax & Paycheck Calculator',
       description:
-        'Free 2026 tax calculators — paycheck, mortgage, 401(k), capital gains, and self-employment. 36 tools covering 23 states.',
+        'Free 2026 tax calculators — paycheck, mortgage, 401(k), capital gains, and self-employment. 63 tools covering all 50 states.',
       url: SITE_URL,
       inLanguage: 'en-US',
       dateModified: '2026-06-06',
@@ -476,7 +476,7 @@ const homeJsonLd = {
         {
           '@type': 'HowToStep',
           name: 'Select Your State',
-          text: 'Choose your state: IL (4.95%), TX (0%), FL (0%), CA (1%–13.3%), NY (4%–10.9%), GA (5.49%), or VA (2%–5.75%).',
+          text: 'Choose your state — we cover all 50 states including IL (4.95%), TX (0%), FL (0%), CA (1%–13.3%), NY (4%–10.9%), and more.',
         },
         {
           '@type': 'HowToStep',
@@ -499,8 +499,8 @@ const homeJsonLd = {
       '@id': `${SITE_URL}/#itemlist`,
       '@type': 'ItemList',
       name: 'Free 2026 Tax Calculators',
-      description: '36 free tax calculators for 2026 covering paycheck, state tax, mortgage, retirement, and more.',
-      numberOfItems: 36,
+      description: '63 free tax calculators for 2026 covering paycheck, state tax, mortgage, retirement, and more.',
+      numberOfItems: 63,
       itemListElement: [
         { '@type': 'ListItem', position: 1, name: 'Paycheck Calculator', url: `${SITE_URL}/paycheck-calculator` },
         { '@type': 'ListItem', position: 2, name: 'Illinois Tax Calculator', url: `${SITE_URL}/illinois-tax-calculator` },
@@ -662,7 +662,7 @@ export default function HomePage() {
               </span>
               <span className="flex items-center gap-1.5">
                 <Globe className="h-4 w-4 text-emerald-400" />
-                15 State Profiles
+                50 State Profiles
               </span>
             </div>
           </div>
@@ -674,7 +674,7 @@ export default function HomePage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-10 text-center">
             <h2 className="text-3xl font-bold text-foreground">
-              28 Free <span className="gradient-text">Tax Calculators</span>
+              63 Free <span className="gradient-text">Tax Calculators</span>
             </h2>
             <p className="mt-3 text-muted-foreground max-w-xl mx-auto">
               Pick the one you need. They&apos;re all free, they all use 2026 data, and none of them will
@@ -915,7 +915,7 @@ export default function HomePage() {
                   <Calculator className="h-4 w-4 text-emerald-400" />
                 </div>
                 <h3 className="text-base font-semibold text-foreground">Tax Calculators</h3>
-                <span className="ml-auto text-[10px] font-semibold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 rounded-full px-2 py-0.5">20 Tools</span>
+                <span className="ml-auto text-[10px] font-semibold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 rounded-full px-2 py-0.5">63 Tools</span>
               </div>
               <ul className="space-y-2">
                 {CALCULATOR_CARDS.map((card) => (

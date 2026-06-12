@@ -53,7 +53,7 @@ export function getCalculatorContent(type: string): CalculatorContent {
       return {
         howItWorks: [
           'Look at your pay stub sometime. That number at the bottom — the one that actually hits your bank — is way smaller than the number at the top. This calculator tells you why, line by line. All withholding calculations follow <a href="https://www.irs.gov/publications/p15t" target="_blank" rel="noopener noreferrer nofollow">IRS Publication 15-T</a>.',
-          'Here\'s what comes out of every paycheck. Federal tax uses progressive brackets from 10% up to 37%, with standard deductions of $16,100 (single) or $32,200 (married). Then <a href="/glossary">FICA</a>: 6.2% for Social Security on income up to $176,100, and 1.45% for Medicare on everything. Make over $200,000? Add another 0.9% Medicare surtax on the amount above that.',
+          'Here\'s what comes out of every paycheck. Federal tax uses progressive brackets from 10% up to 37%, with standard deductions of $16,100 (single) or $32,200 (married). Then <a href="/glossary">FICA</a>: 6.2% for Social Security on income up to $184,500, and 1.45% for Medicare on everything. Make over $200,000? Add another 0.9% Medicare surtax on the amount above that.',
           'My buddy in Chicago and I compared stubs once. Same salary, same filing status. He walked away with about $3,800 less for the year because Illinois takes 4.95% and my state takes nothing. That\'s when it hit me — state tax is not a small factor. We cover five states here: Illinois at 4.95% flat, Texas at 0%, Florida at 0%, California at 1%–13.3% progressive, and New York at 4%–10.9% plus a potential NYC tax.',
           'A couple things that help soften the blow:\n- <a href="/401k-retirement-calculator">401(k) contributions</a> reduce taxable income at both federal and state level\n- HSA contributions do the same\n- These pre-tax deductions are basically a discount on your tax bill',
           'Bottom line — you\'ll see your net pay, effective tax rate, and marginal rate. Most people think their effective rate is higher than it actually is. Go ahead, see for yourself.',
@@ -61,7 +61,7 @@ export function getCalculatorContent(type: string): CalculatorContent {
         keyRates: [
           { label: 'Federal Tax Brackets', value: '10% – 37%' },
           { label: 'Standard Deduction (Single)', value: '$16,100' },
-          { label: 'Social Security Rate', value: '6.2% (up to $176,100)' },
+          { label: 'Social Security Rate', value: '6.2% (up to $184,500)' },
           { label: 'Medicare Rate', value: '1.45% (no cap)' },
           { label: 'Additional Medicare Tax', value: '0.9% (above $200K)' },
         ],
@@ -90,7 +90,7 @@ export function getCalculatorContent(type: string): CalculatorContent {
           { label: 'IL Personal Exemption', value: '$2,775' },
           { label: 'IL Avg Property Tax Rate', value: '~1.78%' },
           { label: 'IL Avg Combined Sales Tax', value: '8.86%' },
-          { label: 'Social Security Wage Cap', value: '$176,100' },
+          { label: 'Social Security Wage Cap', value: '$184,500' },
         ],
         faqs: ILLINOIS_FAQS,
         relatedCalculators: [
@@ -108,7 +108,7 @@ export function getCalculatorContent(type: string): CalculatorContent {
       return {
         howItWorks: [
           'Zero. That\'s the Texas income tax rate. Not "close to zero" or "effectively zero." Actually zero. The Texas Constitution bans a state income tax, so this isn\'t changing.',
-          'Your only deductions are federal tax and FICA. Federal uses the 2026 progressive brackets (10%–37%) with standard deductions, plus 6.2% Social Security up to $176,100 and 1.45% Medicare on everything. No state line item on your pay stub. Period.',
+          'Your only deductions are federal tax and FICA. Federal uses the 2026 progressive brackets (10%–37%) with standard deductions, plus 6.2% Social Security up to $184,500 and 1.45% Medicare on everything. No state line item on your pay stub. Period.',
           'I talk to people who moved from <a href="/california-tax-calculator">California</a> or <a href="/new-york-tax-calculator">New York</a> and they can\'t get over how much more shows up in their bank account on the same salary. A $100K earner in Texas takes home roughly $79,000. Same salary in California? More like $71,000. That\'s an $8,000 difference from state tax alone.',
           'But Texas gets you elsewhere. <a href="https://comptroller.texas.gov/" target="_blank" rel="noopener noreferrer nofollow">Property taxes</a> average about 1.71% of home value — on a $300,000 house that\'s roughly $5,130 a year. That\'s among the highest in the country. Sales tax runs around 8.2% combined with local add-ons. The income tax savings are real, but the full picture is more complicated than "Texas has no income tax so it\'s cheaper."',
           'If you\'re renting or own a modest home, Texas is hard to beat on taxes. But a $600K house changes the math — that property tax bill can eat into your income tax savings fast. Run the numbers. That\'s literally what this calculator is for.',
@@ -118,7 +118,7 @@ export function getCalculatorContent(type: string): CalculatorContent {
           { label: 'TX Avg Property Tax Rate', value: '~1.71%' },
           { label: 'TX Avg Combined Sales Tax', value: '8.2%' },
           { label: 'Federal Standard Deduction', value: '$16,100 (single)' },
-          { label: 'Social Security Rate', value: '6.2% (up to $176,100)' },
+          { label: 'Social Security Rate', value: '6.2% (up to $184,500)' },
         ],
         faqs: TEXAS_FAQS,
         relatedCalculators: [
@@ -324,12 +324,12 @@ export function getCalculatorContent(type: string): CalculatorContent {
         howItWorks: [
           '15.3%. That\'s the <a href="https://www.irs.gov/taxtopics/tc554" target="_blank" rel="noopener noreferrer nofollow">self-employment tax rate</a>, and if you just went freelance, it\'s probably higher than you expected. It covers both halves of Social Security (12.4%) and Medicare (2.9%) — the half your employer used to pay plus the half that always came out of your paycheck. Nobody warned me about this when I started consulting. It\'s a punch in the wallet.',
           'Here\'s a small relief: you don\'t pay 15.3% on 100% of your income. It\'s calculated on 92.35% of your net business income, which roughly accounts for the employer-half deduction that W-2 workers get automatically. So on $100,000 of net SE income, the tax base is $92,350 and the SE tax comes to roughly $14,130. Still hurts, but less than you might have feared at first glance. And you can deduct half of your SE tax ($7,065 in this example) as an above-the-line deduction. It doesn\'t reduce the SE tax itself, but it lowers your AGI, which means less federal and state income tax. Every bit counts.',
-          'Quick reference for what you\'re dealing with:\n- Social Security portion: 12.4% on income up to $176,100\n- Medicare portion: 2.9% on everything, no cap\n- Additional Medicare: 0.9% on income above $200,000\n- Half of SE tax is deductible above the line',
+          'Quick reference for what you\'re dealing with:\n- Social Security portion: 12.4% on income up to $184,500\n- Medicare portion: 2.9% on everything, no cap\n- Additional Medicare: 0.9% on income above $200,000\n- Half of SE tax is deductible above the line',
           'Quarterly estimated payments. This is where new freelancers get into trouble. You have to send the IRS money four times a year — April 15, June 15, September 15, January 15 — or face penalties. The safe harbor is paying at least 100% of last year\'s tax liability (110% if your AGI was over $150,000) or 90% of this year\'s. We estimate those quarterly amounts so there are no ugly surprises in April. Seriously, don\'t skip estimated payments. The penalties aren\'t worth it.\n\nWant to see how self-employment income compares to a W-2 salary? <a href="/salary">Check our salary after tax pages</a> to compare take-home pay at every income level across all 5 states.',
         ],
         keyRates: [
           { label: 'SE Tax Rate', value: '15.3% on 92.35% of net income' },
-          { label: 'Social Security Portion', value: '12.4% (up to $176,100)' },
+          { label: 'Social Security Portion', value: '12.4% (up to $184,500)' },
           { label: 'Medicare Portion', value: '2.9% (no cap)' },
           { label: 'Additional Medicare', value: '0.9% (above $200K)' },
           { label: 'Half SE Tax Deduction', value: 'Above-the-line' },
@@ -813,7 +813,7 @@ export function getCalculatorContent(type: string): CalculatorContent {
           { label: 'TN Avg Combined Sales Tax', value: '~9.56%' },
           { label: 'TN Avg Property Tax Rate', value: '~0.71%' },
           { label: 'Federal Standard Deduction', value: '$16,100 (single)' },
-          { label: 'Social Security Rate', value: '6.2% (up to $176,100)' },
+          { label: 'Social Security Rate', value: '6.2% (up to $184,500)' },
         ],
         faqs: TENNESSEE_FAQS,
         relatedCalculators: [

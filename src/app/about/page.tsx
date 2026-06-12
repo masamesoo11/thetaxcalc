@@ -51,7 +51,7 @@ const ABOUT_FAQS = [
   { question: 'Is TheTaxCalc really free? What\'s the catch?', answer: 'No catch. Because all calculations run in your browser and we don\'t store any of your data, our server costs are minimal. No premium tiers, no paywalls, no "unlock full results for $9.99." Just free calculators.' },
   { question: 'How accurate are the calculations?', answer: 'We use the same data the IRS and state revenue departments publish — the 2026 brackets, standard deductions, FICA rates, the works. Every methodology is reviewed by tax professionals. Our tools give you solid estimates, not guarantees. For filing your actual return, talk to a CPA.' },
   { question: 'Does TheTaxCalc store my salary or financial data?', answer: 'Nope. When you type your salary into one of our calculators, that number stays in your browser. It never gets sent to our servers. We don\'t have accounts, we don\'t use tracking cookies on calculations, and we couldn\'t tie your data to you even if we wanted to.' },
-  { question: 'Why only seven states for income tax?', answer: 'We picked seven states that represent the full range of tax situations in the US — from zero-income-tax states (TX, FL) to the highest-tax states (CA, NY), plus flat-tax states (IL, GA) and a progressive state (VA). We also cover all 50 states for sales tax calculations.' },
+  { question: 'Do you cover all 50 states?', answer: 'Yes. We cover all 50 states with dedicated tax calculators — from zero-income-tax states (TX, FL, WA, NV, WY, AK, SD, NH, TN) to the highest-tax states (CA, NY), plus flat-tax states (IL, CO, IN, PA, MI, MA) and progressive states across the country. Every state has its own calculator with local rates and rules.' },
   { question: 'When do you update tax brackets?', answer: 'As soon as the IRS and state revenue departments publish new figures — usually late Q4 or early Q1. Our 2026 data is current as of January 2026.' },
   { question: 'Can I use this to file my taxes?', answer: 'Please don\'t. Our calculators are for estimation and planning. When it\'s time to actually file, use real tax preparation software or work with a CPA who knows your situation. We\'re a starting point, not a substitute.' },
 ];
@@ -254,10 +254,10 @@ export default function AboutPage() {
         </h2>
         <div className="text-sm text-muted-foreground leading-relaxed space-y-4">
           <p>
-            We cover income tax calculators for 7 states with dedicated profiles, plus
+            We cover all 50 states with dedicated income tax calculators, plus
             sales tax data for all 50 states. Each state profile includes not just the income
             tax rate, but property tax context, sales tax data, and retirement-friendliness notes.
-            Our income tax calculator states:
+            Here are some of our most popular states:
           </p>
           <div className="grid gap-3 sm:grid-cols-2">
             {[
@@ -268,6 +268,11 @@ export default function AboutPage() {
               { state: 'New York', rate: '4%–10.9% + NYC tax', href: '/new-york-tax-calculator' },
               { state: 'Georgia', rate: '5.49% flat tax', href: '/georgia-tax-calculator' },
               { state: 'Virginia', rate: '2%–5.75% progressive', href: '/virginia-tax-calculator' },
+              { state: 'Colorado', rate: '4.4% flat tax', href: '/colorado-tax-calculator' },
+              { state: 'Washington', rate: '0% state income tax', href: '/washington-tax-calculator' },
+              { state: 'Pennsylvania', rate: '3.07% flat tax', href: '/pennsylvania-tax-calculator' },
+              { state: 'Ohio', rate: '0%–3.5% progressive', href: '/ohio-tax-calculator' },
+              { state: 'New Jersey', rate: '1.4%–10.75% progressive', href: '/new-jersey-tax-calculator' },
             ].map((item) => (
               <Link
                 key={item.state}
@@ -282,13 +287,11 @@ export default function AboutPage() {
             ))}
           </div>
           <p className="mt-2">
-            We picked these 7 states because they represent the full spectrum of state tax
-            situations — from zero-income-tax states (TX, FL) to the highest-tax states in the
-            country (CA, NY), with flat-tax states (IL, GA) and progressive states (VA) in between.
+            We now cover all 50 states with dedicated income tax calculators — from zero-income-tax states
+            (TX, FL, WA, NV, WY, AK, SD, NH, TN) to the highest-tax states in the
+            country (CA, NY), with flat-tax states (IL, CO, IN, PA) and progressive states across the country.
             Plus, our <Link href="/sales-tax-calculator" className="text-emerald-400 hover:text-emerald-300 underline">Sales Tax Calculator</Link> covers
-            all 50 states with combined state + local rates. If your state isn&apos;t here
-            yet, <Link href="/about#contact" className="text-emerald-400 hover:text-emerald-300 underline">email us</Link> and
-            we&apos;ll prioritize it.
+            all 50 states with combined state + local rates.
           </p>
           <p>
             Beyond state calculators, we also built tools for{' '}
@@ -495,12 +498,6 @@ export default function AboutPage() {
                 <span className="inline-flex items-center rounded-md bg-emerald-500/15 px-2 py-0.5 text-xs font-semibold text-emerald-400 ring-1 ring-emerald-500/25">
                   {author.credentials}
                 </span>
-                <span className="inline-flex items-center gap-1 rounded-md bg-emerald-500/10 px-2 py-0.5 text-[11px] font-medium text-emerald-400/90 ring-1 ring-emerald-500/20">
-                  <svg className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5} aria-hidden="true">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                  Verified Expert
-                </span>
               </div>
               {/* Title */}
               <p className="text-sm text-muted-foreground mb-3">
@@ -567,8 +564,8 @@ export default function AboutPage() {
               a: 'Nope. When you type your salary into one of our calculators, that number stays in your browser. It never gets sent to our servers. We don\'t have accounts, we don\'t use tracking cookies on calculations, and we couldn\'t tie your data to you even if we wanted to — because we never see it.',
             },
             {
-              q: 'Why only seven states for income tax?',
-              a: 'We picked seven states that represent the full range of tax situations in the US — from zero-income-tax states (TX, FL) to the highest-tax states (CA, NY), plus flat-tax states (IL, GA) and a progressive state (VA). Doing seven states well means building each one with dedicated brackets, exemptions, property tax data, and retirement considerations. We also cover all 50 states for sales tax calculations. More income tax states are coming — if yours isn\'t here, tell us and we\'ll bump it up the list.',
+              q: 'Do you cover all 50 states?',
+              a: 'Yes. We cover all 50 states with dedicated income tax calculators — from zero-income-tax states (TX, FL, WA, NV, WY, AK, SD, NH, TN) to the highest-tax states (CA, NY), plus flat-tax states (IL, CO, IN, PA, MI, MA) and progressive states across the country. Each state has its own calculator with dedicated brackets, exemptions, property tax data, and retirement considerations. We also cover all 50 states for sales tax calculations.',
             },
             {
               q: 'When do you update tax brackets?',

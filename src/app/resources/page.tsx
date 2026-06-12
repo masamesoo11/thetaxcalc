@@ -543,7 +543,7 @@ export default function ResourcesPage() {
         <div className="mt-4 flex items-start gap-2 rounded-lg border border-emerald-500/20 bg-emerald-500/5 p-4 text-xs text-muted-foreground leading-relaxed">
           <Info className="h-4 w-4 text-emerald-400 shrink-0 mt-0.5" />
           <p>
-            We cover these 7 states in detail with full paycheck calculators. For sales tax rates
+            We cover all 50 states in detail with full paycheck calculators. For sales tax rates
             across all 50 states, visit our{' '}
             <Link href="/sales-tax-calculator" className="text-emerald-400 hover:text-emerald-300 underline underline-offset-2">
               sales tax calculator

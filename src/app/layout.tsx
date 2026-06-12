@@ -105,7 +105,6 @@ const sitewideJsonLd = {
       contactPoint: [
         {
           "@type": "ContactPoint",
-          telephone: "+1-800-555-0199",
           url: `${SITE_URL}/about#contact`,
           contactType: "customer support",
           availableLanguage: ["English"],
