@@ -48,16 +48,28 @@ export async function middleware(request: NextRequest) {
     );
   }
 
+  // ─── Check embed mode ─────────────────────────────────────────────────────
+  const isEmbed = request.nextUrl.searchParams.get('embed') === '1';
+
   // ─── Security Headers (applied to all responses) ────────────────────────
   const response = NextResponse.next();
   response.headers.set('X-Content-Type-Options', 'nosniff');
-  response.headers.set('X-Frame-Options', 'DENY');
+
+  // When ?embed=1, allow iframe embedding (needed for widget embeds)
+  // Otherwise, deny framing to prevent clickjacking on normal pages
+  if (isEmbed) {
+    response.headers.set('X-Frame-Options', 'ALLOWALL');
+  } else {
+    response.headers.set('X-Frame-Options', 'DENY');
+  }
+
   response.headers.set('Referrer-Policy', 'strict-origin-when-cross-origin');
   response.headers.set('Permissions-Policy', 'camera=(), microphone=(), geolocation=(), payment=()');
   response.headers.set('Strict-Transport-Security', 'max-age=63072000; includeSubDomains; preload');
 
-  // CSP
-  response.headers.set('Content-Security-Policy', "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://pagead2.googlesyndication.com https://tpc.googlesyndication.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https://www.google-analytics.com https://www.googletagmanager.com https://pagead2.googlesyndication.com https://tpc.googlesyndication.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://www.google-analytics.com https://pagead2.googlesyndication.com; frame-src https://googleads.g.doubleclick.net; frame-ancestors 'none'; base-uri 'self'; form-action 'self';");
+  // CSP — when embed mode, allow frame-ancestors from any origin so widgets work
+  const frameAncestors = isEmbed ? "frame-ancestors *" : "frame-ancestors 'none'";
+  response.headers.set('Content-Security-Policy', `default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://pagead2.googlesyndication.com https://tpc.googlesyndication.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https://www.google-analytics.com https://www.googletagmanager.com https://pagead2.googlesyndication.com https://tpc.googlesyndication.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://www.google-analytics.com https://pagead2.googlesyndication.com; frame-src https://googleads.g.doubleclick.net; ${frameAncestors}; base-uri 'self'; form-action 'self';`);
 
   // Cache for HTML pages — CDN edge caching for Cloudflare Pages
   const isHtmlPage = !pathname.startsWith('/_next') && !pathname.startsWith('/api') && !pathname.startsWith('/admin') && !pathname.match(/\.(svg|png|jpg|jpeg|gif|webp|ico|xml|json|txt|css|js|woff2?|ttf|eot)$/);

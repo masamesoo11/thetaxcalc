@@ -27,6 +27,7 @@ import {
   Share2,
 } from 'lucide-react';
 import Link from 'next/link';
+import { trackEmbedCopy, trackWidgetPreview } from '@/lib/analytics';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 
@@ -247,13 +248,14 @@ function generateEmbedCode(slug: string, width = '100%', height = 600): string {
   return `<iframe src="https://thetaxcalc.com/${slug}?embed=1" width="${width}" height="${height}" frameborder="0" style="border:1px solid #e5e7eb;border-radius:12px;" title="Free ${slug.replace(/-/g, ' ')} by TheTaxCalc"></iframe>\n<p style="font-size:12px;color:#6b7280;margin-top:4px;">Powered by <a href="https://thetaxcalc.com" target="_blank" rel="noopener" style="color:#10b981;">TheTaxCalc</a> — Free 2026 Tax Calculators</p>`;
 }
 
-function CopyButton({ text, label = 'Copy Code' }: { text: string; label?: string }) {
+function CopyButton({ text, label = 'Copy Code', onCopy }: { text: string; label?: string; onCopy?: () => void }) {
   const [copied, setCopied] = useState(false);
 
   const handleCopy = useCallback(async () => {
     try {
       await navigator.clipboard.writeText(text);
       setCopied(true);
+      onCopy?.();
       setTimeout(() => setCopied(false), 2000);
     } catch {
       const textarea = document.createElement('textarea');
@@ -265,9 +267,10 @@ function CopyButton({ text, label = 'Copy Code' }: { text: string; label?: strin
       document.execCommand('copy');
       document.body.removeChild(textarea);
       setCopied(true);
+      onCopy?.();
       setTimeout(() => setCopied(false), 2000);
     }
-  }, [text]);
+  }, [text, onCopy]);
 
   return (
     <Button
@@ -329,7 +332,10 @@ function WidgetCard({ widget, compact = false }: { widget: WidgetInfo; compact?:
         <Button
           variant="ghost"
           size="sm"
-          onClick={() => setShowPreview(!showPreview)}
+          onClick={() => {
+            if (!showPreview) trackWidgetPreview(widget.slug);
+            setShowPreview(!showPreview);
+          }}
           className="gap-1.5 text-xs text-muted-foreground hover:text-emerald-400 transition-colors w-full justify-center border border-dashed border-border/40 hover:border-emerald-500/30"
           aria-expanded={showPreview}
         >
@@ -372,7 +378,7 @@ function WidgetCard({ widget, compact = false }: { widget: WidgetInfo; compact?:
               <Code2 className="h-3.5 w-3.5" />
               <span>Embed Code</span>
             </div>
-            <CopyButton text={embedCode} />
+            <CopyButton text={embedCode} onCopy={() => trackEmbedCopy(widget.slug)} />
           </div>
           <pre className="text-xs text-foreground/80 overflow-x-auto whitespace-pre-wrap break-all font-mono leading-relaxed">
             {embedCode}

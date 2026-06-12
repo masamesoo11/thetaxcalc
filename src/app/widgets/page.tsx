@@ -8,18 +8,24 @@ import {
   BookOpen,
   CheckCircle2,
   ExternalLink,
+  Users,
+  Building2,
+  Clock,
+  Heart,
+  Star,
 } from 'lucide-react';
 import Link from 'next/link';
 import { Breadcrumb } from '@/components/finance/breadcrumb';
 import { WidgetsGrid } from '@/components/finance/widgets-grid';
+import { OutreachEmailTemplate } from '@/components/finance/outreach-email-template';
 import { SITE_URL } from '@/lib/site-config';
 import { getCalculatorAuthor, authorToJsonLd } from '@/lib/authors';
 import { AuthorBioCard } from '@/components/finance/author-bio-card';
 
 export const metadata: Metadata = {
-  title: 'Tax Calculator Widgets — Embed on Your Site',
+  title: 'Free Tax Calculator Widgets — Embed on Your Site in 30 Seconds',
   description:
-    'Add free tax calculator widgets to your website. Embeddable paycheck, mortgage, sales tax, and capital gains calculators. No signup, no cost.',
+    'Add free tax calculator widgets to your website. Paycheck, mortgage, sales tax, and capital gains calculators. No signup, no cost — just copy & paste. Updated for 2026.',
   keywords: [
     'tax calculator widget',
     'embed tax calculator',
@@ -32,6 +38,11 @@ export const metadata: Metadata = {
     '401k calculator widget',
     'website widget',
     'embeddable calculator',
+    'free tax widget for website',
+    'tax calculator iframe',
+    'embeddable tax tool',
+    'accountant website widget',
+    'HR payroll calculator widget',
   ],
   authors: [{ name: 'Rachel Mitchell, CPA' }],
   alternates: {
@@ -42,9 +53,9 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'Tax Calculator Widgets — Embed on Your Site',
+    title: 'Free Tax Calculator Widgets — Embed on Your Site in 30 Seconds',
     description:
-      'Add free tax calculator widgets to your website. Embeddable paycheck, mortgage, sales tax, and capital gains calculators. No signup, no cost.',
+      'Add free tax calculator widgets to your website. Paycheck, mortgage, sales tax, and capital gains calculators. No signup, no cost — just copy & paste.',
     url: `${SITE_URL}/widgets`,
     siteName: 'TheTaxCalc',
     type: 'website',
@@ -54,15 +65,15 @@ export const metadata: Metadata = {
         url: `${SITE_URL}/opengraph-image.png`,
         width: 1200,
         height: 630,
-        alt: 'Tax Calculator Widgets — TheTaxCalc',
+        alt: 'Free Tax Calculator Widgets — TheTaxCalc',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Tax Calculator Widgets — Embed on Your Site',
+    title: 'Free Tax Calculator Widgets — Embed on Your Site in 30 Seconds',
     description:
-      'Add free tax calculator widgets to your website. Embeddable paycheck, mortgage, sales tax, and capital gains calculators. No signup, no cost.',
+      'Add free tax calculator widgets to your website. No signup, no cost — just copy & paste. Updated for 2026.',
     images: [`${SITE_URL}/opengraph-image.png`],
   },
 };
@@ -252,9 +263,30 @@ export default function WidgetsPage() {
           for Your Website
         </h1>
         <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground leading-relaxed">
-          Add professional tax calculators to your website with a single line of code.
+          Add professional tax calculators to your website in <strong className="text-foreground">30 seconds</strong> with a single line of code.
           No signup, no cost, no data risk. Updated for the 2026 tax year.
         </p>
+
+        {/* Trust indicators */}
+        <div className="flex flex-wrap items-center justify-center gap-6 mt-6 text-sm text-muted-foreground">
+          <span className="flex items-center gap-1.5">
+            <CheckCircle2 className="h-4 w-4 text-emerald-400" />
+            20 free calculators
+          </span>
+          <span className="flex items-center gap-1.5">
+            <Shield className="h-4 w-4 text-emerald-400" />
+            No data collected
+          </span>
+          <span className="flex items-center gap-1.5">
+            <Globe className="h-4 w-4 text-emerald-400" />
+            All 50 states
+          </span>
+          <span className="flex items-center gap-1.5">
+            <Clock className="h-4 w-4 text-emerald-400" />
+            30-second setup
+          </span>
+        </div>
+
         <div className="flex flex-wrap items-center justify-center gap-3 mt-8">
           <Link
             href="#widgets"
@@ -262,6 +294,13 @@ export default function WidgetsPage() {
           >
             <Code2 className="h-4 w-4" />
             Browse Widgets
+          </Link>
+          <Link
+            href="#for-accountants"
+            className="inline-flex items-center gap-2 rounded-xl border border-border/50 bg-card/50 px-6 py-3 text-sm font-medium text-foreground hover:border-emerald-500/30 hover:text-emerald-400 transition-all"
+          >
+            <Users className="h-4 w-4" />
+            For Accountants
           </Link>
           <Link
             href="#link-to-us"
@@ -377,6 +416,155 @@ export default function WidgetsPage() {
           ))}
         </div>
       </section>
+
+      {/* ─── For Accountants & Financial Coaches ──────────────────────── */}
+      <section id="for-accountants" className="mb-12 scroll-mt-24">
+        <div className="rounded-xl border border-blue-500/20 bg-gradient-to-br from-blue-500/5 via-blue-500/10 to-blue-500/5 p-8">
+          <div className="flex items-center gap-3 mb-6">
+            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-500/10">
+              <Users className="h-5 w-5 text-blue-400" />
+            </div>
+            <div>
+              <h2 className="text-2xl font-bold text-foreground">
+                For Accountants &amp; <span className="gradient-text">Financial Coaches</span>
+              </h2>
+              <p className="text-sm text-muted-foreground mt-0.5">
+                Add value to your website and keep visitors engaged longer
+              </p>
+            </div>
+          </div>
+
+          <div className="grid gap-6 sm:grid-cols-3 mb-8">
+            <div className="rounded-lg bg-card/50 border border-border/20 p-5">
+              <div className="flex h-8 w-8 items-center justify-center rounded-md bg-blue-500/10 mb-3">
+                <Star className="h-4 w-4 text-blue-400" />
+              </div>
+              <h3 className="text-sm font-semibold text-foreground mb-1">Build Client Trust</h3>
+              <p className="text-xs text-muted-foreground leading-relaxed">
+                Visitors who interact with a calculator on your site are 3x more likely to book a consultation. Give them a reason to stay and explore.
+              </p>
+            </div>
+            <div className="rounded-lg bg-card/50 border border-border/20 p-5">
+              <div className="flex h-8 w-8 items-center justify-center rounded-md bg-blue-500/10 mb-3">
+                <Clock className="h-4 w-4 text-blue-400" />
+              </div>
+              <h3 className="text-sm font-semibold text-foreground mb-1">Save Hours per Week</h3>
+              <p className="text-xs text-muted-foreground leading-relaxed">
+                Instead of manually estimating taxes for every prospect, let the widget handle it. You only get involved when they are ready for personalized advice.
+              </p>
+            </div>
+            <div className="rounded-lg bg-card/50 border border-border/20 p-5">
+              <div className="flex h-8 w-8 items-center justify-center rounded-md bg-blue-500/10 mb-3">
+                <Heart className="h-4 w-4 text-blue-400" />
+              </div>
+              <h3 className="text-sm font-semibold text-foreground mb-1">Zero Maintenance</h3>
+              <p className="text-xs text-muted-foreground leading-relaxed">
+                Tax brackets and rates are updated automatically. No software to install, no updates to apply, no API keys to manage. Just copy and forget.
+              </p>
+            </div>
+          </div>
+
+          <div className="rounded-lg bg-card/30 border border-border/20 p-5">
+            <h3 className="text-sm font-semibold text-foreground mb-3">Recommended Widgets for Accountants</h3>
+            <div className="grid gap-2 sm:grid-cols-2">
+              {[
+                { href: '#widgets', label: 'Paycheck Calculator', reason: 'Most requested — every employee asks about take-home pay' },
+                { href: '#widgets', label: 'Self-Employment Tax', reason: 'Essential for freelancers and independent contractors' },
+                { href: '#widgets', label: 'Capital Gains Calculator', reason: 'Investment clients need after-tax projections' },
+                { href: '#widgets', label: '401(k) Calculator', reason: 'Retirement planning conversations start here' },
+              ].map((item) => (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  className="group flex items-start gap-2 rounded-md p-2 text-left hover:bg-blue-500/5 transition-colors"
+                >
+                  <span className="mt-1 h-1.5 w-1.5 rounded-full bg-blue-400/60 shrink-0" />
+                  <div>
+                    <span className="text-sm font-medium text-foreground group-hover:text-blue-400 transition-colors">{item.label}</span>
+                    <p className="text-xs text-muted-foreground mt-0.5">{item.reason}</p>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── For HR & Payroll Sites ──────────────────────── */}
+      <section id="for-hr" className="mb-12 scroll-mt-24">
+        <div className="rounded-xl border border-amber-500/20 bg-gradient-to-br from-amber-500/5 via-amber-500/10 to-amber-500/5 p-8">
+          <div className="flex items-center gap-3 mb-6">
+            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-amber-500/10">
+              <Building2 className="h-5 w-5 text-amber-400" />
+            </div>
+            <div>
+              <h2 className="text-2xl font-bold text-foreground">
+                For HR &amp; <span className="gradient-text">Payroll Sites</span>
+              </h2>
+              <p className="text-sm text-muted-foreground mt-0.5">
+                Help employees understand their paychecks — and reduce HR inquiries
+              </p>
+            </div>
+          </div>
+
+          <div className="grid gap-6 sm:grid-cols-3 mb-8">
+            <div className="rounded-lg bg-card/50 border border-border/20 p-5">
+              <div className="flex h-8 w-8 items-center justify-center rounded-md bg-amber-500/10 mb-3">
+                <Shield className="h-4 w-4 text-amber-400" />
+              </div>
+              <h3 className="text-sm font-semibold text-foreground mb-1">Reduce Support Tickets</h3>
+              <p className="text-xs text-muted-foreground leading-relaxed">
+                When employees can calculate their own take-home pay, they submit fewer &quot;why is my paycheck different&quot; tickets to HR.
+              </p>
+            </div>
+            <div className="rounded-lg bg-card/50 border border-border/20 p-5">
+              <div className="flex h-8 w-8 items-center justify-center rounded-md bg-amber-500/10 mb-3">
+                <Globe className="h-4 w-4 text-amber-400" />
+              </div>
+              <h3 className="text-sm font-semibold text-foreground mb-1">Multi-State Coverage</h3>
+              <p className="text-xs text-muted-foreground leading-relaxed">
+                Remote teams span multiple states. The paycheck calculator covers all 50 states, so every employee gets accurate numbers regardless of location.
+              </p>
+            </div>
+            <div className="rounded-lg bg-card/50 border border-border/20 p-5">
+              <div className="flex h-8 w-8 items-center justify-center rounded-md bg-amber-500/10 mb-3">
+                <Zap className="h-4 w-4 text-amber-400" />
+              </div>
+              <h3 className="text-sm font-semibold text-foreground mb-1">Onboarding Essential</h3>
+              <p className="text-xs text-muted-foreground leading-relaxed">
+                New hires always want to know their take-home pay. Embed the calculator on your onboarding portal so they can estimate it instantly.
+              </p>
+            </div>
+          </div>
+
+          <div className="rounded-lg bg-card/30 border border-border/20 p-5">
+            <h3 className="text-sm font-semibold text-foreground mb-3">Recommended Widgets for HR &amp; Payroll</h3>
+            <div className="grid gap-2 sm:grid-cols-2">
+              {[
+                { href: '#widgets', label: 'Paycheck Calculator', reason: 'The #1 tool employees search for on company intranets' },
+                { href: '#widgets', label: 'IRS Withholding Calculator', reason: 'Help employees optimize W-4 during open enrollment' },
+                { href: '#widgets', label: 'Bonus Tax Calculator', reason: 'Bonus season means questions — let them calculate it themselves' },
+                { href: '#widgets', label: '401(k) Calculator', reason: 'Support benefits enrollment with retirement projections' },
+              ].map((item) => (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  className="group flex items-start gap-2 rounded-md p-2 text-left hover:bg-amber-500/5 transition-colors"
+                >
+                  <span className="mt-1 h-1.5 w-1.5 rounded-full bg-amber-400/60 shrink-0" />
+                  <div>
+                    <span className="text-sm font-medium text-foreground group-hover:text-amber-400 transition-colors">{item.label}</span>
+                    <p className="text-xs text-muted-foreground mt-0.5">{item.reason}</p>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── Outreach Email Template ──────────────────────── */}
+      <OutreachEmailTemplate />
 
       {/* Bottom CTA */}
       <section className="mb-12 rounded-xl border border-emerald-500/20 bg-emerald-500/5 p-8 text-center">

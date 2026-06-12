@@ -46,6 +46,16 @@ const CALC_CATEGORIES = [
     ],
   },
   {
+    id: 'compare',
+    label: 'Compare',
+    icon: ArrowRightLeft,
+    items: [
+      { key: 'job-offer', href: '/job-offer-comparison-calculator', label: 'Job Offer Comparison', desc: 'Which offer pays more?' },
+      { key: 'salary-compare', href: '/salary-comparison-calculator', label: 'Salary Comparison', desc: 'After-tax by state' },
+      { key: 'paycheck-diff', href: '/paycheck-difference-calculator', label: 'Paycheck Difference', desc: 'State vs state' },
+    ],
+  },
+  {
     id: 'state',
     label: 'By State',
     icon: MapPin,
@@ -103,6 +113,7 @@ const ALL_CALC_ITEMS = CALC_CATEGORIES.flatMap((cat) => cat.items);
 
 const MORE_LINKS = [
   { key: 'compare', href: '/compare', label: 'Compare States', icon: ArrowRightLeft, desc: 'State vs state taxes' },
+  { key: 'job-offer', href: '/job-offer-comparison-calculator', label: 'Compare Job Offers', icon: ArrowRightLeft, desc: 'After-tax offer comparison' },
   { key: 'salary', href: '/salary', label: 'Salary After Tax', icon: TrendingUp, desc: 'Take-home pay by salary' },
   { key: 'tax-data', href: '/tax-data', label: 'Tax Data', icon: BarChart3, desc: 'All 50 states — cite & embed' },
   { key: 'widgets', href: '/widgets', label: 'Free Widgets', icon: Code2, desc: 'Embed calculators on your site' },

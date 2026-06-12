@@ -42,6 +42,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   entries.push({ url: `${baseUrl}/about`, lastModified: siteUpdate, changeFrequency: 'monthly', priority: 0.7 });
   entries.push({ url: `${baseUrl}/resources`, lastModified: siteUpdate, changeFrequency: 'monthly', priority: 0.9 });
   entries.push({ url: `${baseUrl}/widgets`, lastModified: siteUpdate, changeFrequency: 'monthly', priority: 0.85 });
+  entries.push({ url: `${baseUrl}/salary-comparison-calculator`, lastModified: taxYearUpdate, changeFrequency: 'monthly', priority: 0.92 });
+  entries.push({ url: `${baseUrl}/job-offer-comparison-calculator`, lastModified: taxYearUpdate, changeFrequency: 'monthly', priority: 0.92 });
+  entries.push({ url: `${baseUrl}/paycheck-difference-calculator`, lastModified: taxYearUpdate, changeFrequency: 'monthly', priority: 0.92 });
 
   for (const path of ['/privacy', '/terms']) {
     entries.push({ url: `${baseUrl}${path}`, lastModified: '2025-01-01', changeFrequency: 'yearly', priority: 0.3 });

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useMemo, useCallback } from 'react';
+import { useState, useMemo, useCallback, useEffect } from 'react';
 import {
   Plus,
   X,
@@ -40,6 +40,7 @@ import {
   type PaycheckResult,
 } from '@/lib/finance-utils';
 import { STATE_PROFILES } from '@/lib/tax-config';
+import { trackScenarioOpen, trackScenarioAdd, trackScenarioShare, trackScenarioPreset } from '@/lib/analytics';
 
 // ─── Types ──────────────────────────────────────────────────────────────────
 
@@ -360,6 +361,10 @@ export function ScenarioComparison({ defaultScenario }: ScenarioComparisonProps)
           nycResident: base.nycResident,
         };
     setScenarios((prev) => [...prev, newScenario]);
+    trackScenarioAdd(scenarios.length + 1, preset?.label);
+    if (preset) {
+      trackScenarioPreset(preset.label, 'scenario_comparison');
+    }
   }, [scenarios]);
 
   // Update a scenario
@@ -399,6 +404,7 @@ export function ScenarioComparison({ defaultScenario }: ScenarioComparisonProps)
     navigator.clipboard.writeText(shareLink);
     setCopiedLink(true);
     setTimeout(() => setCopiedLink(false), 2000);
+    trackScenarioShare();
   }, [shareLink]);
 
   // Determine best value for highlighting
@@ -415,7 +421,15 @@ export function ScenarioComparison({ defaultScenario }: ScenarioComparisonProps)
     [computedResults]
   );
 
+  // Track scenario comparison open
+  useEffect(() => {
+    if (isOpen) {
+      trackScenarioOpen(scenarios.length);
+    }
+  }, [isOpen, scenarios.length]);
+
   return (
+    <div id="scenario-comparison" className="scroll-mt-24">
     <Collapsible open={isOpen} onOpenChange={setIsOpen}>
       <Card className="border-blue-500/20 bg-card/80 backdrop-blur-sm">
         <CollapsibleTrigger asChild>
@@ -664,5 +678,6 @@ export function ScenarioComparison({ defaultScenario }: ScenarioComparisonProps)
         </CollapsibleContent>
       </Card>
     </Collapsible>
+    </div>
   );
 }

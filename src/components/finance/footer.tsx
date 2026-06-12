@@ -29,6 +29,9 @@ const CALCULATOR_LINKS = [
   { href: '/relocation-calculator', label: 'Relocation Calculator', icon: MapPin },
   { href: '/freefile-irs', label: 'IRS Free File Guide', icon: FileCheck },
   { href: '/home-sale-tax-calculator', label: 'Home Sale Tax Calculator', icon: Home },
+  { href: '/salary-comparison-calculator', label: 'Salary Comparison', icon: ArrowRightLeft },
+  { href: '/job-offer-comparison-calculator', label: 'Job Offer Compare', icon: ArrowRightLeft },
+  { href: '/paycheck-difference-calculator', label: 'Paycheck Difference', icon: ArrowRightLeft },
 ];
 
 const RESOURCE_LINKS = [
