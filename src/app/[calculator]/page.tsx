@@ -524,6 +524,46 @@ export default async function CalculatorPage({
           </div>
         </section>
 
+        {/* How It's Calculated — Methodology & Formula */}
+        <section className="rounded-xl border border-emerald-500/20 bg-emerald-500/5 p-6 sm:p-8">
+          <h2 className="text-2xl font-bold text-foreground mb-4">
+            How It&apos;s Calculated
+          </h2>
+          <div className="space-y-5">
+            {/* Formula */}
+            <div>
+              <h3 className="text-sm font-semibold uppercase tracking-wider text-emerald-400 mb-2">Formula</h3>
+              <div className="rounded-lg bg-background/50 border border-border/30 p-4 font-mono text-sm text-foreground">
+                {content.calculationMethod.formula}
+              </div>
+            </div>
+            {/* Steps */}
+            <div>
+              <h3 className="text-sm font-semibold uppercase tracking-wider text-emerald-400 mb-2">Step-by-Step</h3>
+              <ol className="space-y-2">
+                {content.calculationMethod.steps.map((step, i) => (
+                  <li key={i} className="flex gap-3 text-sm text-muted-foreground">
+                    <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-500/20 text-xs font-bold text-emerald-400">
+                      {i + 1}
+                    </span>
+                    <span className="leading-relaxed">{step}</span>
+                  </li>
+                ))}
+              </ol>
+            </div>
+            {/* Example */}
+            <div>
+              <h3 className="text-sm font-semibold uppercase tracking-wider text-emerald-400 mb-2">Example</h3>
+              <div className="rounded-lg bg-background/50 border border-border/30 p-4 text-sm text-muted-foreground leading-relaxed">
+                {content.calculationMethod.example}
+              </div>
+            </div>
+            <p className="text-xs text-muted-foreground">
+              For detailed data sources and full methodology, see our <Link href="/methodology" className="text-emerald-400 hover:text-emerald-300 underline">Methodology &amp; Data Sources</Link> page.
+            </p>
+          </div>
+        </section>
+
         {/* Key Rates & Data */}
         {content.keyRates.length > 0 && (
           <section className="rounded-xl border border-emerald-500/20 bg-emerald-500/5 p-6 sm:p-8">

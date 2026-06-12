@@ -324,6 +324,9 @@ export function Footer() {
               <Link href="/freefile-irs" className="underline underline-offset-2 decoration-border/50 hover:text-emerald-400 hover:decoration-emerald-400 transition-colors">
                 IRS Free File
               </Link>
+              <Link href="/methodology" className="underline underline-offset-2 decoration-border/50 hover:text-emerald-400 hover:decoration-emerald-400 transition-colors">
+                Methodology
+              </Link>
             </div>
           </div>
         </div>

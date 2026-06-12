@@ -42,6 +42,11 @@ import {
 
 export interface CalculatorContent {
   howItWorks: string[];
+  calculationMethod: {
+    formula: string;
+    steps: string[];
+    example: string;
+  };
   keyRates: { label: string; value: string }[];
   faqs: FAQItem[];
   relatedCalculators: { slug: string; label: string }[];
@@ -58,6 +63,18 @@ export function getCalculatorContent(type: string): CalculatorContent {
           'A couple things that help soften the blow:\n- <a href="/401k-retirement-calculator">401(k) contributions</a> reduce taxable income at both federal and state level\n- HSA contributions do the same\n- These pre-tax deductions are basically a discount on your tax bill',
           'Bottom line — you\'ll see your net pay, effective tax rate, and marginal rate. Most people think their effective rate is higher than it actually is. Go ahead, see for yourself.',
         ],
+        calculationMethod: {
+          formula: 'Net Pay = Gross Income − (Federal Tax + State Tax + FICA + Pre-tax Deductions)',
+          steps: [
+            'Subtract pre-tax deductions (401(k), HSA) from gross income to get adjusted gross',
+            'Apply the standard deduction ($16,100 single / $32,200 married) to get taxable income',
+            'Calculate federal tax using progressive brackets (10%–37%) per IRS Publication 15-T',
+            'Calculate state tax using the selected state\'s brackets or flat rate',
+            'Calculate FICA: 6.2% Social Security (up to $184,500) + 1.45% Medicare (no cap)',
+            'Subtract all taxes and deductions from gross pay to get net take-home pay',
+          ],
+          example: 'A single filer in Texas earning $75,000/year: Standard deduction of $16,100 leaves $58,900 taxable. Federal tax ≈ $7,670. FICA = $5,738. State tax = $0. Net pay ≈ $61,592/year.',
+        },
         keyRates: [
           { label: 'Federal Tax Brackets', value: '10% – 37%' },
           { label: 'Standard Deduction (Single)', value: '$16,100' },
@@ -85,6 +102,17 @@ export function getCalculatorContent(type: string): CalculatorContent {
           'On top of Illinois tax you\'ve got the federal progressive brackets with the standard deduction, plus FICA at 7.65% combined. <a href="/401k-retirement-calculator">401(k) contributions</a> are your friend here — they reduce taxable income at both the federal and state level, so every dollar you put in saves you money twice.',
           'One thing people don\'t expect: Illinois has no state standard deduction, just that personal exemption. But there\'s a real silver lining if you\'re anywhere near retirement. Illinois doesn\'t touch Social Security benefits, 401(k) distributions, IRA withdrawals, or pension income. The property taxes are brutal — no argument there — but for retirees specifically, the income tax picture is honestly pretty decent.',
         ],
+        calculationMethod: {
+          formula: 'IL State Tax = (Gross Income − Personal Exemption) × 4.95%',
+          steps: [
+            'Subtract the $2,775 personal exemption from gross income',
+            'Apply the flat 4.95% rate to get Illinois state tax',
+            'Add federal tax (progressive brackets) and FICA (7.65%)',
+            'Subtract pre-tax deductions (401(k) reduces both federal and state taxable income)',
+            'Sum all deductions to calculate net take-home pay',
+          ],
+          example: '$75,000 salary: ($75,000 − $2,775) × 4.95% = $3,575.14 IL tax. Federal tax ≈ $7,670. FICA = $5,738. Net ≈ $58,017/year.',
+        },
         keyRates: [
           { label: 'Illinois Flat Tax Rate', value: '4.95%' },
           { label: 'IL Personal Exemption', value: '$2,775' },
@@ -113,6 +141,18 @@ export function getCalculatorContent(type: string): CalculatorContent {
           'But Texas gets you elsewhere. <a href="https://comptroller.texas.gov/" target="_blank" rel="noopener noreferrer nofollow">Property taxes</a> average about 1.71% of home value — on a $300,000 house that\'s roughly $5,130 a year. That\'s among the highest in the country. Sales tax runs around 8.2% combined with local add-ons. The income tax savings are real, but the full picture is more complicated than "Texas has no income tax so it\'s cheaper."',
           'If you\'re renting or own a modest home, Texas is hard to beat on taxes. But a $600K house changes the math — that property tax bill can eat into your income tax savings fast. Run the numbers. That\'s literally what this calculator is for.',
         ],
+        calculationMethod: {
+          formula: 'Net Pay = Gross Income − (Federal Tax + FICA) — no state income tax',
+          steps: [
+            'Skip state income tax entirely — Texas has 0% per the state constitution',
+            'Subtract pre-tax deductions (401(k), HSA) from gross pay',
+            'Apply federal standard deduction ($16,100 single / $32,200 married)',
+            'Calculate federal tax using progressive brackets (10%–37%)',
+            'Calculate FICA: 6.2% Social Security (up to $184,500) + 1.45% Medicare',
+            'Subtract federal tax and FICA from gross pay',
+          ],
+          example: '$100,000 salary, single in Texas: Federal tax ≈ $11,670. FICA = $7,650. No state tax. Net ≈ $80,680/year.',
+        },
         keyRates: [
           { label: 'Texas State Income Tax', value: '0%' },
           { label: 'TX Avg Property Tax Rate', value: '~1.71%' },
@@ -142,6 +182,17 @@ export function getCalculatorContent(type: string): CalculatorContent {
           'Florida funds government through a 6% state sales tax (averaging 7% with local surtaxes) and tourism taxes. Visitors pay a big chunk of the bill, which is a nice perk for residents. No estate tax, no inheritance tax either.',
           'Bottom line — if you\'re comparing zero-tax states, <a href="/texas-tax-calculator">Florida tends to beat Texas</a> for homeowners and retirees. Run both calculators and see the difference.',
         ],
+        calculationMethod: {
+          formula: 'Net Pay = Gross Income − (Federal Tax + FICA) — no state income tax',
+          steps: [
+            'Skip state income tax — Florida has 0% state income tax',
+            'Subtract pre-tax deductions from gross pay',
+            'Apply federal standard deduction and progressive brackets',
+            'Calculate FICA (6.2% + 1.45%)',
+            'Subtract all federal deductions to get net pay',
+          ],
+          example: '$100,000 salary, single in Florida: Same as Texas — Federal tax ≈ $11,670. FICA = $7,650. No state tax. Net ≈ $80,680/year.',
+        },
         keyRates: [
           { label: 'Florida State Income Tax', value: '0%' },
           { label: 'FL Avg Property Tax Rate', value: '~0.86%' },
@@ -169,6 +220,17 @@ export function getCalculatorContent(type: string): CalculatorContent {
           'One thing that catches people off guard: California property taxes are actually pretty reasonable. Average effective rate around 0.71%. Proposition 13 caps annual assessed value increases at 2%, so your tax bill doesn\'t spiral even if your home\'s market value goes crazy. Of course, when the median house costs $800K, even a low rate gives you a hefty bill. And at least Social Security benefits aren\'t taxed by the state.',
           'A coworker of mine was offered a $130K job in San Francisco and almost took it without running the numbers. California state tax alone on that salary is roughly $8,500. The same job in <a href="/texas-tax-calculator">Texas</a>? $0 state tax. That\'s not chump change. <a href="/relocation-calculator">Do the math before you accept that offer</a>.',
         ],
+        calculationMethod: {
+          formula: 'CA State Tax = ∑(Bracket Income × Bracket Rate), with CA standard deduction of $6,183 (single)',
+          steps: [
+            'Subtract the CA standard deduction ($6,183 single / $12,366 married) from gross income',
+            'Apply CA progressive brackets (1% to 13.3%) to state taxable income',
+            'Add federal tax (10%–37%) and FICA (7.65%)',
+            'Pre-tax deductions reduce both federal and CA taxable income',
+            'Sum all taxes and subtract from gross pay',
+          ],
+          example: '$100,000 salary, single in CA: CA taxable = $93,817. CA tax ≈ $6,450. Federal tax ≈ $11,670. FICA = $7,650. Net ≈ $74,230/year.',
+        },
         keyRates: [
           { label: 'CA Tax Brackets', value: '1% – 13.3% (9 brackets)' },
           { label: 'CA Standard Deduction (Single)', value: '$6,083' },
@@ -197,6 +259,17 @@ export function getCalculatorContent(type: string): CalculatorContent {
           'One bright spot: New York doesn\'t tax Social Security, and excludes up to $20,000 of retirement income (pensions, 401(k), IRA) for taxpayers 59½ and older. Property taxes average 1.62% and combined sales tax is about 8.52%. Not great. But also not the worst part about living here.',
           'Winner for lowest total tax burden? Not New York, obviously. But if you\'re here for the career or the city, at least you can <a href="/compare">see exactly what it costs you compared to other states</a>.',
         ],
+        calculationMethod: {
+          formula: 'NY State Tax = ∑(Bracket Income × Bracket Rate) − NY standard deduction, plus NYC tax if applicable',
+          steps: [
+            'Subtract NY standard deduction ($8,500 single / $17,150 married) from gross income',
+            'Apply NY progressive brackets (4% to 10.9%) to state taxable income',
+            'If NYC resident, apply NYC tax (3.078% to 3.876%) on top',
+            'Add federal tax (10%–37%) and FICA (7.65%)',
+            'Subtract all taxes from gross pay',
+          ],
+          example: '$100,000 salary, single in NY (non-NYC): NY tax ≈ $5,100. Federal ≈ $11,670. FICA = $7,650. Net ≈ $75,580/year.',
+        },
         keyRates: [
           { label: 'NY Tax Brackets', value: '4% – 10.9% (9 brackets)' },
           { label: 'NY Standard Deduction (Single)', value: '$8,100' },
@@ -223,6 +296,18 @@ export function getCalculatorContent(type: string): CalculatorContent {
           'Extra payments go 100% toward principal. Every dollar you add saves you interest for the remaining life of the loan. Adding $200/month extra on that $280K loan at 6.5% saves roughly $76,856 in interest and pays it off more than 5 years early. Compound interest working for you instead of against you, for once.',
           'We generate a full amortization schedule — month by month, principal vs interest, remaining balance. For a detailed walkthrough, check the <a href="https://www.consumerfinance.gov/consumer-tools/mortgages" target="_blank" rel="noopener noreferrer nofollow">CFPB mortgage resources</a>. Key things to keep in mind:\n- Recommended housing cost ratio: no more than 28% of gross income\n- 20% down payment avoids PMI entirely\n- Common loan terms are 15, 20, or 30 years\n- Even small extra payments make a big difference over 30 years',
         ],
+        calculationMethod: {
+          formula: 'Monthly Payment = P × [r(1+r)^n] / [(1+r)^n − 1], where P = principal, r = monthly rate, n = total payments',
+          steps: [
+            'Convert annual interest rate to monthly rate (APR ÷ 12)',
+            'Calculate total number of payments (years × 12)',
+            'Apply the amortization formula to get monthly principal + interest',
+            'Add monthly property tax (annual tax ÷ 12)',
+            'Add monthly homeowners insurance premium',
+            'Add PMI if down payment < 20%',
+          ],
+          example: '$400,000 loan at 6.5% for 30 years: Monthly P&I = $2,528. With $250/mo tax + $120/mo insurance = $2,898/mo total.',
+        },
         keyRates: [
           { label: 'Formula', value: 'M = P × [r(1+r)^n] / [(1+r)^n - 1]' },
           { label: 'Common Loan Terms', value: '15, 20, or 30 years' },
@@ -249,6 +334,18 @@ export function getCalculatorContent(type: string): CalculatorContent {
           'For 2026, the <a href="https://www.irs.gov/retirement-plans/plan-participant-employee/retirement-topics-401k-and-profit-sharing-plan-contribution-limits" target="_blank" rel="noopener noreferrer nofollow">401(k) contribution limit is $23,500</a>. Catch-up contribution for ages 50+ is another $7,500. Ages 60-63 get an even bigger catch-up of $11,250. The calculator defaults to 7% annual return, which is a reasonable long-term assumption for a diversified stock portfolio. Real returns bounce around — up 20% some years, down 15% others — but 7% is a solid planning number over decades.',
           'RMD age is 73. That\'s when the IRS makes you start withdrawing. But that\'s a problem for future you.',
         ],
+        calculationMethod: {
+          formula: 'Future Balance = P(1+r)^n + C[((1+r)^n − 1) / r], where P = current balance, r = annual return, n = years, C = annual contribution',
+          steps: [
+            'Start with current 401(k) balance (or $0 if starting fresh)',
+            'Add annual employee contribution (up to $23,500 for 2026, or $31,000 if age 50+)',
+            'Add employer match (typically 50% of first 6% of salary)',
+            'Apply assumed annual rate of return (default 7%, based on historical S&P 500 average)',
+            'Compound annually for the number of years until retirement',
+            'Show year-by-year growth with and without employer match',
+          ],
+          example: '$10,000 starting balance, $23,500/year contribution, 7% return, 30 years: Future value ≈ $2,490,000. Without employer match.',
+        },
         keyRates: [
           { label: '2026 Contribution Limit', value: '$23,500' },
           { label: 'Catch-Up (Age 50+)', value: '+$7,500' },
@@ -274,6 +371,17 @@ export function getCalculatorContent(type: string): CalculatorContent {
           'Let\'s look at a real example. $100,000 in Texas (0% state tax) gets you roughly $79,000 take-home. To end up with the same $79,000 in California, you\'d need to earn about $120,000–$125,000. California\'s progressive income tax eats an extra $5,000–$8,000 that Texas doesn\'t touch. That\'s a car payment, a vacation, or a decent chunk of retirement savings — just gone to state tax.',
           'This tool focuses on income tax differences. But look, income tax isn\'t the whole story:\n- Property taxes: <a href="/texas-tax-calculator">Texas</a> is brutal (~1.71%), <a href="/california-tax-calculator">California</a> is surprisingly mild (~0.71%)\n- Sales taxes vary significantly by state and city\n- Housing costs are the big one — $1,500/month in Houston can be $3,000 in San Francisco\nCheck our <a href="/compare">state comparison pages</a> for the full picture.',
         ],
+        calculationMethod: {
+          formula: 'Equivalent Salary = Current Net Pay ÷ (1 − New State Effective Tax Rate)',
+          steps: [
+            'Calculate your current take-home pay in your current state',
+            'Determine the effective tax rate in the new state (federal + state + local)',
+            'Calculate the salary needed in the new state to match current net pay',
+            'Factor in cost-of-living differences (housing, sales tax, property tax)',
+            'Compare side-by-side: current state vs. new state net pay at same salary',
+          ],
+          example: 'Taking home $61,600 in Texas on $75K salary. Moving to Illinois: Need ≈ $82,000 salary to maintain same net pay due to 4.95% state tax.',
+        },
         keyRates: [
           { label: 'States Covered', value: 'IL, TX, FL, CA, NY' },
           { label: 'IL Flat Rate', value: '4.95%' },
@@ -303,6 +411,18 @@ export function getCalculatorContent(type: string): CalculatorContent {
           'The effective top rate on long-term gains is 23.8% (20% + 3.8% NIIT), not the 20% most people quote. We factor in your ordinary income to figure out which bracket your gains fall into, and we show you the NIIT impact too.',
           'Common tax-saving strategies worth knowing:\n- Tax-loss harvesting: offset gains with losses to reduce your tax bill\n- Watch your holding period: sometimes waiting a few weeks saves you thousands\n- Donate appreciated assets to charity: you deduct the full value and never pay capital gains on it\nSmall decisions, big savings.',
         ],
+        calculationMethod: {
+          formula: 'Tax = Gain × Rate, where Rate = 0%/15%/20% (long-term) or ordinary rate (short-term), plus 3.8% NIIT if applicable',
+          steps: [
+            'Determine holding period: >1 year = long-term, ≤1 year = short-term',
+            'For long-term: apply 0% rate (income up to $48,350), 15% (up to $533,400), or 20% (above)',
+            'For short-term: apply ordinary income brackets (10%–37%)',
+            'Add 3.8% Net Investment Income Tax if modified AGI exceeds $200,000 (single) / $250,000 (MFJ)',
+            'Subtract cost basis from sale price to determine gain',
+            'Calculate total capital gains tax liability',
+          ],
+          example: '$50,000 long-term gain, single filer with $100,000 other income: Taxable income = $150,000. Rate = 15% + 3.8% NIIT. Tax ≈ $9,400.',
+        },
         keyRates: [
           { label: 'Short-Term Rate', value: 'Ordinary income (up to 37%)' },
           { label: 'Long-Term Rates', value: '0% / 15% / 20%' },
@@ -327,6 +447,18 @@ export function getCalculatorContent(type: string): CalculatorContent {
           'Quick reference for what you\'re dealing with:\n- Social Security portion: 12.4% on income up to $184,500\n- Medicare portion: 2.9% on everything, no cap\n- Additional Medicare: 0.9% on income above $200,000\n- Half of SE tax is deductible above the line',
           'Quarterly estimated payments. This is where new freelancers get into trouble. You have to send the IRS money four times a year — April 15, June 15, September 15, January 15 — or face penalties. The safe harbor is paying at least 100% of last year\'s tax liability (110% if your AGI was over $150,000) or 90% of this year\'s. We estimate those quarterly amounts so there are no ugly surprises in April. Seriously, don\'t skip estimated payments. The penalties aren\'t worth it.\n\nWant to see how self-employment income compares to a W-2 salary? <a href="/salary">Check our salary after tax pages</a> to compare take-home pay at every income level across all 5 states.',
         ],
+        calculationMethod: {
+          formula: 'SE Tax = Net Earnings × 92.35% × 15.3%, with deduction = SE Tax ÷ 2',
+          steps: [
+            'Calculate net self-employment income (revenue minus business expenses)',
+            'Multiply by 92.35% (only this portion is subject to SE tax per IRS rules)',
+            'Apply 12.4% Social Security tax (up to $184,500 wage base) and 2.9% Medicare (no cap)',
+            'Deduct half of SE tax from ordinary income (above-the-line deduction)',
+            'Calculate income tax on remaining taxable income using standard brackets',
+            'Add SE tax and income tax for total tax liability',
+          ],
+          example: '$80,000 net SE income: SE taxable = $73,880. SE tax = $11,304 ($9,161 SS + $2,143 Medicare). Deduct $5,652 from income. Income tax on ~$57,248 ≈ $6,850. Total ≈ $18,154.',
+        },
         keyRates: [
           { label: 'SE Tax Rate', value: '15.3% on 92.35% of net income' },
           { label: 'Social Security Portion', value: '12.4% (up to $184,500)' },
@@ -352,6 +484,17 @@ export function getCalculatorContent(type: string): CalculatorContent {
           'Tax credits are better than deductions — they reduce your tax bill dollar for dollar, while deductions only reduce your taxable income. The <a href="https://www.irs.gov/credits-deductions/individuals/child-tax-credit" target="_blank" rel="noopener noreferrer nofollow">Child Tax Credit</a> gives you $2,000 per qualifying child (up to $1,700 refundable). The Earned Income Credit can be worth up to $7,430 for families with three or more children. These credits can turn a small refund into a big one.',
           'A quick note on refund timing: if you e-file and choose direct deposit, most refunds arrive within 21 days. Paper returns take 6–8 weeks. The IRS typically starts accepting returns in late January, and filing early usually means faster processing. Just make sure you have all your documents (W-2, 1099, etc.) before you file.',
         ],
+        calculationMethod: {
+          formula: 'Refund/Owed = Total Tax Liability − Total Withholding (federal + state)',
+          steps: [
+            'Calculate total federal tax liability using progressive brackets and deductions',
+            'Calculate total state tax liability for your state',
+            'Sum federal and state tax for total tax liability',
+            'Subtract total withholding from all paychecks (W-2 Box 2 federal + Box 17 state)',
+            'If withholding > liability, difference = refund; if liability > withholding, difference = amount owed',
+          ],
+          example: 'Total tax liability = $12,000. Total withholding = $14,500. Refund = $2,500.',
+        },
         keyRates: [
           { label: 'Standard Deduction (Single)', value: '$16,100' },
           { label: 'Standard Deduction (Married)', value: '$32,200' },
@@ -376,6 +519,17 @@ export function getCalculatorContent(type: string): CalculatorContent {
           'Need to figure out the original price before tax from a receipt? That\'s the reverse sales tax calculation. Divide the total by (1 + tax rate). A $108.82 total in California = $108.82 ÷ 1.0882 = $100.00 original price. This comes in handy for expense reports and accounting.',
           'Since the 2018 <a href="https://www.supremecourt.gov/" target="_blank" rel="noopener noreferrer nofollow">Supreme Court decision in South Dakota v. Wayfair</a>, states can require online retailers to collect sales tax even without a physical presence. So most online purchases now include sales tax based on your location. Some states also have sales tax holidays — temporary periods where certain items (like back-to-school supplies) are exempt from sales tax.',
         ],
+        calculationMethod: {
+          formula: 'Sales Tax = Purchase Amount × Combined Rate (State + Local)',
+          steps: [
+            'Identify the state base sales tax rate',
+            'Add the average local sales tax rate for the jurisdiction',
+            'Calculate the combined rate (state + local)',
+            'Multiply purchase amount by the combined rate',
+            'Some items may be exempt (groceries, prescription drugs, clothing vary by state)',
+          ],
+          example: '$1,000 purchase in Texas: State rate 6.25% + avg local 1.95% = 8.2% combined. Sales tax = $82.00.',
+        },
         keyRates: [
           { label: 'Average US Combined Rate', value: '~6.6%' },
           { label: 'Highest Combined Rate', value: '9.56% (LA/TN)' },
@@ -401,6 +555,18 @@ export function getCalculatorContent(type: string): CalculatorContent {
           'Some states have proposed eliminating state income tax on overtime pay, but as of 2026, no state has enacted such a law. Federal tax on overtime remains unchanged. Your best strategy is knowing your marginal rate before you volunteer for extra shifts so you can make an informed decision about whether the after-tax pay is worth the extra hours.',
           'A quick example: earning $20/hour with 10 hours of OT per week means an extra $300/week in gross OT pay. In a 22% federal bracket with 7.65% FICA and no state tax, you\'d keep about $211 of that $300. In Illinois with 4.95% state tax, you\'d keep about $196. Over a year of consistent OT, that\'s $10,000–$11,000 extra take-home — real money, but significantly less than the $15,600 gross.',
         ],
+        calculationMethod: {
+          formula: 'OT Pay = OT Hours × Regular Rate × 1.5; OT Tax = Federal (22% supplemental) + State Rate + FICA',
+          steps: [
+            'Calculate overtime pay rate (1.5× regular rate for most employees per FLSA)',
+            'Add OT pay to regular gross income',
+            'Apply federal supplemental withholding rate of 22% (or aggregate method)',
+            'Apply state supplemental withholding rate (varies by state)',
+            'Calculate FICA (6.2% SS + 1.45% Medicare) on total earnings',
+            'Subtract all taxes from total gross to get net overtime pay',
+          ],
+          example: '10 OT hours at $30/hr regular rate: OT pay = 10 × $45 = $450. Federal withholding (22%) = $99. FICA = $34.43. State varies. Net OT ≈ $317.',
+        },
         keyRates: [
           { label: 'OT Pay Rate', value: '1.5x regular rate' },
           { label: 'Federal Tax on OT', value: 'At marginal rate (10%–37%)' },
@@ -425,6 +591,17 @@ export function getCalculatorContent(type: string): CalculatorContent {
           'Georgia does offer some tax benefits worth noting. Social Security income is not taxed at the state level, and retirees aged 62+ can exclude up to $35,000 of retirement income ($70,000 for couples). That makes Georgia surprisingly competitive for retirees compared to states with higher flat rates like Illinois at 4.95% (though Illinois has a broader retirement income exemption). Property taxes in Georgia average about 0.87% — quite reasonable compared to the national average of 1.1%.',
           'If you\'re considering a move to Georgia, the flat tax is predictable and easier to plan around than progressive brackets. Compare it to <a href="/california-tax-calculator">California\'s 13.3% top rate</a> or <a href="/new-york-tax-calculator">New York\'s 10.9%</a> and the savings are significant for high earners. <a href="/relocation-calculator">Run the relocation calculator</a> to see the difference for your salary.',
         ],
+        calculationMethod: {
+          formula: 'GA State Tax = ∑(Bracket Income × Bracket Rate), 2026 flat rate of 5.49%',
+          steps: [
+            'Apply Georgia\'s 5.49% flat income tax rate for 2026',
+            'Subtract GA standard deduction ($12,000 single / $24,000 married)',
+            'Calculate state tax on Georgia taxable income',
+            'Add federal tax (progressive brackets) and FICA (7.65%)',
+            'Subtract all taxes from gross pay',
+          ],
+          example: '$75,000 salary, single in GA: GA deduction $12,000. GA taxable = $63,000. GA tax = $3,459. Federal ≈ $7,670. FICA = $5,738. Net ≈ $58,133.',
+        },
         keyRates: [
           { label: 'Georgia Flat Tax Rate', value: '5.49%' },
           { label: 'GA Standard Deduction (Single)', value: '$5,400' },
@@ -450,6 +627,17 @@ export function getCalculatorContent(type: string): CalculatorContent {
           'Lump sum vs. annuity is the big decision. Most lotteries advertise the annuity total (e.g., "$100 million"), but the lump sum is typically about 50-60% of that. A $100 million annuity might have a $50 million lump sum. After 24% federal withholding on $50 million, that\'s $38 million. After the full 37% federal rate, it\'s $31.5 million. After state tax, it could be $27 million or less. The annuity spreads the tax hit over 30 years, which can keep you in lower brackets — but you\'re locked into the payment schedule.',
           'Don\'t forget that some states also have local taxes on top. And if you\'re thinking about moving to a no-tax state before claiming your prize — most states tax based on where the ticket was purchased, not where you live when you claim it. Always consult a tax professional before claiming a major prize.',
         ],
+        calculationMethod: {
+          formula: 'Tax on Winnings = Federal (24% withholding + marginal rate adjustment) + State Rate',
+          steps: [
+            'Federal mandatory withholding of 24% on winnings over $5,000',
+            'Calculate actual federal tax at your marginal rate (may be higher than 24%)',
+            'Apply state tax rate on lottery winnings (varies by state, 0% in some)',
+            'Add 3.8% NIIT if total income exceeds $200K (single) / $250K (MFJ)',
+            'Difference between withholding and actual liability determines refund or amount owed',
+          ],
+          example: '$1,000,000 winnings, single in CA: Federal withholding = $240,000. Actual federal tax (37% bracket) ≈ $370,000. CA withholds 0% but CA tax ≈ $130,000. Total tax ≈ $500,000. Net ≈ $500,000.',
+        },
         keyRates: [
           { label: 'Federal Withholding', value: '24% (on winnings over $5K)' },
           { label: 'Top Federal Marginal Rate', value: '37%' },
@@ -474,6 +662,17 @@ export function getCalculatorContent(type: string): CalculatorContent {
           'The safe harbor rule is your friend. To avoid underpayment penalties, you need to have withheld at least 90% of this year\'s tax liability OR 100% of last year\'s tax liability (110% if your AGI was over $150,000). If you owed less than $1,000 in tax for the year, you\'re also safe. The calculator shows you whether you\'re on track to meet the safe harbor, which is far more useful than just aiming for a refund.',
           'Common W-4 mistakes: not updating after getting married, having a second job, or having investment income. Each of these can throw off your withholding significantly. If you and your spouse both work and both check "Married" on your W-4 without accounting for the other\'s income, you\'ll almost certainly underpay. The fix is either Step 2 on the W-4 or using this calculator to figure out the right additional withholding amount.',
         ],
+        calculationMethod: {
+          formula: 'Recommended Withholding = (Total Estimated Tax − Credits) ÷ Number of Pay Periods',
+          steps: [
+            'Estimate total federal tax liability for the year using progressive brackets',
+            'Subtract expected tax credits (child tax credit, education credits, etc.)',
+            'Divide remaining tax by number of pay periods (26 biweekly, 24 semi-monthly, 12 monthly)',
+            'Compare with current W-4 withholding to determine if adjustment is needed',
+            'If underwithholding, increase allowances or add additional withholding on Line 4(c)',
+          ],
+          example: 'Annual tax liability $14,000, paid biweekly: $14,000 ÷ 26 = $538.46 per paycheck needed. Current withholding $450 → increase by $88.46.',
+        },
         keyRates: [
           { label: 'Standard Deduction (Single)', value: '$16,100' },
           { label: 'Standard Deduction (Married)', value: '$32,200' },
@@ -499,6 +698,17 @@ export function getCalculatorContent(type: string): CalculatorContent {
           'Property taxes fund local services: schools, police, fire departments, road maintenance, and more. When you compare property taxes between areas, you\'re also comparing the quality and funding level of those services. A low rate in a rural county might mean underfunded schools. A high rate in a wealthy suburb might mean excellent public schools. The value you get matters as much as the amount you pay.',
           'This calculator uses average effective property tax rates for each state. Your actual rate depends on your specific county, city, school district, and any special assessment districts. Check your county tax assessor\'s website for the most precise rate for your address.',
         ],
+        calculationMethod: {
+          formula: 'Annual Property Tax = Assessed Value × Effective Tax Rate',
+          steps: [
+            'Start with the home\'s assessed value (may differ from market value depending on state)',
+            'Apply the state\'s average effective property tax rate',
+            'Account for homestead exemptions or other reductions if applicable',
+            'Calculate annual property tax amount',
+            'Divide by 12 for monthly estimate (often included in mortgage escrow)',
+          ],
+          example: '$350,000 home in Illinois (1.78% effective rate): Annual property tax ≈ $6,230. Monthly ≈ $519.',
+        },
         keyRates: [
           { label: 'US Average Effective Rate', value: '~1.1%' },
           { label: 'Highest Rate (NJ)', value: '~2.49%' },
@@ -524,6 +734,17 @@ export function getCalculatorContent(type: string): CalculatorContent {
           'For bonuses over $1 million, the mandatory federal withholding rate jumps to 37%. Yes, 37% off the top for anything above that first million. Plus FICA at 7.65% on the full amount, plus state taxes. A $2 million bonus in California could see total withholding above 50%. That\'s why compensation packages for executives often include tax gross-ups — the company pays the tax on the tax.',
           'State taxes on bonuses follow the same rules as regular income. In a zero-income-tax state like Texas or Florida, you only pay federal withholding and FICA on your bonus. In California, add up to 13.3% state tax. The difference between receiving a $10,000 bonus in Texas vs California is roughly $1,000 in state tax alone. <a href="/relocation-calculator">Location matters</a>.',
         ],
+        calculationMethod: {
+          formula: 'Bonus Tax = Bonus Amount × (Federal Supplemental Rate 22% + State Rate + FICA 7.65%)',
+          steps: [
+            'Identify bonus as supplemental wages per IRS Publication 15-T',
+            'Apply federal supplemental withholding rate: 22% for bonuses under $1M, 37% over $1M',
+            'Apply state supplemental withholding rate (varies by state)',
+            'Calculate FICA (6.2% SS + 1.45% Medicare) on the bonus amount',
+            'Actual tax liability may differ from withholding — calculated at marginal rate at tax time',
+          ],
+          example: '$5,000 bonus in Illinois: Federal 22% = $1,100. FICA = $382.50. IL 4.95% = $247.50. Total withheld ≈ $1,730. Net ≈ $3,270.',
+        },
         keyRates: [
           { label: 'Federal Flat Withholding', value: '22% (under $1M)' },
           { label: 'Federal Rate (over $1M)', value: '37%' },
@@ -548,6 +769,17 @@ export function getCalculatorContent(type: string): CalculatorContent {
           'Virginia has some decent tax benefits. Social Security benefits are fully exempt from state tax. Military pay is also exempt for Virginia National Guard members (up to $3,000) and active duty pay is exempt for those serving in a combat zone. The state also offers a deduction for long-term capital gains from certain qualifying investments. Property taxes average about 0.82%, which is below the national average of 1.1%.',
           'One thing to watch: Virginia doesn\'t allow local income taxes, unlike some states where cities or counties add their own tax on top. What you see at the state level is what you pay. That\'s different from <a href="/new-york-tax-calculator">New York City\'s 3.876% city tax</a> or the local taxes in some Pennsylvania and Ohio municipalities.',
         ],
+        calculationMethod: {
+          formula: 'VA State Tax = ∑(Bracket Income × Bracket Rate), brackets: 2%–5.75%',
+          steps: [
+            'Subtract VA standard deduction ($9,000 single / $18,000 married) from gross income',
+            'Apply VA progressive brackets: 2% on first $3,000, 3% on $3,001–$5,000, 5% on $5,001–$17,000, 5.75% on $17,001+',
+            'Add federal tax and FICA (7.65%)',
+            'Subtract pre-tax deductions from both federal and state calculations',
+            'Sum all taxes and subtract from gross pay',
+          ],
+          example: '$75,000 salary, single in VA: VA taxable = $66,000. VA tax ≈ $3,568. Federal ≈ $7,670. FICA = $5,738. Net ≈ $58,024.',
+        },
         keyRates: [
           { label: 'VA Tax Brackets', value: '2% – 5.75% (4 brackets)' },
           { label: 'VA Standard Deduction (Single)', value: '$8,000' },
@@ -572,6 +804,17 @@ export function getCalculatorContent(type: string): CalculatorContent {
           'Let\'s run the numbers. A single person earning $75,000: after the $12,750 standard deduction, taxable income is $62,250. North Carolina tax comes to $2,801.25. Add federal tax and FICA, and you\'re looking at roughly $58,500 take-home. That\'s competitive with most flat-tax states, and the generous standard deduction means lower-income earners pay very little state tax.',
           'North Carolina doesn\'t tax Social Security benefits at the state level, which is good news for retirees. Property taxes average about 0.82% — quite reasonable. The combined state and local sales tax averages around 7.1%. Compared to <a href="/georgia-tax-calculator">Georgia\'s 5.49%</a> or <a href="/illinois-tax-calculator">Illinois\' 4.95%</a>, North Carolina\'s 4.5% rate is actually the lowest among neighboring flat-tax states. <a href="/relocation-calculator">Run the relocation calculator</a> to compare for your specific salary.',
         ],
+        calculationMethod: {
+          formula: 'NC State Tax = (Gross Income − NC Standard Deduction) × 4.5%',
+          steps: [
+            'Subtract NC standard deduction ($12,750 single / $25,500 married) from gross income',
+            'Apply NC flat 4.5% rate to state taxable income',
+            'Add federal tax (10%–37% progressive brackets) and FICA (7.65%)',
+            'Subtract pre-tax deductions (401(k), HSA) from both federal and state calculations',
+            'Sum all taxes and subtract from gross pay for net take-home',
+          ],
+          example: '$75,000 salary, single in NC: NC deduction $12,750. NC taxable = $62,250. NC tax = $2,801. Federal ≈ $7,670. FICA = $5,738. Net ≈ $58,791.',
+        },
         keyRates: [
           { label: 'NC Flat Tax Rate', value: '4.5%' },
           { label: 'NC Standard Deduction (Single)', value: '$12,750' },
@@ -595,6 +838,17 @@ export function getCalculatorContent(type: string): CalculatorContent {
           'On top of the state tax, Pennsylvania allows local earned income taxes (EIT) that vary by municipality. Philadelphia is the big one — residents pay an additional 3.75% city wage tax (non-residents working in Philly pay 3.44%). That brings the combined state and city rate to 6.82% for Philadelphia residents, which is more than double the base state rate. Most other municipalities have much lower EIT rates, typically 1%–2%.',
           'Pennsylvania doesn\'t tax Social Security benefits or most retirement income, including pensions and 401(k) distributions for residents 59½ and older. Property taxes average about 1.36%, which is above the national average. Combined sales tax is 6% statewide with some local add-ons. At 3.07% base rate, Pennsylvania is attractive for earners outside Philadelphia — <a href="/relocation-calculator">compare it to neighboring states</a> like <a href="/new-jersey-tax-calculator">New Jersey</a> or <a href="/ohio-tax-calculator">Ohio</a> to see the difference.',
         ],
+        calculationMethod: {
+          formula: 'PA State Tax = Gross Income × 3.07% (no standard deduction)',
+          steps: [
+            'Apply PA flat 3.07% rate to all taxable income — no standard deduction or personal exemption',
+            'Add local earned income tax (EIT) if applicable (3.75% for Philadelphia residents)',
+            'Add federal tax (10%–37% progressive brackets) and FICA (7.65%)',
+            'Subtract pre-tax deductions (401(k), HSA) from both federal and state calculations',
+            'Sum all taxes and subtract from gross pay for net take-home',
+          ],
+          example: '$75,000 salary in PA (no local tax): PA tax = $2,302.50. Federal ≈ $7,670. FICA = $5,738. Net ≈ $59,289. In Philadelphia: add $2,812.50 city wage tax.',
+        },
         keyRates: [
           { label: 'PA Flat Tax Rate', value: '3.07%' },
           { label: 'PA Standard Deduction', value: 'None' },
@@ -618,6 +872,17 @@ export function getCalculatorContent(type: string): CalculatorContent {
           'Here\'s how it works in practice. A single person earning $75,000: after the $26,050 exempt amount, roughly $48,950 is subject to Ohio\'s progressive brackets. The Ohio tax comes to about $2,050 — significantly less than a flat 4% would suggest because of that large tax-free threshold. Add federal tax and FICA, and you\'re looking at a competitive take-home amount.',
           'Ohio does allow municipal income taxes, which can range from 0.5% to 3% depending on where you live and work. Columbus charges 2.5%, Cleveland 2.5%, Cincinnati 1.8%. These local taxes are on top of the state rate, so the actual combined rate can be noticeably higher. Social Security benefits are not taxed at the state level, and property taxes average about 1.41%. <a href="/relocation-calculator">Compare Ohio to neighbors</a> like <a href="/pennsylvania-tax-calculator">Pennsylvania (3.07%)</a> or <a href="/michigan-tax-calculator">Michigan (4.25%)</a> to see how it stacks up.',
         ],
+        calculationMethod: {
+          formula: 'OH State Tax = ∑(Bracket Income × Bracket Rate), with first $26,050 tax-free',
+          steps: [
+            'Subtract OH tax-free threshold ($26,050) from gross income',
+            'Apply OH progressive brackets (0%–3.99%) to state taxable income',
+            'Add municipal income tax if applicable (0.5%–3% depending on city)',
+            'Add federal tax (10%–37% progressive brackets) and FICA (7.65%)',
+            'Sum all taxes and subtract from gross pay for net take-home',
+          ],
+          example: '$75,000 salary, single in OH: OH taxable ≈ $48,950. OH tax ≈ $2,050. Federal ≈ $7,670. FICA = $5,738. Net ≈ $59,542 (before city tax).',
+        },
         keyRates: [
           { label: 'OH Tax Brackets', value: '0% – 3.99% (4 brackets)' },
           { label: 'OH Tax-Free Threshold', value: '$26,050' },
@@ -641,6 +906,17 @@ export function getCalculatorContent(type: string): CalculatorContent {
           'On top of Michigan state tax, the city of Detroit levies its own income tax: 2.4% for residents and 1.2% for non-residents working in the city. A few other Michigan cities also have local income taxes (Grand Rapids at 1.5% for residents, for example), but most of the state doesn\'t. If you\'re outside those cities, it\'s just the 4.25% flat rate plus federal and FICA.',
           'Michigan doesn\'t tax Social Security benefits, and military pensions are fully exempt. Property taxes average about 1.38%, which is somewhat high. The state sales tax is 6% with no local add-ons (Michigan is one of the few states that doesn\'t allow local sales taxes). At 4.25%, Michigan\'s rate sits between <a href="/illinois-tax-calculator">Illinois (4.95%)</a> and <a href="/pennsylvania-tax-calculator">Pennsylvania (3.07%)</a>. <a href="/relocation-calculator">Use the relocation calculator</a> to compare for your salary.',
         ],
+        calculationMethod: {
+          formula: 'MI State Tax = (Gross Income − Personal Exemption) × 4.25%',
+          steps: [
+            'Subtract MI personal exemption ($5,500 single / $11,000 married) from gross income',
+            'Apply MI flat 4.25% rate to state taxable income',
+            'Add city income tax if applicable (Detroit 2.4% for residents)',
+            'Add federal tax (10%–37% progressive brackets) and FICA (7.65%)',
+            'Sum all taxes and subtract from gross pay for net take-home',
+          ],
+          example: '$75,000 salary, single in MI: MI exemption $5,500. MI taxable = $69,500. MI tax = $2,954. Federal ≈ $7,670. FICA = $5,738. Net ≈ $58,638.',
+        },
         keyRates: [
           { label: 'MI Flat Tax Rate', value: '4.25%' },
           { label: 'MI Personal Exemption', value: '$5,500' },
@@ -664,6 +940,17 @@ export function getCalculatorContent(type: string): CalculatorContent {
           'For a single person earning $100,000, New Jersey tax comes to roughly $4,700 after applying the progressive brackets. That\'s an effective state rate of about 4.7%, which is moderate. But if you\'re a high earner making $500,000+, New Jersey becomes very expensive — the top brackets kick in hard. The 10.75% top rate on income over $1 million makes New Jersey one of the highest-tax states for top earners, second only to <a href="/california-tax-calculator">California\'s 13.3%</a>.',
           'New Jersey does offer some relief: Social Security benefits are not taxed, and retirement income exclusions are available for seniors (up to $100,000 for couples 62+). Property taxes are the highest in the nation at an average of 2.26%, which is a major factor in the total tax burden. Sales tax is 6.625% statewide. New Jersey doesn\'t allow local income taxes, unlike neighboring <a href="/pennsylvania-tax-calculator">Pennsylvania</a> with its Philadelphia wage tax. <a href="/relocation-calculator">Compare New Jersey to other states</a> to see the full picture.',
         ],
+        calculationMethod: {
+          formula: 'NJ State Tax = ∑(Bracket Income × Bracket Rate), brackets: 1.4%–10.75%',
+          steps: [
+            'Apply NJ progressive brackets (1.4%–10.75%) to state taxable income',
+            'Note: NJ standard deduction is minimal ($1,000 single / $2,000 married)',
+            'Add federal tax (10%–37% progressive brackets) and FICA (7.65%)',
+            'Subtract pre-tax deductions (401(k), HSA) from both federal and state calculations',
+            'Sum all taxes and subtract from gross pay for net take-home',
+          ],
+          example: '$100,000 salary, single in NJ: NJ tax ≈ $4,700. Federal ≈ $11,670. FICA = $7,650. Net ≈ $75,980.',
+        },
         keyRates: [
           { label: 'NJ Tax Brackets', value: '1.4% – 10.75% (7 brackets)' },
           { label: 'NJ Standard Deduction (Single)', value: '$1,000' },
@@ -687,6 +974,17 @@ export function getCalculatorContent(type: string): CalculatorContent {
           'Since Colorado uses federal taxable income, pre-tax deductions like <a href="/401k-retirement-calculator">401(k) contributions</a> reduce your state tax bill as well. On a $75,000 salary with the federal standard deduction, your Colorado taxable income is $58,900, and the state tax comes to $2,591.60. The federal deduction pass-through makes Colorado\'s effective tax burden lower than the 4.4% headline rate would suggest.',
           'Colorado doesn\'t tax Social Security benefits, and offers a modest retirement income deduction for seniors 65 and older ($24,000 per person). Property taxes are very low, averaging about 0.55% — among the lowest in the country. Sales tax averages 7.72% combined with local add-ons. At 4.4%, Colorado is competitive with <a href="/arizona-tax-calculator">Arizona\'s 2.5%</a> and <a href="/north-carolina-tax-calculator">North Carolina\'s 4.5%</a> for flat-tax states. <a href="/relocation-calculator">Run the relocation calculator</a> for your salary.',
         ],
+        calculationMethod: {
+          formula: 'CO State Tax = Federal Taxable Income × 4.4%',
+          steps: [
+            'Start with federal taxable income (after federal standard deduction of $14,600 single)',
+            'Apply CO flat 4.4% rate to federal taxable income',
+            'Add federal tax (10%–37% progressive brackets) and FICA (7.65%)',
+            'Pre-tax deductions (401(k), HSA) reduce both federal and CO taxable income',
+            'Sum all taxes and subtract from gross pay for net take-home',
+          ],
+          example: '$75,000 salary, single in CO: Federal taxable = $58,900. CO tax = $2,592. Federal ≈ $7,670. FICA = $5,738. Net ≈ $59,000.',
+        },
         keyRates: [
           { label: 'CO Flat Tax Rate', value: '4.4%' },
           { label: 'CO Tax Base', value: 'Federal taxable income' },
@@ -710,6 +1008,17 @@ export function getCalculatorContent(type: string): CalculatorContent {
           'At 2.5%, the state tax on a $75,000 salary (single) comes to roughly $1,528.75 after the $13,850 standard deduction. That\'s remarkably low — less than half of what you\'d pay in <a href="/illinois-tax-calculator">Illinois (4.95%)</a> or <a href="/georgia-tax-calculator">Georgia (5.49%)</a> on the same income. Add federal tax and FICA, and you\'re looking at one of the best take-home pay rates among states that do have an income tax.',
           'Arizona doesn\'t tax Social Security benefits, and military retirement pay is fully exempt. Property taxes average about 0.63% — quite reasonable. Combined sales tax averages around 8.37% with local add-ons, which is on the higher side. But if you\'re looking at the income tax picture alone, Arizona is hard to beat among states that still levy one. Compare Arizona to <a href="/colorado-tax-calculator">Colorado (4.4%)</a> or <a href="/washington-tax-calculator">Washington (0%)</a> to see the difference, or <a href="/relocation-calculator">use the relocation calculator</a> for your salary.',
         ],
+        calculationMethod: {
+          formula: 'AZ State Tax = (Gross Income − AZ Standard Deduction) × 2.5%',
+          steps: [
+            'Subtract AZ standard deduction ($13,850 single / $27,700 married) from gross income',
+            'Apply AZ flat 2.5% rate to state taxable income',
+            'Add federal tax (10%–37% progressive brackets) and FICA (7.65%)',
+            'Pre-tax deductions (401(k), HSA) reduce both federal and AZ taxable income',
+            'Sum all taxes and subtract from gross pay for net take-home',
+          ],
+          example: '$75,000 salary, single in AZ: AZ taxable = $61,150. AZ tax = $1,529. Federal ≈ $7,670. FICA = $5,738. Net ≈ $60,063.',
+        },
         keyRates: [
           { label: 'AZ Flat Tax Rate', value: '2.5%' },
           { label: 'AZ Standard Deduction (Single)', value: '$13,850' },
@@ -734,6 +1043,17 @@ export function getCalculatorContent(type: string): CalculatorContent {
           'But Washington gets you on the other end. <a href="https://dor.wa.gov/" target="blank" rel="noopener noreferrer nofollow">Property taxes</a> average about 0.98% — reasonable, but not as low as Colorado\'s 0.55%. The combined sales tax is around 9.0%, one of the highest in the nation. And Washington levies a 7% capital gains tax on long-term gains over $270,000, which is notable since most zero-income-tax states also skip capital gains taxes. The state also has a premium payroll tax on high-wage employers (passed through to employees earning over $147,000 at 0.58%).',
           'For retirees, Washington is attractive — no tax on Social Security, 401(k) withdrawals, IRA distributions, or pension income. For investors with significant capital gains, the 7% state tax is a drawback that Texas and Florida don\'t have. <a href="/relocation-calculator">Run the numbers</a> for your situation to see if Washington beats the alternatives.',
         ],
+        calculationMethod: {
+          formula: 'Net Pay = Gross Income − (Federal Tax + FICA) — no state income tax',
+          steps: [
+            'Skip state income tax — Washington has 0% personal income tax',
+            'Subtract pre-tax deductions (401(k), HSA) from gross pay',
+            'Apply federal standard deduction and progressive brackets (10%–37%)',
+            'Calculate FICA: 6.2% Social Security (up to $184,500) + 1.45% Medicare',
+            'Note: WA has 7% capital gains tax on long-term gains over $270,000 and 0.58% premium payroll tax over $147K',
+          ],
+          example: '$100,000 salary, single in WA: Federal tax ≈ $11,670. FICA = $7,650. No state income tax. Net ≈ $80,680/year.',
+        },
         keyRates: [
           { label: 'WA State Income Tax', value: '0%' },
           { label: 'WA Capital Gains Tax', value: '7% (above $270K)' },
@@ -760,6 +1080,17 @@ export function getCalculatorContent(type: string): CalculatorContent {
           'On top of state tax, you\'ve got federal progressive brackets with the standard deduction, plus FICA at 7.65% combined. <a href="/401k-retirement-calculator">401(k) contributions</a> reduce taxable income at both the federal and state level, which is especially valuable here since Massachusetts doesn\'t allow many other state-level deductions.',
           'Massachusetts doesn\'t tax Social Security benefits. Property taxes average about 1.23%, and the combined sales tax is 6.25% — one of the lower state sales tax rates. No local sales tax add-ons either. <a href="/relocation-calculator">Compare MA to other states</a> to see if the tax picture works for you.',
         ],
+        calculationMethod: {
+          formula: 'MA State Tax = (Gross Income − MA Standard Deduction) × 5%, plus 9% surtax on income over $1M',
+          steps: [
+            'Subtract MA standard deduction ($4,400 single / $8,800 married) from gross income',
+            'Apply MA flat 5% rate to state taxable income',
+            'If income exceeds $1,000,000, apply 9% surtax on the excess (millionaire\'s tax)',
+            'Add federal tax (10%–37% progressive brackets) and FICA (7.65%)',
+            'Sum all taxes and subtract from gross pay for net take-home',
+          ],
+          example: '$100,000 salary, single in MA: MA taxable = $95,600. MA tax = $4,780. Federal ≈ $11,670. FICA = $7,650. Net ≈ $75,900.',
+        },
         keyRates: [
           { label: 'MA Flat Tax Rate', value: '5%' },
           { label: 'MA Surtax (over $1M)', value: '9%' },
@@ -784,6 +1115,17 @@ export function getCalculatorContent(type: string): CalculatorContent {
           'On top of state and county tax, you\'ve got federal progressive brackets with the standard deduction, plus FICA at 7.65% combined. <a href="/401k-retirement-calculator">401(k) contributions</a> reduce taxable income at both the federal and state level.',
           'Indiana doesn\'t tax Social Security benefits. Property taxes are reasonable at about 0.85% average effective rate. Combined sales tax is 7%, which is moderate. For a Midwestern state, Indiana\'s overall tax burden is competitive, especially if you\'re in a lower-tax county. <a href="/relocation-calculator">Compare IN to other states</a>.',
         ],
+        calculationMethod: {
+          formula: 'IN State Tax = (Gross Income − Personal Exemptions) × 3.05%, plus county tax if applicable',
+          steps: [
+            'Subtract IN personal exemption ($1,000/person) from gross income',
+            'Apply IN flat 3.05% rate to state taxable income',
+            'Add county income tax (0.5%–3.38% depending on county of residence)',
+            'Add federal tax (10%–37% progressive brackets) and FICA (7.65%)',
+            'Sum all taxes and subtract from gross pay for net take-home',
+          ],
+          example: '$75,000 salary, single in IN (no county tax): IN tax = $2,254. Federal ≈ $7,670. FICA = $5,738. Net ≈ $59,338. In Marion County: add ~$1,775.',
+        },
         keyRates: [
           { label: 'IN Flat Tax Rate', value: '3.05%' },
           { label: 'IN Personal Exemption', value: '$1,000/person' },
@@ -808,6 +1150,17 @@ export function getCalculatorContent(type: string): CalculatorContent {
           'A $100,000 earner in Tennessee takes home roughly $79,000 — the same as Texas and Florida. Compare that to <a href="/california-tax-calculator">California</a> where the same salary yields about $71,000 after state tax. That\'s an $8,000 difference that stays in your pocket.',
           'But Tennessee compensates with higher sales taxes. The combined sales tax averages around 9.56% — one of the highest in the nation. Property taxes are relatively low at about 0.71% average effective rate. For retirees, Tennessee is attractive: no tax on Social Security, IRA withdrawals, 401(k) distributions, or pension income. <a href="/relocation-calculator">Run the numbers</a> for your situation.',
         ],
+        calculationMethod: {
+          formula: 'Net Pay = Gross Income − (Federal Tax + FICA) — no state income tax on wages',
+          steps: [
+            'Skip state income tax — Tennessee has 0% income tax on wages and salaries',
+            'The Hall Tax on investment income was fully repealed in 2021',
+            'Subtract pre-tax deductions (401(k), HSA) from gross pay',
+            'Apply federal standard deduction and progressive brackets (10%–37%)',
+            'Calculate FICA: 6.2% Social Security (up to $184,500) + 1.45% Medicare',
+          ],
+          example: '$100,000 salary, single in TN: Federal tax ≈ $11,670. FICA = $7,650. No state tax. Net ≈ $80,680/year.',
+        },
         keyRates: [
           { label: 'TN State Income Tax', value: '0%' },
           { label: 'TN Avg Combined Sales Tax', value: '~9.56%' },
@@ -832,6 +1185,17 @@ export function getCalculatorContent(type: string): CalculatorContent {
           'On top of Missouri tax, you\'ve got federal progressive brackets with the standard deduction, plus FICA at 7.65% combined. <a href="/401k-retirement-calculator">401(k) contributions</a> reduce taxable income at both the federal and state level. Missouri also allows a deduction for federal income tax paid, which softens the blow somewhat.',
           'Missouri doesn\'t tax Social Security benefits for most retirees. Property taxes average about 1.01%, and combined sales tax is around 8.33%. Kansas City and St. Louis have additional city earnings taxes of 1%. <a href="/relocation-calculator">Compare MO to other states</a> to see where you come out ahead.',
         ],
+        calculationMethod: {
+          formula: 'MO State Tax = ∑(Bracket Income × Bracket Rate), brackets: 2%–4.8%',
+          steps: [
+            'Subtract MO standard deduction ($14,200 single / $28,400 married) from gross income',
+            'Apply MO progressive brackets (2%–4.8%) to state taxable income',
+            'Add city earnings tax if applicable (1% in Kansas City and St. Louis)',
+            'Add federal tax (10%–37% progressive brackets) and FICA (7.65%)',
+            'Sum all taxes and subtract from gross pay for net take-home',
+          ],
+          example: '$75,000 salary, single in MO: MO deduction $14,200. MO tax ≈ $2,600. Federal ≈ $7,670. FICA = $5,738. Net ≈ $58,992.',
+        },
         keyRates: [
           { label: 'MO Tax Brackets', value: '2% – 4.8%' },
           { label: 'MO Standard Deduction (Single)', value: '$14,200' },
@@ -856,6 +1220,17 @@ export function getCalculatorContent(type: string): CalculatorContent {
           'On top of state and county tax, you\'ve got federal progressive brackets with the standard deduction, plus FICA at 7.65% combined. <a href="/401k-retirement-calculator">401(k) contributions</a> reduce taxable income at both the federal and state level — and since Maryland\'s top combined rate can exceed 8%, those pre-tax deductions are worth even more.',
           'Maryland doesn\'t tax Social Security benefits. Property taxes average about 1.1%, and combined sales tax is 6%, which is on the lower side. For retirees, Maryland excludes up to $34,300 of pension and retirement income from state tax. <a href="/relocation-calculator">Compare MD to other states</a>.',
         ],
+        calculationMethod: {
+          formula: 'MD State Tax = ∑(Bracket Income × Bracket Rate) + County Tax, brackets: 2%–5.75%',
+          steps: [
+            'Apply MD progressive brackets (2%–5.75%) to state taxable income',
+            'Add county income tax (2.25%–3.28% depending on county)',
+            'Combined MD state + county top rate can exceed 9%',
+            'Add federal tax (10%–37% progressive brackets) and FICA (7.65%)',
+            'Sum all taxes and subtract from gross pay for net take-home',
+          ],
+          example: '$100,000 salary, single in MD (Montgomery County, 3.28%): MD state + county tax ≈ $5,700. Federal ≈ $11,670. FICA = $7,650. Net ≈ $74,980.',
+        },
         keyRates: [
           { label: 'MD State Tax Brackets', value: '2% – 5.75%' },
           { label: 'MD County Tax Range', value: '2.25% – 3.28%' },
@@ -880,6 +1255,17 @@ export function getCalculatorContent(type: string): CalculatorContent {
           'On top of Wisconsin tax, you\'ve got federal progressive brackets with the standard deduction, plus FICA at 7.65% combined. <a href="/401k-retirement-calculator">401(k) contributions</a> reduce taxable income at both the federal and state level — and at a 7.65% top state rate, every dollar you shelter is worth more.',
           'Wisconsin doesn\'t tax Social Security benefits. Property taxes, however, are among the highest in the nation at about 1.85% average effective rate. Combined sales tax is 5.46% (the state rate is 5%, with minimal local add-ons). For retirees, the high property taxes can offset the moderate income tax. <a href="/relocation-calculator">Compare WI to other states</a>.',
         ],
+        calculationMethod: {
+          formula: 'WI State Tax = ∑(Bracket Income × Bracket Rate), brackets: 3.54%–7.65%',
+          steps: [
+            'Subtract WI standard deduction ($13,910 single / $25,800 married) from gross income',
+            'Apply WI progressive brackets (3.54%–7.65%) to state taxable income',
+            'Add federal tax (10%–37% progressive brackets) and FICA (7.65%)',
+            'Pre-tax deductions (401(k), HSA) reduce both federal and WI taxable income',
+            'Sum all taxes and subtract from gross pay for net take-home',
+          ],
+          example: '$100,000 salary, single in WI: WI deduction $13,910. WI tax ≈ $4,900. Federal ≈ $11,670. FICA = $7,650. Net ≈ $75,780.',
+        },
         keyRates: [
           { label: 'WI Tax Brackets', value: '3.54% – 7.65%' },
           { label: 'WI Standard Deduction (Single)', value: '$13,910' },
@@ -904,6 +1290,17 @@ export function getCalculatorContent(type: string): CalculatorContent {
           'On top of Minnesota tax, you\'ve got federal progressive brackets with the standard deduction, plus FICA at 7.65% combined. <a href="/401k-retirement-calculator">401(k) contributions</a> are critical in Minnesota — at a 9.85% top state rate, every dollar you shelter saves you nearly 10 cents in state tax alone.',
           'Minnesota doesn\'t tax Social Security benefits for most retirees. Property taxes are moderate at about 1.12%, and the state sales tax is 6.875% (averaging about 7.49% with local taxes). For high earners, Minnesota\'s combined tax burden is significant. <a href="/relocation-calculator">Compare MN to other states</a> to see if it\'s worth it.',
         ],
+        calculationMethod: {
+          formula: 'MN State Tax = ∑(Bracket Income × Bracket Rate), brackets: 5.35%–9.85%',
+          steps: [
+            'Subtract MN standard deduction ($14,975 single / $27,675 married) from gross income',
+            'Apply MN progressive brackets (5.35%–9.85%) to state taxable income',
+            'Add federal tax (10%–37% progressive brackets) and FICA (7.65%)',
+            'Pre-tax deductions (401(k), HSA) are critical at 9.85% top state rate',
+            'Sum all taxes and subtract from gross pay for net take-home',
+          ],
+          example: '$100,000 salary, single in MN: MN deduction $14,975. MN tax ≈ $5,800. Federal ≈ $11,670. FICA = $7,650. Net ≈ $74,880.',
+        },
         keyRates: [
           { label: 'MN Tax Brackets', value: '5.35% – 9.85%' },
           { label: 'MN Standard Deduction (Single)', value: '$14,975' },
@@ -928,6 +1325,17 @@ export function getCalculatorContent(type: string): CalculatorContent {
           'But here\'s the trade-off: Oregon has no state sales tax. Zero. On a $50,000 annual spending habit, that\'s roughly $3,000–$4,000 you\'d save compared to living in a high-sales-tax state like <a href="/tennessee-tax-calculator">Tennessee</a> (9.56%) or <a href="/louisiana">Louisiana</a>. Whether Oregon works for you depends heavily on your spending vs. earning ratio.',
           'On top of Oregon tax, you\'ve got federal progressive brackets with the standard deduction, plus FICA at 7.65% combined. <a href="/401k-retirement-calculator">401(k) contributions</a> are extremely valuable in Oregon — at a 9.9% top rate, every pre-tax dollar saves you almost 10 cents in state tax. Oregon doesn\'t tax Social Security benefits. Property taxes average about 1.05%. <a href="/relocation-calculator">Compare OR to other states</a>.',
         ],
+        calculationMethod: {
+          formula: 'OR State Tax = ∑(Bracket Income × Bracket Rate), brackets: 4.75%–9.9%, no sales tax',
+          steps: [
+            'Subtract OR standard deduction ($2,830 single / $5,660 married) from gross income',
+            'Apply OR progressive brackets (4.75%–9.9%) to state taxable income',
+            'Note: OR has no state sales tax — significant savings on spending',
+            'Add federal tax (10%–37% progressive brackets) and FICA (7.65%)',
+            'Sum all taxes and subtract from gross pay for net take-home',
+          ],
+          example: '$100,000 salary, single in OR: OR deduction $2,830. OR tax ≈ $7,300. Federal ≈ $11,670. FICA = $7,650. Net ≈ $73,380.',
+        },
         keyRates: [
           { label: 'OR Tax Brackets', value: '4.75% – 9.9%' },
           { label: 'OR Standard Deduction (Single)', value: '$2,830' },
@@ -950,6 +1358,18 @@ export function getCalculatorContent(type: string): CalculatorContent {
           'This calculator figures out your take-home pay after federal tax, FICA, and state income tax. Enter your gross salary, pick your state and filing status, and add any pre-tax deductions like 401(k) or HSA contributions if you have them.',
           'The results break down exactly where your money goes — every deduction, your effective tax rate, and your marginal rate. Pretty straightforward.',
         ],
+        calculationMethod: {
+          formula: 'Net Pay = Gross Income − (Federal Tax + State Tax + FICA + Pre-tax Deductions)',
+          steps: [
+            'Subtract pre-tax deductions (401(k), HSA) from gross income to get adjusted gross',
+            'Apply the standard deduction ($16,100 single / $32,200 married) to get taxable income',
+            'Calculate federal tax using progressive brackets (10%–37%) per IRS Publication 15-T',
+            'Calculate state tax using the selected state\'s brackets or flat rate',
+            'Calculate FICA: 6.2% Social Security (up to $184,500) + 1.45% Medicare (no cap)',
+            'Subtract all taxes and deductions from gross pay to get net take-home pay',
+          ],
+          example: 'A single filer earning $75,000/year: Standard deduction of $16,100 leaves $58,900 taxable. Federal tax ≈ $7,670. FICA = $5,738. Net pay varies by state.',
+        },
         keyRates: [],
         faqs: HOME_FAQS,
         relatedCalculators: [],
