@@ -1268,3 +1268,46 @@ export const GENERIC_STATE_FAQS: FAQItem[] = [
       "Yes, some cities and counties levy additional income taxes that this calculator may not include. The most notable example is New York City, which charges its own income tax of roughly 3.1%–3.9% on top of New York State's tax. Other cities with local income taxes include Philadelphia (about 3.75%), Detroit, and various municipalities in Ohio, Pennsylvania, Indiana, and Kentucky. Additionally, some states allow local school district taxes or occupational license fees. If you live in one of these areas, your actual take-home pay may be lower than what this calculator shows. Check your local government's website for any additional withholding requirements.",
   },
 ];
+
+export const EMPLOYEE_COST_FAQS: FAQItem[] = [
+  {
+    question: 'How much does an employee really cost beyond salary?',
+    answer:
+      "The short answer: typically 20–30% more than their salary, sometimes higher. On top of base pay, employers must pay FICA taxes (7.65% matching the employee's share), federal unemployment tax (FUTA at 0.6% on the first $7,000), state unemployment tax (SUTA, usually 1–4% on a wage base), workers' compensation insurance, and any benefits you offer. For a $75,000 salary in Illinois, the true cost is roughly $96,000–$98,000 once you add employer FICA ($5,738), unemployment taxes (~$2,430), and 20% benefits ($15,000). That's about 28–30% over base salary. In states with higher SUTA rates like New York or Washington, the premium goes up.",
+  },
+  {
+    question: 'What employer payroll taxes are included in this calculator?',
+    answer:
+      "This calculator includes the four major employer-side payroll taxes: (1) Employer FICA — 6.2% for Social Security on wages up to $184,500, plus 1.45% for Medicare on all wages (matching what the employee pays). (2) FUTA — the federal unemployment tax at 6% on the first $7,000 of each employee's wages, but most employers receive a 5.4% credit for paying state unemployment on time, making the effective rate 0.6% ($42 per employee per year). (3) SUTA — state unemployment tax, which varies widely by state and your experience rating. New employers typically pay 1–4%, and this calculator uses new-employer rates as estimates. (4) Benefits — whatever percentage of salary you allocate for health insurance, retirement contributions, PTO, and other benefits. Note: Workers' compensation insurance is not included because rates vary dramatically by industry and state — typically 0.5–2% for office work, but 5–15% for construction.",
+  },
+  {
+    question: 'How should I estimate benefits percentage?',
+    answer:
+      "Benefits typically add 20–30% on top of salary, depending on what you offer. Health insurance is the biggest chunk — employer-sponsored family coverage averages about $8,000–$16,000 per employee per year according to KFF data. Retirement contributions (like a 401(k) match of 3–6% of salary) come next. Then there's PTO, life insurance, disability, and other perks. A reasonable starting point: 20% if you offer basic health insurance and a small 401(k) match, 25% for a competitive mid-market package, and 30%+ for top-tier benefits including generous PTO and strong retirement matching. If you're a very small business and don't yet offer health insurance, you might be closer to 10–15% for retirement matching and basic benefits.",
+  },
+  {
+    question: 'When should a small business use a payroll provider?',
+    answer:
+      "Most small businesses should start using a payroll provider as soon as they hire their first employee. The reason isn't just convenience — it's compliance. Calculating federal and state withholding, managing FICA payments (which must be deposited on a strict schedule), filing quarterly Form 941s, tracking SUTA rates, and handling W-2s at year-end is a lot of administrative work, and mistakes trigger penalties quickly. Services like Gusto, QuickBooks Payroll, and ADP handle all of this for $40–$150/month depending on your employee count. For a business with 1–5 employees, Gusto or QuickBooks Payroll usually makes the most sense. ADP becomes more competitive at 10+ employees. The cost of a payroll provider is almost always less than the cost of a single compliance mistake.",
+  },
+  {
+    question: 'Does state income tax affect the employer cost?',
+    answer:
+      "Not directly — state income tax is withheld from the employee's paycheck, not paid by the employer. However, state matters for employer costs in two important ways. First, SUTA (state unemployment tax) rates and wage bases vary significantly by state. Washington state, for example, has a wage base of $67,500, meaning you pay unemployment tax on far more of each employee's salary than in Florida where the base is only $7,000. Second, some states have additional employer-paid taxes: California charges an Employment Training Tax (ETT) of 0.1%, and several states have disability insurance programs funded by employer contributions. Workers' compensation rates also vary dramatically by state, which is an additional cost not shown in this calculator.",
+  },
+  {
+    question: 'How does SUTA change over time?',
+    answer:
+      "When you first register as an employer, you're assigned a 'new employer rate' — typically 2.7–4.1% depending on the state. After 2–3 years of paying into the system without laying off employees, your rate drops based on your 'experience rating.' A business with low turnover and few unemployment claims might see their SUTA rate fall to 0.5–1.5%. Conversely, a business with frequent layoffs could see rates climb to 5–7% or higher. This calculator uses new-employer rates as a conservative estimate. If you've been operating for several years with a clean record, your actual SUTA cost is likely lower. Check your state's unemployment agency for your current rate.",
+  },
+  {
+    question: 'Is the $75,000 salary example realistic for small businesses?',
+    answer:
+      "Absolutely. According to Bureau of Labor Statistics data, the median annual wage for full-time workers in the US is approximately $60,000–$65,000, but many small businesses hire skilled positions that command $70,000–$80,000. Think office managers, accountants, marketing coordinators, software developers, and nurses. The $75,000 example in this calculator is meant to represent a mid-level professional employee. If your average salary is different, just adjust the input — the calculation logic is the same whether you're paying $40,000 or $150,000. The key insight is that the employer cost premium (25–30% over salary) stays roughly proportional across most salary levels, though FICA caps at $184,500 for Social Security.",
+  },
+  {
+    question: 'What about self-employed vs W-2 employee cost comparison?',
+    answer:
+      "Hiring a W-2 employee is almost always more expensive than the base salary suggests, while hiring a 1099 contractor shifts most costs to the worker. With a W-2 employee, you pay the 7.65% employer FICA match, unemployment taxes, and benefits — typically adding 25–30% over salary. A 1099 contractor handles their own self-employment tax (15.3%), benefits, and workers' comp. However, contractors usually charge higher hourly rates to cover these costs, and you risk misclassification penalties if the IRS determines the worker should have been classified as an employee. The general rule: if you control when, where, and how the work is done, the worker should be W-2. Use our <a href=\"/self-employment-tax-calculator\">self-employment tax calculator</a> to see the contractor side of the equation.",
+  },
+];

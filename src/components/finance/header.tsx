@@ -25,6 +25,7 @@ import {
   Code2,
   Search,
   Landmark,
+  Building2,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { COMPONENT_KEY_TO_SLUG } from '@/lib/calculator-routes';
@@ -104,6 +105,15 @@ const CALC_CATEGORIES = [
       { key: 'retirement', href: '/401k-retirement-calculator', label: '401(k)', desc: 'Retirement' },
       { key: 'relocation', href: '/relocation-calculator', label: 'Relocate', desc: 'Salary by state' },
       { key: 'tax-refund', href: '/tax-refund-calculator', label: 'Tax Refund', desc: 'Estimate refund' },
+    ],
+  },
+  {
+    id: 'employers',
+    label: 'For Employers',
+    icon: Building2,
+    items: [
+      { key: 'employee-cost', href: '/employee-cost-calculator', label: 'Employee Cost', desc: 'True cost of hiring' },
+      { key: 'self-employment', href: '/self-employment-tax-calculator', label: 'Self-Employment', desc: 'W-2 vs 1099' },
     ],
   },
 ];

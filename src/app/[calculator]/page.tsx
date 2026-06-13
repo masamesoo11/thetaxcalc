@@ -111,6 +111,7 @@ const CALCULATOR_BLOG_SLUGS: Record<string, string[]> = {
   wisconsin: ['2026-federal-tax-brackets-explained', 'florida-vs-texas-tax-comparison'],
   minnesota: ['2026-federal-tax-brackets-explained', 'florida-vs-texas-tax-comparison'],
   oregon: ['2026-federal-tax-brackets-explained', 'florida-vs-texas-tax-comparison'],
+  'employee-cost': ['how-fica-taxes-work-2026', '2026-federal-tax-brackets-explained'],
 };
 
 // ─── Helper: Other States for Comparison ──────────────────────────────────────
@@ -184,6 +185,7 @@ function getFaqHeading(type: string): string {
     case 'wisconsin': return 'Wisconsin Tax Calculator FAQ';
     case 'minnesota': return 'Minnesota Tax Calculator FAQ';
     case 'oregon': return 'Oregon Tax Calculator FAQ';
+    case 'employee-cost': return 'Employee Cost Calculator FAQ';
     case 'income-tax': return 'Income Tax Calculator FAQ';
     case 'tax-calc': return 'Tax Calculator FAQ';
     default: return 'Frequently Asked Questions';
@@ -408,6 +410,13 @@ function getNextSteps(type: string): { href: string; icon: string; title: string
         { href: '/washington-tax-calculator', icon: '\u{1F3E0}', title: 'Washington Calculator', description: 'Compare WA 0% vs OR 4.75%–9.9%' },
         { href: '/relocation-calculator', icon: '\u{1F4CA}', title: 'Relocation Calculator', description: 'Compare OR to other states' },
         { href: '/salary', icon: '\u{1F4B0}', title: 'Salary After Tax', description: 'Take-home pay at every level' },
+      ];
+    case 'employee-cost':
+      return [
+        { href: '/paycheck-calculator', icon: '\u{1F4B5}', title: 'Paycheck Calculator', description: 'See employee take-home pay' },
+        { href: '/self-employment-tax-calculator', icon: '\u{1F4BC}', title: 'Self-Employment Tax', description: 'Compare W-2 vs 1099 costs' },
+        { href: '/401k-retirement-calculator', icon: '\u{1F3E6}', title: '401(k) Planner', description: 'Employer match costs' },
+        { href: '/relocation-calculator', icon: '\u{1F4CA}', title: 'Relocation Calculator', description: 'Hiring in another state?' },
       ];
     case 'relocation':
       return [

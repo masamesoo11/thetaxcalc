@@ -32,6 +32,7 @@ const CALCULATOR_LINKS = [
   { href: '/salary-comparison-calculator', label: 'Salary Comparison', icon: ArrowRightLeft },
   { href: '/job-offer-comparison-calculator', label: 'Job Offer Compare', icon: ArrowRightLeft },
   { href: '/paycheck-difference-calculator', label: 'Paycheck Difference', icon: ArrowRightLeft },
+  { href: '/employee-cost-calculator', label: 'Employee Cost Calculator', icon: DollarSign },
 ];
 
 const RESOURCE_LINKS = [

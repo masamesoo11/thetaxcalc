@@ -37,6 +37,7 @@ import {
   OREGON_FAQS,
   INCOME_TAX_FAQS,
   TAX_CALC_FAQS,
+  EMPLOYEE_COST_FAQS,
 } from '@/lib/faq-data';
 import { SITE_URL } from '@/lib/site-config';
 import { getAuthorForCalculator, authorToJsonLd } from '@/lib/authors';
@@ -733,6 +734,22 @@ function getOregonJsonLd() {
   };
 }
 
+function getEmployeeCostJsonLd() {
+  const author = getAuthorForCalculator('home');
+  const authorId = `${SITE_URL}/employee-cost-calculator#author`;
+  const baseId = `${SITE_URL}/employee-cost-calculator`;
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      webPageJsonLd(`${baseId}#webpage`, 'Employee Cost Calculator 2026', '/employee-cost-calculator', 'Free 2026 employee cost calculator for US small businesses. Estimate total payroll cost including salary, employer taxes, and benefits.', authorId),
+      breadcrumbJsonLd(`${baseId}#breadcrumb`, 'Employee Cost Calculator', '/employee-cost-calculator'),
+      webAppJsonLd(`${baseId}#webapp`, 'Employee Cost Calculator 2026', '/employee-cost-calculator', authorId),
+      { '@id': authorId, ...authorToJsonLd(author) },
+      faqsToJsonLd(EMPLOYEE_COST_FAQS, `${baseId}#faq`),
+    ],
+  };
+}
+
 function getIncomeTaxJsonLd() {
   const author = getAuthorForCalculator('home');
   const authorId = `${SITE_URL}/income-tax-calculator#author`;
@@ -802,6 +819,7 @@ export function getJsonLdForType(type: string) {
     case 'wisconsin': return getWisconsinJsonLd();
     case 'minnesota': return getMinnesotaJsonLd();
     case 'oregon': return getOregonJsonLd();
+    case 'employee-cost': return getEmployeeCostJsonLd();
     case 'income-tax': return getIncomeTaxJsonLd();
     case 'tax-calc': return getTaxCalcJsonLd();
     default: return getHomeJsonLd();

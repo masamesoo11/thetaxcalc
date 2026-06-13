@@ -234,6 +234,15 @@ const CALCULATOR_CARDS = [
     gradient: 'from-stone-600/20 to-neutral-600/10',
   },
   {
+    href: '/employee-cost-calculator',
+    title: 'Employee Cost Calculator',
+    desc: 'True cost of hiring — salary + employer FICA, FUTA, SUTA, and benefits for small businesses',
+    icon: Building,
+    badge: 'Employer',
+    badgeColor: 'bg-blue-500/20 text-blue-400',
+    gradient: 'from-blue-600/20 to-indigo-600/10',
+  },
+  {
     href: '/lottery-tax-calculator',
     title: 'Lottery Tax Calculator',
     desc: 'How much tax on lottery winnings? Federal + state taxes. Lump sum vs annuity comparison',
@@ -500,7 +509,7 @@ const homeJsonLd = {
       '@type': 'ItemList',
       name: 'Free 2026 Tax Calculators',
       description: '63 free tax calculators for 2026 covering paycheck, state tax, mortgage, retirement, and more.',
-      numberOfItems: 63,
+      numberOfItems: 64,
       itemListElement: [
         { '@type': 'ListItem', position: 1, name: 'Paycheck Calculator', url: `${SITE_URL}/paycheck-calculator` },
         { '@type': 'ListItem', position: 2, name: 'Illinois Tax Calculator', url: `${SITE_URL}/illinois-tax-calculator` },
@@ -538,6 +547,7 @@ const homeJsonLd = {
         { '@type': 'ListItem', position: 34, name: 'Bonus Tax Calculator', url: `${SITE_URL}/bonus-tax-calculator` },
         { '@type': 'ListItem', position: 35, name: 'Lottery Tax Calculator', url: `${SITE_URL}/lottery-tax-calculator` },
         { '@type': 'ListItem', position: 36, name: 'Relocation Calculator', url: `${SITE_URL}/relocation-calculator` },
+        { '@type': 'ListItem', position: 37, name: 'Employee Cost Calculator', url: `${SITE_URL}/employee-cost-calculator` },
       ],
     },
 
@@ -674,7 +684,7 @@ export default function HomePage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-10 text-center">
             <h2 className="text-3xl font-bold text-foreground">
-              63 Free <span className="gradient-text">Tax Calculators</span>
+              64 Free <span className="gradient-text">Tax Calculators</span>
             </h2>
             <p className="mt-3 text-muted-foreground max-w-xl mx-auto">
               Pick the one you need. They&apos;re all free, they all use 2026 data, and none of them will
@@ -814,6 +824,79 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ─── For Business Owners ──────────────────────────────────── */}
+      <section className="py-16 border-t border-border/20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <div className="inline-flex items-center gap-2 rounded-full bg-blue-500/10 border border-blue-500/20 px-4 py-1.5 text-sm text-blue-400 mb-4">
+              <Building className="h-3.5 w-3.5" />
+              For Business Owners
+            </div>
+            <h2 className="text-3xl font-bold text-foreground">
+              How Much Does an <span className="gradient-text">Employee Really Cost</span>?
+            </h2>
+            <p className="mt-3 text-muted-foreground max-w-xl mx-auto">
+              Salary is just the beginning. Employer taxes, benefits, and insurance add 25–30% on top.
+              See the true cost of hiring in your state.
+            </p>
+          </div>
+
+          <div className="grid gap-6 lg:grid-cols-3">
+            <div className="lg:col-span-2 rounded-xl border border-border/30 bg-card/50 p-6">
+              <h3 className="text-lg font-semibold text-foreground mb-4">Example: 5 Employees at $75,000 in Illinois</h3>
+              <div className="space-y-3 text-sm">
+                <div className="flex justify-between">
+                  <span className="text-muted-foreground">Base Salaries (5 × $75,000)</span>
+                  <span className="font-semibold text-foreground">$375,000</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-muted-foreground">Employer FICA (7.65%)</span>
+                  <span className="text-orange-400">+$28,688</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-muted-foreground">FUTA + SUTA</span>
+                  <span className="text-amber-400">+$2,401</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-muted-foreground">Benefits (20% of salary)</span>
+                  <span className="text-blue-400">+$75,000</span>
+                </div>
+                <div className="divider-glow" />
+                <div className="flex justify-between text-base">
+                  <span className="font-semibold text-foreground">Total Annual Payroll Cost</span>
+                  <span className="font-bold text-emerald-400">$481,089</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-muted-foreground">Cost Per Employee</span>
+                  <span className="font-medium text-foreground">$96,218 <span className="text-amber-400">(28.3% over salary)</span></span>
+                </div>
+              </div>
+            </div>
+            <div className="flex flex-col gap-4">
+              <div className="rounded-xl border border-emerald-500/30 bg-emerald-500/5 p-6 flex-1 flex flex-col justify-center">
+                <h3 className="text-lg font-semibold text-foreground">Employee Cost Calculator</h3>
+                <p className="mt-2 text-sm text-muted-foreground">
+                  Estimate your true payroll cost — salary + employer FICA, FUTA, SUTA, and benefits. All 50 states.
+                </p>
+                <Link
+                  href="/employee-cost-calculator"
+                  className="mt-4 inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-600 to-emerald-500 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/30 transition-all"
+                >
+                  <Building className="h-4 w-4" />
+                  Calculate Employee Cost
+                </Link>
+              </div>
+              <div className="rounded-xl border border-border/30 bg-card/50 p-4">
+                <p className="text-xs text-muted-foreground">
+                  <span className="text-foreground font-medium">Employer FICA alone</span> adds $5,738 per employee
+                  at $75K. That&apos;s $28,688 for 5 employees — before benefits.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ─── Why We Built This ───────────────────────────────────── */}
       <section className="py-16 border-t border-border/20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -915,7 +998,7 @@ export default function HomePage() {
                   <Calculator className="h-4 w-4 text-emerald-400" />
                 </div>
                 <h3 className="text-base font-semibold text-foreground">Tax Calculators</h3>
-                <span className="ml-auto text-[10px] font-semibold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 rounded-full px-2 py-0.5">63 Tools</span>
+                <span className="ml-auto text-[10px] font-semibold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 rounded-full px-2 py-0.5">64 Tools</span>
               </div>
               <ul className="space-y-2">
                 {CALCULATOR_CARDS.map((card) => (

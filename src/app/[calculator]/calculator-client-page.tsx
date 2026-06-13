@@ -149,6 +149,11 @@ const OregonCalculator = dynamic(
   { loading: () => <CalculatorSkeleton />, ssr: false }
 );
 
+const EmployeeCostCalculator = dynamic(
+  () => import('@/components/finance/employee-cost-calculator').then((m) => ({ default: m.EmployeeCostCalculator })),
+  { loading: () => <CalculatorSkeleton />, ssr: false }
+);
+
 // Generic state calculator for the 27 remaining states
 const GenericStateCalculator = dynamic(
   () => import('@/components/finance/generic-state-calculator').then((m) => ({ default: m.GenericStateCalculator })),
@@ -269,6 +274,8 @@ export function CalculatorClientPage({ componentKey }: CalculatorClientPageProps
       return <MinnesotaCalculator />;
     case 'oregon':
       return <OregonCalculator />;
+    case 'employee-cost':
+      return <EmployeeCostCalculator />;
     default:
       // Check if it's a generic state key
       if (GENERIC_STATE_KEYS.has(componentKey)) {

@@ -1310,6 +1310,29 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     jsonLdType: 'vermont',
   },
   {
+    slug: 'employee-cost-calculator',
+    title: 'Employee Cost Calculator 2026 — True Cost of Hiring | Salary + Employer Taxes + Benefits',
+    description:
+      'Free 2026 employee cost calculator for US small businesses. Estimate total payroll cost including salary, employer taxes (FICA, FUTA, SUTA), and benefits. No signup.',
+    h1: 'Employee Cost Calculator (Total Payroll Cost)',
+    metaTitle: 'Employee Cost Calculator 2026 | True Cost of Hiring',
+    metaDesc:
+      'Free 2026 employee cost calculator. Estimate total payroll cost including salary, employer FICA, FUTA, SUTA, and benefits. For 1–49 employees. No signup.',
+    keywords: [
+      'employee cost calculator', 'true cost of hiring', 'employer payroll tax calculator',
+      'cost per employee calculator', 'small business payroll cost', 'employer FICA calculator',
+      'how much does an employee cost', 'payroll tax calculator for employers',
+      'total employee cost', 'employer tax calculator 2026',
+    ],
+    componentKey: 'employee-cost',
+    category: 'business',
+    breadcrumbLabel: 'Employee Cost Calculator',
+    ogTitle: 'Employee Cost Calculator 2026 — True Cost of Hiring',
+    ogDescription: 'Free 2026 employee cost calculator. Estimate total payroll cost — salary + employer taxes + benefits. No signup.',
+    canonicalPath: '/employee-cost-calculator',
+    jsonLdType: 'employee-cost',
+  },
+  {
     slug: 'west-virginia-tax-calculator',
     title: 'West Virginia Tax Calculator 2026 | 3-5.12% Progressive',
     description: 'Calculate your 2026 West Virginia take-home pay after progressive state tax (3%–5.12%), federal tax & FICA. No sign-up.',

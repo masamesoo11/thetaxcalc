@@ -522,6 +522,29 @@ export function PaycheckCalculator({ defaultState = 'illinois', onStateChange }:
       {/* ─── State Comparison SEO Section ───────────────────── */}
       <StateComparisonSection />
 
+      {/* ─── Employer CTA Banner ──────────────────────────────── */}
+      <Card className="border-blue-500/20 bg-blue-500/5 backdrop-blur-sm">
+        <CardContent className="flex flex-col sm:flex-row items-center justify-between gap-4 p-6">
+          <div className="flex items-center gap-3">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-500/10">
+              <Building2 className="h-5 w-5 text-blue-400" />
+            </div>
+            <div>
+              <p className="font-semibold text-foreground">Business Owner or HR?</p>
+              <p className="text-sm text-muted-foreground">
+                See the true cost of hiring — salary + employer taxes + benefits
+              </p>
+            </div>
+          </div>
+          <a
+            href="/employee-cost-calculator"
+            className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-blue-600 to-blue-500 px-6 py-2.5 text-sm font-semibold text-white shadow-lg shadow-blue-500/20 hover:shadow-blue-500/30 transition-all whitespace-nowrap"
+          >
+            Employee Cost Calculator
+          </a>
+        </CardContent>
+      </Card>
+
       <AdSlot position="mid-content" />
     </div>
   );

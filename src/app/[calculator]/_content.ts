@@ -35,6 +35,7 @@ import {
   WISCONSIN_FAQS,
   MINNESOTA_FAQS,
   OREGON_FAQS,
+  EMPLOYEE_COST_FAQS,
   FAQItem,
 } from '@/lib/faq-data';
 
@@ -1349,6 +1350,42 @@ export function getCalculatorContent(type: string): CalculatorContent {
           { slug: 'california-tax-calculator', label: 'California Calculator' },
           { slug: 'washington-tax-calculator', label: 'Washington Calculator (0%)' },
           { slug: 'relocation-calculator', label: 'Relocation Calculator' },
+          { slug: 'salary', label: 'Salary After Tax' },
+        ],
+      };
+    case 'employee-cost':
+      return {
+        howItWorks: [
+          'When you hire someone at $75,000, you don\'t just pay $75,000. The real cost is closer to $96,000–$98,000 once you add in employer taxes and benefits. This calculator shows you exactly how much each employee costs your business — not just salary, but the full burden including FICA, unemployment taxes, and benefits.',
+          'Here\'s what comes out of your pocket beyond the salary. First, employer FICA: you match the employee\'s 7.65% (6.2% Social Security up to $184,500, plus 1.45% Medicare with no cap). Then federal unemployment tax (FUTA) at 0.6% on the first $7,000 — that\'s $42 per employee per year after the standard 5.4% credit. State unemployment (SUTA) varies by state: new employers typically pay 1–4% on a wage base that ranges from $7,000 to $67,500 depending on where you operate.',
+          'On top of taxes, most employers offer benefits like health insurance, retirement matching, and paid time off. According to the Bureau of Labor Statistics, benefits average 29–32% of total compensation for private industry workers. This calculator lets you set your own benefits percentage — 20% is a reasonable starting point for a basic package, 30% for a competitive one.',
+          'One thing many new employers miss: your SUTA rate decreases over time if you have low turnover and few unemployment claims. A new employer in Illinois starts at 3.225%, but after 2–3 years with a clean record, that can drop to under 1%. So the true cost in year one is higher than it will be in year three. This calculator uses new-employer rates as a conservative estimate.',
+          'Bottom line — for every dollar you pay in salary, budget roughly $1.25–$1.30 in total employee cost. Use this calculator to get the exact number for your state, headcount, and benefits package.',
+        ],
+        calculationMethod: {
+          formula: 'Total Employee Cost = Salary + (Salary × Employer FICA %) + FUTA + SUTA + (Salary × Benefits %)',
+          steps: [
+            'Start with the average annual salary per employee',
+            'Calculate employer FICA: 6.2% Social Security (up to $184,500) + 1.45% Medicare',
+            'Calculate FUTA: 0.6% on first $7,000 per employee (after 5.4% credit)',
+            'Calculate SUTA: state-specific new-employer rate on state wage base',
+            'Add benefits: salary × your benefits percentage',
+            'Sum all costs and multiply by number of employees for total payroll cost',
+          ],
+          example: '5 employees at $75,000 in Illinois with 20% benefits: Employer FICA = $5,737.50 × 5 = $28,688. FUTA = $42 × 5 = $210. IL SUTA = $438.20 × 5 = $2,191. Benefits = $15,000 × 5 = $75,000. Total = $481,089/year. Cost per employee = $96,218 (28.3% over salary).',
+        },
+        keyRates: [
+          { label: 'Employer FICA Rate', value: '7.65% (6.2% SS + 1.45% Med)' },
+          { label: 'SS Wage Cap', value: '$184,500' },
+          { label: 'FUTA (Effective)', value: '0.6% on first $7,000' },
+          { label: 'Typical SUTA (New Employer)', value: '1% – 4%' },
+          { label: 'Average Benefits %', value: '20% – 30%' },
+        ],
+        faqs: EMPLOYEE_COST_FAQS,
+        relatedCalculators: [
+          { slug: 'paycheck-calculator', label: 'Paycheck Calculator (Employee View)' },
+          { slug: 'self-employment-tax-calculator', label: 'Self-Employment Tax' },
+          { slug: '401k-retirement-calculator', label: '401(k) Calculator' },
           { slug: 'salary', label: 'Salary After Tax' },
         ],
       };
