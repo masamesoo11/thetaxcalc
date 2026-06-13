@@ -7,6 +7,8 @@ import {
   generateFAQs,
   isValidSalaryAmount,
   slugToSalary,
+  salaryToSlug,
+  isLegacySalarySlug,
   formatSalary,
   fmt,
 } from '@/lib/salary-calculations';
@@ -21,7 +23,16 @@ export const revalidate = 86400;
 export const dynamicParams = false;
 
 export function generateStaticParams() {
-  return SALARY_AMOUNTS.map((amount) => ({ amount: String(amount) }));
+  // Generate BOTH new SEO-friendly URLs (/salary/85000-after-taxes)
+  // and legacy URLs (/salary/85000) for backward compatibility
+  const params: { amount: string }[] = [];
+  for (const amount of SALARY_AMOUNTS) {
+    // New canonical URL pattern
+    params.push({ amount: salaryToSlug(amount) });
+    // Legacy URL pattern (still serves the page with canonical pointing to new URL)
+    params.push({ amount: String(amount) });
+  }
+  return params;
 }
 
 // ─── Per-Page Metadata ────────────────────────────────────────────────────────
@@ -37,10 +48,17 @@ export async function generateMetadata({
 
   const formatted = formatSalary(salary);
   const baseUrl = SITE_URL;
-  const path = `/salary/${amountStr}`;
+  // Always use the new SEO-friendly canonical URL
+  const canonicalSlug = salaryToSlug(salary);
+  const canonicalPath = `/salary/${canonicalSlug}`;
+
+  // Calculate Texas take-home for the meta description (no state tax = highest)
+  const federalTax = calculateFederalTax(salary, 'single');
+  const fica = calculateFICA(salary, 'single');
+  const txTakeHome = salary - federalTax - fica.total;
 
   const title = `${formatted} After Taxes 2026: Take-Home Pay by State [Calculator]`;
-  const description = `How much is ${formatted} after taxes in 2026? On ${formatted} in Texas, you keep ~${fmt(salary - calculateFederalTax(salary, 'single') - calculateFICA(salary, 'single').total)} (no state tax). See your real take-home by state — TX, CA, NY, FL & more. Free calculator.`;
+  const description = `How much is ${formatted} after taxes in 2026? On ${formatted} in Texas, you keep ~${fmt(txTakeHome)} (no state tax). See your real take-home by state — TX, CA, NY, FL & more. Free calculator.`;
 
   return {
     title: { absolute: title },
@@ -61,16 +79,16 @@ export async function generateMetadata({
     ],
     authors: [{ name: 'Rachel Mitchell, CPA' }],
     alternates: {
-      canonical: `${baseUrl}${path}`,
+      canonical: `${baseUrl}${canonicalPath}`,
       languages: {
-        'en-US': `${baseUrl}${path}`,
-        'x-default': `${baseUrl}${path}`,
+        'en-US': `${baseUrl}${canonicalPath}`,
+        'x-default': `${baseUrl}${canonicalPath}`,
       },
     },
     openGraph: {
       title,
       description,
-      url: `${baseUrl}${path}`,
+      url: `${baseUrl}${canonicalPath}`,
       siteName: 'TheTaxCalc',
       type: 'website',
       locale: 'en_US',
@@ -91,13 +109,14 @@ function generateJsonLd(salary: number) {
   const calc = calculateSalaryTakeHome(salary);
   const formatted = formatSalary(salary);
   const faqs = generateFAQs(salary);
-  const path = `/salary/${salary}`;
+  const slug = salaryToSlug(salary);
+  const path = `/salary/${slug}`;
 
   return {
     '@context': 'https://schema.org',
     '@graph': [
       {
-        '@id': `${SITE_URL}/salary/${salary}#breadcrumb`,
+        '@id': `${SITE_URL}${path}#breadcrumb`,
         '@type': 'BreadcrumbList',
         itemListElement: [
           { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
@@ -106,23 +125,23 @@ function generateJsonLd(salary: number) {
         ],
       },
       {
-        '@id': `${SITE_URL}/salary/${salary}#webpage`,
+        '@id': `${SITE_URL}${path}#webpage`,
         '@type': 'WebPage',
         name: `${formatted} After Tax in 2026 — Take-Home Pay by State`,
         description: `Calculate your take-home pay on a ${formatted} salary in 2026. Compare net pay across all 50 states.`,
         url: `${SITE_URL}${path}`,
         inLanguage: 'en-US',
         dateModified: '2026-01-01',
-        author: { '@id': `${SITE_URL}/salary/${salary}#author` },
-        reviewedBy: { '@id': `${SITE_URL}/salary/${salary}#author` },
+        author: { '@id': `${SITE_URL}${path}#author` },
+        reviewedBy: { '@id': `${SITE_URL}${path}#author` },
         publisher: { '@id': `${SITE_URL}/#organization` },
       },
       {
-        '@id': `${SITE_URL}/salary/${salary}#author`,
+        '@id': `${SITE_URL}${path}#author`,
         ...authorToJsonLd(getCalculatorAuthor()),
       },
       {
-        '@id': `${SITE_URL}/salary/${salary}#faq`,
+        '@id': `${SITE_URL}${path}#faq`,
         '@type': 'FAQPage',
         mainEntity: faqs.map((faq) => ({
           '@type': 'Question',
@@ -153,6 +172,8 @@ export default async function SalaryAmountPage({
   }
 
   const jsonLd = generateJsonLd(salary);
+  const canonicalSlug = salaryToSlug(salary);
+  const isLegacy = isLegacySalarySlug(amountStr);
 
   return (
     <>
@@ -161,6 +182,11 @@ export default async function SalaryAmountPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+
+      {/* If this is a legacy URL, add a meta refresh to the canonical URL for bots that don't follow canonical */}
+      {isLegacy && (
+        <link rel="canonical" href={`${SITE_URL}/salary/${canonicalSlug}`} />
+      )}
 
       {/* Interactive Client Component with Filing Status & NYC toggle */}
       <DynamicSalaryPage amountStr={amountStr} />

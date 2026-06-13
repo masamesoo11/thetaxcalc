@@ -1,6 +1,6 @@
 import { MetadataRoute } from 'next';
 import { CALCULATOR_ROUTES } from '@/lib/calculator-routes';
-import { SALARY_AMOUNTS } from '@/lib/salary-calculations';
+import { SALARY_AMOUNTS, salaryToSlug } from '@/lib/salary-calculations';
 import { COMPARISON_SLUGS } from '@/lib/compare-config';
 import { getPublishedPostsMeta } from '@/lib/blog-index';
 import { SITE_URL } from '@/lib/site-config';
@@ -10,9 +10,9 @@ import { ALL_STATE_KEYS } from '@/lib/state-sales-tax-data';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = SITE_URL;
-  // Use stable dates instead of dynamic new Date() — Google prefers consistent lastModified values
+  // Updated dates — Google prefers consistent lastModified values
   const taxYearUpdate = '2026-01-01'; // Tax year 2026 data effective date
-  const siteUpdate = '2025-03-01';    // Latest site content update
+  const siteUpdate = '2026-06-01';    // Latest site content update
 
   const entries: MetadataRoute.Sitemap = [
     { url: baseUrl, lastModified: siteUpdate, changeFrequency: 'weekly', priority: 1.0 },
@@ -31,8 +31,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   entries.push({ url: `${baseUrl}/salary`, lastModified: taxYearUpdate, changeFrequency: 'monthly', priority: 0.9 });
 
+  // Salary pages — use new SEO-friendly URL pattern: /salary/85000-after-taxes
   for (const amount of SALARY_AMOUNTS) {
-    entries.push({ url: `${baseUrl}/salary/${amount}`, lastModified: taxYearUpdate, changeFrequency: 'monthly', priority: 0.8 });
+    entries.push({ url: `${baseUrl}/salary/${salaryToSlug(amount)}`, lastModified: taxYearUpdate, changeFrequency: 'monthly', priority: 0.8 });
   }
 
   entries.push({ url: `${baseUrl}/glossary`, lastModified: siteUpdate, changeFrequency: 'monthly', priority: 0.85 });
@@ -47,7 +48,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   entries.push({ url: `${baseUrl}/paycheck-difference-calculator`, lastModified: taxYearUpdate, changeFrequency: 'monthly', priority: 0.92 });
 
   for (const path of ['/privacy', '/terms']) {
-    entries.push({ url: `${baseUrl}${path}`, lastModified: '2025-01-01', changeFrequency: 'yearly', priority: 0.3 });
+    entries.push({ url: `${baseUrl}${path}`, lastModified: siteUpdate, changeFrequency: 'yearly', priority: 0.3 });
   }
 
   entries.push({ url: `${baseUrl}/compare`, lastModified: taxYearUpdate, changeFrequency: 'monthly', priority: 0.9 });

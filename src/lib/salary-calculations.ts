@@ -267,7 +267,15 @@ export function generateFAQs(salary: number, filingStatus: FilingStatus = 'singl
     },
   ];
 
-  // Add a fourth FAQ that varies by salary level
+  // FAQ 4: Monthly/biweekly breakdown (always useful)
+  const txMonthly = roundCurrency(txNet / 12);
+  const caMonthly = roundCurrency(caNet / 12);
+  faqs.push({
+    question: `How much is ${formatted} monthly after taxes?`,
+    answer: `On a ${formatted} salary, your monthly take-home pay is approximately ${fmt(txMonthly)} in Texas (no state tax) and ${fmt(caMonthly)} in California. In Texas, your bi-weekly paycheck would be about ${fmt(roundCurrency(txNet / 26))}. These numbers assume single filing status with the standard deduction and no pre-tax contributions like 401(k) or HSA.`,
+  });
+
+  // FAQ 5: Varies by salary level
   if (salary <= 50000) {
     faqs.push({
       question: `Can I live comfortably on ${formatted} a year?`,
@@ -325,14 +333,28 @@ function getFederalBracketLabel(salary: number): string {
 
 // ─── URL Slug Helper ────────────────────────────────────────────────────────────
 
+// SEO-friendly slug: /salary/85000-after-taxes (matches high-volume keyword pattern)
 export function salaryToSlug(amount: number): string {
+  return `${amount}-after-taxes`;
+}
+
+// Legacy slug: /salary/85000 (backward compatible)
+export function salaryToLegacySlug(amount: number): string {
   return String(amount);
 }
 
 export function slugToSalary(slug: string): number | null {
-  const num = parseInt(slug, 10);
+  // Handle both new pattern "85000-after-taxes" and legacy pattern "85000"
+  const match = slug.match(/^(\d+)/);
+  if (!match) return null;
+  const num = parseInt(match[1], 10);
   if (isNaN(num) || num <= 0) return null;
   return num;
+}
+
+export function isLegacySalarySlug(slug: string): boolean {
+  // Returns true if the slug is the old pattern (just a number, no "-after-taxes")
+  return /^\d+$/.test(slug);
 }
 
 export function isValidSalaryAmount(amount: number): boolean {

@@ -7,6 +7,7 @@ import {
   getGroupedSalaries,
   formatSalary,
   formatSalaryCompact,
+  salaryToSlug,
   fmt,
   STATE_LABELS,
   STATE_KEYS,
@@ -126,9 +127,9 @@ const salaryPageJsonLd = {
       publisher: { '@id': `${SITE_URL}/#organization` },
       hasPart: SALARY_AMOUNTS.map((amount) => ({
         '@type': 'WebPage',
-        '@id': `${SITE_URL}/salary/${amount}#webpage`,
+        '@id': `${SITE_URL}/salary/${salaryToSlug(amount)}#webpage`,
         name: `$${amount.toLocaleString()} After Tax in 2026`,
-        url: `${SITE_URL}/salary/${amount}`,
+        url: `${SITE_URL}/salary/${salaryToSlug(amount)}`,
         dateModified: '2026-01-01',
       })),
     },
@@ -156,7 +157,7 @@ function SalaryCard({ amount }: { amount: number }) {
 
   return (
     <Link
-      href={`/salary/${amount}`}
+      href={`/salary/${salaryToSlug(amount)}`}
       className="group premium-card hover-lift p-5 flex flex-col gap-3"
     >
       {/* Header */}
@@ -443,10 +444,10 @@ export default function SalaryLandingPage() {
               <h3 className="text-base font-semibold text-foreground mb-3">Salary & Guides</h3>
               <div className="flex flex-wrap gap-2">
                 {[
-                  { href: '/salary/50000', label: '$50K' },
-                  { href: '/salary/75000', label: '$75K' },
-                  { href: '/salary/100000', label: '$100K' },
-                  { href: '/salary/150000', label: '$150K' },
+                  { href: `/salary/${salaryToSlug(50000)}`, label: '$50K' },
+                  { href: `/salary/${salaryToSlug(75000)}`, label: '$75K' },
+                  { href: `/salary/${salaryToSlug(100000)}`, label: '$100K' },
+                  { href: `/salary/${salaryToSlug(150000)}`, label: '$150K' },
                 ].map((s) => (
                   <Link
                     key={s.href}

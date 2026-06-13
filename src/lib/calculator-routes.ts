@@ -54,9 +54,9 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     description:
       'Free Illinois tax calculator for 2026. Calculate take-home pay after 4.95% flat state tax, $2,775 personal exemption, federal tax & FICA. No sign-up.',
     h1: 'Free Illinois Tax Calculator',
-    metaTitle: 'Illinois Income Tax 2026: 4.95% Flat Rate — Free Calculator',
+    metaTitle: 'Illinois Tax Calculator 2026: 4.95% Flat — $75K = $57,880 Take-Home',
     metaDesc:
-      'Illinois charges a flat 4.95% income tax — on $75K that\'s ~$3,712. Calculate your exact take-home pay after IL tax, federal & FICA. Free 2026 calculator, no sign-up.',
+      'IL charges a flat 4.95% income tax. On $75K salary, you take home ~$57,880. Calculate your exact Illinois take-home pay after IL tax, federal & FICA. Free 2026 calculator, no sign-up.',
     keywords: [
       'free Illinois tax calculator', 'Illinois tax calculator', 'IL paycheck calculator',
       'Illinois income tax', 'Illinois 4.95% tax', 'Illinois take home pay',
@@ -66,9 +66,9 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     componentKey: 'illinois',
     category: 'paycheck',
     breadcrumbLabel: 'Illinois',
-    ogTitle: 'Illinois Income Tax 2026 — 4.95% Flat Rate Calculator',
+    ogTitle: 'Illinois Tax Calculator 2026 — 4.95% Flat, $75K = $57,880 Take-Home',
     ogDescription:
-      'IL flat 4.95% = ~$3,712 on $75K. See your exact take-home pay. Free 2026 calculator, no sign-up.',
+      'IL flat 4.95%. On $75K, take home ~$57,880. Calculate your exact Illinois after-tax pay. Free 2026 calculator.',
     canonicalPath: '/illinois-tax-calculator',
     jsonLdType: 'illinois',
   },
@@ -78,9 +78,9 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     description:
       'Free Texas tax calculator for 2026. Calculate take-home pay with 0% state income tax. Includes federal tax, FICA, property tax analysis & cost-of-living. No sign-up.',
     h1: 'Free Texas Tax Calculator',
-    metaTitle: '0% Income Tax — Texas Tax Calculator 2026',
+    metaTitle: 'Texas Tax Calculator 2026: 0% Income Tax — $75K = $61,592 Take-Home',
     metaDesc:
-      'Free Texas tax calculator 2026. Take-home pay with 0% state tax. Property tax & cost-of-living analysis. No sign-up required.',
+      'Texas has 0% state income tax. On $75K salary, you keep $61,592 after federal & FICA. Calculate your exact Texas take-home pay. Free 2026 calculator, no sign-up.',
     keywords: [
       'free Texas tax calculator', 'Texas tax calculator', 'TX paycheck calculator',
       'Texas no income tax', 'Texas take home pay', 'Texas salary calculator',
@@ -90,9 +90,9 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     componentKey: 'texas',
     category: 'paycheck',
     breadcrumbLabel: 'Texas',
-    ogTitle: '0% Income Tax — Texas Tax Calculator 2026',
+    ogTitle: 'Texas Tax Calculator 2026 — 0% Income Tax, $75K = $61,592 Take-Home',
     ogDescription:
-      'Free Texas tax calculator. Take-home pay with 0% state tax. Property tax & cost-of-living. No sign-up.',
+      'TX has 0% state income tax. On $75K, keep $61,592. Calculate your exact Texas after-tax pay. Free 2026 calculator.',
     canonicalPath: '/texas-tax-calculator',
     jsonLdType: 'texas',
   },
@@ -102,9 +102,9 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     description:
       'Free Florida tax calculator for 2026. Calculate take-home pay with 0% state income tax. Includes homestead exemption, property tax & cost-of-living. No sign-up.',
     h1: 'Free Florida Tax Calculator',
-    metaTitle: '0% Income Tax — Florida Tax Calculator 2026',
+    metaTitle: 'Florida Tax Calculator 2026: 0% Income Tax — $75K = $61,592 Take-Home',
     metaDesc:
-      'Free Florida tax calculator 2026. Take-home pay with 0% state tax & homestead exemption. No sign-up. Property tax info included.',
+      'Florida has 0% state income tax. On $75K salary, you keep $61,592 after federal & FICA. Calculate your exact FL take-home pay. Free 2026 calculator, no sign-up.',
     keywords: [
       'free Florida tax calculator', 'Florida tax calculator', 'FL paycheck calculator',
       'Florida no income tax', 'Florida take home pay', 'Florida salary calculator',
@@ -114,9 +114,9 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     componentKey: 'florida',
     category: 'paycheck',
     breadcrumbLabel: 'Florida',
-    ogTitle: '0% Income Tax — Florida Tax Calculator 2026',
+    ogTitle: 'Florida Tax Calculator 2026 — 0% Income Tax, $75K = $61,592 Take-Home',
     ogDescription:
-      'Free Florida tax calculator. Take-home pay with 0% state tax & homestead exemption. No sign-up.',
+      'FL has 0% state income tax. On $75K, keep $61,592. Calculate your exact Florida after-tax pay. Free 2026 calculator.',
     canonicalPath: '/florida-tax-calculator',
     jsonLdType: 'florida',
   },
@@ -126,9 +126,9 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     description:
       'Free California tax calculator for 2026. Calculate take-home pay after progressive state tax (1%–13.3%), federal tax & FICA. No sign-up. 401(k) and HSA deductions.',
     h1: 'Free California Tax Calculator',
-    metaTitle: 'CA Tax Calculator 2026 | 1-13.3%',
+    metaTitle: 'California Tax Calculator 2026: $75K = $54,849 Take-Home',
     metaDesc:
-      'Free California tax calculator 2026. Take-home pay after progressive tax (1%–13.3%). No sign-up. 401(k) and HSA included.',
+      'CA charges up to 13.3% state tax. On $75K salary, you take home ~$54,849. Calculate your exact California take-home pay after state, federal & FICA tax. Free 2026 calculator, no sign-up.',
     keywords: [
       'free California tax calculator', 'California tax calculator', 'CA paycheck calculator',
       'California income tax', 'California 13.3% tax', 'California take home pay',
@@ -138,9 +138,9 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     componentKey: 'california',
     category: 'paycheck',
     breadcrumbLabel: 'California',
-    ogTitle: 'California Tax Calculator 2026 — Progressive 1-13.3%',
+    ogTitle: 'California Tax Calculator 2026 — $75K = $54,849 Take-Home',
     ogDescription:
-      'Free California tax calculator. Take-home pay after progressive tax (1%–13.3%). No sign-up. 2026 data.',
+      'CA 13.3% max rate. On $75K, take home ~$54,849. Calculate your exact California after-tax pay. Free 2026 calculator.',
     canonicalPath: '/california-tax-calculator',
     jsonLdType: 'california',
   },
@@ -150,9 +150,9 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     description:
       'Free New York tax calculator for 2026. Calculate take-home pay after progressive state tax (4%–10.9%), NYC tax, federal tax & FICA. No sign-up.',
     h1: 'Free New York Tax Calculator',
-    metaTitle: 'New York Tax Calculator 2026 — State & NYC Tax',
+    metaTitle: 'New York Tax Calculator 2026: $75K = $55,413 Take-Home',
     metaDesc:
-      'Free New York tax calculator 2026. Take-home pay after state tax (4%–10.9%) & NYC tax. No sign-up. 401(k) included.',
+      'NY charges up to 10.9% + NYC tax. On $75K salary, you take home ~$55,413. Calculate your exact NY take-home pay after state, federal & FICA tax. Free 2026 calculator, no sign-up.',
     keywords: [
       'free New York tax calculator', 'free tax calculator new york', 'free tax calculator nyc',
       'NY paycheck calculator', 'New York income tax', 'NYC tax calculator',
@@ -162,9 +162,9 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     componentKey: 'newyork',
     category: 'paycheck',
     breadcrumbLabel: 'New York',
-    ogTitle: 'New York Tax Calculator 2026 — State & NYC Tax',
+    ogTitle: 'New York Tax Calculator 2026 — $75K = $55,413 Take-Home',
     ogDescription:
-      'Free New York tax calculator. Take-home pay after state tax (4%–10.9%) & NYC tax. No sign-up. 2026 data.',
+      'NY up to 10.9% + NYC tax. On $75K, take home ~$55,413. Calculate your exact NY after-tax pay. Free 2026 calculator.',
     canonicalPath: '/new-york-tax-calculator',
     jsonLdType: 'newyork',
   },

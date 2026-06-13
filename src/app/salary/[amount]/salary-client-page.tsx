@@ -19,6 +19,7 @@ import {
   generateFAQs,
   isValidSalaryAmount,
   slugToSalary,
+  salaryToSlug,
   formatSalary,
   fmt,
   fmtFull,
@@ -135,8 +136,14 @@ export function SalaryClientPage({ amountStr }: SalaryClientPageProps) {
           <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
             {calc.salaryFormatted} After Tax in 2026
           </h1>
-          <p className="mt-4 text-lg text-muted-foreground max-w-3xl leading-relaxed">
-            On a {calc.salaryFormatted} salary, where you live makes a huge difference. Your take-home ranges from{' '}
+          {/* Explicit take-home number for CTR — the #1 thing users search for */}
+          <p className="mt-4 text-2xl font-semibold">
+            <span className="text-foreground">{calc.salaryFormatted}/year in Texas = </span>
+            <span className="text-emerald-400">{fmt(calc.highestNet.netAnnual)} take-home</span>
+            <span className="text-muted-foreground text-base font-normal ml-2">(no state tax)</span>
+          </p>
+          <p className="mt-3 text-lg text-muted-foreground max-w-3xl leading-relaxed">
+            Where you live makes a huge difference. Your take-home ranges from{' '}
             <strong className="text-red-400">{fmt(calc.lowestNet.netAnnual)}</strong> in {calc.lowestNet.stateName} to{' '}
             <strong className="text-emerald-400">{fmt(calc.highestNet.netAnnual)}</strong> in {calc.highestNet.stateName}{' '}
             ({filingStatusLabel[filingStatus]}, standard deduction). That&apos;s a{' '}
@@ -435,7 +442,7 @@ export function SalaryClientPage({ amountStr }: SalaryClientPageProps) {
           <div className="flex items-center justify-between">
             {prevSalary ? (
               <Link
-                href={`/salary/${prevSalary}`}
+                href={`/salary/${salaryToSlug(prevSalary)}`}
                 className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
               >
                 <ChevronRight className="h-4 w-4 rotate-180 group-hover:-translate-x-1 transition-transform" />
@@ -450,7 +457,7 @@ export function SalaryClientPage({ amountStr }: SalaryClientPageProps) {
             </Link>
             {nextSalary ? (
               <Link
-                href={`/salary/${nextSalary}`}
+                href={`/salary/${salaryToSlug(nextSalary)}`}
                 className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
               >
                 {formatSalary(nextSalary)} After Tax

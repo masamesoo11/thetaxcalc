@@ -204,7 +204,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/salary/50000"
+                  href="/salary/50000-after-taxes"
                   className="flex items-center gap-2 text-sm text-muted-foreground underline underline-offset-2 decoration-border/50 transition-colors hover:text-emerald-400 hover:decoration-emerald-400 pl-5"
                 >
                   $50K After Tax
@@ -212,7 +212,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/salary/75000"
+                  href="/salary/75000-after-taxes"
                   className="flex items-center gap-2 text-sm text-muted-foreground underline underline-offset-2 decoration-border/50 transition-colors hover:text-emerald-400 hover:decoration-emerald-400 pl-5"
                 >
                   $75K After Tax
@@ -220,7 +220,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/salary/100000"
+                  href="/salary/100000-after-taxes"
                   className="flex items-center gap-2 text-sm text-muted-foreground underline underline-offset-2 decoration-border/50 transition-colors hover:text-emerald-400 hover:decoration-emerald-400 pl-5"
                 >
                   $100K After Tax
@@ -228,7 +228,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/salary/150000"
+                  href="/salary/150000-after-taxes"
                   className="flex items-center gap-2 text-sm text-muted-foreground underline underline-offset-2 decoration-border/50 transition-colors hover:text-emerald-400 hover:decoration-emerald-400 pl-5"
                 >
                   $150K After Tax
