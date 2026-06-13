@@ -42,7 +42,7 @@ export const AUTHORS: Record<string, AuthorProfile> = {
     sameAs: [
       'https://www.linkedin.com/in/rachelmitchellcpa/',
     ],
-    image: `${SITE_URL}/author-rachel-mitchell.png`,
+    image: `${SITE_URL}/author-rachel-mitchell.webp`,
     knowsAbout: [
       'Federal Income Tax',
       'State Income Tax',
@@ -67,7 +67,7 @@ export const AUTHORS: Record<string, AuthorProfile> = {
     sameAs: [
       'https://www.linkedin.com/in/davidchenea/',
     ],
-    image: `${SITE_URL}/author-david-chen.png`,
+    image: `${SITE_URL}/author-david-chen.webp`,
     knowsAbout: [
       'Self-Employment Tax',
       'Estimated Tax Payments',
@@ -92,7 +92,7 @@ export const AUTHORS: Record<string, AuthorProfile> = {
     sameAs: [
       'https://www.linkedin.com/in/sarahjohnsoncfp/',
     ],
-    image: `${SITE_URL}/author-sarah-johnson.png`,
+    image: `${SITE_URL}/author-sarah-johnson.webp`,
     knowsAbout: [
       'Retirement Planning',
       '401(k) Optimization',

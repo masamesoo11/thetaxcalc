@@ -45,6 +45,29 @@ export const metadata: Metadata = {
 
 // ─── JSON-LD ─────────────────────────────────────────────────────────────────
 
+const COMPARE_LANDING_FAQS = [
+  {
+    question: 'Which state has the lowest taxes?',
+    answer: 'Among the states we cover, Texas and Florida have no state income tax, so they win on that front. But here\'s the thing: Texas has much higher property taxes than Florida. When you factor in all taxes — income, property, and sales — Florida generally comes out ahead for most income levels. That said, Wyoming, Alaska, and Nevada (which we don\'t cover yet) rank among the lowest-tax states nationally. For the five states we do cover, Florida is usually the winner.',
+  },
+  {
+    question: 'Should I move to a state with no income tax?',
+    answer: 'It depends on your full financial picture — and we mean full. States with no income tax make up the revenue elsewhere: higher property taxes, sales taxes, or fees. Texas has no income tax but hits you with some of the highest property taxes in the US. If you\'re a renter with a good salary, Texas or Florida is very attractive. If you own an expensive home, the property tax bill might offset your income tax savings. Run the numbers for your specific situation before making any decisions.',
+  },
+  {
+    question: 'How do property taxes compare across states?',
+    answer: 'They vary enormously. Among our five states, Texas has the highest effective rate at roughly 1.71% of home value. Illinois isn\'t far behind at around 2.08%. California has a lower effective rate (~0.75%) thanks to Proposition 13 caps, but when homes cost $800,000+, the dollar amount is still huge. Florida and New York fall in between. Pro tip: a lower rate on a more expensive home can still cost you more in actual dollars than a higher rate on a cheaper home.',
+  },
+  {
+    question: 'What is the total tax burden by state?',
+    answer: 'Total tax burden = income tax + property tax + sales tax combined. Among our five states, California and New York carry the highest total burden (often 10–13% of income for mid-to-high earners), while Texas and Florida have the lowest (roughly 6–8% depending on whether you own a home). Illinois sits in the middle — its flat income tax isn\'t terrible, but those property taxes really add up. Our comparison pages show take-home pay at $75K and $150K so you can see the real dollar impact, not just percentages.',
+  },
+  {
+    question: 'Does a 0% income tax mean I pay no state taxes?',
+    answer: 'Absolutely not. Even in Texas and Florida, you\'re still paying state and local taxes — just not on your wages. Property taxes, sales taxes, fuel taxes, hotel taxes, various fees... they all add up. In fact, Texas has among the highest property tax rates in the nation, which can cost homeowners $5,000–$10,000+ per year. The 0% income tax is real and valuable, but it\'s not the whole story. That\'s why we show you the full picture on our comparison pages.',
+  },
+];
+
 const compareListingJsonLd = {
   '@context': 'https://schema.org',
   '@graph': [
@@ -76,6 +99,18 @@ const compareListingJsonLd = {
         description: 'Side-by-side comparison of state tax rates, property tax, and take-home pay',
         provider: { '@id': `${SITE_URL}/#organization` },
       },
+    },
+    {
+      '@id': `${SITE_URL}/compare#faq`,
+      '@type': 'FAQPage',
+      mainEntity: COMPARE_LANDING_FAQS.map((faq) => ({
+        '@type': 'Question',
+        name: faq.question,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: faq.answer,
+        },
+      })),
     },
   ],
 };

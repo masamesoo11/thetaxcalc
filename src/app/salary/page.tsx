@@ -20,6 +20,8 @@ import {
   BarChart3,
   ChevronRight,
   Calculator,
+  BookOpen,
+  ChevronDown,
 } from 'lucide-react';
 import { Breadcrumb } from '@/components/finance/breadcrumb';
 import { getCalculatorAuthor, authorToJsonLd } from '@/lib/authors';
@@ -65,6 +67,29 @@ export const metadata: Metadata = {
 
 // ─── JSON-LD ───────────────────────────────────────────────────────────────────
 
+const SALARY_LANDING_FAQS = [
+  {
+    question: 'How much is my salary after taxes in 2026?',
+    answer: 'Your take-home pay depends on your salary, filing status, and state. For example, a single filer earning $75,000 in Texas (0% state tax) takes home about $61,592 after federal tax and FICA. The same salary in California (up to 13.3% state tax) leaves you with about $54,849. That\'s a difference of over $6,700 per year just from your state. Our salary pages show you exact take-home numbers for 26 salary levels across 5 states.',
+  },
+  {
+    question: 'Which state has the highest take-home pay?',
+    answer: 'Among the states we cover, Texas and Florida consistently produce the highest take-home pay because they have 0% state income tax. Illinois is in the middle at 4.95% flat, while New York and California take the biggest bite — especially at higher income levels where their progressive rates kick in. However, if you live in New York City, you pay an additional 3.078%–3.876% city tax on top of the state rate, making NYC one of the most taxed jurisdictions in the country.',
+  },
+  {
+    question: 'How are salary after-tax calculations done?',
+    answer: 'We start with your gross salary and subtract: (1) Federal income tax using 2026 progressive brackets (10%–37%) after the $16,100 standard deduction for single filers, (2) FICA payroll tax at 6.2% for Social Security (up to $184,500 wage cap) plus 1.45% for Medicare on all wages, and (3) State income tax using each state\'s specific brackets or flat rate. The result is your net annual take-home pay, which we also break down into monthly, bi-weekly, and weekly amounts.',
+  },
+  {
+    question: 'Does the salary calculator include 401(k) or HSA deductions?',
+    answer: 'The salary pages show take-home pay with standard deduction only — no 401(k) or HSA. For a more detailed calculation that includes pre-tax deductions, different filing statuses, and additional options, use our full Paycheck Calculator. Pre-tax deductions like 401(k) contributions reduce your taxable income at both the federal and state level, which can lower your effective tax rate significantly.',
+  },
+  {
+    question: 'Why do Texas and Florida have 0% state income tax?',
+    answer: 'Texas and Florida generate revenue through other means instead of taxing wages. Texas relies heavily on property taxes (averaging ~1.71% of home value, among the highest in the nation) and sales tax (6.25% state + local). Florida uses sales tax (6% state + local) and has a relatively low property tax rate (~0.86%). Both states also collect revenue from tourism, oil (Texas), and various fees. The trade-off is that while your paycheck is bigger, other costs may be higher — especially property taxes in Texas.',
+  },
+];
+
 const salaryPageJsonLd = {
   '@context': 'https://schema.org',
   '@graph': [
@@ -105,6 +130,18 @@ const salaryPageJsonLd = {
         name: `$${amount.toLocaleString()} After Tax in 2026`,
         url: `${SITE_URL}/salary/${amount}`,
         dateModified: '2026-01-01',
+      })),
+    },
+    {
+      '@id': `${SITE_URL}/salary#faq`,
+      '@type': 'FAQPage',
+      mainEntity: SALARY_LANDING_FAQS.map((faq) => ({
+        '@type': 'Question',
+        name: faq.question,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: faq.answer,
+        },
       })),
     },
   ],
@@ -439,6 +476,32 @@ export default function SalaryLandingPage() {
                 </Link>
               </div>
             </div>
+          </div>
+        </section>
+
+        {/* ─── FAQ Section ─────────────────────────────────────────── */}
+        <section className="py-12 border-t border-border/20">
+          <div className="flex items-center gap-3 mb-6">
+            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-500/10">
+              <BookOpen className="h-5 w-5 text-emerald-400" />
+            </div>
+            <h2 className="text-2xl font-bold text-foreground">Salary After Tax FAQ</h2>
+          </div>
+          <div className="space-y-3">
+            {SALARY_LANDING_FAQS.map((faq, i) => (
+              <details
+                key={i}
+                className="group rounded-xl border border-border/30 bg-card/50 overflow-hidden"
+              >
+                <summary className="flex cursor-pointer items-center justify-between gap-3 p-5 text-left font-medium text-foreground hover:bg-muted/10 transition-colors">
+                  <h3 className="text-sm sm:text-base">{faq.question}</h3>
+                  <ChevronDown className="h-4 w-4 shrink-0 text-muted-foreground transition-transform group-open:rotate-180" />
+                </summary>
+                <div className="px-5 pb-5 text-sm text-muted-foreground leading-relaxed">
+                  {faq.answer}
+                </div>
+              </details>
+            ))}
           </div>
         </section>
 

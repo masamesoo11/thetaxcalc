@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev -p 3000",
     "build": "next build",
-    "build:cf": "npx @cloudflare/next-on-pages && node scripts/fix-routes.js",
+    "build:cf": "NPM_CONFIG_LEGACY_PEER_DEPS=true npx @cloudflare/next-on-pages && node scripts/patch-worker-headers.js && node scripts/fix-routes.js",
     "start": "npx serve out",
     "lint": "eslint .",
     "db:push": "prisma db push",
@@ -96,6 +96,7 @@
     "eslint-config-next": "^16.1.1",
     "tailwindcss": "^4",
     "tw-animate-css": "^1.3.5",
-    "typescript": "^5"
+    "typescript": "^5",
+    "wrangler": "^4.100.0"
   }
 }
