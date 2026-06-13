@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { db } from '@/lib/db';
-
 export const runtime = 'edge';
+
+
 
 /**
  * GET /api/ads
@@ -11,6 +11,7 @@ export const runtime = 'edge';
  */
 export async function GET(request: NextRequest) {
   try {
+    const { db } = await import('@/lib/db');
     const { searchParams } = new URL(request.url);
     const activeOnly = searchParams.get('active') === 'true';
 
@@ -40,6 +41,7 @@ export async function GET(request: NextRequest) {
  */
 export async function POST(request: NextRequest) {
   try {
+    const { db } = await import('@/lib/db');
     const body = await request.json();
     const { name, position, adType, adCode, isActive } = body;
 

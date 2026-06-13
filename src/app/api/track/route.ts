@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { db } from '@/lib/db';
-
 export const runtime = 'edge';
+
+
 
 /**
  * POST /api/track
@@ -11,6 +11,7 @@ export const runtime = 'edge';
  */
 export async function POST(request: NextRequest) {
   try {
+    const { db } = await import('@/lib/db');
     const body = await request.json();
     const { calculator } = body;
 

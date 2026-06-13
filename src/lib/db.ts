@@ -524,101 +524,44 @@ function postUpdate(opts: { where: Record<string, unknown>; data: Record<string,
   return updated;
 }
 
-// ─── Proxy-based db Object ────────────────────────────────────────────────────
+// ─── Direct db Object (Proxy-free for Cloudflare Workers edge runtime) ────────
+// Replaced Proxy-based approach with direct object references.
+// The Proxy pattern caused "Internal Server Error" in Cloudflare Workers
+// because the minifier/bundler couldn't properly handle nested Proxies
+// in the V8 isolate runtime.
 
-type PrismaMethod = (...args: unknown[]) => Promise<unknown>;
-
-interface PrismaLikeModel {
-  findMany: PrismaMethod;
-  findUnique: PrismaMethod;
-  findFirst: PrismaMethod;
-  create: PrismaMethod;
-  update: PrismaMethod;
-  delete: PrismaMethod;
-  upsert: PrismaMethod;
-}
-
-interface PrismaLikeDB {
-  user: PrismaLikeModel;
-  post: PrismaLikeModel;
-  adSlot: PrismaLikeModel;
-  siteSetting: PrismaLikeModel;
-  calculatorUsage: PrismaLikeModel;
-  externalLink: PrismaLikeModel;
-}
-
-function handleCall(modelName: string, method: string, ...args: unknown[]): Promise<unknown> {
-  const opts = (args[0] as Record<string, unknown>) || {};
-
-  switch (`${modelName}.${method}`) {
-    // --- AdSlot ---
-    case 'adSlot.findMany':
-      return Promise.resolve(adSlotFindMany(opts as Parameters<typeof adSlotFindMany>[0]));
-    case 'adSlot.findUnique':
-      return Promise.resolve(adSlotFindUnique(opts as { where: Record<string, unknown> }));
-    case 'adSlot.create':
-      return Promise.resolve(adSlotCreate((opts as { data: Record<string, unknown> }).data));
-    case 'adSlot.update':
-      return Promise.resolve(adSlotUpdate(opts as { where: Record<string, unknown>; data: Record<string, unknown> }));
-    case 'adSlot.delete':
-      return Promise.resolve(adSlotDelete(opts as { where: Record<string, unknown> }));
-
-    // --- SiteSetting ---
-    case 'siteSetting.findMany':
-      return Promise.resolve(siteSettingFindMany());
-    case 'siteSetting.findUnique':
-      return Promise.resolve(siteSettingFindUnique(opts as { where: Record<string, unknown> }));
-    case 'siteSetting.upsert':
-      return Promise.resolve(siteSettingUpsert(opts as { where: Record<string, unknown>; update: Record<string, unknown>; create: Record<string, unknown> }));
-
-    // --- CalculatorUsage ---
-    case 'calculatorUsage.upsert':
-      return Promise.resolve(calculatorUsageUpsert(opts as { where: Record<string, unknown>; update: Record<string, unknown>; create: Record<string, unknown> }));
-
-    // --- ExternalLink ---
-    case 'externalLink.findMany':
-      return Promise.resolve(externalLinkFindMany(opts as Parameters<typeof externalLinkFindMany>[0]));
-    case 'externalLink.findUnique':
-      return Promise.resolve(externalLinkFindUnique(opts as { where: Record<string, unknown> }));
-    case 'externalLink.findFirst':
-      return Promise.resolve(externalLinkFindFirst(opts as Parameters<typeof externalLinkFindFirst>[0]));
-    case 'externalLink.create':
-      return Promise.resolve(externalLinkCreate((opts as { data: Record<string, unknown> }).data));
-    case 'externalLink.update':
-      return Promise.resolve(externalLinkUpdate(opts as { where: Record<string, unknown>; data: Record<string, unknown> }));
-    case 'externalLink.delete':
-      return Promise.resolve(externalLinkDelete(opts as { where: Record<string, unknown> }));
-
-    // --- User ---
-    case 'user.findMany':
-      return Promise.resolve(userFindMany(opts as Record<string, unknown>));
-    case 'user.findUnique':
-      return Promise.resolve(userFindUnique(opts as { where: Record<string, unknown> }));
-
-    // --- Post ---
-    case 'post.findMany':
-      return Promise.resolve(postFindMany(opts as Parameters<typeof postFindMany>[0]));
-    case 'post.findUnique':
-      return Promise.resolve(postFindUnique(opts as { where: Record<string, unknown> }));
-    case 'post.create':
-      return Promise.resolve(postCreate((opts as { data: Record<string, unknown> }).data));
-    case 'post.update':
-      return Promise.resolve(postUpdate(opts as { where: Record<string, unknown>; data: Record<string, unknown> }));
-
-    default:
-      return Promise.reject(new Error(`Unknown method: ${modelName}.${method}`));
-  }
-}
-
-export const db = new Proxy({} as PrismaLikeDB, {
-  get(_target, model) {
-    if (typeof model !== 'string') return undefined;
-
-    return new Proxy({} as PrismaLikeModel, {
-      get(_target, method) {
-        if (typeof method !== 'string') return undefined;
-        return (...args: unknown[]) => handleCall(model, method, ...args);
-      },
-    });
+export const db = {
+  adSlot: {
+    findMany: (opts?: Parameters<typeof adSlotFindMany>[0]) => Promise.resolve(adSlotFindMany(opts || {})),
+    findUnique: (opts: { where: Record<string, unknown> }) => Promise.resolve(adSlotFindUnique(opts)),
+    create: (opts: { data: Record<string, unknown> }) => Promise.resolve(adSlotCreate(opts.data)),
+    update: (opts: { where: Record<string, unknown>; data: Record<string, unknown> }) => Promise.resolve(adSlotUpdate(opts)),
+    delete: (opts: { where: Record<string, unknown> }) => Promise.resolve(adSlotDelete(opts)),
   },
-});
+  siteSetting: {
+    findMany: () => Promise.resolve(siteSettingFindMany()),
+    findUnique: (opts: { where: Record<string, unknown> }) => Promise.resolve(siteSettingFindUnique(opts)),
+    upsert: (opts: { where: Record<string, unknown>; update: Record<string, unknown>; create: Record<string, unknown> }) => Promise.resolve(siteSettingUpsert(opts)),
+  },
+  calculatorUsage: {
+    upsert: (opts: { where: Record<string, unknown>; update: Record<string, unknown>; create: Record<string, unknown> }) => Promise.resolve(calculatorUsageUpsert(opts)),
+  },
+  externalLink: {
+    findMany: (opts?: Parameters<typeof externalLinkFindMany>[0]) => Promise.resolve(externalLinkFindMany(opts || {})),
+    findUnique: (opts: { where: Record<string, unknown> }) => Promise.resolve(externalLinkFindUnique(opts)),
+    findFirst: (opts?: Parameters<typeof externalLinkFindFirst>[0]) => Promise.resolve(externalLinkFindFirst(opts || {})),
+    create: (opts: { data: Record<string, unknown> }) => Promise.resolve(externalLinkCreate(opts.data)),
+    update: (opts: { where: Record<string, unknown>; data: Record<string, unknown> }) => Promise.resolve(externalLinkUpdate(opts)),
+    delete: (opts: { where: Record<string, unknown> }) => Promise.resolve(externalLinkDelete(opts)),
+  },
+  user: {
+    findMany: (opts?: Record<string, unknown>) => Promise.resolve(userFindMany(opts)),
+    findUnique: (opts: { where: Record<string, unknown> }) => Promise.resolve(userFindUnique(opts)),
+  },
+  post: {
+    findMany: (opts?: Parameters<typeof postFindMany>[0]) => Promise.resolve(postFindMany(opts || {})),
+    findUnique: (opts: { where: Record<string, unknown> }) => Promise.resolve(postFindUnique(opts)),
+    create: (opts: { data: Record<string, unknown> }) => Promise.resolve(postCreate(opts.data)),
+    update: (opts: { where: Record<string, unknown>; data: Record<string, unknown> }) => Promise.resolve(postUpdate(opts)),
+  },
+};

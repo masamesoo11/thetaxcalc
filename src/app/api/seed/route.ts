@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
-import { db } from '@/lib/db';
-
 export const runtime = 'edge';
+
+
 
 /**
  * POST /api/seed
@@ -538,6 +538,7 @@ const externalLinks = [
 
 export async function POST() {
   try {
+    const { db } = await import('@/lib/db');
     const results = {
       posts: { created: 0, updated: 0 },
       ads: { created: 0, skipped: 0 },

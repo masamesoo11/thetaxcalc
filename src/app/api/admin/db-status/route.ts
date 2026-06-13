@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 
 export const runtime = 'edge';
 
+
 /**
  * GET /api/admin/db-status
  * Returns status indicating the site is running in static mode

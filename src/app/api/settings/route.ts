@@ -1,5 +1,4 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { db } from '@/lib/db';
 
 export const runtime = 'edge';
 
@@ -9,6 +8,7 @@ export const runtime = 'edge';
  */
 export async function GET() {
   try {
+    const { db } = await import('@/lib/db');
     const settings = await db.siteSetting.findMany();
 
     // Convert array to key-value map for easier consumption
@@ -35,6 +35,7 @@ export async function GET() {
  */
 export async function PUT(request: NextRequest) {
   try {
+    const { db } = await import('@/lib/db');
     const body = await request.json();
     const { settings } = body;
 
