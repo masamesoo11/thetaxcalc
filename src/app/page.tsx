@@ -37,9 +37,9 @@ import {
 // ─── Home Page Metadata ───────────────────────────────────────────────────────
 
 export const metadata: Metadata = {
-  title: 'Free Tax Calculator 2026 — Paycheck, Income & Take-Home Pay | All 50 States',
+  title: '2026 Tax Calculator — Paycheck & Take-Home Pay | 50 States',
   description:
-    'Free 2026 tax calculator for all 50 states. Compute paycheck take-home pay after federal, FICA & state income tax. Also sales tax, mortgage, 401(k), capital gains, self-employment & property tax calculators. No sign-up required.',
+    'Free 2026 tax calculator. Take-home pay after federal, FICA & state tax. 63 tools for all 50 states. No sign-up.',
   authors: [{ name: 'Rachel Mitchell, CPA', url: `${SITE_URL}/about#rachel-mitchell` }],
   alternates: {
     canonical: SITE_HOME_URL,
@@ -52,9 +52,9 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'Free 2026 Tax Calculator — Paycheck, Income & Sales Tax | All 50 States',
+    title: '2026 Tax Calculator — Paycheck & Take-Home Pay | 50 States',
     description:
-      'Free 2026 tax calculator. Paycheck take-home pay, income tax, sales tax, capital gains & self-employment. All 50 states. No sign-up.',
+      'Free 2026 tax calculator. Take-home pay after federal, FICA & state tax. 63 tools for all 50 states. No sign-up.',
     url: SITE_HOME_URL,
     siteName: 'TheTaxCalc',
     type: 'website',
@@ -70,9 +70,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Free 2026 Tax Calculator — Paycheck, Income & Sales Tax | All 50 States',
+    title: '2026 Tax Calculator — Paycheck & Take-Home Pay | 50 States',
     description:
-      'Free 2026 tax calculator. Paycheck take-home pay, income tax, sales tax, capital gains & self-employment. All 50 states. No sign-up.',
+      'Free 2026 tax calculator. Take-home pay after federal, FICA & state tax. 63 tools for all 50 states. No sign-up.',
     images: [`${SITE_URL}/opengraph-image.png`],
   },
 };
@@ -435,12 +435,12 @@ const homeJsonLd = {
     {
       '@id': `${SITE_URL}/#webpage`,
       '@type': 'WebPage',
-      name: 'TheTaxCalc — Free 2026 Tax & Paycheck Calculator',
+      name: '2026 Tax Calculator — Paycheck & Take-Home Pay | 50 States',
       description:
         'Free 2026 tax calculators — paycheck, mortgage, 401(k), capital gains, and self-employment. 63 tools covering all 50 states.',
       url: SITE_URL,
       inLanguage: 'en-US',
-      dateModified: '2026-06-06',
+      dateModified: '2026-06-14',
       author: { '@id': homeAuthorId },
       publisher: { '@id': `${SITE_URL}/#organization` },
       isPartOf: { '@id': `${SITE_URL}/#website` },
@@ -713,9 +713,9 @@ export default function HomePage() {
 
                   {/* Content */}
                   <div>
-                    <h3 className="text-lg font-semibold text-foreground group-hover:text-emerald-400 transition-colors">
+                    <p className="text-lg font-semibold text-foreground group-hover:text-emerald-400 transition-colors">
                       {card.title}
-                    </h3>
+                    </p>
                     <p className="mt-1.5 text-sm text-muted-foreground leading-relaxed">
                       {card.desc}
                     </p>
@@ -843,7 +843,7 @@ export default function HomePage() {
 
           <div className="grid gap-6 lg:grid-cols-3">
             <div className="lg:col-span-2 rounded-xl border border-border/30 bg-card/50 p-6">
-              <h3 className="text-lg font-semibold text-foreground mb-4">Example: 5 Employees at $75,000 in Illinois</h3>
+              <p className="text-lg font-semibold text-foreground mb-4">Example: 5 Employees at $75,000 in Illinois</p>
               <div className="space-y-3 text-sm">
                 <div className="flex justify-between">
                   <span className="text-muted-foreground">Base Salaries (5 × $75,000)</span>
@@ -874,7 +874,7 @@ export default function HomePage() {
             </div>
             <div className="flex flex-col gap-4">
               <div className="rounded-xl border border-emerald-500/30 bg-emerald-500/5 p-6 flex-1 flex flex-col justify-center">
-                <h3 className="text-lg font-semibold text-foreground">Employee Cost Calculator</h3>
+                <p className="text-lg font-semibold text-foreground">Employee Cost Calculator</p>
                 <p className="mt-2 text-sm text-muted-foreground">
                   Estimate your true payroll cost — salary + employer FICA, FUTA, SUTA, and benefits. All 50 states.
                 </p>
@@ -919,8 +919,9 @@ export default function HomePage() {
                 </p>
                 <p>
                   So we built the tools we wished existed. All our calculations use the latest 2026
-                  federal brackets, FICA rates, and state-specific tax laws — pulled straight from
-                  IRS publications and state revenue departments, not some third-party blog post.
+                  federal brackets, FICA rates, and state-specific tax laws — pulled straight from{' '}
+                  <a href="https://www.irs.gov/tax-professionals/annual-inflation-adjustments-for-2026" target="_blank" rel="noopener noreferrer" className="text-emerald-400 hover:text-emerald-300 underline underline-offset-2">IRS publications</a> and{' '}
+                  <a href="https://taxfoundation.org/state-tax-rates-2026/" target="_blank" rel="noopener noreferrer" className="text-emerald-400 hover:text-emerald-300 underline underline-offset-2">state revenue departments</a>, not some third-party blog post.
                 </p>
               </div>
               <ul className="mt-6 space-y-3">
@@ -940,7 +941,7 @@ export default function HomePage() {
               </Link>
             </div>
             <div className="rounded-2xl border border-border/30 bg-card/50 p-8">
-              <h3 className="text-lg font-semibold text-foreground mb-4">Example: $75,000 in Illinois</h3>
+              <p className="text-lg font-semibold text-foreground mb-4">Example: $75,000 in Illinois</p>
               <div className="space-y-3 text-sm">
                 <div className="flex justify-between">
                   <span className="text-muted-foreground">Gross Annual Salary</span>
@@ -1179,9 +1180,9 @@ export default function HomePage() {
                 className="group rounded-xl border border-border/30 bg-card/50 p-5 transition-all hover:border-emerald-500/30 hover-lift"
               >
                 <span className="text-[10px] font-semibold uppercase tracking-wider text-emerald-400">{post.category}</span>
-                <h3 className="mt-2 text-base font-semibold text-foreground group-hover:text-emerald-400 transition-colors leading-tight">
+                <p className="mt-2 text-base font-semibold text-foreground group-hover:text-emerald-400 transition-colors leading-tight">
                   {post.title}
-                </h3>
+                </p>
                 <p className="mt-3 text-xs text-emerald-400 group-hover:underline">Read Article →</p>
               </Link>
             ))}

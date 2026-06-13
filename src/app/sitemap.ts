@@ -12,7 +12,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = SITE_URL;
   // Updated dates — Google prefers consistent lastModified values
   const taxYearUpdate = '2026-01-01'; // Tax year 2026 data effective date
-  const siteUpdate = '2026-06-01';    // Latest site content update
+  const siteUpdate = '2026-06-14';    // Latest site content update
 
   const entries: MetadataRoute.Sitemap = [
     { url: baseUrl, lastModified: siteUpdate, changeFrequency: 'weekly', priority: 1.0 },
@@ -43,6 +43,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   entries.push({ url: `${baseUrl}/about`, lastModified: siteUpdate, changeFrequency: 'monthly', priority: 0.7 });
   entries.push({ url: `${baseUrl}/resources`, lastModified: siteUpdate, changeFrequency: 'monthly', priority: 0.9 });
   entries.push({ url: `${baseUrl}/widgets`, lastModified: siteUpdate, changeFrequency: 'monthly', priority: 0.85 });
+  entries.push({ url: `${baseUrl}/methodology`, lastModified: siteUpdate, changeFrequency: 'monthly', priority: 0.6 });
+  entries.push({ url: `${baseUrl}/tax-data`, lastModified: taxYearUpdate, changeFrequency: 'monthly', priority: 0.7 });
   entries.push({ url: `${baseUrl}/salary-comparison-calculator`, lastModified: taxYearUpdate, changeFrequency: 'monthly', priority: 0.92 });
   entries.push({ url: `${baseUrl}/job-offer-comparison-calculator`, lastModified: taxYearUpdate, changeFrequency: 'monthly', priority: 0.92 });
   entries.push({ url: `${baseUrl}/paycheck-difference-calculator`, lastModified: taxYearUpdate, changeFrequency: 'monthly', priority: 0.92 });
