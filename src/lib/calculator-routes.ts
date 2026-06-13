@@ -54,9 +54,9 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     description:
       'Free Illinois tax calculator for 2026. Calculate take-home pay after 4.95% flat state tax, $2,775 personal exemption, federal tax & FICA. No sign-up.',
     h1: 'Free Illinois Tax Calculator',
-    metaTitle: 'IL Tax Calculator 2026 | 4.95% Flat',
+    metaTitle: 'Illinois Income Tax 2026: 4.95% Flat Rate — Free Calculator',
     metaDesc:
-      'Free Illinois tax calculator 2026. Take-home pay after 4.95% flat tax and $2,775 exemption. No sign-up. 401(k) and HSA included.',
+      'Illinois charges a flat 4.95% income tax — on $75K that\'s ~$3,712. Calculate your exact take-home pay after IL tax, federal & FICA. Free 2026 calculator, no sign-up.',
     keywords: [
       'free Illinois tax calculator', 'Illinois tax calculator', 'IL paycheck calculator',
       'Illinois income tax', 'Illinois 4.95% tax', 'Illinois take home pay',
@@ -66,9 +66,9 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     componentKey: 'illinois',
     category: 'paycheck',
     breadcrumbLabel: 'Illinois',
-    ogTitle: 'Illinois Tax Calculator 2026 — 4.95% Flat Rate',
+    ogTitle: 'Illinois Income Tax 2026 — 4.95% Flat Rate Calculator',
     ogDescription:
-      'Free Illinois tax calculator. Take-home pay after 4.95% flat tax and $2,775 exemption. No sign-up. 2026 data.',
+      'IL flat 4.95% = ~$3,712 on $75K. See your exact take-home pay. Free 2026 calculator, no sign-up.',
     canonicalPath: '/illinois-tax-calculator',
     jsonLdType: 'illinois',
   },
@@ -442,9 +442,9 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     description:
       'Free property tax calculator for 2026. Calculate annual property tax for any US state with average effective rates. Includes homestead exemptions. No sign-up.',
     h1: 'Free Property Tax Calculator',
-    metaTitle: 'Free Property Tax Calculator 2026 | All 50 States',
+    metaTitle: 'Property Tax Calculator 2026: Annual Cost by State & Home Value',
     metaDesc:
-      'Free property tax calculator 2026. Calculate annual property tax for any US state with effective rates. No sign-up required.',
+      '$500K home in AZ = ~$6,750/year property tax. Same home in NJ = ~$14,250. Calculate your annual property tax by state & home value. Free 2026 calculator, all 50 states.',
     keywords: [
       'free property tax calculator', 'property tax calculator', 'property tax by state',
       'home property tax calculator', 'property tax rate', 'property tax estimator',
@@ -454,9 +454,9 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     componentKey: 'property-tax',
     category: 'mortgage',
     breadcrumbLabel: 'Property Tax',
-    ogTitle: 'Property Tax Calculator 2026 — All 50 States',
+    ogTitle: 'Property Tax Calculator 2026 — Annual Cost by State',
     ogDescription:
-      'Free property tax calculator. Calculate annual property tax for any US state. No sign-up.',
+      '$500K in AZ = ~$6,750/yr. $500K in NJ = ~$14,250/yr. Calculate your property tax by state. Free 2026 calculator.',
     canonicalPath: '/property-tax-calculator',
     jsonLdType: 'property-tax',
   },
@@ -634,9 +634,9 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     description:
       'Calculate your 2026 Arizona take-home pay after 2.5% flat state tax, federal tax & FICA. One of the lowest state rates. No sign-up.',
     h1: 'Free Arizona Tax Calculator',
-    metaTitle: 'AZ Tax Calculator 2026 | 2.5% Flat',
+    metaTitle: 'Arizona Income Tax 2026: 2.5% Flat Rate — Free Calculator',
     metaDesc:
-      'Free Arizona tax calculator 2026. Take-home pay after 2.5% flat tax. One of the lowest state rates. No sign-up.',
+      'Arizona charges just 2.5% flat income tax — one of the lowest rates in the US. On $75K that\'s ~$1,875. Calculate your exact AZ take-home pay. Free 2026 calculator, no sign-up.',
     keywords: [
       'free Arizona tax calculator', 'Arizona tax calculator', 'AZ paycheck calculator',
       'Arizona income tax', 'Arizona 2.5% tax', 'Arizona take home pay',
@@ -646,9 +646,9 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     componentKey: 'arizona',
     category: 'paycheck',
     breadcrumbLabel: 'Arizona',
-    ogTitle: 'Arizona Tax Calculator 2026 — 2.5% Flat Rate',
+    ogTitle: 'Arizona Income Tax 2026 — 2.5% Flat Rate Calculator',
     ogDescription:
-      'Free Arizona tax calculator. Take-home pay after 2.5% flat state tax. No sign-up. 2026 data.',
+      'AZ flat 2.5% = ~$1,875 on $75K. One of the lowest state rates. Free 2026 calculator, no sign-up.',
     canonicalPath: '/arizona-tax-calculator',
     jsonLdType: 'arizona',
   },

@@ -10,6 +10,7 @@ import {
   formatSalary,
   fmt,
 } from '@/lib/salary-calculations';
+import { calculateFederalTax, calculateFICA } from '@/lib/finance-utils';
 import { DynamicSalaryPage } from './dynamic-salary-page';
 import { getCalculatorAuthor, authorToJsonLd } from '@/lib/authors';
 import { AuthorBioCard } from '@/components/finance/author-bio-card';
@@ -38,8 +39,8 @@ export async function generateMetadata({
   const baseUrl = SITE_URL;
   const path = `/salary/${amountStr}`;
 
-  const title = `${formatted} After Tax in 2026 — Take-Home Pay by State`;
-  const description = `How much is ${formatted} after tax in 2026? See your real take-home pay by state — Texas, California, New York, Florida & more. Federal, FICA & state taxes included.`;
+  const title = `${formatted} After Taxes 2026: Take-Home Pay by State [Calculator]`;
+  const description = `How much is ${formatted} after taxes in 2026? On ${formatted} in Texas, you keep ~${fmt(salary - calculateFederalTax(salary, 'single') - calculateFICA(salary, 'single').total)} (no state tax). See your real take-home by state — TX, CA, NY, FL & more. Free calculator.`;
 
   return {
     title: { absolute: title },

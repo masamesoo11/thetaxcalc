@@ -128,6 +128,71 @@ export function parseComparisonSlug(slug: string): [string, string] | null {
   return [state1, state2];
 }
 
+// ─── CTR-Optimized Custom Meta for High-Impression Comparisons ──────────────────
+
+const CUSTOM_COMPARE_META: Record<string, { metaTitle: string; metaDesc: string; ogTitle: string; ogDescription: string }> = {
+  'california-vs-new-york': {
+    metaTitle: 'California vs New York Taxes 2026: Side-by-Side Breakdown',
+    metaDesc: 'CA tops out at 13.3% vs NY 10.9% — but NYC adds 3.876% city tax. See exact take-home pay at $75K & $150K for both states. Free 2026 calculator.',
+    ogTitle: 'California vs New York Taxes 2026 — Who Pays More?',
+    ogDescription: 'CA 13.3% vs NY 10.9% + NYC 3.876%. See your take-home pay difference at $75K & $150K. Free 2026 comparison calculator.',
+  },
+  'texas-vs-florida': {
+    metaTitle: 'Texas vs Florida Taxes 2026: No-Income-Tax States Compared',
+    metaDesc: 'Both have 0% income tax — but TX property tax is 1.71% vs FL 0.86%. See which state actually saves you more at $75K & $150K. Free 2026 calculator.',
+    ogTitle: 'Texas vs Florida Taxes 2026 — Which Saves You More?',
+    ogDescription: 'Both 0% income tax, but TX property tax is 2x FL. See real take-home pay difference at $75K & $150K. Free 2026 calculator.',
+  },
+  'illinois-vs-texas': {
+    metaTitle: 'Illinois vs Texas Taxes 2026: Save $4,200+/Year in TX',
+    metaDesc: 'IL charges 4.95% flat income tax vs TX 0%. On $85K salary, you keep $4,200+ more in Texas. See the full breakdown: income, property & sales tax. Free calculator.',
+    ogTitle: 'Illinois vs Texas — Save $4,200+/Year in TX (2026)',
+    ogDescription: 'IL 4.95% vs TX 0% income tax. Keep $4,200+ more in Texas on $85K. Full side-by-side 2026 comparison.',
+  },
+  'illinois-vs-florida': {
+    metaTitle: 'Illinois vs Florida Taxes 2026: Save $4,000+/Year in FL',
+    metaDesc: 'IL charges 4.95% flat income tax vs FL 0%. On $85K salary, Florida saves you $4,000+/year. Compare income, property & sales tax side by side. Free 2026 calculator.',
+    ogTitle: 'Illinois vs Florida — Save $4,000+/Year in FL (2026)',
+    ogDescription: 'IL 4.95% vs FL 0% income tax. Keep $4,000+ more in Florida on $85K. Full side-by-side 2026 comparison.',
+  },
+  'illinois-vs-california': {
+    metaTitle: 'Illinois vs California Taxes 2026: Flat 4.95% vs 13.3%',
+    metaDesc: 'IL flat 4.95% vs CA progressive up to 13.3%. On $100K salary, IL saves you ~$5,500/year. See full income, property & sales tax breakdown. Free 2026 calculator.',
+    ogTitle: 'Illinois vs California — Flat 4.95% vs 13.3% (2026)',
+    ogDescription: 'IL 4.95% vs CA up to 13.3%. Save ~$5,500/year in IL on $100K. Full 2026 tax comparison.',
+  },
+  'illinois-vs-new-york': {
+    metaTitle: 'Illinois vs New York Taxes 2026: 4.95% Flat vs 10.9% Progressive',
+    metaDesc: 'IL flat 4.95% vs NY up to 10.9% + NYC tax. On $100K, IL saves ~$3,800/year vs NY state. Full income, property & sales tax side-by-side. Free 2026 calculator.',
+    ogTitle: 'Illinois vs New York — 4.95% vs 10.9% (2026)',
+    ogDescription: 'IL 4.95% vs NY up to 10.9%. Save ~$3,800/year in IL on $100K. Full 2026 comparison.',
+  },
+  'texas-vs-california': {
+    metaTitle: 'Texas vs California Taxes 2026: 0% vs 13.3% Income Tax',
+    metaDesc: 'TX 0% income tax vs CA up to 13.3%. On $100K salary, Texas saves you ~$8,400/year. See full breakdown including property & sales tax. Free 2026 calculator.',
+    ogTitle: 'Texas vs California — 0% vs 13.3% Income Tax (2026)',
+    ogDescription: 'TX 0% vs CA 13.3%. Save ~$8,400/year in Texas on $100K. Full 2026 comparison.',
+  },
+  'texas-vs-new-york': {
+    metaTitle: 'Texas vs New York Taxes 2026: 0% vs 10.9% Income Tax',
+    metaDesc: 'TX 0% income tax vs NY up to 10.9% + NYC 3.876%. On $100K, Texas saves ~$6,800/year. Full income, property & sales tax side-by-side. Free 2026 calculator.',
+    ogTitle: 'Texas vs New York — 0% vs 10.9% Income Tax (2026)',
+    ogDescription: 'TX 0% vs NY 10.9% + NYC tax. Save ~$6,800/year in Texas on $100K. Full 2026 comparison.',
+  },
+  'florida-vs-california': {
+    metaTitle: 'Florida vs California Taxes 2026: 0% vs 13.3% Income Tax',
+    metaDesc: 'FL 0% income tax vs CA up to 13.3%. On $100K salary, Florida saves ~$8,400/year. Compare income, property & sales tax. Free 2026 calculator.',
+    ogTitle: 'Florida vs California — 0% vs 13.3% Income Tax (2026)',
+    ogDescription: 'FL 0% vs CA 13.3%. Save ~$8,400/year in Florida on $100K. Full 2026 comparison.',
+  },
+  'florida-vs-new-york': {
+    metaTitle: 'Florida vs New York Taxes 2026: 0% vs 10.9% Income Tax',
+    metaDesc: 'FL 0% income tax vs NY up to 10.9% + NYC 3.876%. On $100K, Florida saves ~$6,800/year. Full income, property & sales tax breakdown. Free 2026 calculator.',
+    ogTitle: 'Florida vs New York — 0% vs 10.9% Income Tax (2026)',
+    ogDescription: 'FL 0% vs NY 10.9% + NYC tax. Save ~$6,800/year in Florida on $100K. Full 2026 comparison.',
+  },
+};
+
 // ─── Generate SEO metadata for each comparison ───────────────────────────────
 
 function buildCompareConfig(slug: string): CompareConfig | null {
@@ -138,12 +203,15 @@ function buildCompareConfig(slug: string): CompareConfig | null {
   const s1 = COMPARE_STATES[key1];
   const s2 = COMPARE_STATES[key2];
 
+  // Use CTR-optimized custom meta if available, otherwise fall back to generic
+  const customMeta = CUSTOM_COMPARE_META[slug];
+
   return {
     slug,
     state1: s1,
     state2: s2,
-    metaTitle: `${s1.name} vs ${s2.name} Taxes 2026 | Compare`,
-    metaDesc: `${s1.name} vs ${s2.name} taxes compared: see your take-home pay difference at $75K & $150K. Income tax, property tax, sales tax — all 2026 numbers.`,
+    metaTitle: customMeta?.metaTitle ?? `${s1.name} vs ${s2.name} Taxes 2026 | Compare`,
+    metaDesc: customMeta?.metaDesc ?? `${s1.name} vs ${s2.name} taxes compared: see your take-home pay difference at $75K & $150K. Income tax, property tax, sales tax — all 2026 numbers.`,
     h1: `${s1.name} vs ${s2.name} Tax Comparison`,
     keywords: [
       `${s1.name.toLowerCase()} vs ${s2.name.toLowerCase()} taxes`,
@@ -155,8 +223,8 @@ function buildCompareConfig(slug: string): CompareConfig | null {
       `move from ${s1.name} to ${s2.name} taxes`,
       `relocate ${s1.name} to ${s2.name} salary`,
     ],
-    ogTitle: `${s1.name} vs ${s2.name} — Which State Saves You More in 2026?`,
-    ogDescription: `${s1.name} vs ${s2.name} take-home pay comparison. See real dollar differences at $75K & $150K salaries for 2026.`,
+    ogTitle: customMeta?.ogTitle ?? `${s1.name} vs ${s2.name} — Which State Saves You More in 2026?`,
+    ogDescription: customMeta?.ogDescription ?? `${s1.name} vs ${s2.name} take-home pay comparison. See real dollar differences at $75K & $150K salaries for 2026.`,
     faqs: buildFaqs(s1, s2),
   };
 }
