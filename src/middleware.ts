@@ -72,9 +72,12 @@ export async function middleware(request: NextRequest) {
   response.headers.set('Content-Security-Policy', `default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://pagead2.googlesyndication.com https://tpc.googlesyndication.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https://www.google-analytics.com https://www.googletagmanager.com https://pagead2.googlesyndication.com https://tpc.googlesyndication.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://www.google-analytics.com https://pagead2.googlesyndication.com; frame-src https://googleads.g.doubleclick.net; ${frameAncestors}; base-uri 'self'; form-action 'self';`);
 
   // Cache for HTML pages — CDN edge caching for Cloudflare Pages
+  // Must delete Next.js default Cache-Control (max-age=0) before setting ours,
+  // otherwise Next.js overwrites it AFTER middleware runs on Cloudflare Pages.
   const isHtmlPage = !pathname.startsWith('/_next') && !pathname.startsWith('/api') && !pathname.startsWith('/admin') && !pathname.match(/\.(svg|png|jpg|jpeg|gif|webp|ico|xml|json|txt|css|js|woff2?|ttf|eot)$/);
   if (isHtmlPage) {
-    response.headers.set('Cache-Control', 'public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800');
+    response.headers.delete('Cache-Control');
+    response.headers.set('Cache-Control', 'public, s-maxage=86400, stale-while-revalidate=604800');
   }
 
   // Check if this is a public API route (always allow)
