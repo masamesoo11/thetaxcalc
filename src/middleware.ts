@@ -48,6 +48,14 @@ export async function middleware(request: NextRequest) {
     );
   }
 
+  // /tax-calculator → /paycheck-calculator (generic "tax calculator" searches)
+  if (pathname === '/tax-calculator') {
+    return NextResponse.redirect(
+      new URL('/paycheck-calculator', request.url),
+      301
+    );
+  }
+
   // ─── Check embed mode ─────────────────────────────────────────────────────
   const isEmbed = request.nextUrl.searchParams.get('embed') === '1';
 

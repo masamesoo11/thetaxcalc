@@ -1,8 +1,6 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
-import { useSearchParams } from 'next/navigation';
-import { Suspense } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Header } from './header';
 import { Footer } from './footer';
 import { ProductHuntBanner } from './product-hunt-banner';
@@ -13,21 +11,30 @@ import { trackEmbedView } from '@/lib/analytics';
  * When ?embed=1 is in the URL, it hides navigation elements and shows
  * only the calculator content with a "Powered by TheTaxCalc" badge.
  * Also tracks embed views in GA4.
+ *
+ * IMPORTANT: We intentionally avoid useSearchParams() here because it triggers
+ * a React Suspense boundary that prevents ALL page content (including
+ * server-rendered H1s and SEO content) from appearing in the initial HTML.
+ * Instead, we detect embed mode via window.location.search in useEffect,
+ * which runs only on the client after hydration — preserving SSR HTML for SEO.
  */
 function SiteShellInner({ children }: { children: React.ReactNode }) {
-  const searchParams = useSearchParams();
-  const isEmbed = searchParams.get('embed') === '1';
+  const [isEmbed, setIsEmbed] = useState(false);
   const embedTrackedRef = useRef(false);
 
-  // Track embed views in GA4 (fire once per page load)
   useEffect(() => {
-    if (isEmbed && !embedTrackedRef.current) {
+    // Detect embed mode from URL query string (client-only, no Suspense needed)
+    const params = new URLSearchParams(window.location.search);
+    const embed = params.get('embed') === '1';
+    setIsEmbed(embed);
+
+    // Track embed views in GA4 (fire once per page load)
+    if (embed && !embedTrackedRef.current) {
       embedTrackedRef.current = true;
-      // Extract the calculator slug from the pathname
       const slug = window.location.pathname.replace(/^\//, '');
       trackEmbedView(slug || 'unknown');
     }
-  }, [isEmbed]);
+  }, []);
 
   if (isEmbed) {
     return (
@@ -66,15 +73,5 @@ function SiteShellInner({ children }: { children: React.ReactNode }) {
 }
 
 export function SiteShell({ children }: { children: React.ReactNode }) {
-  return (
-    <Suspense
-      fallback={
-        <div className="min-h-screen flex flex-col bg-background bg-mesh">
-          <main className="flex-1">{children}</main>
-        </div>
-      }
-    >
-      <SiteShellInner>{children}</SiteShellInner>
-    </Suspense>
-  );
+  return <SiteShellInner>{children}</SiteShellInner>;
 }

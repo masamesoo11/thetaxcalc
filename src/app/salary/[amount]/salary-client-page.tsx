@@ -133,9 +133,7 @@ export function SalaryClientPage({ amountStr }: SalaryClientPageProps) {
               2026 Tax Year
             </span>
           </div>
-          <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
-            {calc.salaryFormatted} After Tax in 2026
-          </h1>
+          {/* H1 is now server-rendered in page.tsx to ensure it's in the initial HTML for SEO */}
           {/* Explicit take-home number for CTR — the #1 thing users search for */}
           <p className="mt-4 text-2xl font-semibold">
             <span className="text-foreground">{calc.salaryFormatted}/year in Texas = </span>

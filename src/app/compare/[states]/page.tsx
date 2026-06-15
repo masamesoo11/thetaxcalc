@@ -153,6 +153,13 @@ export default async function CompareStatesPage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
+      {/* H1 — Server-rendered for SEO (client component uses ssr:false) */}
+      <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+        <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+          {s1.name} vs {s2.name} <span className="gradient-text">Tax Comparison</span>
+        </h1>
+      </div>
+
       {/* Interactive Client Component with Filing Status selector */}
       <DynamicComparePage states={states} />
 

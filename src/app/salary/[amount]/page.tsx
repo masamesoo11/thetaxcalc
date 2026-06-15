@@ -174,6 +174,7 @@ export default async function SalaryAmountPage({
   const jsonLd = generateJsonLd(salary);
   const canonicalSlug = salaryToSlug(salary);
   const isLegacy = isLegacySalarySlug(amountStr);
+  const salaryFormatted = formatSalary(salary);
 
   return (
     <>
@@ -187,6 +188,13 @@ export default async function SalaryAmountPage({
       {isLegacy && (
         <link rel="canonical" href={`${SITE_URL}/salary/${canonicalSlug}`} />
       )}
+
+      {/* H1 — Server-rendered for SEO (client component uses ssr:false) */}
+      <div className="mx-auto max-w-7xl px-4 pt-8 sm:px-6 lg:px-8">
+        <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
+          {salaryFormatted} After Tax in 2026
+        </h1>
+      </div>
 
       {/* Interactive Client Component with Filing Status & NYC toggle */}
       <DynamicSalaryPage amountStr={amountStr} />

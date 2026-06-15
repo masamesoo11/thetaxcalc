@@ -200,9 +200,7 @@ export function CompareClientPage({ states }: CompareClientPageProps) {
           <ArrowRightLeft className="h-3.5 w-3.5" />
           2026 Tax Year
         </div>
-        <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-          {s1.name} vs {s2.name} <span className="gradient-text">Tax Comparison</span>
-        </h1>
+        {/* H1 is now server-rendered in page.tsx to ensure it's in the initial HTML for SEO */}
         <p className="mt-3 max-w-3xl text-lg text-muted-foreground leading-relaxed">
           Look, if you're torn between {s1.name} and {s2.name}, you're probably wondering which one's going to take a bigger bite out of your paycheck. ({s1.incomeTaxLabel} vs {s2.incomeTaxLabel} — yeah, it matters.) We crunched the numbers at $75K and $150K so you don't have to. Spoiler: the difference might surprise you.
         </p>
