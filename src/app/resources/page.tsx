@@ -404,7 +404,7 @@ export default function ResourcesPage() {
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {[
             { label: 'Federal Brackets', value: '7 rates', detail: '3 filing statuses' },
-            { label: 'States Covered', value: '7', detail: 'IL, TX, FL, CA, NY, GA, VA' },
+            { label: 'States Covered', value: '50', detail: 'All US states' },
             { label: 'SS Wage Base', value: '$184,500', detail: '6.2% OASDI' },
             { label: '401(k) Limit', value: '$23,500', detail: '+$7,500 catch-up' },
           ].map((stat) => (

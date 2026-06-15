@@ -508,7 +508,7 @@ const homeJsonLd = {
       '@id': `${SITE_URL}/#itemlist`,
       '@type': 'ItemList',
       name: 'Free 2026 Tax Calculators',
-      description: '63 free tax calculators for 2026 covering paycheck, state tax, mortgage, retirement, and more.',
+      description: '64 free tax calculators for 2026 covering paycheck, state tax, mortgage, retirement, and more.',
       numberOfItems: 64,
       itemListElement: [
         { '@type': 'ListItem', position: 1, name: 'Paycheck Calculator', url: `${SITE_URL}/paycheck-calculator` },

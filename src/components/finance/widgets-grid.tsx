@@ -781,7 +781,7 @@ export function WidgetsGrid() {
           <Download className="h-4 w-4 text-emerald-400 shrink-0 mt-0.5" />
           <p>
             Want raw data? Visit our{' '}
-            <Link href="/resources" className="text-emerald-400 hover:text-emerald-300 underline underline-offset-2">
+            <Link href="/tax-data" className="text-emerald-400 hover:text-emerald-300 underline underline-offset-2">
               Tax Data &amp; Resources
             </Link>{' '}
             page for free, citable 2026 tax brackets, FICA rates, and more. Every section has a &ldquo;Cite this data&rdquo; button.

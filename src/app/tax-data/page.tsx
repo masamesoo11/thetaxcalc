@@ -789,7 +789,7 @@ export default function TaxDataPage() {
                 { href: '/compare', label: 'Compare State Taxes' },
                 { href: '/salary', label: 'Salary After Tax' },
                 { href: '/federal-tax-brackets', label: '2026 Tax Brackets' },
-                { href: '/resources', label: 'Tax Data & Resources' },
+                { href: '/methodology', label: 'Methodology & Data Sources' },
               ].map((item) => (
                 <Link
                   key={item.href}

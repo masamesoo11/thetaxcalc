@@ -424,9 +424,9 @@ export function CalculatorContentClient({ jsonLdType }: CalculatorContentClientP
       {/* Frequently Asked Questions */}
       {content.faqs.length > 0 && (
         <section>
-          <p className="text-2xl font-bold text-foreground mb-6">
+          <h2 className="text-2xl font-bold text-foreground mb-6">
             {getFaqHeading(jsonLdType)}
-          </p>
+          </h2>
           <div className="space-y-3">
             {content.faqs.map((faq, i) => (
               <details
@@ -457,9 +457,9 @@ export function CalculatorContentClient({ jsonLdType }: CalculatorContentClientP
       {/* Related Calculators */}
       {content.relatedCalculators.length > 0 && (
         <section className="rounded-xl border border-border/30 bg-card/50 p-6 sm:p-8">
-          <p className="text-lg font-semibold text-foreground mb-4">
+          <h2 className="text-lg font-semibold text-foreground mb-4">
             Related Calculators
-          </p>
+          </h2>
           <div className="flex flex-wrap gap-3">
             {content.relatedCalculators.map((calc) => (
               <Link

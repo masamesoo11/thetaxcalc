@@ -51,7 +51,7 @@ const ABOUT_FAQS = [
   { question: 'Is TheTaxCalc really free? What\'s the catch?', answer: 'No catch. Because all calculations run in your browser and we don\'t store any of your data, our server costs are minimal. No premium tiers, no paywalls, no "unlock full results for $9.99." Just free calculators.' },
   { question: 'How accurate are the calculations?', answer: 'We use the same data the IRS and state revenue departments publish — the 2026 brackets, standard deductions, FICA rates, the works. Every methodology is reviewed by tax professionals. Our tools give you solid estimates, not guarantees. For filing your actual return, talk to a CPA.' },
   { question: 'Does TheTaxCalc store my salary or financial data?', answer: 'Nope. When you type your salary into one of our calculators, that number stays in your browser. It never gets sent to our servers. We don\'t have accounts, we don\'t use tracking cookies on calculations, and we couldn\'t tie your data to you even if we wanted to.' },
-  { question: 'Do you cover all 50 states?', answer: 'Yes. We cover 23 states with dedicated income tax calculators and all 50 states for sales tax — from zero-income-tax states (TX, FL, WA, NV, WY, AK, SD, NH, TN) to the highest-tax states (CA, NY), plus flat-tax states (IL, CO, IN, PA, MI, MA) and progressive states across the country. Every state has its own calculator with local rates and rules.' },
+  { question: 'Do you cover all 50 states?', answer: 'Yes. We cover all 50 states with dedicated income tax calculators and all 50 states for sales tax — from zero-income-tax states (TX, FL, WA, NV, WY, AK, SD, NH, TN) to the highest-tax states (CA, NY), plus flat-tax states (IL, CO, IN, PA, MI, MA) and progressive states across the country. Every state has its own calculator with local rates and rules.' },
   { question: 'When do you update tax brackets?', answer: 'As soon as the IRS and state revenue departments publish new figures — usually late Q4 or early Q1. Our 2026 data is current as of January 2026.' },
   { question: 'Can I use this to file my taxes?', answer: 'Please don\'t. Our calculators are for estimation and planning. When it\'s time to actually file, use real tax preparation software or work with a CPA who knows your situation. We\'re a starting point, not a substitute.' },
 ];
@@ -124,8 +124,8 @@ const VALUES = [
 ];
 
 const TEAM_STATS = [
-  { value: '20', label: 'Free Calculators', icon: Calculator },
-  { value: '7', label: 'State Profiles', icon: Globe },
+  { value: '64', label: 'Free Calculators', icon: Calculator },
+  { value: '50', label: 'State Profiles', icon: Globe },
   { value: '2026', label: 'Tax Year Data', icon: BarChart3 },
   { value: '0', label: 'Data Stored', icon: Shield },
 ];
@@ -188,7 +188,7 @@ export default function AboutPage() {
           <p>
             TheTaxCalc started as a weekend project — a single paycheck calculator that actually
             used current tax data and didn&apos;t try to sell you anything. It turns out a lot of people
-            wanted exactly that. Today we have 20 calculators covering paycheck estimation, mortgage
+            wanted exactly that. Today we have 64 calculators covering paycheck estimation, mortgage
             amortization, 401(k) projections, capital gains, self-employment taxes, sales tax,
             overtime, lottery, bonus, property tax, IRS withholding, and side-by-side
             state comparisons — all updated for the 2026 tax year.
@@ -254,7 +254,7 @@ export default function AboutPage() {
         </h2>
         <div className="text-sm text-muted-foreground leading-relaxed space-y-4">
           <p>
-            We cover 23 states with dedicated income tax calculators, plus
+            We cover all 50 states with dedicated income tax calculators, plus
             sales tax data for all 50 states. Each state profile includes not just the income
             tax rate, but property tax context, sales tax data, and retirement-friendliness notes.
             Here are some of our most popular states:
@@ -287,7 +287,7 @@ export default function AboutPage() {
             ))}
           </div>
           <p className="mt-2">
-            We now cover 23 states with dedicated income tax calculators — from zero-income-tax states
+            We now cover all 50 states with dedicated income tax calculators — from zero-income-tax states
             (TX, FL, WA, NV, WY, AK, SD, NH, TN) to the highest-tax states in the
             country (CA, NY), with flat-tax states (IL, CO, IN, PA) and progressive states across the country.
             Plus, our <Link href="/sales-tax-calculator" className="text-emerald-400 hover:text-emerald-300 underline">Sales Tax Calculator</Link> covers
@@ -565,7 +565,7 @@ export default function AboutPage() {
             },
             {
               q: 'Do you cover all 50 states?',
-              a: 'Yes. We cover 23 states with dedicated income tax calculators — from zero-income-tax states (TX, FL, WA, NV, WY, AK, SD, NH, TN) to the highest-tax states (CA, NY), plus flat-tax states (IL, CO, IN, PA, MI, MA) and progressive states across the country. Each state has its own calculator with dedicated brackets, exemptions, property tax data, and retirement considerations. We also cover all 50 states for sales tax calculations.',
+              a: 'Yes. We cover all 50 states with dedicated income tax calculators — from zero-income-tax states (TX, FL, WA, NV, WY, AK, SD, NH, TN) to the highest-tax states (CA, NY), plus flat-tax states (IL, CO, IN, PA, MI, MA) and progressive states across the country. Each state has its own calculator with dedicated brackets, exemptions, property tax data, and retirement considerations. We also cover all 50 states for sales tax calculations.',
             },
             {
               q: 'When do you update tax brackets?',

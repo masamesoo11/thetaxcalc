@@ -319,9 +319,6 @@ export function Footer() {
               <Link href="/tax-data" className="underline underline-offset-2 decoration-border/50 hover:text-emerald-400 hover:decoration-emerald-400 transition-colors">
                 Tax Data
               </Link>
-              <Link href="/tax-data" className="underline underline-offset-2 decoration-border/50 hover:text-emerald-400 hover:decoration-emerald-400 transition-colors">
-                Tax Statistics
-              </Link>
               <Link href="/widgets" className="underline underline-offset-2 decoration-border/50 hover:text-emerald-400 hover:decoration-emerald-400 transition-colors">
                 Free Widgets
               </Link>
