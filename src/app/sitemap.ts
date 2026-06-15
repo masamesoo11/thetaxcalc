@@ -41,10 +41,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   entries.push({ url: `${baseUrl}/freefile-irs`, lastModified: taxYearUpdate, changeFrequency: 'monthly', priority: 0.95 });
   entries.push({ url: `${baseUrl}/home-sale-tax-calculator`, lastModified: taxYearUpdate, changeFrequency: 'monthly', priority: 0.95 });
   entries.push({ url: `${baseUrl}/about`, lastModified: siteUpdate, changeFrequency: 'monthly', priority: 0.7 });
-  entries.push({ url: `${baseUrl}/resources`, lastModified: siteUpdate, changeFrequency: 'monthly', priority: 0.9 });
+  entries.push({ url: `${baseUrl}/tax-data`, lastModified: siteUpdate, changeFrequency: 'monthly', priority: 0.9 });
   entries.push({ url: `${baseUrl}/widgets`, lastModified: siteUpdate, changeFrequency: 'monthly', priority: 0.85 });
   entries.push({ url: `${baseUrl}/methodology`, lastModified: siteUpdate, changeFrequency: 'monthly', priority: 0.6 });
-  entries.push({ url: `${baseUrl}/tax-data`, lastModified: taxYearUpdate, changeFrequency: 'monthly', priority: 0.7 });
   entries.push({ url: `${baseUrl}/salary-comparison-calculator`, lastModified: taxYearUpdate, changeFrequency: 'monthly', priority: 0.92 });
   entries.push({ url: `${baseUrl}/job-offer-comparison-calculator`, lastModified: taxYearUpdate, changeFrequency: 'monthly', priority: 0.92 });
   entries.push({ url: `${baseUrl}/paycheck-difference-calculator`, lastModified: taxYearUpdate, changeFrequency: 'monthly', priority: 0.92 });

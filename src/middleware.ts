@@ -56,6 +56,14 @@ export async function middleware(request: NextRequest) {
     );
   }
 
+  // /resources → /tax-data (consolidated to /tax-data which is in main nav + has interactive charts)
+  if (pathname === '/resources') {
+    return NextResponse.redirect(
+      new URL('/tax-data', request.url),
+      301
+    );
+  }
+
   // ─── Check embed mode ─────────────────────────────────────────────────────
   const isEmbed = request.nextUrl.searchParams.get('embed') === '1';
 

@@ -444,7 +444,7 @@ export default async function MortgageCalculatorPage() {
                 📎 Free Embed Widgets
               </Link>
               <Link
-                href="/resources"
+                href="/tax-data"
                 className="inline-flex items-center gap-1.5 rounded-lg border border-border/50 px-3 py-1.5 text-sm text-muted-foreground hover:text-emerald-400 hover:border-emerald-500/30 transition-all"
               >
                 📊 Tax Data & Rates

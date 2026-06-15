@@ -124,10 +124,10 @@ export default function MethodologyPage() {
           State Income Tax
         </h2>
         <p className="text-muted-foreground leading-relaxed mb-4">
-          State income tax calculations vary significantly by state. We support all
-          50 states with the following approach: for states with progressive bracket
-          systems (e.g., California, New York, Georgia), we apply each state&rsquo;s
-          published brackets to state taxable income. For flat-tax states (e.g.,
+          State income tax calculations vary significantly by state. We support 23
+          states with dedicated income tax calculators, plus all 50 states for sales
+          tax. For states with progressive bracket systems (e.g., California, New York, Georgia),
+          we apply each state&rsquo;s published brackets to state taxable income. For flat-tax states (e.g.,
           Illinois at 4.95%, Pennsylvania at 3.07%), we apply a single rate. For
           states with no individual income tax (e.g., Texas, Florida, Washington,
           Tennessee, Wyoming, Nevada, South Dakota, Alaska, New Hampshire), the state

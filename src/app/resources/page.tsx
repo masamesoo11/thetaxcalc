@@ -192,7 +192,7 @@ const STANDARD_DEDUCTIONS = [
 
 const RETIREMENT_LIMITS = [
   { plan: '401(k) / 403(b) / 457', limit: '$23,500', catchUp: '$7,500 (age 50+)', notes: '' },
-  { plan: 'Enhanced Catch-up', limit: '—', catchUp: '$11,250 (age 60–63)', notes: 'New under SECURE 2.0' },
+  { plan: 'Enhanced Catch-up', limit: '$23,500', catchUp: '$11,250 (age 60–63)', notes: 'New under SECURE 2.0' },
   { plan: 'Traditional & Roth IRA', limit: '$7,000', catchUp: '$1,000 (age 50+)', notes: '' },
   { plan: 'HSA — Individual', limit: '$4,300', catchUp: '$1,000 (age 55+)', notes: '' },
   { plan: 'HSA — Family', limit: '$8,550', catchUp: '$1,000 (age 55+)', notes: '' },
@@ -777,7 +777,7 @@ export default function ResourcesPage() {
                 <span className="h-1.5 w-1.5 rounded-full bg-emerald-500/60 shrink-0 mt-2" />
                 <span>
                   <strong className="text-foreground">Federal tax brackets</strong> — IRS Revenue
-                  Procedure for annual inflation adjustments (Rev. Proc. 2025-XX)
+                  Procedure for annual inflation adjustments (Rev. Proc. 2025-32)
                 </span>
               </li>
               <li className="flex items-start gap-2">

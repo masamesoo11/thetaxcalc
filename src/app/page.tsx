@@ -39,7 +39,7 @@ import {
 export const metadata: Metadata = {
   title: '2026 Tax Calculator — Paycheck & Take-Home Pay | 50 States',
   description:
-    'Free 2026 tax calculator. Take-home pay after federal, FICA & state tax. 63 tools for all 50 states. No sign-up.',
+    'Free 2026 tax calculator. Take-home pay after federal, FICA & state tax. 64 tools & 50-state sales tax data. No sign-up.',
   authors: [{ name: 'Rachel Mitchell, CPA', url: `${SITE_URL}/about#rachel-mitchell` }],
   alternates: {
     canonical: SITE_HOME_URL,
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: '2026 Tax Calculator — Paycheck & Take-Home Pay | 50 States',
     description:
-      'Free 2026 tax calculator. Take-home pay after federal, FICA & state tax. 63 tools for all 50 states. No sign-up.',
+      'Free 2026 tax calculator. Take-home pay after federal, FICA & state tax. 64 tools & 50-state sales tax data. No sign-up.',
     url: SITE_HOME_URL,
     siteName: 'TheTaxCalc',
     type: 'website',
@@ -72,7 +72,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: '2026 Tax Calculator — Paycheck & Take-Home Pay | 50 States',
     description:
-      'Free 2026 tax calculator. Take-home pay after federal, FICA & state tax. 63 tools for all 50 states. No sign-up.',
+      'Free 2026 tax calculator. Take-home pay after federal, FICA & state tax. 64 tools & 50-state sales tax data. No sign-up.',
     images: [`${SITE_URL}/opengraph-image.png`],
   },
 };
@@ -437,7 +437,7 @@ const homeJsonLd = {
       '@type': 'WebPage',
       name: '2026 Tax Calculator — Paycheck & Take-Home Pay | 50 States',
       description:
-        'Free 2026 tax calculators — paycheck, mortgage, 401(k), capital gains, and self-employment. 63 tools covering all 50 states.',
+        'Free 2026 tax calculators — paycheck, mortgage, 401(k), capital gains, and self-employment. 64 tools & 50-state sales tax data.',
       url: SITE_URL,
       inLanguage: 'en-US',
       dateModified: '2026-06-14',
@@ -485,7 +485,7 @@ const homeJsonLd = {
         {
           '@type': 'HowToStep',
           name: 'Select Your State',
-          text: 'Choose your state — we cover all 50 states including IL (4.95%), TX (0%), FL (0%), CA (1%–13.3%), NY (4%–10.9%), and more.',
+          text: 'Choose your state — we cover 23 states with dedicated income tax calculators and all 50 states for sales tax, including IL (4.95%), TX (0%), FL (0%), CA (1%–13.3%), NY (4%–10.9%), and more.',
         },
         {
           '@type': 'HowToStep',
@@ -672,7 +672,7 @@ export default function HomePage() {
               </span>
               <span className="flex items-center gap-1.5">
                 <Globe className="h-4 w-4 text-emerald-400" />
-                50 State Profiles
+                23+ State Profiles
               </span>
             </div>
           </div>
@@ -784,7 +784,7 @@ export default function HomePage() {
               What&apos;s Your <span className="gradient-text">Take-Home Pay</span> After Taxes?
             </h2>
             <p className="mt-3 text-muted-foreground max-w-xl mx-auto">
-              Select your salary to see exact take-home pay across all 50 states — including Illinois, Texas, Florida, California, and New York.
+              Select your salary to see exact take-home pay across 23 states — including Illinois, Texas, Florida, California, and New York.
             </p>
           </div>
 

@@ -71,7 +71,7 @@ export const metadata: Metadata = {
 const SALARY_LANDING_FAQS = [
   {
     question: 'How much is my salary after taxes in 2026?',
-    answer: 'Your take-home pay depends on your salary, filing status, and state. For example, a single filer earning $75,000 in Texas (0% state tax) takes home about $61,592 after federal tax and FICA. The same salary in California (up to 13.3% state tax) leaves you with about $54,849. That\'s a difference of over $6,700 per year just from your state. Our salary pages show you exact take-home numbers for 26 salary levels across 5 states.',
+    answer: 'Your take-home pay depends on your salary, filing status, and state. For example, a single filer earning $75,000 in Texas (0% state tax) takes home about $61,592 after federal tax and FICA. The same salary in California (up to 13.3% state tax) leaves you with about $54,849. That\'s a difference of over $6,700 per year just from your state. Our salary pages show you exact take-home numbers for 26 salary levels across 23 states.',
   },
   {
     question: 'Which state has the highest take-home pay?',
@@ -122,7 +122,7 @@ const salaryPageJsonLd = {
       '@id': `${SITE_URL}/salary#collection`,
       '@type': 'CollectionPage',
       name: 'Salary After Tax Pages',
-      description: 'Programmatic salary pages showing after-tax take-home pay for salaries from $30,000 to $500,000 across 5 states.',
+      description: 'Programmatic salary pages showing after-tax take-home pay for salaries from $30,000 to $500,000 across 23 states.',
       url: `${SITE_URL}/salary`,
       publisher: { '@id': `${SITE_URL}/#organization` },
       hasPart: SALARY_AMOUNTS.map((amount) => ({
@@ -374,7 +374,7 @@ export default function SalaryLandingPage() {
             </h3>
             <p className="text-muted-foreground max-w-lg mx-auto mb-6">
               Our paycheck calculator supports 401(k), HSA, different filing statuses,
-              and all 5 states with detailed breakdowns.
+              and all 23 states with detailed breakdowns.
             </p>
             <Link
               href="/paycheck-calculator"

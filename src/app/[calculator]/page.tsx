@@ -44,7 +44,7 @@ export async function generateMetadata({
     title: { absolute: config.metaTitle },
     description: config.metaDesc,
     keywords: config.keywords,
-    authors: [{ name: 'TheTaxCalc' }],
+    authors: [{ name: 'Rachel Mitchell, CPA' }],
     alternates: {
       canonical: `${baseUrl}${config.canonicalPath}`,
     },
@@ -513,9 +513,9 @@ export default async function CalculatorPage({
 
       {/* Next Steps */}
       <section className="mt-8 rounded-xl border border-emerald-500/20 bg-emerald-500/5 p-6 sm:p-8">
-        <h3 className="text-lg font-semibold text-foreground mb-3">
+        <h2 className="text-lg font-semibold text-foreground mb-3">
           More {config.h1} Tools &amp; Resources
-        </h3>
+        </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
           {getNextSteps(config.componentKey).map((step) => (
             <Link
@@ -740,7 +740,7 @@ export default async function CalculatorPage({
               <span className="text-lg">💰</span>
               <div>
                 <span className="text-sm font-medium text-foreground group-hover:text-emerald-400 transition-colors">Salary After Tax</span>
-                <p className="text-xs text-muted-foreground mt-0.5">See take-home pay for $30K–$500K across all 5 states</p>
+                <p className="text-xs text-muted-foreground mt-0.5">See take-home pay for $30K–$500K across 23 states</p>
               </div>
             </Link>
             <Link href="/compare" className="group flex items-start gap-3 rounded-lg border border-border/50 p-4 hover:border-emerald-500/30 hover:bg-emerald-500/5 transition-all">
@@ -806,7 +806,7 @@ export default async function CalculatorPage({
                 📎 Free Embed Widgets
               </Link>
               <Link
-                href="/resources"
+                href="/tax-data"
                 className="inline-flex items-center gap-1.5 rounded-lg border border-border/50 px-3 py-1.5 text-sm text-muted-foreground hover:text-emerald-400 hover:border-emerald-500/30 transition-all"
               >
                 📊 Tax Data & Rates

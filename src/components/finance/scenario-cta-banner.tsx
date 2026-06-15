@@ -27,9 +27,9 @@ export function ScenarioCTABanner({ calculatorType, stateName }: ScenarioCTABann
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <h3 className="text-sm font-semibold text-foreground">
+              <h2 className="text-sm font-semibold text-foreground">
                 Compare Tax Scenarios
-              </h3>
+              </h2>
               <UIBadge variant="outline" className="text-[10px] border-blue-500/30 text-blue-400 px-1.5 py-0">
                 New
               </UIBadge>

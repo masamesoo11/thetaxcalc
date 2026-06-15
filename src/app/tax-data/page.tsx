@@ -135,7 +135,7 @@ const STANDARD_DEDUCTIONS = [
 
 const RETIREMENT_LIMITS = [
   { plan: '401(k) / 403(b) / 457', limit: '$23,500', catchUp: '$7,500 (age 50+)', total50: '$31,000' },
-  { plan: 'Enhanced Catch-up (60–63)', limit: '—', catchUp: '$11,250 (age 60–63)', total50: '$34,750' },
+  { plan: 'Enhanced Catch-up (60–63)', limit: '$23,500', catchUp: '$11,250 (age 60–63)', total50: '$34,750' },
   { plan: 'Traditional & Roth IRA', limit: '$7,000', catchUp: '$1,000 (age 50+)', total50: '$8,000' },
   { plan: 'HSA — Individual', limit: '$4,300', catchUp: '$1,000 (age 55+)', total50: '$5,300' },
   { plan: 'HSA — Family', limit: '$8,550', catchUp: '$1,000 (age 55+)', total50: '$9,550' },

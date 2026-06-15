@@ -232,7 +232,6 @@ export function getAllSiteUrls(): string[] {
   urls.push(`${SITE_URL}/glossary`);
   urls.push(`${SITE_URL}/federal-tax-brackets`);
   urls.push(`${SITE_URL}/about`);
-  urls.push(`${SITE_URL}/resources`);
   urls.push(`${SITE_URL}/widgets`);
   urls.push(`${SITE_URL}/tax-data`);
   urls.push(`${SITE_URL}/privacy`);
