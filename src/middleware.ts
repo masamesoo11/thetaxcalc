@@ -64,6 +64,14 @@ export async function middleware(request: NextRequest) {
     );
   }
 
+  // /contact → /about (no standalone contact page; /about has author bios + editorial policy)
+  if (pathname === '/contact' || pathname === '/contact-us') {
+    return NextResponse.redirect(
+      new URL('/about', request.url),
+      301
+    );
+  }
+
   // ─── Check embed mode ─────────────────────────────────────────────────────
   const isEmbed = request.nextUrl.searchParams.get('embed') === '1';
 

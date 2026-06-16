@@ -108,6 +108,7 @@ export function Footer() {
           {/* Brand Column */}
           <div className="space-y-4">
             <Link
+              prefetch={false}
               href="/"
               className="flex items-center gap-2.5 transition-opacity hover:opacity-90"
             >
@@ -143,6 +144,7 @@ export function Footer() {
                 return (
                   <li key={link.href}>
                     <Link
+                      prefetch={false}
                       href={link.href}
                       className="flex items-center gap-2 text-sm text-muted-foreground underline underline-offset-2 decoration-border/50 transition-colors hover:text-emerald-400 hover:decoration-emerald-400"
                     >
@@ -166,6 +168,7 @@ export function Footer() {
                 return (
                   <li key={link.href}>
                     <Link
+                      prefetch={false}
                       href={link.href}
                       className="flex items-center gap-2 text-sm text-muted-foreground underline underline-offset-2 decoration-border/50 transition-colors hover:text-emerald-400 hover:decoration-emerald-400"
                     >
@@ -177,6 +180,7 @@ export function Footer() {
               })}
               <li>
                 <Link
+                  prefetch={false}
                   href="/glossary"
                   className="flex items-center gap-2 text-sm text-muted-foreground underline underline-offset-2 decoration-border/50 transition-colors hover:text-emerald-400 hover:decoration-emerald-400"
                 >
@@ -186,6 +190,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
+                  prefetch={false}
                   href="/compare"
                   className="flex items-center gap-2 text-sm text-muted-foreground underline underline-offset-2 decoration-border/50 transition-colors hover:text-emerald-400 hover:decoration-emerald-400"
                 >
@@ -195,6 +200,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
+                  prefetch={false}
                   href="/salary"
                   className="flex items-center gap-2 text-sm text-muted-foreground underline underline-offset-2 decoration-border/50 transition-colors hover:text-emerald-400 hover:decoration-emerald-400"
                 >
@@ -204,6 +210,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
+                  prefetch={false}
                   href="/salary/50000-after-taxes"
                   className="flex items-center gap-2 text-sm text-muted-foreground underline underline-offset-2 decoration-border/50 transition-colors hover:text-emerald-400 hover:decoration-emerald-400 pl-5"
                 >
@@ -212,6 +219,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
+                  prefetch={false}
                   href="/salary/75000-after-taxes"
                   className="flex items-center gap-2 text-sm text-muted-foreground underline underline-offset-2 decoration-border/50 transition-colors hover:text-emerald-400 hover:decoration-emerald-400 pl-5"
                 >
@@ -220,6 +228,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
+                  prefetch={false}
                   href="/salary/100000-after-taxes"
                   className="flex items-center gap-2 text-sm text-muted-foreground underline underline-offset-2 decoration-border/50 transition-colors hover:text-emerald-400 hover:decoration-emerald-400 pl-5"
                 >
@@ -228,6 +237,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
+                  prefetch={false}
                   href="/salary/150000-after-taxes"
                   className="flex items-center gap-2 text-sm text-muted-foreground underline underline-offset-2 decoration-border/50 transition-colors hover:text-emerald-400 hover:decoration-emerald-400 pl-5"
                 >
@@ -236,6 +246,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
+                  prefetch={false}
                   href="/blog"
                   className="flex items-center gap-2 text-sm text-muted-foreground underline underline-offset-2 decoration-border/50 transition-colors hover:text-emerald-400 hover:decoration-emerald-400"
                 >
@@ -245,6 +256,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
+                  prefetch={false}
                   href="/tax-data"
                   className="flex items-center gap-2 text-sm text-muted-foreground underline underline-offset-2 decoration-border/50 transition-colors hover:text-emerald-400 hover:decoration-emerald-400"
                 >
@@ -254,6 +266,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
+                  prefetch={false}
                   href="/widgets"
                   className="flex items-center gap-2 text-sm text-muted-foreground underline underline-offset-2 decoration-border/50 transition-colors hover:text-emerald-400 hover:decoration-emerald-400"
                 >

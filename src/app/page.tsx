@@ -641,6 +641,7 @@ export default function HomePage() {
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
+                prefetch={false}
                 href="/paycheck-calculator"
                 className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-600 to-emerald-500 px-8 py-3.5 text-base font-semibold text-white shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/30 transition-all hover:scale-[1.02]"
               >
@@ -648,6 +649,7 @@ export default function HomePage() {
                 Calculate Your Paycheck
               </Link>
               <Link
+                prefetch={false}
                 href="/relocation-calculator"
                 className="inline-flex items-center gap-2 rounded-xl border border-border/50 bg-card/50 px-8 py-3.5 text-base font-semibold text-foreground hover:bg-muted/30 transition-all"
               >
@@ -697,6 +699,7 @@ export default function HomePage() {
               const Icon = card.icon;
               return (
                 <Link
+                  prefetch={false}
                   key={card.href}
                   href={card.href}
                   className="group premium-card hover-lift p-6 flex flex-col gap-4"
@@ -755,6 +758,7 @@ export default function HomePage() {
               { state: 'New York', net: '$57,686', rate: '4%–10.9%', label: '+ NYC Tax', color: 'red', href: '/new-york-tax-calculator' },
             ].map((item) => (
               <Link
+                prefetch={false}
                 key={item.state}
                 href={item.href}
                 className={`group rounded-xl border border-border/30 bg-card/50 p-5 text-center transition-all hover-lift ${
@@ -802,6 +806,7 @@ export default function HomePage() {
               { amount: 300000, label: '$300K' },
             ].map((item) => (
               <Link
+                prefetch={false}
                 key={item.amount}
                 href={`/salary/${item.amount}`}
                 className="group inline-flex items-center gap-1.5 rounded-xl border border-border/30 bg-card/50 px-5 py-3 text-sm font-semibold text-foreground transition-all hover:border-emerald-500/30 hover:bg-emerald-500/5 hover:text-emerald-400"
@@ -814,6 +819,7 @@ export default function HomePage() {
 
           <div className="mt-8 text-center">
             <Link
+              prefetch={false}
               href="/salary"
               className="inline-flex items-center gap-2 text-sm font-medium text-emerald-400 hover:text-emerald-300 transition-colors"
             >
@@ -879,6 +885,7 @@ export default function HomePage() {
                   Estimate your true payroll cost — salary + employer FICA, FUTA, SUTA, and benefits. All 50 states.
                 </p>
                 <Link
+                  prefetch={false}
                   href="/employee-cost-calculator"
                   className="mt-4 inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-600 to-emerald-500 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/30 transition-all"
                 >
@@ -933,6 +940,7 @@ export default function HomePage() {
                 ))}
               </ul>
               <Link
+                prefetch={false}
                 href="/paycheck-calculator"
                 className="mt-8 inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-600 to-emerald-500 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/30 transition-all"
               >
@@ -1005,6 +1013,7 @@ export default function HomePage() {
                 {CALCULATOR_CARDS.map((card) => (
                   <li key={card.href}>
                     <Link
+                      prefetch={false}
                       href={card.href}
                       className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-400 transition-colors py-0.5"
                     >
@@ -1028,6 +1037,7 @@ export default function HomePage() {
               <div className="flex flex-wrap gap-1.5">
                 {SALARY_AMOUNTS.map((amount) => (
                   <Link
+                    prefetch={false}
                     key={amount}
                     href={`/salary/${amount}`}
                     className="inline-flex items-center rounded-md border border-border/30 bg-background/50 px-2.5 py-1 text-xs font-medium text-muted-foreground hover:border-emerald-500/30 hover:text-emerald-400 hover:bg-emerald-500/5 transition-all"
@@ -1038,6 +1048,7 @@ export default function HomePage() {
               </div>
               <div className="mt-3 pt-3 border-t border-border/20">
                 <Link
+                  prefetch={false}
                   href="/salary"
                   className="inline-flex items-center gap-1.5 text-xs font-medium text-emerald-400 hover:text-emerald-300 transition-colors"
                 >
@@ -1059,6 +1070,7 @@ export default function HomePage() {
               <ul className="space-y-2">
                 <li>
                   <Link
+                    prefetch={false}
                     href="/blog"
                     className="group flex items-center gap-2 text-sm font-medium text-emerald-400 hover:text-emerald-300 transition-colors py-0.5"
                   >
@@ -1069,6 +1081,7 @@ export default function HomePage() {
                 {getPublishedPostsMeta().map((post) => (
                   <li key={post.slug}>
                     <Link
+                      prefetch={false}
                       href={`/blog/${post.slug}`}
                       className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-400 transition-colors py-0.5"
                     >
@@ -1100,6 +1113,7 @@ export default function HomePage() {
                   const ResIcon = res.icon;
                   return (
                     <Link
+                      prefetch={false}
                       key={res.href}
                       href={res.href}
                       className="group flex items-start gap-3 rounded-lg border border-border/20 bg-background/30 p-3 hover:border-emerald-500/30 hover:bg-emerald-500/5 transition-all"
@@ -1133,6 +1147,7 @@ export default function HomePage() {
                   const s2 = COMPARE_STATES[key2];
                   return (
                     <Link
+                      prefetch={false}
                       key={slug}
                       href={`/compare/${slug}`}
                       className="group flex items-center gap-2 rounded-md border border-border/20 bg-background/30 px-3 py-2 text-sm text-muted-foreground hover:border-emerald-500/30 hover:text-emerald-400 hover:bg-emerald-500/5 transition-all"
@@ -1161,6 +1176,7 @@ export default function HomePage() {
               <p className="mt-1 text-sm text-muted-foreground">We do the homework so you don&apos;t have to</p>
             </div>
             <Link
+              prefetch={false}
               href="/blog"
               className="hidden sm:flex items-center gap-1.5 text-sm font-medium text-emerald-400 hover:text-emerald-300 transition-colors"
             >
@@ -1175,6 +1191,7 @@ export default function HomePage() {
               { title: 'Florida vs Texas Tax Comparison', href: '/blog/florida-vs-texas-tax-comparison', category: 'Comparison' },
             ].map((post) => (
               <Link
+                prefetch={false}
                 key={post.href}
                 href={post.href}
                 className="group rounded-xl border border-border/30 bg-card/50 p-5 transition-all hover:border-emerald-500/30 hover-lift"
@@ -1189,6 +1206,7 @@ export default function HomePage() {
           </div>
           <div className="mt-6 text-center sm:hidden">
             <Link
+              prefetch={false}
               href="/blog"
               className="inline-flex items-center gap-1.5 text-sm font-medium text-emerald-400"
             >

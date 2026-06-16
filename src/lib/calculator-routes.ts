@@ -265,13 +265,13 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
   },
   {
     slug: 'self-employment-tax-calculator',
-    title: 'Self-Employment Calculator 2026 | 15.3% SE Tax',
+    title: 'Self-Employment Tax Calculator 2026 | 15.3% SE + 1099',
     description:
       'Free self-employment tax calculator for 2026. Calculate SE tax (15.3% on 92.35% of net income), half deduction, quarterly estimates, 1099 & federal + state tax. No sign-up.',
-    h1: 'Free Self-Employment Tax Calculator',
-    metaTitle: 'Free Self-Employment Tax Calculator 2026 | 1099 & SE',
+    h1: 'Free Self-Employment Tax Calculator — 1099 & SE Tax',
+    metaTitle: 'Self-Employment Tax Calculator 2026 — 15.3% SE + 1099 & Q4',
     metaDesc:
-      'Free self-employment tax calculator 2026. 15.3% SE tax, 1099, quarterly estimates & half deduction. No sign-up required.',
+      'Free 2026 self-employment tax calculator. 15.3% SE tax on 92.35% of net income, half deduction, quarterly estimates & 1099. See real take-home pay. No sign-up.',
     keywords: [
       'free self employment tax calculator', 'free tax calculator for self employed',
       'free tax calculator for 1099', 'SE tax calculator', 'self employed tax',
@@ -282,9 +282,9 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     componentKey: 'self-employment',
     category: 'business',
     breadcrumbLabel: 'Self-Employment',
-    ogTitle: 'SE Tax Calculator 2026 — 1099 & Self-Employed',
+    ogTitle: 'Self-Employment Tax Calculator 2026 — 15.3% SE + 1099 & Q4',
     ogDescription:
-      'Free self-employment tax calculator. 15.3% SE tax, 1099, quarterly estimates & half deduction. No sign-up.',
+      'Free 2026 self-employment tax calculator. 15.3% SE tax on 92.35% of net income, half deduction, quarterly estimates & 1099. See real take-home pay. No sign-up.',
     canonicalPath: '/self-employment-tax-calculator',
     jsonLdType: 'self-employment',
   },
@@ -293,10 +293,10 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     title: 'Free Sales Tax Calculator 2026 — All 50 States & Reverse Tax',
     description:
       'Free sales tax calculator for 2026. Calculate sales tax for any US state with combined rates. Includes reverse sales tax calculator. No sign-up required.',
-    h1: 'Free Sales Tax Calculator',
-    metaTitle: 'Free Sales Tax Calculator 2026 | All 50 States & Reverse',
+    h1: 'Free Sales Tax Calculator — All 50 States & Reverse',
+    metaTitle: 'Sales Tax Calculator 2026 — All 50 States + Reverse Tax Tool',
     metaDesc:
-      'Free sales tax calculator 2026. Calculate sales tax for any US state with combined rates. Includes reverse calculator. No sign-up required.',
+      'Free 2026 sales tax calculator for all 50 US states. Calculate combined state + local sales tax, reverse tax from total, car sales tax & IRS deductions. No sign-up.',
     keywords: [
       'free sales tax calculator', 'sales tax calculator', 'reverse sales tax calculator',
       'sales tax by state', 'calculate sales tax', 'sales tax rate',
@@ -306,9 +306,9 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     componentKey: 'sales-tax',
     category: 'paycheck',
     breadcrumbLabel: 'Sales Tax Calculator',
-    ogTitle: 'Sales Tax Calculator 2026 — All 50 States & Reverse',
+    ogTitle: 'Sales Tax Calculator 2026 — All 50 States + Reverse Tax Tool',
     ogDescription:
-      'Free sales tax calculator 2026. Calculate sales tax for any US state with combined rates. Includes reverse calculator. No sign-up.',
+      'Free 2026 sales tax calculator for all 50 US states. Combined state + local rates, reverse tax, car sales tax & IRS deductions. No sign-up.',
     canonicalPath: '/sales-tax-calculator',
     jsonLdType: 'sales-tax',
   },
@@ -365,13 +365,13 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
   },
   {
     slug: 'georgia-tax-calculator',
-    title: 'Georgia Tax Calculator 2026 | After 5.49%',
+    title: 'Georgia Tax Calculator 2026 — 5.49% Flat Tax',
     description:
       'How much do you keep after Georgia 5.49% flat tax? Calculate your 2026 take-home pay after state, federal & FICA taxes. Instant results, no sign-up.',
-    h1: 'Free Georgia Tax Calculator',
-    metaTitle: 'GA Tax Calculator 2026 | After 5.49%',
+    h1: 'Free Georgia Tax Calculator — 5.49% Flat Tax',
+    metaTitle: 'Georgia Tax Calculator 2026 — 5.49% Flat | $75K = $60,083',
     metaDesc:
-      'How much do you keep after Georgia 5.49% tax? Calculate 2026 take-home pay after state, federal & FICA. Instant results, no sign-up.',
+      'GA flat 5.49% income tax. On $75K salary you keep ~$60,083. Calculate your exact Georgia 2026 take-home pay after state, federal & FICA. Free, no sign-up.',
     keywords: [
       'free Georgia tax calculator', 'Georgia tax calculator', 'GA paycheck calculator',
       'Georgia income tax', 'Georgia 5.49% tax', 'Georgia take home pay',
@@ -381,21 +381,21 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     componentKey: 'georgia',
     category: 'paycheck',
     breadcrumbLabel: 'Georgia',
-    ogTitle: 'Georgia Tax Calculator 2026 — 5.49% Flat Tax',
+    ogTitle: 'Georgia Tax Calculator 2026 — 5.49% Flat | $75K = $60,083',
     ogDescription:
-      'Free Georgia tax calculator. Take-home pay after 5.49% flat state tax and federal tax. No sign-up. 2026 data.',
+      'GA flat 5.49% income tax. On $75K salary you keep ~$60,083. Calculate your exact Georgia 2026 take-home pay. Free, no sign-up.',
     canonicalPath: '/georgia-tax-calculator',
     jsonLdType: 'georgia',
   },
   {
     slug: 'lottery-tax-calculator',
-    title: 'Lottery Tax Calculator 2026 | After-Tax Winnings',
+    title: 'Lottery Tax Calculator 2026 | $1M Jackpot = $510K Take-Home',
     description:
-      'Surprised how much tax on lottery winnings? 24% federal + state taxes can take 40%+. See your actual payout after all taxes. Free calculator, no sign-up.',
-    h1: 'Free Lottery Tax Calculator',
-    metaTitle: 'Lottery Tax Calculator 2026 — After-Tax Winnings',
+      'A $1M lottery jackpot pays only ~$510K after federal 24% withholding + state taxes. Calculate your real Powerball or Mega Millions payout after all taxes. Free, no sign-up.',
+    h1: 'Free Lottery Tax Calculator — Powerball & Mega Millions',
+    metaTitle: 'Lottery Tax Calculator 2026 — $1M Jackpot = $510K After Tax',
     metaDesc:
-      'How much tax on lottery winnings? 24% federal + state can take 40%+. See your actual payout after all taxes. Free, no sign-up.',
+      'How much tax on lottery winnings? A $1M jackpot nets ~$510K after 24% federal + state taxes. See your actual Powerball & Mega Millions payout. Free.',
     keywords: [
       'free lottery tax calculator', 'lottery tax calculator', 'lottery winnings tax',
       'lottery tax rate', 'after tax lottery winnings', 'powerball tax calculator',
@@ -405,9 +405,9 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     componentKey: 'lottery',
     category: 'investment',
     breadcrumbLabel: 'Lottery Tax',
-    ogTitle: 'Lottery Tax Calculator 2026 — After-Tax Winnings',
+    ogTitle: 'Lottery Tax Calculator 2026 — $1M Jackpot = $510K After Tax',
     ogDescription:
-      'Free lottery tax calculator. After-tax winnings with 24% federal withholding and state taxes. No sign-up.',
+      'A $1M lottery jackpot pays only ~$510K after 24% federal + state taxes. See your actual Powerball & Mega Millions payout. Free, no sign-up.',
     canonicalPath: '/lottery-tax-calculator',
     jsonLdType: 'lottery',
   },
@@ -416,10 +416,10 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     title: 'Free IRS Withholding Calculator 2026 — W-4 Optimization',
     description:
       'Free IRS withholding calculator for 2026. Optimize your W-4 to avoid owing taxes or overpaying. Based on IRS Publication 15-T. No sign-up.',
-    h1: 'Free IRS Withholding Calculator',
-    metaTitle: 'IRS Withholding Calc 2026 | W-4 Help',
+    h1: 'Free IRS Withholding Calculator — Optimize Your W-4',
+    metaTitle: 'IRS Withholding Calculator 2026 — W-4 Optimization Tool',
     metaDesc:
-      'Free IRS withholding calculator 2026. Optimize your W-4 to avoid penalties and overpayment. No sign-up required.',
+      'Free IRS W-4 withholding calculator 2026. Find your exact federal withholding per paycheck to avoid penalties & overpayment. Based on IRS Pub 15-T.',
     keywords: [
       'free IRS withholding calculator', 'IRS withholding calculator', 'W-4 calculator',
       'withholding calculator 2026', 'tax withholding estimator', 'W-4 optimization',
@@ -430,9 +430,9 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     componentKey: 'irs-withholding',
     category: 'paycheck',
     breadcrumbLabel: 'IRS Withholding',
-    ogTitle: 'IRS Withholding Calculator 2026 — W-4 Optimization',
+    ogTitle: 'IRS Withholding Calculator 2026 — W-4 Optimization Tool',
     ogDescription:
-      'Free IRS withholding calculator. Optimize your W-4 to avoid penalties. No sign-up. 2026 data.',
+      'Free IRS W-4 withholding calculator 2026. Find your exact federal withholding per paycheck to avoid penalties & overpayment. Based on IRS Pub 15-T.',
     canonicalPath: '/irs-withholding-calculator',
     jsonLdType: 'irs-withholding',
   },
@@ -462,13 +462,13 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
   },
   {
     slug: 'bonus-tax-calculator',
-    title: 'Bonus Tax Calculator 2026 | After-Tax Amount',
+    title: 'Bonus Tax Calculator 2026 — $5K Bonus = $3,400 Take-Home',
     description:
       'Your $5K bonus may only be $3,400 after taxes. Compare 22% flat vs aggregate method and see your real take-home. Free, instant, no sign-up.',
-    h1: 'Free Bonus Tax Calculator',
-    metaTitle: 'Bonus Tax Calc 2026 | After-Tax Amount',
+    h1: 'Free Bonus Tax Calculator — 22% Flat vs Aggregate',
+    metaTitle: 'Bonus Tax Calculator 2026 — $5K Bonus = $3,400 After Tax',
     metaDesc:
-      '$5K bonus → only $3,400 take-home? Compare 22% flat vs aggregate and see your real after-tax bonus. Free, instant.',
+      'A $5K bonus nets only ~$3,400 after 22% federal + FICA + state taxes. Compare flat vs aggregate method & see your real after-tax bonus. Free 2026 tool.',
     keywords: [
       'free bonus tax calculator', 'bonus tax calculator', 'bonus tax rate',
       'supplemental wage calculator', '22% bonus tax', 'aggregate method bonus',
@@ -478,9 +478,9 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     componentKey: 'bonus-tax',
     category: 'business',
     breadcrumbLabel: 'Bonus Tax',
-    ogTitle: 'Bonus Tax Calculator 2026 — 22% Flat vs Aggregate',
+    ogTitle: 'Bonus Tax Calculator 2026 — $5K Bonus = $3,400 After Tax',
     ogDescription:
-      'Free bonus tax calculator. Compare 22% flat vs aggregate method. No sign-up. 2026 data.',
+      'A $5K bonus nets only ~$3,400 after 22% federal + FICA + state taxes. Compare flat vs aggregate method & see your real after-tax bonus. Free 2026 tool.',
     canonicalPath: '/bonus-tax-calculator',
     jsonLdType: 'bonus-tax',
   },

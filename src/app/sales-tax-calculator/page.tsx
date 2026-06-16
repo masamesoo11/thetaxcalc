@@ -24,9 +24,9 @@ export async function generateMetadata(): Promise<Metadata> {
   const canonicalPath = '/sales-tax-calculator';
 
   return {
-    title: { absolute: 'Sales Tax Calculator 2026 | All 50 States & Reverse Tax' },
+    title: { absolute: 'Sales Tax Calculator 2026 — All 50 States + Reverse Tax Tool' },
     description:
-      'Free sales tax calculator for 2026. Calculate sales tax for all 50 US states with combined rates. Includes reverse sales tax calculator, car sales tax, IRS deduction, and tax-exempt items. No sign-up required.',
+      'Free 2026 sales tax calculator for all 50 US states. Calculate combined state + local sales tax, reverse tax from total, car sales tax & IRS deductions. No sign-up required.',
     keywords: [
       'sales tax calculator',
       'figuring sales tax',
@@ -89,9 +89,9 @@ export async function generateMetadata(): Promise<Metadata> {
       canonical: `${baseUrl}${canonicalPath}`,
     },
     openGraph: {
-      title: 'Sales Tax Calculator 2026 | All 50 States & Reverse Tax',
+      title: 'Sales Tax Calculator 2026 — All 50 States + Reverse Tax Tool',
       description:
-        'Free sales tax calculator for 2026. Calculate sales tax for all 50 US states with combined rates. Includes reverse calculator, car sales tax, and IRS deduction. No sign-up.',
+        'Free 2026 sales tax calculator for all 50 US states. Combined state + local rates, reverse tax, car sales tax & IRS deductions. No sign-up.',
       url: `${baseUrl}${canonicalPath}`,
       siteName: 'TheTaxCalc',
       type: 'website',
@@ -107,9 +107,9 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     twitter: {
       card: 'summary_large_image',
-      title: 'Sales Tax Calculator 2026 | All 50 States & Reverse Tax',
+      title: 'Sales Tax Calculator 2026 — All 50 States + Reverse Tax Tool',
       description:
-        'Free sales tax calculator for 2026. Calculate sales tax for all 50 US states. Includes reverse calculator and car sales tax. No sign-up.',
+        'Free 2026 sales tax calculator for all 50 US states. Combined state + local rates, reverse tax, car sales tax & IRS deductions. No sign-up.',
       images: [`${baseUrl}/opengraph-image.png`],
     },
   };
