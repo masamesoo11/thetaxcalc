@@ -11,8 +11,8 @@ import { ALL_STATE_KEYS } from '@/lib/state-sales-tax-data';
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = SITE_URL;
   // Updated dates — Google prefers consistent lastModified values
-  const taxYearUpdate = '2026-01-01'; // Tax year 2026 data effective date
-  const siteUpdate = '2026-06-14';    // Latest site content update
+  const taxYearUpdate = '2026-06-16'; // Force re-crawl after SEO fixes
+  const siteUpdate = '2026-06-16';    // Latest site content update
 
   const entries: MetadataRoute.Sitemap = [
     { url: baseUrl, lastModified: siteUpdate, changeFrequency: 'weekly', priority: 1.0 },
