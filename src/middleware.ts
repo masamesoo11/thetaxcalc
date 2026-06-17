@@ -25,8 +25,12 @@ const PUBLIC_API_ROUTES = [
   '/api/auth/login',
   '/api/auth/logout',
   '/api/track',
-  '/api/seed',
 ];
+
+// NOTE: /api/seed was removed from public routes.
+// It now requires admin auth (covered by MUTATION_PROTECTED_API_ROUTES below).
+// Add it to mutation-protected routes:
+const SEED_PROTECTED = ['/api/seed'];
 
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;

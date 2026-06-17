@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { checkRateLimit, getClientIP } from '@/lib/rate-limit';
 export const runtime = 'edge';
 
 
@@ -11,6 +12,16 @@ export const runtime = 'edge';
  */
 export async function POST(request: NextRequest) {
   try {
+    // ─── Rate limiting: 30 requests per minute per IP ──────────────
+    const ip = getClientIP(request);
+    const rateLimit = checkRateLimit(`track:${ip}`, { limit: 30, windowMs: 60_000 });
+    if (!rateLimit.allowed) {
+      return NextResponse.json(
+        { error: 'Rate limit exceeded' },
+        { status: 429 }
+      );
+    }
+
     const { db } = await import('@/lib/db');
     const body = await request.json();
     const { calculator } = body;

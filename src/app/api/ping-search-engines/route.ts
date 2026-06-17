@@ -11,6 +11,7 @@
 
 import { NextRequest, NextResponse } from 'next/server';
 import { SITE_URL } from '@/lib/site-config';
+import { verifySessionToken, getCookieName } from '@/lib/auth';
 
 export const runtime = 'edge';
 
@@ -33,6 +34,16 @@ interface PingResult {
 }
 
 export async function GET(request: NextRequest): Promise<NextResponse> {
+  // ─── Auth required: only admin can trigger search engine pings ───
+  const token = request.cookies.get(getCookieName())?.value;
+  if (!token) {
+    return NextResponse.json({ error: 'Authentication required' }, { status: 401 });
+  }
+  const session = await verifySessionToken(token);
+  if (!session) {
+    return NextResponse.json({ error: 'Invalid or expired session' }, { status: 401 });
+  }
+
   // Optional: check for a simple secret to prevent abuse
   const secret = request.nextUrl.searchParams.get('secret');
   if (secret && secret !== process.env.PING_SECRET) {
