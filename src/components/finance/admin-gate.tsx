@@ -5,10 +5,14 @@ import { Shield, Lock, Eye, EyeOff, AlertTriangle, DollarSign } from 'lucide-rea
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 
-// ─── Admin Password ──────────────────────────────────────────────────────────
-// Change this to your desired admin password.
-// For production, use an environment variable: process.env.NEXT_PUBLIC_ADMIN_PASSWORD
-const ADMIN_PASSWORD = 'thetaxcalc2026';
+// ─── Admin Auth — Server-side only ─────────────────────────────────────────
+// No hardcoded password. Auth happens via POST /api/auth/login which:
+//   1. Validates password against process.env.ADMIN_PASSWORD (server-side)
+//   2. Returns HTTP-only signed JWT cookie
+//   3. Cookie verified by middleware on every /admin/* request
+//
+// This component only collects the password and posts to the API.
+// It NEVER sees or compares the actual password.
 
 const SESSION_KEY = 'thetaxcalc_admin_auth';
 
@@ -35,137 +39,107 @@ export function AdminGate({ children }: { children: React.ReactNode }) {
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
   const [unlocked, setUnlocked] = useState(false);
 
   // Read session auth via useSyncExternalStore
   const sessionAuth = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
   const isAuthenticated = unlocked || sessionAuth === 'authenticated';
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
+    setLoading(true);
 
-    const adminPass = process.env.NEXT_PUBLIC_ADMIN_PASSWORD || ADMIN_PASSWORD;
-
-    if (password === adminPass) {
-      setUnlocked(true);
-      try {
-        sessionStorage.setItem(SESSION_KEY, 'authenticated');
-      } catch {
-        // sessionStorage not available
-      }
-    } else {
-      setError('Incorrect password. Please try again.');
-    }
-  };
-
-  const handleLogout = () => {
-    setUnlocked(false);
-    setPassword('');
     try {
-      sessionStorage.removeItem(SESSION_KEY);
-    } catch {
-      // sessionStorage not available
+      // ─── Server-side auth via API ─────────────────────────────────────
+      // The API sets an HTTP-only JWT cookie that middleware will verify
+      // on subsequent /admin/* requests. We never see the actual password
+      // comparison — that happens server-side.
+      const response = await fetch('/api/auth/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ password }),
+      });
+
+      if (response.ok) {
+        setUnlocked(true);
+        try {
+          sessionStorage.setItem(SESSION_KEY, 'authenticated');
+        } catch {
+          // sessionStorage not available — cookie will still auth via middleware
+        }
+      } else {
+        const data = await response.json().catch(() => ({}));
+        setError(data.error || 'Incorrect password. Please try again.');
+      }
+    } catch (err) {
+      setError('Network error. Please check your connection and try again.');
+    } finally {
+      setLoading(false);
     }
   };
 
-  // Authenticated — show admin dashboard
   if (isAuthenticated) {
-    return (
-      <div className="relative">
-        {/* Logout button */}
-        <div className="absolute -top-2 right-0 z-10">
-          <Button
-            variant="ghost"
-            size="sm"
-            onClick={handleLogout}
-            className="text-xs text-muted-foreground hover:text-red-400 gap-1.5"
-          >
-            <Lock className="h-3 w-3" />
-            Logout
-          </Button>
-        </div>
-        {children}
-      </div>
-    );
+    return <>{children}</>;
   }
 
-  // Not authenticated — show login form
   return (
-    <div className="flex items-center justify-center min-h-[70vh] px-4">
-      <div className="w-full max-w-md">
-        {/* Login Card */}
-        <div className="rounded-2xl border border-border/30 bg-card/50 backdrop-blur-sm p-8 shadow-2xl shadow-black/20">
-          {/* Logo */}
-          <div className="text-center mb-8">
-            <div className="inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-500 to-emerald-600 shadow-lg shadow-emerald-500/20 mb-4">
-              <Shield className="h-8 w-8 text-white" />
-            </div>
-            <h1 className="text-2xl font-bold text-foreground">Admin Access</h1>
-            <p className="mt-2 text-sm text-muted-foreground">
-              Enter the admin password to access the dashboard
-            </p>
+    <div className="flex min-h-screen items-center justify-center bg-background p-4">
+      <div className="w-full max-w-md space-y-6">
+        <div className="text-center">
+          <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-emerald-500/10">
+            <Shield className="h-8 w-8 text-emerald-500" />
           </div>
+          <h1 className="text-2xl font-bold tracking-tight">Admin Access Required</h1>
+          <p className="mt-2 text-sm text-muted-foreground">
+            Enter your password to access the admin panel
+          </p>
+        </div>
 
-          {/* Form */}
-          <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div className="space-y-2">
+            <label htmlFor="password" className="text-sm font-medium leading-none">
+              Password
+            </label>
             <div className="relative">
-              <div className="absolute left-3 top-1/2 -translate-y-1/2">
-                <Lock className="h-4 w-4 text-muted-foreground" />
-              </div>
+              <Lock className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
               <Input
+                id="password"
                 type={showPassword ? 'text' : 'password'}
-                aria-label="Admin password"
-                placeholder="Admin password"
                 value={password}
-                onChange={(e) => {
-                  setPassword(e.target.value);
-                  setError('');
-                }}
-                className="pl-10 pr-10 bg-background/50 border-border/30"
-                autoFocus
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder="Enter admin password"
+                className="pl-10 pr-10"
+                required
+                disabled={loading}
+                autoComplete="current-password"
               />
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
-                aria-label="Toggle password visibility"
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
+                tabIndex={-1}
               >
                 {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
               </button>
             </div>
-
-            {/* Error message */}
-            {error && (
-              <div className="flex items-center gap-2 rounded-lg bg-red-500/10 border border-red-500/20 px-3 py-2 text-sm text-red-400">
-                <AlertTriangle className="h-4 w-4 shrink-0" />
-                {error}
-              </div>
-            )}
-
-            <Button
-              type="submit"
-              className="w-full bg-gradient-to-r from-emerald-600 to-emerald-500 text-white hover:from-emerald-500 hover:to-emerald-400"
-            >
-              Unlock Dashboard
-            </Button>
-          </form>
-
-          {/* Hint */}
-          <div className="mt-6 rounded-lg bg-muted/30 p-3 text-xs text-muted-foreground text-center">
-            <p>Default password: <code className="text-emerald-400 font-mono">thetaxcalc2026</code></p>
-            <p className="mt-1">Change it in <code className="text-muted-foreground">src/components/finance/admin-gate.tsx</code></p>
           </div>
-        </div>
 
-        {/* Brand footer */}
-        <div className="mt-6 text-center">
-          <div className="flex items-center justify-center gap-1.5 text-sm text-muted-foreground">
-            <div className="flex h-5 w-5 items-center justify-center rounded-md bg-gradient-to-br from-emerald-500 to-emerald-600">
-              <DollarSign className="h-3 w-3 text-white" />
+          {error && (
+            <div className="flex items-center gap-2 rounded-md bg-red-500/10 p-3 text-sm text-red-500">
+              <AlertTriangle className="h-4 w-4 flex-shrink-0" />
+              {error}
             </div>
-            TheTaxCalc
-          </div>
+          )}
+
+          <Button type="submit" className="w-full" disabled={loading || !password}>
+            {loading ? 'Authenticating...' : 'Unlock Admin Panel'}
+          </Button>
+        </form>
+
+        <div className="text-center text-xs text-muted-foreground">
+          <DollarSign className="inline h-3 w-3" /> TheTaxCalc Admin · Secured by JWT + HTTP-only cookies
         </div>
       </div>
     </div>

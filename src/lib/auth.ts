@@ -2,8 +2,12 @@ import { SignJWT, jwtVerify } from 'jose';
 
 // ─── Configuration ──────────────────────────────────────────────────────────
 
-const JWT_SECRET_KEY = process.env.JWT_SECRET || 'thetaxcalc-jwt-secret-change-me-in-production';
-const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'thetaxcalc2026';
+const JWT_SECRET_KEY = process.env.JWT_SECRET || (() => {
+  throw new Error('JWT_SECRET environment variable is required. Set it in .env (NEVER commit to git).');
+})();
+const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || (() => {
+  throw new Error('ADMIN_PASSWORD environment variable is required. Set it in .env (NEVER commit to git).');
+})();
 const COOKIE_NAME = 'thetaxcalc_admin_session';
 const SESSION_DURATION = '24h';
 
