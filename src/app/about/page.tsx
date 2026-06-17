@@ -150,6 +150,7 @@ export default function AboutPage() {
         </div>
         <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
           Free <span className="gradient-text">Tax Calculators</span>
+          {' '}
           <br />
           Built for You
         </h1>

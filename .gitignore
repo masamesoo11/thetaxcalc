@@ -54,3 +54,41 @@ server.log
 /skills/.github/workflows/
 .github/
 # Build triggered Fri Jun 12 17:18:17 UTC 2026
+
+# === Added by fix-scripts ===
+# Screenshots (keep in /download/ instead)
+*.screenshot.png
+screenshot-*.png
+*.full-page
+
+# Database files
+*.db
+*.db-journal
+db/
+
+# Skills (internal tooling, not part of site)
+/skills/
+
+# Agent context (internal)
+agent-ctx/
+.zscripts/
+
+# Build artifacts
+.vercel/
+.wrangler/
+out/
+
+# Logs
+*.log
+dev.log
+dev.out.log
+server.log
+
+# Backups (from fix-scripts)
+*.bak
+.env.backup-*
+.env.new-creds-*
+
+# OS files
+.DS_Store
+Thumbs.db
