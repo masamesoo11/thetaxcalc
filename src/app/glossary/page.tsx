@@ -27,9 +27,7 @@ export const metadata: Metadata = {
   authors: [{ name: 'Rachel Mitchell, CPA' }],
   alternates: {
     canonical: `${SITE_URL}/glossary`,
-      'en-US': `${SITE_URL}/glossary`,
-      'x-default': `${SITE_URL}/glossary`,
-    },
+    /glossary`,    },
   },
   openGraph: {
     title: 'Tax Glossary — 2026 Tax Terms Explained',
