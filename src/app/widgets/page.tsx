@@ -51,9 +51,7 @@ export const metadata: Metadata = {
   authors: [{ name: 'Rachel Mitchell, CPA' }],
   alternates: {
     canonical: `${SITE_URL}/widgets`,
-      'en-US': `${SITE_URL}/widgets`,
-      'x-default': `${SITE_URL}/widgets`,
-    },
+    /widgets`,    },
   },
   openGraph: {
     title: 'Free Tax Calculator Widgets — Embed on Your Site in 30 Seconds',
