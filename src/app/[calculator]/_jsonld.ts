@@ -156,7 +156,7 @@ function getHomeJsonLd() {
         name: 'TheTaxCalc Paycheck Calculator',
         applicationCategory: 'FinanceApplication',
         operatingSystem: 'Web',
-        offers: { '@type': 'Offer', price: 0, priceCurrency: 'USD' },
+        offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD', availability: 'https://schema.org/InStock', url: `${SITE_URL}/paycheck-calculator` },
       },
       {
         '@id': `${baseId}#howto`,
