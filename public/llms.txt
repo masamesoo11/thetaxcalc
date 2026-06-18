@@ -1,6 +1,7 @@
 # TheTaxCalc — Free 2026 Tax Calculator
 
 > Free, accurate, no-sign-up tax calculators for US taxpayers. 64 calculators covering all 50 states.
+> Last updated: 2026-06-18
 
 ## Allowed Uses
 
