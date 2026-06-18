@@ -12,8 +12,7 @@ export const metadata: Metadata = {
   keywords: ['terms of use', 'thetaxcalc terms', 'tax calculator terms', 'usage agreement', 'legal terms', 'disclaimer'],
   alternates: {
     canonical: `${SITE_URL}/terms`,
-    languages: {
-      'en-US': `${SITE_URL}/terms`,
+    /terms`,
       'x-default': `${SITE_URL}/terms`,
     },
   },
