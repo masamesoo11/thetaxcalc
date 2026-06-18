@@ -44,8 +44,7 @@ export async function generateMetadata({
     authors: [{ name: 'Rachel Mitchell, CPA' }],
     alternates: {
       canonical: `${baseUrl}${canonicalPath}`,
-      languages: {
-        'en-US': `${baseUrl}${canonicalPath}`,
+      ${canonicalPath}`,
         'x-default': `${baseUrl}${canonicalPath}`,
       },
     },
