@@ -80,9 +80,6 @@ export async function generateMetadata({
     authors: [{ name: 'Rachel Mitchell, CPA' }],
     alternates: {
       canonical: `${baseUrl}${canonicalPath}`,
-      ${canonicalPath}`,
-        'x-default': `${baseUrl}${canonicalPath}`,
-      },
     },
     openGraph: {
       title,
