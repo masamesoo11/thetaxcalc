@@ -42,8 +42,7 @@ export const metadata: Metadata = {
   authors: [{ name: 'Rachel Mitchell, CPA' }],
   alternates: {
     canonical: `${SITE_URL}/federal-tax-brackets`,
-    languages: {
-      'en-US': `${SITE_URL}/federal-tax-brackets`,
+    /federal-tax-brackets`,
       'x-default': `${SITE_URL}/federal-tax-brackets`,
     },
   },
