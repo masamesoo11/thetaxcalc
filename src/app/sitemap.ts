@@ -10,9 +10,11 @@ import { ALL_STATE_KEYS } from '@/lib/state-sales-tax-data';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = SITE_URL;
-  // Updated dates — Google prefers consistent lastModified values
-  const taxYearUpdate = '2026-06-16'; // Force re-crawl after SEO fixes
-  const siteUpdate = '2026-06-16';    // Latest site content update
+  // Updated dates — Google prefers accurate lastModified values
+  // Use today's date for homepage (signals freshness)
+  // Use last content update date for static pages
+  const taxYearUpdate = '2026-06-18'; // Today — signals recent update
+  const siteUpdate = '2026-06-18';    // Today — homepage/landing updated
 
   const entries: MetadataRoute.Sitemap = [
     { url: baseUrl, lastModified: siteUpdate, changeFrequency: 'weekly', priority: 1.0 },
