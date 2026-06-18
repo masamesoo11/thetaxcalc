@@ -30,9 +30,6 @@ export const metadata: Metadata = {
     keywords: ['about thetaxcalc', 'tax calculator about', 'tax tool mission', 'free tax calculator', 'tax data accuracy', 'tax calculator team'],
     alternates: {
       canonical: `${SITE_URL}/about`,
-        'en-US': `${SITE_URL}/about`,
-        'x-default': `${SITE_URL}/about`,
-      },
     },
     openGraph: {
       title: 'About — Free 2026 Tax Calculators',
