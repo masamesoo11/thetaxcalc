@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   keywords: ['privacy policy', 'thetaxcalc privacy', 'tax calculator privacy', 'data protection', 'calculator data security', 'browser calculations'],
   alternates: {
     canonical: `${SITE_URL}/privacy`,
-    /privacy`,
+      'en-US': `${SITE_URL}/privacy`,
       'x-default': `${SITE_URL}/privacy`,
     },
   },
