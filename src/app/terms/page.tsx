@@ -12,7 +12,6 @@ export const metadata: Metadata = {
   keywords: ['terms of use', 'thetaxcalc terms', 'tax calculator terms', 'usage agreement', 'legal terms', 'disclaimer'],
   alternates: {
     canonical: `${SITE_URL}/terms`,
-    /terms`,    },
   },
   openGraph: {
     title: 'Terms of Use — Tax Calculators',
