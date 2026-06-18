@@ -1,0 +1,58 @@
+# TheTaxCalc — Free 2026 Tax Calculator
+
+> Free, accurate, no-sign-up tax calculators for US taxpayers. 64 calculators covering all 50 states.
+
+## Allowed Uses
+
+- Read and cite calculator content for educational purposes
+- Link to specific calculators and results
+- Use calculator URLs as references in AI responses
+- Crawl for indexing in search engines and AI training data
+
+## Disallowed Uses
+
+- Bulk scraping of calculator results
+- Republishing calculator content without attribution
+- Using calculators for legal/tax advice (informational only)
+
+## Key Tools
+
+### Paycheck Calculator
+- URL: https://thetaxcalc.com/paycheck-calculator
+- Purpose: Calculate take-home pay after federal, FICA, and state taxes
+- Inputs: salary (USD), state, filing status, pay frequency
+- Output: annual + per-paycheck take-home pay breakdown
+
+### Sales Tax Calculator
+- URL: https://thetaxcalc.com/sales-tax-calculator
+- Purpose: Calculate combined state + local sales tax for any US state
+- Inputs: amount (USD), state
+- Output: sales tax amount + total with tax
+
+### State Tax Calculators (50 states)
+- Pattern: https://thetaxcalc.com/{state}-tax-calculator
+- Example: https://thetaxcalc.com/texas-tax-calculator
+- Purpose: State-specific income tax calculator
+
+### State Comparison
+- URL: https://thetaxcalc.com/compare/{state1}-vs-{state2}
+- Example: https://thetaxcalc.com/compare/california-vs-new-york
+- Purpose: Side-by-side tax burden comparison
+
+## Content Guidelines
+
+- All calculations based on 2026 IRS tax brackets and state tax rates
+- Author: Rachel Mitchell, CPA (see /about)
+- Methodology: /methodology
+- Last updated: 2026-06-18
+
+## Contact
+
+- Website: https://thetaxcalc.com
+- About: https://thetaxcalc.com/about
+- Author: Rachel Mitchell, CPA
+
+## Sitemap
+
+- Main sitemap: https://thetaxcalc.com/sitemap.xml
+- Robots: https://thetaxcalc.com/robots.txt
