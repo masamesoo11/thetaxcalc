@@ -46,7 +46,6 @@ export const metadata: Metadata = {
     types: {
       'application/rss+xml': `${SITE_URL}/feed.xml`,
     },
-  },
   openGraph: {
     title: '2026 Tax Calculator — Paycheck & Take-Home Pay | 50 States',
     description:
