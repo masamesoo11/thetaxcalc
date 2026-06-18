@@ -54,8 +54,7 @@ export async function generateMetadata({
     keywords: post.tags ? post.tags.split(',').map((t) => t.trim()) : [],
     alternates: {
       canonical: `${SITE_URL}/blog/${slug}`,
-      languages: {
-        'en-US': `${SITE_URL}/blog/${slug}`,
+      /blog/${slug}`,
         'x-default': `${SITE_URL}/blog/${slug}`,
       },
     },
