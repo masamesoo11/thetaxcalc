@@ -97,7 +97,7 @@ const jsonLd = {
       url: `${SITE_URL}/paycheck-difference-calculator`,
       applicationCategory: 'FinanceApplication',
       operatingSystem: 'Web',
-      offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD', availability: 'https://schema.org/InStock' },
+      offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD', availability: 'https://schema.org/InStock', url: `${SITE_URL}/paycheck-difference-calculator` },
       description: 'Calculate the difference in take-home pay between two states or salaries. Free 2026 calculator for all 50 states.',
       provider: { '@id': `${SITE_URL}/#organization` },
       author: authorToJsonLd(author),
