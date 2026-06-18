@@ -50,8 +50,7 @@ export const metadata: Metadata = {
   authors: [{ name: 'Rachel Mitchell, CPA' }],
   alternates: {
     canonical: `${SITE_URL}/tax-data`,
-    languages: {
-      'en-US': `${SITE_URL}/tax-data`,
+    /tax-data`,
       'x-default': `${SITE_URL}/tax-data`,
     },
   },
