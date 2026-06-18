@@ -42,8 +42,7 @@ export const metadata: Metadata = {
     'Free 2026 tax calculator. Take-home pay after federal, FICA & state tax. 64 tools & 50-state sales tax data. No sign-up.',
   authors: [{ name: 'Rachel Mitchell, CPA', url: `${SITE_URL}/about#rachel-mitchell` }],
   alternates: {
-    canonical: SITE_HOME_URL,
-    types: {
+    canonical: SITE_HOME_URL,    types: {
       'application/rss+xml': `${SITE_URL}/feed.xml`,
     },
   },
