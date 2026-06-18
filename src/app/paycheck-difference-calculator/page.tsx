@@ -27,8 +27,7 @@ export const metadata: Metadata = {
   authors: [{ name: 'Rachel Mitchell, CPA' }],
   alternates: {
     canonical: `${SITE_URL}/paycheck-difference-calculator`,
-    languages: {
-      'en-US': `${SITE_URL}/paycheck-difference-calculator`,
+    /paycheck-difference-calculator`,
       'x-default': `${SITE_URL}/paycheck-difference-calculator`,
     },
   },
