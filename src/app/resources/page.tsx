@@ -46,7 +46,6 @@ export const metadata: Metadata = {
   authors: [{ name: 'Rachel Mitchell, CPA' }],
   alternates: {
     canonical: `${SITE_URL}/resources`,
-    /resources`,    },
   },
   openGraph: {
     title: '2026 Tax Brackets & Rates | Free Reference',
