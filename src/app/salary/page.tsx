@@ -43,7 +43,6 @@ export const metadata: Metadata = {
   authors: [{ name: 'Rachel Mitchell, CPA' }],
   alternates: {
     canonical: `${SITE_URL}/salary`,
-    /salary`,    },
   },
   openGraph: {
     title: 'Salary After Tax 2026 — Take-Home Pay',
