@@ -123,8 +123,11 @@ export async function middleware(request: NextRequest) {
   const isMutationProtected = MUTATION_PROTECTED_API_ROUTES.some(route => pathname.startsWith(route));
   const isMutation = ['POST', 'PUT', 'DELETE', 'PATCH'].includes(request.method);
 
+  // Check if this is the seed route (admin-only after security hardening)
+  const isSeedRoute = SEED_PROTECTED.some(route => pathname.startsWith(route));
+
   // Determine if this route needs authentication
-  const needsAuth = isProtectedPage || isProtectedApi || (isMutationProtected && isMutation);
+  const needsAuth = isProtectedPage || isProtectedApi || (isMutationProtected && isMutation) || isSeedRoute;
 
   if (!needsAuth) {
     return response;
