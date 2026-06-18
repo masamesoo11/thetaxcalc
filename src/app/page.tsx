@@ -43,10 +43,6 @@ export const metadata: Metadata = {
   authors: [{ name: 'Rachel Mitchell, CPA', url: `${SITE_URL}/about#rachel-mitchell` }],
   alternates: {
     canonical: SITE_HOME_URL,
-    languages: {
-      'en-US': SITE_HOME_URL,
-      'x-default': SITE_HOME_URL,
-    },
     types: {
       'application/rss+xml': `${SITE_URL}/feed.xml`,
     },
