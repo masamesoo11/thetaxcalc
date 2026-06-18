@@ -18,7 +18,6 @@ export const metadata: Metadata = {
   authors: [{ name: 'Rachel Mitchell, CPA' }],
   alternates: {
     canonical: `${SITE_URL}/blog`,
-    /blog`, 'x-default': `${SITE_URL}/blog` },
   },
   openGraph: {
     title: 'Tax Blog — Expert Guides & Tips',
