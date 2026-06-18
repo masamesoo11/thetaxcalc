@@ -97,7 +97,7 @@ const jsonLd = {
       url: `${SITE_URL}/job-offer-comparison-calculator`,
       applicationCategory: 'FinanceApplication',
       operatingSystem: 'Web',
-      offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD', availability: 'https://schema.org/InStock' },
+      offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD', availability: 'https://schema.org/InStock', url: `${SITE_URL}/job-offer-comparison-calculator` },
       description: 'Compare job offers after federal, state, and FICA taxes side by side for all 50 states. Free 2026 calculator.',
       provider: { '@id': `${SITE_URL}/#organization` },
       author: authorToJsonLd(author),
