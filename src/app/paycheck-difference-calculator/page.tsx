@@ -27,7 +27,6 @@ export const metadata: Metadata = {
   authors: [{ name: 'Rachel Mitchell, CPA' }],
   alternates: {
     canonical: `${SITE_URL}/paycheck-difference-calculator`,
-    /paycheck-difference-calculator`,    },
   },
   openGraph: {
     title: 'Free Paycheck Difference Calculator 2026 | Compare Take-Home Pay',
