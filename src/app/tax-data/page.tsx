@@ -50,7 +50,6 @@ export const metadata: Metadata = {
   authors: [{ name: 'Rachel Mitchell, CPA' }],
   alternates: {
     canonical: `${SITE_URL}/tax-data`,
-    /tax-data`,    },
   },
   openGraph: {
     title: '2026 Tax Data & Statistics — All 50 States',
