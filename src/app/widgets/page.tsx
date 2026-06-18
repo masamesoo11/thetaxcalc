@@ -51,8 +51,7 @@ export const metadata: Metadata = {
   authors: [{ name: 'Rachel Mitchell, CPA' }],
   alternates: {
     canonical: `${SITE_URL}/widgets`,
-    languages: {
-      'en-US': `${SITE_URL}/widgets`,
+    /widgets`,
       'x-default': `${SITE_URL}/widgets`,
     },
   },
