@@ -27,7 +27,6 @@ export const metadata: Metadata = {
   authors: [{ name: 'Rachel Mitchell, CPA' }],
   alternates: {
     canonical: `${SITE_URL}/job-offer-comparison-calculator`,
-    /job-offer-comparison-calculator`,    },
   },
   openGraph: {
     title: 'Free Job Offer Comparison Calculator 2026 | Compare After-Tax Pay',
