@@ -90,8 +90,10 @@ const widgetsJsonLd = {
       operatingSystem: 'Web',
       offers: {
         '@type': 'Offer',
-        price: 0,
+        price: '0',
         priceCurrency: 'USD',
+        availability: 'https://schema.org/InStock',
+        url: `${SITE_URL}/widgets`,
       },
       description:
         'Free embeddable tax calculator widgets for your website. Includes paycheck, mortgage, sales tax, capital gains, self-employment, and 401(k) calculators.',
