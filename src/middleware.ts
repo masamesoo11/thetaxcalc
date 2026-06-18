@@ -105,7 +105,7 @@ export async function middleware(request: NextRequest) {
   const isHtmlPage = !pathname.startsWith('/_next') && !pathname.startsWith('/api') && !pathname.startsWith('/admin') && !pathname.match(/\.(svg|png|jpg|jpeg|gif|webp|ico|xml|json|txt|css|js|woff2?|ttf|eot)$/);
   if (isHtmlPage) {
     response.headers.delete('Cache-Control');
-    response.headers.set('Cache-Control', 'public, s-maxage=86400, stale-while-revalidate=604800');
+    response.headers.set('Cache-Control', 'public, max-age=3600, s-maxage=2592000, stale-while-revalidate=31536000');
   }
 
   // Check if this is a public API route (always allow)
