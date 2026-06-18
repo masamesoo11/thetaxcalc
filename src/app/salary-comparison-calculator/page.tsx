@@ -27,9 +27,7 @@ export const metadata: Metadata = {
   authors: [{ name: 'Rachel Mitchell, CPA' }],
   alternates: {
     canonical: `${SITE_URL}/salary-comparison-calculator`,
-      'en-US': `${SITE_URL}/salary-comparison-calculator`,
-      'x-default': `${SITE_URL}/salary-comparison-calculator`,
-    },
+    /salary-comparison-calculator`,    },
   },
   openGraph: {
     title: 'Free Salary Comparison Calculator 2026 | Compare After-Tax Pay',
