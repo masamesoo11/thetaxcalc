@@ -44,6 +44,196 @@ export async function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
+
+  // ─── Markdown Negotiation for AI Agents ─────────────────────────────
+  // When an AI agent sends Accept: text/markdown, return markdown instead of HTML
+  const acceptHeader = request.headers.get('accept') || '';
+  if (acceptHeader.includes('text/markdown') && !pathname.startsWith('/_next') && !pathname.startsWith('/api') && !pathname.includes('.')) {
+    // Generate markdown version of the page
+    const baseUrl = 'https://thetaxcalc.com';
+    const markdownMap: Record<string, string> = {
+      '/': `# TheTaxCalc — Free 2026 Tax Calculator
+
+> Free, accurate, no-sign-up tax calculators for US taxpayers. 64 calculators covering all 50 states.
+
+## Key Tools
+
+- [Paycheck Calculator](/paycheck-calculator) — Calculate take-home pay after federal, FICA & state taxes
+- [Sales Tax Calculator](/sales-tax-calculator) — All 50 US states with combined state + local rates
+- [Lottery Tax Calculator](/lottery-tax-calculator) — How much you keep after federal + state taxes
+- [Self-Employment Tax Calculator](/self-employment-tax-calculator) — 15.3% SE tax + quarterly estimates
+- [Property Tax Calculator](/property-tax-calculator) — Compare property taxes across all 50 states
+- [401(k) Retirement Calculator](/401k-retirement-calculator) — Projected balance with employer match
+- [Capital Gains Calculator](/capital-gains-calculator) — Short-term & long-term rates
+- [Mortgage Calculator](/mortgage-calculator) — Payment, amortization & extra payments
+
+## State Tax Calculators (50 states)
+
+- [California Tax Calculator](/california-tax-calculator) — 1%–13.3% progressive
+- [Texas Tax Calculator](/texas-tax-calculator) — 0% income tax
+- [Florida Tax Calculator](/florida-tax-calculator) — 0% income tax
+- [New York Tax Calculator](/new-york-tax-calculator) — 4%–10.9% + NYC tax
+- [Illinois Tax Calculator](/illinois-tax-calculator) — 4.95% flat tax
+
+## Compare States
+
+- [California vs New York](/compare/california-vs-new-york)
+- [Texas vs Florida](/compare/texas-vs-florida)
+- [Illinois vs Texas](/compare/illinois-vs-texas)
+
+## Resources
+
+- [Federal Tax Brackets 2026](/federal-tax-brackets)
+- [Tax Blog](/blog)
+- [About TheTaxCalc](/about)
+- [Methodology](/methodology)
+
+## Author
+
+Rachel Mitchell, CPA
+
+Visit https://thetaxcalc.com for full interactive calculators.`,
+      '/paycheck-calculator': `# Free Paycheck Calculator 2026
+
+Calculate your take-home pay after federal, FICA & state taxes.
+
+## How It Works
+
+1. Enter your salary (annual, monthly, bi-weekly, weekly, or hourly)
+2. Select your state (IL, TX, FL, CA, NY, and more)
+3. Choose filing status (Single, Married, Head of Household)
+4. Add pre-tax deductions (401k, HSA)
+5. View instant results
+
+## 2026 Federal Tax Brackets (Single)
+
+| Rate | Income Range |
+|------|-------------|
+| 10% | $0 – $11,925 |
+| 12% | $11,926 – $48,475 |
+| 22% | $48,476 – $103,350 |
+| 24% | $103,351 – $197,300 |
+| 32% | $197,301 – $250,525 |
+| 35% | $250,526 – $626,350 |
+| 37% | Over $626,350 |
+
+## FICA Taxes
+
+- Social Security: 6.2% (up to $176,100)
+- Medicare: 1.45% (no limit)
+
+Visit https://thetaxcalc.com/paycheck-calculator for the interactive calculator.`,
+      '/sales-tax-calculator': `# Sales Tax Calculator 2026 — All 50 States
+
+Calculate combined state + local sales tax for any US state.
+
+## Features
+
+- Forward calculator: Add sales tax to a price
+- Reverse calculator: Remove tax from a total
+- Car sales tax calculator
+- IRS sales tax deduction estimator
+- All 50 states with local rates
+
+## State Sales Tax Rates (Top 10)
+
+| State | State Rate | Avg Combined |
+|-------|-----------|-------------|
+| California | 7.25% | 8.82% |
+| Indiana | 7.00% | 7.00% |
+| Tennessee | 7.00% | 9.55% |
+| Arkansas | 6.50% | 9.47% |
+| Washington | 6.50% | 9.59% |
+| Louisiana | 4.45% | 9.56% |
+| Alabama | 4.00% | 9.24% |
+| Oklahoma | 4.50% | 8.95% |
+| New York | 4.00% | 8.52% |
+| Texas | 6.25% | 8.19% |
+
+Visit https://thetaxcalc.com/sales-tax-calculator for the interactive calculator.`,
+      '/lottery-tax-calculator': `# Lottery Tax Calculator 2026
+
+How much tax do you pay on lottery winnings?
+
+## Quick Answer
+
+A $1M jackpot nets approximately $510,000 after 24% federal + state taxes.
+
+## How Lottery Tax Works
+
+- Federal withholding: 24% (automatic)
+- Federal tax bill: Up to 37% (top bracket)
+- State tax: Varies by state (0% in TX/FL, up to 13.3% in CA)
+- Lump sum vs annuity: Different tax implications
+
+## State-by-State Lottery Tax
+
+| State | Tax Rate | $1M Take-Home |
+|-------|---------|--------------|
+| Texas | 0% | ~$630,000 |
+| Florida | 0% | ~$630,000 |
+| California | 0% state | ~$630,000 |
+| New York | 10.9% | ~$520,000 |
+| Illinois | 4.95% | ~$560,000 |
+
+Visit https://thetaxcalc.com/lottery-tax-calculator for the interactive calculator.`,
+      '/blog': `# Tax Blog — 2026 Guides, Tips & News
+
+Expert tax guides, state comparisons, and financial tips updated for 2026.
+
+## Featured Articles
+
+- [2026 Federal Tax Brackets Explained](/blog/2026-federal-tax-brackets-explained)
+- [Federal Tax Brackets 2026 Guide](/blog/federal-tax-brackets-2026-guide)
+- [California Tax Guide 2026](/blog/california-tax-guide-2026)
+- [Texas Tax Guide 2026](/blog/texas-tax-guide-2026)
+- [New York Tax Guide 2026](/blog/new-york-tax-guide-2026)
+- [Washington Tax Guide 2026](/blog/washington-tax-guide-2026)
+- [1099 Taxes: How Much Freelancers Really Owe](/blog/1099-tax-guide-self-employed-2026)
+- [DoorDash Taxes: Complete Guide for Drivers](/blog/doordash-taxes-guide-2026)
+- [How Bonuses Are Taxed in 2026](/blog/how-bonuses-are-taxed-2026)
+- [Florida vs Texas Tax Comparison](/blog/florida-vs-texas-tax-comparison)
+
+Visit https://thetaxcalc.com/blog for the full blog.`,
+      '/about': `# About TheTaxCalc
+
+Free 2026 tax calculators built for real people.
+
+## Our Mission
+
+We built these calculators so you can see exactly where your money goes — federal tax, FICA, and state taxes all broken down line by line. No guesswork, no surprises.
+
+## Author
+
+**Rachel Mitchell, CPA** — Licensed Certified Public Accountant with expertise in federal and state tax law.
+
+## Data Sources
+
+- IRS publications (Pub 15-T, tax brackets, inflation adjustments)
+- State revenue departments
+- Tax Foundation
+- All calculations based on 2026 tax year data
+
+## Contact
+
+- Website: https://thetaxcalc.com
+- Author: Rachel Mitchell, CPA
+
+Visit https://thetaxcalc.com/about for the full page.`,
+    };
+
+    const markdownContent = markdownMap[pathname];
+    if (markdownContent) {
+      return new NextResponse(markdownContent, {
+        status: 200,
+        headers: {
+          'Content-Type': 'text/markdown; charset=utf-8',
+          'Cache-Control': 'public, max-age=3600',
+        },
+      });
+    }
+  }
+
   // ─── SEO Redirects ────────────────────────────────────────────────────
   if (pathname === '/self-employment-calculator') {
     return NextResponse.redirect(
