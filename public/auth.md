@@ -1,4 +1,4 @@
-# TheTaxCalc — Agent Authentication
+# Auth.md — TheTaxCalc Agent Authentication
 
 ## Overview
 
