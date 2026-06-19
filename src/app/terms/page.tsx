@@ -6,21 +6,21 @@ import { ProtectedEmail } from '@/components/finance/protected-email';
 import { SITE_URL } from '@/lib/site-config';
 
 export const metadata: Metadata = {
-  title: 'Terms of Use',
+  title: 'Terms of Use — TheTaxCalc Free Tax Calculator Service',
   description:
-    'TheTaxCalc Terms of Use — understand the terms and conditions for using our free tax calculators, website, and financial tools.',
+    'TheTaxCalc Terms of Use — TheTaxCalc Free Tax Calculator Service — understand the terms and conditions for using our free tax calculators, website, and financial tools.',
   keywords: ['terms of use', 'thetaxcalc terms', 'tax calculator terms', 'usage agreement', 'legal terms', 'disclaimer'],
   alternates: {
     canonical: `${SITE_URL}/terms`,
   },
   openGraph: {
-    title: 'Terms of Use — Tax Calculators',
+    title: 'Terms of Use — TheTaxCalc Free Tax Calculator Service — Tax Calculators',
     description: 'Understand the terms and conditions for using TheTaxCalc free tax calculators and website.',
     url: `${SITE_URL}/terms`,
     siteName: 'TheTaxCalc',
     type: 'website',
     locale: 'en_US',
-    images: [{ url: `${SITE_URL}/opengraph-image.png`, width: 1200, height: 630, alt: 'Terms of Use — TheTaxCalc' }],
+    images: [{ url: `${SITE_URL}/opengraph-image.png`, width: 1200, height: 630, alt: 'Terms of Use — TheTaxCalc Free Tax Calculator Service — TheTaxCalc' }],
   },
 };
 
@@ -32,13 +32,13 @@ const termsJsonLd = {
       '@type': 'BreadcrumbList',
       itemListElement: [
         { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
-        { '@type': 'ListItem', position: 2, name: 'Terms of Use' },
+        { '@type': 'ListItem', position: 2, name: 'Terms of Use — TheTaxCalc Free Tax Calculator Service' },
       ],
     },
     {
       '@id': `${SITE_URL}/terms#webpage`,
       '@type': 'WebPage',
-      name: 'Terms of Use — TheTaxCalc',
+      name: 'Terms of Use — TheTaxCalc Free Tax Calculator Service — TheTaxCalc',
       description: 'Understand the terms and conditions for using TheTaxCalc free tax calculators and website.',
       url: `${SITE_URL}/terms`,
       inLanguage: 'en-US',
@@ -63,7 +63,7 @@ export default function TermsPage() {
       />
 
       {/* Breadcrumb */}
-      <Breadcrumb items={[{ label: 'Terms of Use' }]} />
+      <Breadcrumb items={[{ label: 'Terms of Use — TheTaxCalc Free Tax Calculator Service' }]} />
 
       {/* Header */}
       <div className="mb-10">
@@ -72,12 +72,12 @@ export default function TermsPage() {
             <Scale className="h-6 w-6 text-emerald-400" />
           </div>
           <div>
-            <h1 className="text-3xl font-bold text-foreground">Terms of Use</h1>
+            <h1 className="text-3xl font-bold text-foreground">Terms of Use — TheTaxCalc Free Tax Calculator Service</h1>
             <p className="text-sm text-muted-foreground">Last updated: {lastUpdated}</p>
           </div>
         </div>
         <p className="text-muted-foreground leading-relaxed">
-          These Terms of Use (&quot;Terms&quot;) govern your access to and use of the TheTaxCalc website
+          These Terms of Use — TheTaxCalc Free Tax Calculator Service (&quot;Terms&quot;) govern your access to and use of the TheTaxCalc website
           and all related services. By accessing or using TheTaxCalc, you agree to be bound by these
           Terms. If you do not agree, please do not use our website.
         </p>
@@ -111,7 +111,7 @@ export default function TermsPage() {
           <div className="text-sm text-muted-foreground leading-relaxed space-y-3">
             <p>
               By accessing and using TheTaxCalc, you acknowledge that you have read, understood, and
-              agree to be bound by these Terms of Use and our{' '}
+              agree to be bound by these Terms of Use — TheTaxCalc Free Tax Calculator Service and our{' '}
               <Link href="/privacy" className="text-emerald-400 hover:text-emerald-300 underline">
                 Privacy Policy
               </Link>.
@@ -326,7 +326,7 @@ export default function TermsPage() {
           </div>
           <div className="text-sm text-muted-foreground leading-relaxed">
             <p>
-              If you have questions about these Terms of Use, please contact us at:
+              If you have questions about these Terms of Use — TheTaxCalc Free Tax Calculator Service, please contact us at:
             </p>
             <div className="mt-3 rounded-lg bg-muted/30 p-4">
               <p className="font-semibold text-foreground">TheTaxCalc</p>
