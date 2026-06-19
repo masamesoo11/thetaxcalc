@@ -182,7 +182,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           </noscript>
         )}
         <QueryProvider>
-          <SiteShell>{children}</SiteShell>
+          <SiteShell>
+        <WebMCPProvider />{children}</SiteShell>
           <DynamicProviders />
         </QueryProvider>
       </body>
