@@ -1042,7 +1042,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     title: 'Alabama Tax Calculator 2026 | 2-5% Progressive',
     description: 'Calculate your 2026 Alabama take-home pay after progressive state tax (2%–5%), federal tax & FICA. No sign-up.',
     h1: 'Free Alabama Tax Calculator',
-    metaTitle: 'AL Tax Calculator 2026 | 2-5%',
+    metaTitle: 'Alabama Tax Calculator 2026: 2-5% Progressive',
     metaDesc: 'Free Alabama tax calculator 2026. Take-home pay after progressive tax (2%–5%). No sign-up.',
     keywords: ['free Alabama tax calculator', 'Alabama tax calculator', 'AL paycheck calculator', 'Alabama income tax', 'Alabama 5% tax', 'Alabama take home pay', 'Alabama salary calculator', 'free tax calculator for 2026', 'AL state tax 2026'],
     componentKey: 'alabama',
