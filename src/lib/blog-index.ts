@@ -246,5 +246,82 @@ export function getPublishedSlugs(): string[] {
 
 /** Convert BlogPostMeta to BlogPost with empty content */
 export function metaToPost(meta: BlogPostMeta): BlogPost {
-  return { ...meta, content: "" };
+  return { ...meta, content: "" };,
+
+  {
+    "id": "federal-tax-brackets-2026-guide",
+    "title": "2026 Federal Tax Brackets: Complete Guide to US Income Tax Rates & Slabs",
+    "slug": "federal-tax-brackets-2026-guide",
+    "excerpt": "Complete guide to 2026 federal income tax brackets, standard deductions, tax credits, and how inflation adjustments affect your tax bill.",
+    "category": "tax-guide",
+    "tags": "federal tax brackets 2026,income tax slab in usa,federal income tax rates,tax deductions,tax credits,inflation adjustments",
+    "coverImage": "",
+    "published": true,
+    "featured": true,
+    "metaTitle": "2026 Federal Tax Brackets: US Income Tax Rates & Slabs Guide",
+    "metaDesc": "Complete guide to 2026 federal income tax brackets, standard deductions, tax credits, and inflation adjustments. Learn how US income tax slabs work.",
+    "createdAt": "2026-06-19T12:00:00.000Z",
+    "updatedAt": "2026-06-19T12:00:00.000Z"
+  },
+  {
+    "id": "california-tax-guide-2026",
+    "title": "California Tax Guide 2026: Income Tax, Sales Tax, and Local Rates",
+    "slug": "california-tax-guide-2026",
+    "excerpt": "Complete guide to California taxes in 2026. Understand income tax rates, sales tax rates, district taxes, and how to calculate your total tax amount in California.",
+    "category": "state-tax",
+    "tags": "california tax calculator,tax amount in california,sales tax rate,local sales tax,income tax rate,district taxes",
+    "coverImage": "",
+    "published": true,
+    "featured": true,
+    "metaTitle": "California Tax Guide 2026: Income Tax, Sales Tax & Local Rates",
+    "metaDesc": "Complete guide to California taxes in 2026. Income tax rates 1%-13.3%, sales tax rates by city, district taxes, and how to calculate your total tax amount in CA.",
+    "createdAt": "2026-06-19T12:00:00.000Z",
+    "updatedAt": "2026-06-19T12:00:00.000Z"
+  },
+  {
+    "id": "texas-tax-guide-2026",
+    "title": "Texas Tax Guide 2026: No Income Tax, But What About Property and Sales Tax?",
+    "slug": "texas-tax-guide-2026",
+    "excerpt": "Texas has no state income tax, but how much do you really pay in property tax, sales tax, and other taxes? Complete guide to Texas taxes in 2026.",
+    "category": "state-tax",
+    "tags": "texas tax calculator,income tax in texas,taxable income,tax returns,property tax rate,sales tax",
+    "coverImage": "",
+    "published": true,
+    "featured": true,
+    "metaTitle": "Texas Tax Guide 2026: No Income Tax, Property & Sales Tax Explained",
+    "metaDesc": "Complete guide to Texas taxes in 2026. No state income tax, but property tax rates are among the highest. See what you'll really pay in Texas.",
+    "createdAt": "2026-06-19T12:00:00.000Z",
+    "updatedAt": "2026-06-19T12:00:00.000Z"
+  },
+  {
+    "id": "new-york-tax-guide-2026",
+    "title": "New York State Taxes 2026: NYC Tax, Filing, and What You Owe",
+    "slug": "new-york-tax-guide-2026",
+    "excerpt": "Complete guide to New York taxes in 2026. Understand NYC tax rates, state income tax brackets, estate tax, and how to file your New York tax returns.",
+    "category": "state-tax",
+    "tags": "new york tax calculator,nyc tax,york state taxes,tax year,tax returns,estate tax,income tax rate",
+    "coverImage": "",
+    "published": true,
+    "featured": true,
+    "metaTitle": "New York State Taxes 2026: NYC Tax, Filing & What You Owe",
+    "metaDesc": "Complete guide to New York taxes in 2026. NYC tax rates, state income tax brackets, estate tax, filing deadlines, and tax credits. Calculate your NY tax burden.",
+    "createdAt": "2026-06-19T12:00:00.000Z",
+    "updatedAt": "2026-06-19T12:00:00.000Z"
+  },
+  {
+    "id": "washington-tax-guide-2026",
+    "title": "Washington State Tax Guide 2026: No Income Tax, But High Sales Tax",
+    "slug": "washington-tax-guide-2026",
+    "excerpt": "Complete guide to Washington state taxes in 2026. No income tax, but Washington sales tax rates are among the highest. Learn about local sales taxes and your total tax burden.",
+    "category": "state-tax",
+    "tags": "washington tax calculator,tax calculator washington,washington sales tax,local sales taxes,department of revenue,sales tax rates",
+    "coverImage": "",
+    "published": true,
+    "featured": true,
+    "metaTitle": "Washington State Tax Guide 2026: No Income Tax, High Sales Tax",
+    "metaDesc": "Complete guide to Washington state taxes in 2026. No income tax but sales tax up to 10.25%. Learn about local sales taxes, property tax, and the Department of Revenue.",
+    "createdAt": "2026-06-19T12:00:00.000Z",
+    "updatedAt": "2026-06-19T12:00:00.000Z"
+  },
+
 }
