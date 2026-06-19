@@ -6,6 +6,7 @@ import { QueryProvider } from "@/components/providers/query-provider";
 import { DynamicProviders } from "@/components/providers/dynamic-providers";
 import { ClientAnalytics } from "@/components/finance/client-analytics";
 import { SiteShell } from "@/components/finance/site-shell";
+import { WebMCPProvider } from "@/components/finance/webmcp-provider";
 import { SITE_URL, SITE_HOME_URL } from '@/lib/site-config';
 
 const geistSans = Geist({
