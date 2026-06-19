@@ -328,10 +328,15 @@ Visit https://thetaxcalc.com/about for the full page.`,
 
   // ─── AI Agent Discovery: Link Headers (RFC 8288) ────────────────────
   response.headers.set('Link', [
-    '</.well-known/api-catalog>; rel="api-catalog"',
+    '</.well-known/api-catalog>; rel="service-doc"',
     '</.well-known/agent-skills/index.json>; rel="service-doc"',
+    '</.well-known/mcp/server-card.json>; rel="service-doc"',
+    '</.well-known/oauth-authorization-server>; rel="service-doc"',
+    '</.well-known/oauth-protected-resource>; rel="service-doc"',
+    '</.well-known/openid-configuration>; rel="service-doc"',
     '</llms.txt>; rel="service-doc"',
     '</auth.md>; rel="service-doc"',
+    '</sitemap.xml>; rel="service-doc"',
   ].join(', '));
 
   // Cache for HTML pages — CDN edge caching for Cloudflare Pages
