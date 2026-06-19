@@ -26,7 +26,7 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: { absolute: 'Sales Tax Calculator 2026 — All 50 States + Reverse Tax Tool' },
     description:
-      'Free 2026 sales tax calculator for all 50 US states. Calculate combined state + local sales tax, reverse tax from total, car sales tax & IRS deductions. No sign-up required.',
+      'Free 2026 sales tax calculator for all 50 US states. Combined state + local rates, reverse tax, car sales tax & IRS deductions. No sign-up.',
     keywords: [
       'sales tax calculator',
       'figuring sales tax',
