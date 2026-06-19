@@ -65,9 +65,9 @@ export function Footer() {
         <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-between">
             <div className="text-center sm:text-left">
-              <h3 className="text-lg font-bold text-foreground">
+              <h2 className="text-lg font-bold text-foreground">
                 Stay Updated on <span className="text-emerald-400">Tax Changes</span>
-              </h3>
+              </h2>
               <p className="mt-1 text-sm text-muted-foreground">
                 Get the latest tax tips, calculator updates, and financial insights delivered to your inbox.
               </p>
