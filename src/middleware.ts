@@ -68,6 +68,27 @@ export async function middleware(request: NextRequest) {
     );
   }
 
+  // ─── State name redirects (/state → /state-tax-calculator) ───
+  // Catches broken links where state name is used without -tax-calculator suffix
+  const STATE_SLUGS = [
+    'alabama', 'alaska', 'arizona', 'arkansas', 'california',
+    'colorado', 'connecticut', 'delaware', 'florida', 'georgia',
+    'hawaii', 'idaho', 'illinois', 'indiana', 'iowa',
+    'kansas', 'kentucky', 'louisiana', 'maine', 'maryland',
+    'massachusetts', 'michigan', 'minnesota', 'mississippi', 'missouri',
+    'montana', 'nebraska', 'nevada', 'new-hampshire', 'new-jersey',
+    'new-mexico', 'new-york', 'north-carolina', 'north-dakota', 'ohio',
+    'oklahoma', 'oregon', 'pennsylvania', 'rhode-island', 'south-carolina',
+    'south-dakota', 'tennessee', 'texas', 'utah', 'vermont',
+    'virginia', 'washington', 'west-virginia', 'wisconsin', 'wyoming',
+  ];
+  if (STATE_SLUGS.includes(pathname.slice(1))) {
+    return NextResponse.redirect(
+      new URL(`${pathname}-tax-calculator`, request.url),
+      301
+    );
+  }
+
   // /contact → /about (no standalone contact page; /about has author bios + editorial policy)
   if (pathname === '/contact' || pathname === '/contact-us') {
     return NextResponse.redirect(
