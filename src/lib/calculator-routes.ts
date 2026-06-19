@@ -77,8 +77,8 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     title: '0% Income Tax — Texas Tax Calculator 2026',
     description:
       'Free Texas tax calculator for 2026. Calculate take-home pay with 0% state income tax. Includes federal tax, FICA, property tax analysis & cost-of-living. No sign-up.',
-    h1: 'Free Texas Tax Calculator',
-    metaTitle: 'Texas Tax Calculator 2026: 0% Tax — $75K = $61,592 Take-Home',
+    h1: 'Free Texas Tax Calculator — No Income Tax in TX',
+    metaTitle: 'Texas Tax Calculator 2026: No Income Tax in Texas — $75K Take-Home',
     metaDesc:
       'Texas has 0% state income tax. On $75K, keep $61,592. Calculate your exact TX take-home pay. Free 2026 calculator, no sign-up.',
     keywords: [
@@ -125,8 +125,8 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     title: 'California Tax Calculator 2026 | 1-13.3% Progressive',
     description:
       'Free California tax calculator for 2026. Calculate take-home pay after progressive state tax (1%–13.3%), federal tax & FICA. No sign-up. 401(k) and HSA deductions.',
-    h1: 'Free California Tax Calculator',
-    metaTitle: 'California Tax Calculator 2026: $75K = $54,849 Take-Home',
+    h1: 'Free California Tax Calculator — Tax Amount in CA',
+    metaTitle: 'California Tax Calculator 2026: Tax Amount in CA — $75K = $54,849',
     metaDesc:
       'CA charges up to 13.3% state tax. On $75K salary, you take home ~$54,849. Calculate your exact California take-home pay after state, federal & FICA tax. Free 2026 calculator, no sign-up.',
     keywords: [
@@ -146,11 +146,11 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
   },
   {
     slug: 'new-york-tax-calculator',
-    title: 'Free New York Tax Calculator 2026 — 4% to 10.9% + NYC Tax',
+    title: 'Free New York Tax Calculator — NYC Tax Rates 2026 — 4% to 10.9% + NYC Tax',
     description:
       'Free New York tax calculator for 2026. Calculate take-home pay after progressive state tax (4%–10.9%), NYC tax, federal tax & FICA. No sign-up.',
-    h1: 'Free New York Tax Calculator',
-    metaTitle: 'New York Tax Calculator 2026: $75K = $55,413 Take-Home',
+    h1: 'Free New York Tax Calculator — NYC Tax Rates',
+    metaTitle: 'New York Tax Calculator 2026: NYC Tax — $75K = $55,413 Take-Home',
     metaDesc:
       'NY charges up to 10.9% + NYC tax. On $75K salary, you take home ~$55,413. Calculate your exact NY take-home pay after state, federal & FICA tax. Free 2026 calculator, no sign-up.',
     keywords: [
@@ -654,11 +654,11 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
   },
   {
     slug: 'washington-tax-calculator',
-    title: '0% Income Tax — Washington Tax Calculator 2026',
+    title: 'Washington Tax Calculator 2026: No Income Tax in WA',
     description:
       'Free Washington tax calculator for 2026. Calculate take-home pay with 0% state income tax. Includes property tax & sales tax analysis. No sign-up.',
-    h1: 'Free Washington Tax Calculator',
-    metaTitle: '0% Income Tax — Washington Tax Calculator 2026',
+    h1: 'Free Washington Tax Calculator — Tax Calculator WA',
+    metaTitle: 'Washington Tax Calculator 2026: No Income Tax in WA',
     metaDesc:
       'Free Washington tax calculator 2026. Take-home pay with 0% state tax. Property & sales tax analysis. No sign-up.',
     keywords: [
@@ -670,7 +670,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     componentKey: 'washington',
     category: 'paycheck',
     breadcrumbLabel: 'Washington',
-    ogTitle: '0% Income Tax — Washington Tax Calculator 2026',
+    ogTitle: 'Washington Tax Calculator 2026: No Income Tax in WA',
     ogDescription:
       'Free Washington tax calculator. Take-home pay with 0% state tax. Property & sales tax. No sign-up.',
     canonicalPath: '/washington-tax-calculator',
