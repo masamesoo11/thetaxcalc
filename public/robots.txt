@@ -1,9 +1,6 @@
 # TheTaxCalc robots.txt — AI Agent Ready
 # https://thetaxcalc.com
 
-# ─── AI Content Signals ───
-Content-Signal: ai-train=yes, search=yes, ai-input=yes
-
 # ─── Search Engine Bots ───
 User-Agent: Googlebot
 Allow: /
