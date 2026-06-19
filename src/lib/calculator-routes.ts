@@ -54,9 +54,9 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     description:
       'Free Illinois tax calculator for 2026. Calculate take-home pay after 4.95% flat state tax, $2,775 personal exemption, federal tax & FICA. No sign-up.',
     h1: 'Free Illinois Tax Calculator',
-    metaTitle: 'Illinois Tax Calculator 2026: 4.95% Flat — $75K = $57,880 Take-Home',
+    metaTitle: 'Illinois Tax Calculator 2026: $75K = $57,880 Take-Home',
     metaDesc:
-      'IL charges a flat 4.95% income tax. On $75K salary, you take home ~$57,880. Calculate your exact Illinois take-home pay after IL tax, federal & FICA. Free 2026 calculator, no sign-up.',
+      'IL flat 4.95% income tax. On $75K, take home ~$57,880. Calculate your exact Illinois after-tax pay. Free 2026 calculator, no sign-up.',
     keywords: [
       'free Illinois tax calculator', 'Illinois tax calculator', 'IL paycheck calculator',
       'Illinois income tax', 'Illinois 4.95% tax', 'Illinois take home pay',
@@ -78,9 +78,9 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     description:
       'Free Texas tax calculator for 2026. Calculate take-home pay with 0% state income tax. Includes federal tax, FICA, property tax analysis & cost-of-living. No sign-up.',
     h1: 'Free Texas Tax Calculator',
-    metaTitle: 'Texas Tax Calculator 2026: 0% Income Tax — $75K = $61,592 Take-Home',
+    metaTitle: 'Texas Tax Calculator 2026: 0% Tax — $75K = $61,592 Take-Home',
     metaDesc:
-      'Texas has 0% state income tax. On $75K salary, you keep $61,592 after federal & FICA. Calculate your exact Texas take-home pay. Free 2026 calculator, no sign-up.',
+      'Texas has 0% state income tax. On $75K, keep $61,592. Calculate your exact TX take-home pay. Free 2026 calculator, no sign-up.',
     keywords: [
       'free Texas tax calculator', 'Texas tax calculator', 'TX paycheck calculator',
       'Texas no income tax', 'Texas take home pay', 'Texas salary calculator',
@@ -102,7 +102,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     description:
       'Free Florida tax calculator for 2026. Calculate take-home pay with 0% state income tax. Includes homestead exemption, property tax & cost-of-living. No sign-up.',
     h1: 'Free Florida Tax Calculator',
-    metaTitle: 'Florida Tax Calculator 2026: 0% Income Tax — $75K = $61,592 Take-Home',
+    metaTitle: 'Florida Tax Calculator 2026: 0% Tax — $75K = $61,592 Take-Home',
     metaDesc:
       'Florida has 0% state income tax. On $75K salary, you keep $61,592 after federal & FICA. Calculate your exact FL take-home pay. Free 2026 calculator, no sign-up.',
     keywords: [
@@ -271,7 +271,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     h1: 'Free Self-Employment Tax Calculator — 1099 & SE Tax',
     metaTitle: 'Self-Employment Tax Calculator 2026 — 15.3% SE + 1099 & Q4',
     metaDesc:
-      'Free 2026 self-employment tax calculator. 15.3% SE tax on 92.35% of net income, half deduction, quarterly estimates & 1099. See real take-home pay. No sign-up.',
+      'Free 2026 self-employment tax calculator. 15.3% SE tax on 92.35% of net income, half deduction, quarterly estimates. See real take-home pay.',
     keywords: [
       'free self employment tax calculator', 'free tax calculator for self employed',
       'free tax calculator for 1099', 'SE tax calculator', 'self employed tax',
@@ -284,7 +284,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     breadcrumbLabel: 'Self-Employment',
     ogTitle: 'Self-Employment Tax Calculator 2026 — 15.3% SE + 1099 & Q4',
     ogDescription:
-      'Free 2026 self-employment tax calculator. 15.3% SE tax on 92.35% of net income, half deduction, quarterly estimates & 1099. See real take-home pay. No sign-up.',
+      'Free 2026 self-employment tax calculator. 15.3% SE tax on 92.35% of net income, half deduction, quarterly estimates. See real take-home pay.',
     canonicalPath: '/self-employment-tax-calculator',
     jsonLdType: 'self-employment',
   },
@@ -442,7 +442,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     description:
       'Free property tax calculator for 2026. Calculate annual property tax for any US state with average effective rates. Includes homestead exemptions. No sign-up.',
     h1: 'Free Property Tax Calculator',
-    metaTitle: 'Property Tax Calculator 2026: Annual Cost by State & Home Value',
+    metaTitle: 'Property Tax Calculator 2026 — Cost by State & Home Value',
     metaDesc:
       '$500K home in AZ = ~$6,750/year property tax. Same home in NJ = ~$14,250. Calculate your annual property tax by state & home value. Free 2026 calculator, all 50 states.',
     keywords: [
