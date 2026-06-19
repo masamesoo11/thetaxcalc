@@ -68,6 +68,17 @@ export async function middleware(request: NextRequest) {
     );
   }
 
+  // ─── Salary legacy URL redirect (/salary/85000 → /salary/85000-after-taxes) ───
+  // 301 redirect legacy salary URLs to new canonical URL pattern
+  // instead of serving the page with a canonical tag (which causes duplicate content warnings)
+  const salaryMatch = pathname.match(/^\/salary\/(\d+)$/);
+  if (salaryMatch) {
+    return NextResponse.redirect(
+      new URL(`/salary/${salaryMatch[1]}-after-taxes`, request.url),
+      301
+    );
+  }
+
   // ─── State name redirects (/state → /state-tax-calculator) ───
   // Catches broken links where state name is used without -tax-calculator suffix
   const STATE_SLUGS = [
