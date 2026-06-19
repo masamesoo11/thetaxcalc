@@ -1,6 +1,69 @@
-User-Agent: *
+# TheTaxCalc robots.txt — AI Agent Ready
+# https://thetaxcalc.com
+
+# ─── AI Content Signals ───
+Content-Signal: ai-train=yes, search=yes, ai-input=yes
+
+# ─── Search Engine Bots ───
+User-Agent: Googlebot
+Allow: /
+Allow: /_next/static/
+Disallow: /api/
+Disallow: /admin/
+
+User-Agent: Bingbot
+Allow: /
+Allow: /_next/static/
+Disallow: /api/
+Disallow: /admin/
+
+# ─── AI Training & Search Bots ───
+User-Agent: Google-Extended
 Allow: /
 Disallow: /api/
 Disallow: /admin/
 
+User-Agent: ChatGPT-User
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+
+User-Agent: OAI-SearchBot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+
+User-Agent: GPTBot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+
+User-Agent: PerplexityBot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+
+User-Agent: Claude-Web
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+
+User-Agent: anthropic-ai
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+
+User-Agent: CCBot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+
+# ─── Default ───
+User-Agent: *
+Allow: /
+Allow: /_next/static/
+Disallow: /api/
+Disallow: /admin/
+
+Host: https://thetaxcalc.com
 Sitemap: https://thetaxcalc.com/sitemap.xml
