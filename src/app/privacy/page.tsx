@@ -6,21 +6,21 @@ import { ProtectedEmail } from '@/components/finance/protected-email';
 import { SITE_URL } from '@/lib/site-config';
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy',
+  title: 'Privacy Policy — TheTaxCalc Tax Calculator Data Protection',
   description:
-    'TheTaxCalc Privacy Policy — learn how we collect, use, and protect your personal information when using our free tax calculators.',
+    'TheTaxCalc Privacy Policy — TheTaxCalc Tax Calculator Data Protection — learn how we collect, use, and protect your personal information when using our free tax calculators.',
   keywords: ['privacy policy', 'thetaxcalc privacy', 'tax calculator privacy', 'data protection', 'calculator data security', 'browser calculations'],
   alternates: {
     canonical: `${SITE_URL}/privacy`,
   },
   openGraph: {
-    title: 'Privacy Policy — Tax Calculators',
+    title: 'Privacy Policy — TheTaxCalc Tax Calculator Data Protection — Tax Calculators',
     description: 'Learn how TheTaxCalc collects, uses, and protects your personal information when using our free tax calculators.',
     url: `${SITE_URL}/privacy`,
     siteName: 'TheTaxCalc',
     type: 'website',
     locale: 'en_US',
-    images: [{ url: `${SITE_URL}/opengraph-image.png`, width: 1200, height: 630, alt: 'Privacy Policy — TheTaxCalc' }],
+    images: [{ url: `${SITE_URL}/opengraph-image.png`, width: 1200, height: 630, alt: 'Privacy Policy — TheTaxCalc Tax Calculator Data Protection — TheTaxCalc' }],
   },
 };
 
@@ -32,13 +32,13 @@ const privacyJsonLd = {
       '@type': 'BreadcrumbList',
       itemListElement: [
         { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
-        { '@type': 'ListItem', position: 2, name: 'Privacy Policy' },
+        { '@type': 'ListItem', position: 2, name: 'Privacy Policy — TheTaxCalc Tax Calculator Data Protection' },
       ],
     },
     {
       '@id': `${SITE_URL}/privacy#webpage`,
       '@type': 'WebPage',
-      name: 'Privacy Policy — TheTaxCalc',
+      name: 'Privacy Policy — TheTaxCalc Tax Calculator Data Protection — TheTaxCalc',
       description: 'Learn how TheTaxCalc collects, uses, and protects your personal information when using our free tax calculators.',
       url: `${SITE_URL}/privacy`,
       inLanguage: 'en-US',
@@ -63,7 +63,7 @@ export default function PrivacyPage() {
       />
 
       {/* Breadcrumb */}
-      <Breadcrumb items={[{ label: 'Privacy Policy' }]} />
+      <Breadcrumb items={[{ label: 'Privacy Policy — TheTaxCalc Tax Calculator Data Protection' }]} />
 
       {/* Header */}
       <div className="mb-10">
@@ -72,15 +72,15 @@ export default function PrivacyPage() {
             <Shield className="h-6 w-6 text-emerald-400" />
           </div>
           <div>
-            <h1 className="text-3xl font-bold text-foreground">Privacy Policy</h1>
+            <h1 className="text-3xl font-bold text-foreground">Privacy Policy — TheTaxCalc Tax Calculator Data Protection</h1>
             <p className="text-sm text-muted-foreground">Last updated: {lastUpdated}</p>
           </div>
         </div>
         <p className="text-muted-foreground leading-relaxed">
-          At TheTaxCalc, we are committed to protecting your privacy. This Privacy Policy explains how we
+          At TheTaxCalc, we are committed to protecting your privacy. This Privacy Policy — TheTaxCalc Tax Calculator Data Protection explains how we
           collect, use, disclose, and safeguard your information when you visit our website and use our
           tax calculators. Please read this policy carefully. By using TheTaxCalc, you agree to the
-          practices described in this Privacy Policy.
+          practices described in this Privacy Policy — TheTaxCalc Tax Calculator Data Protection.
         </p>
       </div>
 
@@ -185,7 +185,7 @@ export default function PrivacyPage() {
                   rel="noopener noreferrer nofollow"
                   className="text-emerald-400 hover:text-emerald-300 underline"
                 >
-                  Google&apos;s Privacy Policy
+                  Google&apos;s Privacy Policy — TheTaxCalc Tax Calculator Data Protection
                 </a>.
               </li>
               <li>
@@ -260,8 +260,8 @@ export default function PrivacyPage() {
           </div>
           <div className="text-sm text-muted-foreground leading-relaxed">
             <p>
-              We may update this Privacy Policy from time to time. We will notify you of any changes by
-              posting the new Privacy Policy on this page and updating the &quot;Last updated&quot; date.
+              We may update this Privacy Policy — TheTaxCalc Tax Calculator Data Protection from time to time. We will notify you of any changes by
+              posting the new Privacy Policy — TheTaxCalc Tax Calculator Data Protection on this page and updating the &quot;Last updated&quot; date.
               Your continued use of TheTaxCalc after any changes constitutes your acceptance of the
               updated policy.
             </p>
@@ -276,7 +276,7 @@ export default function PrivacyPage() {
           </div>
           <div className="text-sm text-muted-foreground leading-relaxed">
             <p>
-              If you have questions or concerns about this Privacy Policy, please contact us at:
+              If you have questions or concerns about this Privacy Policy — TheTaxCalc Tax Calculator Data Protection, please contact us at:
             </p>
             <div className="mt-3 rounded-lg bg-muted/30 p-4">
               <p className="font-semibold text-foreground">TheTaxCalc</p>
