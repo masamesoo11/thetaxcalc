@@ -69,7 +69,7 @@ export default function MethodologyPage() {
               {' '}&mdash; Standard Deduction
             </li>
             <li>
-              <a href="https://www.irs.gov/newsroom/irs-provides-tax-inflation-adjustments-for-tax-year-2026" target="_blank" rel="noopener noreferrer nofollow" className="text-emerald-400 hover:text-emerald-300 underline">
+              <a href="https://www.irs.gov/filing/federal-income-tax-rates-and-brackets" target="_blank" rel="noopener noreferrer nofollow" className="text-emerald-400 hover:text-emerald-300 underline">
                 Revenue Procedure 2025-25
               </a>
               {' '}&mdash; Annual inflation adjustments for 2026
@@ -290,7 +290,7 @@ export default function MethodologyPage() {
           <p className="font-semibold text-foreground mb-2">Primary Sources:</p>
           <ul className="space-y-1.5 text-muted-foreground">
             <li>
-              <a href="https://taxfoundation.org/data/all/state/state-and-local-sales-tax-rates-2026/" target="_blank" rel="noopener noreferrer nofollow" className="text-emerald-400 hover:text-emerald-300 underline">
+              <a href="https://taxfoundation.org/" target="_blank" rel="noopener noreferrer nofollow" className="text-emerald-400 hover:text-emerald-300 underline">
                 Tax Foundation
               </a>
               {' '}&mdash; State and Local Sales Tax Rates, Midyear 2026
