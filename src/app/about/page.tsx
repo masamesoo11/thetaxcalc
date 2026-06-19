@@ -23,7 +23,7 @@ import { getCalculatorAuthor, authorToJsonLd, AUTHORS } from '@/lib/authors';
 import { AuthorBioCard } from '@/components/finance/author-bio-card';
 
 export const metadata: Metadata = {
-    title: 'About — Free 2026 Calculators',
+    title: 'About TheTaxCalc — Free 2026 Tax Calculators & CPA-Reviewed',
     description:
       'Learn about TheTaxCalc — our mission to provide free, accurate tax calculators. Understand your take-home pay after federal, FICA, and state taxes.',
     authors: [{ name: 'Rachel Mitchell, CPA' }],
