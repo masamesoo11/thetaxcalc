@@ -1,0 +1,64 @@
+{
+  "serverInfo": {
+    "name": "thetaxcalc",
+    "version": "1.0.0"
+  },
+  "transport": {
+    "type": "https",
+    "endpoint": "https://thetaxcalc.com/api/mcp"
+  },
+  "capabilities": {
+    "tools": [
+      {
+        "name": "calculate_paycheck",
+        "description": "Calculate take-home pay after federal, FICA, and state taxes",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "salary": {
+              "type": "number",
+              "description": "Annual salary in USD"
+            },
+            "state": {
+              "type": "string",
+              "description": "US state code (e.g., TX, CA, NY)"
+            },
+            "filingStatus": {
+              "type": "string",
+              "enum": [
+                "single",
+                "married",
+                "head_of_household"
+              ]
+            }
+          },
+          "required": [
+            "salary",
+            "state"
+          ]
+        }
+      },
+      {
+        "name": "calculate_sales_tax",
+        "description": "Calculate sales tax for any US state",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "amount": {
+              "type": "number",
+              "description": "Purchase amount in USD"
+            },
+            "state": {
+              "type": "string",
+              "description": "US state code"
+            }
+          },
+          "required": [
+            "amount",
+            "state"
+          ]
+        }
+      }
+    ]
+  }
+}
