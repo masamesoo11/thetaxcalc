@@ -131,6 +131,15 @@ export async function middleware(request: NextRequest) {
   const frameAncestors = isEmbed ? "frame-ancestors *" : "frame-ancestors 'none'";
   response.headers.set('Content-Security-Policy', `default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://pagead2.googlesyndication.com https://tpc.googlesyndication.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https://www.google-analytics.com https://www.googletagmanager.com https://pagead2.googlesyndication.com https://tpc.googlesyndication.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://www.google-analytics.com https://pagead2.googlesyndication.com; frame-src https://googleads.g.doubleclick.net; ${frameAncestors}; base-uri 'self'; form-action 'self';`);
 
+
+  // ─── AI Agent Discovery: Link Headers (RFC 8288) ────────────────────
+  response.headers.set('Link', [
+    '</.well-known/api-catalog>; rel="api-catalog"',
+    '</.well-known/agent-skills/index.json>; rel="service-doc"',
+    '</llms.txt>; rel="service-doc"',
+    '</auth.md>; rel="service-doc"',
+  ].join(', '));
+
   // Cache for HTML pages — CDN edge caching for Cloudflare Pages
   // Must delete Next.js default Cache-Control (max-age=0) before setting ours,
   // otherwise Next.js overwrites it AFTER middleware runs on Cloudflare Pages.
