@@ -14,6 +14,7 @@ import {
 } from '@/lib/salary-calculations';
 import { calculateFederalTax, calculateFICA } from '@/lib/finance-utils';
 import { DynamicSalaryPage } from './dynamic-salary-page';
+import { SalarySSRContent } from './salary-ssr-content';
 import { getCalculatorAuthor, authorToJsonLd } from '@/lib/authors';
 import { AuthorBioCard } from '@/components/finance/author-bio-card';
 
@@ -194,6 +195,9 @@ export default async function SalaryAmountPage({
 
       {/* Interactive Client Component with Filing Status & NYC toggle */}
       <DynamicSalaryPage amountStr={amountStr} />
+
+      {/* ─── Server-Rendered SEO Content (~1000 words) ──────────────────────── */}
+      <SalarySSRContent salary={salary} />
 
       {/* ─── Author Attribution (E-E-A-T) ──────────────────────── */}
       <section className="py-12 border-t border-border/20">
