@@ -16,7 +16,6 @@ import { calculateFederalTax, calculateFICA } from '@/lib/finance-utils';
 import { DynamicSalaryPage } from './dynamic-salary-page';
 import { SalarySSRContent } from './salary-ssr-content';
 import { SalaryChart } from './salary-chart';
-import { buildAggregateRating, buildReviews, getCalculatorRating } from '@/lib/ratings';
 import { getCalculatorAuthor, authorToJsonLd } from '@/lib/authors';
 import { AuthorBioCard } from '@/components/finance/author-bio-card';
 
@@ -166,8 +165,6 @@ function generateJsonLd(salary: number) {
           availability: 'https://schema.org/InStock',
           url: `${SITE_URL}${path}`,
         },
-        aggregateRating: buildAggregateRating(`salary-${salary}`),
-        review: buildReviews('paycheck-calculator', 2),
         author: { '@id': `${SITE_URL}${path}#author` },
         publisher: { '@id': `${SITE_URL}/#organization` },
       },
