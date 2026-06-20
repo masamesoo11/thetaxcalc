@@ -14,7 +14,22 @@ export interface BlogPost {
 }
 
 export const BLOG_INDEX: BlogPostMeta[] = [
-  {
+    {
+    "id": "florida-tax-guide-2026",
+    "title": "Florida Tax Guide 2026: No Income Tax, Sales Tax, Property Tax & Calculator",
+    "slug": "florida-tax-guide-2026",
+    "excerpt": "Complete guide to Florida taxes in 2026. No state income tax, 6% sales tax (avg 6.98%), property tax rates, salary after taxes ($50k-$500k), and Florida homestead exemption explained.",
+    "category": "state-tax",
+    "tags": "florida tax calculator,florida income tax,florida income tax rate,florida sales tax,florida sales tax rate,florida sales tax on cars,florida property tax,florida homestead exemption,florida tax brackets,florida state tax,salary after taxes florida,florida retirement tax,florida estate tax,save our homes florida,florida tax calculator 2026",
+    "coverImage": "",
+    "published": true,
+    "featured": true,
+    "metaTitle": "Florida Tax Guide 2026: No Income Tax, Sales Tax, Property Tax",
+    "metaDesc": "Complete guide to Florida taxes 2026. No income tax, 6% sales tax (avg 6.98%), property tax rates, salary after taxes, and Florida homestead exemption (Save Our Homes).",
+    "createdAt": "2026-06-20T12:00:00.000Z",
+    "updatedAt": "2026-06-20T12:00:00.000Z"
+  },
+{
     "id": "1099-tax-guide-self-employed-2026",
     "title": "1099 Taxes: How Much Freelancers Really Owe in 2026",
     "slug": "1099-tax-guide-self-employed-2026",
