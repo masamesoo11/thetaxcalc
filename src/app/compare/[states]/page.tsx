@@ -9,6 +9,7 @@ import { calculatePaycheck, formatCurrency } from '@/lib/finance-utils';
 import { COMPARISON_SLUGS } from '@/lib/compare-config';
 import { DynamicComparePage } from './dynamic-compare-page';
 import { CompareSSRContent } from './compare-ssr-content';
+import { CompareChart } from './compare-chart';
 import { getCalculatorAuthor, authorToJsonLd } from '@/lib/authors';
 import { AuthorBioCard } from '@/components/finance/author-bio-card';
 
@@ -159,6 +160,11 @@ export default async function CompareStatesPage({
 
       {/* Interactive Client Component with Filing Status selector */}
       <DynamicComparePage states={states} />
+
+      {/* ─── Server-Rendered SEO Chart (SVG line chart) ───────────────────── */}
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <CompareChart config={config} />
+      </div>
 
       {/* ─── Server-Rendered SEO Content (~800 words) ─────────────────────── */}
       <CompareSSRContent config={config} />
