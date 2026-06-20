@@ -8,6 +8,7 @@ import {
 import { calculatePaycheck, formatCurrency } from '@/lib/finance-utils';
 import { COMPARISON_SLUGS } from '@/lib/compare-config';
 import { DynamicComparePage } from './dynamic-compare-page';
+import { CompareSSRContent } from './compare-ssr-content';
 import { getCalculatorAuthor, authorToJsonLd } from '@/lib/authors';
 import { AuthorBioCard } from '@/components/finance/author-bio-card';
 
@@ -158,6 +159,9 @@ export default async function CompareStatesPage({
 
       {/* Interactive Client Component with Filing Status selector */}
       <DynamicComparePage states={states} />
+
+      {/* ─── Server-Rendered SEO Content (~800 words) ─────────────────────── */}
+      <CompareSSRContent config={config} />
 
       {/* ─── Author Attribution (E-E-A-T) ──────────────────────── */}
       <section className="py-12 border-t border-border/20">
