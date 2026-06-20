@@ -5,7 +5,6 @@ import { SALARY_AMOUNTS, formatSalaryCompact } from '@/lib/salary-calculations';
 import { getPublishedPostsMeta } from '@/lib/blog-index';
 import { COMPARISON_SLUGS, COMPARE_STATES, parseComparisonSlug } from '@/lib/compare-config';
 import { getCalculatorAuthor, authorToJsonLd } from '@/lib/authors';
-import { buildAggregateRating } from '@/lib/ratings';
 import { AuthorBioCard } from '@/components/finance/author-bio-card';
 import {
   DollarSign,
@@ -467,7 +466,6 @@ const homeJsonLd = {
         availability: 'https://schema.org/InStock',
         url: `${SITE_URL}/paycheck-calculator`,
       },
-      aggregateRating: buildAggregateRating('paycheck-calculator'),
     },
     {
       '@id': `${SITE_URL}/#howto`,
