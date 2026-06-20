@@ -6,6 +6,7 @@ import {
 import Link from 'next/link';
 import { Breadcrumb } from '@/components/finance/breadcrumb';
 import { ScenarioComparison, type TaxScenario } from '@/components/finance/scenario-comparison';
+import { SalaryComparisonSSRContent } from './ssr-content';
 import { SITE_URL } from '@/lib/site-config';
 import { getCalculatorAuthor, authorToJsonLd } from '@/lib/authors';
 import { AuthorBioCard } from '@/components/finance/author-bio-card';
@@ -178,13 +179,10 @@ export default function SalaryComparisonPage() {
         <p className="text-muted-foreground leading-relaxed">
           A $100,000 salary in California is not the same as a $100,000 salary in Texas — not even close. After federal taxes, FICA deductions, and state income tax, the Texas earner takes home roughly $7,000 to $10,000 more per year. When you are evaluating job offers, negotiating a raise, or considering relocation, the gross salary number alone is misleading. You need to see the after-tax, take-home pay to make an informed decision. Our salary comparison calculator shows you exactly what each salary means in real dollars, accounting for the 2026 federal tax brackets, the Social Security wage base of $184,500, Medicare taxes, and state-specific income tax rates for all 50 states.
         </p>
-        <p className="text-muted-foreground leading-relaxed">
-          State income taxes are the biggest variable in any salary comparison. Nine states levy zero personal income tax — Alaska, Florida, Nevada, New Hampshire, South Dakota, Tennessee, Texas, Washington, and Wyoming — which means every dollar you earn above the federal threshold stays in your pocket. On the other end, California charges up to 13.3%, Hawaii up to 11%, and New York up to 10.9% (plus New York City tax if you live in the five boroughs). For someone earning $120,000, moving from California to Texas can mean an extra $12,000+ in annual take-home pay, even with the same salary. This is the kind of insight that a salary comparison calculator provides instantly — no spreadsheets, no guesswork.
-        </p>
-        <p className="text-muted-foreground leading-relaxed">
-          Beyond state taxes, the calculator also accounts for pre-tax deductions like 401(k) contributions and HSA contributions. A $90,000 salary with a 10% 401(k) match might outperform a $95,000 salary with no retirement benefits after you factor in the tax savings. Each scenario in our side-by-side comparison can have its own 401(k) and HSA amounts, so you can compare total compensation packages, not just base salary. The difference column highlights exactly how much more or less each scenario yields, making it easy to see which offer is truly better for your financial situation.
-        </p>
       </section>
+
+      {/* Additional SSR Content (~600 words) */}
+      <SalaryComparisonSSRContent />
 
       {/* FAQ */}
       <section className="mb-10">
