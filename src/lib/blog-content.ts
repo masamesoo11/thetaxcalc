@@ -56,18 +56,6 @@ See? Even though your top bracket is 22%, your actual tax rate is much lower bec
 | 35% | $501,051 – $751,600 |
 | 37% | Over $751,600 |
 
-## 2026 Federal Tax Brackets for Head of Household
-
-| Tax Rate | Taxable Income Range |
-|----------|---------------------|
-| 10% | $0 – $17,000 |
-| 12% | $17,001 – $64,850 |
-| 22% | $64,851 – $103,350 |
-| 24% | $103,351 – $197,300 |
-| 32% | $197,301 – $250,500 |
-| 35% | $250,501 – $626,350 |
-| 37% | Over $626,350 |
-
 ## 2026 Standard Deduction
 
 Most taxpayers take the standard deduction rather than itemizing. For 2026:
@@ -85,847 +73,497 @@ Understanding the difference between these two rates is crucial:
 - **Marginal rate**: The tax rate on your last dollar of income (your "top bracket")
 - **Effective rate**: Your total tax divided by your total income (what you actually pay overall)
 
-Most people confuse the two and overestimate how much tax they'll owe. A single filer making $100,000 might have a marginal rate of 24%, but their effective rate is closer to 14-15% after the standard deduction.
-
-### Worked Example: $100,000 Single Filer in 2026
-
-Let's walk through a complete calculation. You earn $100,000 gross salary, single filing status, claiming the standard deduction.
-
-1. **Subtract standard deduction**: $100,000 − $16,100 = $83,900 taxable income
-2. **Apply progressive brackets**:
-   - 10% on first $11,925 = $1,192.50
-   - 12% on $11,926 to $48,475 = $4,386.00
-   - 22% on $48,476 to $83,900 = $7,803.50
-3. **Total federal income tax** = $13,382.00
-4. **Effective federal tax rate** = $13,382 ÷ $100,000 = 13.4%
-
-Your marginal rate is 22%, but your effective rate is only 13.4%. That's a huge difference and explains why people often overestimate their tax burden.
-
-## FICA Payroll Taxes on Top
-
-Federal income tax is only part of the story. You also pay FICA (Federal Insurance Contributions Act) taxes:
-
-- **Social Security tax**: 6.2% on wages up to $184,500 (2026 cap)
-- **Medicare tax**: 1.45% on all wages (no cap)
-- **Additional Medicare tax**: 0.9% on wages above $200,000 (single)
-
-On a $100,000 salary, FICA adds:
-- Social Security: $100,000 × 6.2% = $6,200
-- Medicare: $100,000 × 1.45% = $1,450
-- Total FICA = $7,650
-
-So your total federal tax burden on $100,000 is $13,382 (income tax) + $7,650 (FICA) = **$21,032**, or about 21% of your gross income.
-
-## State Income Tax Varies Widely
-
-After federal tax and FICA, your state may also charge income tax. State income tax ranges from 0% (Texas, Florida, Washington, Nevada, etc.) to over 13% (California's top rate). Use our [state tax calculators](/texas-tax-calculator) to see exactly what you'll owe in your state.
+Most people confuse the two and overestimate how much tax they'll owe. A single filer making $100,000 might have a marginal rate of 22%, but their effective rate is closer to 14-15% after the standard deduction.
 
 ## How to Calculate Your Federal Tax
 
-1. Start with your gross income (salary, wages, self-employment income)
-2. Subtract pre-tax deductions (401(k), HSA, traditional IRA)
-3. Subtract the standard deduction ($16,100 single, $32,200 married)
-4. Apply the progressive brackets to your taxable income
-5. Add FICA taxes (6.2% + 1.45%) on your gross wages
-6. Add state income tax (if applicable)
+1. Start with your gross income
+2. Subtract the standard deduction (or itemized deductions if greater)
+3. Apply the tax brackets to your taxable income
+4. Subtract any tax credits you qualify for
+5. The result is your federal income tax
 
-The result is your total tax burden. Subtract from gross income to get your take-home pay.
+> **Pro tip**: Use our [paycheck calculator](/paycheck-calculator) to automatically calculate your federal and state taxes, including all brackets and deductions.
 
-## Tax Planning Strategies
+## Key Changes for 2026
 
-### 1. Maximize Pre-Tax Contributions
+The brackets are adjusted annually for inflation. Compared to 2025:
 
-Contributing to a 401(k) or traditional IRA reduces your taxable income. In 2026, you can contribute up to $24,500 to a 401(k) ($30,500 if 50+). A $10,000 contribution at the 22% marginal rate saves you $2,200 in federal tax.
+- All bracket thresholds increased by roughly 2.8%
+- The standard deduction increased by about $400 for single filers
+- No major policy changes — the TCJA structure remains in effect through 2025, and current projections assume similar structure for 2026
 
-### 2. Use an HSA if Eligible
+## Common Mistakes to Avoid
 
-Health Savings Accounts are triple-tax-advantaged: pre-tax contributions, tax-free growth, and tax-free withdrawals for qualified medical expenses. The 2026 contribution limit is $4,400 (self) or $8,300 (family).
+1. **Assuming your bracket rate applies to all income** — It doesn't. Only income within each bracket is taxed at that rate.
+2. **Forgetting the standard deduction** — A huge chunk of your income is tax-free.
+3. **Ignoring tax credits** — Credits reduce your tax dollar-for-dollar, which is more valuable than deductions.
+4. **Not adjusting withholdings** — If your situation changed, update your W-4.
 
-### 3. Consider Roth vs Traditional
+## Bottom Line: Know Your Brackets
 
-Roth accounts don't reduce current taxable income, but qualified withdrawals are tax-free. They're best when you expect to be in a higher tax bracket in retirement.
+The 2026 tax brackets continue the seven-rate progressive system. Understanding marginal vs. effective rates can save you from unnecessary anxiety about "moving into a higher bracket." Use our free [tax calculator](/paycheck-calculator) to see exactly what you'll owe based on your specific situation.`,
 
-### 4. Bunch Deductions
+  "florida-vs-texas-tax-comparison": `# Florida vs Texas Tax Comparison
 
-If your itemized deductions are close to the standard deduction, consider "bunching" two years of deductions into one year to exceed the standard deduction threshold.
+Florida and Texas are two of the most popular states for people looking to escape high income taxes. Both have zero state income tax, but that doesn't mean they're tax-free. The real question is: which state's overall tax burden is lighter? The answer might surprise you.
 
-## Common Tax Bracket Myths
+## The Quick Answer
 
-### Myth 1: "I'll earn less if I get a raise"
+Florida and Texas both have **0% state income tax**, but they make up for it differently:
 
-False. Because of progressive brackets, a raise always increases your take-home pay. Even if you cross into a higher bracket, only the income above the threshold is taxed at the higher rate.
+- **Florida** relies heavily on sales tax and tourism-related taxes
+- **Texas** compensates with significantly higher property taxes
 
-### Myth 2: "My tax bracket is my tax rate"
+The "cheaper" state depends heavily on your specific situation — especially whether you own property.
 
-False. Your marginal rate (top bracket) is not your effective rate (what you actually pay). Most people pay significantly less than their marginal rate.
+## Income Tax: A Tie
 
-### Myth 3: "The standard deduction isn't worth taking"
+Both states have **no personal income tax**. That means:
 
-False. After the Tax Cuts and Jobs Act of 2017, the standard deduction nearly doubled. About 90% of taxpayers now take the standard deduction because it's higher than their itemized deductions.
+- No state tax on wages, salaries, or tips
+- No state tax on investment income
+- No state tax on retirement distributions (pensions, 401(k), Social Security)
 
-## Frequently Asked Questions
+This makes both states attractive for high earners, retirees, and anyone leaving a high-tax state like California or New York.
 
-### When are 2026 taxes due?
+## Property Tax: Texas Pays More
 
-April 15, 2027 is the filing deadline for 2026 tax returns. If April 15 falls on a weekend or holiday, the deadline moves to the next business day.
+This is where the biggest difference appears. Texas has some of the highest property taxes in the nation:
 
-### What is the 2026 standard deduction?
+| Metric | Florida | Texas |
+|--------|---------|-------|
+| Average effective property tax rate | 0.86% | 1.60% |
+| Median property tax paid | $2,338 | $3,457 |
+| National rank | 26th | 6th highest |
 
-For 2026, the standard deduction is $16,100 for single filers, $32,200 for married filing jointly, and $24,150 for head of household.
+On a $400,000 home:
+- **Florida**: ~$3,440/year in property taxes
+- **Texas**: ~$6,400/year in property taxes
 
-### How do tax brackets work?
+That's nearly **$3,000 more per year** in Texas for the same home value. Over 30 years, that's almost $90,000 difference — and that's before accounting for property tax increases.
 
-Tax brackets use marginal rates — only income within each bracket is taxed at that bracket's rate. Your effective tax rate is always lower than your top marginal rate.
+### Florida's Homestead Exemption
 
-### What's the highest tax bracket for 2026?
+Florida offers a generous **$50,000 homestead exemption** that reduces the assessed value of your primary residence. Plus, the **Save Our Homes cap** limits annual assessment increases to 3% or the CPI, whichever is lower. This means long-term Florida homeowners often pay far less than the nominal rate.
 
-The top federal tax bracket for 2026 is 37%, which applies to single filers with taxable income over $626,350.
+### Texas Property Tax Relief
 
-### What's the difference between marginal and effective tax rate?
+Texas has no income tax but does offer a **homestead exemption** of $100,000 (as of 2023 constitutional amendment). School district taxes get a $100,000 exemption, and there are additional exemptions for seniors and disabled veterans. However, even with these exemptions, Texas property taxes remain among the highest nationally.
 
-Marginal rate is the tax on your last dollar of income (your top bracket). Effective rate is your total tax divided by your total income — usually much lower.
+## Sales Tax: Florida Charges More
 
-## Conclusion
+| Metric | Florida | Texas |
+|--------|---------|-------|
+| State sales tax rate | 6.00% | 6.25% |
+| Average local sales tax | 1.01% | 1.94% |
+| Average combined rate | 7.01% | 8.19% |
+| Maximum combined rate | 8.50% | 9.75% |
 
-Federal tax brackets aren't as scary as they look. The progressive system means your effective tax rate is always lower than your marginal rate, and the standard deduction shields a chunk of your income from tax entirely. Use our [2026 federal tax brackets](/federal-tax-brackets) page for a complete reference, or our [Paycheck Calculator](/paycheck-calculator) for a personalized calculation.`,
+Wait — Texas actually has the higher combined sales tax rate when you include local add-ons. But Florida taxes more services and has fewer exemptions, so the effective sales tax burden is often comparable.
 
-  "florida-vs-texas-tax-comparison": `# Florida vs Texas Tax Comparison 2026
+### What's Taxed Differently
 
-Florida and Texas are two of the most popular states for people looking to escape high state income taxes. Both states have **zero state income tax**, but they're not identical when it comes to overall tax burden. This guide breaks down how Florida and Texas compare across income tax, property tax, sales tax, and overall cost of living for 2026.
+- **Groceries**: Florida taxes groceries at a reduced rate; Texas does not tax most groceries
+- **Clothing**: Both states tax clothing at the full rate
+- **Services**: Florida taxes more services (like lawn care and pest control)
 
-## Quick Verdict: Which State Saves You More?
+## Overall Tax Burden Comparison
 
-The answer depends on your income source and lifestyle:
+According to the Tax Foundation's analysis:
 
-- **High earners**: Texas wins slightly due to lower overall sales tax burden
-- **Homeowners**: Florida wins significantly due to much lower property taxes
-- **Retirees**: Florida wins due to no tax on retirement income (Texas also doesn't tax it, but Florida has additional senior-friendly policies)
-- **Renters**: Texas wins due to lower overall sales tax and lower rents
+| Tax Type | Florida Rank | Texas Rank |
+|----------|-------------|-----------|
+| State & local tax burden | 35th (lower) | 39th (lower) |
+| Property tax per capita | 25th | 14th |
+| Sales tax per capita | 11th | 24th |
 
-On a $100,000 salary with a $400,000 home, the difference is roughly **$1,500-$2,500 per year** in Florida's favor — primarily because of property tax differences.
+**Florida's overall tax burden** is slightly lower, mainly because property taxes are so much lower.
 
-## Income Tax: 0% in Both States
+## Who Should Choose Florida?
 
-Both Florida and Texas have **zero state income tax**. Your federal income tax and FICA taxes will be identical in both states. On a $100,000 single-filer salary:
+Florida might be better for you if:
 
-- Federal income tax: $13,382
-- FICA: $7,650
-- State income tax: $0 (both states)
-- **Take-home pay**: $78,968 (same in both states)
+- You **own a home** (property tax savings are significant)
+- You're a **retiree** (no tax on Social Security, pension, or retirement income; homestead protections)
+- You prefer **coastal living** (no state income tax + no tax on many retirement incomes)
+- You want **assessment caps** on your primary residence (Save Our Homes)
 
-This is the big draw for high earners — moving from California (top rate 13.3%) to Florida or Texas saves $5,000-$15,000+ per year on state income tax alone.
+## Who Should Choose Texas?
 
-## Property Tax: Florida Wins Big
+Texas might be better for you if:
 
-This is where the two states diverge significantly. Texas has some of the highest property taxes in the nation, while Florida has relatively moderate property taxes.
+- You're a **renter** (no property tax directly, just 0% income tax)
+- You have a **high income** in a field with Texas job opportunities
+- You prefer a **lower cost of living** (housing, groceries, and services are generally cheaper)
+- You're a **business owner** (Texas has no corporate income tax, franchise tax is modest)
 
-### Texas Property Tax
+## Bottom Line: Florida vs Texas Verdict
 
-- **Average effective rate**: 1.71% of home value (6th highest in US)
-- **On $400,000 home**: ~$6,840/year
-- **On $600,000 home**: ~$10,260/year
-- **Homestead exemption**: $25,000 (or $40,000 for seniors)
+Both states offer significant tax savings compared to high-tax states like California, New York, or Illinois. The right choice depends on your lifestyle:
 
-### Florida Property Tax
+- **Homeowners** will likely pay less tax in **Florida**
+- **Renters** and **business owners** might prefer **Texas**
+- **Retirees** should strongly consider **Florida**
 
-- **Average effective rate**: 0.86% of home value (24th highest in US)
-- **On $400,000 home**: ~$3,440/year
-- **On $600,000 home**: ~$5,160/year
-- **Homestead exemption**: $25,000 + Save Our Homes cap (assessed value increases limited to 3%/year)
+Use our [paycheck calculator](/paycheck-calculator) to compare your take-home pay in both states, or try our [relocation calculator](/relocation-calculator) to see the full cost-of-living comparison.`,
 
-### Property Tax Savings on a $400K Home
+  "illinois-income-tax-guide-2026": `# Illinois Income Tax Guide 2026
 
-- **Texas**: $6,840/year
-- **Florida**: $3,440/year
-- **Florida saves**: $3,400/year
+Illinois has one of the simplest state income tax structures in the country — a flat rate that applies to everyone, regardless of how much you earn. But "simple" doesn't mean "cheap." Here's everything you need to know about Illinois taxes in 2026.
 
-This is the single biggest tax difference between the two states. If you own a home, Florida's property tax advantage often outweighs any other consideration.
+## Illinois Income Tax Rate
 
-## Sales Tax: Texas Has Slight Edge
+Illinois has a **flat income tax rate of 4.95%** for 2026. This rate applies to:
 
-### Texas Sales Tax
+- All taxable income for individuals
+- All taxable income for businesses (pass-through entities)
+- Trusts and estates
 
-- **State rate**: 6.25%
-- **Average combined rate**: 8.20% (with local taxes)
-- **Highest combined**: 8.25% in some areas
-- **Groceries**: Exempt (except for prepared food)
-- **Medicine**: Exempt
+Unlike most states, Illinois doesn't have progressive brackets. Whether you make $30,000 or $3,000,000, you pay the same 4.95% rate on your taxable income.
 
-### Florida Sales Tax
+### How Illinois Calculates Taxable Income
 
-- **State rate**: 6.00%
-- **Average combined rate**: 7.02% (with local taxes)
-- **Highest combined**: 8.50% in some counties
-- **Groceries**: Exempt
-- **Medicine**: Exempt
+Illinois starts with your federal adjusted gross income (AGI) and then makes adjustments:
 
-### Sales Tax Savings on $40,000 Annual Spending
+1. Start with federal AGI
+2. Add back certain deductions (like federally tax-exempt interest that Illinois taxes)
+3. Subtract Illinois-specific exemptions and deductions
+4. Apply the 4.95% flat rate
 
-- **Texas (8.20%)**: $3,280/year
-- **Florida (7.02%)**: $2,808/year
-- **Florida saves**: $472/year
+## Personal Exemptions
 
-Florida has a lower average sales tax rate, but Texas has more counties at the 6.25% state minimum. In practice, the sales tax difference is small — usually less than $500/year for typical spending patterns.
+For 2026, Illinois offers a **personal exemption of $2,775** per person. This is a flat amount subtracted from your income before calculating tax, not a credit.
 
-## Other Taxes to Consider
+- **Single**: $2,775 exemption
+- **Married filing jointly**: $2,775 × 2 = $5,550
+- **Additional exemptions** for age 65+ and blindness: $2,775 each
 
-### Texas-Specific Taxes
+## Property Taxes in Illinois
 
-- **Franchise tax**: 0.375%-0.75% on business margins (most businesses pay this even without corporate income tax)
-- **No estate tax**: Texas abolished its estate tax in 2015
-- **No inheritance tax**: Same as estate tax
+Here's where Illinois gets painful. The state has the **second-highest effective property tax rate** in the nation:
 
-### Florida-Specific Taxes
+| Metric | Illinois | National Average |
+|--------|----------|-----------------|
+| Effective property tax rate | 2.08% | 1.07% |
+| Median property tax | $5,272 | $2,869 |
+| National rank | 2nd highest | — |
 
-- **Corporate income tax**: 5.5% on Florida corporate income (Texas has none — uses franchise tax instead)
-- **No estate tax**: Florida abolished its estate tax in 2004
-- **Documentary stamp tax**: 0.70% on real estate transfers ($2,800 on a $400K home sale) — Texas has no equivalent
-- **Tourist development tax**: 6% on short-term rentals (paid by tourists, not residents)
+On a $300,000 home in Illinois, you'd pay approximately **$6,240/year** in property taxes, compared to about $3,210 nationally.
 
-## Cost of Living Comparison
+### By County
 
-Taxes are only one part of the financial picture. Here's how Florida and Texas compare on other major expenses:
+Property taxes vary significantly within Illinois:
 
-### Housing Costs
+- **Cook County** (Chicago): ~2.1% effective rate
+- **DuPage County**: ~2.3% effective rate
+- **Lake County**: ~2.5% effective rate
+- **Will County**: ~2.4% effective rate
+- **Downstate counties**: Generally 1.5-2.0%
 
-- **Median home price (2026)**:
-  - Florida: $410,000 (statewide)
-  - Texas: $345,000 (statewide)
-- **Average rent (2BR apartment)**:
-  - Florida: $1,850/month
-  - Texas: $1,520/month
+## Sales Tax in Illinois
 
-Texas has significantly cheaper housing, especially outside the major metros. Miami, Orlando, and Tampa are far more expensive than Dallas, Houston, or San Antonio.
+Illinois has a complex sales tax system with different rates for different types of goods:
 
-### Insurance Costs
+| Tax Type | Rate |
+|----------|------|
+| State sales tax | 6.25% |
+| Average local add-on | 2.49% |
+| Average combined rate | 8.74% |
+| Maximum combined rate | 11.00% (some Chicago areas) |
 
-- **Homeowners insurance**:
-  - Florida: $4,500-$8,000/year (hurricane risk)
-  - Texas: $2,500-$4,500/year (hail, tornado risk)
-- **Auto insurance**:
-  - Florida: $2,800/year (high due to litigation)
-  - Texas: $1,850/year
+### Chicago Specifically
 
-Florida's insurance costs are 50-100% higher than Texas, which can wipe out the property tax savings.
-
-### Utilities
-
-- **Electricity**: Texas has deregulated market — variable rates, often $0.11-$0.16/kWh
-- **Florida**: Regulated market, rates around $0.13-$0.15/kWh
-- **Water**: Florida has higher water costs due to desalination and stormwater management
-
-## Total Tax Burden Comparison
-
-Let's compare the total tax burden for a $100,000 single filer with a $400,000 home in each state:
-
-### Florida Total Tax Burden
-
-- Federal income tax: $13,382
-- FICA: $7,650
-- State income tax: $0
-- Property tax: $3,440
-- Sales tax (on $40K spending): $2,808
-- **Total tax**: $27,280
-
-### Texas Total Tax Burden
-
-- Federal income tax: $13,382
-- FICA: $7,650
-- State income tax: $0
-- Property tax: $6,840
-- Sales tax (on $40K spending): $3,280
-- **Total tax**: $31,152
-
-### Difference
-
-- **Florida saves** approximately **$3,872 per year** on total tax burden
-- But Florida's higher insurance costs (~$2,500/year more) eat into this advantage
-- **Net difference**: Florida saves roughly $1,300-$1,500/year after accounting for insurance
-
-## Which State Is Better for You?
-
-### Choose Florida If:
-
-- You're a retiree (no tax on retirement income, plus senior homestead exemptions)
-- You own an expensive home ($500K+)
-- You prefer warm, coastal climate year-round
-- You work in tourism, healthcare, or finance
-- You don't mind higher insurance costs
-
-### Choose Texas If:
-
-- You're a high-earning professional or business owner
-- You rent (avoid property tax difference)
-- You prefer a lower overall cost of living
-- You work in tech, energy, or manufacturing
-- You want more housing for your money
-- You prefer no state corporate income tax (just franchise tax)
-
-## Tax Planning Strategies
-
-### 1. Establish Domicile Properly
-
-If you're moving from a high-tax state (CA, NY, IL), document your move carefully. Both states have aggressive "source income" rules — keep utility bills, voter registration, and driver's license updated immediately.
-
-### 2. Claim Homestead Exemption
-
-Both states offer homestead exemptions that reduce your property's taxable value. In Texas, this is $25,000 (or $40,000 for 65+). In Florida, it's $25,000 plus the Save Our Homes cap that limits annual assessment increases to 3%.
-
-### 3. Time Your Home Sale
-
-If moving between the states, consider the Florida documentary stamp tax (0.70% of sale price) when selling or buying. On a $500K home, that's $3,500.
-
-### 4. Use Florida's Save Our Homes Cap
-
-Florida's Save Our Homes cap limits annual assessment increases on homesteaded property to 3% or the CPI, whichever is lower. Over 10+ years, this can save tens of thousands of dollars compared to Texas where assessments follow the market.
-
-## Frequently Asked Questions
-
-### Which state has lower taxes overall?
-
-Florida has slightly lower overall taxes for most homeowners, primarily due to lower property taxes. Texas wins for renters and high earners who don't own expensive homes.
-
-### Does Florida tax Social Security?
-
-No. Florida has no state income tax, so Social Security benefits are not taxed at the state level. (They may still be taxed federally depending on your income.)
-
-### Does Texas tax retirement income?
-
-No. Texas has no state income tax, so retirement income (pensions, 401(k) withdrawals, IRA distributions) is not taxed at the state level.
-
-### Which state has higher property taxes?
-
-Texas has significantly higher property taxes — about 1.71% of home value vs. Florida's 0.86%. On a $400K home, that's a $3,400/year difference.
-
-### Are groceries taxed in Florida or Texas?
-
-Neither state taxes groceries. Both Florida and Texas exempt most grocery food purchases from sales tax (prepared food is still taxed).
-
-## Conclusion
-
-Both Florida and Texas offer significant tax savings compared to high-tax states like California and New York. For most homeowners, **Florida has the slight edge** due to lower property taxes and senior-friendly policies. But Texas wins for renters and high earners with modest housing needs. The right choice depends on your income source, housing plans, and lifestyle preferences. Use our [Relocation Calculator](/relocation-calculator) for a personalized comparison based on your specific situation.`,
-
-  "illinois-income-tax-guide-2026": `# Illinois Income Tax 2026 — 4.95% Flat Rate Guide
-
-Illinois has one of the simplest state income tax systems in the United States. Unlike most states that use progressive tax brackets, Illinois charges a flat 4.95% income tax on all taxable income. This guide explains exactly how Illinois income tax works in 2026, who has to pay, and how it compares to neighboring states.
-
-## Illinois Income Tax Rate for 2026
-
-For the 2026 tax year, Illinois charges a **flat 4.95% income tax** on federal Adjusted Gross Income (AGI), with some state-specific adjustments. This flat rate applies regardless of how much you earn — whether you make $20,000 or $2 million, your Illinois state income tax rate is 4.95%.
-
-The flat tax was established by the Illinois Constitution in 1969 and reaffirmed by voters in 2020, when a ballot measure to allow progressive taxation was defeated.
-
-## Who Pays Illinois Income Tax?
-
-You must file an Illinois income tax return (Form IL-1040) if you:
-
-- Are an Illinois resident with any income
-- Are a non-resident who earned Illinois-source income
-- Want to claim Illinois refundable credits (even with no tax liability)
-
-### Illinois Residency Rules
-
-Illinois considers you a resident if:
-
-- You're domiciled in Illinois (your permanent home)
-- You spent more than 9 months in Illinois during the tax year (statutory resident)
-
-Part-year residents file Schedule NR with their IL-1040 and pay tax only on income earned while an Illinois resident.
-
-## How Illinois Income Tax Is Calculated
-
-Illinois starts with your federal AGI and makes a few adjustments to get to Illinois **Base Income**. Here's the calculation:
-
-### Step 1: Start with Federal AGI
-
-This is your Adjusted Gross Income from your federal Form 1040, which includes wages, self-employment income, investment income, retirement distributions, etc.
-
-### Step 2: Add or Subtract State Adjustments
-
-Common Illinois additions include:
-- Federally tax-exempt interest (e.g., municipal bond interest from other states)
-- Some federally deductible expenses
-
-Common Illinois subtractions include:
-- Social Security benefits (Illinois doesn't tax SS)
-- Federally taxable retirement income (Illinois doesn't tax most retirement income)
-- Illinois state tax refund (if you itemized federally)
-
-### Step 3: Apply the Flat 4.95% Rate
-
-Your Illinois Base Income × 4.95% = **Illinois Income Tax Before Credits**
-
-### Step 4: Subtract Personal Exemptions
-
-Each taxpayer and dependent gets a personal exemption of $2,775 (2026 amount). At a 4.95% rate, that's a tax savings of $137.36 per exemption.
-
-### Step 5: Apply Credits
-
-Common Illinois tax credits include:
-- Property Tax Credit (5% of property tax paid on your primary residence, up to limits)
-- Earned Income Credit (18% of federal EITC)
-- Education Expense Credit
-- K-12 Education Expense Credit
-
-### Step 6: Add Use Tax
-
-If you bought items out of state for use in Illinois and didn't pay sales tax, you owe Illinois use tax. Most people use the Use Tax Table based on AGI.
-
-## Worked Example: $75,000 Single Filer in Illinois
-
-Let's calculate the Illinois income tax for a single filer with $75,000 in W-2 wages:
-
-1. **Federal AGI**: $75,000
-2. **Illinois adjustments**: $0 (no SS, no retirement income, no tax-exempt interest)
-3. **Illinois Base Income**: $75,000
-4. **Tax at 4.95%**: $75,000 × 0.0495 = $3,712.50
-5. **Personal exemption**: $2,775 × 4.95% = $137.36 tax reduction
-6. **Illinois tax after exemption**: $3,712.50 − $137.36 = $3,575.14
-7. **Credits**: $0 (no property tax credit in this example)
-8. **Final Illinois income tax**: $3,575.14
-
-Combined with federal income tax and FICA, this taxpayer's total tax burden is about $19,650, leaving take-home pay of $55,350.
-
-## Illinois Tax on Retirement Income
-
-Illinois is one of the most tax-friendly states for retirees. **Most retirement income is exempt from Illinois income tax**:
-
-- Social Security benefits: Not taxed
-- Pension income: Not taxed (public and private)
-- 401(k) and IRA distributions: Not taxed
-- Federal retirement benefits: Not taxed
-
-This exemption saves a typical retiree $3,000-$8,000 per year compared to states that tax retirement income. However, Illinois does tax non-retirement investment income (capital gains, dividends, interest) at 4.95%.
-
-## Illinois Property Tax
-
-While Illinois income tax is moderate, **Illinois has some of the highest property taxes in the country**. The statewide average effective property tax rate is 1.78% of home value — second only to New Jersey nationally.
-
-On a $300,000 home in Illinois, you'd pay approximately $5,340 per year in property tax. In high-tax counties like Cook (Chicago), rates can exceed 2.5%.
-
-### Illinois Property Tax Credit
-
-To offset high property taxes, Illinois offers a Property Tax Credit equal to 5% of property tax paid on your primary residence. On $5,340 in property tax, this saves you $267 in state income tax.
-
-## Illinois Sales Tax
-
-Illinois has a 6.25% state sales tax, but combined with local taxes, the average rate is 8.86%. Chicago has the highest combined sales tax rate in the state at 10.25%.
-
-Notable sales tax exemptions:
-- Groceries (1% reduced rate)
-- Prescription drugs (1% reduced rate)
-- Medical devices
-- Manufacturing equipment
+Chicago residents pay some of the highest sales taxes in the country:
+- Combined state + county + city rate: **10.25%**
+- Restaurant tax: **11.25%**
+- Amusement tax: **9%** on tickets + 1.25% on streaming
 
 ## How Illinois Compares to Neighboring States
 
-| State | Income Tax Rate | Property Tax (Avg) | Sales Tax (Avg) |
-|-------|----------------|---------------------|-----------------|
-| **Illinois** | 4.95% flat | 1.78% | 8.86% |
-| Indiana | 3.05% flat | 0.81% | 7.00% |
-| Iowa | 4.40%-5.70% | 1.29% | 6.94% |
-| Kentucky | 4.00% flat | 0.72% | 6.00% |
-| Michigan | 4.25% flat | 1.29% | 6.00% |
-| Missouri | 2.00%-4.80% | 0.88% | 8.29% |
-| Wisconsin | 3.54%-7.65% | 1.63% | 5.46% |
+| State | Income Tax | Property Tax Rate | Sales Tax |
+|-------|-----------|------------------|-----------|
+| **Illinois** | 4.95% flat | 2.08% | 8.74% avg |
+| Indiana | 3.05% flat | 0.82% | 7.00% |
+| Wisconsin | 3.50%–7.65% | 1.73% | 5.61% |
+| Missouri | 2.00%–4.80% | 0.97% | 8.25% |
+| Iowa | 4.40%–5.70% | 1.53% | 6.94% |
+| Kentucky | 4.00% flat | 0.83% | 6.74% |
 
-Illinois has the highest property taxes in the region, but moderate income tax. For low- and middle-income earners, Illinois is generally more expensive than Indiana or Kentucky but less expensive than Wisconsin.
+Illinois is competitive on income tax but significantly more expensive on property taxes.
 
-## Tax Planning Strategies for Illinois Residents
+## Illinois Tax Credits
 
-### 1. Maximize Retirement Contributions
+Several credits can reduce your Illinois tax bill:
 
-Since Illinois doesn't tax retirement income, traditional 401(k) and IRA contributions save you federal tax now AND avoid Illinois tax forever (when withdrawn in retirement).
+- **Earned Income Tax Credit (EITC)**: 20% of the federal EITC amount
+- **Property Tax Credit**: 5% of qualified property taxes paid on your primary residence
+- **K-12 Education Expense Credit**: Up to $750 for qualified education expenses
+- **Illinois Investment Credit**: For businesses investing in qualified property
 
-### 2. Claim the Property Tax Credit
+## Retirement Income in Illinois
 
-If you own your home, always claim the Illinois Property Tax Credit. It's worth 5% of your property tax bill and can save $200-$600 per year.
+Good news for retirees: **Illinois does not tax most retirement income**, including:
 
-### 3. Use the Education Expense Credit
+- Social Security benefits
+- Income from 401(k), 403(b), and 457 plans
+- Traditional and Roth IRA distributions
+- Pension income (government and private)
+- Railroad Retirement benefits
 
-If you have K-12 students, you can claim a credit of 25% of qualified education expenses (tuition, book fees, lab fees) up to $750 per student. Income limits apply.
+This is one of Illinois's biggest tax advantages and makes it a relatively attractive state for retirees, despite the high property taxes.
 
-### 4. Consider Moving Outside Cook County
+## Filing Requirements
 
-Chicago (Cook County) has the highest property taxes and sales taxes in Illinois. Moving to suburban DuPage, Will, or Kane counties can save $1,000-$3,000 per year in property taxes on similar homes.
+You must file an Illinois tax return (Form IL-1040) if:
 
-## Frequently Asked Questions
+- You're an Illinois resident with income that exceeds the personal exemption
+- You're a part-year resident with Illinois-source income
+- You're a nonresident with Illinois-source income
 
-### Does Illinois tax Social Security?
+The filing deadline aligns with the federal deadline, typically April 15.
 
-No. Illinois does not tax Social Security benefits. Your SS income is excluded from Illinois taxable income.
+## Bottom Line: Illinois Tax Takeaways
 
-### Does Illinois tax pensions?
+Illinois offers a straightforward flat tax rate, but the overall tax burden is high due to property taxes:
 
-No. Illinois does not tax most pension income, including private pensions, government pensions, and military pensions.
+- **Income tax**: Moderate at 4.95% flat
+- **Property tax**: Second-highest in the nation
+- **Sales tax**: Above average, especially in Chicago
+- **Retiree-friendly**: Most retirement income is exempt
 
-### What is the Illinois flat tax rate for 2026?
+Use our [Illinois paycheck calculator](/illinois-tax-calculator) to see exactly how much you'll take home after all Illinois taxes and deductions.`,
 
-The Illinois flat income tax rate for 2026 is 4.95% of Illinois Base Income (federal AGI with state adjustments).
+  "how-fica-taxes-work-2026": `# How FICA Taxes Work in 2026
 
-### Are there Illinois income tax brackets?
-
-No. Illinois has a flat tax of 4.95% — the same rate applies regardless of income level. A 2020 ballot measure to allow progressive taxation was defeated by voters.
-
-### When are Illinois taxes due?
-
-April 15, 2027 is the filing deadline for 2026 Illinois tax returns. Illinois follows the federal deadline.
-
-### Does Illinois have a standard deduction?
-
-No. Illinois doesn't have a standard deduction. Instead, it offers a personal exemption of $2,775 per taxpayer and dependent (2026 amount).
-
-## Conclusion
-
-Illinois has a simple flat income tax of 4.95%, making tax planning straightforward. The state's tax-friendliness for retirees is a major advantage, but high property taxes offset some of the income tax savings. Use our [Illinois Tax Calculator](/illinois-tax-calculator) to see exactly what you'll pay in 2026.`,
-
-  "how-fica-taxes-work-2026": `# How FICA Taxes Work in 2026 — Full Guide
-
-Every paycheck you receive has money taken out for FICA taxes. If you've ever wondered what those deductions mean and where the money goes, this guide breaks down everything you need to know about FICA in 2026.
+Every paycheck you receive has a chunk taken out for FICA taxes. But what exactly is FICA, how is it calculated, and — most importantly — is there anything you can do about it? Let's break it down.
 
 ## What Is FICA?
 
-FICA stands for the **Federal Insurance Contributions Act**, the law that requires employers to withhold payroll taxes from employees' paychecks. The money funds two major federal programs:
+FICA stands for the **Federal Insurance Contributions Act**. It's the law that requires employers and employees to pay taxes that fund:
 
-1. **Social Security** (officially OASDI — Old-Age, Survivors, and Disability Insurance)
-2. **Medicare** (the federal health insurance program for people 65+ and some younger people with disabilities)
+1. **Social Security** (Old-Age, Survivors, and Disability Insurance — OASDI)
+2. **Medicare** (Hospital Insurance)
 
-If you're a W-2 employee, you split FICA with your employer. If you're self-employed, you pay both halves — that's called the **self-employment tax** (SE tax).
+If you're an employee, you see these deductions on every paycheck. If you're self-employed, you pay both halves — known as **self-employment tax**.
 
 ## 2026 FICA Tax Rates
 
-For the 2026 tax year, FICA has two components:
+### Social Security Tax (OASDI)
 
-### 1. Social Security Tax
+| Component | Rate | Wage Base |
+|-----------|------|-----------|
+| Employee share | 6.20% | Up to $184,500 |
+| Employer share | 6.20% | Up to $184,500 |
+| **Total** | **12.40%** | Up to $184,500 |
 
-- **Rate**: 6.2% (employee) + 6.2% (employer) = 12.4% total
-- **Wage Base Limit**: $184,500 (income above this is not subject to Social Security tax)
-- **Maximum Social Security Tax** (employee): $184,500 × 6.2% = $11,439.00
-- **Maximum Social Security Tax** (self-employed): $184,500 × 12.4% = $22,878.00
+The **wage base** is the maximum amount of earnings subject to Social Security tax. For 2026, it's $184,500 (up from $176,100 in 2025). Any income above this amount is NOT subject to Social Security tax.
 
-### 2. Medicare Tax
+### Medicare Tax (HI)
 
-- **Rate**: 1.45% (employee) + 1.45% (employer) = 2.9% total
-- **No wage cap** — Medicare tax applies to all wages
-- **Additional Medicare Tax**: 0.9% on wages above $200,000 (single) or $250,000 (married filing jointly) — paid by employee only
+| Component | Rate | Wage Base |
+|-----------|------|-----------|
+| Employee share | 1.45% | No limit |
+| Employer share | 1.45% | No limit |
+| **Total** | **2.90%** | No limit |
 
-## How FICA Works on Your Paycheck
+Unlike Social Security, there's **no wage cap** on Medicare tax. Every dollar you earn is subject to the 1.45% Medicare tax.
 
-Let's look at a few examples to see how FICA affects your take-home pay.
+### Additional Medicare Tax
 
-### Example 1: $50,000 Salary (Single Filer)
+High earners pay an **extra 0.9%** Medicare surtax:
 
-- Social Security tax: $50,000 × 6.2% = **$3,100**
-- Medicare tax: $50,000 × 1.45% = **$725**
-- **Total FICA**: $3,825 (7.65% of wages)
+| Filing Status | Threshold |
+|--------------|-----------|
+| Single | $200,000 |
+| Married Filing Jointly | $250,000 |
+| Married Filing Separately | $125,000 |
 
-### Example 2: $100,000 Salary (Single Filer)
+This additional tax is only paid by the employee — the employer does not match it.
 
-- Social Security tax: $100,000 × 6.2% = **$6,200**
-- Medicare tax: $100,000 × 1.45% = **$1,450**
-- **Total FICA**: $7,650 (7.65% of wages)
+## Total FICA Rate
 
-### Example 3: $250,000 Salary (Single Filer)
+For most employees:
 
-- Social Security tax: $184,500 × 6.2% = **$11,439** (capped at wage base)
-- Medicare tax: $250,000 × 1.45% = **$3,625**
-- Additional Medicare tax: ($250,000 − $200,000) × 0.9% = **$450**
-- **Total FICA**: $15,514 (6.2% effective rate)
+- **Social Security**: 6.20%
+- **Medicare**: 1.45%
+- **Total FICA**: **7.65%**
 
-Notice that at high incomes, the effective FICA rate drops because Social Security tax stops at the wage base. A $250,000 earner pays an effective FICA rate of just 6.2%, lower than a $50,000 earner's 7.65%.
+Your employer pays an additional 7.65% on top of your salary (which you never see but is effectively part of your compensation).
 
-## FICA for Self-Employed Workers
+## Self-Employment Tax
 
-If you're self-employed (independent contractor, freelancer, gig worker, small business owner), you pay the full 15.3% FICA tax yourself — both the employee and employer portions. This is called the **self-employment tax**.
+If you're self-employed, you pay **both** the employee and employer shares:
 
-### 2026 Self-Employment Tax Calculation
+- **Social Security**: 12.40% (6.20% × 2)
+- **Medicare**: 2.90% (1.45% × 2)
+- **Total Self-Employment Tax**: **15.30%**
 
-- Social Security: 12.4% on net earnings up to $184,500
-- Medicare: 2.9% on all net earnings
-- Additional Medicare: 0.9% on earnings above $200,000
+Plus the Additional Medicare Tax of 0.9% if your self-employment income exceeds the thresholds.
 
-**Example**: A freelancer with $80,000 in net self-employment income would pay:
-- Social Security: $80,000 × 12.4% = $9,920
-- Medicare: $80,000 × 2.9% = $2,320
-- **Total SE tax**: $12,240 (15.3% of net earnings)
+### The Good News for Self-Employed
 
-### Deduction for Employer Half
+You can deduct **half of your self-employment tax** (the "employer share") as an adjustment to income on your tax return. This reduces your AGI and therefore your income tax.
 
-The good news: self-employed workers can deduct the "employer half" of SE tax (7.65% of net earnings) as a business expense on their federal income tax return. This reduces your taxable income.
+## FICA Examples
 
-## What FICA Taxes Fund
+### Example 1: Employee Earning $80,000
 
-### Social Security Trust Funds
+- Social Security: $80,000 × 6.20% = **$4,960**
+- Medicare: $80,000 × 1.45% = **$1,160**
+- Total FICA: **$6,120** per year ($510/month)
+- Employer also pays: **$6,120**
 
-Your Social Security tax funds retirement, disability, and survivor benefits:
+### Example 2: Employee Earning $250,000 (Single)
 
-- **Retirement benefits**: Available as early as age 62 (reduced) or full benefits at full retirement age (67 for people born after 1960)
-- **Disability benefits (SSDI)**: For workers who can't work due to a qualifying disability
-- **Survivor benefits**: Paid to widows, widowers, and dependent children of deceased workers
+- Social Security: $184,500 × 6.20% = **$11,439.00**
+- Medicare: $250,000 × 1.45% = **$3,625**
+- Additional Medicare: ($250,000 - $200,000) × 0.9% = **$450**
+- Total FICA: **$15,514.00** per year
 
-In 2026, the average monthly Social Security retirement benefit is approximately $1,950, with a maximum of about $4,200 for high earners who delayed claiming until age 70.
+### Example 3: Self-Employed Earning $100,000
 
-### Medicare Trust Funds
+- Social Security: $100,000 × 12.40% = **$12,400**
+- Medicare: $100,000 × 2.90% = **$2,900**
+- Total SE Tax: **$15,300** per year
+- Deductible half: **$7,650**
 
-Your Medicare tax funds healthcare for older Americans and some people with disabilities:
+## Common FICA Myths
 
-- **Hospital Insurance (Part A)**: Inpatient hospital care, skilled nursing, hospice
-- **Supplementary Medical Insurance (Parts B, D)**: Doctor visits, outpatient services, prescription drugs (funded partly by premiums, not just FICA)
+### Myth 1: "FICA is the same as income tax"
+**False.** FICA funds specific programs (Social Security and Medicare). Federal income tax funds the general government. They're calculated and reported separately.
 
-## FICA vs. Federal Income Tax
+### Myth 2: "I can reduce FICA with deductions"
+**Mostly false.** FICA is based on gross wages, not AGI. The only ways to reduce FICA are:
+- Contributing to a pre-tax account (like a 401(k) or HSA)
+- Having non-wage income (investments, rental income aren't subject to FICA)
+- Being self-employed and using the deduction for half of SE tax
 
-People often confuse FICA with federal income tax. They're separate taxes with different rules:
+### Myth 3: "Self-employed people pay double"
+**Partially true, but misleading.** Self-employed people pay both halves, but they also deduct the employer half, and the employer half isn't subject to income tax. The effective impact is less than double.
 
-| Feature | FICA | Federal Income Tax |
-|---------|------|-------------------|
-| **Rate** | Fixed (6.2% + 1.45%) | Progressive (10%-37%) |
-| **Wage cap** | Yes (SS only, $184,500 in 2026) | No |
-| **Standard deduction** | Doesn't apply | $16,100 single (2026) |
-| **Pre-tax deductions** | 401(k) doesn't reduce FICA | 401(k) reduces taxable income |
-| **Refundable** | No | Yes (via EITC, refundable credits) |
-| **Employer match** | Yes (50/50 split) | No (employer doesn't pay) |
+## How FICA Impacts Your Paycheck
 
-A key difference: contributing to a 401(k) lowers your federal income tax but **not** your FICA tax. FICA is calculated on gross wages before any pre-tax deductions (except for HSA contributions, which do reduce FICA).
+Use our [paycheck calculator](/paycheck-calculator) to see exactly how FICA affects your take-home pay. Just enter your salary and state, and we'll show you the complete breakdown including Social Security, Medicare, federal income tax, and state taxes.`,
 
-## Common FICA Questions
+  "why-texas-has-no-income-tax": `# Why Texas Has No Income Tax
 
-### Can I avoid FICA taxes?
-
-Generally no. If you're a W-2 employee, FICA is mandatory. The only ways to reduce FICA are:
-- Earn less than the Social Security wage base (you'll still pay Medicare)
-- Contribute to an HSA (reduces FICA taxable income)
-- Be self-employed and have a low net income (after business deductions)
-- Work for an employer with a non-qualified retirement plan (rare)
-
-### Does my employer really pay half?
-
-Yes, but some economists argue the employer's half is effectively paid by the employee through lower wages. Either way, you see only your half (7.65%) deducted from your paycheck.
-
-### Do I get FICA back at tax time?
-
-Generally no — FICA is not refundable like federal income tax can be. However, you may qualify for the Earned Income Tax Credit (EITC) which can offset FICA for low-income workers.
-
-### What if I have multiple jobs?
-
-Each employer withholds FICA independently. If you earn more than $184,500 across multiple jobs, you may overpay Social Security tax. You can claim a refund of the excess on your tax return using Form 843.
-
-### Do I pay FICA on investment income?
-
-No. FICA only applies to earned income (wages, salaries, self-employment income). Investment income (dividends, interest, capital gains) is not subject to FICA — though high earners may pay the Net Investment Income Tax (NIIT) of 3.8%.
-
-## FICA Tax Planning Strategies
-
-### 1. Maximize HSA Contributions
-
-Health Savings Account contributions reduce both FICA and federal income tax. For 2026, you can contribute up to $4,400 (self-only) or $8,300 (family) to an HSA.
-
-### 2. Track Multiple Jobs for SS Overwithholding
-
-If you work multiple jobs and your combined wages exceed $184,500, file Form 843 to claim a refund of excess Social Security tax.
-
-### 3. Deduct Self-Employment Tax
-
-If self-employed, deduct the employer half of SE tax (7.65% of net earnings) on your federal return. This is an above-the-line deduction — you don't need to itemize.
-
-### 4. Use S-Corp Election for High Earners
-
-Self-employed workers earning $80,000+ may benefit from electing S-Corp status. You pay yourself a "reasonable salary" (subject to FICA) and take the rest as distributions (not subject to FICA). This can save thousands per year but requires careful compliance.
-
-## Conclusion
-
-FICA taxes fund two of America's most important social programs — Social Security and Medicare. While the 7.65% combined rate may seem steep, you're paying into programs that provide retirement income, disability protection, and healthcare in old age. Use our [Self-Employment Tax Calculator](/self-employment-tax-calculator) or [Paycheck Calculator](/paycheck-calculator) to see exactly how FICA affects your take-home pay.`,
-
-  "why-texas-has-no-income-tax": `# Why Texas Has No Income Tax — Full Breakdown
-
-Texas is one of nine US states with no personal income tax. This fact is a major reason people move to Texas, but the story behind *why* Texas doesn't tax income — and how the state funds itself instead — is more interesting than you might expect. This guide explains the history, economics, and trade-offs of Texas's no-income-tax system.
+Texas is one of nine US states with no personal income tax, and it's been that way since... well, always. But how does a state with 30 million residents fund its government without income tax? And is the trade-off worth it? Let's dig in.
 
 ## The Short Answer
 
-Texas has no state income tax because:
+Texas has never had a personal income tax. The Texas Constitution was written in 1876 with a strong aversion to income taxation, and subsequent amendments have only strengthened this position. In 1993, voters approved a constitutional amendment that **requires a statewide referendum** to enact an income tax — and even if approved, the revenue would have to be used for property tax reduction and education.
 
-1. **The Texas Constitution** explicitly prohibits a personal income tax without voter approval
-2. **Voters rejected an income tax** in 1993 by a 4-to-1 margin
-3. **The state funds itself** through sales tax, property tax, oil and gas revenues, and federal transfers
-4. **Political culture** in Texas has long favored low taxes and limited government
-
-The result is a tax system that's friendlier to high earners but relies more heavily on sales and property taxes — which can be regressive.
-
-## The Constitutional Story
-
-### 1972: The First Attempt
-
-In 1972, Texas Governor Dolph Briscoe proposed a state income tax to fund public education. The Texas Legislature passed a constitutional amendment that would have allowed an income tax, but voters rejected it by a wide margin in a 1972 referendum.
-
-### 1993: The Defining Vote
-
-In 1993, Texas faced a budget crisis and Governor Ann Richards pushed for a state income tax. The Legislature put a constitutional amendment on the ballot that would have authorized an income tax with revenue earmarked for education and property tax relief.
-
-**Voters crushed the proposal**, rejecting it by 4-to-1 (about 80% against). The vote was so decisive that no Texas politician has seriously proposed an income tax since.
-
-### 1993 Constitutional Amendment (Aftermath)
-
-After the 1993 vote, the Texas Constitution was amended (Article 8, Section 24) to require that any future personal income tax must be approved by a **majority vote of Texans in a statewide referendum**. Furthermore, any income tax revenue must be used to reduce property taxes and fund education.
-
-This constitutional barrier makes a Texas income tax virtually impossible — any politician proposing one would have to win a popular vote, which seems unlikely given the 1993 result.
+In 2019, Texas went even further: voters approved **Senate Joint Resolution 24**, which prohibits the legislature from even proposing an income tax without a constitutional amendment — effectively making it nearly impossible to ever enact one.
 
 ## How Texas Funds Its Government
 
-Without an income tax, Texas relies on several other revenue sources:
+Without income tax revenue, Texas relies on three main sources:
 
-### 1. Sales Tax (Largest Source)
+### 1. Sales Tax (Primary Source)
 
-- **State sales tax rate**: 6.25%
-- **Combined with local taxes**: Average 8.20%
-- **Annual revenue**: ~$40 billion (about 50% of state tax revenue)
-- **Taxable items**: Most goods and services (exemptions for groceries, medicine, some clothing)
+| Metric | Value |
+|--------|-------|
+| State sales tax rate | 6.25% |
+| Average local add-on | 1.94% |
+| Average combined rate | 8.19% |
+| Maximum combined rate | 9.75% |
 
-Sales tax is Texas's largest single revenue source. It's a **regressive tax** — lower-income Texans pay a higher percentage of their income in sales tax than high earners do.
+Sales tax generates roughly **50-60%** of the state's general revenue. Texas has one of the highest combined sales tax rates in the country.
 
-### 2. Property Tax (Local, Not State)
+### 2. Property Tax
 
-Texas doesn't have a state property tax, but local governments (counties, cities, school districts, special districts) levy property taxes. The statewide average effective rate is **1.71% of home value** — among the highest in the nation.
+Texas has the **6th highest** effective property tax rate in the nation at approximately 1.60%. Property taxes are collected at the local level (counties, cities, school districts, and special purpose districts) and fund:
 
-- **Annual revenue**: ~$73 billion (collected locally, not by state)
-- **School districts**: Receive the largest share (~55% of property tax revenue)
-- **M&O (Maintenance and Operations)** vs. **I&S (Interest and Sinking/debt service)**: Two components of school district property tax
+- Public schools (the largest portion)
+- County services
+- City services
+- Community colleges
+- Hospital districts
 
-### 3. Oil and Gas Severance Tax
+### 3. Other Revenue Sources
 
-Texas produces more oil and natural gas than any other state. The state levies a **severance tax** on oil and gas production:
+- **Franchise tax** (often called the "margins tax"): A modest tax on businesses
+- **Motor vehicle sales tax**: 6.25% on vehicle purchases
+- **Severance taxes**: On oil and gas production (historically significant)
+- **Federal funding**: About 40% of the state budget comes from the federal government
+- **Fees and licenses**: Various regulatory fees
 
-- **Oil**: 4.6% of market value
-- **Natural gas**: 7.5% of market value
-- **Annual revenue**: $5-$15 billion (highly variable with energy prices)
+## The Trade-Off: Property Taxes
 
-When oil prices spike (like in 2022), severance tax revenue surges. When prices crash, revenue plummets. This volatility is a structural challenge for Texas's budget.
+Here's the uncomfortable truth: **Texans pay for the lack of income tax through property taxes.**
 
-### 4. Federal Transfers
+| Metric | Texas | US Average |
+|--------|-------|-----------|
+| Effective property tax rate | 1.60% | 1.07% |
+| Median property tax | $3,457 | $2,869 |
+| National rank | 6th highest | — |
 
-Like all states, Texas receives federal funding for various programs:
+For a $350,000 home:
+- **Texas**: ~$5,600/year in property taxes
+- **National average**: ~$3,745/year
+- **Difference**: ~$1,855/year more in Texas
 
-- **Medicaid**: Federal match for state Medicaid spending
-- **Highway funding**: Federal gas tax revenue returned to states
-- **Education**: Title I, special education, school nutrition
-- **Defense**: Military bases and defense contracts (Texas has many)
+### Who Pays More Overall?
 
-Federal transfers make up about 35-40% of Texas's total state budget.
+The answer depends on your income and housing situation:
 
-### 5. Other State Taxes
+**Texas wins for:**
+- High-income earners (would pay more in income tax than the extra property tax)
+- Renters (they don't directly pay property taxes but benefit from 0% income tax)
+- Business owners (no personal income tax + moderate franchise tax)
 
-- **Franchise tax**: 0.375%-0.75% on business margins (Texas's version of a corporate income tax)
-- **Motor fuel tax**: $0.20/gallon gasoline, $0.20/gallon diesel
-- **Tobacco tax**: $1.41/pack of cigarettes
-- **Alcohol tax**: Varies by type
-- **Hotel occupancy tax**: 6% state + local additions
+**Texas loses for:**
+- Moderate-income homeowners (property tax eats a larger share of income)
+- Retirees on fixed incomes (property taxes keep rising)
+- People in expensive housing markets (Austin, Dallas suburbs)
 
-## The Trade-Offs of No Income Tax
+## The Economic Argument
 
-Texas's no-income-tax system has real trade-offs. Here's what they look like in practice:
+Proponents of no income tax argue it provides several advantages:
 
-### Advantages
+1. **Attracts businesses and workers**: Texas has been the #1 destination for corporate relocations
+2. **Encourages saving and investment**: No penalty for earning more
+3. **Simpler tax compliance**: No state return to file
+4. **Population growth**: Texas gained 470,000 new residents in 2023 alone
 
-1. **High earners save thousands**: A $500K earner saves $40,000-$65,000 vs. living in California or New York
-2. **Business-friendly**: No personal income tax attracts entrepreneurs and small business owners
-3. **No tax filing burden**: Texans don't file a state income tax return (saving time and accounting costs)
-4. **Population growth**: Texas consistently leads the nation in net domestic migration
-5. **Job creation**: Major companies (Tesla, Oracle, Hewlett Packard Enterprise) have relocated HQs to Texas
+Critics counter that:
 
-### Disadvantages
+1. **Regressive tax structure**: Sales and property taxes hit lower-income residents harder
+2. **Underfunded services**: Texas ranks low in education spending and healthcare access
+3. **Property tax burden**: Can force people out of their homes, especially seniors
+4. **Revenue volatility**: Sales tax revenue drops during recessions
 
-1. **High property taxes**: Texas's 1.71% average property tax rate is 6th highest in the US
-2. **Regressive tax structure**: Low-income Texans pay a higher percentage of income in taxes (sales + property) than high earners
-3. **Underfunded public services**: Texas ranks low in per-student education spending and Medicaid reimbursement rates
-4. **Budget volatility**: Heavy reliance on sales and oil/gas taxes makes state revenue more cyclical
-5. **Infrastructure strain**: Rapid population growth has outpaced infrastructure investment
+## Texas vs. States With Income Tax
 
-## Comparing Texas to Other No-Income-Tax States
+Let's compare the total tax burden:
 
-Texas is one of nine states with no personal income tax:
+| State | Income Tax | Property Tax Rate | Sales Tax | Overall Burden |
+|-------|-----------|------------------|-----------|---------------|
+| **Texas** | 0% | 1.60% | 8.19% | Lower |
+| California | 1-13.3% | 0.71% | 8.82% | Higher |
+| New York | 4-10.9% | 1.38% | 8.52% | Higher |
+| Illinois | 4.95% | 2.08% | 8.74% | Higher |
+| Florida | 0% | 0.86% | 7.01% | Lower |
 
-| State | Sales Tax | Property Tax | Notes |
-|-------|-----------|---------------|-------|
-| **Texas** | 8.20% avg | 1.71% | High property tax, oil revenue |
-| **Florida** | 7.02% avg | 0.86% | Lower property tax, tourism revenue |
-| **Washington** | 9.41% avg | 0.98% | High sales tax, tech economy |
-| **Nevada** | 8.23% avg | 0.60% | Gaming and tourism revenue |
-| **Tennessee** | 9.56% avg | 0.71% | High sales tax, low property tax |
-| **South Dakota** | 6.40% avg | 1.32% | Banking industry revenue |
-| **Wyoming** | 5.36% avg | 0.61% | Coal and energy revenue |
-| **Alaska** | 0% | 1.18% | Oil revenue pays residents (PFD) |
-| **New Hampshire** | 0% | 2.18% | High property tax, no sales tax either |
+Texas has a lower overall tax burden than most states with income taxes, but Florida's approach (no income tax + lower property taxes) is arguably more favorable for homeowners.
 
-Each state funds itself differently. Alaska actually pays residents an annual dividend from oil revenue. New Hampshire has no income or sales tax but very high property taxes.
+## Recent Property Tax Relief
 
-## How Texas Compares to California
+In 2023, Texas passed the **largest property tax cut in state history** ($18 billion):
 
-The Texas vs. California comparison is the most common reason people ask about Texas's tax system. Here's the breakdown:
+- Increased homestead exemption from $40,000 to $100,000
+- School district tax rate compression
+- Appraisal cap of 10% annually for homesteads
+- Additional $10,000 exemption for seniors
 
-### Texas vs. California: $100,000 Single Filer
+This reduced the average homeowner's property tax bill by about 18-20%, but Texas property taxes remain among the highest nationally.
 
-| Tax Type | Texas | California | Difference |
-|----------|-------|-----------|-----------|
-| Federal income tax | $13,382 | $13,382 | $0 |
-| FICA | $7,650 | $7,650 | $0 |
-| State income tax | $0 | $6,083 | -$6,083 |
-| Property tax ($400K home) | $6,840 | $2,840 | +$4,000 |
-| Sales tax ($40K spending) | $3,280 | $3,528 | -$248 |
-| **Total tax** | **$31,152** | **$33,483** | **-$2,331** |
+## Bottom Line: Texas No-Income-Tax Trade-Offs
 
-Texas saves about **$2,300/year** for a $100K earner with a $400K home. At higher incomes, the savings grow dramatically:
+Texas's no-income-tax model works, but it's not free. You pay through property taxes and higher sales taxes. The net benefit depends on your income, housing situation, and spending habits.
 
-### Texas vs. California: $500,000 Single Filer
-
-- Texas state income tax: $0
-- California state income tax: ~$46,000
-- **Texas saves**: ~$42,000/year after accounting for property tax difference
-
-This is why high earners and business owners move from California to Texas in large numbers.
-
-## The Future of Texas's Tax System
-
-Several trends could shape Texas's tax future:
-
-### 1. Property Tax Reform
-
-In 2019, Texas passed property tax reform capping annual increases at 3.5% for most local governments. In 2023, voters approved a constitutional amendment raising the homestead exemption to $100,000 (from $40,000) for school district property taxes. More reform is likely.
-
-### 2. School Finance Lawsuits
-
-Texas's school finance system (sometimes called "Robin Hood") redistributes property tax revenue from wealthy districts to poorer ones. This system has faced decades of legal challenges and may face more.
-
-### 3. Population Growth Pressure
-
-Texas adds 1,000+ new residents per day. This growth strains infrastructure (roads, water, schools) and may eventually force lawmakers to consider new revenue sources.
-
-### 4. Energy Transition
-
-As the world moves away from fossil fuels, Texas's oil and gas severance tax revenue may decline long-term. This could create budget pressure if sales and property taxes can't fill the gap.
-
-## Frequently Asked Questions
-
-### When did Texas eliminate its income tax?
-
-Texas has never had a personal income tax. Voters rejected proposals in 1972 and 1993, and the state constitution now requires voter approval for any income tax.
-
-### How does Texas fund schools without an income tax?
-
-Texas schools are funded primarily through local property taxes (school districts), state sales tax revenue, and federal funds. The state redistributes property tax revenue from wealthy districts to poorer ones through the "Robin Hood" system.
-
-### Will Texas ever get an income tax?
-
-Unlikely. The 1993 vote rejected an income tax by 80%-20%, and the constitutional amendment requires voter approval for any future income tax. No major Texas politician supports an income tax.
-
-### Are Texas property taxes really that high?
-
-Yes. Texas's average effective property tax rate is 1.71%, the 6th highest in the US. On a $400K home, that's $6,840/year. High property taxes offset some of the savings from no income tax.
-
-### Does Texas tax retirement income?
-
-No. Texas has no state income tax, so retirement income (pensions, 401(k) withdrawals, IRA distributions, Social Security) is not taxed at the state level.
-
-## Conclusion
-
-Texas's no-income-tax system is the result of a unique political history, constitutional barriers, and a deliberate choice to fund government through sales and property taxes instead. The system attracts high earners and businesses but creates a more regressive tax structure that hits low-income Texans harder. Whether this trade-off is worth it depends on your income level, housing situation, and political values. Use our [Texas Tax Calculator](/texas-tax-calculator) to see exactly how much you'd save by living in Texas.`,
+Use our [Texas paycheck calculator](/texas-tax-calculator) to see how much you'd take home with 0% state income tax, and compare it with other states.`,
 
   "1099-tax-guide-self-employed-2026": `# 1099 Taxes Explained: How Much You Really Owe as a Freelancer in 2026
 
@@ -2297,2004 +1935,304 @@ Washington's average effective property tax rate is 0.98% of assessed home value
 ### Does Washington have income tax?
 
 No. Washington is one of nine states with no personal income tax. There is no state income tax on wages, salaries, self-employment income, retirement income, or investments. The only income-related tax is the 7% capital gains tax on long-term gains over ~$262,000.`,
-  "how-bonuses-are-taxed-2026": `# How Are Bonuses Taxed in 2026? The 22% Flat Rate Explained
+  "florida-tax-guide-2026": `# Florida Tax Guide 2026: No Income Tax, Sales Tax, Property Tax & Calculator
 
-You just got the email from HR — congratulations, you earned a bonus! You're already planning how to spend it. Maybe pay off that credit card, finally upgrade the couch your dog destroyed, or just stash it in savings. Then the bonus hits your bank account and... wait. That's way less than you expected. Where did all the money go?
+Florida is one of nine U.S. states with no personal state income tax, making it one of the most tax-friendly states for residents and retirees. But "no income tax" doesn't mean "no taxes" — Florida collects revenue through sales tax, property tax, corporate income tax, and various fees. This guide breaks down every Florida tax you'll encounter in 2026, with real numbers, examples, and a free calculator to compute your exact take-home pay.
 
-If this has happened to you, you're definitely not alone. The number one question people ask about bonuses is some version of: **"Why is my bonus taxed so much higher than my regular pay?"** It's a great question, and the answer surprises most people — because your bonus probably *isn't* taxed at a higher rate. It just *looks* that way.
+## Florida Income Tax in 2026
 
-Let's break it all down so you actually understand what happens to your bonus money, how the IRS classifies it, and what you can do about it.
+**Florida has no personal state income tax.** Zero. Nada. Whether you earn $30,000 or $3 million in wages, salary, bonuses, commissions, or self-employment income, Florida does not tax it at the state level. This is enshrined in the Florida Constitution and has been the law since 1885.
 
-## Why Bonuses Feel Like They're Taxed Higher
+### What's Exempt from Florida Income Tax
 
-Here's the big misconception: bonuses are taxed at a higher rate than regular income. They're not. Your bonus is **supplemental wage income**, which means the IRS has special rules for *withholding* on it — but the actual tax you owe at the end of the year is based on the same brackets as everything else.
+- **Wages and salaries** — 100% exempt
+- **Self-employment income** — 100% exempt
+- **Investment income** (dividends, interest, capital gains) — 100% exempt
+- **Pension income** — 100% exempt (great for retirees)
+- **Social Security benefits** — 100% exempt
+- **401(k) and IRA distributions** — 100% exempt
+- **Rental income** — 100% exempt
+- **Business pass-through income** (LLC, S-Corp) — 100% exempt
 
-The confusion comes from the gap between **withholding** (what comes out of your paycheck) and **actual tax liability** (what you really owe). Withholding is just an estimate — a prepayment. When you file your return, everything gets reconciled.
+### What IS Taxed in Florida
 
-So when you see 22% (or more) come out of your bonus upfront, that doesn't mean your bonus is being taxed at 22%. It means your employer is *withholding* 22% to cover your potential tax bill. The actual tax rate on your bonus depends on your total income and tax bracket.
+Florida does have a **corporate income tax** of 3.535% (as of 2026), but it only applies to C-Corporations. If you operate as a sole proprietor, LLC, partnership, or S-Corporation, your business income passes through to your personal return — and since Florida has no personal income tax, you pay $0 in state income tax on that income.
 
-Think of it this way: your bonus is just more income. It gets added to your regular wages, and the whole pile is taxed according to the same progressive brackets. The 22% withholding is just the IRS being cautious.
+### How Florida Funds Itself Without Income Tax
 
-Use our [bonus tax calculator](/bonus-tax-calculator) to see exactly how much of your bonus you'll take home after all taxes.
+Florida generates revenue through:
+1. **Sales tax** (6% state + local surtaxes) — largest source
+2. **Property tax** (averaging 0.98% statewide) — funds local government
+3. **Corporate income tax** (3.535% on C-Corps) — smaller source
+4. **Tourist development tax** (6% on short-term rentals) — paid by visitors
+5. **Documentary stamp tax** (0.70% on real estate transfers)
+6. **Fuel tax** ($0.405/gallon gasoline, $0.327/gallon diesel)
 
-## The Percentage Method: The 22% Flat Federal Rate
+## Florida Sales Tax in 2026
 
-The IRS gives employers two options for withholding federal income tax on supplemental wages. The most common is the **percentage method**, and it's simple: your employer withholds a flat **22%** of your bonus for federal income tax.
+### State Sales Tax Rate
 
-That's it. Flat 22%. No matter how much the bonus is (with one big exception we'll get to), no matter what tax bracket you're in, the withholding is 22%.
+Florida's statewide sales tax rate is **6.000%** — one of the higher state rates in the U.S. This applies to most retail sales, rentals, and services.
 
-For most people, this is actually pretty close to their effective federal rate. If you're a single filer making between $48,475 and $103,350 in 2026, your marginal rate is 22% anyway, so the withholding lines up nicely. If you're in a lower bracket — say 12% — the 22% withholding is too high, and you'll get some of it back as a refund. If you're in a higher bracket — say 32% — the 22% withholding isn't enough, and you might owe more at tax time.
+### Combined Sales Tax (State + Local)
 
-### The $1 Million Exception: 37% Withholding
+Most Florida counties add a **local surtax** (also called "discretionary sales surtax") ranging from 0.5% to 2.0%. The average combined sales tax rate across Florida is approximately **6.98%**.
 
-Here's the one exception. If your supplemental wages exceed **$1 million** in a calendar year, any amount above $1 million is subject to a flat **37%** withholding rate. This is the IRS's way of making sure high earners don't massively underpay during the year.
+| County (Major) | State Rate | Local Surtax | Combined Rate |
+|---------------|-----------|-------------|--------------|
+| Miami-Dade | 6.000% | 1.000% | 7.000% |
+| Broward (Fort Lauderdale) | 6.000% | 1.000% | 7.000% |
+| Palm Beach | 6.000% | 1.000% | 7.000% |
+| Hillsborough (Tampa) | 6.000% | 2.500% | 8.500% |
+| Orange (Orlando) | 6.000% | 0.500% | 6.500% |
+| Duval (Jacksonville) | 6.000% | 0.500% | 6.500% |
+| Pinellas (St. Petersburg) | 6.000% | 1.000% | 7.000% |
+| Lee (Fort Myers) | 6.000% | 0.500% | 6.500% |
+| Polk (Lakeland) | 6.000% | 1.000% | 7.000% |
+| Alachua (Gainesville) | 6.000% | 0.500% | 6.500% |
 
-So if you get a $1.5 million bonus (hey, congrats), the first $1 million has 22% withheld ($220,000) and the remaining $500,000 has 37% withheld ($185,000). Total federal withholding: $405,000. Yeah, that stings. But again, the 37% is just withholding — your actual tax is determined by your bracket when you file.
+### Florida Sales Tax Exemptions
 
-### Why Most Employers Use the Percentage Method
+Not everything is taxed. Florida exempts:
 
-The percentage method is dead simple for payroll departments. No calculations based on your regular wages, no timing issues with pay periods. Just take the bonus amount, multiply by 22%, and done. That's why roughly 90% of employers use this method.
+- **Groceries** (most food for home consumption) — exempt
+- **Prescription drugs** — exempt
+- **Over-the-counter medications** — exempt
+- **Medical devices and equipment** — exempt
+- **Newspapers and magazines** — exempt
+- **Residential rent** — exempt (commercial rent is taxed at 5.5%)
+- **Professional services** (legal, medical, accounting) — exempt
+- **Educational services** — exempt
 
-It's also predictable for you — you always know that 22% is going to federal income tax withholding on your bonus. No surprises on the pay stub.
+### Florida Sales Tax on Cars
 
-## The Aggregate Method: How It Works With Regular Wages
+When you buy a car in Florida, you pay the **state sales tax rate of 6%** on the purchase price. The local surtax does NOT apply to vehicle purchases — only the 6% state rate. On a $30,000 car, that's $1,800 in sales tax.
 
-The second option is the **aggregate method**. Instead of applying a flat rate, your employer adds your bonus to your most recent regular paycheck and calculates withholding as if that combined amount is what you earn every pay period.
+There's a **trade-in credit**: if you trade in your old car, the sales tax is calculated on the difference. Trade a $10,000 car toward a $30,000 car, and you pay 6% on $20,000 = $1,200.
 
-This sounds reasonable in theory, but in practice it usually results in **higher withholding**. Here's why:
+## Florida Property Tax in 2026
 
-When you add a bonus to a regular paycheck, the combined total often pushes you into a higher withholding bracket for that pay period. The payroll system then assumes — incorrectly — that you earn that inflated amount every pay period, and withholds accordingly.
+### Average Property Tax Rate
 
-**Example:** You're single, paid biweekly, and normally earn $3,000 per paycheck. Your federal withholding on that is roughly $350 (based on 2026 brackets and standard deduction). Now you get a $10,000 bonus processed with the same paycheck. Your payroll system sees a $13,000 paycheck and thinks you make $338,000 a year. It then withholds at a much higher rate — around $2,800 to $3,200 for that one check.
+Florida's average effective property tax rate is **0.98%** of assessed home value — slightly below the national average of 1.07%. On a $400,000 home, that's approximately $3,920 per year.
 
-Under the percentage method, the withholding on that same $10,000 bonus would be a flat $2,200. The aggregate method just cost you an extra $600 to $1,000 in withholding. You'll get it back as a refund, but you're giving the government an interest-free loan in the meantime.
+### Property Tax by County (Selected Major Counties)
 
-### When the Aggregate Method Actually Helps
+| County | Average Effective Rate | On $400K Home |
+|--------|----------------------|---------------|
+| Miami-Dade | 1.02% | $4,080 |
+| Broward | 1.08% | $4,320 |
+| Palm Beach | 1.05% | $4,200 |
+| Hillsborough | 0.93% | $3,720 |
+| Orange | 1.00% | $4,000 |
+| Duval | 1.03% | $4,120 |
+| Pinellas | 1.00% | $4,000 |
+| Lee | 1.02% | $4,080 |
+| Pasco | 1.01% | $4,040 |
+| Polk | 0.99% | $3,960 |
+| Alachua | 1.04% | $4,160 |
 
-There is one scenario where the aggregate method can result in *lower* withholding: if you earn a relatively low income and your bonus is modest. For someone in the 12% bracket, the percentage method's 22% flat rate over-withholds significantly. The aggregate method might calculate a withholding rate closer to 12%, which better matches their actual tax liability.
+### Florida Homestead Exemption (Save Our Homes)
 
-But this is the exception, not the rule. For most people — especially those earning above $50,000 — the percentage method results in less withholding and more money in your pocket right away.
+Florida's **homestead exemption** is one of the most generous in the nation:
 
-## Which Method Saves More Money? A Comparison
+1. **$50,000 exemption** — Reduces the assessed value of your primary residence by $50,000. On a $400K home, you're taxed on $350K instead of $400K.
+2. **Save Our Homes cap** — Limits annual assessment increases to **3% or the CPI, whichever is lower**. This means even if your home's market value jumps 20% in a year, your assessed value (for tax purposes) can only rise 3%.
 
-Let's put this head-to-head with real numbers. We'll compare a single filer earning $85,000/year who receives a $10,000 bonus.
+**Example**: You buy a homesteaded home in 2026 for $400,000. By 2030, the market value is $600,000. Without Save Our Homes, your property tax would rise 50%. With Save Our Homes, your assessed value can only increase ~3% per year — so by 2030, your assessed value would be roughly $450,000, not $600,000. You pay tax on $450K, not $600K.
 
-| Factor | Percentage Method | Aggregate Method |
-|-------|------------------|------------------|
-| Bonus amount | $10,000 | $10,000 |
-| Federal withholding rate | 22% flat | Based on combined paycheck |
-| Federal income tax withheld | $2,200 | ~$2,850 |
-| FICA (SS + Medicare) | $765 | $765 |
-| State tax (5% example) | $500 | $500 |
-| **Total taxes withheld** | **$3,465** | **~$4,115** |
-| **Take-home from bonus** | **$6,535** | **~$5,885** |
-| Difference | — | **$650 less take-home** |
+### Additional Homestead Exemptions
 
-The aggregate method withholds about $650 more in this example. Same actual tax liability at year-end — but you wait until your refund to see that $650 again.
+- **Senior exemption** ($50,000 additional for ages 65+ with income under $35,000)
+- **Veteran exemption** ($5,000 for disabled veterans, up to full exemption for 100% disabled)
+- **Widow/widower exemption** ($500)
+- **Blind person exemption** ($500)
 
-**Bottom line:** For most earners, the percentage method puts more money in your pocket at bonus time. But your employer chooses the method, not you. If your company uses the aggregate method and you'd prefer the percentage method, it's worth asking HR about it. Some employers are willing to switch, especially if enough employees request it.
+## Florida Corporate Income Tax
 
-Use our [paycheck calculator](/paycheck-calculator) to model both methods with your actual salary and bonus amount.
+If you operate a C-Corporation in Florida, you're subject to the **corporate income tax rate of 3.535%** (as of 2026). This is one of the lowest corporate tax rates in the U.S.
 
-## FICA on Bonuses: Social Security + Medicare
+### Who Pays Corporate Income Tax
 
-Federal income tax isn't the only tax on your bonus. FICA taxes apply too — and there's no special rate for supplemental wages. Your bonus is subject to the same FICA rules as your regular pay.
+- **C-Corporations** — Yes, 3.535% on Florida-apportioned income
+- **S-Corporations** — No (pass-through, no state tax)
+- **LLCs** — No (pass-through)
+- **Partnerships** — No (pass-through)
+- **Sole proprietors** — No (personal income, no state tax)
 
-Here's what comes out of your bonus for FICA in 2026:
+The corporate income tax only applies to income over $50,000 (the first $50K is exempt). Florida also offers various corporate tax credits for research, job creation, and investment.
 
-- **Social Security (6.2%)**: Applies to your bonus just like regular wages, up to the wage base of **$184,500** for 2026. If you haven't hit that cap yet with your regular earnings, your bonus gets the full 6.2%. If you've already earned more than $184,500 this year, no Social Security tax on the bonus.
-- **Medicare (1.45%)**: Applies to all bonus income with no cap.
-- **Additional Medicare Tax (0.9%)**: Kicks in if your total wages (including the bonus) exceed **$200,000**. This is on the employee only — your employer doesn't match it.
+## Florida Estate and Inheritance Tax
 
-So for most people, FICA adds another **7.65%** to the tax bite on a bonus (6.2% + 1.45%). Combined with the 22% federal withholding under the percentage method, that's **29.65%** gone before you see a dime.
+**Florida has no estate tax and no inheritance tax.** This means:
 
-And if you're a high earner already past the Social Security cap, FICA on your bonus drops to just 1.45% (Medicare only), or 2.35% if you're above $200,000 (Medicare + Additional Medicare). One small silver lining.
+- When you die, your heirs pay $0 in Florida estate tax
+- When you inherit from someone in Florida, you pay $0 in Florida inheritance tax
+- Florida does not "decouple" from the federal estate tax
 
-For a deeper dive into FICA, check out our article on [how FICA taxes work in 2026](/blog/how-fica-taxes-work-2026).
+This makes Florida especially attractive for high-net-worth individuals and retirees looking to preserve wealth for their heirs.
 
-## State Income Tax on Bonuses
+## Salary After Taxes in Florida — Examples
 
-Your state wants its cut too. Most states with an income tax treat bonuses as supplemental wages and have their own flat withholding rate — similar to the federal 22% method.
+Since Florida has no state income tax, your take-home pay is significantly higher than in states like California, New York, or Illinois. Here's what you'd take home at various salary levels (single filer, standard deduction, 2026 brackets):
 
-Here's how some major states handle bonus withholding:
+### $75,000 Salary in Florida
 
-| State | Bonus Withholding Rate | Notes |
-|-------|------------------------|-------|
-| California | 10.23% | High rate on supplemental wages |
-| New York | 11.70% | NY supplemental rate for bonuses over $1M is 16.70% |
-| Illinois | 4.95% | Flat rate on all income |
-| Texas | 0% | No state income tax |
-| Florida | 0% | No state income tax |
-| Pennsylvania | 3.07% | Flat rate on all income |
-| New Jersey | 11% | Supplemental wage rate |
-| Georgia | 5.49% | Supplemental wage rate |
+- Federal income tax: $8,620
+- FICA (Social Security + Medicare): $5,738
+- Florida state income tax: $0
+- **Total tax**: $14,358
+- **Take-home pay**: $60,642/year ($5,054/month)
 
-States without income tax — Texas, Florida, Washington, Nevada, Wyoming, South Dakota, Alaska, Tennessee, and New Hampshire — don't take anything from your bonus at the state level. That's a meaningful difference. A $10,000 bonus in Texas means roughly $1,000 more in your pocket compared to the same bonus in California, just from state taxes.
+Compared to California ($54,849), that's **$5,793 more per year** in your pocket.
 
-Also remember: if you work in one state and live in another, you might owe taxes in both. Some states have reciprocity agreements, but many don't. This gets complicated fast, so if you're in that situation, talk to a tax professional.
+### $100,000 Salary in Florida
 
-## Year-End Bonus Strategies
+- Federal income tax: $13,382
+- FICA: $7,650
+- Florida state income tax: $0
+- **Total tax**: $21,032
+- **Take-home pay**: $78,968/year ($6,581/month)
 
-Timing matters when it comes to bonuses. If your bonus is paid in December versus January, the tax implications can be significant. Here are some strategies to consider:
+Compared to New York ($69,484), that's **$9,484 more per year**.
 
-### 1. Defer Your Bonus to January
+### $150,000 Salary in Florida
 
-If you expect to earn less next year (maybe a job change, sabbatical, or your spouse is taking time off), deferring your December bonus to January could put you in a lower tax bracket. You'd pay tax on that income in the following year when your total income is lower. Even a one-month deferral can save thousands.
+- Federal income tax: $25,760
+- FICA: $10,013
+- Florida state income tax: $0
+- **Total tax**: $35,773
+- **Take-home pay**: $114,227/year ($9,519/month)
 
-This only works if your employer is flexible on payment timing, and it only makes sense if you genuinely expect lower income next year. If your income will be about the same, there's no real advantage.
+Compared to California ($101,237), that's **$12,990 more per year**.
 
-### 2. Boost Your 401(k) Contribution
+### $250,000 Salary in Florida
 
-Bonuses are typically eligible for 401(k) contributions. If you haven't maxed out your 401(k) for the year ($23,500 in 2026, or $31,000 if you're 50+), you can increase your contribution rate for the bonus paycheck. This reduces your taxable income and your current-year tax bill.
+- Federal income tax: $53,892
+- FICA: $12,525
+- Florida state income tax: $0
+- **Total tax**: $66,417
+- **Take-home pay**: $183,583/year ($15,299/month)
 
-Some employers let you specify a different contribution rate for bonus paychecks. Others apply your regular rate. Check with your plan administrator.
+Compared to New York ($160,283), that's **$23,300 more per year**.
 
-### 3. Fund an IRA
+## Florida vs Other States — Tax Comparison
 
-You can't contribute directly from your bonus to an IRA (IRAs are funded with after-tax dollars), but you can use your bonus cash to make the contribution. For 2026, you can contribute up to $7,000 ($8,000 if 50+) to a traditional IRA, which may be tax-deductible depending on your income and whether you're covered by a workplace plan.
+### Florida vs Texas (Both No Income Tax)
 
-### 4. Make Charitable Donations
+| Tax Type | Florida | Texas | Winner |
+|----------|---------|-------|--------|
+| Income tax | 0% | 0% | Tie |
+| Sales tax (avg) | 6.98% | 8.20% | Florida |
+| Property tax | 0.98% | 1.71% | Florida |
+| Estate tax | None | None | Tie |
+| Homestead cap | 3% (Save Our Homes) | $25K-$100K exemption | Florida |
 
-If you itemize deductions, a charitable contribution made around bonus time can offset the additional income. Bunching several years of donations into one year (using a donor-advised fund) is a popular strategy for people who get large bonuses every few years.
+**Verdict**: Florida wins on property tax and sales tax. Texas has slightly higher property taxes but no state corporate income tax.
 
-### 5. Adjust Your W-4 After the Bonus
+### Florida vs California
 
-If your bonus causes significant over-withholding, you can submit a new W-4 to your employer to reduce withholding on your regular paychecks for the rest of the year. This evens things out so you're not giving the government an interest-free loan. Use our [IRS withholding calculator](/irs-withholding-calculator) to figure out the right withholding for your situation.
+| Tax Type | Florida | California | Winner |
+|----------|---------|-----------|--------|
+| Income tax | 0% | 1%-13.3% | Florida |
+| Sales tax (avg) | 6.98% | 8.82% | Florida |
+| Property tax | 0.98% | 0.71% | California |
+| Estate tax | None | None | Tie |
 
-## Real Examples: $5K, $10K, and $25K Bonuses
+**Verdict**: Florida wins overall. On a $150K salary, you'd keep **$12,990 more per year** in Florida vs California.
 
-Let's run the numbers on three common bonus amounts. We'll assume a single filer earning $85,000/year in a state with 5% income tax, using the percentage method.
+## Florida Retirement Taxes
 
-### Example 1: $5,000 Bonus
+Florida is consistently ranked as one of the best states for retirees. Here's why:
 
-- Federal withholding (22%): $1,100
-- Social Security (6.2%): $310
-- Medicare (1.45%): $72.50
-- State tax (5%): $250
-- **Total taxes: $1,732.50**
-- **Take-home: $3,267.50**
+### What Retirees Don't Pay in Florida
 
-Effective tax rate on the bonus: **34.65%** withheld. But your actual tax rate depends on your bracket. If you're in the 22% bracket, your real total rate (including FICA and state) is about 33.65%, so the withholding is very close.
+- **No tax on Social Security benefits** (Florida doesn't tax them at all)
+- **No tax on pension income** (public and private pensions)
+- **No tax on 401(k) and IRA distributions**
+- **No tax on investment income** (dividends, interest, capital gains)
+- **No estate tax**
+- **No inheritance tax**
 
-### Example 2: $10,000 Bonus
+### What Retirees DO Pay in Florida
 
-- Federal withholding (22%): $2,200
-- Social Security (6.2%): $620
-- Medicare (1.45%): $145
-- State tax (5%): $500
-- **Total taxes: $3,465**
-- **Take-home: $6,535**
+- **Sales tax** on purchases (6% + local surtax)
+- **Property tax** on owned homes (but homestead exemption helps)
+- **Federal income tax** still applies to retirement income above thresholds
 
-Same effective rate: 34.65% withheld. The percentage method keeps it consistent regardless of bonus size (under $1M).
+### Example: $80,000 Retirement Income in Florida
 
-### Example 3: $25,000 Bonus
+If you receive $80,000/year in retirement income (Social Security + pension + 401(k) withdrawals):
+- **Florida state income tax**: $0
+- **Federal income tax**: ~$8,000-$12,000 (depending on mix)
+- **Take-home**: $68,000-$72,000/year
 
-- Federal withholding (22%): $5,500
-- Social Security (6.2%): $1,550
-- Medicare (1.45%): $362.50
-- State tax (5%): $1,250
-- **Total taxes: $8,662.50**
-- **Take-home: $16,337.50**
+Compare to California, where the same $80K would be taxed at ~5-9% state rate, costing you $4,000-$7,200 more per year.
 
-Now, here's where it gets interesting. If your total income including this bonus puts you in the 32% bracket, the 22% withholding isn't enough. You'd actually owe about $3,200 more in federal tax on the bonus (32% vs 22% withholding), which means you'd either get a smaller refund or owe money at tax time. Use our [tax refund calculator](/tax-refund-calculator) to estimate where you'll land.
+## Frequently Asked Questions About Florida Taxes
 
-### High-Earner Example: $150,000 Bonus on $250,000 Salary
+### Does Florida have a state income tax?
 
-- Federal withholding (22%): $33,000
-- Social Security (6.2%): $0 (already over $184,500 cap from regular wages)
-- Medicare (1.45%): $2,175
-- Additional Medicare (0.9%): $450 (on wages above $200K — though this depends on total wages for the year)
-- State tax (5%): $7,500
-- **Total taxes: $43,125**
-- **Take-home: $106,875**
+No. Florida has no personal state income tax. Wages, salaries, self-employment income, investment income, pension income, and Social Security benefits are all exempt from Florida state income tax.
 
-But wait — someone earning $400,000 total is solidly in the 35% bracket. The 22% withholding on the bonus is $19,500 short of the actual 35% tax. That's a big bill come April. This is exactly the situation where adjusting your W-4 or making estimated payments after a large bonus is critical.
+### What is the sales tax rate in Florida?
 
-## Frequently Asked Questions
+Florida's statewide sales tax rate is 6%. With local county surtaxes, the average combined sales tax rate is approximately 6.98%. Some counties (like Hillsborough/Tampa) have rates up to 8.5%.
 
-### Are bonuses taxed differently than regular income?
-No. Bonuses are taxed at the same rates as your regular income. The *withholding* is different (usually a flat 22% for federal), but when you file your tax return, your bonus is just part of your total wages and is taxed according to the same brackets.
+### How much is property tax in Florida?
 
-### Can I ask my employer to use the percentage method instead of the aggregate method?
-You can ask, but it's ultimately your employer's choice. Many companies use the percentage method because it's simpler. If yours uses the aggregate method, talk to HR — some employers will switch if employees request it.
+The average effective property tax rate in Florida is 0.98% of assessed home value. On a $400,000 home, that's approximately $3,920 per year. Rates vary by county from about 0.75% to 1.2%.
 
-### Will I get a refund on my bonus taxes?
-Possibly. If the total withholding on your bonus exceeds your actual tax liability, you'll get the difference as a refund. This commonly happens if you're in a lower tax bracket than 22% or if the aggregate method resulted in excess withholding.
+### What is the Florida homestead exemption?
 
-### Do I need to pay estimated taxes on a bonus?
-Usually no — the withholding on the bonus itself covers it. But if you're a high earner and the 22% withholding falls well short of your actual bracket, you might want to make an estimated tax payment or adjust your W-4 to avoid underpayment penalties.
+Florida's homestead exemption reduces the assessed value of your primary residence by $50,000 for tax purposes. Additionally, the Save Our Homes cap limits annual assessment increases to 3% or the CPI, whichever is lower.
 
-### Are signing bonuses taxed the same way?
-Yes. Signing bonuses, retention bonuses, performance bonuses, commission — they're all supplemental wages subject to the same withholding rules. The IRS doesn't distinguish between types of bonuses for tax purposes.
+### Is Florida a good state for retirees?
 
-### What if my bonus pushes me into a higher tax bracket?
-Only the income *above* the bracket threshold is taxed at the higher rate. Your existing income stays in its current brackets. So if a bonus pushes $5,000 of your income from the 22% bracket into the 24% bracket, only that $5,000 is taxed at 24%. The rest stays where it was. This is how progressive taxation works.
+Yes. Florida is one of the best states for retirees because it has no tax on Social Security, pensions, 401(k)/IRA distributions, or investment income. Combined with no estate tax, Florida preserves more retirement wealth than almost any other state.
 
-### Are bonuses subject to state taxes?
-Yes, in most states. States with income tax generally treat bonuses as supplemental wages and apply their own withholding rates. States with no income tax (Texas, Florida, Washington, etc.) don't tax bonuses at the state level.
+### Does Florida tax Social Security benefits?
 
-### Can I contribute my bonus to my 401(k)?
-In most cases, yes. If your employer's 401(k) plan allows it, your bonus can be included in your contribution calculation. This is a great way to reduce your taxable income. Check with your plan administrator for the specifics of your plan.
+No. Florida does not tax Social Security benefits at the state level. (Federal tax may still apply if your combined income exceeds $25,000 single / $32,000 married.)
 
-### What happens if I leave my job after receiving a bonus?
-The bonus is still yours. Once you've received it and paid taxes on it, there's generally no clawback (unless you have a written agreement that specifies one, like some signing bonus contracts). The tax treatment doesn't change if you leave.
+### What is the corporate income tax rate in Florida?
 
-## The Bottom Line
+Florida's corporate income tax rate is 3.535% (as of 2026), one of the lowest in the U.S. It only applies to C-Corporations; LLCs, S-Corps, partnerships, and sole proprietors are not subject to Florida corporate income tax.
 
-Bonuses aren't taxed at a special penalty rate — they're just withheld differently. The 22% flat federal withholding (percentage method) is the most common approach, and for most people it's reasonably close to their actual tax rate. The aggregate method can lead to over-withholding, leaving you waiting for a refund.
+### Does Florida have an estate tax?
 
-FICA adds another 7.65% on top for most earners, and state taxes can take another 0% to 12% depending on where you live. So a realistic total withholding rate on a bonus is somewhere between **29% and 44%**, with the actual tax liability usually coming in a bit lower.
+No. Florida has no estate tax and no inheritance tax. Your heirs pay $0 in Florida estate tax when you die.
 
-The best thing you can do is understand what's happening so you're not shocked when the deposit hits. Plan ahead, adjust your W-4 if needed, and consider strategies like 401(k) contributions to reduce the tax hit.
+### How much is sales tax on a car in Florida?
 
-And when in doubt, run your numbers through our [bonus tax calculator](/bonus-tax-calculator) — it'll show you exactly what to expect before the money arrives.`
-,
-  "property-tax-by-state-guide-2026": `# Property Tax by State: Who Pays the Most (and Least) in 2026
+Florida charges 6% state sales tax on vehicle purchases. The local county surtax does NOT apply to vehicle sales — only the 6% state rate. Trade-in values reduce the taxable amount.
 
-If you own a home, property tax is probably the one tax bill that makes you wince every year. Unlike income tax that gets quietly withheld from your paycheck, property tax shows up as a big lump sum — or a monthly escrow hit — and it varies wildly depending on where you live.
+### Is Florida or Texas better for taxes?
 
-I'm talking *really* wildly. A homeowner in New Jersey might pay $8,700 a year on a median-valued home, while someone in Hawaii pays under $2,000 on a similarly priced place. Same country, same type of tax, totally different experience.
+Both states have no income tax. Florida has lower sales tax (6.98% avg vs 8.20%) and lower property tax (0.98% vs 1.71%). Texas has no state corporate income tax, while Florida charges 3.535% on C-Corps. For most individuals, Florida is slightly better.
 
-So let's break it all down. Every state's effective property tax rate, who pays the most, who pays the least, how the math works, and — most importantly — what you can actually do about it. Use our [property tax calculator](/property-tax-calculator) to get an instant estimate for your specific situation.
+## How to Calculate Your Florida Taxes
 
-## How Property Tax Actually Works
+Use our free Florida Tax Calculator to compute your exact take-home pay:
 
-Before we get into the state-by-state numbers, let's make sure we're all on the same page about how property tax is calculated. Because it's not as straightforward as you might think.
+1. Enter your gross annual salary
+2. Select "Florida" as your state
+3. Choose your filing status (single, married, head of household)
+4. Add 401(k) or HSA contributions (optional)
+5. View your net take-home pay, federal tax, FICA, and Florida state tax ($0)
 
-Property tax is based on two things: your home's **assessed value** and your local **millage rate** (sometimes called a mill rate or tax levy). The formula is:
+The calculator uses 2026 federal tax brackets, the $16,100 standard deduction for single filers, and the $184,500 Social Security wage base.
 
-**Property Tax = Assessed Value × Millage Rate**
+## Florida Tax Resources
 
-Here's the thing — your assessed value isn't necessarily what your home is worth on the open market. Most states assess properties at a percentage of market value (called the assessment ratio), and some only reassess every few years. So your tax bill might be based on a value that's years out of date.
+- **Florida Department of Revenue**: [floridarevenue.com](https://floridarevenue.com)
+- **Sales tax rate lookup by address**: Florida DOR's sales tax rate finder
+- **Property tax lookup**: Contact your county property appraiser's office
+- **Homestead exemption application**: File with your county property appraiser by March 1
 
-A **mill** is $1 of tax per $1,000 of assessed value. So if your millage rate is 20 mills and your home is assessed at $200,000:
+## Conclusion
 
-$200,000 × (20 ÷ 1,000) = $4,000 in annual property tax
+Florida's tax structure makes it one of the most attractive states for high earners, retirees, and business owners. With no personal income tax, no estate tax, no inheritance tax, and a generous homestead exemption, Florida residents keep significantly more of their income compared to residents of high-tax states like California, New York, and Illinois. The trade-off is a higher sales tax (6%+ local surtax) and moderate property taxes, but for most earners, the overall tax burden is among the lowest in the nation.
 
-But millage rates aren't set in stone. They're determined by local taxing authorities — your county, city, school district, fire district, library district — and they can change every year based on budget needs. That's why two houses with the same value in different parts of the same state can have very different tax bills.
-
-The **effective property tax rate** is the more useful number for comparisons. It's your annual tax bill divided by your home's actual market value, expressed as a percentage. That's what we'll use throughout this guide.
-
-## Top 10 Highest Property Tax States in 2026
-
-These are the states where property tax really stings. If you live in one of these, you already know.
-
-| Rank | State | Effective Property Tax Rate | Annual Tax on $300K Home |
-|------|-------|---------------------------|------------------------|
-| 1 | New Jersey | 2.49% | $7,470 |
-| 2 | Illinois | 1.78% | $5,340 |
-| 3 | Texas | 1.71% | $5,130 |
-| 4 | Connecticut | 1.73% | $5,190 |
-| 5 | New Hampshire | 1.93% | $5,790 |
-| 6 | Vermont | 1.83% | $5,490 |
-| 7 | Pennsylvania | 1.51% | $4,530 |
-| 8 | Wisconsin | 1.59% | $4,770 |
-| 9 | Ohio | 1.52% | $4,560 |
-| 10 | Nebraska | 1.61% | $4,830 |
-
-**New Jersey** has held the #1 spot for over a decade, and it's not even close. The Garden State's effective rate of 2.49% means a homeowner with a $300,000 house is shelling out nearly $7,500 a year — and that's on the *median* home. In high-tax counties like Essex or Bergen, the bills get much bigger.
-
-**Illinois** clocks in at #2, driven largely by the Chicago metro area where property taxes fund a massive network of local governments. Cook County alone has over 500 separate taxing districts. That administrative bloat translates directly into your tax bill.
-
-**Texas** is the one that surprises people. No income tax, sure — but they make up for it with property taxes that rank 3rd highest nationally. We'll dig into that trade-off later. You can see the full breakdown with our [Texas tax calculator](/texas-tax-calculator).
-
-**New Hampshire** and **Vermont** round out the Northeast contingent. New Hampshire has no income tax or sales tax, so property tax carries almost the entire state revenue load. Vermont has high property taxes *and* a high income tax — not a great combo.
-
-## Top 10 Lowest Property Tax States in 2026
-
-Now for the good news. These states keep property tax pain to a minimum.
-
-| Rank | State | Effective Property Tax Rate | Annual Tax on $300K Home |
-|------|-------|---------------------------|------------------------|
-| 1 | Hawaii | 0.31% | $930 |
-| 2 | Alabama | 0.40% | $1,200 |
-| 3 | Colorado | 0.55% | $1,650 |
-| 4 | Nevada | 0.55% | $1,650 |
-| 5 | Louisiana | 0.51% | $1,530 |
-| 6 | Wyoming | 0.57% | $1,710 |
-| 7 | South Carolina | 0.56% | $1,680 |
-| 8 | West Virginia | 0.55% | $1,650 |
-| 9 | Utah | 0.58% | $1,740 |
-| 10 | Delaware | 0.57% | $1,710 |
-
-**Hawaii** is the clear winner at just 0.31%. On a $300,000 home, you'd pay under $1,000 a year. The catch? Hawaii's median home price is over $800,000, so while the *rate* is low, the actual bills for most homeowners are still substantial. Plus, Hawaii has a fairly high income tax and cost of living.
-
-**Alabama** at 0.40% is genuinely affordable. The state constitution limits property tax rates, and homestead exemptions are generous. The trade-off is that Alabama's public services — schools, infrastructure — reflect that lower revenue.
-
-**Colorado** at 0.55% looks great on paper, and the Gallagher Amendment historically kept residential property taxes low by shifting more of the burden to commercial properties. Recent changes have modified this, but Colorado still remains among the most affordable states for property tax.
-
-**Nevada** keeps rates low thanks to a constitutional cap that limits property tax bills to no more than 3% of a home's assessed value for primary residences (5.5% for non-primary). It's one of the strongest taxpayer protections in the country.
-
-## No-Income-Tax States and the Property Tax Trade-Off
-
-This is the conversation I have most often with people considering a move: "I'm going to a no-income-tax state to save money!" And I always say — hold on, let's look at the full picture.
-
-There are currently **9 states with no personal income tax**: Alaska, Florida, Nevada, New Hampshire, South Dakota, Tennessee, Texas, Washington, and Wyoming. But states still need revenue, and if they're not collecting income tax, they're getting it somewhere else.
-
-The classic comparison is **Texas vs Florida**, and it perfectly illustrates this trade-off:
-
-- **Texas**: No income tax, but property tax at **1.71%** (3rd highest in the US). On a $350,000 home, that's about $5,985 per year.
-- **Florida**: No income tax, and property tax at just **0.86%**. That same $350,000 home would cost roughly $3,010 per year.
-
-That's a difference of nearly $3,000 a year on the same valued home. Florida also offers a homestead exemption that reduces assessed value by up to $50,000 for primary residences, plus the Save Our Homes cap that limits annual assessment increases to 3%. Texas has no equivalent statewide protections.
-
-But wait — Florida's homeowners insurance rates are among the highest in the country due to hurricane risk, often adding $3,000-$6,000 more annually than comparable coverage in Texas. So the "savings" from lower property tax can evaporate quickly when you factor in insurance.
-
-Use our [compare tool](/compare) to see a side-by-side breakdown of any two states, or the [relocation calculator](/relocation-calculator) to estimate your total tax savings from moving.
-
-**Washington state** is another interesting case. No income tax, but they make up for it with a 6.75% capital gains tax (on long-term gains over $270K) and relatively high sales tax (up to 10.4% combined). Property tax is moderate at 0.93%, but the high cost of housing in the Seattle metro means the actual bills can be steep.
-
-**Wyoming**, on the other hand, seems to have cracked the code. No income tax, low property tax (0.57%), and relatively low sales tax. How? Mineral extraction revenue. Wyoming collects significant severance taxes on coal, oil, and natural gas, which subsidizes the cost of government. But that revenue is declining as the energy sector shifts.
-
-## Homestead Exemptions: Your Best Friend on the Tax Bill
-
-A **homestead exemption** reduces the taxable value of your primary residence. It's one of the most important — and most overlooked — ways to lower your property tax bill.
-
-Here are some of the most generous homestead exemptions by state:
-
-- **Florida**: Up to **$50,000** off your assessed value ($25,000 for school taxes, additional $25,000 for non-school taxes on values between $50,000-$75,000). Combined with the Save Our Homes assessment cap, this is arguably the best property tax protection in the country. Use our [Florida tax calculator](/florida-tax-calculator) to see how much you'd save.
-- **Texas**: $25,000 off the assessed value of your primary residence for school district taxes. Some counties and cities offer additional exemptions.
-- **Alabama**: $22,500 exemption for state property taxes, plus local exemptions that can bring the total even higher.
-- **Louisiana**: $7,500 for parish taxes, plus a special assessment level freeze for seniors.
-- **Georgia**: $2,000 off assessed value (which is already set at 40% of market value), plus additional exemptions for seniors and veterans.
-- **South Carolina**: 4% assessment ratio for primary residences (versus 6% for second homes), plus exemptions for seniors.
-
-**Important**: Homestead exemptions only apply to your primary residence. Investment properties, second homes, and vacation homes generally don't qualify. And you usually need to apply — it's not automatic in most states.
-
-Senior citizens, disabled veterans, and surviving spouses often qualify for additional exemptions that can dramatically reduce — or even eliminate — property taxes. Check with your county assessor's office for specifics.
-
-## How to Calculate Your Property Tax
-
-Let's walk through the actual math step by step. Grab your property tax bill or your county assessor's website — you'll need a few numbers.
-
-### Step 1: Find Your Assessed Value
-
-Your assessed value is what the county says your property is worth for tax purposes. This is NOT the same as market value. Some states assess at 100% of market value, but many use a lower ratio:
-
-- **Michigan**: 50% of market value (called State Equalized Value)
-- **Georgia**: 40% of fair market value
-- **Colorado**: roughly 7.15% of actual value for residential (yes, really that low, but the mill rate adjusts)
-- **Texas**: 100% of appraised market value
-
-So if your home is worth $300,000 on the open market and you live in Michigan, your assessed value would be $150,000.
-
-### Step 2: Apply Any Exemptions
-
-Subtract your homestead exemption, senior exemption, or any other applicable exemptions from the assessed value.
-
-Example: $150,000 assessed value - $25,000 homestead exemption = **$125,000 taxable value**
-
-### Step 3: Multiply by the Millage Rate
-
-Find your total millage rate (it's usually a combination of county, city, school district, and special district rates). If your total rate is 32 mills:
-
-$125,000 × (32 ÷ 1,000) = **$4,000 annual property tax**
-
-### Real-World Example
-
-Let's say you own a $400,000 home in Dallas, Texas:
-
-- Assessed value: $400,000 (Texas assesses at 100%)
-- Homestead exemption: -$25,000
-- Taxable value: $375,000
-- Combined millage rate: roughly 21.5 mills (varies by district)
-- Annual tax: $375,000 × 0.0215 = **$8,062.50**
-
-For comparison, that same $400,000 home in Orlando, Florida:
-
-- Assessed value: $400,000
-- Homestead exemption: -$50,000 (full exemption)
-- Taxable value: $350,000
-- Effective rate: ~0.86%
-- Annual tax: $350,000 × 0.0086 = **$3,010**
-
-That's a $5,052 difference on the same home value. Our [property tax calculator](/property-tax-calculator) can run these numbers for any state.
-
-## How to Appeal Your Property Tax Assessment
-
-Here's something most people don't know: **you can fight your property tax bill**, and you might actually win. Between 30% and 50% of property tax appeals are successful, and you don't need a lawyer to file one.
-
-### 1. Check Your Assessment for Errors
-
-Start by reviewing your property record card at the county assessor's office. Look for mistakes like:
-- Incorrect square footage
-- Wrong number of bedrooms or bathrooms
-- Inaccurate lot size
-- Improvements listed that you don't actually have (that "remodeled kitchen" that never happened)
-
-Even small errors can add up. An extra 200 square feet of living space could add hundreds to your tax bill.
-
-### 2. Compare with Similar Properties
-
-Find 3-5 comparable homes in your neighborhood — similar size, age, condition — and check their assessed values. If your home is assessed significantly higher than comparable properties, you have a strong case.
-
-You can find this information through your county assessor's website or through public records. Zillow and similar sites can give you market values, but what you really need is *assessed* values for the comparison.
-
-### 3. Check the Sale Price vs. Assessed Value
-
-If you recently purchased your home for less than the assessed value, that's one of the strongest pieces of evidence you can present. A recent arm's-length sale is hard for an assessor to argue against.
-
-### 4. File Before the Deadline
-
-This is critical — every jurisdiction has a strict deadline for filing appeals, and they're usually only a few weeks after assessment notices go out. Miss it, and you're stuck for another year. Check your county's website for specific dates.
-
-### 5. Present Your Case
-
-Most appeals start with an informal meeting with the assessor. If that doesn't resolve it, you can go to a formal hearing before a review board. Come prepared with:
-- Comparable sales data
-- Photos of your property (especially anything that reduces value — deferred maintenance, etc.)
-- A recent appraisal if you have one
-- Any evidence of errors in your property record
-
-**Pro tip**: You don't need to hire a property tax consultant, but if your potential savings are substantial (over $1,000/year), it might be worth it. Many consultants work on contingency — they take a percentage of your first year's savings.
-
-## Property Tax vs Income Tax: Which States Are Actually Cheapest?
-
-This is the question that really matters, and the answer surprises a lot of people. States with low property tax aren't always the cheapest overall, and states with no income tax aren't always a bargain.
-
-Let's look at the total state and local tax burden for a household earning **$100,000** with a **$300,000** home:
-
-**High property tax + high income tax** (worst case):
-- **New York**: ~12.7% effective total tax burden = $12,700/year
-- **Connecticut**: ~11.2% effective total tax burden = $11,200/year
-- **New Jersey**: ~11.0% effective total tax burden = $11,000/year
-
-**No income tax + moderate property tax** (middle ground):
-- **Florida**: ~7.5% effective total tax burden = $7,500/year
-- **Texas**: ~8.2% effective total tax burden = $8,200/year
-- **Nevada**: ~7.8% effective total tax burden = $7,800/year
-
-**Low property tax + moderate income tax** (surprisingly competitive):
-- **Alabama**: ~7.3% effective total tax burden = $7,300/year
-- **Colorado**: ~7.9% effective total tax burden = $7,900/year
-- **Utah**: ~8.1% effective total tax burden = $8,100/year
-
-**Low everything** (the winners):
-- **Alaska**: ~5.5% effective total tax burden = $5,500/year (no income tax, low property tax, and they *pay you* a dividend from oil revenue)
-- **Wyoming**: ~6.2% effective total tax burden = $6,200/year
-
-The key takeaway: **you have to look at the total tax picture, not just one tax type**. A state with no income tax but high property tax might cost you *more* than a state with moderate income tax and low property tax, depending on your home value and income.
-
-Our [relocation calculator](/relocation-calculator) factors in all of these variables to give you a true apples-to-apples comparison.
-
-## All 50 States: Effective Property Tax Rates in 2026
-
-Here's the complete ranking of every state by effective property tax rate. These are average effective rates — your actual rate will depend on your specific county and city.
-
-| Rank | State | Effective Rate | Annual Tax on $300K Home |
-|------|-------|---------------|------------------------|
-| 1 | Hawaii | 0.31% | $930 |
-| 2 | Alabama | 0.40% | $1,200 |
-| 3 | Louisiana | 0.51% | $1,530 |
-| 4 | Wyoming | 0.57% | $1,710 |
-| 5 | Colorado | 0.55% | $1,650 |
-| 6 | South Carolina | 0.56% | $1,680 |
-| 7 | West Virginia | 0.55% | $1,650 |
-| 8 | Nevada | 0.55% | $1,650 |
-| 9 | Delaware | 0.57% | $1,710 |
-| 10 | Utah | 0.58% | $1,740 |
-| 11 | Arkansas | 0.61% | $1,830 |
-| 12 | Mississippi | 0.63% | $1,890 |
-| 13 | New Mexico | 0.67% | $2,010 |
-| 14 | Tennessee | 0.67% | $2,010 |
-| 15 | Idaho | 0.69% | $2,070 |
-| 16 | Oklahoma | 0.74% | $2,220 |
-| 17 | Arizona | 0.66% | $1,980 |
-| 18 | Montana | 0.76% | $2,280 |
-| 19 | Virginia | 0.80% | $2,400 |
-| 20 | Kentucky | 0.82% | $2,460 |
-| 21 | North Carolina | 0.82% | $2,460 |
-| 22 | California | 0.71% | $2,130 |
-| 23 | Indiana | 0.81% | $2,430 |
-| 24 | Florida | 0.86% | $2,580 |
-| 25 | Georgia | 0.87% | $2,610 |
-| 26 | Missouri | 0.91% | $2,730 |
-| 27 | Washington | 0.93% | $2,790 |
-| 28 | Minnesota | 1.05% | $3,150 |
-| 29 | Oregon | 0.97% | $2,910 |
-| 30 | Kansas | 1.28% | $3,840 |
-| 31 | Michigan | 1.32% | $3,960 |
-| 32 | Maine | 1.27% | $3,810 |
-| 33 | Iowa | 1.36% | $4,080 |
-| 34 | Alaska | 1.18% | $3,540 |
-| 35 | Maryland | 1.09% | $3,270 |
-| 36 | Massachusetts | 1.15% | $3,450 |
-| 37 | Rhode Island | 1.53% | $4,590 |
-| 38 | Ohio | 1.52% | $4,560 |
-| 39 | Pennsylvania | 1.51% | $4,530 |
-| 40 | Wisconsin | 1.59% | $4,770 |
-| 41 | Nebraska | 1.61% | $4,830 |
-| 42 | North Dakota | 1.03% | $3,090 |
-| 43 | South Dakota | 1.22% | $3,660 |
-| 44 | New York | 1.38% | $4,140 |
-| 45 | Illinois | 1.78% | $5,340 |
-| 46 | Texas | 1.71% | $5,130 |
-| 47 | Connecticut | 1.73% | $5,190 |
-| 48 | Vermont | 1.83% | $5,490 |
-| 49 | New Hampshire | 1.93% | $5,790 |
-| 50 | New Jersey | 2.49% | $7,470 |
-
-A few things jump out from this data:
-
-- The spread is enormous: New Jersey's rate is **8 times** Hawaii's.
-- On a $300,000 home, the difference between the cheapest and most expensive state is **$6,540 per year** — that's $545 per month.
-- California looks surprisingly low at 0.71%, thanks to Proposition 13 which caps assessment increases. But remember, California homes are expensive — the median home value is over $800,000, so the actual tax bills are still substantial.
-- Several states with no income tax (Texas, New Hampshire) rank among the highest for property tax.
-
-## Property Tax FAQ
-
-### Is property tax deductible on federal taxes?
-
-Yes, but with limits. The Tax Cuts and Jobs Act capped the State and Local Tax (SALT) deduction at **$10,000** through 2025, and this cap has been extended into 2026. If your total state and local taxes (property tax + income tax + sales tax) exceed $10,000, you can only deduct $10,000 on your federal return. For homeowners in high-tax states like New Jersey or California, this cap hits hard.
-
-### Do I have to pay property tax if I own my home outright?
-
-Yes. Property tax is based on ownership, not on whether you have a mortgage. Even if you own your home free and clear, you still owe property tax every year. In fact, it can be *more* of a burden without a mortgage because you're not making monthly escrow payments — the full bill hits you at once.
-
-### What happens if I don't pay my property taxes?
-
-It's serious. Unpaid property taxes can result in a tax lien on your property, and eventually, your home can be sold at a tax sale to collect the unpaid taxes. Each state has different timelines and processes, but none of them are good for you. Most states charge significant penalties and interest on late payments too.
-
-### How often are properties reassessed?
-
-It varies widely. Some states reassess annually (Texas), some every 2-3 years (parts of Illinois), and some only when the property changes ownership (California under Prop 13). Some states have limits on how much assessments can increase each year, which can create big disparities between similar homes that were purchased at different times.
-
-### Are there property tax breaks for seniors?
-
-Most states offer some form of property tax relief for seniors, but the specifics vary enormously. Common programs include:
-- Additional homestead exemptions (Florida offers an extra $25,000 for seniors 65+)
-- Assessment freezes that lock in your home's value
-- Tax deferral programs that let you postpone payment until you sell
-- Circuit breaker programs that limit property tax to a percentage of income
-
-Check with your state's department of revenue or your county assessor for specific programs in your area.
-
-### How does property tax work for condos and townhomes?
-
-Condos and townhomes are assessed and taxed just like single-family homes, based on their assessed value. However, if you own a condo, part of your HOA fees may go toward property taxes on common areas. Your individual tax bill covers your unit's assessed value.
-
-### Can my property tax go up even if my home value goes down?
-
-Frustratingly, yes. This can happen when local governments increase the millage rate to compensate for declining property values, or when your assessment doesn't decrease as quickly as market values. It's also common in states with assessment caps — if your assessed value was artificially low due to the cap, it can still increase even as the market softens, until it catches up.
-
-## The Bottom Line
-
-Property tax is the most variable major tax in the United States. Where you live determines what you pay far more than how much you earn, and the differences between states — or even between neighboring counties — can amount to thousands of dollars per year.
-
-If you're considering a move, don't just look at income tax rates. Use our [property tax calculator](/property-tax-calculator) to estimate your property tax in any state, and the [compare tool](/compare) to see two states side by side. If you're relocating for work or retirement, the [relocation calculator](/relocation-calculator) will show your total tax savings.
-
-And if your current property tax bill feels too high — appeal it. You have nothing to lose and potentially thousands to gain. Start by checking your property record card for errors, comparing your assessment with similar homes, and filing before your local deadline.
-
-Property tax might be inevitable, but overpaying isn't.`
-,
-  "lottery-tax-guide-2026": `# Lottery Tax: How Much You Really Keep After Winning in 2026
-
-You just saw the numbers flash across the screen. Your ticket matches. You won the lottery. A hundred million dollars. A billion dollars. Your brain immediately starts doing the math — new house, new car, pay off everyone's mortgage, maybe a yacht. But then reality sets in: how much of that money do you *actually* get to keep?
-
-The short answer? A lot less than you think.
-
-The longer answer is what this entire guide is about. Because lottery taxes in the United States are a multi-layered beast — federal withholding, actual federal tax rates, state taxes that vary wildly depending on where you live (or where you bought the ticket), and a choice between lump sum and annuity that has massive tax implications.
-
-Let's break it all down so you know exactly what happens to your winnings before a single dollar hits your bank account.
-
-## The Shock of Winning: How Much You Actually Keep
-
-Here's the thing nobody tells you when you're standing there holding a winning ticket: the advertised jackpot is **not** what you receive. Not even close. Let's look at a $100 million jackpot as an example.
-
-If you take the lump sum, you're already down to roughly **$50 million** before any taxes — because the advertised jackpot is the annuity value (the total of all payments over 30 years), not the cash value. Then the IRS takes 24% off the top as mandatory withholding. Then your actual federal tax rate pushes that to 37%. Then your state might take another 0% to 10.9%.
-
-On a $100 million advertised jackpot, taking the lump sum in a high-tax state like New York, you might walk away with roughly **$28–30 million**. That's about 28–30 cents on every dollar advertised. In a no-income-tax state like Texas or Florida, you'd keep closer to **$31–33 million**.
-
-Not nothing, obviously. But also not $100 million.
-
-Use our [lottery tax calculator](/lottery-tax-calculator) to plug in your specific numbers and see your after-tax take-home instantly.
-
-## Federal Tax on Lottery Winnings
-
-Lottery winnings are classified as **gambling income** by the IRS, and they're taxed as ordinary income — not capital gains, not at a preferential rate. Every dollar you win from the lottery gets stacked on top of your other income and taxed at the regular federal brackets.
-
-### The 2026 Federal Tax Brackets (Single Filer)
-
-| Tax Rate | Taxable Income Range |
-|----------|---------------------|
-| 10% | $0 – $11,925 |
-| 12% | $11,926 – $48,475 |
-| 22% | $48,476 – $103,350 |
-| 24% | $103,351 – $197,300 |
-| 32% | $197,301 – $250,525 |
-| 35% | $250,526 – $626,350 |
-| 37% | Over $626,350 |
-
-If you win $1 million or more, you're almost certainly hitting the **37% bracket** on a big chunk of that income. The effective rate won't be a flat 37% because the brackets are progressive — the first $11,925 is still only taxed at 10% — but on a large jackpot, the effective federal rate will land somewhere around **34–37%**.
-
-### Mandatory 24% Federal Withholding
-
-Here's where it gets tricky. The IRS requires **24% mandatory withholding** on gambling winnings over $5,000. When you claim your prize, the lottery automatically sends 24% to the IRS. You get a W-2G form documenting the whole thing.
-
-But 24% is **not** your final tax bill. It's just a down payment. If your actual tax rate is 37% (which it will be on any significant jackpot), you still owe the remaining **13%** when you file your tax return. This catches a LOT of winners off guard. They spend freely after receiving their after-withholding payout, then get hit with a massive tax bill in April.
-
-**Example:** You win a $10 million lump sum. The lottery withholds 24% ($2.4 million). You receive $7.6 million. But your actual federal tax on $10 million (assuming single filer) is roughly $3.3–3.5 million. You still owe roughly **$900,000–$1.1 million** when you file your return. If you didn't set that money aside, you're in trouble.
-
-### For Winnings Over $5,000
-
-The 24% withholding kicks in automatically. You don't get a choice. The lottery commission cuts the check to the IRS before you ever see the money. For non-cash prizes (like a car or house), you may need to pay the withholding out of pocket or the prize giver may sell a portion to cover it.
-
-## State Tax on Lottery Winnings: It Depends Where You Buy the Ticket
-
-This is where the lottery tax picture gets really interesting — and where your geography can save or cost you millions.
-
-State income tax on lottery winnings varies from **0% to over 10%**, and the key factor is **where you purchased the ticket**, not where you live. (Though your home state may also want a cut if it has income tax and you're a resident — there are often credits for taxes paid to other states, but it gets complicated.)
-
-### States With NO Income Tax (0% State Tax on Lottery)
-
-These states let you keep more of your winnings:
-
-- **Texas** – 0%
-- **Florida** – 0%
-- **Washington** – 0%
-- **Nevada** – 0%
-- **Wyoming** – 0%
-- **South Dakota** – 0%
-- **Alaska** – 0%
-- **Tennessee** – 0% (no tax on wages; Hall income tax was fully repealed)
-
-If you buy a Powerball ticket in Florida and win $100 million, you pay **zero state income tax**. That's the best-case scenario.
-
-### States With the HIGHEST Lottery Tax
-
-- **New York** – 10.9% state + 3.876% NYC tax (if you're a NYC resident) = up to **14.876%**
-- **California** – technically has income tax, but **does NOT tax California lottery winnings** (one of the few exceptions)
-- **Hawaii** – 11%
-- **New Jersey** – 10.75%
-- **Oregon** – 9.9%
-- **Minnesota** – 9.85%
-- **District of Columbia** – 10.75%
-
-**Important note:** New York is particularly aggressive. Not only does the state charge 10.9%, but if you live in New York City, add another 3.876% on top. That means a NYC resident who wins a $100 million jackpot could lose nearly 15% to state and local taxes alone — on top of the 37% federal rate. That's potentially over **50% in total taxes**.
-
-### State Tax Quick Reference Table
-
-| State | State Tax Rate on Lottery |
-|-------|--------------------------|
-| Texas | 0% |
-| Florida | 0% |
-| Washington | 0% |
-| Nevada | 0% |
-| Wyoming | 0% |
-| Pennsylvania | 3.07% |
-| Illinois | 4.95% |
-| Georgia | 5.49% |
-| Virginia | 5.75% |
-| Massachusetts | 5% |
-| Colorado | 4.4% |
-| California | 0% (CA lottery only) |
-| Oregon | 9.9% |
-| New Jersey | 10.75% |
-| New York | 10.9% |
-| New York City | +3.876% (on top of NY) |
-
-This is why you'll often see lottery lawyers recommend buying tickets in no-tax states when possible. On a massive jackpot, the difference between winning in Texas vs. New York City can be **millions of dollars**.
-
-## Lump Sum vs. Annuity: Which Is Better?
-
-When you win a major jackpot, you have two choices for how to receive the money:
-
-### The Lump Sum (Cash Option)
-
-You get the **present cash value** of the jackpot, which is roughly **50–55%** of the advertised amount. For a $100 million jackpot, the lump sum might be around $50–55 million. You get it all at once (minus taxes), and you can invest it, spend it, or do whatever you want with it.
-
-**Pros:**
-- Immediate access to all funds
-- Potential for higher returns if invested wisely
-- Flexibility and control
-- No risk of the annuity program defaulting or laws changing
-
-**Cons:**
-- Significantly less than advertised jackpot
-- All taxes hit in one year (pushing you into the highest bracket)
-- Easier to blow through the money quickly
-
-### The Annuity Option
-
-You receive the **full advertised jackpot** spread over **30 annual payments** (for Powerball and Mega Millions). The payments start smaller and increase by about 5% each year to account for inflation. You're essentially letting the lottery commission invest the lump sum on your behalf and paying you the returns plus principal over three decades.
-
-**Pros:**
-- You receive the full advertised amount over time
-- Built-in protection against blowing all the money
-- Tax liability spread over 30 years (potentially lower rates in some years)
-- Annual payments act as a forced savings plan
-
-**Cons:**
-- You don't have access to the full amount
-- Inflation erodes the real value of later payments
-- If you die, your heirs receive the remaining payments (but they get stepped-up basis advantages — see our [capital gains calculator](/capital-gains-calculator))
-- The lottery commission controls the investment
-
-### Which Should You Choose?
-
-There's no universal right answer, but here's the general guidance:
-
-- **If you're financially disciplined and have good advisors**, the lump sum is often the better mathematical choice. Invested properly, the lump sum can outgrow the annuity over 30 years.
-- **If you're worried about self-control** or want guaranteed income for life, the annuity provides that safety net.
-- **Tax considerations** matter: the lump sum concentrates all income in one year at the highest rates. The annuity spreads it out, which could mean paying less total tax over time.
-
-Most big winners choose the lump sum — roughly **90–95%** of jackpot winners take the cash option. But that doesn't mean it's right for everyone.
-
-## How the 24% Withholding Works (And Why You Owe More)
-
-I want to dig deeper into this because it's the single biggest source of confusion and financial trouble for lottery winners.
-
-When you claim a prize over $5,000, the lottery commission **automatically withholds 24%** for federal taxes. This is not negotiable. You can't opt out. The check goes straight from the lottery to the U.S. Treasury.
-
-**What happens at tax time:**
-
-When you file your tax return for the year you won, you report the full winnings as income. Your actual tax liability is calculated based on your total income for the year (winnings + any other income). If your total income pushes you into the 37% bracket — and on any significant jackpot, it absolutely will — your total federal tax is much higher than the 24% already withheld.
-
-**The gap you owe:**
-
-- Withholding: 24%
-- Actual tax rate on large winnings: ~34–37%
-- Additional tax due at filing: ~10–13% of the winnings
-
-On a $50 million lump sum, that's an additional **$5–6.5 million** you owe when you file your return. If you've already spent that money... you're in serious trouble. The IRS charges penalties and interest on underpayment.
-
-**Pro tip:** If you win a large prize, make **estimated tax payments** in the quarter you receive the money to avoid underpayment penalties. Your CPA can help you calculate the right amount. And check our [tax refund calculator](/tax-refund-calculator) to estimate your position.
-
-## FICA: Lottery Winnings Are NOT Subject to Social Security or Medicare
-
-Here's a rare piece of good news: **lottery winnings are not subject to FICA taxes** (Social Security and Medicare). Unlike wages, which get hit with 7.65% in employee FICA taxes (and 15.3% for self-employment), gambling winnings are exempt.
-
-This means:
-- No 6.2% Social Security tax on your winnings
-- No 1.45% Medicare tax on your winnings
-- No additional 0.9% Medicare surtax on your winnings
-
-This saves you a significant amount compared to earning the same money as salary. On a $10 million win, the FICA exemption saves you at least **$765,000** (the 7.65% employee share) compared to earning $10 million in wages. Though honestly, if you just won $10 million, the FICA savings probably aren't top of mind.
-
-Note: This FICA exemption applies to all gambling winnings, not just the lottery. Casino winnings, sports betting, poker tournaments — none of it is subject to Social Security or Medicare tax. However, if you're a professional gambler who reports gambling as a business, the rules can differ. Consult a tax professional for your specific situation.
-
-For more on how FICA works on regular wages, check out our [FICA tax guide](/blog/how-fica-taxes-work-2026).
-
-## Real Examples: After-Tax Amounts for Major Jackpots
-
-Let's run the numbers on four different jackpot sizes, assuming the winner is a single filer in two different states: Texas (0% state tax) and New York (10.9% state tax). All examples assume the lump sum is roughly 52% of the advertised jackpot.
-
-### $1 Million Jackpot
-
-| | Texas (0%) | New York (10.9%) |
-|---|---|---|
-| Advertised Jackpot | $1,000,000 | $1,000,000 |
-| Lump Sum (~52%) | $520,000 | $520,000 |
-| Federal Tax (37%) | -$192,400 | -$192,400 |
-| State Tax | $0 | -$56,680 |
-| **After-Tax Total** | **$327,600** | **$270,920** |
-| Effective Tax Rate | 37.0% | 47.9% |
-
-On a $1 million advertised jackpot, you keep roughly **$271K–$328K** depending on your state. That's 27–33 cents per advertised dollar.
-
-### $10 Million Jackpot
-
-| | Texas (0%) | New York (10.9%) |
-|---|---|---|
-| Advertised Jackpot | $10,000,000 | $10,000,000 |
-| Lump Sum (~52%) | $5,200,000 | $5,200,000 |
-| Federal Tax (~35.5% effective) | -$1,846,000 | -$1,846,000 |
-| State Tax | $0 | -$566,800 |
-| **After-Tax Total** | **$3,354,000** | **$2,787,200** |
-| Effective Tax Rate | 35.5% | 46.4% |
-
-You keep roughly **$2.8M–$3.4M** on a $10 million advertised jackpot.
-
-### $100 Million Jackpot
-
-| | Texas (0%) | New York (10.9%) |
-|---|---|---|
-| Advertised Jackpot | $100,000,000 | $100,000,000 |
-| Lump Sum (~52%) | $52,000,000 | $52,000,000 |
-| Federal Tax (~36.8% effective) | -$19,136,000 | -$19,136,000 |
-| State Tax | $0 | -$5,668,000 |
-| **After-Tax Total** | **$32,864,000** | **$27,196,000** |
-| Effective Tax Rate | 36.8% | 47.7% |
-
-You keep roughly **$27M–$33M** on a $100 million advertised jackpot. In New York, that's nearly **$5.7 million** less than in Texas, just from state taxes.
-
-### $1 Billion Jackpot
-
-| | Texas (0%) | New York (10.9%) |
-|---|---|---|
-| Advertised Jackpot | $1,000,000,000 | $1,000,000,000 |
-| Lump Sum (~52%) | $520,000,000 | $520,000,000 |
-| Federal Tax (~37% effective) | -$192,400,000 | -$192,400,000 |
-| State Tax | $0 | -$56,680,000 |
-| **After-Tax Total** | **$327,600,000** | **$270,920,000** |
-| Effective Tax Rate | 37.0% | 47.9% |
-
-On a billion-dollar jackpot, the state tax difference between Texas and New York is a staggering **$56.7 million**. That's not a rounding error — that's a small fortune going to the state instead of your bank account.
-
-**Want to calculate your exact after-tax amount?** Use our free [lottery tax calculator](/lottery-tax-calculator) — it factors in federal brackets, state taxes, and lump sum vs. annuity options.
-
-## Tax Strategies for Lottery Winners
-
-Winning the lottery is a once-in-a-lifetime event (literally), and the tax implications are enormous. Here are proven strategies that lottery winners and their advisors use to minimize taxes and protect their wealth.
-
-### 1. Assemble Your Team BEFORE Claiming the Prize
-
-This is the single most important piece of advice in this entire article. **Do not claim the prize until you have:**
-
-- A **CPA** who specializes in high-net-worth clients and gambling income
-- A **tax attorney** who understands state tax implications
-- A **estate planning attorney** to set up trusts and protect your assets
-- A **financial advisor** (fee-only, not commission-based) to manage investments
-
-In most states, you have **180 days to a year** to claim your prize. Take the time. There's no rush. A few weeks of planning can save you millions in taxes.
-
-### 2. Consider Setting Up a Trust or LLC
-
-Many winners claim their prize through a **blind trust** or LLC, which offers several benefits:
-
-- **Privacy:** Your name doesn't appear in public records (in states that allow anonymous claims)
-- **Asset protection:** Shields personal assets from lawsuits and creditors
-- **Estate planning:** Makes it easier to transfer wealth to heirs
-- **Tax flexibility:** Certain structures may offer planning opportunities
-
-Some states — like Delaware, Kansas, Maryland, North Dakota, Ohio, South Carolina, and Texas — allow anonymous claims. Others require the winner's name to be public. A trust can help even in public-claim states by keeping your personal address and details private.
-
-### 3. Time Your Income Strategically
-
-If you take the lump sum, all the income hits in one tax year, pushing you into the highest bracket. But there are still strategies:
-
-- **Make estimated tax payments** in the quarter you receive the money to avoid underpayment penalties
-- **Maximize deductions** in the year you win: charitable contributions, business losses, etc.
-- **Consider the annuity** if you want to spread the tax burden over 30 years
-
-If you choose the annuity, you may be able to plan around years when you have other income or deductions to optimize your tax bracket.
-
-### 4. Charitable Giving
-
-Charitable donations are one of the most powerful tax strategies for lottery winners:
-
-- **Donor-Advised Funds (DAFs):** Contribute a large amount in the year you win, get the full deduction against your windfall income, and distribute to charities over time.
-- **Charitable Remainder Trusts (CRTs):** Provide income to you for life, with the remainder going to charity. You get a partial deduction upfront.
-- **Direct gifts:** Up to 60% of your AGI can be deducted for cash gifts to public charities.
-
-On a $50 million lump sum, donating $10 million to charity could save you roughly **$3.7 million** in federal taxes alone. And you're doing good in the world.
-
-### 5. Move Before You Claim
-
-If you bought a winning ticket in a high-tax state but live in (or can establish residency in) a no-tax state, the tax savings can be enormous. As we saw above, the difference between New York and Texas on a $1 billion jackpot is over **$56 million**.
-
-However, be very careful here. States are aggressive about pursuing tax revenue from lottery winners, and a last-minute move might be challenged. Work with a tax attorney to establish genuine residency before claiming the prize.
-
-### 6. Don't Forget About Estimated Taxes
-
-If your withholding is less than 90% of your total tax liability for the year (or 100% of last year's liability, whichever is smaller), you may owe an **underpayment penalty**. The IRS expects you to pay taxes as you earn income throughout the year, not just at filing time.
-
-For lottery winners, this means making **quarterly estimated payments** to cover the gap between the 24% withholding and your actual 37% rate. Your CPA will calculate the exact amounts.
-
-### 7. Plan for Estate Taxes
-
-The federal estate tax exemption in 2026 is approximately **$13.99 million** per individual ($27.98 million for married couples). If your total estate exceeds that, the excess is taxed at **40%**. For lottery winners, this is a real concern.
-
-Estate planning strategies include:
-- **Irrevocable life insurance trusts (ILITs)**
-- **Grantor retained annuity trusts (GRATs)**
-- **Family limited partnerships (FLPs)**
-- **Annual gift tax exclusions** ($18,000 per recipient in 2026)
-
-This is not DIY territory. Get a qualified estate planning attorney.
-
-## What Happens If You Win in One State but Live in Another?
-
-This is a common scenario — you buy a Powerball ticket while visiting family in Florida, but you live in New York. Who gets the tax?
-
-Generally:
-- The **state where you purchased the ticket** gets first dibs on taxing the income
-- Your **home state** may also tax the income but typically offers a credit for taxes paid to another state
-- If you bought the ticket in a no-tax state (like Florida) but live in a high-tax state (like New York), **your home state will still tax you** — the credit only applies if you paid tax to the other state
-
-So buying a ticket in Florida doesn't help you escape New York taxes if you're a New York resident. The key is where you're **domiciled**, not where you bought the ticket, for your home state's tax purposes.
-
-There are nuances and some states have reciprocity agreements. This is absolutely something to discuss with a multi-state tax professional.
-
-## Reporting Lottery Winnings on Your Tax Return
-
-When you win more than $600, the lottery sends you a **Form W-2G** (Certain Gambling Winnings). For winnings over $5,000, the lottery also withholds 24% for federal taxes.
-
-On your tax return:
-- Report the full winnings amount on **Schedule 1, Line 8b** (Other Income)
-- The amount flows to your **Form 1040** as part of total income
-- The 24% withholding appears on **Form 1040, Line 25b** as federal income tax withheld
-- If you had gambling losses, you can deduct them on **Schedule 1, Line 8b** — but only up to the amount of your winnings, and only if you itemize deductions
-
-**Important:** Gambling loss deductions are an itemized deduction. If you take the standard deduction (which is $15,700 for single filers in 2026), you cannot also deduct gambling losses. For large winners, itemizing almost always makes more sense.
-
-## Frequently Asked Questions
-
-### How much tax is taken out of lottery winnings?
-The IRS requires 24% mandatory withholding on winnings over $5,000. However, your actual federal tax rate will likely be 37% on large jackpots, meaning you'll owe an additional 13% when you file your return. State taxes add 0% to 10.9% (or more with local taxes) on top of that.
-
-### Do I have to pay taxes on a $1,000 lottery win?
-Yes. All gambling winnings are taxable income, regardless of amount. However, the lottery only sends a W-2G and withholds taxes for wins over $5,000 (or $1,500 for certain bingo/slot winnings). For smaller wins, you're still legally required to report the income, but no withholding occurs.
-
-### Can I deduct lottery ticket losses from my taxes?
-Yes, but only up to the amount of your winnings, and only if you itemize deductions. If you take the standard deduction, you cannot deduct gambling losses. Keep all your losing tickets as documentation.
-
-### What happens if I win the lottery in a state with no income tax?
-You pay **no state income tax** on the winnings. You still pay federal tax. The states with no income tax are Texas, Florida, Washington, Nevada, Wyoming, South Dakota, Alaska, and Tennessee.
-
-### Is it better to take the lump sum or annuity?
-It depends on your financial discipline and goals. The lump sum gives you control and investment potential but concentrates tax liability. The annuity spreads taxes over 30 years and provides guaranteed income. About 90–95% of winners choose the lump sum.
-
-### Are lottery winnings subject to Social Security and Medicare tax?
-**No.** Lottery winnings are not considered earned income, so they are exempt from FICA taxes (Social Security and Medicare). This saves you at least 7.65% compared to earning the same amount as wages.
-
-### Do I have to pay taxes on lottery winnings if I give the ticket to someone else?
-The IRS applies the "constructive receipt" doctrine — whoever purchased the ticket and had the right to the winnings is the one who's taxed. If you give a winning ticket to someone, the IRS may still consider you the winner for tax purposes. If you want to share winnings, claim the prize yourself and then gift portions to others (subject to gift tax rules — $18,000 per recipient annual exclusion in 2026).
-
-### What if I win the lottery and move to a no-tax state?
-Your tax liability is generally determined by where you were domiciled when you received the income. A last-minute move to a no-tax state might be challenged by your original state. Work with a tax attorney to establish genuine residency before claiming the prize.
-
-### Can a trust claim lottery winnings anonymously?
-In some states, yes. States like Delaware, Kansas, Maryland, North Dakota, Ohio, South Carolina, and Texas allow anonymous claims. In other states, the winner's name must be disclosed publicly. A trust or LLC can provide a layer of privacy even in public-disclosure states.
-
-### How much would I keep on a $1 billion jackpot?
-Taking the lump sum (roughly $520 million), a single filer would keep approximately **$327.6 million** in a no-tax state like Texas, or about **$270.9 million** in New York (after 10.9% state tax). These figures assume approximately 37% effective federal tax rate.
-
-## The Bottom Line
-
-Winning the lottery is life-changing, but the tax implications are enormous. The advertised jackpot is never what you take home — between the lump sum discount, federal taxes of up to 37%, and state taxes ranging from 0% to nearly 15%, you might keep only **25–35 cents of every advertised dollar**.
-
-The most important steps you can take:
-
-1. **Don't rush to claim** — take time to assemble a professional team
-2. **Understand the withholding gap** — 24% is withheld, but you likely owe 37%
-3. **Consider your state** — where you buy and claim matters enormously
-4. **Choose wisely** between lump sum and annuity
-5. **Plan for the tax bill** — set aside money for what you'll owe at filing time
-
-And above all, **use the right tools**. Our [lottery tax calculator](/lottery-tax-calculator) gives you an instant, accurate estimate of your after-tax winnings based on your specific situation — federal brackets, state taxes, lump sum vs. annuity, it's all factored in.
-
-Winning the lottery should be the best day of your life. Don't let tax surprises turn it into a nightmare.`
-,
-  "irs-withholding-w4-guide-2026": `# IRS Withholding 2026: How to Fill Out Your W-4 and Avoid Surprises
-
-Every year, millions of Americans get a nasty shock at tax time — a bill they didn't see coming, complete with penalties. And every year, millions more get a huge refund, which sounds great until you realize you've been lending the government your money interest-free for 12 months.
-
-Both problems come from the same root cause: **incorrect withholding**. Your W-4 form is the single document that controls how much federal income tax gets taken out of every paycheck. Fill it out right, and your tax bill at year-end is close to zero. Fill it out wrong, and you're either writing a painful check to the IRS or waiting months for a refund that should've been in your pocket all along.
-
-In this guide, we'll walk through exactly how IRS withholding works in 2026, how to fill out your W-4 correctly, and how to find that sweet spot where you owe nothing and get nothing back. Let's get into it.
-
-**Try our free [IRS Withholding Calculator](/irs-withholding-calculator) to find your recommended withholding in under 2 minutes.**
-
-## What Is Tax Withholding and Why It Matters
-
-Tax withholding is the money your employer pulls from each paycheck and sends directly to the IRS on your behalf. It's essentially a pay-as-you-go system — instead of writing one massive check on April 15th, you're chipping away at your tax bill throughout the year.
-
-Here's why it matters more than most people think:
-
-- **It's the law.** The IRS requires withholding under IRC §3402. If you don't have enough withheld, you can face underpayment penalties — even if you pay the full amount by April 15th.
-- **It affects your cash flow.** Over-withhold by $300/month and you're giving up $3,600 in take-home pay throughout the year. That's rent money. Groceries. A vacation.
-- **It determines your refund or bill.** Withholding too much = big refund (but less money in each check). Withholding too little = surprise bill and possible penalties.
-
-The IRS expects you to pay at least **90% of your current-year tax liability** or **100% of your prior-year tax liability** (110% if your AGI was over $150,000) through withholding and estimated payments. Fall short, and the underpayment penalty kicks in — currently around **8% annualized** on the shortfall.
-
-Use our [Paycheck Calculator](/paycheck-calculator) to see exactly how withholding impacts your take-home pay.
-
-## How the 2026 W-4 Form Works (The 5 Steps)
-
-The W-4 got a major overhaul in 2020, and the 2026 version follows the same structure. Gone are the old "allowances" that nobody understood. The new form uses a straightforward 5-step process:
-
-| Step | What It Covers | Required? |
-|------|---------------|------------|
-| Step 1 | Personal info (name, filing status, SSN) | **Yes — everyone** |
-| Step 2 | Multiple jobs or working spouse | Only if applicable |
-| Step 3 | Claim dependents | Only if you have dependents |
-| Step 4 | Other adjustments (other income, deductions, extra withholding) | Only if applicable |
-| Step 5 | Signature and date | **Yes — everyone** |
-
-**The key insight:** If you're single, have one job, no dependents, and take the standard deduction, you only need to complete Steps 1 and 5. The IRS will withhold based on the standard deduction for your filing status automatically.
-
-But if your situation is more complex — and let's be honest, whose isn't? — you'll want to dig into Steps 2-4.
-
-## Step-by-Step: How to Fill Out Your W-4
-
-### Step 1: Personal Information
-
-This is straightforward. Enter your name, Social Security number, address, and filing status (Single, Married Filing Jointly, Married Filing Separately, or Head of Household).
-
-**Filing status matters a lot.** If you're married but select "Single" or "Married Filing Separately," more tax will be withheld from each check. If you select "Married Filing Jointly," less will be withheld because the brackets are wider. Choose the one that matches what you'll actually file.
-
-### Step 2: Multiple Jobs or Spouse Works
-
-This step is for anyone who:
-- Has more than one job at the same time
-- Is married and their spouse also works
-- Has a working spouse AND a second job
-
-You have three options here:
-
-1. **Use the IRS online estimator** (most accurate) — the IRS Tax Withholding Estimator at irs.gov/W4App
-2. **Use the Multiple Jobs Worksheet** on page 3 of the W-4
-3. **Check the box in Step 2(c)** — this is the simplest option but may over-withhold slightly
-
-**Why this matters:** If both spouses work and each fills out a W-4 as if they're the only earner, they'll both be using the full married-filing-jointly brackets independently. That means each job withholds as if the total household income is just that one salary — way too little. The IRS designed Step 2 to fix this.
-
-### Step 3: Claim Dependents
-
-If your total income will be $200,000 or less ($400,000 or less if married filing jointly), you can claim the Child Tax Credit and other dependent credits here.
-
-For 2026, the Child Tax Credit is **$2,000 per qualifying child under age 17** and **$500 per other dependent**. You enter the total credit amount, and it reduces your withholding accordingly.
-
-**Example:** You have two kids under 17. Your Step 3 entry would be $4,000 ($2,000 × 2). This reduces your annual withholding by $4,000, which works out to about $167 less per semi-monthly paycheck.
-
-### Step 4: Other Adjustments
-
-This step has three parts:
-
-- **4(a): Other income** — If you have income not subject to withholding (interest, dividends, rental income, self-employment income), enter the annual total here. The IRS will add this to your wages for withholding calculation purposes.
-- **4(b): Deductions** — If your itemized deductions exceed the standard deduction, enter the difference here. This reduces your withholding.
-- **4(c): Extra withholding** — Want more taken out? Enter a dollar amount here per paycheck. Useful if you have side income you want to cover through your regular job's withholding.
-
-### Step 5: Sign and Date
-
-Don't skip this. An unsigned W-4 is invalid. Your employer can't process it.
-
-## How Withholding Is Actually Calculated (IRS Publication 15-T)
-
-Here's where things get interesting. Your employer doesn't just guess — they use IRS Publication 15-T, which provides exact formulas for calculating withholding based on your W-4 inputs and pay frequency.
-
-The calculation follows this logic:
-
-1. **Start with gross pay** for the pay period
-2. **Subtract pre-tax deductions** (401k contributions, health insurance, HSA, FSA)
-3. **Apply the standard deduction** (divided by number of pay periods in the year)
-4. **Apply Step 3 credits** (divided by number of pay periods)
-5. **Calculate tax on the adjusted wage** using the percentage method tables from Pub 15-T
-6. **Add any Step 4(c) extra withholding**
-
-For a single filer paid semi-monthly (24 pay periods) with the 2026 standard deduction of $15,000:
-
-- Standard deduction per pay period = $15,000 ÷ 24 = **$625**
-- If your semi-monthly gross is $3,333 ($80,000/year), your adjusted wage is $3,333 - $625 = **$2,708**
-- The Pub 15-T table then applies the progressive brackets to that $2,708
-
-**The percentage method** (which is what most payroll software uses) looks something like this for a single filer, semi-monthly in 2026:
-
-| Adjusted Semi-Monthly Wage | Withholding Formula |
-|---------------------------|-------------------|
-| $0 – $483 | 10% of amount over $0 |
-| $484 – $1,965 | $48.33 + 12% of amount over $483 |
-| $1,966 – $4,186 | $225.94 + 22% of amount over $1,965 |
-| $4,187 – $7,998 | $714.06 + 24% of amount over $4,186 |
-| $7,999 – $10,155 | $1,630.58 + 32% of amount over $7,998 |
-
-So for our example with $2,708 adjusted wage: $225.94 + 22% × ($2,708 - $1,965) = $225.94 + 22% × $743 = $225.94 + $163.46 = **$389.40** per paycheck in federal withholding.
-
-That's about $9,346/year in federal withholding on an $80,000 salary — roughly 11.7% effective rate. Seems about right for a single filer with the standard deduction.
-
-## Too Much Withholding = Big Refund, Less Take-Home Pay
-
-Let's talk about the "big refund" mentality. I get it — getting a $4,000 check in February feels like a win. But here's the math:
-
-If you're getting a $4,000 refund, that means you overpaid by **$333/month** or about **$167 per biweekly paycheck**. That's money you could have been:
-
-- Paying down high-interest credit card debt (at 20%+ APR, that's $800/year in interest you didn't need to pay)
-- Contributing to your 401(k) or IRA (earning compound returns)
-- Just... having. In your bank account. For emergencies.
-
-A refund isn't a bonus. It's a refund — the IRS giving back money that was always yours. You just let them hold it for free.
-
-**When over-withholding might be okay:**
-- You know you're terrible at saving and the refund forces you to save
-- You had a windfall (bonus, stock sale) and want extra withholding to cover it
-- You prefer the peace of mind and don't mind the lost opportunity cost
-
-Check your expected refund with our [Tax Refund Calculator](/tax-refund-calculator).
-
-## Too Little Withholding = Surprise Tax Bill + Penalties
-
-This is the worse scenario by far. Under-withhold by $3,000 and you'll owe that PLUS:
-
-- **Underpayment penalty** — The IRS charges interest (currently ~8%) on the underpaid amount for each quarter it was short
-- **Stress and scrambling** — Coming up with a lump sum in April is way harder than spreading it across paychecks
-
-The penalty applies unless you meet one of the safe harbors:
-
-1. You owed less than $1,000 in tax after subtracting withholding and credits
-2. You paid at least 90% of the tax you owe for the current year
-3. You paid at least 100% of the tax shown on your prior-year return (110% if AGI was over $150,000)
-
-**Example of the penalty hitting:** Let's say your 2026 total tax is $12,000, but your withholding was only $7,000. You underpaid by $5,000. If you don't meet any safe harbor, the IRS hits you with roughly 8% annualized on the underpayment for each quarter. On $5,000, that's roughly $200-$400 in penalties depending on when each quarter's shortfall occurred.
-
-Not devastating, but completely avoidable.
-
-## The Sweet Spot: How to Get Close to Zero at Tax Time
-
-The ideal scenario is simple: **owe a small amount or get a small refund** — somewhere between owing $0 and getting back $500. That means your withholding was almost perfectly calibrated.
-
-Here's how to get there:
-
-1. **Start with the IRS Tax Withholding Estimator** at irs.gov/W4App. It uses your actual pay stubs and expected income to recommend a W-4 configuration.
-
-2. **Or use our [IRS Withholding Calculator](/irs-withholding-calculator)** — it's faster and gives you a specific W-4 recommendation.
-
-3. **Review your prior-year return.** If you got a $3,200 refund last year and your situation is basically the same, you need to reduce your withholding by about $3,200/year. On a biweekly pay schedule, that's $123 less per check. You'd add -$123 to Step 4(c) ... except you can't add negative amounts. Instead, you'd need to increase Step 3 (claim more dependent credits) or reduce Step 4(a) (less other income reported).
-
-4. **Mid-year checkup.** In September or October, look at your YTD withholding and compare it to your expected total tax. If you're way off, submit a new W-4 to your employer. It takes effect within 30 days.
-
-5. **Account for all income sources.** Don't forget interest, dividends, capital gains, and side gigs.
-
-## Life Changes That Require W-4 Updates
-
-Your W-4 isn't a set-it-and-forget-it thing. Any major life change can throw your withholding off. Here are the big ones:
-
-### Getting Married
-
-Marriage changes your filing status and potentially your brackets. If both spouses work, you **must** address Step 2 on the W-4. Without it, you'll almost certainly under-withhold.
-
-### Having a Child
-
-A new dependent means you can claim the Child Tax Credit in Step 3 ($2,000 per child under 17). Update your W-4 and you'll see more money in each paycheck.
-
-### Starting a New Job
-
-New job, new W-4. Fill it out fresh — don't just copy what you had before. A higher salary means different withholding dynamics.
-
-### Buying a Home
-
-Mortgage interest and property taxes might push you into itemizing territory. If your itemized deductions exceed the standard deduction, you can enter the difference in Step 4(b) to reduce withholding.
-
-### Side Income or Freelance Work
-
-This is a big one. If you pick up a side hustle making $15,000/year with no withholding, you need to account for that tax somewhere. Options:
-- Add the expected additional income in Step 4(a) on your main job's W-4
-- Add extra withholding in Step 4(c)
-- Make quarterly estimated tax payments
-
-### Divorce
-
-Filing status changes, dependents may change, alimony may factor in — basically everything about your tax situation shifts. Update your W-4 immediately.
-
-## Self-Employment Income and Withholding
-
-If you're fully self-employed, there's no employer to withhold for you. You're responsible for making **quarterly estimated tax payments** using Form 1040-ES. For 2026, the quarterly due dates are:
-
-- **Q1:** April 15, 2026
-- **Q2:** June 15, 2026
-- **Q3:** September 15, 2026
-- **Q4:** January 15, 2027
-
-Each payment should be roughly 25% of your expected annual tax liability. And don't forget — self-employment tax (15.3% for Social Security and Medicare) applies on top of income tax.
-
-**If you have both a W-2 job and self-employment income,** the smartest move is to increase withholding on your W-2 job to cover the self-employment tax. That way you don't have to make separate quarterly payments. Enter the additional amount in Step 4(c) of your W-4.
-
-Use our [Self-Employment Tax Calculator](/self-employment-tax-calculator) to figure out how much you'll owe.
-
-## Real Examples: How Withholding Plays Out
-
-### Example 1: Single Filer, One Job
-
-**Profile:** Sarah, 28, single, one job, $65,000 salary, no dependents, standard deduction
-
-- Filing status: Single
-- W-4: Steps 1 and 5 only (simplest form)
-- Annual federal withholding: ~$7,980
-- Actual 2026 tax liability: ~$7,850
-- Expected refund: ~$130
-
-Sarah's situation is the simplest. The default W-4 withholding for a single filer with one job tracks very closely to actual tax liability. She's basically at the sweet spot.
-
-### Example 2: Married Couple, One Earner
-
-**Profile:** Mark and Lisa, married filing jointly. Mark earns $95,000. Lisa stays home with their two kids (ages 5 and 8).
-
-- Filing status: Married Filing Jointly
-- W-4 Step 3: $4,000 (2 children × $2,000)
-- Annual federal withholding: ~$7,200
-- Actual 2026 tax liability: ~$5,100
-- Expected refund: ~$2,100
-
-Wait, why the big refund? Because the married filing jointly brackets are wide, and with only one earner at $95,000, the default withholding is conservative. Mark could reduce withholding by entering an additional amount in Step 4(b) for deductions above the standard, or just know the refund is coming. To get closer to zero, he could add roughly $80 per biweekly paycheck to Step 4(c) as negative — but since he can't, he could instead claim an additional $2,000 in Step 3 (not technically correct, but the IRS doesn't verify Step 3 against actual dependents on the W-4 — they reconcile at tax time). The cleaner approach is to use the IRS estimator for a precise recommendation.
-
-### Example 3: Dual-Income Married Couple
-
-**Profile:** James earns $85,000, Priya earns $110,000. Married filing jointly, no kids.
-
-- Combined income: $195,000
-- If both select "Married Filing Jointly" on their W-4s **without** completing Step 2, each job withholds as if the household income is just their salary
-- James's withholding (without Step 2): ~$8,200/year
-- Priya's withholding (without Step 2): ~$13,100/year
-- Total withholding: ~$21,300
-- **Actual 2026 tax on $195,000 (MFJ, standard deduction): ~$27,100**
-- **Shortfall: ~$5,800** → Surprise bill + penalties!
-
-With Step 2 completed correctly (using the Multiple Jobs Worksheet or the online estimator):
-- James's withholding: ~$11,400/year
-- Priya's withholding: ~$15,700/year
-- Total withholding: ~$27,100
-- Shortfall: **$0** ✓
-
-This is exactly why Step 2 exists. Dual-income couples who skip it are the #1 group that ends up with surprise tax bills.
-
-## FAQ: IRS Withholding and W-4
-
-**How often can I submit a new W-4?**
-As often as you want. There's no limit. Submit a new one to your HR department whenever your situation changes or you want to adjust your withholding.
-
-**Does my employer see my Step 4(a) other income?**
-Technically yes — your employer processes your W-4. But they only see the number on the form, not a breakdown of what the income is. If that bothers you, you can instead add extra withholding in Step 4(c) to cover the additional tax without disclosing the income source.
-
-**What if I have three jobs?**
-The W-4's Multiple Jobs Worksheet is designed for two jobs. For three or more, use the IRS online Tax Withholding Estimator, which handles any number of income sources.
-
-**Can I claim "Exempt" from withholding?**
-Yes, if you had no federal income tax liability last year AND expect none this year. Write "Exempt" on the W-4 line below Step 4(c). This only applies to federal income tax — Social Security and Medicare (FICA) still get withheld.
-
-**What's the difference between allowances and the new W-4?**
-Allowances were eliminated with the 2020 W-4 redesign. The new form uses direct dollar amounts (credits, deductions, extra withholding) instead of the confusing allowance system. It's more transparent and more accurate.
-
-**Will updating my W-4 trigger an audit?**
-No. The IRS doesn't audit people for adjusting their W-4. They might send a "lock-in letter" if you consistently claim exempt or an unreasonably low withholding amount, but a normal adjustment won't raise any flags.
-
-**How do I know if I'm under-withholding?**
-Check your pay stub. Compare YTD federal withholding to roughly 10-15% of YTD gross income (for most middle-income filers). Better yet, use our [IRS Withholding Calculator](/irs-withholding-calculator) for a precise answer.
-
-**What about state withholding?**
-Most states have their own version of the W-4. Some use the federal W-4, some have a separate state form, and a few states (like Texas, Florida, Nevada) have no state income tax at all. Check your state's requirements.
-
-## Key Takeaways
-
-1. **Your W-4 controls your paycheck.** A few minutes on this form can mean hundreds of dollars more (or less) in take-home pay each month.
-2. **The 5-step W-4 is simpler than the old allowance system**, but Steps 2-4 still trip people up — especially dual-income households.
-3. **Big refunds aren't wins.** They mean you overpaid all year. Aim for a small refund or small balance due.
-4. **Life changes = W-4 changes.** Marriage, kids, new jobs, side income — update your W-4 whenever your situation shifts.
-5. **Use the tools.** The IRS estimator and our [IRS Withholding Calculator](/irs-withholding-calculator) take the guesswork out of this.
-6. **Don't forget self-employment income.** If you have side income, cover the tax through your W-2 withholding or quarterly estimated payments.
-
-Ready to optimize your withholding? **[Calculate your recommended W-4 withholding now →](/irs-withholding-calculator)**`
-,
-  "sales-tax-by-state-guide-2026": `# Sales Tax by State: Complete Guide to US Tax Rates in 2026
-
-If you've ever looked at a receipt and wondered why you paid $107.50 for a $100 item — or why your friend in another state paid exactly $100 for the same thing — you've already bumped into the weird, wonderful world of sales tax. Sales tax in the United States is not a single, uniform thing. It's a patchwork of state rates, local add-ons, special district taxes, and exemptions that can make your head spin.
-
-Here's the thing: there is no federal sales tax. Every state gets to decide its own rules. And that means sales tax rates vary wildly depending on where you live, where you shop, and sometimes even what you're buying. A pair of shoes in Tennessee? That'll cost you more in tax than the same shoes in Delaware. Groceries in Illinois? Taxed differently than groceries in Pennsylvania.
-
-In this guide, we'll break it all down. By the end, you'll understand how sales tax works, which states charge the most (and least), what items are typically exempt, and how to calculate sales tax yourself. Plus, we've got a free [sales tax calculator](/sales-tax-calculator) that does the heavy lifting for you.
-
-## What Is Sales Tax and How Does It Work?
-
-Sales tax is a consumption tax imposed by state and local governments on the sale of goods and certain services. When you buy something at a store or online, the seller collects the tax at the point of sale and then remits it to the appropriate government authority.
-
-Here's how it works in practice:
-
-1. **You buy an item** — let's say a $50 backpack in a state with a 6% sales tax rate.
-2. **The seller calculates the tax** — $50 × 0.06 = $3.00.
-3. **You pay $53.00 total** — $50 for the backpack, $3.00 in sales tax.
-4. **The seller sends the $3.00 to the state** — they don't keep any of it (though they may get a small discount for collecting it on time).
-
-Sounds simple enough, right? But here's where it gets complicated: most states allow local governments (counties, cities, special districts) to add their own sales tax on top of the state rate. So the actual rate you pay — called the **combined rate** — can be significantly higher than the state rate alone.
-
-For example, Louisiana's state sales tax rate is 4.45%, but many parishes add local taxes that push the combined rate above 10%. In some areas of the state, you could pay as much as 11.45% in total sales tax.
-
-And then there are the exemptions. Most states don't tax groceries at the full rate (or at all). Many states exempt prescription drugs. A few states exempt clothing under a certain price threshold. These exemptions vary from state to state, which is what makes sales tax so confusing — and why guides like this one exist.
-
-## The 5 States With No Sales Tax
-
-Let's start with the good news. Five states don't charge a statewide sales tax at all:
-
-### 1. Delaware (DE)
-Delaware has no state or local sales tax. None. Zero. That's why outlet malls in Rehoboth Beach are packed with shoppers from Maryland, New Jersey, and Pennsylvania every weekend. Delaware makes up for the lost revenue through other taxes, including a relatively high gross receipts tax on businesses.
-
-### 2. Montana (MT)
-Montana has no statewide sales tax. There are a few special resort areas that charge a local sales tax (up to 3%), but for the vast majority of purchases, you pay zero. Montana has debated introducing a sales tax multiple times, but voters have consistently rejected it.
-
-### 3. New Hampshire (NH)
-The Granite State has no sales tax on most purchases. New Hampshire does, however, charge a 9% meals and rooms tax on restaurant meals, hotel stays, and short-term rentals. So while your groceries and clothing are tax-free, eating out will cost you.
-
-### 4. Oregon (OR)
-Oregon has no statewide sales tax, and local governments aren't allowed to levy their own sales taxes either. It's truly zero. Oregon compensates with a relatively high state income tax instead. If you're an Oregon resident shopping in person, you never pay sales tax. (Online purchases from Oregon sellers are also tax-free for Oregon residents.)
-
-### 5. Alaska (AK)
-Alaska is the trickiest one. There's no **statewide** sales tax, but Alaska allows local municipalities to levy their own sales taxes — and many of them do. Over 100 boroughs and cities in Alaska have local sales taxes, with rates ranging from 1% to 7.5%. So while Alaska doesn't have a state sales tax, you might still pay sales tax depending on where in Alaska you're shopping.
-
-**Important caveat:** Even in states with no sales tax, you may still owe sales tax on online purchases from sellers in other states (more on that in the Wayfair section below). And if you're a business owner in a no-sales-tax state selling to customers in other states, you may still have nexus obligations.
-
-## The Highest Sales Tax States in 2026
-
-Now for the states where your wallet really feels it. These states have the highest combined state and local sales tax rates in the country:
-
-### 1. Louisiana — Combined Rate Up to 11.45%
-Louisiana has a state rate of 4.45%, but local parish taxes can add up to 7%, pushing combined rates as high as 11.45%. The statewide average combined rate is around 9.55%. Louisiana is consistently the state with the highest average combined sales tax rate in the nation.
-
-### 2. Tennessee — Combined Rate Up to 9.75%
-Tennessee's state rate is 7.0%, which is the second-highest state rate in the country. Local taxes add up to 2.75%, making the maximum combined rate 9.75%. The average combined rate is around 9.56%. Notably, Tennessee does not tax groceries at the full rate — they're taxed at only 4% statewide.
-
-### 3. Arkansas — Combined Rate Up to 11.25%
-Arkansas has a state rate of 6.5%, but local taxes can push the combined rate as high as 11.25% in some areas. The average combined rate is around 9.46%. Arkansas is one of the few states that taxes groceries, though at a reduced rate of 1.5%.
-
-### 4. Washington — Combined Rate Up to 10.5%
-Washington state has a 6.5% state rate, but local taxes in cities like Seattle can push the combined rate to 10.5%. The average combined rate is around 9.39%. Washington is notable because it has no state income tax — it relies heavily on sales tax for revenue instead.
-
-### 5. Alabama — Combined Rate Up to 11.0%
-Alabama's state rate is 4.0%, but combined with local taxes that can reach 7%, some areas have combined rates as high as 11.0%. The average combined rate is around 9.30%. Like Arkansas, Alabama taxes groceries — but at a reduced rate that varies by locality.
-
-### Top 10 States by Average Combined Sales Tax Rate
-
-| Rank | State | State Rate | Avg. Local Rate | Avg. Combined Rate |
-|------|-------|-----------|----------------|-------------------|
-| 1 | Louisiana | 4.45% | 5.10% | 9.55% |
-| 2 | Tennessee | 7.00% | 2.56% | 9.56% |
-| 3 | Arkansas | 6.50% | 2.96% | 9.46% |
-| 4 | Washington | 6.50% | 2.89% | 9.39% |
-| 5 | Alabama | 4.00% | 5.30% | 9.30% |
-| 6 | Oklahoma | 4.50% | 4.50% | 9.00% |
-| 7 | Illinois | 6.25% | 2.64% | 8.89% |
-| 8 | Kansas | 6.50% | 2.21% | 8.71% |
-| 9 | New York | 4.00% | 4.52% | 8.52% |
-| 10 | California | 7.25% | 1.25% | 8.50% |
-
-Notice how the state rate alone doesn't tell the full story? California has the highest state rate at 7.25%, but relatively modest local rates mean it ranks 10th in combined rate. Meanwhile, Louisiana's state rate is only 4.45%, but massive local taxes push it to #1 overall.
-
-Use our state-specific calculators to find exact rates: [California sales tax calculator](/sales-tax-calculator/california), [Texas sales tax calculator](/sales-tax-calculator/texas), [Florida sales tax calculator](/sales-tax-calculator/florida), [New York sales tax calculator](/sales-tax-calculator/newyork), [Illinois sales tax calculator](/sales-tax-calculator/illinois).
-
-## How Combined Sales Tax Rates Work
-
-Understanding combined rates is crucial because the state rate you see advertised is almost never the rate you actually pay. Here's the breakdown:
-
-**Combined Rate = State Rate + County Rate + City Rate + Special District Rate**
-
-Let's say you live in Chicago, Illinois. Here's what your combined rate looks like:
-
-- **Illinois state rate:** 6.25%
-- **Cook County rate:** 1.75%
-- **City of Chicago rate:** 1.25%
-- **Regional Transportation Authority (RTA):** 1.00%
-- **Combined rate:** **10.25%**
-
-That's a full 4 percentage points higher than the state rate alone. And it's why you need to look up the combined rate for your specific location, not just your state's rate.
-
-Special district taxes fund things like public transportation, stadiums, cultural facilities, and other regional projects. They're added to the sales tax rate in specific geographic areas, and they can change from year to year as districts are created, expanded, or dissolved.
-
-The good news is that you don't have to calculate all of this yourself. Our [sales tax calculator](/sales-tax-calculator) looks up the exact combined rate for any address or ZIP code in the United States.
-
-### Why Combined Rates Vary So Much Within a State
-
-If you live in one county and work in another, you might notice that the sales tax rate at the coffee shop near your office is different from the one near your home. That's because local taxes are, well, local. Two cities in the same state can have very different combined rates.
-
-For example, in Colorado:
-- The state rate is 2.9%.
-- Some cities have combined rates as low as 2.9% (no local add-ons).
-- Other cities, like Winter Park, have combined rates above 11% due to special district taxes for ski area improvements and other local projects.
-
-That's an 8+ percentage point difference within the same state. So when someone asks "What's the sales tax in Colorado?" — the honest answer is "It depends on exactly where you are."
-
-## Tax-Exempt Items by Category
-
-One of the most confusing aspects of sales tax is that not everything is taxed — and what's exempt varies by state. Here's a breakdown of the most common exemption categories:
-
-### Groceries
-
-Most states either exempt groceries entirely or tax them at a reduced rate. As of 2026:
-
-- **Fully exempt (no tax on groceries):** California, Delaware, Montana, New Hampshire, New Jersey, Oregon, Pennsylvania, and a few others
-- **Taxed at a reduced rate:** Arkansas (1.5%), Illinois (1%), Tennessee (4%), Utah (1.75%), and others
-- **Taxed at the full rate:** Alabama, Hawaii, Idaho, Kansas, Mississippi, Oklahoma, South Dakota, and a few others
-- **Mixed/complex rules:** Some states exempt groceries but not prepared foods, snacks, or soft drinks
-
-**Pro tip:** The definition of "groceries" matters more than you'd think. In many states, a loaf of bread is tax-exempt, but a hot rotisserie chicken from the same store is taxable as "prepared food." Candy might be taxable while cookies are not. It's a maze.
-
-### Prescription Drugs
-
-The vast majority of states exempt prescription drugs from sales tax:
-
-- **Fully exempt:** 44 states plus DC
-- **Taxed:** Illinois (1%), and a few others with reduced rates
-- **Over-the-counter drugs:** Exempt in about half of states, fully taxed in the other half
-
-This is one area where most states agree — taxing essential medicine is generally unpopular. But over-the-counter medications like aspirin and allergy medicine? That's a mixed bag.
-
-### Clothing
-
-Clothing exemptions are where things get really interesting:
-
-- **Fully exempt:** Delaware, Montana, New Hampshire, Oregon (no sales tax at all), plus **Pennsylvania**, **New Jersey**, **Minnesota**, **Vermont**, and **Massachusetts** (up to $175 per item)
-- **Taxed at a reduced rate:** New York exempts clothing under $110 per item
-- **Fully taxed at regular rate:** Most other states
-
-If you've ever wondered why people drive from New York to New Jersey to shop at the Paramus malls, now you know. In New Jersey, clothing is tax-exempt. In New York City, you'd pay 8.875% on that same jacket.
-
-### Other Common Exemptions
-
-- **Agricultural supplies:** Exempt in most farming states
-- **Manufacturing equipment:** Exempt in many states to encourage business investment
-- **Newspapers and magazines:** Exempt in several states (but digital subscriptions usually aren't)
-- **Textbooks:** Exempt in some states when purchased by students
-- **Religious items:** Exempt in a few states
-- **Funeral expenses:** Exempt in several states
-
-The key takeaway: if you're making a major purchase, it's worth checking whether your state offers an exemption. You might be surprised.
-
-## How to Calculate Sales Tax
-
-Now let's get practical. Whether you're budgeting for a purchase or running a small business, you need to know how to calculate sales tax.
-
-### The Basic Formula
-
-**Sales Tax = Purchase Price × Sales Tax Rate**
-
-**Total Price = Purchase Price + Sales Tax**
-
-Or, more concisely:
-
-**Total Price = Purchase Price × (1 + Sales Tax Rate)**
-
-### Example 1: Simple Calculation
-
-You're buying a $200 television in Texas, where the state sales tax rate is 6.25%.
-
-- Sales Tax = $200 × 0.0625 = $12.50
-- Total Price = $200 + $12.50 = **$212.50**
-
-But wait — if you're in Houston, the combined rate is actually 8.25% (6.25% state + 2% local). Let's redo that:
-
-- Sales Tax = $200 × 0.0825 = $16.50
-- Total Price = $200 + $16.50 = **$216.50**
-
-That's a $4 difference just from the local portion. Always use the combined rate for your specific location.
-
-Use our [Texas sales tax calculator](/sales-tax-calculator/texas) for exact rates by city and ZIP code.
-
-### Example 2: Large Purchase with Special District Tax
-
-You're buying a $1,000 laptop in [California](/sales-tax-calculator/california). The state rate is 7.25%, but you're in Los Angeles County where the combined rate is 9.5%.
-
-- Sales Tax = $1,000 × 0.095 = $95.00
-- Total Price = $1,000 + $95.00 = **$1,095.00**
-
-### Example 3: Tax-Exempt Items in the Same Transaction
-
-You're at a grocery store in Pennsylvania buying $80 in groceries and $25 in household cleaning supplies. In Pennsylvania, groceries are exempt but cleaning supplies are taxable at 6% (plus local tax, say 1% — combined 7%).
-
-- Tax on groceries: $0 (exempt)
-- Tax on cleaning supplies: $25 × 0.07 = $1.75
-- Total Price = $80 + $25 + $1.75 = **$106.75**
-
-This is why your grocery receipt often shows multiple tax lines — different items may be taxed at different rates.
-
-## Reverse Sales Tax Calculation
-
-Sometimes you know the total amount you paid (including tax) and need to figure out the pre-tax price. This comes up in accounting, expense reports, and when you're trying to figure out the original price from a receipt that only shows the total.
-
-### The Reverse Formula
-
-**Pre-Tax Price = Total Price ÷ (1 + Sales Tax Rate)**
-
-**Sales Tax Amount = Total Price − Pre-Tax Price**
-
-### Example: Reverse Calculation
-
-You have a receipt showing a total of $108.25 in [Florida](/sales-tax-calculator/florida), where the combined rate in Miami is 7%.
-
-- Pre-Tax Price = $108.25 ÷ 1.07 = $101.17
-- Sales Tax Amount = $108.25 − $101.17 = $7.08
-
-Let's verify: $101.17 × 0.07 = $7.08. ✓ Total: $101.17 + $7.08 = $108.25. ✓
-
-### Why This Matters for Businesses
-
-If you're a business owner and you collect a flat amount that includes tax (like a service bundle that's advertised as "$500 including tax"), you need to back out the tax to report your revenue correctly. Your revenue is the pre-tax amount — the tax portion isn't income, it's money you owe to the state.
-
-Our [sales tax calculator](/sales-tax-calculator) includes a reverse calculation mode — just enter your total and it'll tell you the pre-tax price and the tax amount.
-
-## Online Sales Tax After Wayfair v. South Dakota
-
-This is the section that changed everything for online sellers. If you run an online business or sell on platforms like Etsy, Amazon, or Shopify, pay close attention.
-
-### The Pre-Wayfair World (Before 2018)
-
-Before 2018, online sellers only had to collect sales tax in states where they had a **physical presence** — a warehouse, office, store, or employees. This was based on the 1992 Supreme Court decision in Quill Corp. v. North Dakota.
-
-The result? Many online retailers had no physical presence in most states, so they didn't collect sales tax in those states. Consumers were technically supposed to report and pay "use tax" on their out-of-state purchases, but almost nobody did. States were losing billions in uncollected tax revenue.
-
-### The Wayfair Decision (June 2018)
-
-In **South Dakota v. Wayfair, Inc.**, the Supreme Court overturned the physical presence rule. The new standard is **economic nexus** — if a seller has enough economic activity in a state, they have to collect sales tax there, regardless of physical presence.
-
-South Dakota's law (which the Court upheld) established economic nexus thresholds of:
-- **$100,000** in gross revenue from sales to South Dakota customers in the previous 12 months, OR
-- **200** separate transactions with South Dakota customers in the previous 12 months
-
-### Economic Nexus in 2026: What It Means for You
-
-After Wayfair, virtually every state with a sales tax adopted its own economic nexus rules. While the thresholds vary by state, the most common standards are:
-
-- **$100,000 in sales** into the state within a 12-month period (most common)
-- **200 transactions** into the state within a 12-month period (becoming less common as states drop this threshold)
-- **$100,000 in sales AND 200 transactions** (a few states require both)
-
-As of 2026, if your business sells more than $100,000 into most states, you likely need to register, collect, and remit sales tax there. This is true even if you're a one-person operation working from your kitchen table.
-
-### Marketplace Facilitator Laws
-
-Here's some relief for small sellers: most states have enacted **marketplace facilitator laws**. These require platforms like Amazon, Etsy, eBay, and Walmart Marketplace to collect and remit sales tax on behalf of their third-party sellers.
-
-If you only sell through a marketplace platform, the platform handles sales tax. You generally don't need to register or file in those states. But if you sell through your own website too, you're responsible for collecting tax on those direct sales.
-
-### Key Takeaways for Online Sellers
-
-1. **Know your nexus states.** Track your sales by state monthly. If you're approaching the $100,000 threshold in any state, prepare to register.
-2. **Use automated tax software.** Services like Avalara, TaxJar, and others can automatically calculate, collect, and file sales tax in every state. For most businesses, this is cheaper than the penalties for getting it wrong.
-3. **Don't forget about use tax.** If you're a buyer and the seller didn't collect sales tax, you may owe use tax to your home state.
-4. **Keep good records.** States can audit you going back several years. Having documentation of your sales, nexus analysis, and tax filings is essential.
-
-## State-by-State Sales Tax Quick Reference
-
-Here's a snapshot of every state's sales tax situation as of 2026:
-
-### States With No State Sales Tax
-- **Alaska:** No state rate (local rates up to 7.5%)
-- **Delaware:** No sales tax
-- **Montana:** No state rate (limited local resort taxes)
-- **New Hampshire:** No sales tax (9% meals and rooms tax)
-- **Oregon:** No sales tax
-
-### States With the Lowest State Rates
-- **Colorado:** 2.9%
-- **Alabama:** 4.0%
-- **Georgia:** 4.0%
-- **Hawaii:** 4.0% (technically an excise tax, but functions like sales tax)
-- **Louisiana:** 4.45%
-- **New York:** 4.0%
-- **Oklahoma:** 4.5%
-- **North Dakota:** 5.0%
-- **South Dakota:** 4.5%
-- **Wisconsin:** 5.0%
-
-### States With the Highest State Rates
-- **California:** 7.25%
-- **Indiana:** 7.0%
-- **Mississippi:** 7.0%
-- **Rhode Island:** 7.0%
-- **Tennessee:** 7.0%
-- **Minnesota:** 6.875%
-- **Nevada:** 6.85%
-- **Kansas:** 6.5%
-- **New Jersey:** 6.625%
-- **Arkansas:** 6.5%
-
-Remember, the state rate is just part of the picture. Always check the combined rate for your specific location. Our [New York sales tax calculator](/sales-tax-calculator/newyork) and [Illinois sales tax calculator](/sales-tax-calculator/illinois) are great examples — the combined rates in New York City and Chicago are dramatically higher than the state rates alone.
-
-## Sales Tax Holidays in 2026
-
-Many states offer sales tax holidays — short periods (usually a weekend or a week) when certain items are exempt from sales tax. Common themes include:
-
-- **Back-to-school:** Clothing, school supplies, and computers under certain price limits (typically in August)
-- **Emergency preparedness:** Generators, flashlights, batteries, and other supplies (typically before hurricane season)
-- **Energy Star appliances:** Energy-efficient appliances and sometimes HVAC systems
-- **Second Amendment:** Hunting and fishing supplies in some states
-
-Sales tax holidays are a great time to make major purchases, but the rules are specific. Each state defines which items qualify and sets price caps. A $1,500 laptop might be tax-free during a back-to-school holiday, but a $2,000 one might not qualify.
-
-Check your state's department of revenue website for specific dates and rules for 2026 sales tax holidays.
-
-## Common Mistakes People Make With Sales Tax
-
-### 1. Using the State Rate Instead of the Combined Rate
-
-This is the #1 mistake. You look up your state's rate, calculate the tax, and it's wrong because you forgot about local taxes. Always use the combined rate for your specific address.
-
-### 2. Forgetting That Online Purchases May Be Taxed
-
-After the Wayfair decision, most online purchases are now subject to sales tax. If an online seller doesn't collect it, you may owe use tax. Ignoring this won't make it go away.
-
-### 3. Assuming Groceries Are Always Tax-Free
-
-They're not. Several states tax groceries at the full rate, and many others tax them at a reduced rate. Check your state's rules before assuming your grocery bill is tax-free.
-
-### 4. Not Taking Advantage of Sales Tax Holidays
-
-If your state offers a sales tax holiday on big-ticket items you were going to buy anyway, waiting a few weeks can save you significant money. On a $2,000 computer, an 8% sales tax holiday saves you $160.
-
-### 5. Miscalculating Reverse Sales Tax
-
-The reverse sales tax formula is **not** just "multiply by the tax rate." You divide by (1 + rate), not multiply. Using the wrong formula leads to errors in accounting and expense reports.
-
-## Frequently Asked Questions
-
-### What state has the highest sales tax?
-Louisiana has the highest average combined sales tax rate at approximately 9.55%. However, the highest state-level rate belongs to California at 7.25%. The difference is that Louisiana's local taxes are much higher on average than California's.
-
-### What state has the lowest sales tax?
-Among states that charge sales tax, Colorado has the lowest state rate at 2.9%. However, local taxes in Colorado can push combined rates much higher. Four states — Delaware, Montana, New Hampshire, and Oregon — have no sales tax at all.
-
-### Do I have to pay sales tax on online purchases?
-In most cases, yes. After the 2018 Supreme Court decision in South Dakota v. Wayfair, states can require online sellers to collect sales tax based on economic nexus, not just physical presence. If the seller doesn't collect tax, you may owe use tax to your state.
-
-### What is the difference between sales tax and use tax?
-Sales tax is collected by the seller at the point of sale. Use tax is paid directly by the buyer when sales tax wasn't collected — typically on out-of-state or online purchases. The rate is usually the same; the difference is who pays it and when.
-
-### Are groceries tax-free?
-It depends on the state. Some states fully exempt groceries (like California and New Jersey), some tax them at a reduced rate (like Illinois at 1%), and some tax them at the full rate (like Alabama and Mississippi). Many states also distinguish between "groceries" and "prepared food" — a cold sandwich might be tax-free while a hot one is taxed.
-
-### How do I find my exact sales tax rate?
-Use our free [sales tax calculator](/sales-tax-calculator) and enter your ZIP code or address. It will look up the exact combined rate (state + county + city + special district) for your location.
-
-### Do I need to collect sales tax if I sell online?
-If your business has economic nexus in a state (typically $100,000+ in sales or 200+ transactions into that state in the past 12 months), you generally need to register for and collect sales tax in that state. Marketplace sellers may have their taxes handled by the platform.
-
-### Is clothing tax-free?
-In some states, yes. Pennsylvania, New Jersey, Minnesota, Vermont, and Massachusetts exempt most clothing from sales tax. New York exempts clothing under $110 per item. Most other states tax clothing at the full rate.
-
-### Can sales tax rates change during the year?
-Yes. Local jurisdictions can change their rates, and special district taxes can be added or removed. Most rate changes take effect on January 1 or July 1, but they can happen at any time. Our calculator is updated regularly to reflect the latest rates.
-
-### What is a sales tax holiday?
-A sales tax holiday is a temporary period when a state waives sales tax on certain items. These typically happen once a year and cover categories like back-to-school supplies, emergency preparedness items, or Energy Star appliances. Dates and eligible items vary by state.
-
----
-
-Sales tax doesn't have to be confusing. Whether you're a consumer trying to budget for a big purchase or a business owner navigating multi-state compliance, understanding how rates work is the first step. Use our free [sales tax calculator](/sales-tax-calculator) to get exact rates for any address in the United States — no guessing required.`
-,
-  "no-tax-on-overtime-guide-2026": `# No Tax on Overtime: How the New Law Saves You Money (2025–2028)
-
-If you've been working overtime and watching a big chunk of that extra pay disappear to taxes, there's good news. The **No Tax on Overtime** provision — part of the One Big Beautiful Bill Act signed into law in 2025 — eliminates federal income tax on qualified overtime compensation through the end of 2028. That means more of your overtime dollars stay in your pocket.
-
-But before you start planning how to spend all that extra cash, you need to understand the details. Who qualifies? What taxes are still taken out? How much will you actually save? And what happens when the law expires?
-
-This guide covers everything you need to know about the overtime tax exemption, with real numbers, worked examples, and a state-by-state breakdown.
-
-**Ready to calculate your savings right now?** Try our free [overtime tax calculator](/overtime-tax-calculator) to see exactly how much more take-home pay you'll keep.
-
-## What Is the No Tax on Overtime Law?
-
-The No Tax on Overtime provision was included in the **One Big Beautiful Bill Act**, a broad tax and spending package passed by Congress and signed by President Trump in 2025. The core idea is simple: if you earn overtime pay as a non-exempt hourly worker, that overtime compensation is **exempt from federal income tax**.
-
-This isn't a deduction. It's not a credit. It's a full **exemption** — meaning the federal government simply does not tax your overtime wages as income. The money that would have gone to the IRS from your OT pay stays with you instead.
-
-The provision is effective for tax years **2025 through 2028**, with a sunset date of December 31, 2028. Unless Congress extends or makes it permanent, overtime pay will once again be subject to federal income tax starting in 2029.
-
-### Why Was This Law Passed?
-
-The policy was pitched as a way to reward hard work and boost take-home pay for middle- and lower-income workers who rely on overtime to make ends meet. The argument: if you're working 50 or 60 hours a week, the government shouldn't be taking a bigger cut of those extra hours. It's also designed to incentivize people to work more overtime, potentially easing labor shortages in industries like manufacturing, healthcare, and logistics.
-
-Whether you agree with the politics or not, the financial impact is real — and potentially significant if you regularly work OT.
-
-## Who Qualifies for the Overtime Tax Exemption?
-
-Not everyone who works extra hours gets this tax break. The exemption applies specifically to **non-exempt employees who receive overtime pay under the Fair Labor Standards Act (FLSA)**. Here's what that means in plain English:
-
-### You Qualify If:
-
-- **You're classified as a non-exempt worker** under FLSA rules — meaning your employer is legally required to pay you overtime
-- **You're paid on an hourly basis** (salaried non-exempt workers also qualify, but it's less common)
-- **You work more than 40 hours in a workweek** and receive the legally mandated 1.5x overtime rate
-- **Your overtime pay is reported on your W-2** as separate from regular wages
-
-### You Do NOT Qualify If:
-
-- **You're an exempt employee** — typically salaried professionals, executives, administrators, and outside sales employees who are not entitled to overtime under FLSA
-- **You're an independent contractor or self-employed** — the FLSA overtime rules don't apply to you (though our [self-employment tax calculator](/self-employment-tax-calculator) can help with your overall tax picture)
-- **You receive "comptime" (compensatory time)** instead of overtime pay
-- **Your employer voluntarily pays extra hours at straight time** — the exemption only applies to the legally required 1.5x rate
-
-### What About Salaried Non-Exempt Workers?
-
-Yes, salaried non-exempt employees who qualify for FLSA overtime also benefit from this exemption. However, the employer must clearly distinguish between regular salary and overtime compensation on the W-2 for the exemption to apply cleanly. If you're in this category, talk to your HR or payroll department about how your OT is being reported.
-
-## What's Exempt vs. What's NOT Exempt
-
-This is where a lot of people get confused, so let's be crystal clear:
-
-### ✅ EXEMPT from Tax (You Don't Pay)
-
-| Tax Type | Status | Notes |
-|----------|--------|-------|
-| Federal Income Tax | **Exempt** | Your overtime pay is not subject to federal income tax withholding |
-| Federal Tax Brackets | **Exempt** | OT pay doesn't push you into a higher bracket for your regular wages |
-
-### ❌ NOT Exempt from Tax (You Still Pay)
-
-| Tax Type | Status | Notes |
-|----------|--------|-------|
-| Social Security Tax (6.2%) | **Still applies** | FICA taxes are separate from income tax |
-| Medicare Tax (1.45%) | **Still applies** | FICA taxes are separate from income tax |
-| Additional Medicare Tax (0.9%) | **Still applies** | If OT wages push you over $200k |
-| State Income Tax | **Still applies** | Most states have not passed matching exemptions |
-| Local Income Tax | **Still applies** | City/county taxes still apply |
-
-The key takeaway: **FICA taxes (Social Security and Medicare) are NOT exempt.** This is a federal income tax exemption only. Your overtime pay still gets hit with the 7.65% employee FICA share, plus any applicable state and local income taxes.
-
-This distinction matters a lot. If you're making $15,000 in overtime pay and you're in the 22% federal bracket, the income tax exemption saves you $3,300 — but you still pay about $1,148 in FICA taxes. Your net savings is closer to $2,152, which is still great, but not quite the full $15,000 some people might expect.
-
-Use our [IRS withholding calculator](/irs-withholding-calculator) to make sure your employer is withholding the correct amounts from both your regular and overtime pay.
-
-## How Much Do You Actually Save? — Real Examples
-
-Let's run the numbers for a few different scenarios so you can see the real-world impact.
-
-### Example 1: $50,000 Base Salary, 5 Hours OT/Week
-
-**Worker Profile:**
-- Base salary: $50,000/year
-- Hourly rate: $50,000 ÷ 2,080 = $24.04/hour
-- OT rate: $24.04 × 1.5 = $36.06/hour
-- Overtime hours: 5 hours/week × 52 weeks = 260 hours/year
-- Annual overtime pay: 260 × $36.06 = **$9,376**
-- Federal marginal rate: 22%
-
-**Before the law (overtime taxed normally):**
-- Federal income tax on OT: $9,376 × 22% = **$2,063**
-- FICA on OT: $9,376 × 7.65% = **$717**
-- Total tax on OT: **$2,780**
-- OT take-home: $9,376 − $2,780 = **$6,596**
-
-**After the law (OT exempt from federal income tax):**
-- Federal income tax on OT: **$0**
-- FICA on OT: $9,376 × 7.65% = **$717**
-- Total tax on OT: **$717**
-- OT take-home: $9,376 − $717 = **$8,659**
-
-**Annual savings: $2,063** — that's an extra $173/month in your pocket.
-
-### Example 2: $35,000 Base Salary, 10 Hours OT/Week
-
-**Worker Profile:**
-- Base salary: $35,000/year
-- Hourly rate: $35,000 ÷ 2,080 = $16.83/hour
-- OT rate: $16.83 × 1.5 = $25.24/hour
-- Overtime hours: 10 hours/week × 52 weeks = 520 hours/year
-- Annual overtime pay: 520 × $25.24 = **$13,125**
-- Federal marginal rate: 12%
-
-**Before the law:**
-- Federal income tax on OT: $13,125 × 12% = **$1,575**
-- FICA on OT: $13,125 × 7.65% = **$1,004**
-- Total tax on OT: **$2,579**
-- OT take-home: $13,125 − $2,579 = **$10,546**
-
-**After the law:**
-- Federal income tax on OT: **$0**
-- FICA on OT: $13,125 × 7.65% = **$1,004**
-- Total tax on OT: **$1,004**
-- OT take-home: $13,125 − $1,004 = **$12,121**
-
-**Annual savings: $1,575** — that's an extra $131/month.
-
-### Example 3: $75,000 Base Salary, 8 Hours OT/Week
-
-**Worker Profile:**
-- Base salary: $75,000/year
-- Hourly rate: $75,000 ÷ 2,080 = $36.06/hour
-- OT rate: $36.06 × 1.5 = $54.09/hour
-- Overtime hours: 8 hours/week × 52 weeks = 416 hours/year
-- Annual overtime pay: 416 × $54.09 = **$22,501**
-- Federal marginal rate: 22%
-
-**Before the law:**
-- Federal income tax on OT: $22,501 × 22% = **$4,950**
-- FICA on OT: $22,501 × 7.65% = **$1,721**
-- Total tax on OT: **$6,671**
-- OT take-home: $22,501 − $6,671 = **$15,830**
-
-**After the law:**
-- Federal income tax on OT: **$0**
-- FICA on OT: $22,501 × 7.65% = **$1,721**
-- Total tax on OT: **$1,721**
-- OT take-home: $22,501 − $1,721 = **$20,780**
-
-**Annual savings: $4,950** — that's an extra $413/month. For a household budget, that's a car payment or a serious chunk of rent.
-
-**Want to see your own numbers?** Plug your salary and overtime hours into our [paycheck calculator](/paycheck-calculator) for a personalized breakdown.
-
-## The Sunset Date: What Happens After 2028?
-
-The No Tax on Overtime provision has a **sunset date of December 31, 2028**. This means:
-
-- **Tax years 2025, 2026, 2027, and 2028:** Overtime pay is exempt from federal income tax
-- **Tax year 2029 and beyond:** Overtime pay reverts to being taxed as ordinary income — unless Congress acts
-
-Sunset provisions are common in tax legislation. They allow lawmakers to pass expensive tax cuts without permanently adding to the deficit (at least on paper). The expectation — or at least the hope — is that a future Congress will extend or make the exemption permanent. But there are no guarantees.
-
-### What Should You Do About the Sunset?
-
-Practically speaking, here's how to think about it:
-
-1. **Maximize your overtime now.** If you're on the fence about picking up extra shifts, the tax savings through 2028 make it more worthwhile than it will be later.
-
-2. **Don't make long-term financial commitments based on OT income.** If you're buying a house or a car, base your budget on your regular wages — not overtime that might be taxed differently in a few years.
-
-3. **Save or invest the tax savings.** Instead of lifestyle inflation, consider putting that extra $150–$400/month into savings or investments. Your future self will thank you.
-
-4. **Stay informed.** Tax law changes fast. Bookmark this page and check back — we'll update it as Congress debates extension or permanence.
-
-## State-by-State Impact: Where You Live Matters
-
-Here's the thing that catches a lot of people off guard: the No Tax on Overtime law is a **federal** provision. It exempts overtime pay from **federal** income tax. But most states have their own income taxes, and very few states have passed matching exemptions.
-
-This means your actual savings depend heavily on where you live.
-
-### States With No Income Tax (Maximum Benefit)
-
-If you live in one of these states, you get the full benefit of the federal exemption with no state income tax eating into your overtime pay:
-
-- **Alaska**
-- **Florida**
-- **Nevada**
-- **New Hampshire** (no tax on wages)
-- **South Dakota**
-- **Tennessee** (no tax on wages)
-- **Texas**
-- **Washington**
-- **Wyoming**
-
-Workers in these states see the biggest boost to take-home pay from overtime because there's no state income tax on either regular wages or overtime.
-
-### States With Income Tax (Reduced Benefit)
-
-In states with income tax, your overtime pay is still exempt from federal tax — but you'll pay **state income tax on your overtime wages**. The impact varies:
-
-| State | Top Income Tax Rate | OT Pay Still Taxed by State? |
-|-------|---------------------|-------------------------------|
-| California | 13.3% | Yes |
-| New York | 10.9% | Yes |
-| Oregon | 9.9% | Yes |
-| Minnesota | 9.85% | Yes |
-| New Jersey | 10.75% | Yes |
-| Illinois | 4.95% | Yes |
-| Pennsylvania | 3.07% | Yes |
-| Indiana | 3.05% | Yes |
-| Michigan | 4.25% | Yes |
-| North Carolina | 4.5% | Yes |
-
-A California worker in the 9.3% state bracket who earns $15,000 in overtime still pays about $1,395 in state income tax on that money — even though the federal tax is $0. The savings are real, but they're significantly less than what a Texas or Florida worker would see.
-
-### States That May Pass Matching Exemptions
-
-As of early 2026, several states are considering legislation that would exempt overtime pay from state income tax as well. This is a developing situation. Check with your state's department of revenue or a local tax professional for the most current information.
-
-## Before vs. After: A Side-by-Side Comparison
-
-Let's put it all together with a comprehensive comparison. We'll use our Example 3 worker from above — $75,000 base salary, 8 hours of overtime per week — and look at the full picture in a high-tax state (California) vs. a no-tax state (Texas).
-
-### In Texas (No State Income Tax)
-
-| Category | Before the Law | After the Law |
-|----------|---------------|---------------|
-| Regular Pay (after all taxes) | $54,643 | $54,643 |
-| OT Gross Pay | $22,501 | $22,501 |
-| Federal Income Tax on OT | −$4,950 | **$0** |
-| FICA on OT | −$1,721 | −$1,721 |
-| State Income Tax on OT | $0 | $0 |
-| OT Net Take-Home | $15,830 | $20,780 |
-| **Total Take-Home** | **$70,473** | **$75,423** |
-| **Annual Savings** | — | **$4,950** |
-
-### In California (High State Income Tax)
-
-| Category | Before the Law | After the Law |
-|----------|---------------|---------------|
-| Regular Pay (after all taxes) | $49,821 | $49,821 |
-| OT Gross Pay | $22,501 | $22,501 |
-| Federal Income Tax on OT | −$4,950 | **$0** |
-| FICA on OT | −$1,721 | −$1,721 |
-| CA State Income Tax on OT | −$1,395 | −$1,395 |
-| OT Net Take-Home | $14,435 | $19,385 |
-| **Total Take-Home** | **$64,256** | **$69,206** |
-| **Annual Savings** | — | **$4,950** |
-
-The federal savings are identical — $4,950 in both states. But the California worker's total OT take-home is lower because state income tax still applies. The Texas worker walks away with significantly more money from the same overtime hours.
-
-## How to Make Sure You're Getting the Exemption
-
-The overtime tax exemption should be applied automatically by your employer's payroll system, but mistakes happen. Here's what you should do:
-
-1. **Check your pay stub.** Starting with the effective date, overtime pay should show reduced federal withholding. Compare an OT pay stub from after the law took effect to one from before — the difference should be noticeable.
-
-2. **Verify your W-2 at tax time.** Your employer should report overtime pay separately or code it differently so the IRS knows it qualifies for the exemption. If you're not sure, ask your payroll department.
-
-3. **Use the right tax forms.** When filing your return, make sure you're claiming the overtime exemption correctly. Tax software should handle this, but double-check.
-
-4. **Talk to HR if something looks wrong.** If your federal withholding on overtime hasn't changed, your payroll system might not be updated yet. Don't leave money on the table.
-
-5. **Use our [overtime tax calculator](/overtime-tax-calculator)** to estimate what your take-home should be, then compare it to your actual pay stub.
-
-## Common Misconceptions
-
-Let's clear up a few things we keep hearing:
-
-**"Overtime is now completely tax-free."** — No. FICA taxes (Social Security and Medicare) still apply. State income tax still applies in most states. Only federal income tax is exempt.
-
-**"I can work unlimited overtime tax-free."** — Technically true for federal income tax, but be aware that higher total income can affect things like IRA deduction eligibility, premium tax credits, and student loan payments. Your OT income isn't invisible — it's just exempt from federal income tax.
-
-**"Salaried employees don't get any benefit."** — Not necessarily. Salaried non-exempt employees who receive FLSA overtime pay do qualify. It's about your FLSA classification, not whether you're hourly or salaried.
-
-**"This is permanent."** — It's not. The law sunsets on December 31, 2028. Mark your calendar.
-
-**"My bonus is also tax-free now."** — No. The exemption applies only to FLSA overtime pay (1.5x rate for hours over 40). Bonuses, shift differentials, and other supplemental pay are still taxed as ordinary income.
-
-## Impact on Tax Brackets and Withholding
-
-One subtle but important benefit of the overtime tax exemption: **your overtime pay doesn't push your regular wages into a higher tax bracket.**
-
-Here's what that means. Under normal rules, if you earn $50,000 in regular wages and $15,000 in overtime, your total taxable income is $65,000 — and your marginal tax rate might be 22%. Without the exemption, that overtime is taxed at your highest marginal rate.
-
-With the exemption, your federal taxable income stays at $50,000 (plus any other non-OT income). Your overtime is pulled out of the equation entirely for federal income tax purposes. This means:
-
-- Your regular wages are taxed at the same rate they would be without overtime
-- Your overtime pay is simply not subject to federal income tax
-- You don't have to worry about OT pushing you into a higher bracket
-
-This is a meaningful benefit for workers who occasionally work a lot of overtime — like seasonal workers or people pulling extra shifts during busy periods.
-
-**Make sure your withholding is correct.** If your employer is over-withholding because their payroll system hasn't been properly configured, you'll get the money back as a refund — but you'd rather have it in each paycheck. Our [IRS withholding calculator](/irs-withholding-calculator) can help you check.
-
-## The Bigger Picture: How This Fits Into Your Overall Tax Strategy
-
-The overtime tax exemption is one piece of a larger financial puzzle. Here are some things to think about:
-
-### Retirement Contributions
-
-Overtime pay that's exempt from federal income tax still counts as compensation for **401(k) contribution limits**. That means if you're working a lot of OT, you might be able to contribute more to your 401(k) than you otherwise could. And since the OT isn't federally taxed, you're not losing anything to income tax on those dollars — they go straight into your retirement account.
-
-### Earned Income Tax Credit (EITC)
-
-Overtime pay still counts as earned income for EITC purposes, which could be a double benefit for lower-income workers. You get the federal income tax exemption on OT **and** the extra earned income might boost your EITC.
-
-### Student Loan Payments
-
-If you're on an income-driven repayment plan for student loans, your overtime pay — even though it's exempt from federal income tax — will still count as income for calculating your monthly payment. More OT could mean a higher student loan bill.
-
-### Health Insurance Subsidies
-
-If you get health insurance through the ACA marketplace, your overtime income counts toward your modified adjusted gross income (MAGI), which determines your subsidy eligibility. Earning more overtime could reduce your premium tax credit.
-
-The bottom line: the overtime tax exemption is a great deal, but it's not the only factor in your financial life. Consider working with a tax professional to optimize your overall situation.
-
-## Frequently Asked Questions
-
-### Does the No Tax on Overtime law apply to me if I'm self-employed?
-
-**No.** The exemption only applies to FLSA overtime pay received by W-2 employees. Self-employed individuals and independent contractors don't receive overtime pay under FLSA, so this provision doesn't apply. However, if you're self-employed, our [self-employment tax calculator](/self-employment-tax-calculator) can help you understand your full tax obligations.
-
-### Is overtime really exempt from ALL federal taxes?
-
-**No.** Overtime pay is exempt from **federal income tax** only. FICA taxes (Social Security at 6.2% and Medicare at 1.45%) still apply to overtime wages. If your total wages exceed $200,000, the additional 0.9% Medicare tax also applies.
-
-### What if my employer pays overtime at 2x instead of 1.5x?
-
-The exemption covers **all FLSA-qualified overtime compensation**, including any premium rate your employer pays for hours over 40. If your employer pays 2x for overtime, that full 2x rate qualifies for the federal income tax exemption. But only the portion that qualifies as FLSA overtime is exempt — any extra pay that isn't technically overtime (like a discretionary bonus) doesn't qualify.
-
-### Does this apply to state income tax too?
-
-**In most states, no.** The federal exemption does not automatically apply to state income tax. As of early 2026, only a few states are considering matching legislation. If you live in a state with income tax, you'll still pay state tax on your overtime earnings. Workers in no-income-tax states (Texas, Florida, Nevada, etc.) get the maximum benefit.
-
-### What happens when the law expires in 2028?
-
-Unless Congress extends or makes the exemption permanent, overtime pay will once again be subject to federal income tax starting in tax year 2029. Your take-home pay from overtime will decrease, essentially returning to pre-2025 levels. We recommend not making long-term financial commitments based on the assumption that the exemption will continue.
-
-### How do I know if I'm classified as exempt or non-exempt?
-
-Your FLSA classification should be determined by your job duties and salary, not your job title. Generally, if you earn less than the salary threshold (around $43,888 in 2025) or you don't perform exempt-level duties (executive, administrative, or professional), you're non-exempt and entitled to overtime. Ask your HR department if you're unsure.
-
-### Will this exemption affect my tax refund?
-
-It could. If your employer correctly adjusts your withholding to account for the exemption, you should see more money in each paycheck rather than a bigger refund. If they don't adjust, you might be over-withheld and get a larger refund at tax time. Either way, you get the money — it's just a question of when. Use our [paycheck calculator](/paycheck-calculator) to check if your withholding looks right.
-
-### Can I claim this exemption on my tax return if my employer didn't apply it?
-
-Yes. If your employer's payroll system didn't properly apply the overtime tax exemption, you can claim it when you file your tax return. You'll need to document your overtime pay and show that it qualifies under the FLSA rules. Consider using tax software or consulting a tax professional for guidance.
-
-### Does overtime pay count toward the Social Security wage base?
-
-**Yes.** Even though overtime pay is exempt from federal income tax, it still counts as wages for Social Security and Medicare purposes. Your overtime earnings will be factored into the Social Security wage base ($184,500 in 2026) and will count toward your future Social Security benefits.
-
-## Final Thoughts
-
-The No Tax on Overtime provision is one of the most significant tax changes for working-class and middle-class Americans in recent years. If you regularly work overtime, this law puts real money back in your pocket — anywhere from a few hundred to several thousand dollars per year, depending on how much OT you work and where you live.
-
-But remember: this is a temporary measure. It sunsets at the end of 2028. Make the most of it while it lasts, but don't build your financial life around the assumption that overtime will always be tax-free. And don't forget that FICA and state taxes still apply.
-
-**Ready to see your savings?** Use our free [overtime tax calculator](/overtime-tax-calculator) to get personalized numbers based on your actual pay and hours. You can also check your overall take-home with our [paycheck calculator](/paycheck-calculator) or fine-tune your withholding with the [IRS withholding calculator](/irs-withholding-calculator).
-
-Work hard. Get paid. Keep more of it. That's the idea — at least through 2028.`
+Use our Florida Tax Calculator to see exactly how much you'd take home, or compare Florida to other states using our state tax comparison tool.`
 };
