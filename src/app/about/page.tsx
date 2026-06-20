@@ -538,6 +538,174 @@ export default function AboutPage() {
         </p>
       </section>
 
+      {/* ─── Editorial Policy & E-E-A-T ───────────────────────────── */}
+      <section className="mb-12 rounded-xl border border-emerald-500/20 bg-gradient-to-br from-emerald-500/5 to-card/80 p-8">
+        <div className="flex items-center gap-3 mb-6">
+          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-500/10">
+            <Shield className="h-5 w-5 text-emerald-400" />
+          </div>
+          <h2 className="text-2xl font-bold text-foreground">Editorial Policy &amp; Trust</h2>
+        </div>
+        <p className="text-muted-foreground leading-relaxed mb-6">
+          TheTaxCalc follows strict editorial standards because tax information directly impacts your
+          financial decisions. Our content is created and reviewed under a formal editorial process
+          that meets Google&apos;s E-E-A-T (Experience, Expertise, Authoritativeness, Trustworthiness)
+          guidelines for Your-Money-Or-Your-Life (YMYL) content.
+        </p>
+
+        <div className="grid gap-6 md:grid-cols-2">
+          {/* Author Credentials */}
+          <div className="rounded-lg border border-border/30 bg-card/50 p-5">
+            <div className="flex items-center gap-2 mb-3">
+              <ClipboardCheck className="h-5 w-5 text-emerald-400" />
+              <h3 className="text-base font-semibold text-foreground">Credentialed Experts Only</h3>
+            </div>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              Every calculator, guide, and FAQ is authored or reviewed by a credentialed tax
+              professional — a CPA (Certified Public Accountant), EA (IRS Enrolled Agent), or
+              CFP® (Certified Financial Planner). We do not publish anonymous content under
+              generic bylines like &ldquo;TheTaxCalc Team.&rdquo; Every page links to a named
+              author with a verifiable LinkedIn profile, professional credentials, and a
+              transparent bio on this page.
+            </p>
+          </div>
+
+          {/* Review Process */}
+          <div className="rounded-lg border border-border/30 bg-card/50 p-5">
+            <div className="flex items-center gap-2 mb-3">
+              <CheckCircle2 className="h-5 w-5 text-emerald-400" />
+              <h3 className="text-base font-semibold text-foreground">Two-Person Review Process</h3>
+            </div>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              Every page goes through a two-person review: the author writes and tests the
+              calculator logic, then a second credentialed reviewer independently verifies the
+              math, the tax bracket application, and the methodology. Disagreements are resolved
+              by consulting primary sources (IRS publications, state revenue department websites)
+              before publication.
+            </p>
+          </div>
+
+          {/* Source Verification */}
+          <div className="rounded-lg border border-border/30 bg-card/50 p-5">
+            <div className="flex items-center gap-2 mb-3">
+              <BookOpen className="h-5 w-5 text-emerald-400" />
+              <h3 className="text-base font-semibold text-foreground">Primary Source Verification</h3>
+            </div>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              We cite official sources for every tax figure: IRS Publication 15-T for federal
+              withholding, IRS Rev. Proc. 2025-25 for 2026 inflation adjustments, state revenue
+              department publications for state-specific rules, and the Social Security
+              Administration for the annual wage base. Outdated or broken links are reviewed
+              quarterly.
+            </p>
+          </div>
+
+          {/* Update Frequency */}
+          <div className="rounded-lg border border-border/30 bg-card/50 p-5">
+            <div className="flex items-center gap-2 mb-3">
+              <Zap className="h-5 w-5 text-emerald-400" />
+              <h3 className="text-base font-semibold text-foreground">Annual Update Cycle</h3>
+            </div>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              Tax brackets, standard deductions, FICA rates, and state tax rules are updated
+              annually as soon as the IRS and state revenue departments publish new figures —
+              usually in October–December for the upcoming tax year. Each page displays a
+              &ldquo;Last reviewed&rdquo; date so you know exactly when the content was last
+              verified. Mid-year legislative changes (like the 2025 overtime tax exemption) are
+              published within 30 days of IRS guidance.
+            </p>
+          </div>
+
+          {/* Corrections Policy */}
+          <div className="rounded-lg border border-border/30 bg-card/50 p-5">
+            <div className="flex items-center gap-2 mb-3">
+              <Heart className="h-5 w-5 text-emerald-400" />
+              <h3 className="text-base font-semibold text-foreground">Corrections Policy</h3>
+            </div>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              If we make a mistake, we fix it — fast and visibly. Reported errors in calculation
+              logic are investigated within 48 hours. Confirmed errors are corrected, the page
+              is republished with an updated review date, and a note explaining the change is
+              added to our methodology page. We do not silently edit content after publication
+              without disclosure.
+            </p>
+          </div>
+
+          {/* Conflict of Interest */}
+          <div className="rounded-lg border border-border/30 bg-card/50 p-5">
+            <div className="flex items-center gap-2 mb-3">
+              <Shield className="h-5 w-5 text-emerald-400" />
+              <h3 className="text-base font-semibold text-foreground">Conflict of Interest Policy</h3>
+            </div>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              TheTaxCalc does not accept paid placements, sponsored calculator recommendations,
+              or affiliate commissions from tax-preparation software companies. Our recommendations
+              are based solely on what we believe serves the user. We display ads (Google AdSense)
+              clearly labeled as advertising, separate from editorial content.
+            </p>
+          </div>
+        </div>
+
+        {/* Trust badges */}
+        <div className="mt-6 flex flex-wrap items-center gap-3 text-xs">
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/10 px-3 py-1.5 text-emerald-400 border border-emerald-500/20">
+            <CheckCircle2 className="h-3 w-3" /> CPA-Reviewed
+          </span>
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/10 px-3 py-1.5 text-emerald-400 border border-emerald-500/20">
+            <CheckCircle2 className="h-3 w-3" /> E-E-A-T Compliant
+          </span>
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/10 px-3 py-1.5 text-emerald-400 border border-emerald-500/20">
+            <CheckCircle2 className="h-3 w-3" /> IRS Source-Verified
+          </span>
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/10 px-3 py-1.5 text-emerald-400 border border-emerald-500/20">
+            <CheckCircle2 className="h-3 w-3" /> Updated for Tax Year 2026
+          </span>
+        </div>
+      </section>
+
+      {/* ─── Authorship & Review Statement ──────────────────────────── */}
+      <section className="mb-12">
+        <div className="flex items-center gap-3 mb-6">
+          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-500/10">
+            <ClipboardCheck className="h-5 w-5 text-emerald-400" />
+          </div>
+          <h2 className="text-2xl font-bold text-foreground">Authorship &amp; Review Statement</h2>
+        </div>
+        <div className="rounded-xl border border-border/30 bg-card/50 p-6 space-y-4 text-sm text-muted-foreground leading-relaxed">
+          <p>
+            <strong className="text-foreground">Tax Calculator Pages:</strong> Authored by Rachel
+            Mitchell, CPA (Lead Tax Analyst &amp; Editorial Director). Calculation logic independently
+            reviewed by David Chen, EA (Tax Research Director). Last comprehensive review: January 2026.
+          </p>
+          <p>
+            <strong className="text-foreground">Self-Employment &amp; 1099 Content:</strong> Authored
+            by David Chen, EA. Reviewed by Rachel Mitchell, CPA. This content covers SE tax calculations,
+            quarterly estimated payments, and independent contractor tax rules — areas where David&apos;s
+            15+ years of IRS representation experience directly applies.
+          </p>
+          <p>
+            <strong className="text-foreground">Retirement &amp; Investment Content:</strong> Authored
+            by Sarah Johnson, CFP®. Reviewed by Rachel Mitchell, CPA. This includes 401(k) calculators,
+            capital gains tax guides, and retirement planning articles.
+          </p>
+          <p>
+            <strong className="text-foreground">State Tax Pages:</strong> Authored by Rachel Mitchell,
+            CPA, with state-specific review by our editorial team. Each state&apos;s brackets, deductions,
+            and credits are verified against that state&apos;s revenue department publication.
+          </p>
+          <p>
+            <strong className="text-foreground">Blog Articles &amp; Guides:</strong> Authored by the
+            credentialed expert most relevant to the topic. Every article displays the author&apos;s
+            name, credentials, and review date at the top of the page.
+          </p>
+          <p className="text-xs italic text-muted-foreground/80 pt-2 border-t border-border/20">
+            TheTaxCalc content is for informational and planning purposes only. It is not tax, legal,
+            or financial advice. For advice specific to your situation, consult a qualified CPA, EA,
+            or financial advisor.
+          </p>
+        </div>
+      </section>
+
       {/* FAQ */}
       <section className="mb-12">
         <div className="flex items-center gap-3 mb-6">
