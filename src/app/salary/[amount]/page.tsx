@@ -57,8 +57,8 @@ export async function generateMetadata({
   const fica = calculateFICA(salary, 'single');
   const txTakeHome = salary - federalTax - fica.total;
 
-  const title = `${formatted} After Taxes 2026: Take-Home Pay by State [Calculator]`;
-  const description = `How much is ${formatted} after taxes in 2026? On ${formatted} in Texas, you keep ~${fmt(txTakeHome)} (no state tax). See your real take-home by state — TX, CA, NY, FL & more. Free calculator.`;
+  const title = `${formatted} After Taxes 2026 — Take-Home Pay by State`;
+  const description = `${formatted} after taxes in 2026? In Texas, you keep ~${fmt(txTakeHome)} (0% state tax). See take-home pay by state — TX, CA, NY, FL & more. Free calculator.`;
 
   return {
     title: { absolute: title },
