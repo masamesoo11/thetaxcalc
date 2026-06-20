@@ -41,7 +41,6 @@ import {
 } from '@/lib/faq-data';
 import { SITE_URL } from '@/lib/site-config';
 import { getAuthorForCalculator, authorToJsonLd } from '@/lib/authors';
-import { buildAggregateRating } from '@/lib/ratings';
 
 // ─── JSON-LD FAQ Helper ─────────────────────────────────────────────────────────
 
@@ -98,7 +97,6 @@ function webAppJsonLd(id: string, name: string, urlPath: string, authorId: strin
       availability: 'https://schema.org/InStock',
       url: `${SITE_URL}${urlPath}`,
     },
-    aggregateRating: buildAggregateRating(slug),
     author: { '@id': authorId },
     publisher: { '@id': `${SITE_URL}/#organization` },
   };
@@ -162,7 +160,6 @@ function getHomeJsonLd() {
         applicationCategory: 'FinanceApplication',
         operatingSystem: 'Web',
         offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD', availability: 'https://schema.org/InStock', url: `${SITE_URL}/paycheck-calculator` },
-        aggregateRating: buildAggregateRating('paycheck-calculator'),
       },
       {
         '@id': `${baseId}#howto`,
