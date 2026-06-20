@@ -319,12 +319,15 @@ Visit https://thetaxcalc.com/about for the full page.`,
 
   // CSP — when embed mode, allow frame-ancestors from any origin so widgets work
   const frameAncestors = isEmbed ? "frame-ancestors *" : "frame-ancestors 'none'";
-  // CSP includes all Google domains needed for GTM, GA4, and AdSense to function
-  // script-src-elem and script-src-attr are explicit (Tag Assistant checks these)
-  const googleScripts = "https://www.googletagmanager.com https://www.google-analytics.com https://ssl.google-analytics.com https://www.google.com https://www.gstatic.com https://pagead2.googlesyndication.com https://tpc.googlesyndication.com";
-  const googleImgs = "https://www.google-analytics.com https://ssl.google-analytics.com https://www.googletagmanager.com https://www.google.com https://www.gstatic.com https://pagead2.googlesyndication.com https://tpc.googlesyndication.com https://googleads.g.doubleclick.net";
-  const googleConnect = "https://www.google-analytics.com https://ssl.google-analytics.com https://stats.g.doubleclick.net https://pagead2.googlesyndication.com https://*.google-analytics.com";
-  response.headers.set('Content-Security-Policy', `default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' ${googleScripts}; script-src-elem 'self' 'unsafe-inline' ${googleScripts}; script-src-attr 'self' 'unsafe-inline' ${googleScripts}; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; style-src-elem 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: ${googleImgs}; font-src 'self' https://fonts.gstatic.com; connect-src 'self' ${googleConnect}; frame-src https://www.googletagmanager.com https://googleads.g.doubleclick.net https://td.doubleclick.net; worker-src 'self' blob:; child-src 'self' https://www.googletagmanager.com; ${frameAncestors}; base-uri 'self'; form-action 'self';`);
+  // CSP follows Google's official recommendations for GTM + GA4:
+  // https://support.google.com/tagmanager/answer/10718549
+  // Uses wildcards (*.googletagmanager.com, *.google-analytics.com) per Google's guidance
+  const googleScripts = "https://*.googletagmanager.com https://*.google-analytics.com https://www.google.com https://www.gstatic.com https://ssl.gstatic.com https://tagmanager.google.com https://pagead2.googlesyndication.com https://tpc.googlesyndication.com https://www.googleadservices.com https://googleads.g.doubleclick.net";
+  const googleImgs = "https://*.googletagmanager.com https://*.google-analytics.com https://*.g.doubleclick.net https://*.google.com https://www.gstatic.com https://ssl.gstatic.com https://pagead2.googlesyndication.com https://tpc.googlesyndication.com https://www.googleadservices.com";
+  const googleConnect = "https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://*.g.doubleclick.net https://*.google.com https://pagead2.googlesyndication.com https://www.googleadservices.com https://stats.g.doubleclick.net";
+  const googleFrames = "https://www.googletagmanager.com https://*.g.doubleclick.net https://td.doubleclick.net https://googleads.g.doubleclick.net";
+  const googleStyles = "https://fonts.googleapis.com https://tagmanager.google.com https://googletagmanager.com";
+  response.headers.set('Content-Security-Policy', `default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' ${googleScripts}; script-src-elem 'self' 'unsafe-inline' ${googleScripts}; script-src-attr 'self' 'unsafe-inline' ${googleScripts}; style-src 'self' 'unsafe-inline' ${googleStyles}; style-src-elem 'self' 'unsafe-inline' ${googleStyles}; img-src 'self' data: ${googleImgs}; font-src 'self' https://fonts.gstatic.com data:; connect-src 'self' ${googleConnect}; frame-src ${googleFrames}; worker-src 'self' blob:; child-src 'self' https://www.googletagmanager.com; ${frameAncestors}; base-uri 'self'; form-action 'self';`);
 
 
 
