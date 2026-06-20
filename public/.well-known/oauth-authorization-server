@@ -24,14 +24,26 @@
   "intro_uri": "https://thetaxcalc.com/.well-known/oauth-protected-resource",
   "code_challenge_methods_supported": [],
   "agent_auth": {
+    "skill": "agent-registration",
     "register_uri": "https://thetaxcalc.com/admin",
+    "methods": [
+      {
+        "type": "oauth2-client-credentials",
+        "documentation": "https://thetaxcalc.com/auth.md#oauth2-client-credentials"
+      },
+      {
+        "type": "api-key",
+        "documentation": "https://thetaxcalc.com/auth.md#api-key"
+      }
+    ],
     "identity_types_supported": [
       "api_key",
       "password"
     ],
     "credential_types_supported": [
       "jwt",
-      "cookie"
+      "cookie",
+      "bearer"
     ],
     "claim_url": "https://thetaxcalc.com/api/auth/verify",
     "revocation_url": "https://thetaxcalc.com/api/auth/logout"
