@@ -41,6 +41,7 @@ import {
 } from '@/lib/faq-data';
 import { SITE_URL } from '@/lib/site-config';
 import { getAuthorForCalculator, authorToJsonLd } from '@/lib/authors';
+import { buildAggregateRating } from '@/lib/ratings';
 
 // ─── JSON-LD FAQ Helper ─────────────────────────────────────────────────────────
 
@@ -78,8 +79,11 @@ function breadcrumbJsonLd(id: string, position2Name: string, _position2Url: stri
  * SoftwareApplication for calculator pages.
  * Uses @id reference for author and publisher to avoid duplication.
  * Google only supports SoftwareApplication (not WebApplication) for rich results.
+ * Includes AggregateRating for star ratings in search results.
  */
 function webAppJsonLd(id: string, name: string, urlPath: string, authorId: string) {
+  // Extract calculator slug from URL path for rating lookup
+  const slug = urlPath.replace(/^\//, '').replace(/-tax-calculator$/, '-tax-calculator');
   return {
     '@id': id,
     '@type': 'SoftwareApplication' as const,
@@ -94,6 +98,7 @@ function webAppJsonLd(id: string, name: string, urlPath: string, authorId: strin
       availability: 'https://schema.org/InStock',
       url: `${SITE_URL}${urlPath}`,
     },
+    aggregateRating: buildAggregateRating(slug),
     author: { '@id': authorId },
     publisher: { '@id': `${SITE_URL}/#organization` },
   };
@@ -157,6 +162,7 @@ function getHomeJsonLd() {
         applicationCategory: 'FinanceApplication',
         operatingSystem: 'Web',
         offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD', availability: 'https://schema.org/InStock', url: `${SITE_URL}/paycheck-calculator` },
+        aggregateRating: buildAggregateRating('paycheck-calculator'),
       },
       {
         '@id': `${baseId}#howto`,
