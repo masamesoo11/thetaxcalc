@@ -1,53 +1,79 @@
-# Auth.md — TheTaxCalc Agent Authentication
+# auth.md — TheTaxCalc Agent Authentication
 
 ## Overview
 
-TheTaxCalc provides free, no-sign-up tax calculators for US taxpayers. Most tools are publicly accessible without authentication.
+TheTaxCalc provides free, no-sign-up tax calculators for US taxpayers. Most tools are publicly accessible without authentication. Protected APIs require agent registration via OAuth 2.0.
+
+## Agent Authentication Metadata
+
+This service publishes `agent_auth` metadata in its OAuth Authorization Server configuration:
+
+**Discovery URL**: `https://thetaxcalc.com/.well-known/oauth-authorization-server`
+
+The `agent_auth` block contains:
+
+```json
+{
+  "agent_auth": {
+    "skill": "agent-registration",
+    "register_uri": "https://thetaxcalc.com/admin",
+    "methods": [
+      {
+        "type": "oauth2-client-credentials",
+        "documentation": "https://thetaxcalc.com/auth.md#oauth2-client-credentials"
+      },
+      {
+        "type": "api-key",
+        "documentation": "https://thetaxcalc.com/auth.md#api-key"
+      }
+    ]
+  }
+}
+```
 
 ## Public APIs (No Auth Required)
 
 - `GET /api/blog` — List all published blog posts
 - `POST /api/track` — Track calculator usage (body: `{"calculator": "string"}`)
 
-## Protected APIs (Admin Auth Required)
+## Protected APIs (Agent Auth Required)
 
 - `GET/POST/PUT/DELETE /api/admin/*` — Admin panel operations
 - `POST /api/blog` — Create blog post
 - `POST /api/ads` — Manage ad slots
 - `POST /api/settings` — Update site settings
 
-## Authentication Method
+## OAuth2 Client Credentials
 
-Admin authentication uses JWT tokens via HTTP-only cookies:
+AI agents can authenticate using OAuth 2.0 Client Credentials flow:
 
-1. POST to `/api/auth/login` with body: `{"password": "your-password"}`
-2. Server returns `Set-Cookie: thetaxcalc_admin_session=<jwt>; HttpOnly; Secure; SameSite=Lax`
-3. Include this cookie in subsequent requests to protected endpoints
-4. POST to `/api/auth/logout` to clear the session
+1. **Discover**: Fetch `https://thetaxcalc.com/.well-known/oauth-authorization-server`
+2. **Register**: Visit `register_uri` (`https://thetaxcalc.com/admin`) to obtain client credentials
+3. **Token**: POST to `token_endpoint` (`/api/auth/login`) with client credentials
+4. **Use**: Include `Authorization: Bearer <token>` header in subsequent requests
+5. **Verify**: GET `/api/auth/verify` to check token validity
+6. **Revoke**: POST `/api/auth/logout` to revoke the session
 
-## Agent Registration
+## API Key
 
-AI agents can register for access to protected APIs by following these steps:
+Agents may also use API key-based authentication:
 
-1. **Discover authentication metadata**: Fetch `/.well-known/oauth-authorization-server` to find the `agent_auth` block
-2. **Register**: Visit the `register_uri` URL (`/admin`) to obtain admin credentials
-3. **Authenticate**: POST to `/api/auth/login` with the obtained credentials
-4. **Receive token**: The server returns a JWT in an HTTP-only cookie
-5. **Access protected resources**: Include the cookie in subsequent API requests
-6. **Verify token**: GET `/api/auth/verify` to check token validity
-7. **Revoke token**: POST `/api/auth/logout` to revoke the session
+1. Obtain API key from `https://thetaxcalc.com/admin`
+2. Include `X-API-Key: <key>` header in requests
+3. Keys are scoped to specific capabilities
 
-### Supported Identity Types
+## Supported Identity Types
 
 - `api_key`: API key-based authentication
-- `password`: Password-based authentication
+- `password`: Password-based authentication (admin only)
 
-### Supported Credential Types
+## Supported Credential Types
 
 - `jwt`: JSON Web Token (HS256 signed)
 - `cookie`: HTTP-only secure cookie
+- `bearer`: Bearer token in Authorization header
 
-### Token Claims
+## Token Claims
 
 - `sub`: Subject (always "admin")
 - `role`: User role (always "admin")
@@ -60,16 +86,19 @@ AI agents can register for access to protected APIs by following these steps:
 - `/api/track`: 30 requests per minute per IP
 - Other endpoints: Standard rate limits apply
 
-## OAuth/OIDC Discovery
+## OAuth/OIDC Discovery Endpoints
 
 - Authorization Server: `/.well-known/oauth-authorization-server`
 - OpenID Configuration: `/.well-known/openid-configuration`
 - Protected Resource: `/.well-known/oauth-protected-resource`
 - JWKS: `/.well-known/jwks.json`
+- Agent Card: `/.well-known/agent-card.json`
+- MCP Server Card: `/.well-known/mcp/server-card.json`
+- Agent Skills: `/.well-known/agent-skills/index.json`
 
 ## Contact
 
 - Website: https://thetaxcalc.com
 - About: https://thetaxcalc.com/about
 - Author: Rachel Mitchell, CPA
-- Last updated: 2026-06-19
+- Last updated: 2026-06-20
