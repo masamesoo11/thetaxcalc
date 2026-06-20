@@ -15,6 +15,8 @@ import {
 import { calculateFederalTax, calculateFICA } from '@/lib/finance-utils';
 import { DynamicSalaryPage } from './dynamic-salary-page';
 import { SalarySSRContent } from './salary-ssr-content';
+import { SalaryChart } from './salary-chart';
+import { buildAggregateRating, buildReviews, getCalculatorRating } from '@/lib/ratings';
 import { getCalculatorAuthor, authorToJsonLd } from '@/lib/authors';
 import { AuthorBioCard } from '@/components/finance/author-bio-card';
 
@@ -149,6 +151,26 @@ function generateJsonLd(salary: number) {
           },
         })),
       },
+      {
+        '@id': `${SITE_URL}${path}#software`,
+        '@type': 'SoftwareApplication',
+        name: `${formatted} After Tax Calculator 2026`,
+        description: `Calculate ${formatted} take-home pay after federal, FICA, and state income tax. Compare net pay across all 50 states for the 2026 tax year.`,
+        url: `${SITE_URL}${path}`,
+        applicationCategory: 'FinanceApplication',
+        operatingSystem: 'Web',
+        offers: {
+          '@type': 'Offer',
+          price: '0',
+          priceCurrency: 'USD',
+          availability: 'https://schema.org/InStock',
+          url: `${SITE_URL}${path}`,
+        },
+        aggregateRating: buildAggregateRating(`salary-${salary}`),
+        review: buildReviews('paycheck-calculator', 2),
+        author: { '@id': `${SITE_URL}${path}#author` },
+        publisher: { '@id': `${SITE_URL}/#organization` },
+      },
 
     ],
   };
@@ -195,6 +217,11 @@ export default async function SalaryAmountPage({
 
       {/* Interactive Client Component with Filing Status & NYC toggle */}
       <DynamicSalaryPage amountStr={amountStr} />
+
+      {/* ─── Server-Rendered SEO Chart (~SVG bar chart) ───────────────────── */}
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <SalaryChart salary={salary} />
+      </div>
 
       {/* ─── Server-Rendered SEO Content (~1000 words) ──────────────────────── */}
       <SalarySSRContent salary={salary} />
