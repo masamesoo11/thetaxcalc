@@ -26,10 +26,12 @@ export function ClientAnalytics() {
       if (!document.querySelector(`script[src*="googletagmanager.com/gtag/js?id=${gaId}"]`)) {
         const scriptSrc = document.createElement('script');
         scriptSrc.async = true;
+        scriptSrc.setAttribute('data-cfasync', 'false'); // Bypass Cloudflare Rocket Loader
         scriptSrc.src = `https://www.googletagmanager.com/gtag/js?id=${gaId}`;
         document.head.appendChild(scriptSrc);
 
         const scriptInit = document.createElement('script');
+        scriptInit.setAttribute('data-cfasync', 'false'); // Bypass Cloudflare Rocket Loader
         scriptInit.innerHTML = `
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
@@ -51,6 +53,7 @@ export function ClientAnalytics() {
         const adsenseScript = document.createElement('script');
         adsenseScript.async = true;
         adsenseScript.crossOrigin = 'anonymous';
+        adsenseScript.setAttribute('data-cfasync', 'false'); // Bypass Cloudflare Rocket Loader
         adsenseScript.setAttribute('data-adsense-client', adsenseId);
         adsenseScript.src = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseId}`;
         document.head.appendChild(adsenseScript);
