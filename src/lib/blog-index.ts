@@ -14,7 +14,82 @@ export interface BlogPost {
 }
 
 export const BLOG_INDEX: BlogPostMeta[] = [
-        {
+                  {
+    "id": "tax-questions-answered-2026",
+    "title": "Tax Questions Answered: Brackets, Overtime, Bonuses & More (2026)",
+    "slug": "tax-questions-answered-2026",
+    "excerpt": "Complete FAQ guide to common tax questions for 2026. Overtime taxes, bonus taxes, tax brackets, state comparisons, and property tax deductions.",
+    "category": "tax-guide",
+    "tags": "tax,questions,answered,2026,tax questions,tax faq,2026 tax rules,tax faq 2026",
+    "coverImage": "",
+    "published": true,
+    "featured": false,
+    "metaTitle": "Tax Questions Answered: Brackets, Overtime, Bonuses & More (2026)",
+    "metaDesc": "Common tax questions answered for 2026. Overtime, bonuses, brackets, Florida vs other states, property tax deductions, and 1099 quarterly taxes.",
+    "createdAt": "2026-06-21T13:00:00.000Z",
+    "updatedAt": "2026-06-21T13:00:00.000Z"
+  },
+{
+    "id": "tax-refund-questions-2026",
+    "title": "Tax Refund Questions Answered (2026)",
+    "slug": "tax-refund-questions-2026",
+    "excerpt": "Complete FAQ guide to tax refunds in 2026. When you'll get your refund, how to track it, what can delay it, and how to get it faster.",
+    "category": "tax-guide",
+    "tags": "tax,refund,questions,2026,tax questions,tax faq,2026 tax rules,tax faq 2026",
+    "coverImage": "",
+    "published": true,
+    "featured": false,
+    "metaTitle": "Tax Refund Questions Answered (2026)",
+    "metaDesc": "Common tax refund questions answered for 2026. Refund timeline, tracking, delays, garnishment, credits vs deductions, and faster refunds.",
+    "createdAt": "2026-06-21T13:00:00.000Z",
+    "updatedAt": "2026-06-21T13:00:00.000Z"
+  },
+{
+    "id": "inheritance-tax-questions-2026",
+    "title": "Inheritance Tax Questions Answered (2026 Rules)",
+    "slug": "inheritance-tax-questions-2026",
+    "excerpt": "Complete FAQ guide to inheritance tax in 2026. How much is inheritance tax, estate vs inheritance tax, state rules, and how to calculate.",
+    "category": "tax-guide",
+    "tags": "inheritance,tax,questions,2026,tax questions,tax faq,2026 tax rules,tax faq 2026",
+    "coverImage": "",
+    "published": true,
+    "featured": false,
+    "metaTitle": "Inheritance Tax Questions Answered (2026 Rules)",
+    "metaDesc": "Common inheritance tax questions answered for 2026. Estate vs inheritance tax, state rules, exemptions, and calculations. Free calculators.",
+    "createdAt": "2026-06-21T13:00:00.000Z",
+    "updatedAt": "2026-06-21T13:00:00.000Z"
+  },
+{
+    "id": "social-security-tax-questions-2026",
+    "title": "Social Security Tax Questions Answered (2026 Rules)",
+    "slug": "social-security-tax-questions-2026",
+    "excerpt": "Complete FAQ guide to Social Security taxation in 2026. Are benefits taxable, how much is taxable, state taxes, and strategies to minimize taxes.",
+    "category": "tax-guide",
+    "tags": "social,security,tax,questions,2026,tax questions,tax faq,2026 tax rules,tax faq 2026",
+    "coverImage": "",
+    "published": true,
+    "featured": false,
+    "metaTitle": "Social Security Tax Questions Answered (2026 Rules)",
+    "metaDesc": "Common Social Security tax questions answered for 2026. Are benefits taxable, thresholds, state taxes, and strategies to minimize taxes. Free calculators.",
+    "createdAt": "2026-06-21T13:00:00.000Z",
+    "updatedAt": "2026-06-21T13:00:00.000Z"
+  },
+{
+    "id": "401k-withdrawal-tax-questions-2026",
+    "title": "401(k) Withdrawal Tax Questions Answered (2026 Rules)",
+    "slug": "401k-withdrawal-tax-questions-2026",
+    "excerpt": "Complete FAQ guide to 401(k) withdrawal taxes in 2026. How taxes work, penalties, Rule of 55, RMDs, and how withdrawals affect Social Security.",
+    "category": "tax-guide",
+    "tags": "401k,withdrawal,tax,questions,2026,tax questions,tax faq,2026 tax rules,tax faq 2026",
+    "coverImage": "",
+    "published": true,
+    "featured": false,
+    "metaTitle": "401(k) Withdrawal Tax Questions Answered (2026 Rules)",
+    "metaDesc": "Common 401(k) withdrawal tax questions answered for 2026. Penalties, Rule of 55, RMDs, tax rates, and Social Security interaction. Free calculators.",
+    "createdAt": "2026-06-21T13:00:00.000Z",
+    "updatedAt": "2026-06-21T13:00:00.000Z"
+  },
+{
     "id": "inheritance-tax-guide-2026",
     "title": "Inheritance Tax Guide 2026: State-by-State Rules, Exemptions & Calculator",
     "slug": "inheritance-tax-guide-2026",
