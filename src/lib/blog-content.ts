@@ -4800,5 +4800,563 @@ Use our free calculators to estimate your tax liability:
 - **Property Tax Calculator**: For inherited real estate
 - **Capital Gains Calculator**: For inherited investments
 
-For complex estate planning, consult an estate planning attorney or CPA who specializes in inheritance tax.`
+For complex estate planning, consult an estate planning attorney or CPA who specializes in inheritance tax.`,
+  "401k-withdrawal-tax-questions-2026": `# 401(k) Withdrawal Tax Questions Answered (2026 Rules)
+
+Confused about how taxes work when you withdraw from your 401(k)? You're not alone. 401(k) withdrawal tax rules are among the most searched tax questions in America, and the rules changed significantly with the SECURE Act and SECURE 2.0. This FAQ guide answers the most common questions people ask about 401(k) withdrawal taxes, penalties, and strategies for 2026.
+
+## How Do Taxes on 401(k) Work?
+
+When you contribute to a traditional 401(k), the money goes in pre-tax (before income tax is taken out). The money grows tax-deferred over the years. When you withdraw the money in retirement, you pay ordinary income tax on both the contributions and the earnings.
+
+Think of it as a "pay me later" arrangement with the IRS. You save on taxes now, but you owe taxes when you take the money out.
+
+For Roth 401(k) contributions, the opposite is true: you pay tax upfront, but qualified withdrawals in retirement are completely tax-free.
+
+## What Are Taxes for 401(k) Withdrawal?
+
+Taxes for 401(k) withdrawal are calculated at your **ordinary income tax rate** in the year you take the withdrawal. The 2026 federal tax brackets range from 10% to 37%.
+
+Your withdrawal is added to all other income you receive that year (Social Security, pensions, wages, investment income) to determine your total taxable income and your marginal tax rate.
+
+**Example**: If you withdraw $40,000 from your 401(k) and have no other income, after the $16,100 standard deduction (single filer), your taxable income is $23,900. You'd fall in the 12% bracket and pay approximately $2,868 in federal tax.
+
+## Are Taxes Withheld from 401(k) Distributions?
+
+By default, the IRS requires 401(k) plan administrators to withhold **20%** for federal taxes on eligible rollover distributions. However, you can adjust this withholding rate.
+
+For non-rollover distributions (regular withdrawals in retirement), you can elect to have 7%, 10%, 15%, 20%, or any percentage withheld for federal taxes, or choose no withholding at all.
+
+**Important**: Even if you choose no withholding, you still owe the tax. You'll need to pay it via quarterly estimated tax payments or face an underpayment penalty at tax time.
+
+## Does Take Home Pay Include 401(k)?
+
+No, traditional 401(k) contributions are deducted from your gross pay **before** calculating take-home pay. Your 401(k) contribution reduces your taxable income, which also reduces your current-year tax bill.
+
+However, **Roth 401(k) contributions** are made with after-tax dollars. They still come out of your paycheck, but they don't reduce your taxable income. Your take-home pay is reduced by the Roth contribution amount, but the money will be tax-free in retirement.
+
+## Do After-Tax Contributions Count Towards 401(k) Limit?
+
+Yes. The 2026 401(k) contribution limit is $24,500 ($30,500 if 50+). This total limit includes all types of contributions:
+- Pre-tax (traditional) contributions
+- Roth (after-tax) contributions
+- After-tax non-Roth contributions (if your plan allows)
+
+The employer match is **separate** and doesn't count toward your $24,500 limit. The total combined limit (employee + employer) is $69,000 for 2026 ($76,500 if 50+).
+
+## When Can I Withdraw from 401(k) Without Penalty?
+
+You can withdraw from your 401(k) without the 10% early withdrawal penalty at **age 59.5**. However, you'll still pay ordinary income tax on the withdrawal.
+
+### Exceptions to the Age 59.5 Rule
+
+1. **Rule of 55**: If you leave your job at age 55 or later, you can withdraw from that employer's 401(k) without penalty
+2. **Disability**: Total and permanent disability
+3. **Death**: Beneficiary withdrawals
+4. **Medical expenses**: Exceeding 7.5% of AGI
+5. **72(t) payments**: Substantially equal periodic payments
+6. **Birth/adoption**: Up to $5,000 per child (SECURE Act)
+7. **Domestic abuse**: Up to $10,000 (SECURE 2.0)
+8. **Qualified disaster recovery**
+
+## How Much Tax Will I Pay on My 401(k) Withdrawal?
+
+The tax depends on your total income and filing status. Use this simple framework:
+
+| Withdrawal Amount | Estimated Tax (Single, No Other Income) |
+|-------------------|----------------------------------------|
+| $10,000 | $0 (under standard deduction) |
+| $20,000 | ~$468 (12% bracket) |
+| $40,000 | ~$2,868 (12% bracket) |
+| $60,000 | ~$7,254 (22% bracket) |
+| $100,000 | ~$17,982 (24% bracket) |
+
+Use our [401(k) Retirement Calculator](/401k-retirement-calculator) for a personalized estimate.
+
+## How Does 401(k) Withdrawal Affect Social Security Tax?
+
+401(k) withdrawals increase your taxable income, which can make more of your Social Security benefits taxable. If your combined income (including 401(k) withdrawals) exceeds $34,000 (single) or $44,000 (married), up to 85% of your Social Security benefits become taxable.
+
+**Strategy**: In years when you need both 401(k) withdrawals and Social Security, consider taking Roth withdrawals (tax-free) to avoid pushing your Social Security into taxable territory.
+
+## What Is the 2026 401(k) Withdrawal Tax Rate?
+
+There's no special 401(k) withdrawal tax rate. Withdrawals are taxed at your **ordinary income tax rate**, which in 2026 ranges from 10% to 37% depending on your total income:
+
+- 10% bracket: $0 - $11,925 (single)
+- 12% bracket: $11,926 - $48,475 (single)
+- 22% bracket: $48,476 - $103,350 (single)
+- 24% bracket: $103,351 - $197,300 (single)
+- 32% bracket: $197,301 - $250,525 (single)
+
+## Can I Withdraw from 401(k) at 55 Without Penalty?
+
+Yes, under the **Rule of 55**. If you leave your job (quit, retire, or are laid off) during or after the year you turn 55, you can withdraw from that specific employer's 401(k) without the 10% penalty.
+
+**Important limitations**:
+- Only applies to the 401(k) of the employer you just left
+- Does NOT apply to IRAs
+- Does NOT apply to 401(k)s from previous employers
+- You must leave the money in the plan (cannot roll it to an IRA first)
+
+## What Happens If I Don't Take My RMD?
+
+Required Minimum Distributions (RMDs) start at age 73. If you don't take your full RMD, the penalty is **25% of the shortfall** (reduced from 50% under SECURE 2.0). If you correct the error within 2 years, the penalty drops to **10%**.
+
+File IRS Form 5329 to report the missed RMD and request a penalty waiver for reasonable cause.
+
+## Related Resources
+
+- [401(k) Retirement Calculator](/401k-retirement-calculator)
+- [401(k) Withdrawal Tax Guide 2026](/blog/401k-withdrawal-tax-guide-2026)
+- [Retirement Tax Planning Guide 2026](/blog/retirement-tax-planning-guide-2026)
+- [IRS Withholding Calculator](/irs-withholding-calculator)`,
+  "social-security-tax-questions-2026": `# Social Security Tax Questions Answered (2026 Rules)
+
+Social Security taxation is one of the most confusing topics for retirees and soon-to-be retirees. With rules that depend on your income, filing status, and state of residence, it's no surprise that millions of Americans search for answers every month. This FAQ guide answers the most common Social Security tax questions for 2026.
+
+## Are Taxes Taken Out of Social Security Checks?
+
+Not automatically. By default, the Social Security Administration does **not** withhold federal taxes from your monthly benefit checks. However, you can voluntarily request withholding by filing IRS Form W-4V.
+
+You can choose to have 7%, 10%, 12%, or 22% of your monthly benefit withheld for federal taxes. Most financial advisors recommend electing withholding to avoid a surprise tax bill in April.
+
+## Are Taxes Paid on Social Security Benefits?
+
+It depends on your "combined income," which is:
+- Your adjusted gross income (AGI)
+- Plus nontaxable interest
+- Plus half of your Social Security benefits
+
+### The Thresholds (2026)
+
+| Filing Status | Combined Income | Taxable Benefits |
+|--------------|----------------|-----------------|
+| Single | Under $25,000 | 0% (no tax) |
+| Single | $25,000 - $34,000 | Up to 50% |
+| Single | Over $34,000 | Up to 85% |
+| Married | Under $32,000 | 0% (no tax) |
+| Married | $32,000 - $44,000 | Up to 50% |
+| Married | Over $44,000 | Up to 85% |
+
+**Note**: "Up to 85%" doesn't mean 85% tax rate. It means 85% of your benefits are subject to income tax at your marginal rate.
+
+## Are Taxes on Social Security Ending?
+
+There have been proposals in Congress to eliminate federal taxation of Social Security benefits, but **as of 2026, Social Security benefits are still taxable** at the federal level for recipients with income above the thresholds.
+
+Some states have already eliminated state tax on Social Security. As of 2026, **38 states do not tax Social Security benefits**. The 12 states that still tax Social Security are:
+- Colorado, Connecticut, Kansas, Minnesota, Missouri, Montana, Nebraska, New Mexico, North Dakota, Rhode Island, Utah, Vermont, West Virginia
+
+## Are Taxes Withheld from Social Security Disability?
+
+Social Security Disability Insurance (SSDI) benefits are subject to the same taxation rules as retirement benefits. The SSA does not automatically withhold taxes from SSDI checks, but you can request voluntary withholding via Form W-4V.
+
+If you receive Supplemental Security Income (SSI), those benefits are **not taxable** and no withholding is needed.
+
+## Are Taxes Deducted from Social Security Checks Automatically?
+
+No. The Social Security Administration does not automatically deduct federal taxes from your checks. You must specifically request voluntary withholding by submitting Form W-4V to the SSA.
+
+State taxes are also not automatically withheld. Each state has its own rules about Social Security taxation.
+
+## Are Taxes Being Taken Out of Social Security Still?
+
+Yes, the federal taxation of Social Security benefits is still in effect for 2026. The rules have been in place since 1983 (for 50% taxation) and 1993 (for 85% taxation).
+
+There is no current legislation that has eliminated this tax, despite ongoing political discussions.
+
+## Are Taxes Required on Social Security?
+
+Federal taxes on Social Security are required if your combined income exceeds the thresholds ($25,000 single / $32,000 married). If your income is below these thresholds, no federal tax is owed on your benefits.
+
+State taxes on Social Security depend on where you live. 38 states exempt Social Security from state income tax entirely.
+
+## How Much of My Social Security Is Taxable?
+
+Use this quick calculation:
+
+1. Calculate your combined income (AGI + nontaxable interest + half of SS benefits)
+2. If single and combined income > $34,000: up to 85% is taxable
+3. If married and combined income > $44,000: up to 85% is taxable
+4. If single and $25,000 < combined income < $34,000: up to 50% is taxable
+5. If married and $32,000 < combined income < $44,000: up to 50% is taxable
+
+Use our [Paycheck Calculator](/paycheck-calculator) to estimate your total tax including Social Security.
+
+## How Can I Avoid Paying Taxes on Social Security?
+
+You can't eliminate Social Security taxes entirely if your income is above the thresholds, but you can minimize them:
+
+1. **Withdraw from Roth accounts** (tax-free, doesn't increase combined income)
+2. **Manage 401(k)/IRA withdrawals** to stay below thresholds
+3. **Move to a state** that doesn't tax Social Security
+4. **Use Qualified Charitable Distributions** (QCDs) from your IRA
+5. **Invest in municipal bonds** (tax-free interest doesn't count toward combined income)
+
+## At What Age Is Social Security Not Taxable?
+
+There is **no age** at which Social Security automatically becomes tax-free. The taxation depends on your income, not your age. Even at age 80+, if your combined income exceeds $34,000 (single), up to 85% of your benefits remain taxable.
+
+However, many retirees see their Social Security become non-taxable naturally when they stop taking 401(k)/IRA withdrawals and have minimal other income.
+
+## Related Resources
+
+- [Paycheck Calculator](/paycheck-calculator)
+- [Retirement Tax Planning Guide 2026](/blog/retirement-tax-planning-guide-2026)
+- [IRS Withholding Calculator](/irs-withholding-calculator)
+- [Social Security Tax 2026 Guide](/blog/retirement-tax-planning-guide-2026#social-security-benefits)`,
+  "inheritance-tax-questions-2026": `# Inheritance Tax Questions Answered (2026 Rules)
+
+Inheritance tax is one of the most misunderstood taxes in America. Many people confuse it with estate tax, don't know if their state has one, or aren't sure if they owe taxes on money they've inherited. This FAQ guide answers the most common inheritance tax questions for 2026.
+
+## How Much Is Inheritance Tax?
+
+Inheritance tax varies by state and by your relationship to the deceased person:
+
+### States with Inheritance Tax (2026)
+
+| State | Spouse | Children | Siblings | Others |
+|-------|--------|----------|----------|--------|
+| Kentucky | 0% | 0% | 4-16% | 6-16% |
+| Maryland | 0% | 0% | 10% | 10% |
+| Nebraska | 0% | 1% | 6-11% | 18% |
+| New Jersey | 0% | 0% | 11-16% | 15-16% |
+| Pennsylvania | 0% | 4.5% | 12% | 15% |
+
+Iowa phased out its inheritance tax for deaths occurring on or after January 1, 2025.
+
+**There is no federal inheritance tax.** The federal government only has an estate tax (paid by the estate before distribution).
+
+## How Much Is Estate Tax?
+
+The federal estate tax applies only to estates valued above **$13,990,000** (in 2026). The rate is **40%** on the amount above the exemption.
+
+For estates below $13.99 million, no federal estate tax is owed.
+
+### State Estate Tax
+
+12 states have their own estate tax with much lower exemptions:
+- Oregon: $1,000,000 exemption, up to 16% rate
+- Massachusetts: $2,000,000 exemption, up to 16% rate
+- New York: $6,940,000 exemption, up to 16% rate
+- Washington: $2,193,000 exemption, up to 20% rate
+
+## How Much Is the Estate Tax Exemption in 2026?
+
+The federal estate tax exemption for 2026 is **$13,990,000 per individual** ($27,980,000 for married couples).
+
+**Important**: The Tax Cuts and Jobs Act of 2017 doubled this exemption, but it is scheduled to sunset on December 31, 2025. For 2026, the exemption may revert to approximately $7-8 million per individual. Check current law, as this is politically contested.
+
+## How Do Estate Taxes Work?
+
+Estate taxes work as follows:
+
+1. When someone dies, their estate is valued (all assets minus debts)
+2. If the estate value exceeds the exemption, the estate files IRS Form 706
+3. The estate pays 40% tax on the amount above the exemption
+4. The remaining assets are distributed to heirs
+5. Heirs may then owe state inheritance tax (depending on state and relationship)
+
+The executor of the estate handles all tax filings and payments before distributing assets to heirs.
+
+## Is Inheritance Tax Federal?
+
+No. There is **no federal inheritance tax**. The federal government has an estate tax (paid by the estate), not an inheritance tax (paid by the heir).
+
+Only 6 states have an inheritance tax: Iowa (phasing out), Kentucky, Maryland, Nebraska, New Jersey, and Pennsylvania.
+
+## Is Real Estate Tax the Same as Estate Tax?
+
+No, these are completely different taxes:
+
+- **Real estate tax** (property tax): Annual tax on property you own, paid to local government
+- **Estate tax**: One-time tax on the transfer of a deceased person's estate, paid by the estate
+
+Real estate tax is an ongoing annual expense. Estate tax is a one-time event when someone dies.
+
+## Can Estate Tax Be Paid in Installments?
+
+Yes, under IRS Section 6166, estates that include a closely held business can pay the estate tax in installments over up to **15 years**. The first payment is due 5 years after the death, with annual payments thereafter.
+
+Interest is charged on the deferred tax, but at a special 2% rate for the first $1.5 million of taxable estate (adjusted for inflation).
+
+## How Is Inheritance Tax Calculated?
+
+Inheritance tax is calculated based on:
+1. The value of assets you receive
+2. Your relationship to the deceased (spouse, child, sibling, non-relative)
+3. Your state's tax rate and exemption
+
+**Example**: You inherit $100,000 from your uncle in Pennsylvania.
+- Relationship: "All others" = 15% rate
+- Exemption: $0 for non-relatives
+- Tax: $100,000 × 15% = $15,000
+- You receive: $85,000
+
+Use our [Property Tax Calculator](/property-tax-calculator) for inherited real estate tax estimates.
+
+## Do I Have to Pay Taxes on Money I Inherit?
+
+Federally: No. You don't pay federal income tax on inherited money.
+
+State: Maybe. If you live in (or the deceased lived in) a state with inheritance tax (KY, MD, NE, NJ, PA), you may owe state inheritance tax.
+
+Income tax: Inherited money itself is not income. However, any earnings on inherited assets (interest, dividends, capital gains) are taxable.
+
+## What Is the Difference Between Estate Tax and Inheritance Tax?
+
+| Feature | Estate Tax | Inheritance Tax |
+|---------|-----------|-----------------|
+| Who pays | The estate | The heir |
+| When | Before distribution | After receiving |
+| Federal | Yes (above $13.99M) | No |
+| State | 12 states | 6 states |
+
+**Simple rule**: Estate tax is paid by the dead person's estate. Inheritance tax is paid by the living person who receives the inheritance.
+
+## Related Resources
+
+- [Inheritance Tax Guide 2026](/blog/inheritance-tax-guide-2026)
+- [Property Tax Calculator](/property-tax-calculator)
+- [Capital Gains Calculator](/capital-gains-calculator)
+- [Estate Planning Resources](/blog/inheritance-tax-guide-2026)`,
+  "tax-refund-questions-2026": `# Tax Refund Questions Answered (2026)
+
+Tax refund questions are among the most searched tax topics in America. Millions of people want to know when they'll get their refund, how to track it, and what could delay it. This FAQ guide answers the most common tax refund questions for the 2026 tax season.
+
+## When Will I Get My Tax Refund?
+
+The IRS typically issues refunds within **21 days** of receiving your tax return if you e-file and choose direct deposit. Paper returns take 6-8 weeks.
+
+### 2026 Refund Timeline
+
+| Filing Date | Expected Refund (Direct Deposit) |
+|------------|--------------------------------|
+| Early January | Late January |
+| February 1 | February 22 |
+| March 1 | March 22 |
+| April 15 (deadline) | May 6 |
+
+## Can I Track My Tax Refund?
+
+Yes. Use the IRS **"Where's My Refund?"** tool at [irs.gov/refunds](https://irs.gov/refunds). You'll need:
+- Your Social Security number
+- Your filing status
+- The exact refund amount from your return
+
+The tool updates once every 24 hours (usually overnight). Check after 24 hours of e-filing or 4 weeks after mailing a paper return.
+
+## Can a Tax Refund Come on a Weekend?
+
+Yes. The IRS processes refunds daily, and direct deposits can hit your bank account on any day of the week, including weekends. However, some banks don't process deposits on weekends, so the money may not be available until Monday.
+
+The IRS "Where's My Refund?" tool typically shows a "refund sent" status when the payment is initiated, not when it hits your account.
+
+## Can Debt Collectors Take My Tax Refund?
+
+Private debt collectors **cannot** directly intercept your tax refund. However, there are exceptions:
+
+### Who CAN Take Your Refund
+1. **Federal government**: For federal debts (student loans, federal taxes, federal benefits overpayments)
+2. **State government**: For state tax debts, state debts, or state-ordered child support
+3. **Treasury Offset Program**: For past-due child support, federal student loans, or other federal debts
+
+### Who CANNOT Take Your Refund
+- Credit card companies
+- Medical bill collectors
+- Personal loan lenders
+- Private creditors (without a court judgment and garnishment order)
+
+## Can Joint Tax Refund Be Garnished?
+
+Yes, but the non-debt spouse can file an **Injured Spouse Allocation** (IRS Form 8379) to recover their portion of the refund. The IRS will divide the refund based on each spouse's income and allocations.
+
+This commonly happens when one spouse has:
+- Past-due student loans
+- Back child support
+- Federal tax debt from a previous year
+
+## Does a Tax Credit Increase My Refund?
+
+Yes. Tax credits directly reduce your tax liability dollar-for-dollar. If you owe $3,000 in taxes and have a $1,000 tax credit, your tax bill drops to $2,000.
+
+**Refundable tax credits** (like the Earned Income Credit) can even increase your refund beyond what you paid in. If you had $1,000 withheld and qualify for a $2,000 refundable credit, you'd get a $2,000 refund.
+
+### Common Tax Credits for 2026
+- Child Tax Credit: Up to $2,000 per child
+- Earned Income Tax Credit: Up to $7,830
+- Child and Dependent Care Credit: Up to $1,050
+- American Opportunity Credit: Up to $2,500
+- Lifetime Learning Credit: Up to $2,000
+
+## Does a Tax Deduction Increase My Refund?
+
+Yes, but indirectly. Tax deductions reduce your **taxable income**, not your tax directly. The value depends on your tax bracket.
+
+**Example**: A $5,000 deduction in the 22% bracket saves you $5,000 × 22% = $1,100 in taxes. This increases your refund by $1,100.
+
+Tax credits are generally more valuable than deductions because they reduce tax dollar-for-dollar.
+
+## Can Business Get Tax Refund?
+
+Yes, businesses can receive tax refunds, but it works differently:
+- **C-Corporations**: Can get refunds for overpaid estimated taxes
+- **S-Corporations/Partnerships**: Refunds pass through to owners' personal returns
+- **Sole proprietors**: Business income/expenses are on personal return (Schedule C)
+
+Businesses typically receive refunds when they overpay estimated taxes or qualify for refundable business credits.
+
+## What Can Delay My Tax Refund?
+
+Common refund delays:
+1. **Errors on return** (wrong SSN, math errors)
+2. **Identity verification** (IRS suspects fraud)
+3. **Earned Income Credit or Additional Child Tax Credit** (Path Act requires delay until mid-February)
+4. **Filing before mid-February** (IRS systems still updating)
+5. **Paper filing** (6-8 weeks vs. 21 days for e-file)
+6. **Amended return** (up to 16 weeks)
+7. **Injured spouse form** (adds 11-14 weeks)
+8. **Bank account errors** (wrong routing/account number)
+
+## How Can I Get My Tax Refund Faster?
+
+1. **E-file your return** (vs. paper filing)
+2. **Choose direct deposit** (vs. paper check)
+3. **File early** (avoid the February-March rush)
+4. **Double-check for errors** (wrong SSN, math mistakes)
+5. **Avoid claiming EIC/ACTC** if not eligible (triggers automatic review)
+6. **Use tax software** (reduces errors)
+
+Use our [Tax Refund Calculator](/tax-refund-calculator) to estimate your refund before filing.
+
+## Related Resources
+
+- [Tax Refund Calculator](/tax-refund-calculator)
+- [IRS Withholding Calculator](/irs-withholding-calculator)
+- [Paycheck Calculator](/paycheck-calculator)`,
+  "tax-questions-answered-2026": `# Tax Questions Answered: Brackets, Overtime, Bonuses & More (2026)
+
+Americans have hundreds of questions about how taxes work. From brackets to overtime pay to bonuses, the tax code is complex and confusing. This FAQ guide answers the most commonly searched tax questions for 2026, with clear, accurate explanations.
+
+## Are No Taxes on Overtime in Effect?
+
+As of 2026, there is **no federal exemption** for overtime pay. Overtime pay is still taxed as ordinary income at the federal level.
+
+However, there have been legislative proposals to exempt overtime pay from federal income tax. The "No Tax on Overtime" proposal was part of broader tax reform discussions, but as of 2026, it has not become law.
+
+Some states may have different rules, so check with your state revenue department.
+
+## Are Taxes on Bonuses Higher?
+
+Bonuses are subject to a **flat 22% federal withholding rate** (for bonuses under $1 million). This is often higher than your normal tax rate, which is why your bonus may seem "taxed more."
+
+However, at tax time, your bonus is simply added to your total income and taxed at your marginal rate. If your marginal rate is lower than 22%, you'll get the excess withholding back as a refund.
+
+**For bonuses over $1 million**: The withholding rate jumps to 37%.
+
+Use our [Bonus Tax Calculator](/bonus-tax-calculator) to see exactly how much you'll keep.
+
+## Are Taxes Automatically Deducted from Paycheck?
+
+Yes. Your employer withholds federal income tax, Social Security tax (6.2%), and Medicare tax (1.45%) from each paycheck. They also withhold state income tax (if applicable).
+
+The amount withheld is based on:
+- Your income
+- Your filing status
+- Your W-4 allowances
+- Any additional withholding you requested
+
+Use our [Paycheck Calculator](/paycheck-calculator) to see your exact take-home pay.
+
+## Are Taxes Cheaper in Florida?
+
+Yes. Florida has **no state income tax**, which means:
+- No tax on wages, salaries, or self-employment income
+- No tax on investment income
+- No tax on pension or retirement income
+- No tax on Social Security benefits
+
+On a $100,000 salary, living in Florida instead of California saves approximately **$8,000-$10,000 per year** in state taxes.
+
+However, Florida does have:
+- Sales tax: 6% (avg 6.98% with local surtaxes)
+- Property tax: avg 0.98%
+- Corporate income tax: 3.535%
+
+## Are Taxes Included in Mortgage?
+
+For most homeowners, monthly mortgage payments include:
+1. **Principal** (loan repayment)
+2. **Interest** (cost of borrowing)
+3. **Property taxes** (held in escrow)
+4. **Homeowners insurance** (held in escrow)
+5. **PMI** (if applicable)
+
+Property taxes are typically collected by your lender and held in an escrow account, then paid to your local government when due. Not all mortgages include escrow — some homeowners pay property taxes directly.
+
+Use our [Mortgage Calculator](/mortgage-calculator) to see your full monthly payment including taxes.
+
+## Are Taxes Going Up in New York?
+
+New York already has some of the highest state taxes in the country:
+- State income tax: 4% - 10.9% (progressive)
+- NYC resident tax: 3.078% - 3.876% (additional)
+- Sales tax: avg 8.52%
+- Property tax: avg 1.62%
+
+For 2026, New York has not announced major tax increases, but the top marginal rate of 10.9% remains one of the highest in the nation. NYC residents pay the combined state + city rate.
+
+## Are Taxes Going Up in Virginia?
+
+Virginia's income tax rates range from 2% to 5.75%. For 2026, Virginia has not announced major rate increases, but standard deduction amounts and bracket thresholds are adjusted annually for inflation.
+
+Virginia does tax Social Security benefits for higher-income retirees, unlike many states that have exempted them.
+
+## Are Property Taxes Deductible?
+
+Yes, but with limitations. As of 2026, you can deduct up to **$10,000** in combined state and local taxes (SALT) — this includes property taxes plus state income taxes OR state sales taxes.
+
+This $10,000 cap (SALT cap) was introduced by the Tax Cuts and Jobs Act of 2017 and is scheduled to sunset after 2025. For 2026, the cap may be eliminated or modified.
+
+**To deduct property taxes**, you must itemize deductions (Schedule A) rather than take the standard deduction.
+
+## Are Tax Brackets Based on AGI?
+
+Tax brackets are based on **taxable income**, which is your AGI minus either the standard deduction or itemized deductions.
+
+The calculation:
+1. Gross income (wages, self-employment, investments, etc.)
+2. Minus adjustments (401k contributions, HSA, student loan interest) = **AGI**
+3. Minus standard or itemized deductions = **Taxable income**
+4. Tax brackets apply to taxable income
+
+## Are 1099 Taxes Quarterly?
+
+Yes, if you're self-employed or receive 1099 income, you generally must pay **quarterly estimated taxes** if you expect to owe $1,000+ at tax time.
+
+### 2026 Quarterly Tax Due Dates
+- Q1: April 15, 2026
+- Q2: June 15, 2026
+- Q3: September 15, 2026
+- Q4: January 15, 2027
+
+Use our [Self-Employment Tax Calculator](/self-employment-tax-calculator) to estimate your quarterly payments.
+
+## Are Taxes Still Being Taken Out of Overtime Pay?
+
+Yes. As of 2026, overtime pay is still subject to federal income tax withholding, Social Security tax, and Medicare tax — just like regular wages.
+
+Your employer withholds taxes from overtime pay at the same rate as regular pay. The "No Tax on Overtime" proposals have not been enacted into law.
+
+Use our [Overtime Tax Calculator](/overtime-tax-calculator) to see your after-tax overtime pay.
+
+## Related Resources
+
+- [Paycheck Calculator](/paycheck-calculator)
+- [Bonus Tax Calculator](/bonus-tax-calculator)
+- [Overtime Tax Calculator](/overtime-tax-calculator)
+- [Self-Employment Tax Calculator](/self-employment-tax-calculator)
+- [Property Tax Calculator](/property-tax-calculator)
+- [Mortgage Calculator](/mortgage-calculator)`
 };
