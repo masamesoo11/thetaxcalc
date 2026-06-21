@@ -14,7 +14,37 @@ export interface BlogPost {
 }
 
 export const BLOG_INDEX: BlogPostMeta[] = [
-                        {
+                            {
+    "id": "what-is-taxable-income-guide-2026",
+    "title": "What Is Taxable Income? Complete Guide (2026)",
+    "slug": "what-is-taxable-income-guide-2026",
+    "excerpt": "What do you get taxed on? Complete guide to taxable and tax-exempt income in 2026. 20 types of taxable income, 20 types of tax-free income, and 12 types of taxes.",
+    "category": "tax-guide",
+    "tags": "what,is,taxable,income,guide,2026,taxable income,tax exempt,what do you get taxed on,types of taxes,hourly wage after tax",
+    "coverImage": "",
+    "published": true,
+    "featured": false,
+    "metaTitle": "What Is Taxable Income? Complete Guide (2026)",
+    "metaDesc": "What do you get taxed on? 20 types of taxable income, 20 types of tax-free income, 12 types of taxes, minimum salary to pay tax, and the 60% trap explained.",
+    "createdAt": "2026-06-21T15:00:00.000Z",
+    "updatedAt": "2026-06-21T15:00:00.000Z"
+  },
+{
+    "id": "hourly-wage-after-tax-questions-2026",
+    "title": "Hourly Wage After Tax Questions Answered (2026 Calculator)",
+    "slug": "hourly-wage-after-tax-questions-2026",
+    "excerpt": "How much tax is taken out of a $300 paycheck? How much is $20/hour after taxes? $21/hour annually? $1200/week? Exact numbers for common wages with free calculator.",
+    "category": "tax-guide",
+    "tags": "hourly,wage,after,tax,questions,2026,taxable income,tax exempt,what do you get taxed on,types of taxes,hourly wage after tax",
+    "coverImage": "",
+    "published": true,
+    "featured": false,
+    "metaTitle": "Hourly Wage After Tax Questions Answered (2026)",
+    "metaDesc": "How much tax on $300 paycheck, $20/hour, $21/hour, $1200/week? Exact after-tax numbers for 2026. Free calculator, no signup. CPA-reviewed.",
+    "createdAt": "2026-06-21T15:00:00.000Z",
+    "updatedAt": "2026-06-21T15:00:00.000Z"
+  },
+{
     "id": "free-tax-calculator-no-signup-2026",
     "title": "Free Tax Calculator 2026 — No Signup, No Email, Instant Results",
     "slug": "free-tax-calculator-no-signup-2026",
