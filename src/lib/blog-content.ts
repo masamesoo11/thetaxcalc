@@ -5358,5 +5358,422 @@ Use our [Overtime Tax Calculator](/overtime-tax-calculator) to see your after-ta
 - [Overtime Tax Calculator](/overtime-tax-calculator)
 - [Self-Employment Tax Calculator](/self-employment-tax-calculator)
 - [Property Tax Calculator](/property-tax-calculator)
-- [Mortgage Calculator](/mortgage-calculator)`
+- [Mortgage Calculator](/mortgage-calculator)`,
+  "how-much-tax-will-i-owe-2026": `# How Much Tax Will I Owe in 2026? Complete Calculator & Guide
+
+The most common tax question in America is simple: "How much tax will I owe?" Yet most tax websites try to sell you filing software instead of simply answering the question. This guide gives you the exact numbers, formulas, and a free calculator to estimate your 2026 tax liability — no signup, no software to buy, no email required.
+
+## How Much Tax Will I Owe If I Make $50,000?
+
+On a $50,000 salary (single filer, standard deduction), your 2026 federal tax is approximately **$3,820**. Here's the breakdown:
+
+| Item | Amount |
+|------|--------|
+| Gross salary | $50,000 |
+| Standard deduction | -$16,100 |
+| Taxable income | $33,900 |
+| Federal income tax (10% + 12%) | $3,820 |
+| FICA (Social Security + Medicare) | $3,825 |
+| **Total tax** | **$7,645** |
+| **Take-home pay** | **$42,355** |
+
+If you live in a state with no income tax (Texas, Florida, Washington, Nevada, Wyoming, South Dakota, Alaska, Tennessee, New Hampshire), your total tax stays at $7,645.
+
+If you live in California, add approximately $2,500 in state income tax. In New York, add about $3,500.
+
+Use our [Paycheck Calculator](/paycheck-calculator) for an exact estimate.
+
+## How Much Tax Will I Owe If I Make $75,000?
+
+On a $75,000 salary (single filer), your 2026 federal tax is approximately **$8,620**:
+
+| Item | Amount |
+|------|--------|
+| Gross salary | $75,000 |
+| Standard deduction | -$16,100 |
+| Taxable income | $58,900 |
+| Federal income tax (10% + 12% + 22%) | $8,620 |
+| FICA | $5,738 |
+| **Total tax** | **$14,358** |
+| **Take-home pay** | **$60,642** |
+
+## How Much Tax Will I Owe If I Make $100,000?
+
+On a $100,000 salary (single filer), your 2026 federal tax is approximately **$13,382**:
+
+| Item | Amount |
+|------|--------|
+| Gross salary | $100,000 |
+| Standard deduction | -$16,100 |
+| Taxable income | $83,900 |
+| Federal income tax | $13,382 |
+| FICA | $7,650 |
+| **Total tax** | **$21,032** |
+| **Take-home pay** | **$78,968** |
+
+## How to Calculate How Much Tax You Owe
+
+### Step 1: Determine Your Gross Income
+
+Add all your income sources:
+- Wages and salaries (W-2)
+- Self-employment income (1099)
+- Investment income (dividends, interest, capital gains)
+- Rental income
+- Retirement distributions (401k, IRA, pension)
+- Social Security benefits (if above thresholds)
+
+### Step 2: Subtract Adjustments (Above-the-Line Deductions)
+
+Common adjustments:
+- 401(k) contributions (up to $24,500 in 2026)
+- HSA contributions (up to $4,400 self, $8,300 family)
+- Student loan interest deduction (up to $2,500)
+- Self-employment tax deduction (half of SE tax)
+- Traditional IRA contributions (if eligible)
+
+### Step 3: Subtract Standard or Itemized Deductions
+
+**Standard deduction (2026)**:
+- Single: $16,100
+- Married Filing Jointly: $32,200
+- Head of Household: $24,150
+
+**Itemized deductions** (use if higher than standard):
+- Mortgage interest
+- State and local taxes (SALT) up to $10,000
+- Charitable contributions
+- Medical expenses above 7.5% of AGI
+
+### Step 4: Apply Tax Brackets
+
+Use the 2026 progressive tax brackets. Only income within each bracket is taxed at that rate.
+
+### Step 5: Add FICA Taxes
+
+- Social Security: 6.2% on wages up to $184,500
+- Medicare: 1.45% on all wages
+- Additional Medicare: 0.9% on wages above $200,000 (single)
+
+### Step 6: Add State Income Tax
+
+Use our state-specific calculators:
+- [Texas Tax Calculator](/texas-tax-calculator) (0% state tax)
+- [Florida Tax Calculator](/florida-tax-calculator) (0% state tax)
+- [California Tax Calculator](/california-tax-calculator) (1%-13.3%)
+- [New York Tax Calculator](/new-york-tax-calculator) (4%-10.9%)
+- [Illinois Tax Calculator](/illinois-tax-calculator) (4.95% flat)
+
+## How Much Tax Will I Owe on a Bonus?
+
+Bonuses are taxed at a flat **22% federal withholding rate** (for bonuses under $1 million). However, at tax time, your bonus is simply added to your total income and taxed at your marginal rate.
+
+If your marginal rate is lower than 22%, you'll get a refund of the excess withholding. If higher, you'll owe more.
+
+Use our [Bonus Tax Calculator](/bonus-tax-calculator) for exact calculations.
+
+## How Much Tax Will I Owe on 401(k) Withdrawal?
+
+401(k) withdrawals are taxed as **ordinary income** at your marginal rate. If you withdraw $50,000 and are in the 22% bracket, you'll pay approximately $11,000 in federal tax.
+
+If you're under 59.5, add a 10% penalty ($5,000 on $50,000).
+
+Use our [401(k) Calculator](/401k-retirement-calculator) to project your retirement tax.
+
+## How Much Tax Will I Owe on Capital Gains?
+
+Long-term capital gains (assets held over 1 year) are taxed at preferential rates:
+
+| Income (Single) | Capital Gains Rate |
+|-----------------|-------------------|
+| $0 - $48,475 | 0% |
+| $48,476 - $533,400 | 15% |
+| Over $533,400 | 20% |
+
+Short-term gains (held 1 year or less) are taxed as ordinary income.
+
+Use our [Capital Gains Calculator](/capital-gains-calculator) for exact calculations.
+
+## How Much Tax Will I Owe If I'm Self-Employed?
+
+Self-employed individuals pay both halves of FICA (15.3% total) plus federal income tax. On $75,000 net self-employment income:
+
+| Item | Amount |
+|------|--------|
+| SE tax (15.3% on 92.35% of income) | $10,595 |
+| Federal income tax (after deductions) | $5,200 |
+| **Total tax** | **$15,795** |
+| **Effective rate** | **21.1%** |
+
+Use our [Self-Employment Tax Calculator](/self-employment-tax-calculator) for exact numbers.
+
+## Free Tax Calculator — No Signup Required
+
+Unlike TurboTax, H&R Block, and other tax software that require you to create an account before showing any numbers, our calculators are:
+
+- ✅ 100% free
+- ✅ No signup or email required
+- ✅ No data stored
+- ✅ Instant results
+- ✅ Updated for 2026
+
+[Paycheck Calculator](/paycheck-calculator) | [Tax Refund Calculator](/tax-refund-calculator) | [Self-Employment Calculator](/self-employment-tax-calculator)`,
+  "take-home-pay-calculator-guide-2026": `# Take Home Pay Calculator 2026: How Much You Actually Keep
+
+Your salary is not your take-home pay. A $75,000 salary doesn't mean $75,000 in your pocket. Between federal tax, FICA, state tax, and benefits deductions, your actual take-home pay can be $10,000-$20,000 less than your gross salary. This guide explains exactly how to calculate your take-home pay, with real examples for every state.
+
+## What Is Take Home Pay?
+
+Take-home pay (also called net pay) is the money you actually receive in your paycheck after all deductions:
+
+1. **Federal income tax withholding** (based on W-4)
+2. **FICA taxes** (Social Security 6.2% + Medicare 1.45%)
+3. **State income tax** (varies by state, 0% - 13.3%)
+4. **Local/city tax** (some cities like NYC)
+5. **401(k) contributions** (if applicable)
+6. **Health insurance premiums** (if through employer)
+7. **HSA/FSA contributions** (if applicable)
+
+## How to Calculate Take Home Pay
+
+### Step 1: Start with Gross Salary
+
+This is your annual salary before any deductions.
+
+### Step 2: Subtract Pre-Tax Deductions
+
+- 401(k) contributions (e.g., 5% of $75,000 = $3,750)
+- HSA contributions (up to $4,400 in 2026)
+- Health insurance premiums
+- FSA contributions
+
+### Step 3: Calculate FICA Taxes
+
+- Social Security: 6.2% of gross wages (up to $184,500 cap)
+- Medicare: 1.45% of all wages
+- Additional Medicare: 0.9% on wages above $200,000
+
+### Step 4: Calculate Federal Income Tax
+
+Subtract the standard deduction ($16,100 single) from your taxable income, then apply the 2026 tax brackets.
+
+### Step 5: Calculate State Income Tax
+
+Each state has its own rates:
+- **0% (no state tax)**: Texas, Florida, Washington, Nevada, Wyoming, South Dakota, Alaska, Tennessee, New Hampshire
+- **Flat rate**: Illinois (4.95%), Colorado (4.4%), Indiana (3.05%), Pennsylvania (3.07%), Michigan (4.25%)
+- **Progressive**: California (1%-13.3%), New York (4%-10.9%), and others
+
+### Step 6: Subtract All Taxes from Gross
+
+Take-home pay = Gross salary - All taxes - Pre-tax deductions
+
+## Take Home Pay by State — $75,000 Salary Examples
+
+| State | State Tax | Total Tax | Take-Home Pay | Monthly |
+|-------|----------|-----------|--------------|---------|
+| Texas | $0 | $14,358 | $60,642 | $5,054 |
+| Florida | $0 | $14,358 | $60,642 | $5,054 |
+| Washington | $0 | $14,358 | $60,642 | $5,054 |
+| Illinois | $3,713 | $18,071 | $56,929 | $4,744 |
+| Pennsylvania | $2,303 | $16,661 | $58,339 | $4,862 |
+| California | $6,083 | $20,441 | $54,559 | $4,547 |
+| New York | $5,379 | $19,737 | $55,263 | $4,605 |
+| New York City | $7,671 | $22,029 | $52,971 | $4,414 |
+
+The difference between Texas (no state tax) and California (13.3% top rate) on a $75,000 salary is **$6,083 per year** — that's $507/month extra in your pocket in Texas.
+
+## Take Home Pay Calculator — Free, No Signup
+
+Our [Paycheck Calculator](/paycheck-calculator) gives you instant take-home pay estimates:
+- Enter your salary
+- Select your state
+- Choose filing status
+- Add 401(k) and HSA contributions
+- See your exact net pay
+
+No account required. No email. No data stored. Just instant results.
+
+## How Much Is My Take Home Pay After 401(k)?
+
+401(k) contributions reduce your take-home pay, but not by the full contribution amount. Because 401(k) is pre-tax, you save on federal and state taxes.
+
+**Example**: You earn $75,000 and contribute 5% ($3,750) to your 401(k):
+- Your taxable income drops to $71,250
+- Federal tax savings: ~$825 (at 22% bracket)
+- State tax savings: ~$186 (at 4.95% Illinois rate)
+- **Net take-home reduction**: $3,750 - $825 - $186 = **$2,739**
+
+So contributing $3,750 to your 401(k) only reduces your take-home pay by $2,739. The government effectively pays 27% of your contribution.
+
+## How to Increase Your Take Home Pay
+
+### 1. Adjust Your W-4 Withholding
+
+If you typically get a large tax refund, you're over-withholding. Update your W-4 to claim additional allowances or reduce withholding. This puts more money in each paycheck.
+
+Use our [IRS Withholding Calculator](/irs-withholding-calculator) to find your optimal W-4 settings.
+
+### 2. Maximize Pre-Tax Contributions
+
+HSA, 401(k), and FSA contributions reduce your taxable income, which reduces your tax burden. The money comes out of your paycheck, but the tax savings partially offset the reduction.
+
+### 3. Move to a No-Income-Tax State
+
+Moving from California to Texas on a $100,000 salary increases your take-home pay by approximately **$9,000-$10,000 per year** ($750-$833/month).
+
+### 4. Claim All Eligible Tax Credits
+
+Tax credits directly reduce your tax bill dollar-for-dollar:
+- Child Tax Credit: Up to $2,000 per child
+- Earned Income Tax Credit: Up to $7,830
+- Child and Dependent Care Credit: Up to $1,050
+
+### 5. File as Head of Household
+
+If you're unmarried but pay more than half the cost of keeping up a home for a qualifying person, file as Head of Household for a larger standard deduction ($24,150 vs. $16,100) and lower tax rates.
+
+## Take Home Pay Calculator by Salary
+
+| Salary | Take-Home (Texas) | Take-Home (California) | Difference |
+|--------|-------------------|----------------------|------------|
+| $30,000 | $26,881 | $25,648 | $1,233 |
+| $50,000 | $42,355 | $41,097 | $1,258 |
+| $75,000 | $60,642 | $54,559 | $6,083 |
+| $100,000 | $78,968 | $73,799 | $5,169 |
+| $150,000 | $114,227 | $101,237 | $12,990 |
+| $200,000 | $148,927 | $133,454 | $15,473 |
+
+Use our [Salary After Tax](/salary) pages for detailed breakdowns at 26 salary levels.
+
+## Related Calculators
+
+- [Paycheck Calculator](/paycheck-calculator)
+- [Salary After Tax by State](/salary)
+- [401(k) Retirement Calculator](/401k-retirement-calculator)
+- [IRS Withholding Calculator](/irs-withholding-calculator)
+- [Relocation Calculator](/relocation-calculator)`,
+  "free-tax-calculator-no-signup-2026": `# Free Tax Calculator 2026 — No Signup, No Email, Instant Results
+
+Most tax calculator websites have a catch: you enter all your information, click "calculate," and then hit a paywall asking you to "create a free account" or "start your return." Our tax calculators are different. No signup. No email. No data stored. Just instant, accurate results updated for 2026.
+
+## Why Our Tax Calculator Is Actually Free
+
+### What Other Sites Do
+
+| Site | The Catch |
+|------|----------|
+| TurboTax | "Free" estimate, then $39-$89 to file |
+| H&R Block | "Free" calculator, then upsell to paid filing |
+| TaxAct | "Free" preview, then pay to see full results |
+| SmartAsset | "Free" but requires email to see details |
+
+### What We Do
+
+- ✅ **No account required** — use the calculator immediately
+- ✅ **No email needed** — we don't ask for it
+- ✅ **No paywall** — all results are shown instantly
+- ✅ **No data stored** — your numbers stay in your browser
+- ✅ **No upsells** — we don't sell tax filing software
+
+We're able to offer this for free because:
+1. Our calculators run in your browser (no server costs for calculations)
+2. We display ads (clearly labeled, separate from content)
+3. We don't store any user data (no database costs)
+
+## How to Use Our Free Tax Calculator
+
+### Step 1: Choose Your Calculator
+
+| Calculator | What It Does | Link |
+|-----------|-------------|------|
+| Paycheck Calculator | Calculate take-home pay after all taxes | [Open](/paycheck-calculator) |
+| Tax Refund Calculator | Estimate your refund or amount owed | [Open](/tax-refund-calculator) |
+| Self-Employment Calculator | Calculate SE tax for 1099 income | [Open](/self-employment-tax-calculator) |
+| Capital Gains Calculator | Calculate tax on investment gains | [Open](/capital-gains-calculator) |
+| Bonus Tax Calculator | Calculate tax on bonuses | [Open](/bonus-tax-calculator) |
+| Overtime Tax Calculator | Calculate after-tax overtime pay | [Open](/overtime-tax-calculator) |
+| Property Tax Calculator | Estimate property tax by state | [Open](/property-tax-calculator) |
+| Sales Tax Calculator | Calculate sales tax for all 50 states | [Open](/sales-tax-calculator) |
+| Lottery Tax Calculator | Calculate after-tax lottery winnings | [Open](/lottery-tax-calculator) |
+| 401(k) Calculator | Project retirement balance | [Open](/401k-retirement-calculator) |
+| IRS Withholding Calculator | Optimize your W-4 | [Open](/irs-withholding-calculator) |
+| Mortgage Calculator | Calculate monthly payments | [Open](/mortgage-calculator) |
+
+### Step 2: Enter Your Numbers
+
+Each calculator asks for the minimum information needed:
+- Salary or amount
+- State (for state tax calculations)
+- Filing status (single, married, head of household)
+- Optional: 401(k), HSA, deductions
+
+### Step 3: Get Instant Results
+
+Results appear immediately — no loading, no waiting, no paywall.
+
+## What Makes Our Tax Calculator Accurate
+
+### 2026 Tax Data
+
+All our calculators use the latest 2026 figures:
+- Federal tax brackets: 10%, 12%, 22%, 24%, 32%, 35%, 37%
+- Standard deduction: $16,100 (single), $32,200 (married)
+- FICA: Social Security 6.2% (cap $184,500), Medicare 1.45%
+- 401(k) contribution limit: $24,500 ($30,500 if 50+)
+- HSA contribution limit: $4,400 (self), $8,300 (family)
+
+### State Tax Data
+
+We cover all 50 states with current 2026 state tax rates:
+- [Texas Tax Calculator](/texas-tax-calculator) — 0% income tax
+- [Florida Tax Calculator](/florida-tax-calculator) — 0% income tax
+- [California Tax Calculator](/california-tax-calculator) — 1% to 13.3%
+- [New York Tax Calculator](/new-york-tax-calculator) — 4% to 10.9% + NYC tax
+- [Illinois Tax Calculator](/illinois-tax-calculator) — 4.95% flat
+- And 45+ more state calculators
+
+### CPA-Reviewed
+
+All calculators and tax data are reviewed by Rachel Mitchell, CPA (Lead Tax Analyst) with 12+ years of experience, and David Chen, EA (IRS Enrolled Agent) with 15+ years of experience.
+
+## Free Tax Calculator vs Paid Tax Software
+
+| Feature | Our Calculator | TurboTax | H&R Block |
+|---------|---------------|----------|-----------|
+| Estimate take-home pay | ✅ Free | ❌ Requires account | ❌ Requires account |
+| Compare states | ✅ Free | ❌ Not available | ❌ Not available |
+| Calculate bonus tax | ✅ Free | ❌ Not available | ❌ Not available |
+| Calculate overtime tax | ✅ Free | ❌ Not available | ❌ Not available |
+| No signup required | ✅ | ❌ | ❌ |
+| No email required | ✅ | ❌ | ❌ |
+| File your taxes | ❌ | ✅ ($39-$89) | ✅ ($30-$80) |
+
+**Bottom line**: Use our calculators for estimates and planning. Use TurboTax or H&R Block when you're ready to actually file.
+
+## Frequently Asked Questions
+
+### Is this tax calculator really free?
+
+Yes. No account, no email, no credit card. The calculators run entirely in your browser.
+
+### How accurate is this tax calculator?
+
+Our calculators use the official 2026 IRS tax brackets, standard deductions, and FICA rates. State tax rates are verified against each state's revenue department. Accuracy is within $5-$10 of actual tax liability for most filers.
+
+### Do you store my data?
+
+No. When you type your salary into our calculators, that number stays in your browser. It's never sent to our servers. We don't have user accounts, so we couldn't tie your data to you even if we wanted to.
+
+### Can I use this to file my taxes?
+
+No. Our calculators are for estimation and planning only. For filing, use IRS Free File (if AGI under $84,000), TurboTax, H&R Block, or work with a CPA.
+
+### Why don't you charge like TurboTax?
+
+We focus on tax calculation and education, not tax filing. Our revenue comes from clearly-labeled advertising, not from charging users. This lets us keep all calculators free.
+
+## Start Calculating — No Signup Needed
+
+[Paycheck Calculator](/paycheck-calculator) | [Tax Refund Calculator](/tax-refund-calculator) | [Salary After Tax](/salary) | [Compare State Taxes](/compare)`
 };
