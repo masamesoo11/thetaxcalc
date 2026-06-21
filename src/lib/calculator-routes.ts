@@ -221,7 +221,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     description:
       'Free relocation salary calculator for 2026. Compare take-home pay in IL, TX, FL, CA, NY. Find the salary you need to maintain your lifestyle. No sign-up.',
     h1: 'Free Relocation Calculator',
-    metaTitle: 'Relocation Calculator 2026 | Compare',
+    metaTitle: 'Free Relocation Tax Calculator 2026 — Compare Take-Home Pay',
     metaDesc:
       'Free relocation calculator 2026. Compare take-home pay in IL, TX, FL, CA, NY. No sign-up. Find equivalent salary by state.',
     keywords: [
@@ -269,7 +269,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     description:
       'Free self-employment tax calculator for 2026. Calculate SE tax (15.3% on 92.35% of net income), half deduction, quarterly estimates, 1099 & federal + state tax. No sign-up.',
     h1: 'Free Self-Employment Tax Calculator — 1099 & SE Tax',
-    metaTitle: 'Self-Employment Tax Calculator 2026 — 15.3% SE + 1099 & Q4',
+    metaTitle: 'Free Self-Employment Tax Calculator 2026 — 1099 & SE Tax',
     metaDesc:
       'Free 2026 self-employment tax calculator. 15.3% SE tax on 92.35% of net income, half deduction, quarterly estimates. See real take-home pay.',
     keywords: [
@@ -282,7 +282,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     componentKey: 'self-employment',
     category: 'business',
     breadcrumbLabel: 'Self-Employment',
-    ogTitle: 'Self-Employment Tax Calculator 2026 — 15.3% SE + 1099 & Q4',
+    ogTitle: 'Free Self-Employment Tax Calculator 2026 — 1099 & SE Tax',
     ogDescription:
       'Free 2026 self-employment tax calculator. 15.3% SE tax on 92.35% of net income, half deduction, quarterly estimates. See real take-home pay.',
     canonicalPath: '/self-employment-tax-calculator',
@@ -294,7 +294,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     description:
       'Free sales tax calculator for 2026. Calculate sales tax for any US state with combined rates. Includes reverse sales tax calculator. No sign-up required.',
     h1: 'Free Sales Tax Calculator — All 50 States & Reverse',
-    metaTitle: 'Sales Tax Calculator 2026 — All 50 States + Reverse Tax Tool',
+    metaTitle: 'Free Sales Tax Calculator 2026 — All 50 States + Reverse Tax',
     metaDesc:
       'Free 2026 sales tax calculator for all 50 US states. Calculate combined state + local sales tax, reverse tax from total, car sales tax & IRS deductions. No sign-up.',
     keywords: [
@@ -306,7 +306,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     componentKey: 'sales-tax',
     category: 'paycheck',
     breadcrumbLabel: 'Sales Tax Calculator',
-    ogTitle: 'Sales Tax Calculator 2026 — All 50 States + Reverse Tax Tool',
+    ogTitle: 'Free Sales Tax Calculator 2026 — All 50 States + Reverse Tax',
     ogDescription:
       'Free 2026 sales tax calculator for all 50 US states. Combined state + local rates, reverse tax, car sales tax & IRS deductions. No sign-up.',
     canonicalPath: '/sales-tax-calculator',
@@ -318,7 +318,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     description:
       'Free tax refund calculator for 2026. Estimate your federal and state tax refund based on income, withholding, deductions, and credits. No sign-up required.',
     h1: 'Free Tax Refund Calculator',
-    metaTitle: 'Tax Refund Calculator 2026 | Fed & State',
+    metaTitle: 'Free Tax Refund Calculator 2026 — Estimate Your Refund',
     metaDesc:
       'Free tax refund calculator 2026. Estimate your federal and state refund based on income, withholding, deductions & credits. No sign-up required.',
     keywords: [
@@ -345,7 +345,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     description:
       'Free overtime tax calculator for 2026. Calculate your after-tax overtime pay at 1.5x rate. See how much OT you actually keep after federal, FICA & state taxes. No sign-up.',
     h1: 'Free Overtime Tax Calculator',
-    metaTitle: 'Overtime Tax Calc 2026 | After-Tax OT',
+    metaTitle: 'Free Overtime Tax Calculator 2026 — After-Tax OT Pay',
     metaDesc:
       'Free overtime tax calculator 2026. Calculate after-tax overtime pay at 1.5x rate. Federal, FICA & state taxes included. No sign-up required.',
     keywords: [
@@ -393,7 +393,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     description:
       'A $1M lottery jackpot pays only ~$510K after federal 24% withholding + state taxes. Calculate your real Powerball or Mega Millions payout after all taxes. Free, no sign-up.',
     h1: 'Free Lottery Tax Calculator — Powerball & Mega Millions',
-    metaTitle: 'Lottery Tax Calculator 2026 — $1M Jackpot = $510K After Tax',
+    metaTitle: 'Free Lottery Tax Calculator 2026 — Powerball & Mega Millions',
     metaDesc:
       'How much tax on lottery winnings? A $1M jackpot nets ~$510K after 24% federal + state taxes. See your actual Powerball & Mega Millions payout. Free.',
     keywords: [
@@ -405,7 +405,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     componentKey: 'lottery',
     category: 'investment',
     breadcrumbLabel: 'Lottery Tax',
-    ogTitle: 'Lottery Tax Calculator 2026 — $1M Jackpot = $510K After Tax',
+    ogTitle: 'Free Lottery Tax Calculator 2026 — Powerball & Mega Millions',
     ogDescription:
       'A $1M lottery jackpot pays only ~$510K after 24% federal + state taxes. See your actual Powerball & Mega Millions payout. Free, no sign-up.',
     canonicalPath: '/lottery-tax-calculator',
@@ -417,7 +417,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     description:
       'Free IRS withholding calculator for 2026. Optimize your W-4 to avoid owing taxes or overpaying. Based on IRS Publication 15-T. No sign-up.',
     h1: 'Free IRS Withholding Calculator — Optimize Your W-4',
-    metaTitle: 'IRS Withholding Calculator 2026 — W-4 Optimization Tool',
+    metaTitle: 'Free IRS Withholding Calculator 2026 — W-4 Optimization Tool',
     metaDesc:
       'Free IRS W-4 withholding calculator 2026. Find your exact federal withholding per paycheck to avoid penalties & overpayment. Based on IRS Pub 15-T.',
     keywords: [
@@ -430,7 +430,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     componentKey: 'irs-withholding',
     category: 'paycheck',
     breadcrumbLabel: 'IRS Withholding',
-    ogTitle: 'IRS Withholding Calculator 2026 — W-4 Optimization Tool',
+    ogTitle: 'Free IRS Withholding Calculator 2026 — W-4 Optimization Tool',
     ogDescription:
       'Free IRS W-4 withholding calculator 2026. Find your exact federal withholding per paycheck to avoid penalties & overpayment. Based on IRS Pub 15-T.',
     canonicalPath: '/irs-withholding-calculator',
@@ -442,7 +442,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     description:
       'Free property tax calculator for 2026. Calculate annual property tax for any US state with average effective rates. Includes homestead exemptions. No sign-up.',
     h1: 'Free Property Tax Calculator',
-    metaTitle: 'Property Tax Calculator 2026 — Cost by State & Home Value',
+    metaTitle: 'Free Property Tax Calculator 2026 — Cost by State & Home Value',
     metaDesc:
       '$500K home in AZ = ~$6,750/year property tax. Same home in NJ = ~$14,250. Calculate your annual property tax by state & home value. Free 2026 calculator, all 50 states.',
     keywords: [
@@ -466,7 +466,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     description:
       'Your $5K bonus may only be $3,400 after taxes. Compare 22% flat vs aggregate method and see your real take-home. Free, instant, no sign-up.',
     h1: 'Free Bonus Tax Calculator — 22% Flat vs Aggregate',
-    metaTitle: 'Bonus Tax Calculator 2026 — $5K Bonus = $3,400 After Tax',
+    metaTitle: 'Free Bonus Tax Calculator 2026 — 22% Flat vs Aggregate',
     metaDesc:
       'A $5K bonus nets only ~$3,400 after 22% federal + FICA + state taxes. Compare flat vs aggregate method & see your real after-tax bonus. Free 2026 tool.',
     keywords: [
@@ -478,7 +478,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     componentKey: 'bonus-tax',
     category: 'business',
     breadcrumbLabel: 'Bonus Tax',
-    ogTitle: 'Bonus Tax Calculator 2026 — $5K Bonus = $3,400 After Tax',
+    ogTitle: 'Free Bonus Tax Calculator 2026 — 22% Flat vs Aggregate',
     ogDescription:
       'A $5K bonus nets only ~$3,400 after 22% federal + FICA + state taxes. Compare flat vs aggregate method & see your real after-tax bonus. Free 2026 tool.',
     canonicalPath: '/bonus-tax-calculator',
@@ -1315,7 +1315,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     description:
       'Free 2026 employee cost calculator for US small businesses. Estimate total payroll cost including salary, employer taxes (FICA, FUTA, SUTA), and benefits. No signup.',
     h1: 'Employee Cost Calculator (Total Payroll Cost)',
-    metaTitle: 'Employee Cost Calculator 2026 | True Cost of Hiring',
+    metaTitle: 'Free Employee Cost Calculator 2026 — True Cost of Hiring',
     metaDesc:
       'Free 2026 employee cost calculator. Estimate total payroll cost including salary, employer FICA, FUTA, SUTA, and benefits. For 1–49 employees. No signup.',
     keywords: [
