@@ -32,6 +32,10 @@ Your **effective tax rate** = 13.5% (not 22%)
 
 See? Even though your top bracket is 22%, your actual tax rate is much lower because most of your income falls into the lower brackets.
 
+## Official Source
+
+The 2026 tax brackets are published by the IRS in [Revenue Procedure 2025-25](https://www.irs.gov/pub/irs-drop/n-25-25.pdf). You can verify all figures on the [IRS Federal Tax Brackets page](https://www.irs.gov/filing/federal-income-tax-rates-and-brackets).
+
 ## 2026 Federal Tax Brackets for Single Filers
 
 | Tax Rate | Taxable Income Range |
@@ -192,6 +196,10 @@ Federal tax brackets aren't as scary as they look. The progressive system means 
   "florida-vs-texas-tax-comparison": `# Florida vs Texas Tax Comparison 2026
 
 Florida and Texas are two of the most popular states for people looking to escape high state income taxes. Both states have **zero state income tax**, but they're not identical when it comes to overall tax burden. This guide breaks down how Florida and Texas compare across income tax, property tax, sales tax, and overall cost of living for 2026.
+
+## Official Sources
+
+Florida tax data is from the [Florida Department of Revenue](https://floridarevenue.com/). Texas tax data is from the [Texas Comptroller](https://comptroller.texas.gov/taxes/). Property tax comparisons are from the [Tax Foundation](https://taxfoundation.org/).
 
 ## Quick Verdict: Which State Saves You More?
 
@@ -582,6 +590,10 @@ Illinois has a simple flat income tax of 4.95%, making tax planning straightforw
   "how-fica-taxes-work-2026": `# How FICA Taxes Work in 2026 — Full Guide
 
 Every paycheck you receive has money taken out for FICA taxes. If you've ever wondered what those deductions mean and where the money goes, this guide breaks down everything you need to know about FICA in 2026.
+
+## Official Source
+
+FICA tax rates are set by the [Social Security Administration](https://www.ssa.gov/oact/progdata/taxRates.html) and published in [IRS Publication 15-T](https://www.irs.gov/publications/p15t). The 2026 Social Security wage base is $184,500.
 
 ## What Is FICA?
 
@@ -4301,6 +4313,10 @@ Work hard. Get paid. Keep more of it. That's the idea — at least through 2028.
 
 Retirement tax planning is the single most important financial strategy for Americans approaching retirement age. The decisions you make about when to withdraw from retirement accounts, how to handle Social Security, and which tax brackets you fall into can mean the difference between keeping thousands or losing them to taxes. This comprehensive 2026 guide covers every aspect of retirement taxation, from 401(k) withdrawal rules to Roth conversion strategies, with actionable advice you can use today.
 
+## Official Sources
+
+Retirement tax rules are governed by the [SECURE Act 2.0](https://www.congress.gov/bill/117th-congress/house-bill/2617) and published by the [IRS Retirement Plans page](https://www.irs.gov/retirement-plans). RMD rules are detailed in [IRS Publication 590-B](https://www.irs.gov/publications/p590b).
+
 ## How Retirement Income Is Taxed in 2026
 
 Your retirement income may come from multiple sources, and each is taxed differently. Understanding these differences is the foundation of effective retirement tax planning.
@@ -4465,6 +4481,10 @@ Use our [401(k) Retirement Calculator](/401k-retirement-calculator) to project y
 
 Understanding 401(k) withdrawal taxes is critical for anyone approaching retirement or considering an early withdrawal. The rules are complex, the penalties can be severe, and the tax implications affect your retirement income for decades. This 2026 guide explains every aspect of 401(k) withdrawal taxation, from early withdrawal penalties to Required Minimum Distributions, with real examples and strategies to minimize your tax burden.
 
+## Official Sources
+
+401(k) withdrawal rules are set by the IRS in [Publication 560](https://www.irs.gov/publications/p560) and modified by the [SECURE Act 2.0](https://www.irs.gov/retirement-plans/secure-20-act). The Rule of 55 is explained in [IRS Topic 558](https://www.irs.gov/taxtopics/tc558).
+
 ## How 401(k) Withdrawals Are Taxed
 
 ### Traditional 401(k) Withdrawals
@@ -4619,6 +4639,10 @@ For a complete retirement tax strategy, consult a CPA who specializes in retirem
   "inheritance-tax-guide-2026": `# Inheritance Tax Guide 2026: State-by-State Rules, Exemptions & Calculator
 
 Inheritance tax is one of the most misunderstood taxes in the United States. Many people confuse it with estate tax, assume they'll owe taxes on inherited money, or don't realize their state may have specific inheritance tax rules. This 2026 guide explains everything you need to know about inheritance tax, including the difference between estate and inheritance tax, state-by-state rules, federal exemptions, and how to calculate your potential tax liability.
+
+## Official Sources
+
+The federal estate tax exemption is published by the [IRS Estate Tax page](https://www.irs.gov/businesses/small-businesses-self-employed/estate-tax). State inheritance tax rules are available at each state's [Department of Revenue](https://www.taxadmin.org/state-tax-agencies).
 
 ## Inheritance Tax vs Estate Tax: What's the Difference?
 
@@ -4943,6 +4967,10 @@ File IRS Form 5329 to report the missed RMD and request a penalty waiver for rea
   "social-security-tax-questions-2026": `# Social Security Tax Questions Answered (2026 Rules)
 
 Social Security taxation is one of the most confusing topics for retirees and soon-to-be retirees. With rules that depend on your income, filing status, and state of residence, it's no surprise that millions of Americans search for answers every month. This FAQ guide answers the most common Social Security tax questions for 2026.
+
+## Official Source
+
+Social Security taxation rules are published by the [Social Security Administration](https://www.ssa.gov/benefits/retirement/planner/taxes.html) and the [IRS Publication 915](https://www.irs.gov/publications/p915).
 
 ## Are Taxes Taken Out of Social Security Checks?
 
@@ -5809,6 +5837,10 @@ We focus on tax calculation and education, not tax filing. Our revenue comes fro
 
 How much tax is taken out of your paycheck? How much is $20 per hour after taxes? What about $21 an hour annually? These are among the most searched tax questions in America, yet most tax websites don't answer them directly. This FAQ guide gives you exact numbers for common hourly wages and paycheck amounts, with a free calculator to check your own.
 
+## Official Source
+
+Paycheck withholding rules are published by the IRS in [Publication 15-T](https://www.irs.gov/publications/p15t). Use the [IRS Tax Withholding Estimator](https://www.irs.gov/individuals/tax-withholding-estimator) to check your withholding.
+
 ## How Much Tax Is Taken Out of a $300 Paycheck?
 
 On a $300 paycheck, the tax breakdown depends on your annual income and W-4 settings. Here's a typical scenario (single filer, $40,000/year, standard withholding):
@@ -5973,6 +6005,10 @@ Your **effective rate** (average rate you actually pay) is always lower than you
   "what-is-taxable-income-guide-2026": `# What Is Taxable Income? Complete Guide to What You Pay Taxes On (2026)
 
 "What do you get taxed on?" is one of the most common tax questions in America. The answer is more complex than you might think — some income is fully taxable, some is partially taxable, and some is completely tax-free. This 2026 guide explains every type of taxable and tax-exempt income, with clear examples.
+
+## Official Source
+
+Taxable income rules are defined by the IRS in [Publication 525](https://www.irs.gov/publications/p525) and [Publication 17](https://www.irs.gov/publications/p17). Tax-exempt income is listed in [IRS Publication 525, Chapter 2](https://www.irs.gov/publications/p525#en_US_2024_publink1000229723).
 
 ## What Items Do You Pay Taxes On?
 
