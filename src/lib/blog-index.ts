@@ -14,20 +14,50 @@ export interface BlogPost {
 }
 
 export const BLOG_INDEX: BlogPostMeta[] = [
-    {
-    "id": "florida-tax-guide-2026",
-    "title": "Florida Tax Guide 2026: No Income Tax, Sales Tax, Property Tax & Calculator",
-    "slug": "florida-tax-guide-2026",
-    "excerpt": "Complete guide to Florida taxes in 2026. No state income tax, 6% sales tax (avg 6.98%), property tax rates, salary after taxes ($50k-$500k), and Florida homestead exemption explained.",
-    "category": "state-tax",
-    "tags": "florida tax calculator,florida income tax,florida income tax rate,florida sales tax,florida sales tax rate,florida sales tax on cars,florida property tax,florida homestead exemption,florida tax brackets,florida state tax,salary after taxes florida,florida retirement tax,florida estate tax,save our homes florida,florida tax calculator 2026",
+        {
+    "id": "inheritance-tax-guide-2026",
+    "title": "Inheritance Tax Guide 2026: State-by-State Rules, Exemptions & Calculator",
+    "slug": "inheritance-tax-guide-2026",
+    "excerpt": "Complete inheritance tax guide for 2026. Learn the difference between estate tax and inheritance tax, state-by-state rules, federal exemptions, and how to calculate your inheritance tax liability.",
+    "category": "tax-guide",
+    "tags": "inheritance tax calculator,inheritance tax 2026,estate tax 2026,inheritance tax by state,inheritance tax exemption,inheritance tax rate,federal estate tax exemption 2026,inheritance tax vs estate tax,inheritance tax guide,state inheritance tax",
     "coverImage": "",
     "published": true,
     "featured": true,
-    "metaTitle": "Florida Tax Guide 2026: No Income Tax, Sales Tax, Property Tax",
-    "metaDesc": "Complete guide to Florida taxes 2026. No income tax, 6% sales tax (avg 6.98%), property tax rates, salary after taxes, and Florida homestead exemption (Save Our Homes).",
-    "createdAt": "2026-06-20T12:00:00.000Z",
-    "updatedAt": "2026-06-20T12:00:00.000Z"
+    "metaTitle": "Inheritance Tax Guide 2026: State Rules, Exemptions & Calculator",
+    "metaDesc": "Complete 2026 inheritance tax guide. Difference between estate and inheritance tax, state-by-state rules, federal exemptions ($13.99M), and how to calculate your inheritance tax liability.",
+    "createdAt": "2026-06-21T12:00:00.000Z",
+    "updatedAt": "2026-06-21T12:00:00.000Z"
+  },
+{
+    "id": "401k-withdrawal-tax-guide-2026",
+    "title": "401(k) Withdrawal Tax Guide 2026: Rules, Penalties & Strategies",
+    "slug": "401k-withdrawal-tax-guide-2026",
+    "excerpt": "Complete guide to 401(k) withdrawal taxes in 2026. Learn early withdrawal penalties, RMD rules, tax implications, 72(t) exceptions, and strategies to minimize taxes on 401(k) withdrawals.",
+    "category": "tax-guide",
+    "tags": "401k withdrawal tax,401k tax implications,401k early withdrawal penalty,401k withdrawal rules 2026,401k withdrawal tax rate,401k and social security,401k tax strategies,401k rollover,required minimum distribution 2026,72t rule",
+    "coverImage": "",
+    "published": true,
+    "featured": true,
+    "metaTitle": "401(k) Withdrawal Tax Guide 2026: Rules, Penalties & Strategies",
+    "metaDesc": "Complete 2026 401(k) withdrawal tax guide. Early withdrawal penalties, RMD rules, tax implications, 72(t) exceptions, and strategies to minimize taxes on 401(k) withdrawals.",
+    "createdAt": "2026-06-21T12:00:00.000Z",
+    "updatedAt": "2026-06-21T12:00:00.000Z"
+  },
+{
+    "id": "retirement-tax-planning-guide-2026",
+    "title": "Retirement Tax Planning Guide 2026: Strategies, Brackets & Withdrawals",
+    "slug": "retirement-tax-planning-guide-2026",
+    "excerpt": "Complete retirement tax planning guide for 2026. Learn tax strategies for retirees, 401(k) withdrawal rules, Social Security taxation, RMDs, and Roth conversions to minimize your tax burden.",
+    "category": "tax-guide",
+    "tags": "retirement tax planning,tax strategies for retirees,retirement tax rates,401k withdrawal tax,social security tax 2026,roth conversion,required minimum distribution,tax planning retirement,retiree tax guide 2026,retirement income tax",
+    "coverImage": "",
+    "published": true,
+    "featured": true,
+    "metaTitle": "Retirement Tax Planning Guide 2026: Strategies & Tax Rates",
+    "metaDesc": "Complete 2026 retirement tax planning guide. Learn tax strategies for retirees, 401(k) withdrawal taxes, Social Security taxation, RMDs, and Roth conversions. Free calculators.",
+    "createdAt": "2026-06-21T12:00:00.000Z",
+    "updatedAt": "2026-06-21T12:00:00.000Z"
   },
 {
     "id": "1099-tax-guide-self-employed-2026",
