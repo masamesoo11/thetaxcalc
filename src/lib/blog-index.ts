@@ -14,7 +14,52 @@ export interface BlogPost {
 }
 
 export const BLOG_INDEX: BlogPostMeta[] = [
-                  {
+                        {
+    "id": "free-tax-calculator-no-signup-2026",
+    "title": "Free Tax Calculator 2026 — No Signup, No Email, Instant Results",
+    "slug": "free-tax-calculator-no-signup-2026",
+    "excerpt": "Free 2026 tax calculator with no signup, no email, no paywall. Calculate take-home pay, tax refund, self-employment tax, and more. CPA-reviewed accuracy.",
+    "category": "tax-guide",
+    "tags": "free,tax,calculator,no,signup,2026,free tax calculator,no signup,tax calculator 2026,take home pay,how much tax do i owe",
+    "coverImage": "",
+    "published": true,
+    "featured": false,
+    "metaTitle": "Free Tax Calculator 2026 — No Signup, No Email",
+    "metaDesc": "Free 2026 tax calculator. No signup, no email, no paywall. Calculate take-home pay, refund, SE tax, capital gains, bonuses, and more. CPA-reviewed.",
+    "createdAt": "2026-06-21T14:00:00.000Z",
+    "updatedAt": "2026-06-21T14:00:00.000Z"
+  },
+{
+    "id": "take-home-pay-calculator-guide-2026",
+    "title": "Take Home Pay Calculator 2026: How Much You Actually Keep",
+    "slug": "take-home-pay-calculator-guide-2026",
+    "excerpt": "Complete take-home pay guide for 2026. Calculate your net pay after federal, FICA, and state taxes. Real examples for every state. Free calculator, no signup.",
+    "category": "tax-guide",
+    "tags": "take,home,pay,calculator,guide,2026,free tax calculator,no signup,tax calculator 2026,take home pay,how much tax do i owe",
+    "coverImage": "",
+    "published": true,
+    "featured": false,
+    "metaTitle": "Take Home Pay Calculator 2026: How Much You Keep",
+    "metaDesc": "Calculate your 2026 take-home pay after all taxes. Real examples for $50K-$200K salaries in all 50 states. Free calculator, no signup required.",
+    "createdAt": "2026-06-21T14:00:00.000Z",
+    "updatedAt": "2026-06-21T14:00:00.000Z"
+  },
+{
+    "id": "how-much-tax-will-i-owe-2026",
+    "title": "How Much Tax Will I Owe in 2026? Complete Calculator & Guide",
+    "slug": "how-much-tax-will-i-owe-2026",
+    "excerpt": "How much tax will you owe on $50K, $75K, $100K? Complete guide with free calculator. Federal tax, FICA, state tax breakdown. No signup required.",
+    "category": "tax-guide",
+    "tags": "how,much,tax,will,i,owe,2026,free tax calculator,no signup,tax calculator 2026,take home pay,how much tax do i owe",
+    "coverImage": "",
+    "published": true,
+    "featured": false,
+    "metaTitle": "How Much Tax Will I Owe in 2026? Calculator & Guide",
+    "metaDesc": "How much tax will I owe on $50K, $75K, $100K? Free 2026 tax calculator with federal, FICA, and state tax breakdown. No signup, no email required.",
+    "createdAt": "2026-06-21T14:00:00.000Z",
+    "updatedAt": "2026-06-21T14:00:00.000Z"
+  },
+{
     "id": "tax-questions-answered-2026",
     "title": "Tax Questions Answered: Brackets, Overtime, Bonuses & More (2026)",
     "slug": "tax-questions-answered-2026",
