@@ -78,5 +78,4 @@ Allow: /_next/static/
 Disallow: /api/
 Disallow: /admin/
 
-Host: https://thetaxcalc.com
 Sitemap: https://thetaxcalc.com/sitemap.xml
