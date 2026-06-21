@@ -5775,5 +5775,326 @@ We focus on tax calculation and education, not tax filing. Our revenue comes fro
 
 ## Start Calculating — No Signup Needed
 
-[Paycheck Calculator](/paycheck-calculator) | [Tax Refund Calculator](/tax-refund-calculator) | [Salary After Tax](/salary) | [Compare State Taxes](/compare)`
+[Paycheck Calculator](/paycheck-calculator) | [Tax Refund Calculator](/tax-refund-calculator) | [Salary After Tax](/salary) | [Compare State Taxes](/compare)`,
+  "hourly-wage-after-tax-questions-2026": `# Hourly Wage After Tax Questions Answered (2026 Calculator)
+
+How much tax is taken out of your paycheck? How much is $20 per hour after taxes? What about $21 an hour annually? These are among the most searched tax questions in America, yet most tax websites don't answer them directly. This FAQ guide gives you exact numbers for common hourly wages and paycheck amounts, with a free calculator to check your own.
+
+## How Much Tax Is Taken Out of a $300 Paycheck?
+
+On a $300 paycheck, the tax breakdown depends on your annual income and W-4 settings. Here's a typical scenario (single filer, $40,000/year, standard withholding):
+
+| Deduction | Amount | Percentage |
+|-----------|--------|-----------|
+| Federal income tax | $24 | 8.0% |
+| Social Security (6.2%) | $18.60 | 6.2% |
+| Medicare (1.45%) | $4.35 | 1.45% |
+| State tax (varies) | $0-$15 | 0-5% |
+| **Total tax** | **$47-$62** | **16-21%** |
+| **Take-home** | **$238-$253** | **79-84%** |
+
+**In a no-income-tax state** (Texas, Florida, Washington): You keep approximately **$253** from a $300 paycheck.
+
+**In a high-tax state** (California, New York): You keep approximately **$238** from a $300 paycheck.
+
+Use our [Paycheck Calculator](/paycheck-calculator) for an exact estimate based on your state and filing status.
+
+## How Much Tax Do You Pay on $1200 a Week?
+
+$1,200 per week = $62,400 per year. Here's the tax breakdown for a single filer in 2026:
+
+| Item | Amount |
+|------|--------|
+| Gross annual | $62,400 |
+| Standard deduction | -$16,100 |
+| Taxable income | $46,300 |
+| Federal income tax | $5,058 |
+| FICA (Social Security + Medicare) | $4,774 |
+| **Total federal tax** | **$9,832** |
+| **Take-home pay** | **$52,568/year** |
+| **Weekly take-home** | **$1,011/week** |
+
+On $1,200/week, you take home approximately **$1,011/week** in a no-income-tax state, or about **$950/week** in California.
+
+## How Much Is $20 Per Hour Monthly After Taxes?
+
+$20/hour = $41,600/year (assuming 40 hours/week, 52 weeks).
+
+| Item | Amount |
+|------|--------|
+| Gross monthly | $3,467 |
+| Federal tax | $2,383/year ($198/month) |
+| FICA | $3,183/year ($265/month) |
+| State tax (Texas/Florida) | $0 |
+| **Monthly take-home** | **$3,004** |
+
+In a no-income-tax state, $20/hour gives you approximately **$3,004/month** after taxes.
+
+In California, you'd take home about **$2,750/month** (state tax ~$3,000/year).
+
+## How Much Is $21 an Hour Annually After Taxes?
+
+$21/hour = $43,680/year (40 hours/week, 52 weeks).
+
+| Item | Amount |
+|------|--------|
+| Gross annual | $43,680 |
+| Standard deduction | -$16,100 |
+| Taxable income | $27,580 |
+| Federal income tax | $2,772 |
+| FICA | $3,342 |
+| **Total federal tax** | **$6,114** |
+| **Annual take-home** | **$37,566** |
+| **Monthly take-home** | **$3,131** |
+
+In a no-income-tax state, $21/hour gives you approximately **$37,566/year** or **$3,131/month** after taxes.
+
+## How Much Tax Do Taxes Usually Take Out of Your Paycheck?
+
+On average, taxes take out **20-30%** of your gross paycheck:
+
+| Income Level | Federal + FICA | + State Tax (avg) | Total % Taken |
+|-------------|---------------|-------------------|--------------|
+| $30,000/year | 15% | +2% | ~17% |
+| $50,000/year | 16% | +3% | ~19% |
+| $75,000/year | 19% | +4% | ~23% |
+| $100,000/year | 21% | +5% | ~26% |
+| $150,000/year | 24% | +6% | ~30% |
+| $200,000/year | 26% | +7% | ~33% |
+
+**In no-income-tax states** (Texas, Florida, Washington, Nevada, Wyoming, South Dakota, Alaska, Tennessee, New Hampshire): Subtract 3-7% from the total.
+
+## How Much Will I Be Taxed?
+
+Your total tax depends on three factors:
+
+1. **Federal income tax**: 10-37% (progressive brackets)
+2. **FICA**: 7.65% (6.2% Social Security + 1.45% Medicare)
+3. **State income tax**: 0-13.3% (depending on your state)
+
+Use this quick formula:
+- **No-tax state**: Tax = ~20-25% of gross income
+- **Medium-tax state**: Tax = ~25-30% of gross income
+- **High-tax state**: Tax = ~30-35% of gross income
+
+For an exact number, use our [Paycheck Calculator](/paycheck-calculator).
+
+## How Much Tax Do I Pay?
+
+For the most common salary levels, here's what you pay (single filer, no state tax):
+
+| Salary | Federal Tax | FICA | Total Tax | Take-Home |
+|--------|-----------|------|----------|-----------|
+| $30,000 | $1,192 | $2,295 | $3,487 | $26,513 |
+| $40,000 | $2,383 | $3,060 | $5,443 | $34,557 |
+| $50,000 | $3,820 | $3,825 | $7,645 | $42,355 |
+| $60,000 | $5,262 | $4,590 | $9,852 | $50,148 |
+| $75,000 | $8,620 | $5,738 | $14,358 | $60,642 |
+| $100,000 | $13,382 | $7,650 | $21,032 | $78,968 |
+
+## Why Are Taxes Taken Out of Each Paycheck?
+
+The US uses a **pay-as-you-go** tax system. Instead of paying your entire tax bill in April, you pay throughout the year via paycheck withholding.
+
+### How It Works
+
+1. Your employer estimates your annual tax based on your W-4
+2. They divide that by the number of pay periods
+3. Each paycheck, they send that amount to the IRS on your behalf
+4. At tax time (April), you reconcile:
+   - If you overpaid → you get a refund
+   - If you underpaid → you owe more
+
+### Why Not Pay Everything in April?
+
+The IRS requires quarterly tax payments. If you waited until April to pay everything, you'd face:
+- A massive bill (potentially $10,000+)
+- Underpayment penalties
+- Cash flow problems for the government
+
+### How to Adjust Your Withholding
+
+File a new [W-4 form](/irs-withholding-calculator) with your employer to:
+- **Increase withholding** (if you owed taxes last year)
+- **Decrease withholding** (if you got a large refund)
+
+## Is Federal Income Tax 20%?
+
+No. Federal income tax is **progressive**, meaning different portions of your income are taxed at different rates:
+
+| Portion of Income (Single, 2026) | Tax Rate |
+|----------------------------------|---------|
+| $0 - $11,925 | 10% |
+| $11,926 - $48,475 | 12% |
+| $48,476 - $103,350 | 22% |
+| $103,351 - $197,300 | 24% |
+| $197,301 - $250,525 | 32% |
+| $250,526 - $626,350 | 35% |
+| Over $626,350 | 37% |
+
+Your **effective rate** (average rate you actually pay) is always lower than your **marginal rate** (top bracket). For example, on $50,000 income, your marginal rate is 12%, but your effective rate is only 7.6%.
+
+## Related Calculators
+
+- [Paycheck Calculator](/paycheck-calculator)
+- [IRS Withholding Calculator](/irs-withholding-calculator)
+- [Overtime Tax Calculator](/overtime-tax-calculator)
+- [Salary After Tax by State](/salary)
+- [How Much Tax Will I Owe?](/blog/how-much-tax-will-i-owe-2026)`,
+  "what-is-taxable-income-guide-2026": `# What Is Taxable Income? Complete Guide to What You Pay Taxes On (2026)
+
+"What do you get taxed on?" is one of the most common tax questions in America. The answer is more complex than you might think — some income is fully taxable, some is partially taxable, and some is completely tax-free. This 2026 guide explains every type of taxable and tax-exempt income, with clear examples.
+
+## What Items Do You Pay Taxes On?
+
+### Fully Taxable Income
+
+These income types are 100% subject to federal income tax:
+
+1. **Wages and salaries** — All employment income (W-2)
+2. **Self-employment income** — 1099 income, freelance, contractor (minus business expenses)
+3. **Bonuses and commissions** — Taxed as ordinary income
+4. **Tips** — All tips over $20/month per employer
+5. **Vacation pay** — Taxed as wages
+6. **Severance pay** — Taxed as wages
+7. **Unemployment compensation** — Fully taxable at federal level (some states exempt)
+8. **Capital gains** — Profit from selling investments (short-term at ordinary rates, long-term at 0/15/20%)
+9. **Dividends** — Qualified (15/20%) and ordinary (ordinary income rate)
+10. **Interest income** — Bank interest, bond interest (some municipal bonds exempt)
+11. **Rental income** — Rent received (minus expenses)
+12. **Pension income** — Most pensions are fully taxable
+13. **401(k)/Traditional IRA withdrawals** — Fully taxable as ordinary income
+14. **Annuities** — Portion of annuity payments (depends on basis)
+15. **Gambling winnings** — Fully taxable (lottery, casino, sports betting)
+16. **Alimony received** — Taxable for divorces finalized after 2018
+17. **Jury duty pay** — Taxable as miscellaneous income
+18. **Prizes and awards** — Fair market value is taxable
+19. **Cancellation of debt** — Generally taxable (exceptions exist)
+20. **Royalties** — Taxable as ordinary income
+
+### Partially Taxable Income
+
+1. **Social Security benefits** — 0%, 50%, or 85% taxable depending on combined income
+2. **Annuities** — Only the earnings portion is taxable (return of principal is tax-free)
+3. **Non-qualified dividends** — Taxed at ordinary rate (qualified at lower rate)
+4. **Scholarships** — Tuition/fees tax-free; room/board taxable
+
+## What Income Is Exempt From Taxes?
+
+### Tax-Free Income (Federal)
+
+These income types are **not subject to federal income tax**:
+
+1. **Roth IRA withdrawals** — Qualified withdrawals (59.5+ and 5-year rule) are 100% tax-free
+2. **Roth 401(k) withdrawals** — Same as Roth IRA
+3. **Municipal bond interest** — Interest from state/local government bonds is federal tax-free
+4. **Social Security** (low income) — If combined income < $25,000 (single) or $32,000 (married)
+5. **Veterans' benefits** — Disability compensation, pensions, and education benefits
+6. **Workers' compensation** — Job-related injury/illness benefits
+7. **Child support payments** — Not taxable to the recipient
+8. **Gifts received** — Gifts under $18,000/year per giver (2026)
+9. **Inheritances** — No federal income tax on inherited money
+10. **Life insurance proceeds** — Not taxable as income to beneficiary
+11. **Scholarships** — Tuition, fees, books, supplies (not room/board)
+12. **Welfare benefits** — Public assistance payments
+13. **Supplemental Security Income (SSI)** — Not taxable
+14. **Foster care payments** — For qualified foster individuals
+15. **Disability insurance** — If premiums paid with after-tax dollars
+16. **IRS tax refunds** — Federal tax refunds are not taxable income
+17. **Combat pay** — Military pay earned in a combat zone
+18. **Foreign income exclusion** — Up to $130,000 (2026) if living abroad
+19. **Home sale exclusion** — Up to $250,000 (single) / $500,000 (married) profit tax-free
+20. **HSA withdrawals** — For qualified medical expenses
+
+## What Are the 12 Types of Taxes in the US?
+
+| # | Tax Type | Who Pays | Rate |
+|---|---------|---------|------|
+| 1 | Federal income tax | All earners | 10-37% |
+| 2 | State income tax | Residents of 41 states | 0-13.3% |
+| 3 | FICA (Social Security) | All employees | 6.2% (employer matches) |
+| 4 | Medicare tax | All employees | 1.45% (employer matches) |
+| 5 | State sales tax | Consumers in 45 states | 0-9.56% |
+| 6 | Property tax | Property owners | 0.28-2.49% |
+| 7 | Capital gains tax | Investors | 0/15/20% |
+| 8 | Estate tax | Estates over $13.99M | 40% |
+| 9 | Gift tax | Gifts over $18,000/year | 18-40% |
+| 10 | Excise tax | Consumers (gas, alcohol, tobacco) | Varies |
+| 11 | Self-employment tax | Self-employed | 15.3% |
+| 12 | Corporate income tax | C-Corporations | 21% (federal) |
+
+## What Is the Minimum Salary to Pay Income Tax?
+
+You must file a tax return (and potentially pay tax) if your income exceeds:
+
+| Filing Status | 2026 Filing Threshold | Standard Deduction |
+|--------------|---------------------|-------------------|
+| Single (under 65) | $16,100 | $16,100 |
+| Single (65+) | $17,700 | $17,700 |
+| Married Filing Jointly (both under 65) | $32,200 | $32,200 |
+| Married Filing Jointly (one 65+) | $33,500 | $33,500 |
+| Head of Household (under 65) | $24,150 | $24,150 |
+
+**If your income is below the standard deduction, you owe $0 federal income tax.**
+
+However, you may still owe FICA (7.65%) regardless of income level, and state tax thresholds may differ.
+
+## What Income Pays 37% in Taxes?
+
+The 37% federal tax bracket applies to taxable income over **$626,350** (single filer) or **$751,600** (married filing jointly) in 2026.
+
+**Important**: Only the income ABOVE $626,350 is taxed at 37%. Income below that is taxed at lower rates. A single filer making $700,000 doesn't pay 37% on all $700,000 — only on the $73,650 above the threshold.
+
+## What Is the 60% Trap?
+
+The "60% trap" (or "tax torpedo") refers to the situation where retirees face a **marginal tax rate of 40.7% or higher** (instead of the expected 22%) due to Social Security taxation:
+
+1. Retiree withdraws from 401(k) → increases taxable income
+2. Higher income triggers 85% of Social Security to become taxable
+3. Each additional dollar of 401(k) withdrawal triggers ~$0.85 of Social Security tax
+4. Effective marginal rate jumps from 22% to **40.7%**
+
+**How to avoid it**: Withdraw from Roth accounts (tax-free) to avoid increasing taxable income, or spread withdrawals across multiple years.
+
+## What Are 10 Types of Taxable Income?
+
+1. Wages and salaries
+2. Self-employment income
+3. Investment income (dividends, interest, capital gains)
+4. Rental income
+5. Pension and retirement distributions (401k, IRA)
+6. Social Security benefits (if income exceeds thresholds)
+7. Unemployment compensation
+8. Gambling and lottery winnings
+9. Alimony received (for post-2018 divorces)
+10. Prizes and awards
+
+## Can I Gift Money to My Wife?
+
+**Yes, completely tax-free.** Transfers between spouses are exempt from gift tax. You can transfer any amount to your spouse without tax consequences, as long as:
+
+- Your spouse is a US citizen (unlimited exemption)
+- Your spouse is a non-citizen (annual limit of $190,000 in 2026)
+
+Gifts to others (children, friends) are subject to the $18,000 annual gift exclusion per person.
+
+## How Do I Know If I Have to Pay Taxes?
+
+You need to file a federal tax return if ANY of these apply:
+
+1. Your gross income exceeds the filing threshold ($16,100 single, $32,200 married)
+2. You had self-employment income of $400 or more
+3. You owe special taxes (AMT, additional Medicare, household employment)
+4. You received advance premium tax credits (ACA marketplace)
+5. You had wages of $108.28 or more from a church
+
+Even if you don't owe tax, you should file if you're eligible for refundable credits (EITC, Child Tax Credit).
+
+## Related Resources
+
+- [Paycheck Calculator](/paycheck-calculator)
+- [Federal Tax Brackets](/federal-tax-brackets)
+- [How Much Tax Will I Owe?](/blog/how-much-tax-will-i-owe-2026)
+- [Free Tax Calculator — No Signup](/blog/free-tax-calculator-no-signup-2026)
+- [Tax Glossary](/glossary)`
 };
