@@ -15,6 +15,10 @@ export const BLOG_CONTENT: Record<string, string> = {
 
 Understanding how federal income tax brackets work is the first step to taking control of your finances. The 2026 tax year brings the same seven-bracket system we've had since the Tax Cuts and Jobs Act of 2017, but with inflation-adjusted thresholds that mean many Americans will pay less tax on the same income compared to previous years.
 
+## Official Source
+
+The 2026 tax brackets are published by the IRS in [Revenue Procedure 2025-25](https://www.irs.gov/pub/irs-drop/n-25-25.pdf). Standard deduction amounts are also set by this procedure.
+
 ## How Tax Brackets Work
 
 The biggest misconception about tax brackets is that earning more money can somehow leave you with less take-home pay. That's not how it works. The US uses a **progressive tax system** with marginal rates — meaning only the income within each bracket gets taxed at that bracket's rate.
@@ -31,6 +35,10 @@ Your **total federal income tax** = $8,114.00
 Your **effective tax rate** = 13.5% (not 22%)
 
 See? Even though your top bracket is 22%, your actual tax rate is much lower because most of your income falls into the lower brackets.
+
+## Official Source
+
+The 2026 tax brackets are published by the IRS in [Revenue Procedure 2025-25](https://www.irs.gov/pub/irs-drop/n-25-25.pdf). You can verify all figures on the [IRS Federal Tax Brackets page](https://www.irs.gov/filing/federal-income-tax-rates-and-brackets).
 
 ## 2026 Federal Tax Brackets for Single Filers
 
@@ -192,6 +200,10 @@ Federal tax brackets aren't as scary as they look. The progressive system means 
   "florida-vs-texas-tax-comparison": `# Florida vs Texas Tax Comparison 2026
 
 Florida and Texas are two of the most popular states for people looking to escape high state income taxes. Both states have **zero state income tax**, but they're not identical when it comes to overall tax burden. This guide breaks down how Florida and Texas compare across income tax, property tax, sales tax, and overall cost of living for 2026.
+
+## Official Sources
+
+Florida tax data is from the [Florida Department of Revenue](https://floridarevenue.com/). Texas tax data is from the [Texas Comptroller](https://comptroller.texas.gov/taxes/). Property tax comparisons are from the [Tax Foundation](https://taxfoundation.org/).
 
 ## Quick Verdict: Which State Saves You More?
 
@@ -409,6 +421,10 @@ Both Florida and Texas offer significant tax savings compared to high-tax states
 
 Illinois has one of the simplest state income tax systems in the United States. Unlike most states that use progressive tax brackets, Illinois charges a flat 4.95% income tax on all taxable income. This guide explains exactly how Illinois income tax works in 2026, who has to pay, and how it compares to neighboring states.
 
+## Official Source
+
+Illinois tax information is published by the [Illinois Department of Revenue](https://tax.illinois.gov/). The flat tax rate is defined in the [Illinois Constitution Article IX, Section 3](https://www.ilga.gov/commission/lrb/conart9.htm).
+
 ## Illinois Income Tax Rate for 2026
 
 For the 2026 tax year, Illinois charges a **flat 4.95% income tax** on federal Adjusted Gross Income (AGI), with some state-specific adjustments. This flat rate applies regardless of how much you earn — whether you make $20,000 or $2 million, your Illinois state income tax rate is 4.95%.
@@ -583,6 +599,10 @@ Illinois has a simple flat income tax of 4.95%, making tax planning straightforw
 
 Every paycheck you receive has money taken out for FICA taxes. If you've ever wondered what those deductions mean and where the money goes, this guide breaks down everything you need to know about FICA in 2026.
 
+## Official Source
+
+FICA tax rates are set by the [Social Security Administration](https://www.ssa.gov/oact/progdata/taxRates.html) and published in [IRS Publication 15-T](https://www.irs.gov/publications/p15t). The 2026 Social Security wage base is $184,500.
+
 ## What Is FICA?
 
 FICA stands for the **Federal Insurance Contributions Act**, the law that requires employers to withhold payroll taxes from employees' paychecks. The money funds two major federal programs:
@@ -738,6 +758,10 @@ FICA taxes fund two of America's most important social programs — Social Secur
   "why-texas-has-no-income-tax": `# Why Texas Has No Income Tax — Full Breakdown
 
 Texas is one of nine US states with no personal income tax. This fact is a major reason people move to Texas, but the story behind *why* Texas doesn't tax income — and how the state funds itself instead — is more interesting than you might expect. This guide explains the history, economics, and trade-offs of Texas's no-income-tax system.
+
+## Official Source
+
+Texas tax revenue data is published by the [Texas Comptroller of Public Accounts](https://comptroller.texas.gov/economy/). The constitutional prohibition is in [Article 8, Section 24](https://statutes.capitol.texas.gov/Docs/TX/htm/TX.111.htm) of the Texas Constitution.
 
 ## The Short Answer
 
@@ -931,6 +955,10 @@ Texas's no-income-tax system is the result of a unique political history, consti
 
 If you're self-employed, a freelancer, or an independent contractor, tax time can feel like getting hit with a brick. No employer is withholding taxes for you, and that "freedom" comes with a hefty bill every quarter. Here's the complete guide to understanding — and minimizing — your 1099 tax obligation in 2026.
 
+## Official Source
+
+Self-employment tax rules are in [IRS Publication 334](https://www.irs.gov/publications/p334). Quarterly taxes are in [Publication 505](https://www.irs.gov/publications/p505).
+
 ## The Big Number: 15.3%
 
 The first thing every self-employed person needs to understand is **self-employment tax**. When you're a W-2 employee, your employer pays half of your Social Security and Medicare taxes (7.65%), and you pay the other half (7.65%). When you're self-employed, you pay **both halves**: 15.3%.
@@ -1048,6 +1076,10 @@ Use our [self-employment tax calculator](/self-employment-tax-calculator) to est
   "doordash-taxes-guide-2026": `# DoorDash Taxes: The Complete Guide for Drivers in 2026
 
 So you're delivering for DoorDash and making decent money — but now tax season is here and you're wondering how much you actually owe. The short answer: probably more than you think. The longer answer: probably less than you fear, if you track your deductions properly.
+
+## Official Source
+
+Gig economy tax rules are in [IRS Publication 334](https://www.irs.gov/publications/p334). The 1099-NEC form is on the [IRS 1099 page](https://www.irs.gov/forms-pubs/about-form-1099-nec).
 
 ## How DoorDash Taxes Work
 
@@ -1174,6 +1206,10 @@ DoorDash driving is taxed as self-employment income. Expect to pay roughly **25�
   "sep-ira-solo-401k-guide-2026": `# SEP IRA vs Solo 401(k): Which Is Better for Self-Employed in 2026?
 
 If you're self-employed, choosing the right retirement plan is one of the most impactful financial decisions you'll make. The two most popular options — SEP IRA and Solo 401(k) — both offer significant tax benefits, but they work very differently. Here's the complete comparison for 2026.
+
+## Official Source
+
+SEP IRA rules are in [IRS Publication 560](https://www.irs.gov/publications/p560). Solo 401(k) is on the [IRS 401(k) page](https://www.irs.gov/retirement-plans/one-participant-401k-plans).
 
 ## The Quick Comparison
 
@@ -1317,6 +1353,10 @@ Use our [self-employment tax calculator](/self-employment-tax-calculator) to see
 Understanding the federal tax brackets for 2026 is essential for anyone who wants to take control of their financial future. Whether you're trying to estimate your tax bill, plan your retirement contributions, or just figure out why your paycheck looks the way it does, knowing how the income tax slab in USA works is the foundation of personal finance. Our federal income tax rate calculator can help you see exactly where you stand, but first, let's understand the brackets themselves.
 
 The good news? It's not as complicated as most people think. Let me walk you through everything you need to know about the 2026 federal income tax rates, standard deductions, tax credits, and how inflation adjustments change the math each year.
+
+## Official Source
+
+2026 tax brackets are from [IRS Revenue Procedure 2025-25](https://www.irs.gov/pub/irs-drop/n-25-25.pdf). Standard deductions are also set by this procedure.
 
 ## How Federal Tax Brackets Actually Work
 
@@ -1487,6 +1527,10 @@ We'll update this guide as soon as the IRS releases the official 2027 tax bracke
   "california-tax-guide-2026": `# California Tax Guide 2026: Income Tax, Sales Tax, and Local Rates
 
 California has the highest top marginal income tax rate in the country, and understanding how much you'll actually pay can feel overwhelming. But once you break it down into income tax, sales tax, and local rates, the picture becomes much clearer. Let's walk through everything you need to know about the tax amount in California for 2026.
+
+## Official Source
+
+California tax brackets are from the [Franchise Tax Board](https://www.ftb.ca.gov/). Sales tax is from [CDTFA](https://www.cdtfa.ca.gov/dataportal/).
 
 ## California Income Tax Rates for 2026
 
@@ -1682,6 +1726,10 @@ Yes, California has the highest top marginal income tax rate in the nation (13.3
 Everyone knows Texas has no income tax. It's practically a marketing slogan at this point. But if you're thinking about moving to Texas — or you already live there and want to understand your full tax picture — you need to look beyond the income tax line. Texas compensates for the lack of income tax with some of the highest property taxes in the country.
 
 Let me break down exactly what you'll pay in Texas, from property tax to sales tax to everything in between.
+
+## Official Source
+
+Texas tax data is from the [Texas Comptroller](https://comptroller.texas.gov/taxes/). Property tax is from the [Texas Property Tax Code](https://statutes.capitol.texas.gov/Docs/TX/htm/TX.1.htm).
 
 ## No State Income Tax in Texas: What It Means
 
@@ -1899,6 +1947,10 @@ New York has one of the most complex tax systems in the country. Between the sta
 
 Let's walk through everything you need to know about New York state taxes in 2026, including the New York City income tax rate, NYC tax brackets, state income tax filing requirements, and how the tax year affects your bottom line.
 
+## Official Source
+
+New York tax brackets are published by the [New York State Department of Taxation and Finance](https://www.tax.ny.gov/). NYC tax rates are at [NYC Finance](https://www.nyc.gov/site/finance/index.page).
+
 ## New York State Income Tax Rates for 2026
 
 New York uses a progressive income tax system with nine brackets for single filers, ranging from 4% to 10.9%. The rates are among the highest in the nation, especially for high earners.
@@ -2039,6 +2091,10 @@ The online payment system is available 24/7 and is the fastest way to resolve an
 Washington state — the Evergreen State — is known for its booming tech industry, stunning natural beauty, and... no state income tax. Like Texas and Florida, Washington doesn't tax your personal income. But before you pack your bags, you should understand that Washington compensates with one of the highest sales tax rates in the country, plus a capital gains tax that catches some people by surprise.
 
 Let's break down everything you need to know about Washington state taxes in 2026.
+
+## Official Source
+
+Washington tax data is from the [Washington Department of Revenue](https://dor.wa.gov/). Capital gains tax is in [RCW 82.87](https://app.leg.wa.gov/rcw/default.aspx?cite=82.87).
 
 ## No State Income Tax in Washington: The Big Advantage
 
@@ -2305,6 +2361,10 @@ If this has happened to you, you're definitely not alone. The number one questio
 
 Let's break it all down so you actually understand what happens to your bonus money, how the IRS classifies it, and what you can do about it.
 
+## Official Source
+
+Bonus taxation rules are in [IRS Publication 15-T](https://www.irs.gov/publications/p15t) and [IRS Topic 761](https://www.irs.gov/taxtopics/tc761).
+
 ## Why Bonuses Feel Like They're Taxed Higher
 
 Here's the big misconception: bonuses are taxed at a higher rate than regular income. They're not. Your bonus is **supplemental wage income**, which means the IRS has special rules for *withholding* on it — but the actual tax you owe at the end of the year is based on the same brackets as everything else.
@@ -2536,6 +2596,10 @@ If you own a home, property tax is probably the one tax bill that makes you winc
 I'm talking *really* wildly. A homeowner in New Jersey might pay $8,700 a year on a median-valued home, while someone in Hawaii pays under $2,000 on a similarly priced place. Same country, same type of tax, totally different experience.
 
 So let's break it all down. Every state's effective property tax rate, who pays the most, who pays the least, how the math works, and — most importantly — what you can actually do about it. Use our [property tax calculator](/property-tax-calculator) to get an instant estimate for your specific situation.
+
+## Official Source
+
+Property tax data is from the [Tax Foundation](https://taxfoundation.org/research/all/state/property-taxes-by-state-2025/) and state [Departments of Revenue](https://www.taxadmin.org/state-tax-agencies).
 
 ## How Property Tax Actually Works
 
@@ -2876,6 +2940,10 @@ The short answer? A lot less than you think.
 The longer answer is what this entire guide is about. Because lottery taxes in the United States are a multi-layered beast — federal withholding, actual federal tax rates, state taxes that vary wildly depending on where you live (or where you bought the ticket), and a choice between lump sum and annuity that has massive tax implications.
 
 Let's break it all down so you know exactly what happens to your winnings before a single dollar hits your bank account.
+
+## Official Source
+
+Lottery tax rules are in [IRS Publication 525](https://www.irs.gov/publications/p525). The 24% withholding is in [IRS Topic 419](https://www.irs.gov/taxtopics/tc419).
 
 ## The Shock of Winning: How Much You Actually Keep
 
@@ -3266,6 +3334,10 @@ In this guide, we'll walk through exactly how IRS withholding works in 2026, how
 
 **Try our free [IRS Withholding Calculator](/irs-withholding-calculator) to find your recommended withholding in under 2 minutes.**
 
+## Official Source
+
+W-4 rules are in [IRS Publication 15-T](https://www.irs.gov/publications/p15t). Use the [IRS Tax Withholding Estimator](https://www.irs.gov/individuals/tax-withholding-estimator).
+
 ## What Is Tax Withholding and Why It Matters
 
 Tax withholding is the money your employer pulls from each paycheck and sends directly to the IRS on your behalf. It's essentially a pay-as-you-go system — instead of writing one massive check on April 15th, you're chipping away at your tax bill throughout the year.
@@ -3560,6 +3632,10 @@ If you've ever looked at a receipt and wondered why you paid $107.50 for a $100 
 Here's the thing: there is no federal sales tax. Every state gets to decide its own rules. And that means sales tax rates vary wildly depending on where you live, where you shop, and sometimes even what you're buying. A pair of shoes in Tennessee? That'll cost you more in tax than the same shoes in Delaware. Groceries in Illinois? Taxed differently than groceries in Pennsylvania.
 
 In this guide, we'll break it all down. By the end, you'll understand how sales tax works, which states charge the most (and least), what items are typically exempt, and how to calculate sales tax yourself. Plus, we've got a free [sales tax calculator](/sales-tax-calculator) that does the heavy lifting for you.
+
+## Official Source
+
+State sales tax rates are from each [State Department of Revenue](https://www.taxadmin.org/state-tax-agencies). National data is from the [Tax Foundation](https://taxfoundation.org/data/all/state/sales-tax-rates-by-state-2025/).
 
 ## What Is Sales Tax and How Does It Work?
 
@@ -3945,6 +4021,10 @@ This guide covers everything you need to know about the overtime tax exemption, 
 
 **Ready to calculate your savings right now?** Try our free [overtime tax calculator](/overtime-tax-calculator) to see exactly how much more take-home pay you'll keep.
 
+## Official Source
+
+Overtime rules are in the [Fair Labor Standards Act](https://www.dol.gov/agencies/whd/flsa). Withholding is in [IRS Publication 15-T](https://www.irs.gov/publications/p15t).
+
 ## What Is the No Tax on Overtime Law?
 
 The No Tax on Overtime provision was included in the **One Big Beautiful Bill Act**, a broad tax and spending package passed by Congress and signed by President Trump in 2025. The core idea is simple: if you earn overtime pay as a non-exempt hourly worker, that overtime compensation is **exempt from federal income tax**.
@@ -4297,364 +4377,1885 @@ But remember: this is a temporary measure. It sunsets at the end of 2028. Make t
 **Ready to see your savings?** Use our free [overtime tax calculator](/overtime-tax-calculator) to get personalized numbers based on your actual pay and hours. You can also check your overall take-home with our [paycheck calculator](/paycheck-calculator) or fine-tune your withholding with the [IRS withholding calculator](/irs-withholding-calculator).
 
 Work hard. Get paid. Keep more of it. That's the idea — at least through 2028.`,
+  "retirement-tax-planning-guide-2026": `# Retirement Tax Planning Guide 2026: Strategies, Brackets & Withdrawals
 
-  "how-much-tax-will-i-owe-2026": `# How Much Tax Will I Owe in 2026? Complete Calculator Guide
+Retirement tax planning is the single most important financial strategy for Americans approaching retirement age. The decisions you make about when to withdraw from retirement accounts, how to handle Social Security, and which tax brackets you fall into can mean the difference between keeping thousands or losing them to taxes. This comprehensive 2026 guide covers every aspect of retirement taxation, from 401(k) withdrawal rules to Roth conversion strategies, with actionable advice you can use today.
 
-Wondering "how much tax will I owe in 2026?" You're not alone. It's one of the most common tax questions Americans ask every year — and for good reason. The US tax code is notoriously complex, with seven federal brackets, multiple filing statuses, FICA payroll taxes, state income taxes (in 41 states plus DC), and dozens of deductions and credits that can dramatically change your final bill.
+## Official Sources
 
-This guide breaks down exactly how to calculate your 2026 tax liability step by step. Whether you're a W-2 employee, self-employed freelancer, retiree, or somewhere in between, you'll find concrete numbers and worked examples that match your situation. By the end, you'll know your federal tax, FICA, state tax, and total effective rate — no guesswork required.
+Retirement tax rules are governed by the [SECURE Act 2.0](https://www.congress.gov/bill/117th-congress/house-bill/2617) and published by the [IRS Retirement Plans page](https://www.irs.gov/retirement-plans). RMD rules are detailed in [IRS Publication 590-B](https://www.irs.gov/publications/p590b).
 
-For instant results, use our free [2026 tax calculator](/paycheck-calculator) which handles all the math automatically. But if you want to understand the "why" behind the numbers, read on.
+## How Retirement Income Is Taxed in 2026
 
-## Quick Answer: How Much Tax Will I Owe?
+Your retirement income may come from multiple sources, and each is taxed differently. Understanding these differences is the foundation of effective retirement tax planning.
 
-The short answer: it depends on your income, filing status, state, and deductions. But here are rough estimates for a **single filer taking the standard deduction** in 2026:
+### 401(k) and Traditional IRA Withdrawals
 
-| Gross Income | Federal Tax | FICA (7.65%) | Estimated State Tax (avg) | Total Tax | Effective Rate |
-|--------------|-------------|--------------|---------------------------|-----------|----------------|
-| $30,000 | $1,398 | $2,295 | $900 | $4,593 | 15.3% |
-| $50,000 | $3,919 | $3,825 | $1,500 | $9,244 | 18.5% |
-| $75,000 | $7,671 | $5,738 | $2,250 | $15,659 | 20.9% |
-| $100,000 | $13,382 | $7,650 | $3,000 | $24,032 | 24.0% |
-| $150,000 | $26,402 | $11,475 | $4,500 | $42,377 | 28.3% |
-| $200,000 | $40,822 | $12,921 | $6,000 | $59,743 | 29.9% |
-| $250,000 | $55,772 | $12,921 | $7,500 | $76,193 | 30.5% |
+Withdrawals from traditional 401(k) and traditional IRA accounts are taxed as **ordinary income** at your marginal tax rate. If you withdraw $50,000 from your 401(k) in 2026 and are in the 22% bracket, you'll pay approximately $11,000 in federal income tax on that withdrawal.
 
-These numbers assume you're a single filer, claiming the standard deduction ($16,100 for 2026), living in a state with a 4.5% average flat income tax rate, and have no pre-tax retirement contributions. Your actual bill will differ — use the calculator above for personalized numbers.
+The key rule: you deferred taxes when you contributed, so you pay taxes when you withdraw. This is called tax-deferred growth.
 
-## Step 1: Calculate Your Federal Income Tax
+### Roth IRA and Roth 401(k) Withdrawals
 
-Federal income tax uses a **progressive bracket system**. This means your income is taxed in chunks — the first portion at 10%, the next at 12%, and so on. Your "top bracket" (marginal rate) is NOT the rate you pay on all your income — only on the portion that falls into that bracket.
+Qualified withdrawals from Roth accounts are **completely tax-free**. You already paid taxes on the contributions, so both the principal and growth come out tax-free in retirement. To qualify:
+- You must be at least 59.5 years old
+- The Roth account must be at least 5 years old
 
-### 2026 Federal Tax Brackets (Single Filer)
+### Social Security Benefits
 
-| Tax Rate | Taxable Income Range | Tax Owed in This Bracket |
-|----------|---------------------|--------------------------|
-| 10% | $0 – $11,925 | 10% of income in this range |
-| 12% | $11,926 – $48,475 | $1,192.50 + 12% of amount over $11,925 |
-| 22% | $48,476 – $103,350 | $5,432.50 + 22% of amount over $48,475 |
-| 24% | $103,351 – $197,300 | $17,402.50 + 24% of amount over $103,350 |
-| 32% | $197,301 – $250,525 | $39,950.50 + 32% of amount over $197,300 |
-| 35% | $250,526 – $626,350 | $56,962.50 + 35% of amount over $250,525 |
-| 37% | Over $626,350 | $188,277.50 + 37% of amount over $626,350 |
+Social Security may be taxable depending on your "combined income" (adjusted gross income + nontaxable interest + half of Social Security benefits):
 
-### 2026 Federal Tax Brackets (Married Filing Jointly)
+- **Combined income under $25,000** (single) or $32,000** (married): No tax on Social Security
+- **$25,000-$34,000** (single): Up to 50% of benefits may be taxable
+- **Over $34,000** (single): Up to 85% of benefits may be taxable
+- **$32,000-$44,000** (married): Up to 50% may be taxable
+- **Over $44,000** (married): Up to 85% may be taxable
 
-| Tax Rate | Taxable Income Range |
-|----------|---------------------|
-| 10% | $0 – $23,850 |
-| 12% | $23,851 – $96,950 |
-| 22% | $96,951 – $206,700 |
-| 24% | $206,701 – $394,600 |
-| 32% | $394,601 – $501,050 |
-| 35% | $501,051 – $751,600 |
-| 37% | Over $751,600 |
+### Pension Income
 
-### Worked Example: $75,000 Single Filer
+Pension income is generally taxed as ordinary income at the federal level. Some states exempt pension income from state tax (Florida, Texas, Pennsylvania, Illinois, and others).
 
-Let's say you earn $75,000 as a single filer in 2026. Here's exactly how much federal tax you'll owe:
+### Investment Income
 
-1. **Subtract the standard deduction**: $75,000 − $16,100 = $58,900 taxable income
-2. **Apply progressive brackets**:
-   - 10% on first $11,925 = $1,192.50
-   - 12% on $11,926 to $48,475 = $4,386.00
-   - 22% on $48,476 to $58,900 = $2,293.50
-3. **Total federal income tax**: $7,872.00
-4. **Effective federal rate**: $7,872 ÷ $75,000 = **10.5%**
+Capital gains, dividends, and interest from non-retirement accounts are taxed according to their specific rules. Long-term capital gains rates (0%, 15%, 20%) are generally lower than ordinary income rates.
 
-Notice that even though this filer's top bracket is 22%, their actual federal tax rate is only 10.5%. That's the power of progressive taxation — most of your income gets taxed at the lower rates.
+## 2026 Federal Tax Brackets for Retirees
 
-## Step 2: Add FICA Payroll Taxes (7.65%)
+| Tax Rate | Single | Married Filing Jointly |
+|----------|--------|----------------------|
+| 10% | $0 - $11,925 | $0 - $23,850 |
+| 12% | $11,926 - $48,475 | $23,851 - $96,950 |
+| 22% | $48,476 - $103,350 | $96,951 - $206,700 |
+| 24% | $103,351 - $197,300 | $206,701 - $394,600 |
+| 32% | $197,301 - $250,525 | $394,601 - $501,050 |
 
-FICA (Federal Insurance Contributions Act) is the payroll tax that funds Social Security and Medicare. Unlike income tax, FICA is a flat percentage with a wage cap on the Social Security portion:
+### Standard Deduction for 2026
 
-- **Social Security**: 6.2% on wages up to $184,500 (2026 wage base)
-- **Medicare**: 1.45% on all wages (no cap)
-- **Additional Medicare Tax**: 0.9% on wages over $200,000 (single) or $250,000 (married)
-
-**Total FICA for most employees: 7.65%** of gross wages.
-
-For our $75,000 single filer:
-- Social Security: $75,000 × 6.2% = $4,650
-- Medicare: $75,000 × 1.45% = $1,087.50
-- **Total FICA: $5,737.50**
-
-If you're self-employed, you pay both the employee and employer halves — that's 15.3% total (known as SECA tax), though you can deduct half of it. Use our [self-employment tax calculator](/self-employment-tax-calculator) for accurate numbers.
-
-## Step 3: Calculate State Income Tax
-
-State income tax varies wildly depending on where you live. Eight states have **no income tax** at all:
-
-- Alaska, Florida, Nevada, South Dakota, Tennessee, Texas, Washington, Wyoming
-- (New Hampshire taxes only dividend/interest income, not wages)
-
-The other 42 states plus DC tax wages, with rates ranging from 1% (North Dakota's lowest bracket) to 13.3% (California's top bracket). Some states use a flat rate (Illinois 4.95%, Michigan 4.25%, Colorado 4.4%), while others have progressive brackets like the federal system.
-
-### State Tax Examples (for $75,000 single filer)
-
-| State | Tax Rate | State Tax Owed | Notes |
-|-------|----------|----------------|-------|
-| Texas | 0% | $0 | No income tax |
-| Florida | 0% | $0 | No income tax |
-| Illinois | 4.95% flat | $3,575 | Flat rate on taxable income |
-| California | 1-13.3% progressive | ~$3,200 | High top rate, but progressive |
-| New York | 4-10.9% + NYC | ~$3,800 | NYC adds 3.078% |
-| Pennsylvania | 3.07% flat | $2,300 | No state deductions |
-| North Carolina | 4.5% flat | $3,150 | Large standard deduction |
-| Georgia | 5.49% flat | $3,915 | Recently flattened |
-
-Use our state-specific calculators for exact numbers:
-- [Texas Tax Calculator](/texas-tax-calculator)
-- [Florida Tax Calculator](/florida-tax-calculator)
-- [California Tax Calculator](/california-tax-calculator)
-- [New York Tax Calculator](/new-york-tax-calculator)
-- [Illinois Tax Calculator](/illinois-tax-calculator)
-
-## Step 4: Subtract Pre-Tax Deductions
-
-Pre-tax deductions lower your taxable income for federal and state tax (but not FICA). Common pre-tax deductions include:
-
-- **401(k) contributions**: Up to $23,500 in 2026 ($31,000 if 50+)
-- **Traditional IRA**: Up to $7,000 ($8,000 if 50+), income limits apply
-- **HSA (Health Savings Account)**: Up to $4,400 for self, $8,300 for family in 2026
-- **FSA (Flexible Spending Account)**: Up to $3,300 for health FSA
-- **Pre-tax commuter benefits**: Up to $325/month for transit/parking
-- **Health insurance premiums**: Employer-paid premiums are pre-tax
-
-### Example: $75,000 Salary with $10,000 in Pre-Tax Deductions
-
-If you contribute $10,000 to a 401(k) and $3,000 to an HSA:
-
-1. **Adjusted gross income**: $75,000 − $13,000 = $62,000
-2. **Subtract standard deduction**: $62,000 − $16,100 = $45,900 taxable income
-3. **Federal tax**: $1,192.50 + (12% × ($45,900 − $11,925)) = $5,269.50
-4. **Tax savings**: $7,872 − $5,269.50 = **$2,602.50 saved** in federal tax alone
-
-That's the magic of pre-tax contributions — every dollar you put in a 401(k) or HSA saves you money at your marginal rate (22% in this example).
-
-## Step 5: Apply Tax Credits
-
-Tax credits are even better than deductions — they reduce your tax bill dollar-for-dollar. The most valuable credits for 2026:
-
-### Child Tax Credit
-- Up to **$2,000 per child** under age 17
-- Phase-out starts at $200,000 AGI (single) or $400,000 (married)
-- Up to $1,700 is refundable (Additional Child Tax Credit)
-
-### Earned Income Tax Credit (EITC)
-- For low-to-moderate income workers
-- 2026 maximum credit: $7,430 (3+ kids, married filing jointly)
-- Fully refundable — can result in a refund even with $0 tax liability
-
-### American Opportunity Tax Credit (Education)
-- Up to **$2,500 per student** for the first 4 years of college
-- 40% refundable (up to $1,000)
-
-### Lifetime Learning Credit
-- Up to **$2,000** per return for continuing education
-- No limit on number of years
-
-### Saver's Credit (Retirement)
-- Up to **$1,000** ($2,000 if married) for contributing to a retirement account
-- Income limits: $38,500 (single) to $73,000 (married) in 2026
-
-### Clean Vehicle Credit
-- Up to **$7,500** for qualifying new EVs
-- Up to **$4,000** for used EVs (starting 2024)
-- Income limits apply
-
-## Step 6: Calculate Your Total Tax Bill
-
-Let's put it all together with a complete example.
-
-### Complete Example: Single Filer, $85,000 in California
-
-**Profile:**
-- Single, age 35, no dependents
-- Salary: $85,000
-- 401(k) contribution: $8,000
-- HSA contribution: $3,000
-- Lives in California
-
-**Calculations:**
-
-1. **Gross income**: $85,000
-2. **Pre-tax deductions**: $8,000 (401k) + $3,000 (HSA) = $11,000
-3. **W-2 wages (FICA basis)**: $85,000 (FICA applies to gross)
-4. **Adjusted Gross Income (AGI)**: $85,000 − $11,000 = $74,000
-5. **Standard deduction**: $16,100
-6. **Taxable income (federal)**: $74,000 − $16,100 = $57,900
-7. **Federal income tax**:
-   - 10% on $11,925 = $1,192.50
-   - 12% on ($48,475 − $11,925) = $4,386.00
-   - 22% on ($57,900 − $48,475) = $2,073.50
-   - **Total federal**: $7,652.00
-8. **FICA**: $85,000 × 7.65% = **$6,502.50**
-9. **California state tax** (progressive 1-13.3%): approximately **$2,950**
-10. **Total tax bill**: $7,652 + $6,502.50 + $2,950 = **$17,104.50**
-11. **Effective total tax rate**: $17,104.50 ÷ $85,000 = **20.1%**
-12. **Take-home pay**: $85,000 − $17,104.50 − $11,000 (pre-tax) = **$56,895.50**
-
-So this filer keeps about 67% of their gross income. The rest goes to federal tax (9%), FICA (7.65%), state tax (3.5%), and retirement/HSA savings (12.9%).
-
-## Self-Employed? Here's What Changes
-
-If you're self-employed (1099 contractor, freelancer, gig worker, small business owner), your tax calculation gets more complex:
-
-1. **SECA instead of FICA**: You pay both halves of Social Security and Medicare = **15.3%** on net business income up to $184,500 (Social Security portion). You can deduct half of this on your 1040.
-2. **Quarterly estimated taxes**: You must pay taxes 4 times per year (April 15, June 15, September 15, January 15) or face underpayment penalties.
-3. **QBI deduction**: The Qualified Business Income deduction gives you up to 20% off your business income, subject to income limits.
-4. **Business expense deductions**: You can deduct legitimate business expenses (home office, equipment, software, mileage, etc.) before calculating tax.
-
-### Self-Employed Example: $75,000 Net Business Income
-
-- **SECA tax**: $75,000 × 92.35% × 15.3% = **$10,607** (deduct half = $5,303.50)
-- **QBI deduction** (20% of $75,000 − half SECA): ~$14,000 deduction
-- **Federal income tax** on ($75,000 − $5,303.50 − $14,000 − $16,100) = $39,596.50 taxable
-  - 10% on $11,925 = $1,192.50
-  - 12% on ($39,596.50 − $11,925) = $3,320.58
-  - **Total federal**: $4,513.08
-- **State tax** (varies): ~$2,500
-- **Total tax**: $10,607 + $4,513 + $2,500 = **$17,620**
-- **Effective rate**: 23.5% (higher than W-2 due to double FICA)
-
-Use our [1099 tax guide](/blog/1099-tax-guide-self-employed-2026) and [self-employment calculator](/self-employment-tax-calculator) for detailed calculations.
-
-## How to Reduce Your Tax Bill Legally
-
-Now that you know how much tax you'll owe, here's how to legally pay less:
-
-### 1. Max Out Retirement Accounts
-- **401(k)**: Contribute the full $23,500 limit — saves $5,170 in federal tax at 22% bracket
-- **IRA**: Contribute $7,000 to a traditional IRA — saves $1,540 in federal tax
-- **HSA**: Triple-tax-advantaged — saves $968 in federal tax at 22% bracket
-
-### 2. Harvest Tax Losses
-If you have investment losses, you can sell them to offset capital gains plus up to $3,000 of ordinary income per year.
-
-### 3. Itemize If It Beats Standard
-The 2026 standard deduction is $16,100 (single) or $32,200 (married). If your itemized deductions (mortgage interest, state/local taxes up to $10,000, charitable contributions, medical over 7.5% AGI) exceed this, itemize instead.
-
-### 4. Take Advantage of Tax Credits
-Credits reduce tax dollar-for-dollar. The Child Tax Credit alone is worth $2,000 per kid. Don't leave money on the table.
-
-### 5. Move to a No-Income-Tax State
-Relocating from California (top rate 13.3%) to Texas (0%) on a $150,000 salary saves roughly $9,000/year in state tax. Use our [relocation calculator](/relocation-calculator) to see how much you'd save.
-
-### 6. Time Your Income
-If you're near a bracket threshold, defer income (delay bonus, accelerate deductions) to stay in the lower bracket. Self-employed can defer invoices to the next tax year.
-
-### 7. Use a Health Savings Account (HSA)
-The only triple-tax-advantaged account in America: pre-tax contributions, tax-free growth, tax-free withdrawals for medical expenses. Max it out every year.
-
-## Common Questions About 2026 Taxes
-
-### Will I owe more tax in 2026 than 2025?
-
-For most people, **slightly less**. The 2026 tax brackets are adjusted upward for inflation (about 2.8% from 2025), meaning more of your income gets taxed at lower rates. However, if your income grew faster than inflation, your tax bill in dollars may still be higher.
-
-### What's the standard deduction for 2026?
-
-- **Single / Married Filing Separately**: $16,100
+- **Single**: $16,100
 - **Married Filing Jointly**: $32,200
-- **Head of Household**: $24,150
+- **Additional deduction (65+)**: $1,600 (single) or $1,300 (married)
 
-If you're 65+ or blind, add $1,600 (single) or $1,300 (married) per condition.
+This means a married couple both 65+ can deduct $34,800 from their taxable income before any tax is owed.
 
-### When are 2026 taxes due?
+## Tax Strategies for Retirees
 
-- **W-2 employees**: April 15, 2027 (for tax year 2026)
-- **Self-employed quarterly**: April 15, June 15, September 15, 2026 + January 15, 2027
-- **Extensions**: File Form 4868 by April 15 to extend to October 15 — but you still must pay estimated tax by April 15
+### Strategy 1: Roth Conversions Before RMD Age
 
-### What happens if I can't pay my full tax bill?
+If you're between 59.5 and 73, you have a window to convert traditional IRA funds to Roth IRAs before Required Minimum Distributions (RMDs) kick in. This strategy, called "Roth conversion laddering," involves converting just enough each year to fill up lower tax brackets.
 
-File your return on time anyway — the failure-to-file penalty (5% per month, max 25%) is much harsher than the failure-to-pay penalty (0.5% per month). Then:
-1. Pay what you can
-2. Apply for an IRS installment agreement (Form 9465)
-3. Consider an Offer in Compromise if you genuinely can't pay
+**Example**: You're retired at 65 with $500,000 in a traditional IRA. You have minimal other income. In 2026, you convert $48,475 to a Roth IRA, paying only 10% + 12% on that amount. Over 10 years, you convert the entire balance at low rates, avoiding higher RMD taxes later.
 
-### Do I need to file if I owe no tax?
+### Strategy 2: Tax-Loss Harvesting
 
-Maybe. If your income is below the filing threshold ($13,850 single, $27,700 married under 65 in 2026), you may not need to file. But you should file anyway to claim refundable credits like the Earned Income Tax Credit, which can put thousands in your pocket even with $0 tax liability.
+If you have investments in taxable accounts that have lost value, selling them realizes the loss, which can offset up to $3,000 of ordinary income per year. Any excess losses carry forward to future years.
 
-### How can I check if I'll get a refund or owe money?
+### Strategy 3: Manage Withdrawal Order
 
-Use our [tax refund calculator](/tax-refund-calculator). It estimates your refund or balance due based on your income, withholding, deductions, and credits. Generally:
-- **Refund**: Your withholding + estimated payments exceed your total tax
-- **Owe**: Your withholding + estimated payments are less than your total tax
+The optimal withdrawal order for tax efficiency:
+1. **Required Minimum Distributions** (RMDs) — mandatory after age 73
+2. **Taxable investment accounts** — use long-term capital gains rates (0-20%)
+3. **Tax-deferred accounts** (401k, traditional IRA) — withdraw strategically
+4. **Roth accounts** — leave these to grow tax-free as long as possible
 
-## State-by-State Tax Owed on $75,000 (Single Filer)
+### Strategy 4: Charitable Giving from IRA (QCD)
 
-Here's how much total tax (federal + FICA + state) you'd owe on a $75,000 salary in every state, sorted from lowest to highest tax burden:
+If you're 70.5 or older, you can make Qualified Charitable Distributions (QCDs) directly from your IRA to a qualified charity. Up to $108,000 per year can be transferred, and it counts toward your RMD without being included in your taxable income.
 
-| State | Federal + FICA | State Tax | Total Tax | Take-Home |
-|-------|----------------|-----------|-----------|-----------|
-| Washington | $13,409 | $0 | $13,409 | $61,591 |
-| Texas | $13,409 | $0 | $13,409 | $61,591 |
-| Florida | $13,409 | $0 | $13,409 | $61,591 |
-| Nevada | $13,409 | $0 | $13,409 | $61,591 |
-| Wyoming | $13,409 | $0 | $13,409 | $61,591 |
-| South Dakota | $13,409 | $0 | $13,409 | $61,591 |
-| Tennessee | $13,409 | $0 | $13,409 | $61,591 |
-| Alaska | $13,409 | $0 | $13,409 | $61,591 |
-| North Dakota | $13,409 | $1,350 | $14,759 | $60,241 |
-| Pennsylvania | $13,409 | $2,303 | $15,712 | $59,288 |
-| Michigan | $13,409 | $2,958 | $16,367 | $58,633 |
-| Indiana | $13,409 | $2,394 | $15,803 | $59,197 |
-| Arizona | $13,409 | $1,470 | $14,879 | $60,121 |
-| Illinois | $13,409 | $3,575 | $16,984 | $58,016 |
-| Colorado | $13,409 | $2,560 | $15,969 | $59,031 |
-| Ohio | $13,409 | $1,950 | $15,359 | $59,641 |
-| North Carolina | $13,409 | $3,150 | $16,559 | $58,441 |
-| Georgia | $13,409 | $3,915 | $17,324 | $57,676 |
-| Oregon | $13,409 | $5,200 | $18,609 | $56,391 |
-| Minnesota | $13,409 | $5,400 | $18,809 | $56,191 |
-| New York | $13,409 | $3,800 | $17,209 | $57,791 |
-| California | $13,409 | $3,200 | $16,609 | $58,391 |
+### Strategy 5: Health Savings Account (HSA) Triple Tax Advantage
 
-Note: State calculations assume standard deduction and 2026 rates. Effective rates vary based on deductions, credits, and local taxes. Use our [state tax calculators](/) for precise numbers.
+If you have an HSA from your working years, it offers triple tax advantages in retirement:
+- Tax-deductible contributions
+- Tax-free growth
+- Tax-free withdrawals for qualified medical expenses
 
-## Tools to Calculate Your Exact Tax
+After age 65, HSA withdrawals for non-medical expenses are penalty-free (though taxed as ordinary income), making the HSA function like a traditional IRA.
 
-Don't want to do all this math by hand? Use these free tools:
+## Required Minimum Distributions (RMDs) in 2026
 
-1. **[Paycheck Calculator](/paycheck-calculator)** — Full take-home pay breakdown for any state
-2. **[Tax Refund Calculator](/tax-refund-calculator)** — Estimate your refund or balance due
-3. **[IRS Withholding Calculator](/irs-withholding-calculator)** — Optimize your W-4 to avoid surprises
-4. **[Self-Employment Calculator](/self-employment-tax-calculator)** — SECA tax + QBI deduction
-5. **[Capital Gains Calculator](/capital-gains-calculator)** — Investment tax with long-term rates
-6. **[401(k) Calculator](/401k-retirement-calculator)** — Project retirement savings + tax savings
-7. **[Bonus Tax Calculator](/bonus-tax-calculator)** — How much tax on your bonus
-8. **[Lottery Tax Calculator](/lottery-tax-calculator)** — Windfall tax calculations
+### RMD Age
 
-## Final Thoughts
+As of 2026, RMDs are required starting at age **73** (increased from 70.5 under the SECURE Act, and from 72 under SECURE 2.0). If you turn 73 in 2026, your first RMD is due by April 1, 2027.
 
-Calculating how much tax you'll owe in 2026 doesn't have to be intimidating. The formula is straightforward:
+### RMD Calculation
 
-**Total Tax = Federal Income Tax + FICA + State Income Tax − Tax Credits**
+RMDs are calculated by dividing your account balance (as of December 31 of the previous year) by a life expectancy factor from the IRS Uniform Lifetime Table. For a 73-year-old, the factor is 26.5, meaning you'd withdraw approximately 3.77% of your account balance.
 
-The biggest levers you control are:
-1. **Pre-tax retirement contributions** (401k, IRA, HSA) — lower taxable income
-2. **Tax credits** (Child Tax Credit, EITC, education) — dollar-for-dollar reduction
-3. **State of residence** — moving to a no-tax state can save $5,000+/year
-4. **Filing status** — married filing jointly usually beats married filing separately
-5. **Business expenses** (if self-employed) — deduct everything legitimately business-related
+### RMD Penalties
 
-For most Americans earning $50,000-$150,000, the total effective tax rate (federal + FICA + state) lands between 18% and 28%. If yours is significantly higher, you're probably missing deductions or credits. If it's much lower, congratulations — you've optimized well.
+The penalty for missing an RMD was reduced from 50% to 25% under SECURE 2.0. If you correct the shortfall within two years, the penalty drops to 10%.
 
-**Ready to get your exact number?** Use our free [2026 tax calculator](/paycheck-calculator) to see your complete breakdown in seconds. No sign-up, no email required, just accurate numbers based on your actual income, state, and filing status.
+## State Tax Considerations for Retirees
 
-For more detailed guides, check out:
-- [2026 Federal Tax Brackets Explained](/blog/2026-federal-tax-brackets-explained)
-- [How FICA Taxes Work in 2026](/blog/how-fica-taxes-work-2026)
-- [IRS Withholding W-4 Guide 2026](/blog/irs-withholding-w4-guide-2026)
-- [1099 Tax Guide for Self-Employed](/blog/1099-tax-guide-self-employed-2026)
+### States with No Income Tax (Best for Retirees)
 
-*Disclaimer: This guide provides general tax information for educational purposes. Tax laws change frequently. Consult a licensed CPA or tax professional for advice specific to your situation. Calculations use 2026 IRS-published brackets and standard deductions.*
+- Alaska, Florida, Nevada, New Hampshire, South Dakota, Tennessee, Texas, Washington, Wyoming
 
-**External resources:**
-- [IRS Federal Tax Rates & Brackets](https://www.irs.gov/filing/federal-income-tax-rates-and-brackets) — official IRS publication
-- [IRS Form 1040 Instructions](https://www.irs.gov/forms-pubs/about-form-1040) — official filing instructions
-- [Tax Foundation State Tax Rates](https://taxfoundation.org/publications/state-local-tax-burden-rankings/) — state-by-state comparison`
+### States That Exempt Pension Income
+
+- Alabama, Hawaii, Illinois, Mississippi, Pennsylvania
+
+### States That Tax Social Security
+
+- Colorado, Connecticut, Kansas, Minnesota, Missouri, Montana, Nebraska, New Mexico, North Dakota, Rhode Island, Utah, Vermont, West Virginia
+
+## Frequently Asked Questions
+
+### At what age can I withdraw from my 401(k) without penalty?
+
+You can withdraw from your 401(k) without the 10% early withdrawal penalty at age 59.5. However, you'll still pay ordinary income tax on the withdrawal.
+
+### When do Required Minimum Distributions start?
+
+RMDs begin at age 73 (as of 2026). Your first RMD must be taken by April 1 of the year after you turn 73.
+
+### How much of my Social Security is taxable?
+
+Depending on your combined income, between 0% and 85% of your Social Security benefits may be taxable. If your combined income is below $25,000 (single) or $32,000 (married), your benefits are not taxed.
+
+### Should I do a Roth conversion?
+
+Roth conversions make sense if you expect to be in a higher tax bracket in retirement, or if you want to avoid RMDs. They're especially powerful during low-income years between retirement and age 73.
+
+### What is the best state for retirement taxes?
+
+Florida, Texas, Tennessee, Nevada, and Wyoming are among the best states for retirees because they have no state income tax. Pennsylvania and Illinois also exempt pension income.
+
+## Retirement Tax Planning Checklist for 2026
+
+1. Review your 401(k) and IRA balances
+2. Calculate your expected retirement income
+3. Determine your tax bracket in retirement
+4. Consider Roth conversions if in a low bracket
+5. Plan your withdrawal order (RMDs first, then taxable, then tax-deferred, then Roth)
+6. Review your state's tax treatment of retirement income
+7. Consider QCDs if you're charitably inclined and 70.5+
+8. Maximize HSA contributions if still eligible
+9. Review beneficiary designations on all accounts
+10. Consult a CPA or financial advisor for personalized advice
+
+Use our [401(k) Retirement Calculator](/401k-retirement-calculator) to project your retirement balance, and our [Paycheck Calculator](/paycheck-calculator) to estimate your after-tax retirement income.
+
+## Related Resources
+
+- [401(k) Retirement Calculator](/401k-retirement-calculator)
+- [Paycheck Calculator](/paycheck-calculator)
+- [401(k) Withdrawal Tax Guide](/blog/401k-withdrawal-tax-guide-2026)
+- [401(k) Withdrawal Tax Questions](/blog/401k-withdrawal-tax-questions-2026)
+- [Social Security Tax Questions](/blog/social-security-tax-questions-2026)
+- [How Much Tax Will I Owe?](/blog/how-much-tax-will-i-owe-2026)
+- [IRS Withholding Calculator](/irs-withholding-calculator)
+- [Compare State Taxes](/compare)`,
+  "401k-withdrawal-tax-guide-2026": `# 401(k) Withdrawal Tax Guide 2026: Rules, Penalties & Strategies
+
+Understanding 401(k) withdrawal taxes is critical for anyone approaching retirement or considering an early withdrawal. The rules are complex, the penalties can be severe, and the tax implications affect your retirement income for decades. This 2026 guide explains every aspect of 401(k) withdrawal taxation, from early withdrawal penalties to Required Minimum Distributions, with real examples and strategies to minimize your tax burden.
+
+## Official Sources
+
+401(k) withdrawal rules are set by the IRS in [Publication 560](https://www.irs.gov/publications/p560) and modified by the [SECURE Act 2.0](https://www.irs.gov/retirement-plans/secure-20-act). The Rule of 55 is explained in [IRS Topic 558](https://www.irs.gov/taxtopics/tc558).
+
+## How 401(k) Withdrawals Are Taxed
+
+### Traditional 401(k) Withdrawals
+
+Every dollar withdrawn from a traditional 401(k) is taxed as **ordinary income** at your marginal tax rate. You didn't pay taxes when you contributed (pre-tax), so you pay taxes when you withdraw. This is called tax-deferred growth.
+
+**Example**: You withdraw $40,000 from your traditional 401(k) in 2026. After the $16,100 standard deduction (single), your taxable income from this withdrawal is $23,900. At the 12% bracket, you'd owe approximately $2,868 in federal tax. Your net withdrawal is $37,132.
+
+### Roth 401(k) Withdrawals
+
+Qualified withdrawals from a Roth 401(k) are **completely tax-free**. Both contributions and earnings come out tax-free if:
+- You're at least 59.5 years old
+- The account has been open for at least 5 years
+
+### 401(k) Withdrawal Tax Rate
+
+Your 401(k) withdrawal tax rate depends on your total income for the year. The withdrawal is added to all other income (Social Security, pensions, investment income) and taxed at your marginal rate. The 2026 federal tax brackets range from 10% to 37%.
+
+## 401(k) Early Withdrawal Penalty (Before Age 59.5)
+
+### The 10% Penalty
+
+If you withdraw from your 401(k) before age 59.5, you'll pay:
+1. **Ordinary income tax** on the withdrawal
+2. **10% additional penalty** on the full withdrawal amount
+
+**Example**: You withdraw $20,000 at age 45. You'll pay ordinary income tax on $20,000 PLUS a $2,000 penalty. If you're in the 22% bracket, your total tax is $4,400 + $2,000 = $6,400. You keep only $13,600.
+
+### Exceptions to the 10% Penalty
+
+The IRS allows several exceptions where you can avoid the 10% penalty (but still pay income tax):
+
+1. **Age 55 rule** (Rule of 55): If you leave your job at age 55 or later, you can withdraw from that employer's 401(k) without the 10% penalty
+2. **Medical expenses**: Withdrawals for medical expenses exceeding 7.5% of AGI
+3. **Disability**: Total and permanent disability
+4. **Death**: Beneficiary withdrawals
+5. **Substantially Equal Periodic Payments (72(t))**: Series of equal payments based on life expectancy
+6. **First-time home purchase**: Up to $10,000 from an IRA (not 401(k))
+7. **Higher education expenses**: IRA only
+8. **Birth or adoption**: Up to $5,000 per child (SECURE Act)
+9. **Domestic abuse**: Up to $10,000 (SECURE 2.0)
+10. **Qualified disaster recovery**: For federally declared disasters
+
+### The 72(t) Rule: Substantially Equal Periodic Payments
+
+If you need to access 401(k) funds before 59.5 without the penalty, you can use IRS Rule 72(t), which allows you to take "substantially equal periodic payments" (SEPP) based on your life expectancy. You must continue these payments for at least 5 years or until age 59.5, whichever is longer.
+
+**Important**: If you modify the payments before the requirement is met, the 10% penalty applies retroactively to all previous withdrawals.
+
+## Required Minimum Distributions (RMDs) Starting at Age 73
+
+### When RMDs Begin
+
+Starting in 2026, RMDs begin at **age 73**. If you turn 73 in 2026, your first RMD is due by April 1, 2027. Subsequent RMDs are due by December 31 each year.
+
+### RMD Calculation
+
+Your RMD is calculated by dividing your December 31 account balance by a life expectancy factor from the IRS Uniform Lifetime Table:
+
+| Age | Life Expectancy Factor | Approximate % |
+|-----|----------------------|---------------|
+| 73 | 26.5 | 3.77% |
+| 75 | 24.6 | 4.07% |
+| 80 | 20.2 | 4.95% |
+| 85 | 16.0 | 6.25% |
+| 90 | 12.2 | 8.20% |
+
+**Example**: At age 73 with a $500,000 401(k) balance, your RMD is $500,000 ÷ 26.5 = $18,868. This amount is taxed as ordinary income.
+
+### RMD Penalties
+
+- **Standard penalty**: 25% of the shortfall (reduced from 50% under SECURE 2.0)
+- **Corrected within 2 years**: 10% penalty
+- **File Form 5329** to report and request penalty waiver
+
+## 401(k) Withdrawal Strategies to Minimize Taxes
+
+### Strategy 1: The Rule of 55
+
+If you retire at 55, you can withdraw from your current employer's 401(k) without the 10% penalty. This is more flexible than 72(t) and doesn't require equal payments.
+
+### Strategy 2: Spread Withdrawals Across Years
+
+Instead of withdrawing a large lump sum, spread withdrawals across multiple years to stay in lower tax brackets. For example, withdraw $30,000/year for 10 years instead of $300,000 in one year.
+
+### Strategy 3: Roth Conversions in Low-Income Years
+
+If you retire before 73 and have low income, convert traditional 401(k) funds to a Roth IRA. You pay taxes at your current (low) rate, and future withdrawals from the Roth are tax-free.
+
+### Strategy 4: 401(k) Loan Instead of Withdrawal
+
+You can borrow up to $50,000 (or 50% of your vested balance) from your 401(k). The loan is tax-free and penalty-free, but must be repaid with interest. If you leave your job, the loan must be repaid by the tax filing deadline.
+
+### Strategy 5: Qualified Charitable Distributions (QCDs)
+
+At age 70.5+, you can direct up to $108,000/year from your IRA to charity. This counts toward your RMD and isn't included in taxable income.
+
+## 401(k) Rollover to IRA
+
+Rolling over your 401(k) to an IRA when you change jobs or retire offers several advantages:
+- More investment options
+- Lower fees (in many cases)
+- Easier Roth conversions
+- More flexible withdrawal rules
+
+**Important**: Do a **direct rollover** (trustee-to-trustee transfer). If you receive the check yourself, 20% is withheld for taxes, and you must deposit the full amount within 60 days to avoid taxes and penalties.
+
+## 401(k) and Social Security Interaction
+
+401(k) withdrawals increase your taxable income, which can make more of your Social Security benefits taxable. If your combined income (including 401(k) withdrawals) exceeds $34,000 (single) or $44,000 (married), up to 85% of your Social Security benefits become taxable.
+
+**Strategy**: In years when you need both 401(k) withdrawals and Social Security, consider Roth withdrawals (tax-free) to avoid pushing your Social Security into taxable territory.
+
+## Frequently Asked Questions
+
+### How much tax will I pay on my 401(k) withdrawal?
+
+You'll pay ordinary income tax at your marginal rate (10%-37% in 2026). If you're under 59.5, add a 10% penalty. Use our Paycheck Calculator to estimate your tax.
+
+### Can I withdraw from my 401(k) at 55 without penalty?
+
+Yes, if you leave your job at age 55 or later, you can withdraw from that employer's 401(k) without the 10% penalty (Rule of 55). This only applies to the 401(k) of the employer you just left.
+
+### What is the 401(k) withdrawal tax rate?
+
+There's no special 401(k) tax rate. Withdrawals are taxed at your ordinary income tax rate, which in 2026 ranges from 10% to 37% depending on your total income.
+
+### When can I start taking 401(k) withdrawals without penalty?
+
+At age 59.5, you can withdraw from your 401(k) without the 10% early withdrawal penalty. You'll still pay ordinary income tax on the withdrawal.
+
+### What happens if I don't take my RMD?
+
+The penalty is 25% of the amount you should have withdrawn but didn't. If you correct the error within 2 years, the penalty drops to 10%.
+
+## 401(k) Withdrawal Tax Calculator
+
+Use our [401(k) Retirement Calculator](/401k-retirement-calculator) to project your retirement balance, and our [Paycheck Calculator](/paycheck-calculator) to estimate taxes on your withdrawals.
+
+## Related Resources
+
+- [401(k) Retirement Calculator](/401k-retirement-calculator)
+- [Paycheck Calculator](/paycheck-calculator)
+- [Retirement Tax Planning Guide](/blog/retirement-tax-planning-guide-2026)
+- [401(k) Withdrawal Tax Questions](/blog/401k-withdrawal-tax-questions-2026)
+- [Social Security Tax Questions](/blog/social-security-tax-questions-2026)
+- [How Much Tax Will I Owe?](/blog/how-much-tax-will-i-owe-2026)
+- [IRS Withholding Calculator](/irs-withholding-calculator)
+- [Self-Employment Tax Calculator](/self-employment-tax-calculator)
+
+For a complete retirement tax strategy, consult a CPA who specializes in retirement planning.`,
+  "inheritance-tax-guide-2026": `# Inheritance Tax Guide 2026: State-by-State Rules, Exemptions & Calculator
+
+Inheritance tax is one of the most misunderstood taxes in the United States. Many people confuse it with estate tax, assume they'll owe taxes on inherited money, or don't realize their state may have specific inheritance tax rules. This 2026 guide explains everything you need to know about inheritance tax, including the difference between estate and inheritance tax, state-by-state rules, federal exemptions, and how to calculate your potential tax liability.
+
+## Official Sources
+
+The federal estate tax exemption is published by the [IRS Estate Tax page](https://www.irs.gov/businesses/small-businesses-self-employed/estate-tax). State inheritance tax rules are available at each state's [Department of Revenue](https://www.taxadmin.org/state-tax-agencies).
+
+## Inheritance Tax vs Estate Tax: What's the Difference?
+
+### Estate Tax
+
+Estate tax is paid by the **estate** of the deceased person before assets are distributed to heirs. The federal estate tax applies to estates valued above the exemption amount. The executor of the estate files the tax return and pays the tax from estate assets.
+
+### Inheritance Tax
+
+Inheritance tax is paid by the **recipient** (the heir) on the assets they receive. Not all states have an inheritance tax, and the tax rate often depends on your relationship to the deceased person.
+
+### Key Differences
+
+| Feature | Estate Tax | Inheritance Tax |
+|---------|-----------|-----------------|
+| Who pays | The estate | The heir/recipient |
+| When paid | Before distribution | After receiving inheritance |
+| Federal tax | Yes (above exemption) | No federal inheritance tax |
+| State tax | 12 states have estate tax | 6 states have inheritance tax |
+
+## Federal Estate Tax in 2026
+
+### Federal Estate Tax Exemption
+
+For 2026, the federal estate tax exemption is **$13,990,000 per individual** (or $27,980,000 for married couples). This means:
+
+- Estates valued **under $13.99 million**: No federal estate tax
+- Estates valued **over $13.99 million**: 40% tax on the amount above the exemption
+
+**Example**: An estate worth $15 million would pay 40% on $1,010,000 (the amount above $13.99M), resulting in $404,000 in federal estate tax.
+
+### Important: Exemption Sunset in 2026
+
+The Tax Cuts and Jobs Act of 2017 doubled the estate tax exemption, but this doubled amount is scheduled to **sunset on December 31, 2025**. For 2026, the exemption may revert to approximately $7-8 million per individual (adjusted for inflation). However, legislation could extend the higher exemption.
+
+**Always check current law**, as this is a politically contested issue that could change.
+
+## State Estate Tax (12 States)
+
+These states have their own estate tax, separate from the federal estate tax:
+
+| State | Exemption | Top Rate |
+|-------|-----------|----------|
+| Oregon | $1,000,000 | 16% |
+| Massachusetts | $2,000,000 | 16% |
+| New York | $6,940,000 | 16% |
+| Washington | $2,193,000 | 20% |
+| Illinois | $4,000,000 | 16% |
+| Connecticut | $9,100,000 | 12% |
+| Hawaii | $5,490,000 | 20% |
+| Vermont | $5,000,000 | 16% |
+| District of Columbia | $4,766,800 | 16% |
+| Maine | $6,410,000 | 12% |
+| Delaware | $5,930,000 | 16% |
+| Rhode Island | $1,733,264 | 16% |
+
+## State Inheritance Tax (6 States)
+
+Only six states have an inheritance tax, paid by the heir:
+
+### Iowa (Phasing Out)
+
+Iowa is phasing out its inheritance tax. The tax was eliminated for deaths occurring on or after January 1, 2025.
+
+### Kentucky
+
+Kentucky has an inheritance tax with exemptions based on relationship:
+- **Class A** (spouse, parents, children): Fully exempt
+- **Class B** (siblings, nieces/nephews): $1,000 exemption, 4-16% rate
+- **Class C** (all others): $500 exemption, 6-16% rate
+
+### Maryland
+
+Maryland has BOTH an estate tax AND an inheritance tax:
+- Estate tax exemption: $5,000,000
+- Inheritance tax: Spouses, children, parents exempt; others pay 10%
+
+### Nebraska
+
+Nebraska has the highest inheritance tax rates in the country:
+- **Immediate relatives** (spouse, parents, children): 1%
+- **Other relatives** (siblings, nieces/nephews): 6-11%
+- **Non-relatives**: 18%
+
+### New Jersey
+
+New Jersey eliminated its estate tax in 2018 but still has an inheritance tax:
+- **Class A** (spouse, children, parents): Fully exempt
+- **Class C** (siblings, sons/daughters-in-law): $25,000 exemption, 11-16%
+- **Class D** (all others): $500 exemption, 15-16%
+- **Class E** (charities): Fully exempt
+
+### Pennsylvania
+
+Pennsylvania's inheritance tax rates:
+- **Spouse**: 0% (fully exempt)
+- **Children/parents**: 4.5%
+- **Siblings**: 12%
+- **All others**: 15%
+
+## States with No Estate Tax and No Inheritance Tax
+
+The majority of states have neither an estate tax nor an inheritance tax:
+
+- Alabama, Alaska, Arizona, Arkansas, California, Colorado, Florida, Georgia, Idaho, Indiana, Kansas, Louisiana, Michigan, Minnesota, Mississippi, Missouri, Montana, Nevada, New Hampshire, New Mexico, North Carolina, North Dakota, Ohio, Oklahoma, South Carolina, South Dakota, Tennessee, Texas, Utah, Virginia, West Virginia, Wisconsin, Wyoming
+
+**Best states for inheritance**: Florida, Texas, Nevada, and Wyoming have no income tax, no estate tax, and no inheritance tax.
+
+## How to Calculate Inheritance Tax
+
+### Step 1: Determine if Federal Estate Tax Applies
+
+Check if the total estate value exceeds the federal exemption ($13.99M in 2026, potentially lower if TCJA sunsets).
+
+### Step 2: Check State Estate Tax
+
+If the deceased lived in one of the 12 estate tax states, check the state exemption and rate.
+
+### Step 3: Check State Inheritance Tax
+
+If you (the heir) live in a state with inheritance tax, or if the deceased lived in one, determine your tax class and applicable rate.
+
+### Step 4: Calculate Your Tax
+
+Multiply the taxable inheritance (after exemptions) by the applicable tax rate.
+
+**Example**: You inherit $100,000 from your uncle in Pennsylvania. As a non-immediate relative, your rate is 15%. Your inheritance tax is $100,000 × 15% = $15,000. You receive $85,000.
+
+## Inheritance Tax Exemptions and Deductions
+
+### Relationship-Based Exemptions
+
+Most states with inheritance tax exempt or reduce the tax for close family members:
+- **Spouses**: Always exempt in every state
+- **Children**: Usually exempt or lowest rate
+- **Parents**: Usually exempt or lowest rate
+- **Siblings**: Moderate rate (4.5-12%)
+- **Non-relatives**: Highest rate (10-18%)
+
+### Charitable Deductions
+
+Bequests to qualified charities are generally exempt from both estate and inheritance tax in all states.
+
+### Life Insurance
+
+Life insurance proceeds are generally **not subject to income tax** for the beneficiary. However, they ARE included in the estate for federal estate tax purposes if the deceased owned the policy.
+
+## How to Minimize Inheritance Tax
+
+### 1. Annual Gift Exclusion
+
+In 2026, you can gift up to **$18,000 per person per year** without gift tax consequences. A married couple can give $36,000 per recipient. This reduces your estate over time.
+
+### 2. Lifetime Gift Exemption
+
+The lifetime gift exemption is the same as the estate tax exemption ($13.99M in 2026). Gifts above the annual exclusion reduce your lifetime exemption.
+
+### 3. Irrevocable Trusts
+
+Assets placed in an irrevocable trust are removed from your estate and may avoid estate tax. Common types include:
+- Irrevocable Life Insurance Trust (ILIT)
+- Generation-Skipping Trust
+- Qualified Personal Residence Trust (QPRT)
+
+### 4. Move to a Tax-Friendly State
+
+If you're planning your estate, consider establishing residency in a state with no estate or inheritance tax (Florida, Texas, Nevada, etc.).
+
+### 5. Charitable Bequests
+
+Leaving assets to charity reduces your taxable estate while supporting causes you care about.
+
+## Frequently Asked Questions
+
+### Is there a federal inheritance tax?
+
+No. The federal government does not have an inheritance tax. There is a federal estate tax, but it only applies to estates above $13.99 million (in 2026).
+
+### Do I have to pay taxes on money I inherit?
+
+It depends on your state. If you live in Iowa, Kentucky, Maryland, Nebraska, New Jersey, or Pennsylvania, you may owe state inheritance tax. Federal income tax does not apply to inherited money.
+
+### How much can I inherit tax-free?
+
+Federally, you can inherit any amount from an estate under $13.99 million without estate tax. For inheritance tax, it depends on your state and relationship to the deceased. Spouses and children are typically exempt in all states.
+
+### What states have no inheritance tax?
+
+44 states have no inheritance tax. Only Iowa (phasing out), Kentucky, Maryland, Nebraska, New Jersey, and Pennsylvania have inheritance tax.
+
+### Are life insurance proceeds taxable?
+
+Life insurance proceeds are not subject to income tax for the beneficiary. However, they may be subject to estate tax if the deceased owned the policy and the total estate exceeds the exemption.
+
+### What is the federal estate tax exemption for 2026?
+
+The federal estate tax exemption for 2026 is $13,990,000 per individual ($27,980,000 for married couples). However, this may change if the TCJA exemption increase sunsets.
+
+## Inheritance Tax Calculator
+
+## Related Resources
+
+- [Paycheck Calculator](/paycheck-calculator) - For tax bracket calculations
+- [Property Tax Calculator](/property-tax-calculator) - For inherited real estate
+- [Capital Gains Calculator](/capital-gains-calculator) - For inherited investments
+- [Inheritance Tax Questions](/blog/inheritance-tax-questions-2026) - Common FAQ answers
+- [Retirement Tax Planning Guide](/blog/retirement-tax-planning-guide-2026)
+- [How Much Tax Will I Owe?](/blog/how-much-tax-will-i-owe-2026)
+- [Compare State Taxes](/compare) - Compare inheritance tax by state
+
+For complex estate planning, consult an estate planning attorney or CPA who specializes in inheritance tax.`,
+  "401k-withdrawal-tax-questions-2026": `# 401(k) Withdrawal Tax Questions Answered (2026 Rules)
+
+Confused about how taxes work when you withdraw from your 401(k)? You're not alone. 401(k) withdrawal tax rules are among the most searched tax questions in America, and the rules changed significantly with the SECURE Act and SECURE 2.0. This FAQ guide answers the most common questions people ask about 401(k) withdrawal taxes, penalties, and strategies for 2026.
+
+## Official Source
+
+401(k) rules are published by the IRS in [Publication 560](https://www.irs.gov/publications/p560) and modified by the [SECURE Act 2.0](https://www.irs.gov/retirement-plans/secure-20-act). RMD rules are in [Publication 590-B](https://www.irs.gov/publications/p590b).
+
+## How Do Taxes on 401(k) Work?
+
+When you contribute to a traditional 401(k), the money goes in pre-tax (before income tax is taken out). The money grows tax-deferred over the years. When you withdraw the money in retirement, you pay ordinary income tax on both the contributions and the earnings.
+
+Think of it as a "pay me later" arrangement with the IRS. You save on taxes now, but you owe taxes when you take the money out.
+
+For Roth 401(k) contributions, the opposite is true: you pay tax upfront, but qualified withdrawals in retirement are completely tax-free.
+
+## What Are Taxes for 401(k) Withdrawal?
+
+Taxes for 401(k) withdrawal are calculated at your **ordinary income tax rate** in the year you take the withdrawal. The 2026 federal tax brackets range from 10% to 37%.
+
+Your withdrawal is added to all other income you receive that year (Social Security, pensions, wages, investment income) to determine your total taxable income and your marginal tax rate.
+
+**Example**: If you withdraw $40,000 from your 401(k) and have no other income, after the $16,100 standard deduction (single filer), your taxable income is $23,900. You'd fall in the 12% bracket and pay approximately $2,868 in federal tax.
+
+## Are Taxes Withheld from 401(k) Distributions?
+
+By default, the IRS requires 401(k) plan administrators to withhold **20%** for federal taxes on eligible rollover distributions. However, you can adjust this withholding rate.
+
+For non-rollover distributions (regular withdrawals in retirement), you can elect to have 7%, 10%, 15%, 20%, or any percentage withheld for federal taxes, or choose no withholding at all.
+
+**Important**: Even if you choose no withholding, you still owe the tax. You'll need to pay it via quarterly estimated tax payments or face an underpayment penalty at tax time.
+
+## Does Take Home Pay Include 401(k)?
+
+No, traditional 401(k) contributions are deducted from your gross pay **before** calculating take-home pay. Your 401(k) contribution reduces your taxable income, which also reduces your current-year tax bill.
+
+However, **Roth 401(k) contributions** are made with after-tax dollars. They still come out of your paycheck, but they don't reduce your taxable income. Your take-home pay is reduced by the Roth contribution amount, but the money will be tax-free in retirement.
+
+## Do After-Tax Contributions Count Towards 401(k) Limit?
+
+Yes. The 2026 401(k) contribution limit is $24,500 ($30,500 if 50+). This total limit includes all types of contributions:
+- Pre-tax (traditional) contributions
+- Roth (after-tax) contributions
+- After-tax non-Roth contributions (if your plan allows)
+
+The employer match is **separate** and doesn't count toward your $24,500 limit. The total combined limit (employee + employer) is $69,000 for 2026 ($76,500 if 50+).
+
+## When Can I Withdraw from 401(k) Without Penalty?
+
+You can withdraw from your 401(k) without the 10% early withdrawal penalty at **age 59.5**. However, you'll still pay ordinary income tax on the withdrawal.
+
+### Exceptions to the Age 59.5 Rule
+
+1. **Rule of 55**: If you leave your job at age 55 or later, you can withdraw from that employer's 401(k) without penalty
+2. **Disability**: Total and permanent disability
+3. **Death**: Beneficiary withdrawals
+4. **Medical expenses**: Exceeding 7.5% of AGI
+5. **72(t) payments**: Substantially equal periodic payments
+6. **Birth/adoption**: Up to $5,000 per child (SECURE Act)
+7. **Domestic abuse**: Up to $10,000 (SECURE 2.0)
+8. **Qualified disaster recovery**
+
+## How Much Tax Will I Pay on My 401(k) Withdrawal?
+
+The tax depends on your total income and filing status. Use this simple framework:
+
+| Withdrawal Amount | Estimated Tax (Single, No Other Income) |
+|-------------------|----------------------------------------|
+| $10,000 | $0 (under standard deduction) |
+| $20,000 | ~$468 (12% bracket) |
+| $40,000 | ~$2,868 (12% bracket) |
+| $60,000 | ~$7,254 (22% bracket) |
+| $100,000 | ~$17,982 (24% bracket) |
+
+Use our [401(k) Retirement Calculator](/401k-retirement-calculator) for a personalized estimate.
+
+## How Does 401(k) Withdrawal Affect Social Security Tax?
+
+401(k) withdrawals increase your taxable income, which can make more of your Social Security benefits taxable. If your combined income (including 401(k) withdrawals) exceeds $34,000 (single) or $44,000 (married), up to 85% of your Social Security benefits become taxable.
+
+**Strategy**: In years when you need both 401(k) withdrawals and Social Security, consider taking Roth withdrawals (tax-free) to avoid pushing your Social Security into taxable territory.
+
+## What Is the 2026 401(k) Withdrawal Tax Rate?
+
+There's no special 401(k) withdrawal tax rate. Withdrawals are taxed at your **ordinary income tax rate**, which in 2026 ranges from 10% to 37% depending on your total income:
+
+- 10% bracket: $0 - $11,925 (single)
+- 12% bracket: $11,926 - $48,475 (single)
+- 22% bracket: $48,476 - $103,350 (single)
+- 24% bracket: $103,351 - $197,300 (single)
+- 32% bracket: $197,301 - $250,525 (single)
+
+## Can I Withdraw from 401(k) at 55 Without Penalty?
+
+Yes, under the **Rule of 55**. If you leave your job (quit, retire, or are laid off) during or after the year you turn 55, you can withdraw from that specific employer's 401(k) without the 10% penalty.
+
+**Important limitations**:
+- Only applies to the 401(k) of the employer you just left
+- Does NOT apply to IRAs
+- Does NOT apply to 401(k)s from previous employers
+- You must leave the money in the plan (cannot roll it to an IRA first)
+
+## What Happens If I Don't Take My RMD?
+
+Required Minimum Distributions (RMDs) start at age 73. If you don't take your full RMD, the penalty is **25% of the shortfall** (reduced from 50% under SECURE 2.0). If you correct the error within 2 years, the penalty drops to **10%**.
+
+File IRS Form 5329 to report the missed RMD and request a penalty waiver for reasonable cause.
+
+## Related Resources
+
+- [401(k) Retirement Calculator](/401k-retirement-calculator)
+- [401(k) Withdrawal Tax Guide 2026](/blog/401k-withdrawal-tax-guide-2026)
+- [Retirement Tax Planning Guide 2026](/blog/retirement-tax-planning-guide-2026)
+- [IRS Withholding Calculator](/irs-withholding-calculator)`,
+  "social-security-tax-questions-2026": `# Social Security Tax Questions Answered (2026 Rules)
+
+Social Security taxation is one of the most confusing topics for retirees and soon-to-be retirees. With rules that depend on your income, filing status, and state of residence, it's no surprise that millions of Americans search for answers every month. This FAQ guide answers the most common Social Security tax questions for 2026.
+
+## Official Source
+
+Social Security taxation rules are published by the [Social Security Administration](https://www.ssa.gov/benefits/retirement/planner/taxes.html) and the [IRS Publication 915](https://www.irs.gov/publications/p915).
+
+## Are Taxes Taken Out of Social Security Checks?
+
+Not automatically. By default, the Social Security Administration does **not** withhold federal taxes from your monthly benefit checks. However, you can voluntarily request withholding by filing IRS Form W-4V.
+
+You can choose to have 7%, 10%, 12%, or 22% of your monthly benefit withheld for federal taxes. Most financial advisors recommend electing withholding to avoid a surprise tax bill in April.
+
+## Are Taxes Paid on Social Security Benefits?
+
+It depends on your "combined income," which is:
+- Your adjusted gross income (AGI)
+- Plus nontaxable interest
+- Plus half of your Social Security benefits
+
+### The Thresholds (2026)
+
+| Filing Status | Combined Income | Taxable Benefits |
+|--------------|----------------|-----------------|
+| Single | Under $25,000 | 0% (no tax) |
+| Single | $25,000 - $34,000 | Up to 50% |
+| Single | Over $34,000 | Up to 85% |
+| Married | Under $32,000 | 0% (no tax) |
+| Married | $32,000 - $44,000 | Up to 50% |
+| Married | Over $44,000 | Up to 85% |
+
+**Note**: "Up to 85%" doesn't mean 85% tax rate. It means 85% of your benefits are subject to income tax at your marginal rate.
+
+## Are Taxes on Social Security Ending?
+
+There have been proposals in Congress to eliminate federal taxation of Social Security benefits, but **as of 2026, Social Security benefits are still taxable** at the federal level for recipients with income above the thresholds.
+
+Some states have already eliminated state tax on Social Security. As of 2026, **38 states do not tax Social Security benefits**. The 12 states that still tax Social Security are:
+- Colorado, Connecticut, Kansas, Minnesota, Missouri, Montana, Nebraska, New Mexico, North Dakota, Rhode Island, Utah, Vermont, West Virginia
+
+## Are Taxes Withheld from Social Security Disability?
+
+Social Security Disability Insurance (SSDI) benefits are subject to the same taxation rules as retirement benefits. The SSA does not automatically withhold taxes from SSDI checks, but you can request voluntary withholding via Form W-4V.
+
+If you receive Supplemental Security Income (SSI), those benefits are **not taxable** and no withholding is needed.
+
+## Are Taxes Deducted from Social Security Checks Automatically?
+
+No. The Social Security Administration does not automatically deduct federal taxes from your checks. You must specifically request voluntary withholding by submitting Form W-4V to the SSA.
+
+State taxes are also not automatically withheld. Each state has its own rules about Social Security taxation.
+
+## Are Taxes Being Taken Out of Social Security Still?
+
+Yes, the federal taxation of Social Security benefits is still in effect for 2026. The rules have been in place since 1983 (for 50% taxation) and 1993 (for 85% taxation).
+
+There is no current legislation that has eliminated this tax, despite ongoing political discussions.
+
+## Are Taxes Required on Social Security?
+
+Federal taxes on Social Security are required if your combined income exceeds the thresholds ($25,000 single / $32,000 married). If your income is below these thresholds, no federal tax is owed on your benefits.
+
+State taxes on Social Security depend on where you live. 38 states exempt Social Security from state income tax entirely.
+
+## How Much of My Social Security Is Taxable?
+
+Use this quick calculation:
+
+1. Calculate your combined income (AGI + nontaxable interest + half of SS benefits)
+2. If single and combined income > $34,000: up to 85% is taxable
+3. If married and combined income > $44,000: up to 85% is taxable
+4. If single and $25,000 < combined income < $34,000: up to 50% is taxable
+5. If married and $32,000 < combined income < $44,000: up to 50% is taxable
+
+Use our [Paycheck Calculator](/paycheck-calculator) to estimate your total tax including Social Security.
+
+## How Can I Avoid Paying Taxes on Social Security?
+
+You can't eliminate Social Security taxes entirely if your income is above the thresholds, but you can minimize them:
+
+1. **Withdraw from Roth accounts** (tax-free, doesn't increase combined income)
+2. **Manage 401(k)/IRA withdrawals** to stay below thresholds
+3. **Move to a state** that doesn't tax Social Security
+4. **Use Qualified Charitable Distributions** (QCDs) from your IRA
+5. **Invest in municipal bonds** (tax-free interest doesn't count toward combined income)
+
+## At What Age Is Social Security Not Taxable?
+
+There is **no age** at which Social Security automatically becomes tax-free. The taxation depends on your income, not your age. Even at age 80+, if your combined income exceeds $34,000 (single), up to 85% of your benefits remain taxable.
+
+However, many retirees see their Social Security become non-taxable naturally when they stop taking 401(k)/IRA withdrawals and have minimal other income.
+
+## Related Resources
+
+- [Paycheck Calculator](/paycheck-calculator)
+- [Retirement Tax Planning Guide 2026](/blog/retirement-tax-planning-guide-2026)
+- [IRS Withholding Calculator](/irs-withholding-calculator)
+- [Social Security Tax 2026 Guide](/blog/retirement-tax-planning-guide-2026#social-security-benefits)`,
+  "inheritance-tax-questions-2026": `# Inheritance Tax Questions Answered (2026 Rules)
+
+Inheritance tax is one of the most misunderstood taxes in America. Many people confuse it with estate tax, don't know if their state has one, or aren't sure if they owe taxes on money they've inherited. This FAQ guide answers the most common inheritance tax questions for 2026.
+
+## Official Source
+
+Federal estate tax rules are on the [IRS Estate Tax page](https://www.irs.gov/businesses/small-businesses-self-employed/estate-tax). State inheritance tax rules are at each state's [Department of Revenue](https://www.taxadmin.org/state-tax-agencies).
+
+## How Much Is Inheritance Tax?
+
+Inheritance tax varies by state and by your relationship to the deceased person:
+
+### States with Inheritance Tax (2026)
+
+| State | Spouse | Children | Siblings | Others |
+|-------|--------|----------|----------|--------|
+| Kentucky | 0% | 0% | 4-16% | 6-16% |
+| Maryland | 0% | 0% | 10% | 10% |
+| Nebraska | 0% | 1% | 6-11% | 18% |
+| New Jersey | 0% | 0% | 11-16% | 15-16% |
+| Pennsylvania | 0% | 4.5% | 12% | 15% |
+
+Iowa phased out its inheritance tax for deaths occurring on or after January 1, 2025.
+
+**There is no federal inheritance tax.** The federal government only has an estate tax (paid by the estate before distribution).
+
+## How Much Is Estate Tax?
+
+The federal estate tax applies only to estates valued above **$13,990,000** (in 2026). The rate is **40%** on the amount above the exemption.
+
+For estates below $13.99 million, no federal estate tax is owed.
+
+### State Estate Tax
+
+12 states have their own estate tax with much lower exemptions:
+- Oregon: $1,000,000 exemption, up to 16% rate
+- Massachusetts: $2,000,000 exemption, up to 16% rate
+- New York: $6,940,000 exemption, up to 16% rate
+- Washington: $2,193,000 exemption, up to 20% rate
+
+## How Much Is the Estate Tax Exemption in 2026?
+
+The federal estate tax exemption for 2026 is **$13,990,000 per individual** ($27,980,000 for married couples).
+
+**Important**: The Tax Cuts and Jobs Act of 2017 doubled this exemption, but it is scheduled to sunset on December 31, 2025. For 2026, the exemption may revert to approximately $7-8 million per individual. Check current law, as this is politically contested.
+
+## How Do Estate Taxes Work?
+
+Estate taxes work as follows:
+
+1. When someone dies, their estate is valued (all assets minus debts)
+2. If the estate value exceeds the exemption, the estate files IRS Form 706
+3. The estate pays 40% tax on the amount above the exemption
+4. The remaining assets are distributed to heirs
+5. Heirs may then owe state inheritance tax (depending on state and relationship)
+
+The executor of the estate handles all tax filings and payments before distributing assets to heirs.
+
+## Is Inheritance Tax Federal?
+
+No. There is **no federal inheritance tax**. The federal government has an estate tax (paid by the estate), not an inheritance tax (paid by the heir).
+
+Only 6 states have an inheritance tax: Iowa (phasing out), Kentucky, Maryland, Nebraska, New Jersey, and Pennsylvania.
+
+## Is Real Estate Tax the Same as Estate Tax?
+
+No, these are completely different taxes:
+
+- **Real estate tax** (property tax): Annual tax on property you own, paid to local government
+- **Estate tax**: One-time tax on the transfer of a deceased person's estate, paid by the estate
+
+Real estate tax is an ongoing annual expense. Estate tax is a one-time event when someone dies.
+
+## Can Estate Tax Be Paid in Installments?
+
+Yes, under IRS Section 6166, estates that include a closely held business can pay the estate tax in installments over up to **15 years**. The first payment is due 5 years after the death, with annual payments thereafter.
+
+Interest is charged on the deferred tax, but at a special 2% rate for the first $1.5 million of taxable estate (adjusted for inflation).
+
+## How Is Inheritance Tax Calculated?
+
+Inheritance tax is calculated based on:
+1. The value of assets you receive
+2. Your relationship to the deceased (spouse, child, sibling, non-relative)
+3. Your state's tax rate and exemption
+
+**Example**: You inherit $100,000 from your uncle in Pennsylvania.
+- Relationship: "All others" = 15% rate
+- Exemption: $0 for non-relatives
+- Tax: $100,000 × 15% = $15,000
+- You receive: $85,000
+
+Use our [Property Tax Calculator](/property-tax-calculator) for inherited real estate tax estimates.
+
+## Do I Have to Pay Taxes on Money I Inherit?
+
+Federally: No. You don't pay federal income tax on inherited money.
+
+State: Maybe. If you live in (or the deceased lived in) a state with inheritance tax (KY, MD, NE, NJ, PA), you may owe state inheritance tax.
+
+Income tax: Inherited money itself is not income. However, any earnings on inherited assets (interest, dividends, capital gains) are taxable.
+
+## What Is the Difference Between Estate Tax and Inheritance Tax?
+
+| Feature | Estate Tax | Inheritance Tax |
+|---------|-----------|-----------------|
+| Who pays | The estate | The heir |
+| When | Before distribution | After receiving |
+| Federal | Yes (above $13.99M) | No |
+| State | 12 states | 6 states |
+
+**Simple rule**: Estate tax is paid by the dead person's estate. Inheritance tax is paid by the living person who receives the inheritance.
+
+## Related Resources
+
+- [Inheritance Tax Guide 2026](/blog/inheritance-tax-guide-2026)
+- [Property Tax Calculator](/property-tax-calculator)
+- [Capital Gains Calculator](/capital-gains-calculator)
+- [Estate Planning Resources](/blog/inheritance-tax-guide-2026)`,
+  "tax-refund-questions-2026": `# Tax Refund Questions Answered (2026)
+
+Tax refund questions are among the most searched tax topics in America. Millions of people want to know when they'll get their refund, how to track it, and what could delay it. This FAQ guide answers the most common tax refund questions for the 2026 tax season.
+
+## Official Source
+
+Refund timelines are published by the [IRS Refunds page](https://www.irs.gov/refunds). The "Where's My Refund?" tool is at [irs.gov/refunds](https://irs.gov/refunds).
+
+## When Will I Get My Tax Refund?
+
+The IRS typically issues refunds within **21 days** of receiving your tax return if you e-file and choose direct deposit. Paper returns take 6-8 weeks.
+
+### 2026 Refund Timeline
+
+| Filing Date | Expected Refund (Direct Deposit) |
+|------------|--------------------------------|
+| Early January | Late January |
+| February 1 | February 22 |
+| March 1 | March 22 |
+| April 15 (deadline) | May 6 |
+
+## Can I Track My Tax Refund?
+
+Yes. Use the IRS **"Where's My Refund?"** tool at [irs.gov/refunds](https://irs.gov/refunds). You'll need:
+- Your Social Security number
+- Your filing status
+- The exact refund amount from your return
+
+The tool updates once every 24 hours (usually overnight). Check after 24 hours of e-filing or 4 weeks after mailing a paper return.
+
+## Can a Tax Refund Come on a Weekend?
+
+Yes. The IRS processes refunds daily, and direct deposits can hit your bank account on any day of the week, including weekends. However, some banks don't process deposits on weekends, so the money may not be available until Monday.
+
+The IRS "Where's My Refund?" tool typically shows a "refund sent" status when the payment is initiated, not when it hits your account.
+
+## Can Debt Collectors Take My Tax Refund?
+
+Private debt collectors **cannot** directly intercept your tax refund. However, there are exceptions:
+
+### Who CAN Take Your Refund
+1. **Federal government**: For federal debts (student loans, federal taxes, federal benefits overpayments)
+2. **State government**: For state tax debts, state debts, or state-ordered child support
+3. **Treasury Offset Program**: For past-due child support, federal student loans, or other federal debts
+
+### Who CANNOT Take Your Refund
+- Credit card companies
+- Medical bill collectors
+- Personal loan lenders
+- Private creditors (without a court judgment and garnishment order)
+
+## Can Joint Tax Refund Be Garnished?
+
+Yes, but the non-debt spouse can file an **Injured Spouse Allocation** (IRS Form 8379) to recover their portion of the refund. The IRS will divide the refund based on each spouse's income and allocations.
+
+This commonly happens when one spouse has:
+- Past-due student loans
+- Back child support
+- Federal tax debt from a previous year
+
+## Does a Tax Credit Increase My Refund?
+
+Yes. Tax credits directly reduce your tax liability dollar-for-dollar. If you owe $3,000 in taxes and have a $1,000 tax credit, your tax bill drops to $2,000.
+
+**Refundable tax credits** (like the Earned Income Credit) can even increase your refund beyond what you paid in. If you had $1,000 withheld and qualify for a $2,000 refundable credit, you'd get a $2,000 refund.
+
+### Common Tax Credits for 2026
+- Child Tax Credit: Up to $2,000 per child
+- Earned Income Tax Credit: Up to $7,830
+- Child and Dependent Care Credit: Up to $1,050
+- American Opportunity Credit: Up to $2,500
+- Lifetime Learning Credit: Up to $2,000
+
+## Does a Tax Deduction Increase My Refund?
+
+Yes, but indirectly. Tax deductions reduce your **taxable income**, not your tax directly. The value depends on your tax bracket.
+
+**Example**: A $5,000 deduction in the 22% bracket saves you $5,000 × 22% = $1,100 in taxes. This increases your refund by $1,100.
+
+Tax credits are generally more valuable than deductions because they reduce tax dollar-for-dollar.
+
+## Can Business Get Tax Refund?
+
+Yes, businesses can receive tax refunds, but it works differently:
+- **C-Corporations**: Can get refunds for overpaid estimated taxes
+- **S-Corporations/Partnerships**: Refunds pass through to owners' personal returns
+- **Sole proprietors**: Business income/expenses are on personal return (Schedule C)
+
+Businesses typically receive refunds when they overpay estimated taxes or qualify for refundable business credits.
+
+## What Can Delay My Tax Refund?
+
+Common refund delays:
+1. **Errors on return** (wrong SSN, math errors)
+2. **Identity verification** (IRS suspects fraud)
+3. **Earned Income Credit or Additional Child Tax Credit** (Path Act requires delay until mid-February)
+4. **Filing before mid-February** (IRS systems still updating)
+5. **Paper filing** (6-8 weeks vs. 21 days for e-file)
+6. **Amended return** (up to 16 weeks)
+7. **Injured spouse form** (adds 11-14 weeks)
+8. **Bank account errors** (wrong routing/account number)
+
+## How Can I Get My Tax Refund Faster?
+
+1. **E-file your return** (vs. paper filing)
+2. **Choose direct deposit** (vs. paper check)
+3. **File early** (avoid the February-March rush)
+4. **Double-check for errors** (wrong SSN, math mistakes)
+5. **Avoid claiming EIC/ACTC** if not eligible (triggers automatic review)
+6. **Use tax software** (reduces errors)
+
+Use our [Tax Refund Calculator](/tax-refund-calculator) to estimate your refund before filing.
+
+## Related Resources
+
+- [Tax Refund Calculator](/tax-refund-calculator)
+- [IRS Withholding Calculator](/irs-withholding-calculator)
+- [Paycheck Calculator](/paycheck-calculator)`,
+  "tax-questions-answered-2026": `# Tax Questions Answered: Brackets, Overtime, Bonuses & More (2026)
+
+Americans have hundreds of questions about how taxes work. From brackets to overtime pay to bonuses, the tax code is complex and confusing. This FAQ guide answers the most commonly searched tax questions for 2026, with clear, accurate explanations.
+
+## Official Source
+
+Overtime and bonus tax rules are in [IRS Publication 15-T](https://www.irs.gov/publications/p15t). State tax comparisons are from the [Tax Foundation](https://taxfoundation.org/).
+
+## Are No Taxes on Overtime in Effect?
+
+As of 2026, there is **no federal exemption** for overtime pay. Overtime pay is still taxed as ordinary income at the federal level.
+
+However, there have been legislative proposals to exempt overtime pay from federal income tax. The "No Tax on Overtime" proposal was part of broader tax reform discussions, but as of 2026, it has not become law.
+
+Some states may have different rules, so check with your state revenue department.
+
+## Are Taxes on Bonuses Higher?
+
+Bonuses are subject to a **flat 22% federal withholding rate** (for bonuses under $1 million). This is often higher than your normal tax rate, which is why your bonus may seem "taxed more."
+
+However, at tax time, your bonus is simply added to your total income and taxed at your marginal rate. If your marginal rate is lower than 22%, you'll get the excess withholding back as a refund.
+
+**For bonuses over $1 million**: The withholding rate jumps to 37%.
+
+Use our [Bonus Tax Calculator](/bonus-tax-calculator) to see exactly how much you'll keep.
+
+## Are Taxes Automatically Deducted from Paycheck?
+
+Yes. Your employer withholds federal income tax, Social Security tax (6.2%), and Medicare tax (1.45%) from each paycheck. They also withhold state income tax (if applicable).
+
+The amount withheld is based on:
+- Your income
+- Your filing status
+- Your W-4 allowances
+- Any additional withholding you requested
+
+Use our [Paycheck Calculator](/paycheck-calculator) to see your exact take-home pay.
+
+## Are Taxes Cheaper in Florida?
+
+Yes. Florida has **no state income tax**, which means:
+- No tax on wages, salaries, or self-employment income
+- No tax on investment income
+- No tax on pension or retirement income
+- No tax on Social Security benefits
+
+On a $100,000 salary, living in Florida instead of California saves approximately **$8,000-$10,000 per year** in state taxes.
+
+However, Florida does have:
+- Sales tax: 6% (avg 6.98% with local surtaxes)
+- Property tax: avg 0.98%
+- Corporate income tax: 3.535%
+
+## Are Taxes Included in Mortgage?
+
+For most homeowners, monthly mortgage payments include:
+1. **Principal** (loan repayment)
+2. **Interest** (cost of borrowing)
+3. **Property taxes** (held in escrow)
+4. **Homeowners insurance** (held in escrow)
+5. **PMI** (if applicable)
+
+Property taxes are typically collected by your lender and held in an escrow account, then paid to your local government when due. Not all mortgages include escrow — some homeowners pay property taxes directly.
+
+Use our [Mortgage Calculator](/mortgage-calculator) to see your full monthly payment including taxes.
+
+## Are Taxes Going Up in New York?
+
+New York already has some of the highest state taxes in the country:
+- State income tax: 4% - 10.9% (progressive)
+- NYC resident tax: 3.078% - 3.876% (additional)
+- Sales tax: avg 8.52%
+- Property tax: avg 1.62%
+
+For 2026, New York has not announced major tax increases, but the top marginal rate of 10.9% remains one of the highest in the nation. NYC residents pay the combined state + city rate.
+
+## Are Taxes Going Up in Virginia?
+
+Virginia's income tax rates range from 2% to 5.75%. For 2026, Virginia has not announced major rate increases, but standard deduction amounts and bracket thresholds are adjusted annually for inflation.
+
+Virginia does tax Social Security benefits for higher-income retirees, unlike many states that have exempted them.
+
+## Are Property Taxes Deductible?
+
+Yes, but with limitations. As of 2026, you can deduct up to **$10,000** in combined state and local taxes (SALT) — this includes property taxes plus state income taxes OR state sales taxes.
+
+This $10,000 cap (SALT cap) was introduced by the Tax Cuts and Jobs Act of 2017 and is scheduled to sunset after 2025. For 2026, the cap may be eliminated or modified.
+
+**To deduct property taxes**, you must itemize deductions (Schedule A) rather than take the standard deduction.
+
+## Are Tax Brackets Based on AGI?
+
+Tax brackets are based on **taxable income**, which is your AGI minus either the standard deduction or itemized deductions.
+
+The calculation:
+1. Gross income (wages, self-employment, investments, etc.)
+2. Minus adjustments (401k contributions, HSA, student loan interest) = **AGI**
+3. Minus standard or itemized deductions = **Taxable income**
+4. Tax brackets apply to taxable income
+
+## Are 1099 Taxes Quarterly?
+
+Yes, if you're self-employed or receive 1099 income, you generally must pay **quarterly estimated taxes** if you expect to owe $1,000+ at tax time.
+
+### 2026 Quarterly Tax Due Dates
+- Q1: April 15, 2026
+- Q2: June 15, 2026
+- Q3: September 15, 2026
+- Q4: January 15, 2027
+
+Use our [Self-Employment Tax Calculator](/self-employment-tax-calculator) to estimate your quarterly payments.
+
+## Are Taxes Still Being Taken Out of Overtime Pay?
+
+Yes. As of 2026, overtime pay is still subject to federal income tax withholding, Social Security tax, and Medicare tax — just like regular wages.
+
+Your employer withholds taxes from overtime pay at the same rate as regular pay. The "No Tax on Overtime" proposals have not been enacted into law.
+
+Use our [Overtime Tax Calculator](/overtime-tax-calculator) to see your after-tax overtime pay.
+
+## Related Resources
+
+- [Paycheck Calculator](/paycheck-calculator)
+- [Bonus Tax Calculator](/bonus-tax-calculator)
+- [Overtime Tax Calculator](/overtime-tax-calculator)
+- [Self-Employment Tax Calculator](/self-employment-tax-calculator)
+- [Property Tax Calculator](/property-tax-calculator)
+- [Mortgage Calculator](/mortgage-calculator)`,
+  "how-much-tax-will-i-owe-2026": `# How Much Tax Will I Owe in 2026? Complete Calculator & Guide
+
+The most common tax question in America is simple: "How much tax will I owe?" Yet most tax websites try to sell you filing software instead of simply answering the question. This guide gives you the exact numbers, formulas, and a free calculator to estimate your 2026 tax liability — no signup, no software to buy, no email required.
+
+## Official Source
+
+2026 tax brackets are from [IRS Revenue Procedure 2025-25](https://www.irs.gov/pub/irs-drop/n-25-25.pdf). FICA rates are published by the [Social Security Administration](https://www.ssa.gov/oact/progdata/taxRates.html).
+
+## How Much Tax Will I Owe If I Make $50,000?
+
+On a $50,000 salary (single filer, standard deduction), your 2026 federal tax is approximately **$3,820**. Here's the breakdown:
+
+| Item | Amount |
+|------|--------|
+| Gross salary | $50,000 |
+| Standard deduction | -$16,100 |
+| Taxable income | $33,900 |
+| Federal income tax (10% + 12%) | $3,820 |
+| FICA (Social Security + Medicare) | $3,825 |
+| **Total tax** | **$7,645** |
+| **Take-home pay** | **$42,355** |
+
+If you live in a state with no income tax (Texas, Florida, Washington, Nevada, Wyoming, South Dakota, Alaska, Tennessee, New Hampshire), your total tax stays at $7,645.
+
+If you live in California, add approximately $2,500 in state income tax. In New York, add about $3,500.
+
+Use our [Paycheck Calculator](/paycheck-calculator) for an exact estimate.
+
+## How Much Tax Will I Owe If I Make $75,000?
+
+On a $75,000 salary (single filer), your 2026 federal tax is approximately **$8,620**:
+
+| Item | Amount |
+|------|--------|
+| Gross salary | $75,000 |
+| Standard deduction | -$16,100 |
+| Taxable income | $58,900 |
+| Federal income tax (10% + 12% + 22%) | $8,620 |
+| FICA | $5,738 |
+| **Total tax** | **$14,358** |
+| **Take-home pay** | **$60,642** |
+
+## How Much Tax Will I Owe If I Make $100,000?
+
+On a $100,000 salary (single filer), your 2026 federal tax is approximately **$13,382**:
+
+| Item | Amount |
+|------|--------|
+| Gross salary | $100,000 |
+| Standard deduction | -$16,100 |
+| Taxable income | $83,900 |
+| Federal income tax | $13,382 |
+| FICA | $7,650 |
+| **Total tax** | **$21,032** |
+| **Take-home pay** | **$78,968** |
+
+## How to Calculate How Much Tax You Owe
+
+### Step 1: Determine Your Gross Income
+
+Add all your income sources:
+- Wages and salaries (W-2)
+- Self-employment income (1099)
+- Investment income (dividends, interest, capital gains)
+- Rental income
+- Retirement distributions (401k, IRA, pension)
+- Social Security benefits (if above thresholds)
+
+### Step 2: Subtract Adjustments (Above-the-Line Deductions)
+
+Common adjustments:
+- 401(k) contributions (up to $24,500 in 2026)
+- HSA contributions (up to $4,400 self, $8,300 family)
+- Student loan interest deduction (up to $2,500)
+- Self-employment tax deduction (half of SE tax)
+- Traditional IRA contributions (if eligible)
+
+### Step 3: Subtract Standard or Itemized Deductions
+
+**Standard deduction (2026)**:
+- Single: $16,100
+- Married Filing Jointly: $32,200
+- Head of Household: $24,150
+
+**Itemized deductions** (use if higher than standard):
+- Mortgage interest
+- State and local taxes (SALT) up to $10,000
+- Charitable contributions
+- Medical expenses above 7.5% of AGI
+
+### Step 4: Apply Tax Brackets
+
+Use the 2026 progressive tax brackets. Only income within each bracket is taxed at that rate.
+
+### Step 5: Add FICA Taxes
+
+- Social Security: 6.2% on wages up to $184,500
+- Medicare: 1.45% on all wages
+- Additional Medicare: 0.9% on wages above $200,000 (single)
+
+### Step 6: Add State Income Tax
+
+Use our state-specific calculators:
+- [Texas Tax Calculator](/texas-tax-calculator) (0% state tax)
+- [Florida Tax Calculator](/florida-tax-calculator) (0% state tax)
+- [California Tax Calculator](/california-tax-calculator) (1%-13.3%)
+- [New York Tax Calculator](/new-york-tax-calculator) (4%-10.9%)
+- [Illinois Tax Calculator](/illinois-tax-calculator) (4.95% flat)
+
+## How Much Tax Will I Owe on a Bonus?
+
+Bonuses are taxed at a flat **22% federal withholding rate** (for bonuses under $1 million). However, at tax time, your bonus is simply added to your total income and taxed at your marginal rate.
+
+If your marginal rate is lower than 22%, you'll get a refund of the excess withholding. If higher, you'll owe more.
+
+Use our [Bonus Tax Calculator](/bonus-tax-calculator) for exact calculations.
+
+## How Much Tax Will I Owe on 401(k) Withdrawal?
+
+401(k) withdrawals are taxed as **ordinary income** at your marginal rate. If you withdraw $50,000 and are in the 22% bracket, you'll pay approximately $11,000 in federal tax.
+
+If you're under 59.5, add a 10% penalty ($5,000 on $50,000).
+
+Use our [401(k) Calculator](/401k-retirement-calculator) to project your retirement tax.
+
+## How Much Tax Will I Owe on Capital Gains?
+
+Long-term capital gains (assets held over 1 year) are taxed at preferential rates:
+
+| Income (Single) | Capital Gains Rate |
+|-----------------|-------------------|
+| $0 - $48,475 | 0% |
+| $48,476 - $533,400 | 15% |
+| Over $533,400 | 20% |
+
+Short-term gains (held 1 year or less) are taxed as ordinary income.
+
+Use our [Capital Gains Calculator](/capital-gains-calculator) for exact calculations.
+
+## How Much Tax Will I Owe If I'm Self-Employed?
+
+Self-employed individuals pay both halves of FICA (15.3% total) plus federal income tax. On $75,000 net self-employment income:
+
+| Item | Amount |
+|------|--------|
+| SE tax (15.3% on 92.35% of income) | $10,595 |
+| Federal income tax (after deductions) | $5,200 |
+| **Total tax** | **$15,795** |
+| **Effective rate** | **21.1%** |
+
+Use our [Self-Employment Tax Calculator](/self-employment-tax-calculator) for exact numbers.
+
+## Free Tax Calculator — No Signup Required
+
+Unlike TurboTax, H&R Block, and other tax software that require you to create an account before showing any numbers, our calculators are:
+
+- ✅ 100% free
+- ✅ No signup or email required
+- ✅ No data stored
+- ✅ Instant results
+- ✅ Updated for 2026
+
+[Paycheck Calculator](/paycheck-calculator) | [Tax Refund Calculator](/tax-refund-calculator) | [Self-Employment Calculator](/self-employment-tax-calculator)`,
+  "take-home-pay-calculator-guide-2026": `# Take Home Pay Calculator 2026: How Much You Actually Keep
+
+Your salary is not your take-home pay. A $75,000 salary doesn't mean $75,000 in your pocket. Between federal tax, FICA, state tax, and benefits deductions, your actual take-home pay can be $10,000-$20,000 less than your gross salary. This guide explains exactly how to calculate your take-home pay, with real examples for every state.
+
+## Official Source
+
+Paycheck withholding rules are in [IRS Publication 15-T](https://www.irs.gov/publications/p15t). State income tax rates are from the [Federation of Tax Administrators](https://www.taxadmin.org/state-tax-agencies).
+
+## What Is Take Home Pay?
+
+Take-home pay (also called net pay) is the money you actually receive in your paycheck after all deductions:
+
+1. **Federal income tax withholding** (based on W-4)
+2. **FICA taxes** (Social Security 6.2% + Medicare 1.45%)
+3. **State income tax** (varies by state, 0% - 13.3%)
+4. **Local/city tax** (some cities like NYC)
+5. **401(k) contributions** (if applicable)
+6. **Health insurance premiums** (if through employer)
+7. **HSA/FSA contributions** (if applicable)
+
+## How to Calculate Take Home Pay
+
+### Step 1: Start with Gross Salary
+
+This is your annual salary before any deductions.
+
+### Step 2: Subtract Pre-Tax Deductions
+
+- 401(k) contributions (e.g., 5% of $75,000 = $3,750)
+- HSA contributions (up to $4,400 in 2026)
+- Health insurance premiums
+- FSA contributions
+
+### Step 3: Calculate FICA Taxes
+
+- Social Security: 6.2% of gross wages (up to $184,500 cap)
+- Medicare: 1.45% of all wages
+- Additional Medicare: 0.9% on wages above $200,000
+
+### Step 4: Calculate Federal Income Tax
+
+Subtract the standard deduction ($16,100 single) from your taxable income, then apply the 2026 tax brackets.
+
+### Step 5: Calculate State Income Tax
+
+Each state has its own rates:
+- **0% (no state tax)**: Texas, Florida, Washington, Nevada, Wyoming, South Dakota, Alaska, Tennessee, New Hampshire
+- **Flat rate**: Illinois (4.95%), Colorado (4.4%), Indiana (3.05%), Pennsylvania (3.07%), Michigan (4.25%)
+- **Progressive**: California (1%-13.3%), New York (4%-10.9%), and others
+
+### Step 6: Subtract All Taxes from Gross
+
+Take-home pay = Gross salary - All taxes - Pre-tax deductions
+
+## Take Home Pay by State — $75,000 Salary Examples
+
+| State | State Tax | Total Tax | Take-Home Pay | Monthly |
+|-------|----------|-----------|--------------|---------|
+| Texas | $0 | $14,358 | $60,642 | $5,054 |
+| Florida | $0 | $14,358 | $60,642 | $5,054 |
+| Washington | $0 | $14,358 | $60,642 | $5,054 |
+| Illinois | $3,713 | $18,071 | $56,929 | $4,744 |
+| Pennsylvania | $2,303 | $16,661 | $58,339 | $4,862 |
+| California | $6,083 | $20,441 | $54,559 | $4,547 |
+| New York | $5,379 | $19,737 | $55,263 | $4,605 |
+| New York City | $7,671 | $22,029 | $52,971 | $4,414 |
+
+The difference between Texas (no state tax) and California (13.3% top rate) on a $75,000 salary is **$6,083 per year** — that's $507/month extra in your pocket in Texas.
+
+## Take Home Pay Calculator — Free, No Signup
+
+Our [Paycheck Calculator](/paycheck-calculator) gives you instant take-home pay estimates:
+- Enter your salary
+- Select your state
+- Choose filing status
+- Add 401(k) and HSA contributions
+- See your exact net pay
+
+No account required. No email. No data stored. Just instant results.
+
+## How Much Is My Take Home Pay After 401(k)?
+
+401(k) contributions reduce your take-home pay, but not by the full contribution amount. Because 401(k) is pre-tax, you save on federal and state taxes.
+
+**Example**: You earn $75,000 and contribute 5% ($3,750) to your 401(k):
+- Your taxable income drops to $71,250
+- Federal tax savings: ~$825 (at 22% bracket)
+- State tax savings: ~$186 (at 4.95% Illinois rate)
+- **Net take-home reduction**: $3,750 - $825 - $186 = **$2,739**
+
+So contributing $3,750 to your 401(k) only reduces your take-home pay by $2,739. The government effectively pays 27% of your contribution.
+
+## How to Increase Your Take Home Pay
+
+### 1. Adjust Your W-4 Withholding
+
+If you typically get a large tax refund, you're over-withholding. Update your W-4 to claim additional allowances or reduce withholding. This puts more money in each paycheck.
+
+Use our [IRS Withholding Calculator](/irs-withholding-calculator) to find your optimal W-4 settings.
+
+### 2. Maximize Pre-Tax Contributions
+
+HSA, 401(k), and FSA contributions reduce your taxable income, which reduces your tax burden. The money comes out of your paycheck, but the tax savings partially offset the reduction.
+
+### 3. Move to a No-Income-Tax State
+
+Moving from California to Texas on a $100,000 salary increases your take-home pay by approximately **$9,000-$10,000 per year** ($750-$833/month).
+
+### 4. Claim All Eligible Tax Credits
+
+Tax credits directly reduce your tax bill dollar-for-dollar:
+- Child Tax Credit: Up to $2,000 per child
+- Earned Income Tax Credit: Up to $7,830
+- Child and Dependent Care Credit: Up to $1,050
+
+### 5. File as Head of Household
+
+If you're unmarried but pay more than half the cost of keeping up a home for a qualifying person, file as Head of Household for a larger standard deduction ($24,150 vs. $16,100) and lower tax rates.
+
+## Take Home Pay Calculator by Salary
+
+| Salary | Take-Home (Texas) | Take-Home (California) | Difference |
+|--------|-------------------|----------------------|------------|
+| $30,000 | $26,881 | $25,648 | $1,233 |
+| $50,000 | $42,355 | $41,097 | $1,258 |
+| $75,000 | $60,642 | $54,559 | $6,083 |
+| $100,000 | $78,968 | $73,799 | $5,169 |
+| $150,000 | $114,227 | $101,237 | $12,990 |
+| $200,000 | $148,927 | $133,454 | $15,473 |
+
+Use our [Salary After Tax](/salary) pages for detailed breakdowns at 26 salary levels.
+
+## Related Calculators
+
+- [Paycheck Calculator](/paycheck-calculator)
+- [Salary After Tax by State](/salary)
+- [401(k) Retirement Calculator](/401k-retirement-calculator)
+- [IRS Withholding Calculator](/irs-withholding-calculator)
+- [Relocation Calculator](/relocation-calculator)`,
+  "free-tax-calculator-no-signup-2026": `# Free Tax Calculator 2026 — No Signup, No Email, Instant Results
+
+Most tax calculator websites have a catch: you enter all your information, click "calculate," and then hit a paywall asking you to "create a free account" or "start your return." Our tax calculators are different. No signup. No email. No data stored. Just instant, accurate results updated for 2026.
+
+## Official Source
+
+Tax calculation methodology follows [IRS Publication 15-T](https://www.irs.gov/publications/p15t) for federal taxes and [IRS Publication 505](https://www.irs.gov/publications/p505) for estimated taxes.
+
+## Why Our Tax Calculator Is Actually Free
+
+### What Other Sites Do
+
+| Site | The Catch |
+|------|----------|
+| TurboTax | "Free" estimate, then $39-$89 to file |
+| H&R Block | "Free" calculator, then upsell to paid filing |
+| TaxAct | "Free" preview, then pay to see full results |
+| SmartAsset | "Free" but requires email to see details |
+
+### What We Do
+
+- ✅ **No account required** — use the calculator immediately
+- ✅ **No email needed** — we don't ask for it
+- ✅ **No paywall** — all results are shown instantly
+- ✅ **No data stored** — your numbers stay in your browser
+- ✅ **No upsells** — we don't sell tax filing software
+
+We're able to offer this for free because:
+1. Our calculators run in your browser (no server costs for calculations)
+2. We display ads (clearly labeled, separate from content)
+3. We don't store any user data (no database costs)
+
+## How to Use Our Free Tax Calculator
+
+### Step 1: Choose Your Calculator
+
+| Calculator | What It Does | Link |
+|-----------|-------------|------|
+| Paycheck Calculator | Calculate take-home pay after all taxes | [Open](/paycheck-calculator) |
+| Tax Refund Calculator | Estimate your refund or amount owed | [Open](/tax-refund-calculator) |
+| Self-Employment Calculator | Calculate SE tax for 1099 income | [Open](/self-employment-tax-calculator) |
+| Capital Gains Calculator | Calculate tax on investment gains | [Open](/capital-gains-calculator) |
+| Bonus Tax Calculator | Calculate tax on bonuses | [Open](/bonus-tax-calculator) |
+| Overtime Tax Calculator | Calculate after-tax overtime pay | [Open](/overtime-tax-calculator) |
+| Property Tax Calculator | Estimate property tax by state | [Open](/property-tax-calculator) |
+| Sales Tax Calculator | Calculate sales tax for all 50 states | [Open](/sales-tax-calculator) |
+| Lottery Tax Calculator | Calculate after-tax lottery winnings | [Open](/lottery-tax-calculator) |
+| 401(k) Calculator | Project retirement balance | [Open](/401k-retirement-calculator) |
+| IRS Withholding Calculator | Optimize your W-4 | [Open](/irs-withholding-calculator) |
+| Mortgage Calculator | Calculate monthly payments | [Open](/mortgage-calculator) |
+
+### Step 2: Enter Your Numbers
+
+Each calculator asks for the minimum information needed:
+- Salary or amount
+- State (for state tax calculations)
+- Filing status (single, married, head of household)
+- Optional: 401(k), HSA, deductions
+
+### Step 3: Get Instant Results
+
+Results appear immediately — no loading, no waiting, no paywall.
+
+## What Makes Our Tax Calculator Accurate
+
+### 2026 Tax Data
+
+All our calculators use the latest 2026 figures:
+- Federal tax brackets: 10%, 12%, 22%, 24%, 32%, 35%, 37%
+- Standard deduction: $16,100 (single), $32,200 (married)
+- FICA: Social Security 6.2% (cap $184,500), Medicare 1.45%
+- 401(k) contribution limit: $24,500 ($30,500 if 50+)
+- HSA contribution limit: $4,400 (self), $8,300 (family)
+
+### State Tax Data
+
+We cover all 50 states with current 2026 state tax rates:
+- [Texas Tax Calculator](/texas-tax-calculator) — 0% income tax
+- [Florida Tax Calculator](/florida-tax-calculator) — 0% income tax
+- [California Tax Calculator](/california-tax-calculator) — 1% to 13.3%
+- [New York Tax Calculator](/new-york-tax-calculator) — 4% to 10.9% + NYC tax
+- [Illinois Tax Calculator](/illinois-tax-calculator) — 4.95% flat
+- And 45+ more state calculators
+
+### CPA-Reviewed
+
+All calculators and tax data are reviewed by Rachel Mitchell, CPA (Lead Tax Analyst) with 12+ years of experience, and David Chen, EA (IRS Enrolled Agent) with 15+ years of experience.
+
+## Free Tax Calculator vs Paid Tax Software
+
+| Feature | Our Calculator | TurboTax | H&R Block |
+|---------|---------------|----------|-----------|
+| Estimate take-home pay | ✅ Free | ❌ Requires account | ❌ Requires account |
+| Compare states | ✅ Free | ❌ Not available | ❌ Not available |
+| Calculate bonus tax | ✅ Free | ❌ Not available | ❌ Not available |
+| Calculate overtime tax | ✅ Free | ❌ Not available | ❌ Not available |
+| No signup required | ✅ | ❌ | ❌ |
+| No email required | ✅ | ❌ | ❌ |
+| File your taxes | ❌ | ✅ ($39-$89) | ✅ ($30-$80) |
+
+**Bottom line**: Use our calculators for estimates and planning. Use TurboTax or H&R Block when you're ready to actually file.
+
+## Frequently Asked Questions
+
+### Is this tax calculator really free?
+
+Yes. No account, no email, no credit card. The calculators run entirely in your browser.
+
+### How accurate is this tax calculator?
+
+Our calculators use the official 2026 IRS tax brackets, standard deductions, and FICA rates. State tax rates are verified against each state's revenue department. Accuracy is within $5-$10 of actual tax liability for most filers.
+
+### Do you store my data?
+
+No. When you type your salary into our calculators, that number stays in your browser. It's never sent to our servers. We don't have user accounts, so we couldn't tie your data to you even if we wanted to.
+
+### Can I use this to file my taxes?
+
+No. Our calculators are for estimation and planning only. For filing, use IRS Free File (if AGI under $84,000), TurboTax, H&R Block, or work with a CPA.
+
+### Why don't you charge like TurboTax?
+
+We focus on tax calculation and education, not tax filing. Our revenue comes from clearly-labeled advertising, not from charging users. This lets us keep all calculators free.
+
+## Start Calculating — No Signup Needed
+
+[Paycheck Calculator](/paycheck-calculator) | [Tax Refund Calculator](/tax-refund-calculator) | [Salary After Tax](/salary) | [Compare State Taxes](/compare)`,
+  "hourly-wage-after-tax-questions-2026": `# Hourly Wage After Tax Questions Answered (2026 Calculator)
+
+How much tax is taken out of your paycheck? How much is $20 per hour after taxes? What about $21 an hour annually? These are among the most searched tax questions in America, yet most tax websites don't answer them directly. This FAQ guide gives you exact numbers for common hourly wages and paycheck amounts, with a free calculator to check your own.
+
+## Official Source
+
+Paycheck withholding rules are published by the IRS in [Publication 15-T](https://www.irs.gov/publications/p15t). Use the [IRS Tax Withholding Estimator](https://www.irs.gov/individuals/tax-withholding-estimator) to check your withholding.
+
+## How Much Tax Is Taken Out of a $300 Paycheck?
+
+On a $300 paycheck, the tax breakdown depends on your annual income and W-4 settings. Here's a typical scenario (single filer, $40,000/year, standard withholding):
+
+| Deduction | Amount | Percentage |
+|-----------|--------|-----------|
+| Federal income tax | $24 | 8.0% |
+| Social Security (6.2%) | $18.60 | 6.2% |
+| Medicare (1.45%) | $4.35 | 1.45% |
+| State tax (varies) | $0-$15 | 0-5% |
+| **Total tax** | **$47-$62** | **16-21%** |
+| **Take-home** | **$238-$253** | **79-84%** |
+
+**In a no-income-tax state** (Texas, Florida, Washington): You keep approximately **$253** from a $300 paycheck.
+
+**In a high-tax state** (California, New York): You keep approximately **$238** from a $300 paycheck.
+
+Use our [Paycheck Calculator](/paycheck-calculator) for an exact estimate based on your state and filing status.
+
+## How Much Tax Do You Pay on $1200 a Week?
+
+$1,200 per week = $62,400 per year. Here's the tax breakdown for a single filer in 2026:
+
+| Item | Amount |
+|------|--------|
+| Gross annual | $62,400 |
+| Standard deduction | -$16,100 |
+| Taxable income | $46,300 |
+| Federal income tax | $5,058 |
+| FICA (Social Security + Medicare) | $4,774 |
+| **Total federal tax** | **$9,832** |
+| **Take-home pay** | **$52,568/year** |
+| **Weekly take-home** | **$1,011/week** |
+
+On $1,200/week, you take home approximately **$1,011/week** in a no-income-tax state, or about **$950/week** in California.
+
+## How Much Is $20 Per Hour Monthly After Taxes?
+
+$20/hour = $41,600/year (assuming 40 hours/week, 52 weeks).
+
+| Item | Amount |
+|------|--------|
+| Gross monthly | $3,467 |
+| Federal tax | $2,383/year ($198/month) |
+| FICA | $3,183/year ($265/month) |
+| State tax (Texas/Florida) | $0 |
+| **Monthly take-home** | **$3,004** |
+
+In a no-income-tax state, $20/hour gives you approximately **$3,004/month** after taxes.
+
+In California, you'd take home about **$2,750/month** (state tax ~$3,000/year).
+
+## How Much Is $21 an Hour Annually After Taxes?
+
+$21/hour = $43,680/year (40 hours/week, 52 weeks).
+
+| Item | Amount |
+|------|--------|
+| Gross annual | $43,680 |
+| Standard deduction | -$16,100 |
+| Taxable income | $27,580 |
+| Federal income tax | $2,772 |
+| FICA | $3,342 |
+| **Total federal tax** | **$6,114** |
+| **Annual take-home** | **$37,566** |
+| **Monthly take-home** | **$3,131** |
+
+In a no-income-tax state, $21/hour gives you approximately **$37,566/year** or **$3,131/month** after taxes.
+
+## How Much Tax Do Taxes Usually Take Out of Your Paycheck?
+
+On average, taxes take out **20-30%** of your gross paycheck:
+
+| Income Level | Federal + FICA | + State Tax (avg) | Total % Taken |
+|-------------|---------------|-------------------|--------------|
+| $30,000/year | 15% | +2% | ~17% |
+| $50,000/year | 16% | +3% | ~19% |
+| $75,000/year | 19% | +4% | ~23% |
+| $100,000/year | 21% | +5% | ~26% |
+| $150,000/year | 24% | +6% | ~30% |
+| $200,000/year | 26% | +7% | ~33% |
+
+**In no-income-tax states** (Texas, Florida, Washington, Nevada, Wyoming, South Dakota, Alaska, Tennessee, New Hampshire): Subtract 3-7% from the total.
+
+## How Much Will I Be Taxed?
+
+Your total tax depends on three factors:
+
+1. **Federal income tax**: 10-37% (progressive brackets)
+2. **FICA**: 7.65% (6.2% Social Security + 1.45% Medicare)
+3. **State income tax**: 0-13.3% (depending on your state)
+
+Use this quick formula:
+- **No-tax state**: Tax = ~20-25% of gross income
+- **Medium-tax state**: Tax = ~25-30% of gross income
+- **High-tax state**: Tax = ~30-35% of gross income
+
+For an exact number, use our [Paycheck Calculator](/paycheck-calculator).
+
+## How Much Tax Do I Pay?
+
+For the most common salary levels, here's what you pay (single filer, no state tax):
+
+| Salary | Federal Tax | FICA | Total Tax | Take-Home |
+|--------|-----------|------|----------|-----------|
+| $30,000 | $1,192 | $2,295 | $3,487 | $26,513 |
+| $40,000 | $2,383 | $3,060 | $5,443 | $34,557 |
+| $50,000 | $3,820 | $3,825 | $7,645 | $42,355 |
+| $60,000 | $5,262 | $4,590 | $9,852 | $50,148 |
+| $75,000 | $8,620 | $5,738 | $14,358 | $60,642 |
+| $100,000 | $13,382 | $7,650 | $21,032 | $78,968 |
+
+## Why Are Taxes Taken Out of Each Paycheck?
+
+The US uses a **pay-as-you-go** tax system. Instead of paying your entire tax bill in April, you pay throughout the year via paycheck withholding.
+
+### How It Works
+
+1. Your employer estimates your annual tax based on your W-4
+2. They divide that by the number of pay periods
+3. Each paycheck, they send that amount to the IRS on your behalf
+4. At tax time (April), you reconcile:
+   - If you overpaid → you get a refund
+   - If you underpaid → you owe more
+
+### Why Not Pay Everything in April?
+
+The IRS requires quarterly tax payments. If you waited until April to pay everything, you'd face:
+- A massive bill (potentially $10,000+)
+- Underpayment penalties
+- Cash flow problems for the government
+
+### How to Adjust Your Withholding
+
+File a new [W-4 form](/irs-withholding-calculator) with your employer to:
+- **Increase withholding** (if you owed taxes last year)
+- **Decrease withholding** (if you got a large refund)
+
+## Is Federal Income Tax 20%?
+
+No. Federal income tax is **progressive**, meaning different portions of your income are taxed at different rates:
+
+| Portion of Income (Single, 2026) | Tax Rate |
+|----------------------------------|---------|
+| $0 - $11,925 | 10% |
+| $11,926 - $48,475 | 12% |
+| $48,476 - $103,350 | 22% |
+| $103,351 - $197,300 | 24% |
+| $197,301 - $250,525 | 32% |
+| $250,526 - $626,350 | 35% |
+| Over $626,350 | 37% |
+
+Your **effective rate** (average rate you actually pay) is always lower than your **marginal rate** (top bracket). For example, on $50,000 income, your marginal rate is 12%, but your effective rate is only 7.6%.
+
+## Related Calculators
+
+- [Paycheck Calculator](/paycheck-calculator)
+- [IRS Withholding Calculator](/irs-withholding-calculator)
+- [Overtime Tax Calculator](/overtime-tax-calculator)
+- [Salary After Tax by State](/salary)
+- [How Much Tax Will I Owe?](/blog/how-much-tax-will-i-owe-2026)`,
+  "what-is-taxable-income-guide-2026": `# What Is Taxable Income? Complete Guide to What You Pay Taxes On (2026)
+
+"What do you get taxed on?" is one of the most common tax questions in America. The answer is more complex than you might think — some income is fully taxable, some is partially taxable, and some is completely tax-free. This 2026 guide explains every type of taxable and tax-exempt income, with clear examples.
+
+## Official Source
+
+Taxable income rules are defined by the IRS in [Publication 525](https://www.irs.gov/publications/p525) and [Publication 17](https://www.irs.gov/publications/p17). Tax-exempt income is listed in [IRS Publication 525, Chapter 2](https://www.irs.gov/publications/p525#en_US_2024_publink1000229723).
+
+## What Items Do You Pay Taxes On?
+
+### Fully Taxable Income
+
+These income types are 100% subject to federal income tax:
+
+1. **Wages and salaries** — All employment income (W-2)
+2. **Self-employment income** — 1099 income, freelance, contractor (minus business expenses)
+3. **Bonuses and commissions** — Taxed as ordinary income
+4. **Tips** — All tips over $20/month per employer
+5. **Vacation pay** — Taxed as wages
+6. **Severance pay** — Taxed as wages
+7. **Unemployment compensation** — Fully taxable at federal level (some states exempt)
+8. **Capital gains** — Profit from selling investments (short-term at ordinary rates, long-term at 0/15/20%)
+9. **Dividends** — Qualified (15/20%) and ordinary (ordinary income rate)
+10. **Interest income** — Bank interest, bond interest (some municipal bonds exempt)
+11. **Rental income** — Rent received (minus expenses)
+12. **Pension income** — Most pensions are fully taxable
+13. **401(k)/Traditional IRA withdrawals** — Fully taxable as ordinary income
+14. **Annuities** — Portion of annuity payments (depends on basis)
+15. **Gambling winnings** — Fully taxable (lottery, casino, sports betting)
+16. **Alimony received** — Taxable for divorces finalized after 2018
+17. **Jury duty pay** — Taxable as miscellaneous income
+18. **Prizes and awards** — Fair market value is taxable
+19. **Cancellation of debt** — Generally taxable (exceptions exist)
+20. **Royalties** — Taxable as ordinary income
+
+### Partially Taxable Income
+
+1. **Social Security benefits** — 0%, 50%, or 85% taxable depending on combined income
+2. **Annuities** — Only the earnings portion is taxable (return of principal is tax-free)
+3. **Non-qualified dividends** — Taxed at ordinary rate (qualified at lower rate)
+4. **Scholarships** — Tuition/fees tax-free; room/board taxable
+
+## What Income Is Exempt From Taxes?
+
+### Tax-Free Income (Federal)
+
+These income types are **not subject to federal income tax**:
+
+1. **Roth IRA withdrawals** — Qualified withdrawals (59.5+ and 5-year rule) are 100% tax-free
+2. **Roth 401(k) withdrawals** — Same as Roth IRA
+3. **Municipal bond interest** — Interest from state/local government bonds is federal tax-free
+4. **Social Security** (low income) — If combined income < $25,000 (single) or $32,000 (married)
+5. **Veterans' benefits** — Disability compensation, pensions, and education benefits
+6. **Workers' compensation** — Job-related injury/illness benefits
+7. **Child support payments** — Not taxable to the recipient
+8. **Gifts received** — Gifts under $18,000/year per giver (2026)
+9. **Inheritances** — No federal income tax on inherited money
+10. **Life insurance proceeds** — Not taxable as income to beneficiary
+11. **Scholarships** — Tuition, fees, books, supplies (not room/board)
+12. **Welfare benefits** — Public assistance payments
+13. **Supplemental Security Income (SSI)** — Not taxable
+14. **Foster care payments** — For qualified foster individuals
+15. **Disability insurance** — If premiums paid with after-tax dollars
+16. **IRS tax refunds** — Federal tax refunds are not taxable income
+17. **Combat pay** — Military pay earned in a combat zone
+18. **Foreign income exclusion** — Up to $130,000 (2026) if living abroad
+19. **Home sale exclusion** — Up to $250,000 (single) / $500,000 (married) profit tax-free
+20. **HSA withdrawals** — For qualified medical expenses
+
+## What Are the 12 Types of Taxes in the US?
+
+| # | Tax Type | Who Pays | Rate |
+|---|---------|---------|------|
+| 1 | Federal income tax | All earners | 10-37% |
+| 2 | State income tax | Residents of 41 states | 0-13.3% |
+| 3 | FICA (Social Security) | All employees | 6.2% (employer matches) |
+| 4 | Medicare tax | All employees | 1.45% (employer matches) |
+| 5 | State sales tax | Consumers in 45 states | 0-9.56% |
+| 6 | Property tax | Property owners | 0.28-2.49% |
+| 7 | Capital gains tax | Investors | 0/15/20% |
+| 8 | Estate tax | Estates over $13.99M | 40% |
+| 9 | Gift tax | Gifts over $18,000/year | 18-40% |
+| 10 | Excise tax | Consumers (gas, alcohol, tobacco) | Varies |
+| 11 | Self-employment tax | Self-employed | 15.3% |
+| 12 | Corporate income tax | C-Corporations | 21% (federal) |
+
+## What Is the Minimum Salary to Pay Income Tax?
+
+You must file a tax return (and potentially pay tax) if your income exceeds:
+
+| Filing Status | 2026 Filing Threshold | Standard Deduction |
+|--------------|---------------------|-------------------|
+| Single (under 65) | $16,100 | $16,100 |
+| Single (65+) | $17,700 | $17,700 |
+| Married Filing Jointly (both under 65) | $32,200 | $32,200 |
+| Married Filing Jointly (one 65+) | $33,500 | $33,500 |
+| Head of Household (under 65) | $24,150 | $24,150 |
+
+**If your income is below the standard deduction, you owe $0 federal income tax.**
+
+However, you may still owe FICA (7.65%) regardless of income level, and state tax thresholds may differ.
+
+## What Income Pays 37% in Taxes?
+
+The 37% federal tax bracket applies to taxable income over **$626,350** (single filer) or **$751,600** (married filing jointly) in 2026.
+
+**Important**: Only the income ABOVE $626,350 is taxed at 37%. Income below that is taxed at lower rates. A single filer making $700,000 doesn't pay 37% on all $700,000 — only on the $73,650 above the threshold.
+
+## What Is the 60% Trap?
+
+The "60% trap" (or "tax torpedo") refers to the situation where retirees face a **marginal tax rate of 40.7% or higher** (instead of the expected 22%) due to Social Security taxation:
+
+1. Retiree withdraws from 401(k) → increases taxable income
+2. Higher income triggers 85% of Social Security to become taxable
+3. Each additional dollar of 401(k) withdrawal triggers ~$0.85 of Social Security tax
+4. Effective marginal rate jumps from 22% to **40.7%**
+
+**How to avoid it**: Withdraw from Roth accounts (tax-free) to avoid increasing taxable income, or spread withdrawals across multiple years.
+
+## What Are 10 Types of Taxable Income?
+
+1. Wages and salaries
+2. Self-employment income
+3. Investment income (dividends, interest, capital gains)
+4. Rental income
+5. Pension and retirement distributions (401k, IRA)
+6. Social Security benefits (if income exceeds thresholds)
+7. Unemployment compensation
+8. Gambling and lottery winnings
+9. Alimony received (for post-2018 divorces)
+10. Prizes and awards
+
+## Can I Gift Money to My Wife?
+
+**Yes, completely tax-free.** Transfers between spouses are exempt from gift tax. You can transfer any amount to your spouse without tax consequences, as long as:
+
+- Your spouse is a US citizen (unlimited exemption)
+- Your spouse is a non-citizen (annual limit of $190,000 in 2026)
+
+Gifts to others (children, friends) are subject to the $18,000 annual gift exclusion per person.
+
+## How Do I Know If I Have to Pay Taxes?
+
+You need to file a federal tax return if ANY of these apply:
+
+1. Your gross income exceeds the filing threshold ($16,100 single, $32,200 married)
+2. You had self-employment income of $400 or more
+3. You owe special taxes (AMT, additional Medicare, household employment)
+4. You received advance premium tax credits (ACA marketplace)
+5. You had wages of $108.28 or more from a church
+
+Even if you don't owe tax, you should file if you're eligible for refundable credits (EITC, Child Tax Credit).
+
+## Related Resources
+
+- [Paycheck Calculator](/paycheck-calculator)
+- [Federal Tax Brackets](/federal-tax-brackets)
+- [How Much Tax Will I Owe?](/blog/how-much-tax-will-i-owe-2026)
+- [Free Tax Calculator — No Signup](/blog/free-tax-calculator-no-signup-2026)
+- [Tax Glossary](/glossary)`
 };
