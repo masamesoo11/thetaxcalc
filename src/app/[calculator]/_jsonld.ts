@@ -114,7 +114,7 @@ function webPageJsonLd(id: string, name: string, urlPath: string, description: s
     name,
     description,
     inLanguage: 'en-US',
-    dateModified: '2026-01-15',
+    dateModified: '2026-06-25',
     author: { '@id': authorId },
   };
 }
@@ -138,9 +138,9 @@ function getHomeJsonLd() {
         name: 'Paycheck Calculator — Federal, FICA & State Tax Take-Home Pay',
         description:
           'Free 2026 paycheck calculator. Instantly compute your take-home pay after federal tax, FICA (Social Security + Medicare), and state income tax deductions.',
-        url: baseId,
+        url: `${baseId}/paycheck-calculator`,
         inLanguage: 'en-US',
-        dateModified: '2026-01-01',
+        dateModified: '2026-06-25',
         author: { '@id': authorId },
         publisher: { '@id': `${SITE_URL}/#organization` },
         breadcrumb: { '@id': `${baseId}#breadcrumb` },
