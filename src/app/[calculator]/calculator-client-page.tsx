@@ -276,6 +276,12 @@ export function CalculatorClientPage({ componentKey }: CalculatorClientPageProps
       return <OregonCalculator />;
     case 'employee-cost':
       return <EmployeeCostCalculator />;
+    case 'nyc':
+      return <NewYorkCalculator />;
+    case 'la':
+      return <CaliforniaCalculator />;
+    case 'chicago':
+      return <IllinoisCalculator />;
     default:
       // Check if it's a generic state key
       if (GENERIC_STATE_KEYS.has(componentKey)) {
