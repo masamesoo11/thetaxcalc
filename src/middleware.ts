@@ -250,10 +250,134 @@ Visit https://thetaxcalc.com/about for the full page.`,
     );
   }
 
-  // /resources → /tax-data (consolidated to /tax-data which is in main nav + has interactive charts)
-  if (pathname === '/resources') {
+  // /income-tax-calculator → /paycheck-calculator
+  if (pathname === '/income-tax-calculator') {
     return NextResponse.redirect(
-      new URL('/tax-data', request.url),
+      new URL('/paycheck-calculator', request.url),
+      301
+    );
+  }
+
+  // /yr → /paycheck-calculator (truncated URL found in GSC)
+  if (pathname === '/yr') {
+    return NextResponse.redirect(
+      new URL('/paycheck-calculator', request.url),
+      301
+    );
+  }
+
+  // ─── Common calculator naming variant redirects ────────────────────────────
+  const CALCULATOR_REDIRECTS: Record<string, string> = {
+    '/paycheck-tax-calculator': '/paycheck-calculator',
+    '/salary-calculator': '/paycheck-calculator',
+    '/take-home-pay-calculator': '/paycheck-calculator',
+    '/net-pay-calculator': '/paycheck-calculator',
+    '/after-tax-calculator': '/paycheck-calculator',
+    '/wage-calculator': '/paycheck-calculator',
+    '/hourly-calculator': '/paycheck-calculator',
+    '/w4-calculator': '/irs-withholding-calculator',
+    '/withholding-calculator': '/irs-withholding-calculator',
+    '/tax-estimate-calculator': '/tax-refund-calculator',
+    '/tax-return-calculator': '/tax-refund-calculator',
+    '/state-tax-calculator': '/paycheck-calculator',
+    '/federal-tax-calculator': '/paycheck-calculator',
+    '/ss-calculator': '/paycheck-calculator',
+    '/medicare-calculator': '/paycheck-calculator',
+    '/fica-calculator': '/paycheck-calculator',
+    '/social-security-calculator': '/paycheck-calculator',
+    '/ira-calculator': '/401k-retirement-calculator',
+    '/roth-ira-calculator': '/401k-retirement-calculator',
+    '/hsa-calculator': '/401k-retirement-calculator',
+    '/fsa-calculator': '/401k-retirement-calculator',
+    '/amortization-calculator': '/mortgage-calculator',
+    '/loan-calculator': '/mortgage-calculator',
+    '/interest-calculator': '/mortgage-calculator',
+    '/retirement-calculator': '/401k-retirement-calculator',
+    '/pension-calculator': '/401k-retirement-calculator',
+    '/annuity-calculator': '/401k-retirement-calculator',
+    '/calculators': '/paycheck-calculator',
+    '/tools': '/paycheck-calculator',
+    '/faq': '/glossary',
+    '/help': '/glossary',
+    '/support': '/about',
+    '/sitemap': '/sitemap.xml',
+    '/feed': '/feed.xml',
+    '/rss': '/feed.xml',
+  };
+
+  if (CALCULATOR_REDIRECTS[pathname]) {
+    return NextResponse.redirect(
+      new URL(CALCULATOR_REDIRECTS[pathname], request.url),
+      301
+    );
+  }
+
+  // ─── State short name redirects (non-greedy regex) ─────────────────────────
+  const stateSuffixMatch = pathname.match(/^\/([a-z-]+?)-(income-tax|tax-rate|paycheck|tax)$/);
+  if (stateSuffixMatch) {
+    const stateName = stateSuffixMatch[1];
+    const STATE_NAMES = [
+      'alabama', 'alaska', 'arizona', 'arkansas', 'california',
+      'colorado', 'connecticut', 'delaware', 'florida', 'georgia',
+      'hawaii', 'idaho', 'illinois', 'indiana', 'iowa',
+      'kansas', 'kentucky', 'louisiana', 'maine', 'maryland',
+      'massachusetts', 'michigan', 'minnesota', 'mississippi', 'missouri',
+      'montana', 'nebraska', 'nevada', 'new-hampshire', 'new-jersey',
+      'new-mexico', 'new-york', 'north-carolina', 'north-dakota', 'ohio',
+      'oklahoma', 'oregon', 'pennsylvania', 'rhode-island', 'south-carolina',
+      'south-dakota', 'tennessee', 'texas', 'utah', 'vermont',
+      'virginia', 'washington', 'west-virginia', 'wisconsin', 'wyoming',
+    ];
+    if (STATE_NAMES.includes(stateName)) {
+      return NextResponse.redirect(
+        new URL(`/${stateName}-tax-calculator`, request.url),
+        301
+      );
+    }
+  }
+
+  // ─── Blog URL redirects ────────────────────────────────────────────────────
+  const BLOG_REDIRECTS: Record<string, string> = {
+    '/blog/tax-brackets-2026': '/blog/2026-federal-tax-brackets-explained',
+    '/blog/tax-refund-calculator': '/blog/tax-refund-questions-2026',
+    '/blog/income-tax-guide': '/blog/how-much-tax-will-i-owe-2026',
+    '/blog/state-tax-comparison': '/blog/florida-vs-texas-tax-comparison',
+    '/blog/tax-tips': '/blog/2026-federal-tax-brackets-explained',
+  };
+
+  if (BLOG_REDIRECTS[pathname]) {
+    return NextResponse.redirect(
+      new URL(BLOG_REDIRECTS[pathname], request.url),
+      301
+    );
+  }
+
+  // ─── {search_term_string} template URL redirect ────────────────────────────
+  const searchParams = request.nextUrl.searchParams;
+  if (searchParams.has('q') && searchParams.get('q')?.includes('{search_term_string}')) {
+    return NextResponse.redirect(
+      new URL(pathname, request.url),
+      301
+    );
+  }
+
+  // ─── Bot redirect: strip query params for calculator URLs ──────────────────
+  const CALCULATOR_PATHS_WITH_PARAMS = [
+    '/property-tax-calculator', '/sales-tax-calculator', '/paycheck-calculator',
+    '/illinois-tax-calculator', '/texas-tax-calculator', '/florida-tax-calculator',
+    '/california-tax-calculator', '/new-york-tax-calculator', '/georgia-tax-calculator',
+    '/virginia-tax-calculator', '/north-carolina-tax-calculator', '/pennsylvania-tax-calculator',
+    '/ohio-tax-calculator', '/michigan-tax-calculator', '/new-jersey-tax-calculator',
+    '/colorado-tax-calculator', '/arizona-tax-calculator', '/washington-tax-calculator',
+    '/massachusetts-tax-calculator', '/indiana-tax-calculator', '/tennessee-tax-calculator',
+    '/missouri-tax-calculator', '/maryland-tax-calculator', '/wisconsin-tax-calculator',
+    '/minnesota-tax-calculator', '/oregon-tax-calculator',
+  ];
+  const userAgent = request.headers.get('user-agent') || '';
+  const isBot = /googlebot|bingbot|slurp|duckduckbot|baiduspider|yandexbot|facebookexternalhit|twitterbot|linkedinbot|telegrambot|whatsapp|applebot/i.test(userAgent);
+  if (isBot && CALCULATOR_PATHS_WITH_PARAMS.includes(pathname) && searchParams.toString().length > 0) {
+    return NextResponse.redirect(
+      new URL(pathname, request.url),
       301
     );
   }
