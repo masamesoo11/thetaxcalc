@@ -382,6 +382,79 @@ Visit https://thetaxcalc.com/about for the full page.`,
     );
   }
 
+
+  // ─── Blog short URL redirects (prevent 404s) ───────────────────────────────
+  const BLOG_SHORT_REDIRECTS: Record<string, string> = {
+    '/blog/retirement-tax-planning': '/blog/retirement-tax-planning-guide-2026',
+    '/blog/401k-withdrawal': '/blog/401k-withdrawal-tax-guide-2026',
+    '/blog/inheritance-tax': '/blog/inheritance-tax-guide-2026',
+    '/blog/social-security-tax': '/blog/social-security-tax-questions-2026',
+    '/blog/tax-questions': '/blog/tax-questions-answered-2026',
+    '/blog/tax-refund-questions': '/blog/tax-refund-questions-2026',
+    '/blog/federal-tax-brackets': '/blog/2026-federal-tax-brackets-explained',
+    '/blog/sales-tax-guide': '/blog/sales-tax-by-state-guide-2026',
+    '/blog/property-tax-guide': '/blog/property-tax-by-state-guide-2026',
+    '/blog/lottery-tax': '/blog/lottery-tax-guide-2026',
+    '/blog/self-employment-tax': '/blog/1099-tax-guide-self-employed-2026',
+    '/blog/doordash-taxes': '/blog/doordash-taxes-guide-2026',
+    '/blog/1099-tax': '/blog/1099-tax-guide-self-employed-2026',
+    '/blog/w4-guide': '/blog/irs-withholding-w4-guide-2026',
+    '/blog/overtime-tax': '/blog/no-tax-on-overtime-guide-2026',
+    '/blog/bonus-tax': '/blog/how-bonuses-are-taxed-2026',
+    '/blog/irs-withholding': '/blog/irs-withholding-w4-guide-2026',
+    '/blog/how-fica-taxes': '/blog/how-fica-taxes-work-2026',
+    '/blog/how-bonuses': '/blog/how-bonuses-are-taxed-2026',
+    '/blog/no-tax-overtime': '/blog/no-tax-on-overtime-guide-2026',
+    '/blog/sep-ira': '/blog/sep-ira-solo-401k-guide-2026',
+    '/blog/why-texas': '/blog/why-texas-has-no-income-tax',
+    '/blog/florida-vs-texas': '/blog/florida-vs-texas-tax-comparison',
+    '/blog/illinois-income': '/blog/illinois-income-tax-guide-2026',
+    '/blog/california-tax': '/blog/california-tax-guide-2026',
+    '/blog/texas-tax': '/blog/texas-tax-guide-2026',
+    '/blog/new-york-tax': '/blog/new-york-tax-guide-2026',
+    '/blog/washington-tax': '/blog/washington-tax-guide-2026',
+  };
+
+  if (BLOG_SHORT_REDIRECTS[pathname]) {
+    return NextResponse.redirect(
+      new URL(BLOG_SHORT_REDIRECTS[pathname], request.url),
+      301
+    );
+  }
+
+  // ─── Calculator short URL redirects ────────────────────────────────────────
+  const CALC_SHORT_REDIRECTS: Record<string, string> = {
+    '/tax': '/paycheck-calculator',
+    '/taxes': '/paycheck-calculator',
+    '/paycheck': '/paycheck-calculator',
+    '/income-tax': '/paycheck-calculator',
+    '/state-tax': '/paycheck-calculator',
+    '/refund-calculator': '/tax-refund-calculator',
+    '/mortgage': '/mortgage-calculator',
+    '/401k': '/401k-retirement-calculator',
+    '/retirement': '/401k-retirement-calculator',
+    '/capital-gains': '/capital-gains-calculator',
+    '/self-employment': '/self-employment-tax-calculator',
+    '/sales-tax': '/sales-tax-calculator',
+    '/property-tax': '/property-tax-calculator',
+    '/bonus-calculator': '/bonus-tax-calculator',
+    '/overtime': '/overtime-tax-calculator',
+    '/lottery': '/lottery-tax-calculator',
+    '/relocation': '/relocation-calculator',
+    '/withholding': '/irs-withholding-calculator',
+    '/w4': '/irs-withholding-calculator',
+    '/irs': '/irs-withholding-calculator',
+    '/federal-tax': '/federal-tax-brackets',
+    '/tax-estimate': '/tax-refund-calculator',
+  };
+
+  if (CALC_SHORT_REDIRECTS[pathname]) {
+    return NextResponse.redirect(
+      new URL(CALC_SHORT_REDIRECTS[pathname], request.url),
+      301
+    );
+  }
+
   // ─── Salary legacy URL redirect (/salary/85000 → /salary/85000-after-taxes) ───
   // 301 redirect legacy salary URLs to new canonical URL pattern
   // instead of serving the page with a canonical tag (which causes duplicate content warnings)
