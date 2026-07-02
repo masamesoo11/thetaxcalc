@@ -502,6 +502,33 @@ export default function SalaryLandingPage() {
           </div>
         </section>
 
+        {/* ─── SSR Text Content (improves text-to-HTML ratio) ──────── */}
+        <section className="py-12 border-t border-border/20">
+          <div className="prose prose-invert max-w-none">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Complete Guide to Salary After Tax in 2026</h2>
+            <div className="space-y-4 text-sm text-muted-foreground leading-relaxed">
+              <p>
+                Understanding your salary after tax is one of the most important financial calculations you can make. Whether you are negotiating a job offer, planning a relocation, or simply budgeting for the year ahead, knowing your exact take-home pay gives you the power to make informed decisions. Our salary pages cover 26 income levels from $30,000 to $500,000 across 23 US states, giving you instant access to accurate 2026 tax calculations without any sign-up or cost.
+              </p>
+              <p>
+                The 2026 tax year brings several important changes that affect your take-home pay. Federal tax brackets have been adjusted upward for inflation, with the standard deduction increasing to $16,100 for single filers and $32,200 for married couples filing jointly. The Social Security wage base has risen to $184,500, meaning more of your income is subject to the 6.2% Social Security tax. FICA payroll taxes remain at 7.65% total (6.2% Social Security plus 1.45% Medicare), with an additional 0.9% Medicare surtax applying to earnings above $200,000 for single filers.
+              </p>
+              <p>
+                State income tax plays a major role in determining your net pay. Nine states have no income tax at all: Alaska, Florida, Nevada, New Hampshire, South Dakota, Tennessee, Texas, Washington, and Wyoming. At the other end of the spectrum, California top rate reaches 13.3% and New York reaches 10.9% (plus an additional NYC tax of up to 3.876% for city residents). For a single filer earning $75,000, the difference between living in Texas (0% state tax) and California (up to 13.3%) can mean over $6,700 per year in additional take-home pay.
+              </p>
+              <p>
+                Our calculations follow IRS Publication 15-T for federal tax withholding and use each state official tax brackets or flat rates for 2026. We assume single filing status with the standard deduction and no pre-tax deductions (such as 401(k) or HSA contributions) to provide a baseline comparison. For calculations that include pre-tax deductions, different filing statuses, and additional options like overtime pay or bonus withholding, use our full Paycheck Calculator which supports all 50 states.
+              </p>
+              <p>
+                When comparing salary after tax across states, it is important to consider the total tax burden, not just income tax. Some states with no income tax compensate with higher property taxes (Texas averages 1.71%) or sales taxes (Tennessee averages 9.55%). Others, like Oregon, have high income tax but no sales tax. Our State Tax Burden Analysis provides a complete picture of all taxes combined, helping you make an informed decision about where to live and work.
+              </p>
+              <p>
+                For self-employed individuals, the tax calculation is different. Instead of FICA, you pay self-employment tax (SECA) at 15.3% on net business income up to the Social Security wage base. However, you can deduct half of this tax on your federal return, and you may qualify for the Qualified Business Income (QBI) deduction of up to 20% of your business income. Use our Self-Employment Tax Calculator for accurate SECA calculations with quarterly estimated tax planning.
+              </p>
+            </div>
+          </div>
+        </section>
+
         {/* ─── Author Attribution (E-E-A-T) ──────────────────────── */}
         <section className="py-12 border-t border-border/20">
           <AuthorBioCard authorId="rachel-mitchell" />
