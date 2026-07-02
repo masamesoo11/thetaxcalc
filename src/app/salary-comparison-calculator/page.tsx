@@ -12,7 +12,7 @@ import { getCalculatorAuthor, authorToJsonLd } from '@/lib/authors';
 import { AuthorBioCard } from '@/components/finance/author-bio-card';
 
 export const metadata: Metadata = {
-  title: 'Free Salary Comparison Calculator 2026 | Compare After-Tax Pay by State',
+  title: 'Salary Comparison Calculator 2026 — Compare by State',
   description:
     'Compare salaries after federal, state, and FICA taxes side by side. See which salary or job offer gives you more take-home pay. Free 2026 calculator for all 50 states.',
   keywords: [
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     canonical: `${SITE_URL}/salary-comparison-calculator`,
   },
   openGraph: {
-    title: 'Free Salary Comparison Calculator 2026 | Compare After-Tax Pay',
+    title: 'Salary Comparison Calculator 2026 — Compare by State',
     description:
       'Compare salaries after federal, state, and FICA taxes side by side. See which salary gives you more take-home pay. Free for all 50 states.',
     url: `${SITE_URL}/salary-comparison-calculator`,
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Free Salary Comparison Calculator 2026 | Compare After-Tax Pay',
+    title: 'Salary Comparison Calculator 2026 — Compare by State',
     description: 'Compare salaries after federal, state, and FICA taxes side by side. Free for all 50 states.',
     images: [`${SITE_URL}/opengraph-image.png`],
   },

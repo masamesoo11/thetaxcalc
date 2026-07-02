@@ -3,12 +3,12 @@ import Link from 'next/link';
 import { SITE_URL } from '@/lib/site-config';
 
 export const metadata: Metadata = {
-  title: 'Methodology & Data Sources — How TheTaxCalc Computes Your Taxes',
+  title: 'Methodology: How TheTaxCalc Computes Your Taxes',
   description:
     'Learn how TheTaxCalc computes federal, state, and FICA taxes for 2026. Every calculation is based on official IRS publications, SSA data, and state revenue department sources.',
   alternates: { canonical: `${SITE_URL}/methodology` },
   openGraph: {
-    title: 'Methodology & Data Sources — TheTaxCalc',
+    title: 'Methodology: How TheTaxCalc Computes Taxes',
     description:
       'How we compute your 2026 federal, state, and FICA taxes. All data sourced from IRS, SSA, and state revenue departments.',
     url: `${SITE_URL}/methodology`,

@@ -11,7 +11,7 @@ import { getCalculatorAuthor, authorToJsonLd } from '@/lib/authors';
 import { AuthorBioCard } from '@/components/finance/author-bio-card';
 
 export const metadata: Metadata = {
-  title: 'Free Job Offer Comparison Calculator 2026 | Compare After-Tax Pay',
+  title: 'Job Offer Comparison Calculator 2026 — Compare After-Tax Pay',
   description:
     'Compare two or more job offers after federal, state, and FICA taxes. See which offer gives you more take-home pay based on salary, state, and benefits. Free 2026 calculator.',
   keywords: [
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     canonical: `${SITE_URL}/job-offer-comparison-calculator`,
   },
   openGraph: {
-    title: 'Free Job Offer Comparison Calculator 2026 | Compare After-Tax Pay',
+    title: 'Job Offer Comparison Calculator 2026 — Compare After-Tax Pay',
     description:
       'Compare job offers after federal, state, and FICA taxes side by side. See which offer gives you more take-home pay. Free for all 50 states.',
     url: `${SITE_URL}/job-offer-comparison-calculator`,
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Free Job Offer Comparison Calculator 2026 | Compare After-Tax Pay',
+    title: 'Job Offer Comparison Calculator 2026 — Compare After-Tax Pay',
     description: 'Compare job offers after federal, state, and FICA taxes side by side. Free for all 50 states.',
     images: [`${SITE_URL}/opengraph-image.png`],
   },

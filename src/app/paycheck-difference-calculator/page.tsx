@@ -11,7 +11,7 @@ import { getCalculatorAuthor, authorToJsonLd } from '@/lib/authors';
 import { AuthorBioCard } from '@/components/finance/author-bio-card';
 
 export const metadata: Metadata = {
-  title: 'Free Paycheck Difference Calculator 2026 | Compare Take-Home Pay',
+  title: 'Paycheck Difference Calculator 2026 — Compare Take-Home',
   description:
     'Calculate the difference in take-home pay between two states or salaries. See how much more or less you earn after taxes by moving or changing jobs. Free 2026 calculator.',
   keywords: [
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     canonical: `${SITE_URL}/paycheck-difference-calculator`,
   },
   openGraph: {
-    title: 'Free Paycheck Difference Calculator 2026 | Compare Take-Home Pay',
+    title: 'Paycheck Difference Calculator 2026 — Compare Take-Home',
     description:
       'Calculate the difference in take-home pay between two states or salaries. Free 2026 calculator for all 50 states.',
     url: `${SITE_URL}/paycheck-difference-calculator`,
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Free Paycheck Difference Calculator 2026 | Compare Take-Home Pay',
+    title: 'Paycheck Difference Calculator 2026 — Compare Take-Home',
     description: 'Calculate the difference in take-home pay between two states. Free for all 50 states.',
     images: [`${SITE_URL}/opengraph-image.png`],
   },

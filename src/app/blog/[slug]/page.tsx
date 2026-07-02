@@ -401,6 +401,7 @@ export default async function BlogDetailPage({
           </div>
 
           <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl leading-tight">{post.title}</h1>
+          <p className="mt-2 text-base text-muted-foreground">A CPA-reviewed guide by Rachel Mitchell, CPA — updated for 2026 tax year</p>
 
           {post.excerpt && <p className="text-lg text-muted-foreground leading-relaxed">{post.excerpt}</p>}
 

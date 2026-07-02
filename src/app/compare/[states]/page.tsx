@@ -6,7 +6,8 @@ import {
   type CompareStateData,
 } from '@/lib/compare-config';
 import { calculatePaycheck, formatCurrency } from '@/lib/finance-utils';
-import { COMPARISON_SLUGS } from '@/lib/compare-config';
+import { COMPARISON_SLUGS, COMPARE_STATES, parseComparisonSlug } from '@/lib/compare-config';
+import Link from 'next/link';
 import { DynamicComparePage } from './dynamic-compare-page';
 import { CompareSSRContent } from './compare-ssr-content';
 import { CompareChart } from './compare-chart';
@@ -168,6 +169,37 @@ export default async function CompareStatesPage({
 
       {/* ─── Server-Rendered SEO Content (~800 words) ─────────────────────── */}
       <CompareSSRContent config={config} />
+
+      {/* ─── More State Comparisons (Internal Links) ────────────────────── */}
+      <section className="py-12 border-t border-border/20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl font-bold text-foreground mb-6">More State Tax Comparisons</h2>
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {COMPARISON_SLUGS.filter(s => s !== states).slice(0, 9).map((otherSlug) => {
+              const parsed = parseComparisonSlug(otherSlug);
+              if (!parsed) return null;
+              const [k1, k2] = parsed;
+              return (
+                <Link
+                  key={otherSlug}
+                  href={`/compare/${otherSlug}`}
+                  className="group rounded-lg border border-border/30 bg-card/50 p-4 hover:border-emerald-500/30 transition-all"
+                >
+                  <p className="text-sm font-medium text-foreground group-hover:text-emerald-400 transition-colors">
+                    {COMPARE_STATES[k1].name} vs {COMPARE_STATES[k2].name}
+                  </p>
+                  <p className="mt-1 text-xs text-muted-foreground">Compare take-home pay, tax rates & cost of living</p>
+                </Link>
+              );
+            })}
+          </div>
+          <div className="mt-6 text-center">
+            <Link href="/compare" className="inline-flex items-center gap-2 text-sm font-medium text-emerald-400 hover:text-emerald-300">
+              View All State Comparisons →
+            </Link>
+          </div>
+        </div>
+      </section>
 
       {/* ─── Author Attribution (E-E-A-T) ──────────────────────── */}
       <section className="py-12 border-t border-border/20">
