@@ -1,21 +1,14 @@
-# TheTaxCalc robots.txt — AI Agent Ready
+# TheTaxCalc robots.txt
 # https://thetaxcalc.com
-
-# ─── Content Signals (IETF Draft: draft-romm-aipref-contentsignals) ───
-# https://contentsignals.org/
-# Declares AI content usage preferences for crawlers and AI agents.
-# Values: ai-train (yes/no), search (yes/no), ai-input (yes/no)
 
 # ─── Search Engine Bots ───
 User-Agent: Googlebot
-Content-Signal: ai-train=no, search=yes, ai-input=yes
 Allow: /
 Allow: /_next/static/
 Disallow: /api/
 Disallow: /admin/
 
 User-Agent: Bingbot
-Content-Signal: ai-train=no, search=yes, ai-input=yes
 Allow: /
 Allow: /_next/static/
 Disallow: /api/
@@ -23,56 +16,47 @@ Disallow: /admin/
 
 # ─── AI Training & Search Bots ───
 User-Agent: Google-Extended
-Content-Signal: ai-train=yes, search=yes, ai-input=yes
 Allow: /
 Disallow: /api/
 Disallow: /admin/
 
 User-Agent: ChatGPT-User
-Content-Signal: ai-train=yes, search=yes, ai-input=yes
 Allow: /
 Disallow: /api/
 Disallow: /admin/
 
 User-Agent: OAI-SearchBot
-Content-Signal: ai-train=no, search=yes, ai-input=yes
 Allow: /
 Disallow: /api/
 Disallow: /admin/
 
 User-Agent: GPTBot
-Content-Signal: ai-train=yes, search=yes, ai-input=yes
 Allow: /
 Disallow: /api/
 Disallow: /admin/
 
 User-Agent: PerplexityBot
-Content-Signal: ai-train=yes, search=yes, ai-input=yes
 Allow: /
 Disallow: /api/
 Disallow: /admin/
 
 User-Agent: Claude-Web
-Content-Signal: ai-train=yes, search=yes, ai-input=yes
 Allow: /
 Disallow: /api/
 Disallow: /admin/
 
 User-Agent: anthropic-ai
-Content-Signal: ai-train=yes, search=yes, ai-input=yes
 Allow: /
 Disallow: /api/
 Disallow: /admin/
 
 User-Agent: CCBot
-Content-Signal: ai-train=yes, search=yes, ai-input=yes
 Allow: /
 Disallow: /api/
 Disallow: /admin/
 
 # ─── Default ───
 User-Agent: *
-Content-Signal: ai-train=yes, search=yes, ai-input=yes
 Allow: /
 Allow: /_next/static/
 Disallow: /api/
