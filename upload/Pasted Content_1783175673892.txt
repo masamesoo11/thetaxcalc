@@ -1,0 +1,703 @@
+
+<!DOCTYPE html>
+<html class='v2' dir='ltr' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+<head>
+<link href='https://www.blogger.com/static/v1/widgets/2872013778-css_bundle_v2.css' rel='stylesheet' type='text/css'/>
+<meta charset='utf-8'/>
+<meta content='width=device-width, initial-scale=1, maximum-scale=5' name='viewport'/>
+<!-- &#9472;&#9472;&#9472; SEO Meta Tags &#9472;&#9472;&#9472; -->
+<title>TheTaxCalc Tax Tips &#8212; Free 2026 Tax Calculator Insights</title>
+<meta content='Free 2026 tax insights, OBBBA analysis, paycheck calculator tips, and state tax burden comparisons. Original research from TheTaxCalc.' name='description'/>
+<meta content='tax calculator, paycheck calculator, OBBBA 2026, state tax burden, tax insights, thetaxcalc' name='keywords'/>
+<meta content='TheTaxCalc Research Division' name='author'/>
+<meta content='index, follow, max-image-preview:large' name='robots'/>
+<!-- &#9472;&#9472;&#9472; Canonical URL &#9472;&#9472;&#9472; -->
+<link href='https://thetaxcalc-tax-tips.blogspot.com/' rel='canonical'/>
+<!-- &#9472;&#9472;&#9472; Open Graph &#9472;&#9472;&#9472; -->
+<meta content='website' property='og:type'/>
+<meta content='TheTaxCalc Tax Tips' property='og:title'/>
+<meta content='https://thetaxcalc-tax-tips.blogspot.com/' property='og:url'/>
+<meta content='TheTaxCalc Tax Insights' property='og:site_name'/>
+<meta content='https://thetaxcalc.com/opengraph-image.png' property='og:image'/>
+<meta content='1200' property='og:image:width'/>
+<meta content='630' property='og:image:height'/>
+<!-- &#9472;&#9472;&#9472; Twitter Cards &#9472;&#9472;&#9472; -->
+<meta content='summary_large_image' name='twitter:card'/>
+<meta content='TheTaxCalc Tax Tips' name='twitter:title'/>
+<meta content='@thetaxcalc' name='twitter:site'/>
+<meta content='https://thetaxcalc.com/opengraph-image.png' name='twitter:image'/>
+<!-- &#9472;&#9472;&#9472; Favicon &#9472;&#9472;&#9472; -->
+<link href='https://thetaxcalc.com/favicon.ico' rel='icon' type='image/x-icon'/>
+<link href='https://thetaxcalc.com/apple-touch-icon.png' rel='apple-touch-icon'/>
+<!-- &#9472;&#9472;&#9472; Preconnect for Performance &#9472;&#9472;&#9472; -->
+<link href='https://fonts.googleapis.com' rel='preconnect'/>
+<link crossorigin='anonymous' href='https://fonts.gstatic.com' rel='preconnect'/>
+<!-- &#9472;&#9472;&#9472; Fonts &#9472;&#9472;&#9472; -->
+<link href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap' rel='stylesheet'/>
+<!-- &#9472;&#9472;&#9472; JSON-LD Structured Data &#9472;&#9472;&#9472; -->
+<script type='application/ld+json'>
+      {
+        "@context": "https://schema.org",
+        "@type": "Blog",
+        "name": "TheTaxCalc Tax Insights",
+        "url": "https://thetaxcalc-insights.blogspot.com",
+        "description": "Free 2026 tax insights, OBBBA analysis, and state tax burden comparisons from TheTaxCalc Research Division.",
+        "publisher": {
+          "@type": "Organization",
+          "name": "TheTaxCalc",
+          "url": "https://thetaxcalc.com",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://thetaxcalc.com/logo-512.png"
+          }
+        }
+      }
+    </script>
+<!-- &#9472;&#9472;&#9472; Blogger Required &#9472;&#9472;&#9472; -->
+<meta content='text/html; charset=UTF-8' http-equiv='Content-Type'/>
+<meta content='blogger' name='generator'/>
+<link href='https://thetaxcalc-tax-tips.blogspot.com/favicon.ico' rel='icon' type='image/x-icon'/>
+<link href='https://thetaxcalc-tax-tips.blogspot.com/' rel='canonical'/>
+<link rel="alternate" type="application/atom+xml" title="TheTaxCalc Tax Tips - Atom" href="https://thetaxcalc-tax-tips.blogspot.com/feeds/posts/default" />
+<link rel="alternate" type="application/rss+xml" title="TheTaxCalc Tax Tips - RSS" href="https://thetaxcalc-tax-tips.blogspot.com/feeds/posts/default?alt=rss" />
+<link rel="service.post" type="application/atom+xml" title="TheTaxCalc Tax Tips - Atom" href="https://www.blogger.com/feeds/7606530949454277805/posts/default" />
+<link rel="me" href="https://www.blogger.com/profile/14268621002334582067" />
+<!--Can't find substitution for tag [blog.ieCssRetrofitLinks]-->
+<meta content='Free 2026 tax insights, OBBBA analysis, paycheck calculator tips, and state tax burden comparisons from TheTaxCalc Research Division.' name='description'/>
+<meta content='https://thetaxcalc-tax-tips.blogspot.com/' property='og:url'/>
+<meta content='TheTaxCalc Tax Tips' property='og:title'/>
+<meta content='Free 2026 tax insights, OBBBA analysis, paycheck calculator tips, and state tax burden comparisons from TheTaxCalc Research Division.' property='og:description'/>
+<!-- &#9472;&#9472;&#9472; Styles &#9472;&#9472;&#9472; -->
+<style id='page-skin-1' type='text/css'><!--
+/* &#9472;&#9472;&#9472; Reset & Base &#9472;&#9472;&#9472; */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+--primary: #0f766e;
+--primary-dark: #115e59;
+--accent: #14b8a6;
+--bg: #ffffff;
+--bg-alt: #f8fafc;
+--text: #0f172a;
+--text-muted: #64748b;
+--border: #e2e8f0;
+--shadow: 0 1px 3px rgba(0,0,0,0.08);
+--shadow-lg: 0 10px 40px rgba(0,0,0,0.08);
+--radius: 12px;
+--max-width: 1200px;
+}
+html { scroll-behavior: smooth; }
+body {
+font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+line-height: 1.7;
+color: var(--text);
+background: var(--bg);
+font-size: 17px;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+}
+a {
+color: var(--primary);
+text-decoration: none;
+transition: color 0.2s ease;
+}
+a:hover { color: var(--accent); text-decoration: underline; }
+img { max-width: 100%; height: auto; display: block; }
+/* &#9472;&#9472;&#9472; Container &#9472;&#9472;&#9472; */
+.container {
+max-width: var(--max-width);
+margin: 0 auto;
+padding: 0 20px;
+}
+/* &#9472;&#9472;&#9472; Header &#9472;&#9472;&#9472; */
+.site-header {
+background: var(--bg);
+border-bottom: 1px solid var(--border);
+position: sticky;
+top: 0;
+z-index: 100;
+backdrop-filter: blur(10px);
+background: rgba(255,255,255,0.95);
+}
+.site-header .container {
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 16px 20px;
+}
+.logo {
+display: flex;
+align-items: center;
+gap: 10px;
+font-weight: 700;
+font-size: 20px;
+color: var(--text);
+text-decoration: none;
+}
+.logo:hover { text-decoration: none; color: var(--text); }
+.logo-icon {
+width: 36px;
+height: 36px;
+background: linear-gradient(135deg, var(--primary), var(--accent));
+border-radius: 8px;
+display: flex;
+align-items: center;
+justify-content: center;
+color: white;
+font-weight: bold;
+font-size: 18px;
+}
+.nav-links {
+display: flex;
+gap: 28px;
+align-items: center;
+}
+.nav-links a {
+color: var(--text-muted);
+font-weight: 500;
+font-size: 15px;
+text-decoration: none;
+}
+.nav-links a:hover { color: var(--primary); text-decoration: none; }
+.cta-button {
+background: var(--primary);
+color: white !important;
+padding: 10px 20px;
+border-radius: 8px;
+font-weight: 600;
+font-size: 14px;
+transition: background 0.2s ease;
+}
+.cta-button:hover { background: var(--primary-dark); text-decoration: none; }
+/* &#9472;&#9472;&#9472; Main Layout &#9472;&#9472;&#9472; */
+.main-content {
+padding: 48px 0;
+min-height: calc(100vh - 200px);
+}
+.content-wrapper {
+display: grid;
+grid-template-columns: 1fr;
+gap: 48px;
+}
+@media (min-width: 1024px) {
+.content-wrapper {
+grid-template-columns: 1fr 320px;
+}
+}
+/* &#9472;&#9472;&#9472; Blog Posts &#9472;&#9472;&#9472; */
+.post {
+margin-bottom: 56px;
+padding-bottom: 40px;
+border-bottom: 1px solid var(--border);
+}
+.post:last-child { border-bottom: none; }
+.post-title {
+font-family: 'Lora', Georgia, serif;
+font-size: 32px;
+font-weight: 600;
+line-height: 1.3;
+margin-bottom: 16px;
+color: var(--text);
+}
+.post-title a {
+color: inherit;
+text-decoration: none;
+}
+.post-title a:hover { color: var(--primary); text-decoration: none; }
+.post-meta {
+display: flex;
+align-items: center;
+gap: 12px;
+font-size: 14px;
+color: var(--text-muted);
+margin-bottom: 24px;
+}
+.post-meta .author {
+display: flex;
+align-items: center;
+gap: 8px;
+font-weight: 500;
+}
+.post-body {
+font-size: 17px;
+line-height: 1.8;
+color: var(--text);
+}
+.post-body h2 {
+font-family: 'Lora', Georgia, serif;
+font-size: 26px;
+font-weight: 600;
+margin: 40px 0 16px;
+color: var(--text);
+}
+.post-body h3 {
+font-size: 22px;
+font-weight: 600;
+margin: 32px 0 12px;
+color: var(--text);
+}
+.post-body p { margin-bottom: 20px; }
+.post-body ul, .post-body ol {
+margin: 20px 0;
+padding-left: 24px;
+}
+.post-body li { margin-bottom: 8px; }
+.post-body blockquote {
+border-left: 4px solid var(--accent);
+background: var(--bg-alt);
+padding: 16px 24px;
+margin: 24px 0;
+font-style: italic;
+color: var(--text-muted);
+border-radius: 0 8px 8px 0;
+}
+.post-body table {
+width: 100%;
+border-collapse: collapse;
+margin: 24px 0;
+font-size: 15px;
+}
+.post-body th, .post-body td {
+border: 1px solid var(--border);
+padding: 12px;
+text-align: left;
+}
+.post-body th {
+background: var(--bg-alt);
+font-weight: 600;
+}
+.post-body code {
+background: var(--bg-alt);
+padding: 2px 6px;
+border-radius: 4px;
+font-family: 'Courier New', monospace;
+font-size: 15px;
+}
+.post-body a {
+color: var(--primary);
+text-decoration: underline;
+text-decoration-color: var(--accent);
+text-underline-offset: 2px;
+}
+/* &#9472;&#9472;&#9472; Sidebar &#9472;&#9472;&#9472; */
+.sidebar {
+display: flex;
+flex-direction: column;
+gap: 32px;
+}
+.widget {
+background: var(--bg-alt);
+padding: 24px;
+border-radius: var(--radius);
+border: 1px solid var(--border);
+}
+.widget-title {
+font-size: 18px;
+font-weight: 600;
+margin-bottom: 16px;
+color: var(--text);
+}
+.widget ul {
+list-style: none;
+padding: 0;
+}
+.widget li {
+padding: 10px 0;
+border-bottom: 1px solid var(--border);
+}
+.widget li:last-child { border-bottom: none; }
+/* &#9472;&#9472;&#9472; Footer &#9472;&#9472;&#9472; */
+.site-footer {
+background: #0f172a;
+color: #cbd5e1;
+padding: 48px 0 24px;
+margin-top: 64px;
+}
+.footer-content {
+display: grid;
+grid-template-columns: 1fr;
+gap: 32px;
+margin-bottom: 32px;
+}
+@media (min-width: 768px) {
+.footer-content { grid-template-columns: 2fr 1fr 1fr; }
+}
+.footer-brand h3 {
+color: white;
+font-size: 20px;
+margin-bottom: 12px;
+}
+.footer-brand p {
+font-size: 14px;
+line-height: 1.7;
+}
+.footer-links h4 {
+color: white;
+font-size: 14px;
+margin-bottom: 12px;
+text-transform: uppercase;
+letter-spacing: 0.5px;
+}
+.footer-links ul {
+list-style: none;
+padding: 0;
+}
+.footer-links li {
+margin-bottom: 8px;
+}
+.footer-links a {
+color: #cbd5e1;
+font-size: 14px;
+text-decoration: none;
+}
+.footer-links a:hover { color: var(--accent); }
+.footer-bottom {
+border-top: 1px solid #1e293b;
+padding-top: 24px;
+text-align: center;
+font-size: 13px;
+color: #94a3b8;
+}
+/* &#9472;&#9472;&#9472; Responsive &#9472;&#9472;&#9472; */
+@media (max-width: 768px) {
+.nav-links { display: none; }
+.post-title { font-size: 24px; }
+.post-body { font-size: 16px; }
+.post-body h2 { font-size: 22px; }
+}
+/* &#9472;&#9472;&#9472; Mobile Menu &#9472;&#9472;&#9472; */
+@media (max-width: 768px) {
+.mobile-menu-btn {
+display: block;
+background: none;
+border: none;
+font-size: 24px;
+cursor: pointer;
+color: var(--text);
+}
+}
+.mobile-menu-btn { display: none; }
+/* &#9472;&#9472;&#9472; Hero Section (Homepage) &#9472;&#9472;&#9472; */
+.hero {
+background: linear-gradient(135deg, #f0fdfa 0%, #ecfeff 100%);
+padding: 64px 0;
+text-align: center;
+border-radius: var(--radius);
+margin-bottom: 48px;
+}
+.hero h1 {
+font-family: 'Lora', Georgia, serif;
+font-size: 40px;
+font-weight: 700;
+color: var(--text);
+margin-bottom: 16px;
+line-height: 1.2;
+}
+.hero p {
+font-size: 18px;
+color: var(--text-muted);
+max-width: 600px;
+margin: 0 auto 24px;
+}
+.hero-cta {
+display: inline-flex;
+gap: 12px;
+flex-wrap: wrap;
+justify-content: center;
+}
+@media (max-width: 768px) {
+.hero h1 { font-size: 28px; }
+.hero p { font-size: 16px; }
+}
+
+--></style>
+<style id='template-skin-1' type='text/css'><!--
+body { min-width: 0; }
+--></style>
+<meta name='google-adsense-platform-account' content='ca-host-pub-1556223355139109'/>
+<meta name='google-adsense-platform-domain' content='blogspot.com'/>
+
+</head>
+<body>
+<!-- &#9472;&#9472;&#9472; Header &#9472;&#9472;&#9472; -->
+<header class='site-header'>
+<div class='container'>
+<a class='logo' href='https://thetaxcalc-tax-tips.blogspot.com/'>
+<span class='logo-icon'>$</span>
+<span>TheTaxCalc Insights</span>
+</a>
+<nav class='nav-links'>
+<a href='https://thetaxcalc-tax-tips.blogspot.com/'>Home</a>
+<a href='https://thetaxcalc.com/paycheck-calculator'>Paycheck Calculator</a>
+<a href='https://thetaxcalc.com/obbba-tax-calculator'>OBBBA Calculator</a>
+<a href='https://thetaxcalc.com/research'>Research</a>
+<a class='cta-button' href='https://thetaxcalc.com'>Visit TheTaxCalc &#8594;</a>
+</nav>
+</div>
+</header>
+<!-- &#9472;&#9472;&#9472; Main Content &#9472;&#9472;&#9472; -->
+<main class='main-content'>
+<div class='container'>
+<div class='content-wrapper'>
+<!-- &#9472;&#9472;&#9472; Posts Section &#9472;&#9472;&#9472; -->
+<div class='posts-section'>
+<div class='main section' id='main'><div class='widget Blog' data-version='2' id='Blog1'>
+<div class='hero'>
+<h1>Tax Insights That Actually Make Sense</h1>
+<p>Original research, OBBBA analysis, and practical tax guidance from TheTaxCalc Research Division. No jargon, no spam, no sign-up.</p>
+<div class='hero-cta'>
+<a class='cta-button' href='https://thetaxcalc.com/paycheck-calculator'>Try Free Calculator</a>
+<a class='cta-button' href='https://thetaxcalc.com/research' style='background: white; color: var(--primary); border: 2px solid var(--primary);'>Read Research</a>
+</div>
+</div>
+<article class='post'>
+<h2 class='post-title'>
+<a href='https://thetaxcalc-tax-tips.blogspot.com/2026/07/free-2026-tax-calculator-how-much-will.html'>Free 2026 Tax Calculator &#8212; How Much Will You Owe?</a>
+</h2>
+<div class='post-meta'>
+<span class='author'>
+<svg fill='none' height='16' stroke='currentColor' stroke-width='2' viewBox='0 0 24 24' width='16'>
+<path d='M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2'></path>
+<circle cx='12' cy='7' r='4'></circle>
+</svg>
+                        TheTaxCalc Research
+                      </span>
+<span>&#8226;</span>
+<span>July 03, 2026</span>
+</div>
+<div class='post-body'>
+<p>Wondering how much tax you'll owe in 2026? You're not alone. 
+The US tax code is complex, but understanding your tax liability 
+doesn't have to be.</p>
+
+<h2>2026 Federal Tax Brackets</h2>
+<p>The 2026 tax year uses seven progressive brackets:</p>
+<ul>
+<li>10% on income up to $11,925</li>
+<li>12% on $11,926&#8211;$48,475</li>
+<li>22% on $48,476&#8211;$103,350</li>
+<li>24% on $103,351&#8211;$197,300</li>
+<li>32% on $197,301&#8211;$250,525</li>
+<li>35% on $250,526&#8211;$626,350</li>
+<li>37% on income over $626,350</li>
+</ul>
+
+<p>The standard deduction for 2026 is $16,100 for single filers 
+and $32,200 for married couples filing jointly.</p>
+
+<h2>How Much Tax Will You Owe?</h2>
+<p>A single filer earning $75,000 in 2026 pays approximately 
+ $7,872 in federal income tax (effective rate: 10.5%), plus 
+ $5,738 in FICA payroll taxes (7.65%). State tax varies 
+from $0 in Texas to $3,200 in California.</p>
+
+<p>To calculate your exact take-home pay, use the 
+<a href="https://thetaxcalc.com/paycheck-calculator">free 2026 paycheck calculator</a> 
+which covers all 50 US states with accurate federal and state 
+tax brackets.</p>
+
+<h2>State Tax Comparison</h2>
+<p>Where you live makes a huge difference. A $75,000 earner 
+keeps $61,590 in Texas but only $56,390 in Oregon. That's a 
+ $5,200 difference per year. See the complete 
+<a href="https://thetaxcalc.com/research/2026-state-tax-burden">2026 State Tax Burden Analysis</a> 
+for all 50 states.</p>
+
+<h2>Tax-Saving Tips for 2026</h2>
+<ul>
+<li>Max out your 401(k) &#8212; $23,500 limit saves $5,170 at 22% bracket</li>
+<li>Use an HSA &#8212; triple tax advantage, $4,400 limit</li>
+<li>Check your W-4 withholding with the 
+<a href="https://thetaxcalc.com/irs-withholding-calculator">IRS withholding calculator</a></li>
+<li>Consider state tax implications before relocating</li>
+</ul>
+
+<p>For more tax guides and calculators, visit 
+<a href="https://thetaxcalc.com">TheTaxCalc.com</a> &#8212; 
+67+ free tax calculators covering all 50 states.</p>
+</div>
+</article>
+</div><div class='widget Header' data-version='1' id='Header1'>
+<div id='header-inner'>
+<div class='titlewrapper'>
+<h1 class='title'>
+TheTaxCalc Tax Tips
+</h1>
+</div>
+<div class='descriptionwrapper'>
+<p class='description'><span>
+</span></p>
+</div>
+</div>
+</div><div class='widget BlogSearch' data-version='1' id='BlogSearch1'>
+<h2 class='title'>Search This Blog</h2>
+<div class='widget-content'>
+<div id='BlogSearch1_form'>
+<form action='https://thetaxcalc-tax-tips.blogspot.com/search' class='gsc-search-box' target='_top'>
+<table cellpadding='0' cellspacing='0' class='gsc-search-box'>
+<tbody>
+<tr>
+<td class='gsc-input'>
+<input autocomplete='off' class='gsc-input' name='q' size='10' title='search' type='text' value=''/>
+</td>
+<td class='gsc-search-button'>
+<input class='gsc-search-button' title='search' type='submit' value='Search'/>
+</td>
+</tr>
+</tbody>
+</table>
+</form>
+</div>
+</div>
+<div class='clear'></div>
+</div>
+<div class='widget Attribution' data-version='1' id='Attribution1'>
+<div class='widget-content' style='text-align: center;'>
+Powered by <a href='https://www.blogger.com' target='_blank'>Blogger</a>.
+</div>
+<div class='clear'></div>
+</div><div class='widget BlogArchive' data-version='1' id='BlogArchive1'>
+<h2>Blog Archive</h2>
+<div class='widget-content'>
+<div id='ArchiveList'>
+<div id='BlogArchive1_ArchiveList'>
+<ul class='flat'>
+<li class='archivedate'>
+<a href='https://thetaxcalc-tax-tips.blogspot.com/2026/07/'>July 2026</a> (1)
+      </li>
+</ul>
+</div>
+</div>
+<div class='clear'></div>
+</div>
+</div><div class='widget ReportAbuse' data-version='1' id='ReportAbuse1'>
+<h3 class='title'>
+<a class='report_abuse' href='https://www.blogger.com/go/report-abuse' rel='noopener nofollow' target='_blank'>
+Report Abuse
+</a>
+</h3>
+</div><div class='widget PageList' data-version='1' id='PageList1'>
+<div class='widget-content'>
+<ul>
+<li class='selected'>
+<a href='https://thetaxcalc-tax-tips.blogspot.com/'>الصفحة الرئيسية</a>
+</li>
+</ul>
+<div class='clear'></div>
+</div>
+</div><div class='widget Profile' data-version='1' id='Profile1'>
+<h2>About Me</h2>
+<div class='widget-content'>
+<dl class='profile-datablock'>
+<dt class='profile-data'>
+<a class='profile-name-link g-profile' href='https://www.blogger.com/profile/14268621002334582067' rel='author' style='background-image: url(//www.blogger.com/img/logo-16.png);'>
+CAT
+</a>
+</dt>
+</dl>
+<a class='profile-link' href='https://www.blogger.com/profile/14268621002334582067' rel='author'>View my complete profile</a>
+<div class='clear'></div>
+</div>
+</div><div class='widget FeaturedPost' data-version='1' id='FeaturedPost1'>
+<div class='post-summary'>
+<h3><a href='https://thetaxcalc-tax-tips.blogspot.com/2026/07/free-2026-tax-calculator-how-much-will.html'>Free 2026 Tax Calculator &#8212; How Much Will You Owe?</a></h3>
+<p>
+Wondering how much tax you&#39;ll owe in 2026? You&#39;re not alone.  The US tax code is complex, but understanding your tax liability  does...
+</p>
+</div>
+<style type='text/css'>
+    .image {
+      width: 100%;
+    }
+  </style>
+<div class='clear'></div>
+</div></div>
+</div>
+<!-- &#9472;&#9472;&#9472; Sidebar &#9472;&#9472;&#9472; -->
+<aside class='sidebar'>
+<div class='sidebar section' id='sidebar'><div class='widget HTML' data-version='2' id='HTML1'>
+<div class='widget'>
+<h3 class='widget-title'>About TheTaxCalc</h3>
+<p style='font-size: 14px; line-height: 1.7; color: #475569;'>
+                    Free 2026 tax calculators &#8212; paycheck, mortgage, 401(k), capital gains, and self-employment. Updated for OBBBA. No sign-up required.
+                  </p>
+<a class='cta-button' href='https://thetaxcalc.com' style='display: inline-block; margin-top: 12px; font-size: 13px;'>Visit Site &#8594;</a>
+</div>
+</div><div class='widget PopularPosts' data-version='2' id='PopularPosts1'>
+<div class='widget'>
+<h3 class='widget-title'>Popular Posts</h3>
+<ul>
+<li>
+<a href=''>Free 2026 Tax Calculator &#8212; How Much Will You Owe?</a>
+</li>
+</ul>
+</div>
+</div><div class='widget HTML' data-version='2' id='HTML2'>
+<div class='widget'>
+<h3 class='widget-title'>Free Calculators</h3>
+<ul style='list-style: none; padding: 0;'>
+<li><a href='https://thetaxcalc.com/paycheck-calculator'>💵 Paycheck Calculator</a></li>
+<li><a href='https://thetaxcalc.com/obbba-tax-calculator'>📋 OBBBA Tax Calculator</a></li>
+<li><a href='https://thetaxcalc.com/sales-tax-calculator'>🛒 Sales Tax Calculator</a></li>
+<li><a href='https://thetaxcalc.com/property-tax-calculator'>🏠 Property Tax Calculator</a></li>
+<li><a href='https://thetaxcalc.com/mortgage-calculator'>🏡 Mortgage Calculator</a></li>
+<li><a href='https://thetaxcalc.com/401k-retirement-calculator'> retire 401(k) Calculator</a></li>
+</ul>
+</div>
+</div>
+</div>
+</aside>
+</div>
+</div>
+</main>
+<!-- &#9472;&#9472;&#9472; Footer &#9472;&#9472;&#9472; -->
+<footer class='site-footer'>
+<div class='container'>
+<div class='footer-content'>
+<div class='footer-brand'>
+<h3>TheTaxCalc</h3>
+<p>Free 2026 tax calculators for U.S. taxpayers. Updated for OBBBA. CPA-reviewed. No sign-up required. Original research and data studies on U.S. tax policy.</p>
+</div>
+<div class='footer-links'>
+<h4>Calculators</h4>
+<ul>
+<li><a href='https://thetaxcalc.com/paycheck-calculator'>Paycheck Calculator</a></li>
+<li><a href='https://thetaxcalc.com/obbba-tax-calculator'>OBBBA Calculator</a></li>
+<li><a href='https://thetaxcalc.com/mortgage-calculator'>Mortgage Calculator</a></li>
+<li><a href='https://thetaxcalc.com/401k-retirement-calculator'>401(k) Calculator</a></li>
+</ul>
+</div>
+<div class='footer-links'>
+<h4>Resources</h4>
+<ul>
+<li><a href='https://thetaxcalc.com/research'>Research</a></li>
+<li><a href='https://thetaxcalc.com/blog'>Tax Blog</a></li>
+<li><a href='https://thetaxcalc.com/methodology'>Methodology</a></li>
+<li><a href='https://thetaxcalc.com/about'>About</a></li>
+</ul>
+</div>
+</div>
+<div class='footer-bottom'>
+<p>&#169; <script>document.write(new Date().getFullYear())</script> TheTaxCalc. All rights reserved. This blog provides informational content only and does not constitute tax advice.</p>
+</div>
+</div>
+</footer>
+
+<script type="text/javascript" src="https://www.blogger.com/static/v1/widgets/1531375970-widgets.js"></script>
+<script type='text/javascript'>
+window['__wavt'] = 'AEUoTZpwdSOpqphyGA5AflPqiipo:1783175635563';_WidgetManager._Init('//www.blogger.com/rearrange?blogID\x3d7606530949454277805','//thetaxcalc-tax-tips.blogspot.com/','7606530949454277805');
+_WidgetManager._SetDataContext([{'name': 'blog', 'data': {'blogId': '7606530949454277805', 'title': 'TheTaxCalc Tax Tips', 'url': 'https://thetaxcalc-tax-tips.blogspot.com/', 'canonicalUrl': 'https://thetaxcalc-tax-tips.blogspot.com/', 'homepageUrl': 'https://thetaxcalc-tax-tips.blogspot.com/', 'searchUrl': 'https://thetaxcalc-tax-tips.blogspot.com/search', 'canonicalHomepageUrl': 'https://thetaxcalc-tax-tips.blogspot.com/', 'blogspotFaviconUrl': 'https://thetaxcalc-tax-tips.blogspot.com/favicon.ico', 'bloggerUrl': 'https://www.blogger.com', 'hasCustomDomain': false, 'httpsEnabled': true, 'enabledCommentProfileImages': true, 'gPlusViewType': 'FILTERED_POSTMOD', 'adultContent': false, 'analyticsAccountNumber': '', 'encoding': 'UTF-8', 'locale': 'en', 'localeUnderscoreDelimited': 'en', 'languageDirection': 'ltr', 'isPrivate': false, 'isMobile': false, 'isMobileRequest': false, 'mobileClass': '', 'isPrivateBlog': false, 'isDynamicViewsAvailable': true, 'feedLinks': '\x3clink rel\x3d\x22alternate\x22 type\x3d\x22application/atom+xml\x22 title\x3d\x22TheTaxCalc Tax Tips - Atom\x22 href\x3d\x22https://thetaxcalc-tax-tips.blogspot.com/feeds/posts/default\x22 /\x3e\n\x3clink rel\x3d\x22alternate\x22 type\x3d\x22application/rss+xml\x22 title\x3d\x22TheTaxCalc Tax Tips - RSS\x22 href\x3d\x22https://thetaxcalc-tax-tips.blogspot.com/feeds/posts/default?alt\x3drss\x22 /\x3e\n\x3clink rel\x3d\x22service.post\x22 type\x3d\x22application/atom+xml\x22 title\x3d\x22TheTaxCalc Tax Tips - Atom\x22 href\x3d\x22https://www.blogger.com/feeds/7606530949454277805/posts/default\x22 /\x3e\n', 'meTag': '\x3clink rel\x3d\x22me\x22 href\x3d\x22https://www.blogger.com/profile/14268621002334582067\x22 /\x3e\n', 'adsenseHostId': 'ca-host-pub-1556223355139109', 'adsenseHasAds': false, 'adsenseAutoAds': false, 'boqCommentIframeForm': true, 'loginRedirectParam': '', 'isGoogleEverywhereLinkTooltipEnabled': true, 'view': '', 'dynamicViewsCommentsSrc': '//www.blogblog.com/dynamicviews/4224c15c4e7c9321/js/comments.js', 'dynamicViewsScriptSrc': '//www.blogblog.com/dynamicviews/579837e3f8e84446', 'plusOneApiSrc': 'https://apis.google.com/js/platform.js', 'disableGComments': true, 'interstitialAccepted': false, 'sharing': {'platforms': [{'name': 'Get link', 'key': 'link', 'shareMessage': 'Get link', 'target': ''}, {'name': 'Facebook', 'key': 'facebook', 'shareMessage': 'Share to Facebook', 'target': 'facebook'}, {'name': 'BlogThis!', 'key': 'blogThis', 'shareMessage': 'BlogThis!', 'target': 'blog'}, {'name': 'X', 'key': 'twitter', 'shareMessage': 'Share to X', 'target': 'twitter'}, {'name': 'Pinterest', 'key': 'pinterest', 'shareMessage': 'Share to Pinterest', 'target': 'pinterest'}, {'name': 'Email', 'key': 'email', 'shareMessage': 'Email', 'target': 'email'}], 'disableGooglePlus': true, 'googlePlusShareButtonWidth': 0, 'googlePlusBootstrap': '\x3cscript type\x3d\x22text/javascript\x22\x3ewindow.___gcfg \x3d {\x27lang\x27: \x27en\x27};\x3c/script\x3e'}, 'hasCustomJumpLinkMessage': false, 'jumpLinkMessage': 'Read more', 'pageType': 'index', 'pageName': '', 'pageTitle': 'TheTaxCalc Tax Tips', 'metaDescription': 'Free 2026 tax insights, OBBBA analysis, paycheck calculator tips, and state tax burden comparisons from TheTaxCalc Research Division.'}}, {'name': 'features', 'data': {}}, {'name': 'messages', 'data': {'edit': 'Edit', 'linkCopiedToClipboard': 'Link copied to clipboard!', 'ok': 'Ok', 'postLink': 'Post Link'}}, {'name': 'template', 'data': {'name': 'custom', 'localizedName': 'Custom', 'isResponsive': false, 'isAlternateRendering': false, 'isCustom': true}}, {'name': 'view', 'data': {'classic': {'name': 'classic', 'url': '?view\x3dclassic'}, 'flipcard': {'name': 'flipcard', 'url': '?view\x3dflipcard'}, 'magazine': {'name': 'magazine', 'url': '?view\x3dmagazine'}, 'mosaic': {'name': 'mosaic', 'url': '?view\x3dmosaic'}, 'sidebar': {'name': 'sidebar', 'url': '?view\x3dsidebar'}, 'snapshot': {'name': 'snapshot', 'url': '?view\x3dsnapshot'}, 'timeslide': {'name': 'timeslide', 'url': '?view\x3dtimeslide'}, 'isMobile': false, 'title': 'TheTaxCalc Tax Tips', 'description': 'Free 2026 tax insights, OBBBA analysis, paycheck calculator tips, and state tax burden comparisons from TheTaxCalc Research Division.', 'url': 'https://thetaxcalc-tax-tips.blogspot.com/', 'type': 'feed', 'isSingleItem': false, 'isMultipleItems': true, 'isError': false, 'isPage': false, 'isPost': false, 'isHomepage': true, 'isArchive': false, 'isLabelSearch': false}}]);
+_WidgetManager._RegisterWidget('_BlogView', new _WidgetInfo('Blog1', 'main', document.getElementById('Blog1'), {'cmtInteractionsEnabled': false, 'lightboxEnabled': true, 'lightboxModuleUrl': 'https://www.blogger.com/static/v1/jsbin/3976676350-lbx.js', 'lightboxCssUrl': 'https://www.blogger.com/static/v1/v-css/828616780-lightbox_bundle.css'}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_HeaderView', new _WidgetInfo('Header1', 'main', document.getElementById('Header1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_BlogSearchView', new _WidgetInfo('BlogSearch1', 'main', document.getElementById('BlogSearch1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_AttributionView', new _WidgetInfo('Attribution1', 'main', document.getElementById('Attribution1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_BlogArchiveView', new _WidgetInfo('BlogArchive1', 'main', document.getElementById('BlogArchive1'), {'languageDirection': 'ltr', 'loadingMessage': 'Loading\x26hellip;'}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_ReportAbuseView', new _WidgetInfo('ReportAbuse1', 'main', document.getElementById('ReportAbuse1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_PageListView', new _WidgetInfo('PageList1', 'main', document.getElementById('PageList1'), {'title': '', 'links': [{'isCurrentPage': true, 'href': 'https://thetaxcalc-tax-tips.blogspot.com/', 'title': '\u0627\u0644\u0635\u0641\u062d\u0629 \u0627\u0644\u0631\u0626\u064a\u0633\u064a\u0629'}], 'mobile': false, 'showPlaceholder': true, 'hasCurrentPage': true}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_ProfileView', new _WidgetInfo('Profile1', 'main', document.getElementById('Profile1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_FeaturedPostView', new _WidgetInfo('FeaturedPost1', 'main', document.getElementById('FeaturedPost1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_HTMLView', new _WidgetInfo('HTML1', 'sidebar', document.getElementById('HTML1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_PopularPostsView', new _WidgetInfo('PopularPosts1', 'sidebar', document.getElementById('PopularPosts1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_HTMLView', new _WidgetInfo('HTML2', 'sidebar', document.getElementById('HTML2'), {}, 'displayModeFull'));
+</script>
+</body>
+</html>
