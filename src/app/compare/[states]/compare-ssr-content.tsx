@@ -7,6 +7,7 @@
 import Link from 'next/link';
 import { calculateSalaryTakeHome, fmt, formatSalary } from '@/lib/salary-calculations';
 import type { CompareStateData, CompareConfig } from '@/lib/compare-config';
+import { Calculator, DollarSign } from 'lucide-react';
 
 interface Props {
   config: CompareConfig;
@@ -385,5 +386,42 @@ function TaxBreakdownCard({
         </div>
       </div>
     </div>
+  );
+}
+
+// ─── CTA Section (reduces bounce rate by converting comparison visitors) ──────
+export function CompareCTA({ state1Slug, state1Name, state2Slug, state2Name }: { state1Slug: string; state1Name: string; state2Slug: string; state2Name: string }) {
+  return (
+    <section className="rounded-2xl border border-emerald-500/30 bg-gradient-to-br from-emerald-500/5 to-emerald-500/10 p-8 text-center">
+      <h2 className="text-2xl font-bold text-foreground mb-3">
+        Calculate Your Exact Take-Home Pay
+      </h2>
+      <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
+        Ready to see your actual numbers? Use our free tax calculators for {state1Name} and {state2Name} — no sign-up, no email, instant results.
+      </p>
+      <div className="flex flex-wrap items-center justify-center gap-3">
+        <Link
+          href={`/${state1Slug}`}
+          className="inline-flex items-center gap-2 rounded-xl bg-emerald-500 px-6 py-3 text-base font-semibold text-white shadow-lg shadow-emerald-500/20 transition-colors hover:bg-emerald-600"
+        >
+          <Calculator className="h-5 w-5" />
+          {state1Name} Tax Calculator
+        </Link>
+        <Link
+          href={`/${state2Slug}`}
+          className="inline-flex items-center gap-2 rounded-xl bg-emerald-500 px-6 py-3 text-base font-semibold text-white shadow-lg shadow-emerald-500/20 transition-colors hover:bg-emerald-600"
+        >
+          <Calculator className="h-5 w-5" />
+          {state2Name} Tax Calculator
+        </Link>
+        <Link
+          href="/paycheck-calculator"
+          className="inline-flex items-center gap-2 rounded-xl border border-emerald-500/30 bg-card/50 px-6 py-3 text-base font-semibold text-emerald-400 transition-colors hover:bg-emerald-500/10"
+        >
+          <DollarSign className="h-5 w-5" />
+          Full Paycheck Calculator
+        </Link>
+      </div>
+    </section>
   );
 }

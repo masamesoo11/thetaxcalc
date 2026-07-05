@@ -9,7 +9,7 @@ import { calculatePaycheck, formatCurrency } from '@/lib/finance-utils';
 import { COMPARISON_SLUGS, COMPARE_STATES, parseComparisonSlug } from '@/lib/compare-config';
 import Link from 'next/link';
 import { DynamicComparePage } from './dynamic-compare-page';
-import { CompareSSRContent } from './compare-ssr-content';
+import { CompareSSRContent, CompareCTA } from './compare-ssr-content';
 import { CompareChart } from './compare-chart';
 import { getCalculatorAuthor, authorToJsonLd } from '@/lib/authors';
 import { AuthorBioCard } from '@/components/finance/author-bio-card';
@@ -169,6 +169,16 @@ export default async function CompareStatesPage({
 
       {/* ─── Server-Rendered SEO Content (~800 words) ─────────────────────── */}
       <CompareSSRContent config={config} />
+
+      {/* ─── CTA (Convert comparison visitors to calculator users) ──────── */}
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
+        <CompareCTA
+          state1Slug={config.state1.slug}
+          state1Name={config.state1.name}
+          state2Slug={config.state2.slug}
+          state2Name={config.state2.name}
+        />
+      </div>
 
       {/* ─── More State Comparisons (Internal Links) ────────────────────── */}
       <section className="py-12 border-t border-border/20">

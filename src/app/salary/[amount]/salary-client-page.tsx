@@ -96,6 +96,7 @@ interface SalaryClientPageProps {
 export function SalaryClientPage({ amountStr }: SalaryClientPageProps) {
   const [filingStatus, setFilingStatus] = useState<FilingStatus>('single');
   const [nycResident, setNycResident] = useState(false);
+  const [selectedState, setSelectedState] = useState<string>('');
   const salary = slugToSalary(amountStr);
   if (!salary || !isValidSalaryAmount(salary)) return null;
 
@@ -105,6 +106,11 @@ export function SalaryClientPage({ amountStr }: SalaryClientPageProps) {
   const currentIndex = SALARY_AMOUNTS.indexOf(salary as (typeof SALARY_AMOUNTS)[number]);
   const prevSalary = currentIndex > 0 ? SALARY_AMOUNTS[currentIndex - 1] : null;
   const nextSalary = currentIndex < SALARY_AMOUNTS.length - 1 ? SALARY_AMOUNTS[currentIndex + 1] : null;
+
+  // Selected state result
+  const selectedStateData = selectedState
+    ? calc.states.find((s) => s.stateKey === selectedState)
+    : null;
 
   const filingStatusLabel: Record<FilingStatus, string> = {
     single: 'Single',
@@ -177,6 +183,60 @@ export function SalaryClientPage({ amountStr }: SalaryClientPageProps) {
               NYC Resident <span className="text-xs text-muted-foreground">(adds 3.078%–3.876% city income tax for New York)</span>
             </span>
           </label>
+
+          {/* ─── Quick State Lookup (reduces bounce rate) ─── */}
+          <div className="mt-6 rounded-xl border border-emerald-500/30 bg-emerald-500/5 p-4 sm:p-6">
+            <h2 className="text-lg font-bold text-foreground mb-2 flex items-center gap-2">
+              <MapPin className="h-5 w-5 text-emerald-400" />
+              Find Your Take-Home Pay Instantly
+            </h2>
+            <p className="text-sm text-muted-foreground mb-3">
+              Select your state to see your exact {calc.salaryFormatted} take-home pay — no scrolling through a long table.
+            </p>
+            <select
+              value={selectedState}
+              onChange={(e) => setSelectedState(e.target.value)}
+              className="w-full max-w-md rounded-lg border border-border/40 bg-background/60 px-4 py-2.5 text-foreground focus:border-emerald-500/50 focus:outline-none focus:ring-2 focus:ring-emerald-500/20"
+            >
+              <option value="">— Select Your State —</option>
+              {sortedStates.map((s) => (
+                <option key={s.stateKey} value={s.stateKey}>
+                  {s.stateName} — {fmt(s.netAnnual)}/year
+                </option>
+              ))}
+            </select>
+            {selectedStateData && (
+              <div className="mt-4 rounded-lg bg-card/80 border border-border/30 p-4">
+                <div className="flex flex-wrap items-center justify-between gap-3">
+                  <div>
+                    <p className="text-sm text-muted-foreground">Your take-home in {selectedStateData.stateName}</p>
+                    <p className="text-3xl font-bold text-emerald-400">{fmt(selectedStateData.netAnnual)}<span className="text-base font-normal text-muted-foreground">/year</span></p>
+                  </div>
+                  <div className="text-right space-y-1">
+                    <p className="text-sm text-muted-foreground">Monthly: <strong className="text-foreground">{fmt(selectedStateData.netMonthly)}</strong></p>
+                    <p className="text-sm text-muted-foreground">Biweekly: <strong className="text-foreground">${(selectedStateData.netAnnual / 26).toFixed(0)}</strong></p>
+                    <p className="text-sm text-muted-foreground">Effective rate: <strong className="text-foreground">{selectedStateData.effectiveTaxRate.toFixed(1)}%</strong></p>
+                  </div>
+                </div>
+                {selectedStateData.stateTax > 0 ? (
+                  <p className="mt-3 text-xs text-muted-foreground">
+                    State income tax: {fmt(selectedStateData.stateTax)} | Federal: {fmt(selectedStateData.federalTax)} | FICA: {fmt(selectedStateData.ficaTotal)}
+                  </p>
+                ) : (
+                  <p className="mt-3 text-xs text-emerald-400 font-medium">
+                    ✅ {selectedStateData.stateName} has NO state income tax — you keep more of your paycheck!
+                  </p>
+                )}
+                <Link
+                  href={STATE_KEY_TO_SLUG[selectedStateData.stateKey] || '/paycheck-calculator'}
+                  className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-emerald-400 hover:text-emerald-300"
+                >
+                  Open {selectedStateData.stateName} Tax Calculator
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+              </div>
+            )}
+          </div>
         </section>
 
         {/* Quick Summary Cards — Top States */}
