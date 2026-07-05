@@ -33,6 +33,72 @@ const CALCULATOR_LINKS = [
   { href: '/job-offer-comparison-calculator', label: 'Job Offer Compare', icon: ArrowRightLeft },
   { href: '/paycheck-difference-calculator', label: 'Paycheck Difference', icon: ArrowRightLeft },
   { href: '/employee-cost-calculator', label: 'Employee Cost Calculator', icon: DollarSign },
+  { href: '/obbba-tax-calculator', label: 'OBBBA Tax Calculator', icon: Calculator },
+  { href: '/federal-tax-brackets', label: 'Federal Tax Brackets', icon: FileText },
+];
+
+// All 50 state tax calculators — eliminates orphan pages & boosts internal link equity
+const ALL_STATE_LINKS: { href: string; label: string }[] = [
+  { href: '/alabama-tax-calculator', label: 'Alabama' },
+  { href: '/alaska-tax-calculator', label: 'Alaska' },
+  { href: '/arizona-tax-calculator', label: 'Arizona' },
+  { href: '/arkansas-tax-calculator', label: 'Arkansas' },
+  { href: '/california-tax-calculator', label: 'California' },
+  { href: '/colorado-tax-calculator', label: 'Colorado' },
+  { href: '/connecticut-tax-calculator', label: 'Connecticut' },
+  { href: '/delaware-tax-calculator', label: 'Delaware' },
+  { href: '/florida-tax-calculator', label: 'Florida' },
+  { href: '/georgia-tax-calculator', label: 'Georgia' },
+  { href: '/hawaii-tax-calculator', label: 'Hawaii' },
+  { href: '/idaho-tax-calculator', label: 'Idaho' },
+  { href: '/illinois-tax-calculator', label: 'Illinois' },
+  { href: '/indiana-tax-calculator', label: 'Indiana' },
+  { href: '/iowa-tax-calculator', label: 'Iowa' },
+  { href: '/kansas-tax-calculator', label: 'Kansas' },
+  { href: '/kentucky-tax-calculator', label: 'Kentucky' },
+  { href: '/louisiana-tax-calculator', label: 'Louisiana' },
+  { href: '/maine-tax-calculator', label: 'Maine' },
+  { href: '/maryland-tax-calculator', label: 'Maryland' },
+  { href: '/massachusetts-tax-calculator', label: 'Massachusetts' },
+  { href: '/michigan-tax-calculator', label: 'Michigan' },
+  { href: '/minnesota-tax-calculator', label: 'Minnesota' },
+  { href: '/mississippi-tax-calculator', label: 'Mississippi' },
+  { href: '/missouri-tax-calculator', label: 'Missouri' },
+  { href: '/montana-tax-calculator', label: 'Montana' },
+  { href: '/nebraska-tax-calculator', label: 'Nebraska' },
+  { href: '/nevada-tax-calculator', label: 'Nevada' },
+  { href: '/new-hampshire-tax-calculator', label: 'New Hampshire' },
+  { href: '/new-jersey-tax-calculator', label: 'New Jersey' },
+  { href: '/new-mexico-tax-calculator', label: 'New Mexico' },
+  { href: '/new-york-tax-calculator', label: 'New York' },
+  { href: '/north-carolina-tax-calculator', label: 'North Carolina' },
+  { href: '/north-dakota-tax-calculator', label: 'North Dakota' },
+  { href: '/ohio-tax-calculator', label: 'Ohio' },
+  { href: '/oklahoma-tax-calculator', label: 'Oklahoma' },
+  { href: '/oregon-tax-calculator', label: 'Oregon' },
+  { href: '/pennsylvania-tax-calculator', label: 'Pennsylvania' },
+  { href: '/rhode-island-tax-calculator', label: 'Rhode Island' },
+  { href: '/south-carolina-tax-calculator', label: 'South Carolina' },
+  { href: '/south-dakota-tax-calculator', label: 'South Dakota' },
+  { href: '/tennessee-tax-calculator', label: 'Tennessee' },
+  { href: '/texas-tax-calculator', label: 'Texas' },
+  { href: '/utah-tax-calculator', label: 'Utah' },
+  { href: '/vermont-tax-calculator', label: 'Vermont' },
+  { href: '/virginia-tax-calculator', label: 'Virginia' },
+  { href: '/washington-tax-calculator', label: 'Washington' },
+  { href: '/west-virginia-tax-calculator', label: 'West Virginia' },
+  { href: '/wisconsin-tax-calculator', label: 'Wisconsin' },
+  { href: '/wyoming-tax-calculator', label: 'Wyoming' },
+];
+
+// Strategic pages — ensures they are not orphan pages
+const STRATEGIC_PAGE_LINKS: { href: string; label: string }[] = [
+  { href: '/obbba-tax-calculator', label: 'OBBBA Tax Calculator' },
+  { href: '/scholarship', label: 'Tax Literacy Scholarship' },
+  { href: '/smartasset-alternative', label: 'SmartAsset Alternative' },
+  { href: '/tax-professionals', label: 'For Tax Professionals' },
+  { href: '/research', label: 'Research Hub' },
+  { href: '/federal-tax-brackets', label: 'Federal Tax Brackets' },
 ];
 
 const RESOURCE_LINKS = [
@@ -298,6 +364,46 @@ export function Footer() {
               ))}
             </ul>
             {/* Social Links — hidden while no active social profiles exist */}
+          </div>
+        </div>
+
+        {/* ─── All 50 State Tax Calculators Directory ───────────────────────── */}
+        <div className="mt-10 pt-8 border-t border-border/20">
+          <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-foreground flex items-center gap-2">
+            <MapPin className="h-4 w-4 text-emerald-400" />
+            All 50 State Tax Calculators
+          </h4>
+          <div className="grid grid-cols-2 gap-x-4 gap-y-1.5 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-6">
+            {ALL_STATE_LINKS.map((link) => (
+              <Link
+                key={link.href}
+                prefetch={false}
+                href={link.href}
+                className="text-xs text-muted-foreground underline underline-offset-2 decoration-border/40 transition-colors hover:text-emerald-400 hover:decoration-emerald-400"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        {/* ─── Strategic Pages ────────────────────────────────────────────── */}
+        <div className="mt-6 pt-6 border-t border-border/20">
+          <h4 className="mb-3 text-sm font-semibold uppercase tracking-wider text-foreground flex items-center gap-2">
+            <FileText className="h-4 w-4 text-emerald-400" />
+            Guides & Resources
+          </h4>
+          <div className="flex flex-wrap gap-x-4 gap-y-1.5">
+            {STRATEGIC_PAGE_LINKS.map((link) => (
+              <Link
+                key={link.href}
+                prefetch={false}
+                href={link.href}
+                className="text-xs text-muted-foreground underline underline-offset-2 decoration-border/40 transition-colors hover:text-emerald-400 hover:decoration-emerald-400"
+              >
+                {link.label}
+              </Link>
+            ))}
           </div>
         </div>
       </div>

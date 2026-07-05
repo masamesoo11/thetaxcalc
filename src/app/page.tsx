@@ -415,7 +415,7 @@ const TRUST_POINTS = [
   '2026 Federal Tax Brackets (up to 37%)',
   'FICA: Social Security (6.2%) + Medicare (1.45%)',
   'SS Wage Cap: $184,500 for 2026',
-  '23 State Tax Profiles: IL, TX, FL, CA, NY, GA, VA, NC, PA, OH, MI, NJ, CO, AZ, WA, MA, IN, TN, MO, MD, WI, MN, OR',
+  'All 50 State Tax Profiles — including IL, TX, FL, CA, NY, GA, VA, NC, PA, OH, MI, NJ, CO, AZ, WA, MA, IN, TN, MO, MD, WI, MN, OR + 27 more (AK, NV, SD, WY, NH, CT, AL, AR, DE, HI, ID, IA, KS, KY, LA, ME, MS, MT, NE, NM, ND, OK, RI, SC, UT, VT, WV)',
   'Standard Deductions by Filing Status',
   '401(k) & HSA Pre-Tax Deductions',
 ];
@@ -483,7 +483,7 @@ const homeJsonLd = {
         {
           '@type': 'HowToStep',
           name: 'Select Your State',
-          text: 'Choose your state — we cover 23 states with dedicated income tax calculators and all 50 states for sales tax, including IL (4.95%), TX (0%), FL (0%), CA (1%–13.3%), NY (4%–10.9%), and more.',
+          text: 'Choose your state — we cover all 50 states with dedicated income tax calculators, including IL (4.95%), TX (0%), FL (0%), CA (1%–13.3%), NY (4%–10.9%), and 46 more states.'
         },
         {
           '@type': 'HowToStep',
@@ -672,7 +672,7 @@ export default function HomePage() {
               </span>
               <span className="flex items-center gap-1.5">
                 <Globe className="h-4 w-4 text-emerald-400" />
-                23+ State Profiles
+                50 State Profiles
               </span>
             </div>
           </div>
@@ -786,7 +786,7 @@ export default function HomePage() {
               What&apos;s Your <span className="gradient-text">Take-Home Pay</span> After Taxes?
             </h2>
             <p className="mt-3 text-muted-foreground max-w-xl mx-auto">
-              Select your salary to see exact take-home pay across 23 states — including Illinois, Texas, Florida, California, and New York.
+              Select your salary to see exact take-home pay across all 50 states — including Illinois, Texas, Florida, California, and New York.
             </p>
           </div>
 
@@ -1107,6 +1107,12 @@ export default function HomePage() {
                   { href: '/federal-tax-brackets', label: 'Federal Tax Brackets', desc: '2026 brackets & rates', icon: Scale },
                   { href: '/glossary', label: 'Tax Glossary', desc: 'Key terms explained', icon: BookOpen },
                   { href: '/compare', label: 'State Comparisons', desc: 'Side-by-side analysis', icon: Map },
+                  { href: '/obbba-tax-calculator', label: 'OBBBA Tax Calculator', desc: '2026 law vs prior law', icon: Scale },
+                  { href: '/research', label: 'Research Hub', desc: 'Original 2026 tax studies', icon: FileText },
+                  { href: '/tax-professionals', label: 'For Tax Professionals', desc: 'CPA tools & resources', icon: Shield },
+                  { href: '/smartasset-alternative', label: 'SmartAsset Alternative', desc: 'Compare features & privacy', icon: Calculator },
+                  { href: '/scholarship', label: 'Tax Literacy Scholarship', desc: '$1,000 student award', icon: Gift },
+                  { href: '/methodology', label: 'Methodology', desc: 'How we calculate taxes', icon: BookOpen },
                 ].map((res) => {
                   const ResIcon = res.icon;
                   return (

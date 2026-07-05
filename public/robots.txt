@@ -7,53 +7,63 @@ Allow: /
 Allow: /_next/static/
 Disallow: /api/
 Disallow: /admin/
+Disallow: /cdn-cgi/
 
 User-Agent: Bingbot
 Allow: /
 Allow: /_next/static/
 Disallow: /api/
 Disallow: /admin/
+Disallow: /cdn-cgi/
 
 # ─── AI Training & Search Bots ───
 User-Agent: Google-Extended
 Allow: /
 Disallow: /api/
 Disallow: /admin/
+Disallow: /cdn-cgi/
 
 User-Agent: ChatGPT-User
 Allow: /
 Disallow: /api/
 Disallow: /admin/
+Disallow: /cdn-cgi/
 
 User-Agent: OAI-SearchBot
 Allow: /
 Disallow: /api/
 Disallow: /admin/
+Disallow: /cdn-cgi/
 
 User-Agent: GPTBot
 Allow: /
 Disallow: /api/
 Disallow: /admin/
+Disallow: /cdn-cgi/
 
 User-Agent: PerplexityBot
 Allow: /
 Disallow: /api/
 Disallow: /admin/
+Disallow: /cdn-cgi/
 
 User-Agent: Claude-Web
 Allow: /
 Disallow: /api/
 Disallow: /admin/
+Disallow: /cdn-cgi/
 
 User-Agent: anthropic-ai
 Allow: /
 Disallow: /api/
 Disallow: /admin/
+Disallow: /cdn-cgi/
 
 User-Agent: CCBot
 Allow: /
 Disallow: /api/
 Disallow: /admin/
+Disallow: /cdn-cgi/
 
 # ─── Default ───
 User-Agent: *
@@ -61,5 +71,6 @@ Allow: /
 Allow: /_next/static/
 Disallow: /api/
 Disallow: /admin/
+Disallow: /cdn-cgi/
 
 Sitemap: https://thetaxcalc.com/sitemap.xml

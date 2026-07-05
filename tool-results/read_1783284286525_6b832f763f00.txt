@@ -1,0 +1,635 @@
+     1→import { NextRequest, NextResponse } from 'next/server';
+     2→import { verifySessionToken, getCookieName } from '@/lib/auth';
+     3→
+     4→export const runtime = 'experimental-edge';
+     5→
+     6→// Routes that require admin authentication
+     7→const PROTECTED_ROUTES = ['/admin'];
+     8→
+     9→// API routes that require admin authentication (mutations & admin-only data)
+    10→const PROTECTED_API_ROUTES = [
+    11→  '/api/admin',
+    12→  '/api/auth/verify',
+    13→];
+    14→
+    15→// API routes where only mutations (POST, PUT, DELETE) require admin auth
+    16→const MUTATION_PROTECTED_API_ROUTES = [
+    17→  '/api/blog',
+    18→  '/api/ads',
+    19→  '/api/settings',
+    20→  '/api/links',
+    21→];
+    22→
+    23→// Public API routes (no auth needed)
+    24→const PUBLIC_API_ROUTES = [
+    25→  '/api/auth/login',
+    26→  '/api/auth/logout',
+    27→  '/api/track',
+    28→];
+    29→
+    30→// NOTE: /api/seed was removed from public routes.
+    31→// It now requires admin auth (covered by MUTATION_PROTECTED_API_ROUTES below).
+    32→// Add it to mutation-protected routes:
+    33→const SEED_PROTECTED = ['/api/seed'];
+    34→
+    35→export async function middleware(request: NextRequest) {
+    36→  const { pathname } = request.nextUrl;
+    37→
+    38→  // Skip static files and Next.js internals
+    39→  if (
+    40→    pathname.startsWith('/_next') ||
+    41→    pathname.startsWith('/static') ||
+    42→    pathname.includes('.') // static files with extensions
+    43→  ) {
+    44→    return NextResponse.next();
+    45→  }
+    46→
+    47→
+    48→  // ─── Markdown Negotiation for AI Agents ─────────────────────────────
+    49→  // When an AI agent sends Accept: text/markdown, return markdown instead of HTML
+    50→  const acceptHeader = request.headers.get('accept') || '';
+    51→  if (acceptHeader.includes('text/markdown') && !pathname.startsWith('/_next') && !pathname.startsWith('/api') && !pathname.includes('.')) {
+    52→    // Generate markdown version of the page
+    53→    const baseUrl = 'https://thetaxcalc.com';
+    54→    const markdownMap: Record<string, string> = {
+    55→      '/': `# TheTaxCalc — Free 2026 Tax Calculator
+    56→
+    57→> Free, accurate, no-sign-up tax calculators for US taxpayers. 64 calculators covering all 50 states.
+    58→
+    59→## Key Tools
+    60→
+    61→- [Paycheck Calculator](/paycheck-calculator) — Calculate take-home pay after federal, FICA & state taxes
+    62→- [Sales Tax Calculator](/sales-tax-calculator) — All 50 US states with combined state + local rates
+    63→- [Lottery Tax Calculator](/lottery-tax-calculator) — How much you keep after federal + state taxes
+    64→- [Self-Employment Tax Calculator](/self-employment-tax-calculator) — 15.3% SE tax + quarterly estimates
+    65→- [Property Tax Calculator](/property-tax-calculator) — Compare property taxes across all 50 states
+    66→- [401(k) Retirement Calculator](/401k-retirement-calculator) — Projected balance with employer match
+    67→- [Capital Gains Calculator](/capital-gains-calculator) — Short-term & long-term rates
+    68→- [Mortgage Calculator](/mortgage-calculator) — Payment, amortization & extra payments
+    69→
+    70→## State Tax Calculators (50 states)
+    71→
+    72→- [California Tax Calculator](/california-tax-calculator) — 1%–13.3% progressive
+    73→- [Texas Tax Calculator](/texas-tax-calculator) — 0% income tax
+    74→- [Florida Tax Calculator](/florida-tax-calculator) — 0% income tax
+    75→- [New York Tax Calculator](/new-york-tax-calculator) — 4%–10.9% + NYC tax
+    76→- [Illinois Tax Calculator](/illinois-tax-calculator) — 4.95% flat tax
+    77→
+    78→## Compare States
+    79→
+    80→- [California vs New York](/compare/california-vs-new-york)
+    81→- [Texas vs Florida](/compare/texas-vs-florida)
+    82→- [Illinois vs Texas](/compare/illinois-vs-texas)
+    83→
+    84→## Resources
+    85→
+    86→- [Federal Tax Brackets 2026](/federal-tax-brackets)
+    87→- [Tax Blog](/blog)
+    88→- [About TheTaxCalc](/about)
+    89→- [Methodology](/methodology)
+    90→
+    91→## Author
+    92→
+    93→Rachel Mitchell, CPA
+    94→
+    95→Visit https://thetaxcalc.com for full interactive calculators.`,
+    96→      '/paycheck-calculator': `# Free Paycheck Calculator 2026
+    97→
+    98→Calculate your take-home pay after federal, FICA & state taxes.
+    99→
+   100→## How It Works
+   101→
+   102→1. Enter your salary (annual, monthly, bi-weekly, weekly, or hourly)
+   103→2. Select your state (IL, TX, FL, CA, NY, and more)
+   104→3. Choose filing status (Single, Married, Head of Household)
+   105→4. Add pre-tax deductions (401k, HSA)
+   106→5. View instant results
+   107→
+   108→## 2026 Federal Tax Brackets (Single)
+   109→
+   110→| Rate | Income Range |
+   111→|------|-------------|
+   112→| 10% | $0 – $11,925 |
+   113→| 12% | $11,926 – $48,475 |
+   114→| 22% | $48,476 – $103,350 |
+   115→| 24% | $103,351 – $197,300 |
+   116→| 32% | $197,301 – $250,525 |
+   117→| 35% | $250,526 – $626,350 |
+   118→| 37% | Over $626,350 |
+   119→
+   120→## FICA Taxes
+   121→
+   122→- Social Security: 6.2% (up to $176,100)
+   123→- Medicare: 1.45% (no limit)
+   124→
+   125→Visit https://thetaxcalc.com/paycheck-calculator for the interactive calculator.`,
+   126→      '/sales-tax-calculator': `# Sales Tax Calculator 2026 — All 50 States
+   127→
+   128→Calculate combined state + local sales tax for any US state.
+   129→
+   130→## Features
+   131→
+   132→- Forward calculator: Add sales tax to a price
+   133→- Reverse calculator: Remove tax from a total
+   134→- Car sales tax calculator
+   135→- IRS sales tax deduction estimator
+   136→- All 50 states with local rates
+   137→
+   138→## State Sales Tax Rates (Top 10)
+   139→
+   140→| State | State Rate | Avg Combined |
+   141→|-------|-----------|-------------|
+   142→| California | 7.25% | 8.82% |
+   143→| Indiana | 7.00% | 7.00% |
+   144→| Tennessee | 7.00% | 9.55% |
+   145→| Arkansas | 6.50% | 9.47% |
+   146→| Washington | 6.50% | 9.59% |
+   147→| Louisiana | 4.45% | 9.56% |
+   148→| Alabama | 4.00% | 9.24% |
+   149→| Oklahoma | 4.50% | 8.95% |
+   150→| New York | 4.00% | 8.52% |
+   151→| Texas | 6.25% | 8.19% |
+   152→
+   153→Visit https://thetaxcalc.com/sales-tax-calculator for the interactive calculator.`,
+   154→      '/lottery-tax-calculator': `# Lottery Tax Calculator 2026
+   155→
+   156→How much tax do you pay on lottery winnings?
+   157→
+   158→## Quick Answer
+   159→
+   160→A $1M jackpot nets approximately $510,000 after 24% federal + state taxes.
+   161→
+   162→## How Lottery Tax Works
+   163→
+   164→- Federal withholding: 24% (automatic)
+   165→- Federal tax bill: Up to 37% (top bracket)
+   166→- State tax: Varies by state (0% in TX/FL, up to 13.3% in CA)
+   167→- Lump sum vs annuity: Different tax implications
+   168→
+   169→## State-by-State Lottery Tax
+   170→
+   171→| State | Tax Rate | $1M Take-Home |
+   172→|-------|---------|--------------|
+   173→| Texas | 0% | ~$630,000 |
+   174→| Florida | 0% | ~$630,000 |
+   175→| California | 0% state | ~$630,000 |
+   176→| New York | 10.9% | ~$520,000 |
+   177→| Illinois | 4.95% | ~$560,000 |
+   178→
+   179→Visit https://thetaxcalc.com/lottery-tax-calculator for the interactive calculator.`,
+   180→      '/blog': `# Tax Blog — 2026 Guides, Tips & News
+   181→
+   182→Expert tax guides, state comparisons, and financial tips updated for 2026.
+   183→
+   184→## Featured Articles
+   185→
+   186→- [2026 Federal Tax Brackets Explained](/blog/2026-federal-tax-brackets-explained)
+   187→- [Federal Tax Brackets 2026 Guide](/blog/federal-tax-brackets-2026-guide)
+   188→- [California Tax Guide 2026](/blog/california-tax-guide-2026)
+   189→- [Texas Tax Guide 2026](/blog/texas-tax-guide-2026)
+   190→- [New York Tax Guide 2026](/blog/new-york-tax-guide-2026)
+   191→- [Washington Tax Guide 2026](/blog/washington-tax-guide-2026)
+   192→- [1099 Taxes: How Much Freelancers Really Owe](/blog/1099-tax-guide-self-employed-2026)
+   193→- [DoorDash Taxes: Complete Guide for Drivers](/blog/doordash-taxes-guide-2026)
+   194→- [How Bonuses Are Taxed in 2026](/blog/how-bonuses-are-taxed-2026)
+   195→- [Florida vs Texas Tax Comparison](/blog/florida-vs-texas-tax-comparison)
+   196→
+   197→Visit https://thetaxcalc.com/blog for the full blog.`,
+   198→      '/about': `# About TheTaxCalc
+   199→
+   200→Free 2026 tax calculators built for real people.
+   201→
+   202→## Our Mission
+   203→
+   204→We built these calculators so you can see exactly where your money goes — federal tax, FICA, and state taxes all broken down line by line. No guesswork, no surprises.
+   205→
+   206→## Author
+   207→
+   208→**Rachel Mitchell, CPA** — Licensed Certified Public Accountant with expertise in federal and state tax law.
+   209→
+   210→## Data Sources
+   211→
+   212→- IRS publications (Pub 15-T, tax brackets, inflation adjustments)
+   213→- State revenue departments
+   214→- Tax Foundation
+   215→- All calculations based on 2026 tax year data
+   216→
+   217→## Contact
+   218→
+   219→- Website: https://thetaxcalc.com
+   220→- Author: Rachel Mitchell, CPA
+   221→
+   222→Visit https://thetaxcalc.com/about for the full page.`,
+   223→    };
+   224→
+   225→    const markdownContent = markdownMap[pathname];
+   226→    if (markdownContent) {
+   227→      return new NextResponse(markdownContent, {
+   228→        status: 200,
+   229→        headers: {
+   230→          'Content-Type': 'text/markdown; charset=utf-8',
+   231→          'Cache-Control': 'public, max-age=3600',
+   232→        },
+   233→      });
+   234→    }
+   235→  }
+   236→
+   237→  // ─── SEO Redirects ────────────────────────────────────────────────────
+   238→  if (pathname === '/self-employment-calculator') {
+   239→    return NextResponse.redirect(
+   240→      new URL('/self-employment-tax-calculator', request.url),
+   241→      301
+   242→    );
+   243→  }
+   244→
+   245→  // /tax-calculator → /paycheck-calculator (generic "tax calculator" searches)
+   246→  if (pathname === '/tax-calculator') {
+   247→    return NextResponse.redirect(
+   248→      new URL('/paycheck-calculator', request.url),
+   249→      301
+   250→    );
+   251→  }
+   252→
+   253→  // /income-tax-calculator → /paycheck-calculator
+   254→  if (pathname === '/income-tax-calculator') {
+   255→    return NextResponse.redirect(
+   256→      new URL('/paycheck-calculator', request.url),
+   257→      301
+   258→    );
+   259→  }
+   260→
+   261→  // /yr → /paycheck-calculator (truncated URL found in GSC)
+   262→  if (pathname === '/yr') {
+   263→    return NextResponse.redirect(
+   264→      new URL('/paycheck-calculator', request.url),
+   265→      301
+   266→    );
+   267→  }
+   268→
+   269→  // ─── Common calculator naming variant redirects ────────────────────────────
+   270→  const CALCULATOR_REDIRECTS: Record<string, string> = {
+   271→    '/paycheck-tax-calculator': '/paycheck-calculator',
+   272→    '/salary-calculator': '/paycheck-calculator',
+   273→    '/take-home-pay-calculator': '/paycheck-calculator',
+   274→    '/net-pay-calculator': '/paycheck-calculator',
+   275→    '/after-tax-calculator': '/paycheck-calculator',
+   276→    '/wage-calculator': '/paycheck-calculator',
+   277→    '/hourly-calculator': '/paycheck-calculator',
+   278→    '/w4-calculator': '/irs-withholding-calculator',
+   279→    '/withholding-calculator': '/irs-withholding-calculator',
+   280→    '/tax-estimate-calculator': '/tax-refund-calculator',
+   281→    '/tax-return-calculator': '/tax-refund-calculator',
+   282→    '/state-tax-calculator': '/paycheck-calculator',
+   283→    '/federal-tax-calculator': '/paycheck-calculator',
+   284→    '/ss-calculator': '/paycheck-calculator',
+   285→    '/medicare-calculator': '/paycheck-calculator',
+   286→    '/fica-calculator': '/paycheck-calculator',
+   287→    '/social-security-calculator': '/paycheck-calculator',
+   288→    '/ira-calculator': '/401k-retirement-calculator',
+   289→    '/roth-ira-calculator': '/401k-retirement-calculator',
+   290→    '/hsa-calculator': '/401k-retirement-calculator',
+   291→    '/fsa-calculator': '/401k-retirement-calculator',
+   292→    '/amortization-calculator': '/mortgage-calculator',
+   293→    '/loan-calculator': '/mortgage-calculator',
+   294→    '/interest-calculator': '/mortgage-calculator',
+   295→    '/retirement-calculator': '/401k-retirement-calculator',
+   296→    '/pension-calculator': '/401k-retirement-calculator',
+   297→    '/annuity-calculator': '/401k-retirement-calculator',
+   298→    '/calculators': '/paycheck-calculator',
+   299→    '/tools': '/paycheck-calculator',
+   300→    '/faq': '/glossary',
+   301→    '/help': '/glossary',
+   302→    '/support': '/about',
+   303→    '/sitemap': '/sitemap.xml',
+   304→    '/feed': '/feed.xml',
+   305→    '/rss': '/feed.xml',
+   306→  };
+   307→
+   308→  if (CALCULATOR_REDIRECTS[pathname]) {
+   309→    return NextResponse.redirect(
+   310→      new URL(CALCULATOR_REDIRECTS[pathname], request.url),
+   311→      301
+   312→    );
+   313→  }
+   314→
+   315→  // ─── State short name redirects (non-greedy regex) ─────────────────────────
+   316→  const stateSuffixMatch = pathname.match(/^\/([a-z-]+?)-(income-tax|tax-rate|paycheck|tax)$/);
+   317→  if (stateSuffixMatch) {
+   318→    const stateName = stateSuffixMatch[1];
+   319→    const STATE_NAMES = [
+   320→      'alabama', 'alaska', 'arizona', 'arkansas', 'california',
+   321→      'colorado', 'connecticut', 'delaware', 'florida', 'georgia',
+   322→      'hawaii', 'idaho', 'illinois', 'indiana', 'iowa',
+   323→      'kansas', 'kentucky', 'louisiana', 'maine', 'maryland',
+   324→      'massachusetts', 'michigan', 'minnesota', 'mississippi', 'missouri',
+   325→      'montana', 'nebraska', 'nevada', 'new-hampshire', 'new-jersey',
+   326→      'new-mexico', 'new-york', 'north-carolina', 'north-dakota', 'ohio',
+   327→      'oklahoma', 'oregon', 'pennsylvania', 'rhode-island', 'south-carolina',
+   328→      'south-dakota', 'tennessee', 'texas', 'utah', 'vermont',
+   329→      'virginia', 'washington', 'west-virginia', 'wisconsin', 'wyoming',
+   330→    ];
+   331→    if (STATE_NAMES.includes(stateName)) {
+   332→      return NextResponse.redirect(
+   333→        new URL(`/${stateName}-tax-calculator`, request.url),
+   334→        301
+   335→      );
+   336→    }
+   337→  }
+   338→
+   339→  // ─── Blog URL redirects ────────────────────────────────────────────────────
+   340→  const BLOG_REDIRECTS: Record<string, string> = {
+   341→    '/blog/tax-brackets-2026': '/blog/2026-federal-tax-brackets-explained',
+   342→    '/blog/tax-refund-calculator': '/blog/tax-refund-questions-2026',
+   343→    '/blog/income-tax-guide': '/blog/how-much-tax-will-i-owe-2026',
+   344→    '/blog/state-tax-comparison': '/blog/florida-vs-texas-tax-comparison',
+   345→    '/blog/tax-tips': '/blog/2026-federal-tax-brackets-explained',
+   346→  };
+   347→
+   348→  if (BLOG_REDIRECTS[pathname]) {
+   349→    return NextResponse.redirect(
+   350→      new URL(BLOG_REDIRECTS[pathname], request.url),
+   351→      301
+   352→    );
+   353→  }
+   354→
+   355→  // ─── {search_term_string} template URL redirect ────────────────────────────
+   356→  const searchParams = request.nextUrl.searchParams;
+   357→  if (searchParams.has('q') && searchParams.get('q')?.includes('{search_term_string}')) {
+   358→    return NextResponse.redirect(
+   359→      new URL(pathname, request.url),
+   360→      301
+   361→    );
+   362→  }
+   363→
+   364→  // ─── Bot redirect: strip query params for calculator URLs ──────────────────
+   365→  const CALCULATOR_PATHS_WITH_PARAMS = [
+   366→    '/property-tax-calculator', '/sales-tax-calculator', '/paycheck-calculator',
+   367→    '/illinois-tax-calculator', '/texas-tax-calculator', '/florida-tax-calculator',
+   368→    '/california-tax-calculator', '/new-york-tax-calculator', '/georgia-tax-calculator',
+   369→    '/virginia-tax-calculator', '/north-carolina-tax-calculator', '/pennsylvania-tax-calculator',
+   370→    '/ohio-tax-calculator', '/michigan-tax-calculator', '/new-jersey-tax-calculator',
+   371→    '/colorado-tax-calculator', '/arizona-tax-calculator', '/washington-tax-calculator',
+   372→    '/massachusetts-tax-calculator', '/indiana-tax-calculator', '/tennessee-tax-calculator',
+   373→    '/missouri-tax-calculator', '/maryland-tax-calculator', '/wisconsin-tax-calculator',
+   374→    '/minnesota-tax-calculator', '/oregon-tax-calculator',
+   375→  ];
+   376→  const userAgent = request.headers.get('user-agent') || '';
+   377→  const isBot = /googlebot|bingbot|slurp|duckduckbot|baiduspider|yandexbot|facebookexternalhit|twitterbot|linkedinbot|telegrambot|whatsapp|applebot/i.test(userAgent);
+   378→  if (isBot && CALCULATOR_PATHS_WITH_PARAMS.includes(pathname) && searchParams.toString().length > 0) {
+   379→    return NextResponse.redirect(
+   380→      new URL(pathname, request.url),
+   381→      301
+   382→    );
+   383→  }
+   384→
+   385→
+   386→  // ─── Blog short URL redirects (prevent 404s) ───────────────────────────────
+   387→  const BLOG_SHORT_REDIRECTS: Record<string, string> = {
+   388→    '/blog/retirement-tax-planning': '/blog/retirement-tax-planning-guide-2026',
+   389→    '/blog/401k-withdrawal': '/blog/401k-withdrawal-tax-guide-2026',
+   390→    '/blog/inheritance-tax': '/blog/inheritance-tax-guide-2026',
+   391→    '/blog/social-security-tax': '/blog/social-security-tax-questions-2026',
+   392→    '/blog/tax-questions': '/blog/tax-questions-answered-2026',
+   393→    '/blog/tax-refund-questions': '/blog/tax-refund-questions-2026',
+   394→    '/blog/federal-tax-brackets': '/blog/2026-federal-tax-brackets-explained',
+   395→    '/blog/sales-tax-guide': '/blog/sales-tax-by-state-guide-2026',
+   396→    '/blog/property-tax-guide': '/blog/property-tax-by-state-guide-2026',
+   397→    '/blog/lottery-tax': '/blog/lottery-tax-guide-2026',
+   398→    '/blog/self-employment-tax': '/blog/1099-tax-guide-self-employed-2026',
+   399→    '/blog/doordash-taxes': '/blog/doordash-taxes-guide-2026',
+   400→    '/blog/1099-tax': '/blog/1099-tax-guide-self-employed-2026',
+   401→    '/blog/w4-guide': '/blog/irs-withholding-w4-guide-2026',
+   402→    '/blog/overtime-tax': '/blog/no-tax-on-overtime-guide-2026',
+   403→    '/blog/bonus-tax': '/blog/how-bonuses-are-taxed-2026',
+   404→    '/blog/irs-withholding': '/blog/irs-withholding-w4-guide-2026',
+   405→    '/blog/how-fica-taxes': '/blog/how-fica-taxes-work-2026',
+   406→    '/blog/how-bonuses': '/blog/how-bonuses-are-taxed-2026',
+   407→    '/blog/no-tax-overtime': '/blog/no-tax-on-overtime-guide-2026',
+   408→    '/blog/sep-ira': '/blog/sep-ira-solo-401k-guide-2026',
+   409→    '/blog/why-texas': '/blog/why-texas-has-no-income-tax',
+   410→    '/blog/florida-vs-texas': '/blog/florida-vs-texas-tax-comparison',
+   411→    '/blog/illinois-income': '/blog/illinois-income-tax-guide-2026',
+   412→    '/blog/california-tax': '/blog/california-tax-guide-2026',
+   413→    '/blog/texas-tax': '/blog/texas-tax-guide-2026',
+   414→    '/blog/new-york-tax': '/blog/new-york-tax-guide-2026',
+   415→    '/blog/washington-tax': '/blog/washington-tax-guide-2026',
+   416→  };
+   417→
+   418→  if (BLOG_SHORT_REDIRECTS[pathname]) {
+   419→    return NextResponse.redirect(
+   420→      new URL(BLOG_SHORT_REDIRECTS[pathname], request.url),
+   421→      301
+   422→    );
+   423→  }
+   424→
+   425→  // ─── Calculator short URL redirects ────────────────────────────────────────
+   426→  const CALC_SHORT_REDIRECTS: Record<string, string> = {
+   427→    '/tax': '/paycheck-calculator',
+   428→    '/taxes': '/paycheck-calculator',
+   429→    '/paycheck': '/paycheck-calculator',
+   430→    '/income-tax': '/paycheck-calculator',
+   431→    '/state-tax': '/paycheck-calculator',
+   432→    '/refund-calculator': '/tax-refund-calculator',
+   433→    '/mortgage': '/mortgage-calculator',
+   434→    '/401k': '/401k-retirement-calculator',
+   435→    '/retirement': '/401k-retirement-calculator',
+   436→    '/capital-gains': '/capital-gains-calculator',
+   437→    '/self-employment': '/self-employment-tax-calculator',
+   438→    '/sales-tax': '/sales-tax-calculator',
+   439→    '/property-tax': '/property-tax-calculator',
+   440→    '/bonus-calculator': '/bonus-tax-calculator',
+   441→    '/overtime': '/overtime-tax-calculator',
+   442→    '/lottery': '/lottery-tax-calculator',
+   443→    '/relocation': '/relocation-calculator',
+   444→    '/withholding': '/irs-withholding-calculator',
+   445→    '/w4': '/irs-withholding-calculator',
+   446→    '/irs': '/irs-withholding-calculator',
+   447→    '/federal-tax': '/federal-tax-brackets',
+   448→    '/tax-estimate': '/tax-refund-calculator',
+   449→  };
+   450→
+   451→  if (CALC_SHORT_REDIRECTS[pathname]) {
+   452→    return NextResponse.redirect(
+   453→      new URL(CALC_SHORT_REDIRECTS[pathname], request.url),
+   454→      301
+   455→    );
+   456→  }
+   457→
+   458→  // ─── Salary legacy URL redirect (/salary/85000 → /salary/85000-after-taxes) ───
+   459→  // 301 redirect legacy salary URLs to new canonical URL pattern
+   460→  // instead of serving the page with a canonical tag (which causes duplicate content warnings)
+   461→  const salaryMatch = pathname.match(/^\/salary\/(\d+)$/);
+   462→  if (salaryMatch) {
+   463→    return NextResponse.redirect(
+   464→      new URL(`/salary/${salaryMatch[1]}-after-taxes`, request.url),
+   465→      301
+   466→    );
+   467→  }
+   468→
+   469→  // ─── State name redirects (/state → /state-tax-calculator) ───
+   470→  // Catches broken links where state name is used without -tax-calculator suffix
+   471→  const STATE_SLUGS = [
+   472→    'alabama', 'alaska', 'arizona', 'arkansas', 'california',
+   473→    'colorado', 'connecticut', 'delaware', 'florida', 'georgia',
+   474→    'hawaii', 'idaho', 'illinois', 'indiana', 'iowa',
+   475→    'kansas', 'kentucky', 'louisiana', 'maine', 'maryland',
+   476→    'massachusetts', 'michigan', 'minnesota', 'mississippi', 'missouri',
+   477→    'montana', 'nebraska', 'nevada', 'new-hampshire', 'new-jersey',
+   478→    'new-mexico', 'new-york', 'north-carolina', 'north-dakota', 'ohio',
+   479→    'oklahoma', 'oregon', 'pennsylvania', 'rhode-island', 'south-carolina',
+   480→    'south-dakota', 'tennessee', 'texas', 'utah', 'vermont',
+   481→    'virginia', 'washington', 'west-virginia', 'wisconsin', 'wyoming',
+   482→  ];
+   483→  if (STATE_SLUGS.includes(pathname.slice(1))) {
+   484→    return NextResponse.redirect(
+   485→      new URL(`${pathname}-tax-calculator`, request.url),
+   486→      301
+   487→    );
+   488→  }
+   489→
+   490→  // /contact → /about (no standalone contact page; /about has author bios + editorial policy)
+   491→  if (pathname === '/contact' || pathname === '/contact-us') {
+   492→    return NextResponse.redirect(
+   493→      new URL('/about', request.url),
+   494→      301
+   495→    );
+   496→  }
+   497→
+   498→  // ─── Check embed mode ─────────────────────────────────────────────────────
+   499→  const isEmbed = request.nextUrl.searchParams.get('embed') === '1';
+   500→
+   501→  // ─── Security Headers (applied to all responses) ────────────────────────
+   502→  const response = NextResponse.next();
+   503→  response.headers.set('X-Content-Type-Options', 'nosniff');
+   504→
+   505→  // When ?embed=1, allow iframe embedding (needed for widget embeds)
+   506→  // Otherwise, deny framing to prevent clickjacking on normal pages
+   507→  if (isEmbed) {
+   508→    response.headers.set('X-Frame-Options', 'ALLOWALL');
+   509→  } else {
+   510→    response.headers.set('X-Frame-Options', 'DENY');
+   511→  }
+   512→
+   513→  response.headers.set('Referrer-Policy', 'strict-origin-when-cross-origin');
+   514→  response.headers.set('Permissions-Policy', 'camera=(), microphone=(), geolocation=(), payment=()');
+   515→  response.headers.set('Strict-Transport-Security', 'max-age=63072000; includeSubDomains; preload');
+   516→
+   517→  // CSP — when embed mode, allow frame-ancestors from any origin so widgets work
+   518→  const frameAncestors = isEmbed ? "frame-ancestors *" : "frame-ancestors 'none'";
+   519→  // CSP follows Google's official recommendations for GTM + GA4:
+   520→  // https://support.google.com/tagmanager/answer/10718549
+   521→  // Uses wildcards (*.googletagmanager.com, *.google-analytics.com) per Google's guidance
+   522→  const googleScripts = "https://*.googletagmanager.com https://*.google-analytics.com https://www.google.com https://www.gstatic.com https://ssl.gstatic.com https://tagmanager.google.com https://pagead2.googlesyndication.com https://tpc.googlesyndication.com https://www.googleadservices.com https://googleads.g.doubleclick.net";
+   523→  const googleImgs = "https://*.googletagmanager.com https://*.google-analytics.com https://*.g.doubleclick.net https://*.google.com https://www.gstatic.com https://ssl.gstatic.com https://pagead2.googlesyndication.com https://tpc.googlesyndication.com https://www.googleadservices.com";
+   524→  const googleConnect = "https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://*.g.doubleclick.net https://*.google.com https://pagead2.googlesyndication.com https://www.googleadservices.com https://stats.g.doubleclick.net";
+   525→  const googleFrames = "https://www.googletagmanager.com https://*.g.doubleclick.net https://td.doubleclick.net https://googleads.g.doubleclick.net";
+   526→  const googleStyles = "https://fonts.googleapis.com https://tagmanager.google.com https://googletagmanager.com";
+   527→  response.headers.set('Content-Security-Policy', `default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' ${googleScripts}; script-src-elem 'self' 'unsafe-inline' ${googleScripts}; script-src-attr 'self' 'unsafe-inline' ${googleScripts}; style-src 'self' 'unsafe-inline' ${googleStyles}; style-src-elem 'self' 'unsafe-inline' ${googleStyles}; img-src 'self' data: ${googleImgs}; font-src 'self' https://fonts.gstatic.com data:; connect-src 'self' ${googleConnect}; frame-src ${googleFrames}; worker-src 'self' blob:; child-src 'self' https://www.googletagmanager.com; ${frameAncestors}; base-uri 'self'; form-action 'self';`);
+   528→
+   529→
+   530→
+   531→  // ─── AI Content Signals ────────────────────────────────────────────
+   532→  response.headers.set('Content-Signal', 'ai-train=yes, search=yes, ai-input=yes');
+   533→
+   534→  // ─── AI Agent Discovery: Link Headers (RFC 8288) ────────────────────
+   535→  response.headers.set('Link', [
+   536→    '</.well-known/api-catalog>; rel="service-doc"',
+   537→    '</.well-known/agent-skills/index.json>; rel="service-doc"',
+   538→    '</.well-known/mcp/server-card.json>; rel="service-doc"',
+   539→    '</.well-known/oauth-authorization-server>; rel="service-doc"',
+   540→    '</.well-known/oauth-protected-resource>; rel="service-doc"',
+   541→    '</.well-known/openid-configuration>; rel="service-doc"',
+   542→    '</llms.txt>; rel="service-doc"',
+   543→    '</auth.md>; rel="service-doc"',
+   544→    '</sitemap.xml>; rel="service-doc"',
+   545→  ].join(', '));
+   546→
+   547→  // Cache for HTML pages — CDN edge caching for Cloudflare Pages
+   548→  // Must delete Next.js default Cache-Control (max-age=0) before setting ours,
+   549→  // otherwise Next.js overwrites it AFTER middleware runs on Cloudflare Pages.
+   550→  const isHtmlPage = !pathname.startsWith('/_next') && !pathname.startsWith('/api') && !pathname.startsWith('/admin') && !pathname.match(/\.(svg|png|jpg|jpeg|gif|webp|ico|xml|json|txt|css|js|woff2?|ttf|eot)$/);
+   551→  if (isHtmlPage) {
+   552→    response.headers.delete('Cache-Control');
+   553→    response.headers.set('Cache-Control', 'public, max-age=3600, s-maxage=2592000, stale-while-revalidate=31536000');
+   554→  }
+   555→
+   556→  // Check if this is a public API route (always allow)
+   557→  if (PUBLIC_API_ROUTES.some(route => pathname.startsWith(route))) {
+   558→    return response;
+   559→  }
+   560→
+   561→  // Check if this is a protected page route (like /admin)
+   562→  const isProtectedPage = PROTECTED_ROUTES.some(route => pathname.startsWith(route));
+   563→
+   564→  // Check if this is a fully protected API route
+   565→  const isProtectedApi = PROTECTED_API_ROUTES.some(route => pathname.startsWith(route));
+   566→
+   567→  // Check if this is a mutation-protected API route
+   568→  const isMutationProtected = MUTATION_PROTECTED_API_ROUTES.some(route => pathname.startsWith(route));
+   569→  const isMutation = ['POST', 'PUT', 'DELETE', 'PATCH'].includes(request.method);
+   570→
+   571→  // Check if this is the seed route (admin-only after security hardening)
+   572→  const isSeedRoute = SEED_PROTECTED.some(route => pathname.startsWith(route));
+   573→
+   574→  // Determine if this route needs authentication
+   575→  const needsAuth = isProtectedPage || isProtectedApi || (isMutationProtected && isMutation) || isSeedRoute;
+   576→
+   577→  if (!needsAuth) {
+   578→    return response;
+   579→  }
+   580→
+   581→  // Verify the session token
+   582→  const token = request.cookies.get(getCookieName())?.value;
+   583→
+   584→  if (!token) {
+   585→    // For API routes, return 401 JSON
+   586→    if (pathname.startsWith('/api/')) {
+   587→      return NextResponse.json(
+   588→        { error: 'Authentication required' },
+   589→        { status: 401 }
+   590→      );
+   591→    }
+   592→    // For page routes, let the page load — the AdminGate component will handle the UI
+   593→    return response;
+   594→  }
+   595→
+   596→  const session = await verifySessionToken(token);
+   597→
+   598→  if (!session) {
+   599→    // Invalid/expired token
+   600→    if (pathname.startsWith('/api/')) {
+   601→      const unauthorizedResponse = NextResponse.json(
+   602→        { error: 'Invalid or expired session' },
+   603→        { status: 401 }
+   604→      );
+   605→      // Clear the invalid cookie
+   606→      unauthorizedResponse.cookies.set(getCookieName(), '', {
+   607→        httpOnly: true,
+   608→        secure: process.env.NODE_ENV === 'production',
+   609→        sameSite: 'lax',
+   610→        path: '/',
+   611→        maxAge: 0,
+   612→      });
+   613→      return unauthorizedResponse;
+   614→    }
+   615→    // For page routes, clear cookie and let AdminGate handle it
+   616→    response.cookies.set(getCookieName(), '', {
+   617→      httpOnly: true,
+   618→      secure: process.env.NODE_ENV === 'production',
+   619→      sameSite: 'lax',
+   620→      path: '/',
+   621→      maxAge: 0,
+   622→    });
+   623→    return response;
+   624→  }
+   625→
+   626→  // Valid session — proceed
+   627→  return response;
+   628→}
+   629→
+   630→export const config = {
+   631→  matcher: [
+   632→    '/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp|ico|xml|json|txt)$).*)',
+   633→  ],
+   634→};
+   635→

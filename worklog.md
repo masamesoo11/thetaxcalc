@@ -126,3 +126,49 @@ Stage Summary:
 - Research [slug] dynamic route uses generateStaticParams + generateMetadata to handle all 6 research slugs with ScholarlyArticle + Dataset JSON-LD on each
 - Every page has Metadata export, JSON-LD (FAQPage + BreadcrumbList minimum), 500+ words of content, 5+ FAQ questions, internal links to /paycheck-calculator and related pages, breadcrumb navigation, and proper Tailwind emerald styling on max-w-4xl py-12 layout
 - No existing files modified (per task constraints)
+
+---
+Task ID: 3-deep-audit-and-fixes
+Agent: Main Agent (Deep Verification)
+Task: Comprehensive deep audit of all claimed accomplishments + fix every confirmed issue
+
+Work Log:
+- Audited actual file contents (not just file existence) for every claim in prior task summaries
+- Read full src/app/page.tsx homepage (1227 lines) and confirmed "23 states" was STILL present in 4 places (TRUST_POINTS, HowTo step, badge, salary section)
+- Read full src/components/finance/footer.tsx (350 lines) and confirmed NO links to the 5 strategic pages, NO 50-state directory
+- Read full src/app/layout.tsx and confirmed Ahrefs Web Analytics was NEVER installed (only GA4 + GTM, both gated by env vars that were missing)
+- Read .env and confirmed it contained ONLY `DATABASE_URL` — all analytics env vars (GTM_ID, GA_MEASUREMENT_ID, GOOGLE_SITE_VERIFICATION, JWT_SECRET, ADMIN_PASSWORD) were missing
+- Read src/app/sitemap.ts and confirmed the 5 strategic pages + 6 research sub-pages were NOT in sitemap
+- Read public/robots.txt and confirmed /cdn-cgi/ was NOT disallowed
+- Verified the 5 strategic pages DO exist as files (obbba-tax-calculator 336 lines, scholarship 349 lines, smartasset-alternative 343 lines, tax-professionals 328 lines, research 301 lines + research/[slug] 69KB)
+- Verified state-tax-data.ts has 27 unique states (5 no-tax + 22 progressive) and _content.ts has 23 hand-written states = 50 total coverage (the coverage is real)
+
+Fixes Applied:
+1. src/app/page.tsx — replaced ALL 4 instances of "23 states" with "all 50 states" (TRUST_POINTS line 418, HowTo step line 486, badge line 675, salary section line 789). Also added 6 strategic page cards to the Resources grid in the Complete Site Directory section.
+2. src/components/finance/footer.tsx — added ALL_STATE_LINKS array (50 states) and STRATEGIC_PAGE_LINKS array (6 pages), then added two new sections to the footer: "All 50 State Tax Calculators" grid (50 state links in 6-column layout) and "Guides & Resources" strip (6 strategic page links). Also added /obbba-tax-calculator and /federal-tax-brackets to CALCULATOR_LINKS.
+3. src/app/sitemap.ts — added 5 strategic page URLs + 6 research sub-page URLs (RESEARCH_SLUGS array) with proper priorities (0.85-0.95)
+4. .env — restored full env file: JWT_SECRET, ADMIN_PASSWORD, NEXT_PUBLIC_SITE_URL, NEXT_PUBLIC_GTM_ID (GTM-PJTJHQB6), NEXT_PUBLIC_GA_MEASUREMENT_ID (G-7F3NQK1BEM), NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION, DATABASE_URL
+5. src/app/layout.tsx — added Ahrefs Web Analytics script tag (conditional on NEXT_PUBLIC_AHREFS_SITE_ID env var) with data-ahrefs-site-id attribute, async loading, and data-cfasync="false" to bypass Cloudflare Rocket Loader
+6. src/middleware.ts — added analytics.ahrefs.com to CSP script-src, img-src, and connect-src directives
+7. scripts/patch-worker-headers.js — added analytics.ahrefs.com to GOOGLE_SCRIPT_DOMAINS, GOOGLE_IMG_DOMAINS, and GOOGLE_CONNECT_DOMAINS arrays (this is the script that patches the Cloudflare Worker after build)
+8. public/robots.txt — added `Disallow: /cdn-cgi/` to all 11 user-agent blocks (Googlebot, Bingbot, Google-Extended, ChatGPT-User, OAI-SearchBot, GPTBot, PerplexityBot, Claude-Web, anthropic-ai, CCBot, Default *)
+
+Build Verification:
+- Ran `npx next build` — succeeded with zero errors
+- All 5 strategic pages appear in the build output as static (○) routes
+- All 6 research sub-pages appear as SSG (●) routes via generateStaticParams
+- sitemap.xml route present
+- All 50 state sales tax routes present
+- All 26 salary amount routes present
+- All 10 comparison routes present
+- All 35 blog routes present
+
+Stage Summary:
+- All 6 confirmed issues from deep audit are now FIXED in code
+- The build passes cleanly
+- Remaining manual steps for user:
+  (a) Sign up at https://ahrefs.com/web-analytics (free) → get site ID → add NEXT_PUBLIC_AHREFS_SITE_ID to .env
+  (b) Deploy the build to Cloudflare Pages
+  (c) Run `node scripts/patch-worker-headers.js` after deploy to inject the Ahrefs CSP into the Cloudflare Worker
+  (d) Submit updated sitemap.xml to Google Search Console
+  (e) Re-upload public/disavow.txt to Google Disavow Tool (already has 54 domains)

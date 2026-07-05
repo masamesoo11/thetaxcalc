@@ -187,6 +187,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           </>
         )}
 
+        {/* Ahrefs Web Analytics — privacy-friendly analytics alternative */}
+        {process.env.NEXT_PUBLIC_AHREFS_SITE_ID && (
+          <script
+            async
+            data-cfasync="false"
+            src="https://analytics.ahrefs.com/analytics.js"
+            data-ahrefs-site-id={process.env.NEXT_PUBLIC_AHREFS_SITE_ID}
+          />
+        )}
+
         {/* Google Analytics & AdSense — loaded from DB settings */}
         <ClientAnalytics />
 

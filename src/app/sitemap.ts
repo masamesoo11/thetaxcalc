@@ -60,6 +60,26 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     entries.push({ url: `${baseUrl}/compare/${slug}`, lastModified: taxYearUpdate, changeFrequency: 'monthly', priority: 0.88 });
   }
 
+  // ─── Strategic pages (added 2026-07) ───────────────────────────────────────
+  entries.push({ url: `${baseUrl}/obbba-tax-calculator`, lastModified: taxYearUpdate, changeFrequency: 'monthly', priority: 0.95 });
+  entries.push({ url: `${baseUrl}/scholarship`, lastModified: taxYearUpdate, changeFrequency: 'monthly', priority: 0.85 });
+  entries.push({ url: `${baseUrl}/smartasset-alternative`, lastModified: taxYearUpdate, changeFrequency: 'monthly', priority: 0.85 });
+  entries.push({ url: `${baseUrl}/tax-professionals`, lastModified: taxYearUpdate, changeFrequency: 'monthly', priority: 0.85 });
+  entries.push({ url: `${baseUrl}/research`, lastModified: taxYearUpdate, changeFrequency: 'monthly', priority: 0.9 });
+
+  // 6 research studies (dynamic [slug] route)
+  const RESEARCH_SLUGS = [
+    '2026-state-tax-burden',
+    'best-states-for-remote-workers-2026',
+    'child-tax-credit-guide-2026',
+    'property-tax-by-state-2026',
+    'salary-needed-to-live-comfortably-2026',
+    'tax-refund-statistics-2026',
+  ];
+  for (const slug of RESEARCH_SLUGS) {
+    entries.push({ url: `${baseUrl}/research/${slug}`, lastModified: taxYearUpdate, changeFrequency: 'monthly', priority: 0.85 });
+  }
+
   entries.push({ url: `${baseUrl}/blog`, lastModified: siteUpdate, changeFrequency: 'weekly', priority: 0.8 });
 
   // Blog posts from static index — use actual post dates
