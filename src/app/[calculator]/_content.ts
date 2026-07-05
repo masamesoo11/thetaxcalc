@@ -38,6 +38,7 @@ import {
   EMPLOYEE_COST_FAQS,
   FAQItem,
 } from '@/lib/faq-data';
+import { generateStateContent } from '@/lib/state-tax-data';
 
 // ─── Calculator Content Data (Server-Rendered for SEO) ─────────────────────────
 
@@ -1390,6 +1391,11 @@ export function getCalculatorContent(type: string): CalculatorContent {
         ],
       };
     default:
+      // Try to generate unique content from state tax data
+      const stateContent = generateStateContent(type);
+      if (stateContent) {
+        return stateContent;
+      }
       return {
         howItWorks: [
           'This calculator figures out your take-home pay after federal tax, FICA, and state income tax. Enter your gross salary, pick your state and filing status, and add any pre-tax deductions like 401(k) or HSA contributions if you have them.',
