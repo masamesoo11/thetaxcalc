@@ -315,6 +315,82 @@ export default function OBBBATaxCalculatorPage() {
         </div>
       </section>
 
+      {/* OBBBA vs Prior Law Comparison Table — featured snippet target */}
+      <section className="mb-10">
+        <h2 className="text-2xl font-bold text-foreground mb-6">
+          OBBBA vs Prior Law: Key Tax Provisions Compared
+        </h2>
+        <p className="text-muted-foreground mb-4 leading-relaxed">
+          The table below summarizes the most important differences between OBBBA (2026 tax law) and the prior law (pre-TCJA sunset). Use it to quickly understand how each provision affects your federal income tax.
+        </p>
+        <div className="overflow-x-auto rounded-xl border border-border/30 bg-card/50">
+          <table className="w-full text-sm">
+            <thead className="bg-muted/30 border-b border-border/30">
+              <tr>
+                <th className="text-left p-4 font-semibold text-foreground">Tax Provision</th>
+                <th className="text-left p-4 font-semibold text-emerald-400">OBBBA (2026)</th>
+                <th className="text-left p-4 font-semibold text-muted-foreground">Prior Law (Pre-TCJA)</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-border/20">
+              <tr>
+                <td className="p-4 font-medium text-foreground">Top federal tax bracket</td>
+                <td className="p-4 text-emerald-400">37% (TCJA made permanent)</td>
+                <td className="p-4 text-muted-foreground">39.6% (TCJA sunset)</td>
+              </tr>
+              <tr>
+                <td className="p-4 font-medium text-foreground">Standard deduction (Single)</td>
+                <td className="p-4 text-emerald-400">$16,100</td>
+                <td className="p-4 text-muted-foreground">$8,300 (pre-TCJA level)</td>
+              </tr>
+              <tr>
+                <td className="p-4 font-medium text-foreground">SALT deduction cap</td>
+                <td className="p-4 text-emerald-400">$40,400</td>
+                <td className="p-4 text-muted-foreground">$10,000 (old TCJA cap)</td>
+              </tr>
+              <tr>
+                <td className="p-4 font-medium text-foreground">Child Tax Credit</td>
+                <td className="p-4 text-emerald-400">$2,200 per child</td>
+                <td className="p-4 text-muted-foreground">$1,000 per child</td>
+              </tr>
+              <tr>
+                <td className="p-4 font-medium text-foreground">Tip income deduction</td>
+                <td className="p-4 text-emerald-400">New above-the-line deduction</td>
+                <td className="p-4 text-muted-foreground">No deduction</td>
+              </tr>
+              <tr>
+                <td className="p-4 font-medium text-foreground">Overtime pay deduction</td>
+                <td className="p-4 text-emerald-400">New above-the-line deduction</td>
+                <td className="p-4 text-muted-foreground">No deduction</td>
+              </tr>
+              <tr>
+                <td className="p-4 font-medium text-foreground">Senior deduction (65+)</td>
+                <td className="p-4 text-emerald-400">$2,000 additional deduction</td>
+                <td className="p-4 text-muted-foreground">No additional deduction</td>
+              </tr>
+              <tr>
+                <td className="p-4 font-medium text-foreground">AMT exemption (Single)</td>
+                <td className="p-4 text-emerald-400">$88,700 (TCJA permanent)</td>
+                <td className="p-4 text-muted-foreground">$55,400 (pre-TCJA)</td>
+              </tr>
+              <tr>
+                <td className="p-4 font-medium text-foreground">Estate tax exemption</td>
+                <td className="p-4 text-emerald-400">$14.6 million</td>
+                <td className="p-4 text-muted-foreground">$7 million (pre-TCJA)</td>
+              </tr>
+              <tr>
+                <td className="p-4 font-medium text-foreground">QBI deduction (Section 199A)</td>
+                <td className="p-4 text-emerald-400">20% (made permanent)</td>
+                <td className="p-4 text-muted-foreground">Expired (0%)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p className="mt-3 text-xs text-muted-foreground">
+          Source: One Big Beautiful Bill Act (P.L. 119-1), signed July 4, 2025. Estimates based on IRS 2026 tax brackets and TCJA provisions.
+        </p>
+      </section>
+
       {/* FAQ */}
       <section className="mb-10">
         <h2 className="text-2xl font-bold text-foreground mb-6">
