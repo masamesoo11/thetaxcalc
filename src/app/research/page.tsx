@@ -14,6 +14,20 @@ export const metadata: Metadata = {
     url: `${SITE_URL}/research`,
     siteName: 'TheTaxCalc',
     type: 'website',
+    images: [
+      {
+        url: `${SITE_URL}/opengraph-image.png`,
+        width: 1200,
+        height: 630,
+        alt: 'TheTaxCalc Research Hub — 2026 Tax Data & Original Studies',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'TheTaxCalc Research Hub — 2026 Tax Data & Original Studies',
+    description: 'Original research: state tax burden, remote work, child tax credit, property tax, refund statistics.',
+    images: [`${SITE_URL}/opengraph-image.png`],
   },
 };
 

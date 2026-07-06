@@ -14,6 +14,20 @@ export const metadata: Metadata = {
     url: `${SITE_URL}/scholarship`,
     siteName: 'TheTaxCalc',
     type: 'website',
+    images: [
+      {
+        url: `${SITE_URL}/opengraph-image.png`,
+        width: 1200,
+        height: 630,
+        alt: 'TheTaxCalc Scholarship 2026 — $2,500 Tax & Finance Student Award',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'TheTaxCalc Scholarship 2026 | $2,500 Student Award',
+    description: 'A $2,500 scholarship for finance, accounting, economics, or tax students. Free to apply.',
+    images: [`${SITE_URL}/opengraph-image.png`],
   },
 };
 

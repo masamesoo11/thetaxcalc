@@ -102,10 +102,10 @@ const sitewideJsonLd = {
       description: "Free 2026 tax calculators — paycheck, mortgage, 401(k), capital gains, and self-employment. Trusted by thousands of users for accurate, up-to-date tax estimates.",
       foundingDate: "2022",
       sameAs: [
-        "https://twitter.com/thetaxcalc",
-        "https://www.linkedin.com/company/thetaxcalc",
-        "https://www.facebook.com/thetaxcalc",
-        "https://www.producthunt.com/products/thetaxcalc",
+        `${SITE_URL}/about`,
+        `${SITE_URL}/blog`,
+        `${SITE_URL}/research`,
+        `${SITE_URL}/methodology`,
       ] as string[],
       contactPoint: [
         {

@@ -14,6 +14,20 @@ export const metadata: Metadata = {
     url: `${SITE_URL}/tax-professionals`,
     siteName: 'TheTaxCalc',
     type: 'website',
+    images: [
+      {
+        url: `${SITE_URL}/opengraph-image.png`,
+        width: 1200,
+        height: 630,
+        alt: 'TheTaxCalc — Free Tools for Tax Professionals, CPAs, and EAs',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'For Tax Professionals — CPAs, EAs & Tax Preparers',
+    description: 'Free calculators, tax data, and embeddable widgets for CPAs and tax preparers.',
+    images: [`${SITE_URL}/opengraph-image.png`],
   },
 };
 

@@ -15,6 +15,21 @@ export const metadata: Metadata = {
     url: `${SITE_URL}/obbba-tax-calculator`,
     siteName: 'TheTaxCalc',
     type: 'website',
+    images: [
+      {
+        url: `${SITE_URL}/opengraph-image.png`,
+        width: 1200,
+        height: 630,
+        alt: 'OBBBA Tax Calculator 2026 — Compare New Tax Law vs Prior Law',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'OBBBA Tax Calculator 2026 | Compare New Tax Law vs Prior Law',
+    description:
+      'See exactly how much the One Big Beautiful Bill Act saves you in 2026. Compare OBBBA vs prior law.',
+    images: [`${SITE_URL}/opengraph-image.png`],
   },
 };
 

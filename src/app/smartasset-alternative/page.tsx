@@ -14,6 +14,20 @@ export const metadata: Metadata = {
     url: `${SITE_URL}/smartasset-alternative`,
     siteName: 'TheTaxCalc',
     type: 'website',
+    images: [
+      {
+        url: `${SITE_URL}/opengraph-image.png`,
+        width: 1200,
+        height: 630,
+        alt: 'TheTaxCalc — Free SmartAsset Alternative for 2026 Tax Calculators',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'SmartAsset Alternative 2026 | Free Tax Calculators',
+    description: 'A free, no-sign-up SmartAsset alternative. Calculators for all 50 states.',
+    images: [`${SITE_URL}/opengraph-image.png`],
   },
 };
 
