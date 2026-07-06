@@ -102,6 +102,64 @@ const jsonLd = {
         audienceType: 'Tax Professionals',
       },
     },
+    {
+      '@type': 'Service',
+      name: 'Free Tax Calculator Widgets for Tax Professionals',
+      description:
+        'Free embeddable tax calculator widgets for CPA firms, Enrolled Agents, and tax preparers. Paycheck, refund, mortgage, and 401(k) calculators with no sign-up, no paywall, and no data collection. White-label embedding available.',
+      url: `${SITE_URL}/tax-professionals`,
+      serviceType: 'Tax calculation tools and embeddable widgets',
+      provider: {
+        '@type': 'Organization',
+        name: 'TheTaxCalc',
+        url: SITE_URL,
+      },
+      areaServed: {
+        '@type': 'Country',
+        name: 'United States',
+      },
+      audience: {
+        '@type': 'BusinessAudience',
+        audienceType: 'Tax Professionals (CPAs, EAs, Tax Preparers)',
+      },
+      offers: {
+        '@type': 'Offer',
+        price: '0',
+        priceCurrency: 'USD',
+        availability: 'https://schema.org/InStock',
+        description: 'Free for all tax professionals, no cost, no sign-up required.',
+      },
+      hasOfferCatalog: {
+        '@type': 'OfferCatalog',
+        name: 'Free Tax Professional Tools',
+        itemListElement: [
+          {
+            '@type': 'Offer',
+            itemOffered: {
+              '@type': 'Service',
+              name: 'Embeddable Paycheck Calculator Widget',
+              description: 'Embed a free paycheck calculator on your firm website. 50-state coverage, 2026 tax brackets.',
+            },
+          },
+          {
+            '@type': 'Offer',
+            itemOffered: {
+              '@type': 'Service',
+              name: 'Tax Refund Estimator Widget',
+              description: 'Help clients estimate their 2026 tax refund before booking a consultation.',
+            },
+          },
+          {
+            '@type': 'Offer',
+            itemOffered: {
+              '@type': 'Service',
+              name: '2026 Federal and State Tax Data',
+              description: 'Access updated 2026 federal tax brackets, FICA rates, and all 50 state income tax rates.',
+            },
+          },
+        ],
+      },
+    },
   ],
 };
 
