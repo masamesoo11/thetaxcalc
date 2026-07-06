@@ -67,6 +67,11 @@ const organizationJsonLd = {
       '@id': `${SITE_URL}/about#author`,
       ...authorToJsonLd(getCalculatorAuthor()),
     },
+    // Add Person schema for all team members — strengthens E-E-A-T
+    ...Object.values(AUTHORS).map((author) => ({
+      '@id': `${SITE_URL}/about#${author.id}`,
+      ...authorToJsonLd(author),
+    })),
     {
       '@id': `${SITE_URL}/about#aboutpage`,
       '@type': 'WebPage',

@@ -93,6 +93,26 @@ export const TEXAS_FAQS: FAQItem[] = [
     answer:
       "No. Social Security, 401(k) withdrawals, IRAs, pensions — none of it gets taxed by Texas. With no state income tax at all, it's a solid option for retirees. Just keep those property taxes in mind when you're budgeting.",
   },
+  {
+    question: 'How much is $75,000 a year after taxes in Texas?',
+    answer:
+      "On a $75,000 salary in Texas, you take home approximately $61,593 per year after federal income tax ($8,118), FICA tax ($5,738), and zero state income tax. That breaks down to about $5,133 per month or $2,369 biweekly. Texas ranks among the top states for take-home pay on a $75K salary because there's no state income tax — only federal and FICA apply.",
+  },
+  {
+    question: 'How to calculate take-home pay in Texas?',
+    answer:
+      "To calculate your take-home pay in Texas: (1) Start with your gross salary. (2) Subtract federal income tax using your filing status and the 2026 federal brackets. (3) Subtract FICA tax — 6.2% Social Security (up to the $184,500 wage cap) plus 1.45% Medicare. (4) Subtract pre-tax deductions like 401(k) and HSA. (5) Texas has no state income tax, so subtract $0 for state tax. The result is your take-home pay. Our Texas Tax Calculator above does all of this instantly.",
+  },
+  {
+    question: 'What is the best state for low taxes if I earn $100K?',
+    answer:
+      "For a $100,000 salary, the best states for low taxes are the nine no-income-tax states: Alaska, Florida, Nevada, New Hampshire, South Dakota, Tennessee, Texas, Washington, and Wyoming. In Texas, your take-home pay on $100K is approximately $79,180. However, consider total tax burden (property + sales tax), not just income tax. Texas has high property taxes (1.71% average), so if you own an expensive home, Florida (0.86% property tax) might be cheaper overall despite similar income tax savings.",
+  },
+  {
+    question: 'What is the marginal tax rate vs effective tax rate in Texas?',
+    answer:
+      "In Texas (no state income tax), your marginal tax rate is the rate on your last dollar of federal income. For a $75,000 single filer in 2026, the marginal rate is 22% (the bracket from $48,351 to $103,350). Your effective tax rate is the average rate you actually pay — about 10.8% federal on $75,000 after the standard deduction. The effective rate is always lower than the marginal rate because the marginal only applies to your top bracket.",
+  },
 ];
 
 export const FLORIDA_FAQS: FAQItem[] = [
