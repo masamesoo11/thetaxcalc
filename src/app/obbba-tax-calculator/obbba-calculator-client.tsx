@@ -343,9 +343,9 @@ export function OBBBACalculatorClient() {
             {/* Side-by-Side Comparison */}
             <div className="grid gap-3 sm:grid-cols-2">
               <div className="rounded-xl border border-emerald-500/20 bg-emerald-500/5 p-5">
-                <h3 className="text-base font-semibold text-emerald-400 mb-3">
+                <h2 className="text-base font-semibold text-emerald-400 mb-3">
                   Under OBBBA (2026)
-                </h3>
+                </h2>
                 <div className="space-y-2 text-sm">
                   <Row label="AGI" value={formatUSD(display.obbba.agi)} />
                   <Row label="Taxable Income" value={formatUSD(display.obbba.taxableIncome)} />
@@ -365,9 +365,9 @@ export function OBBBACalculatorClient() {
               </div>
 
               <div className="rounded-xl border border-border/30 bg-muted/10 p-5">
-                <h3 className="text-base font-semibold text-muted-foreground mb-3">
+                <h2 className="text-base font-semibold text-muted-foreground mb-3">
                   Under Prior Law (Pre-TCJA Sunset)
-                </h3>
+                </h2>
                 <div className="space-y-2 text-sm">
                   <Row label="AGI" value={formatUSD(display.prior.agi)} />
                   <Row label="Taxable Income" value={formatUSD(display.prior.taxableIncome)} />
@@ -389,10 +389,10 @@ export function OBBBACalculatorClient() {
 
             {/* OBBBA Provisions Applied */}
             <div className="rounded-xl border border-border/30 bg-card/50 p-5">
-              <h3 className="text-base font-semibold text-foreground mb-3 flex items-center gap-2">
+              <h2 className="text-base font-semibold text-foreground mb-3 flex items-center gap-2">
                 <Info className="h-4 w-4 text-emerald-400" />
                 OBBBA Provisions Applied
-              </h3>
+              </h2>
               <div className="grid gap-2 sm:grid-cols-2 text-sm">
                 <Row label="Standard Deduction" value={formatUSD(display.obbba.standardDeductionUsed)} />
                 <Row label="SALT Deduction Allowed" value={formatUSD(display.obbba.saltDeductionAllowed)} />

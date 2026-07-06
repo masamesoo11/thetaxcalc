@@ -611,7 +611,7 @@ export default function HomePage() {
       />
 
       {/* ─── Hero Section ──────────────────────────────────────── */}
-      <section className="relative overflow-hidden py-16 sm:py-24 bg-mesh-hero">
+      <section id="main-content" className="relative overflow-hidden py-16 sm:py-24 bg-mesh-hero">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center space-y-6">
             {/* Badge */}
