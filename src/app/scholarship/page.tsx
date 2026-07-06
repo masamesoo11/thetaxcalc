@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { SITE_URL } from '@/lib/site-config';
 
 export const metadata: Metadata = {
-  title: 'TheTaxCalc Scholarship 2026 — $2,500 Tax & Finance Student Award',
+  title: 'Scholarship 2026 — $2,500 Tax & Finance Student Award',
   description:
     'Apply for the 2026 TheTaxCalc Scholarship — a $2,500 award for undergraduate and graduate students studying finance, accounting, economics, or tax. Free to apply. Deadline May 31, 2026.',
   alternates: { canonical: `${SITE_URL}/scholarship` },

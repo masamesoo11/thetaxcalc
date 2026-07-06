@@ -925,8 +925,8 @@ export default function HomePage() {
                 <p>
                   So we built the tools we wished existed. All our calculations use the latest 2026
                   federal brackets, FICA rates, and state-specific tax laws — pulled straight from{' '}
-                  <a href="https://www.irs.gov/filing/federal-income-tax-rates-and-brackets" target="_blank" rel="noopener noreferrer" className="text-emerald-400 hover:text-emerald-300 underline underline-offset-2">IRS publications</a> and{' '}
-                  <a href="https://taxfoundation.org/" target="_blank" rel="noopener noreferrer" className="text-emerald-400 hover:text-emerald-300 underline underline-offset-2">state revenue departments</a>, not some third-party blog post.
+                  <a href="https://www.irs.gov/filing/federal-income-tax-rates-and-brackets" target="_blank" rel="noopener noreferrer nofollow" className="text-emerald-400 hover:text-emerald-300 underline underline-offset-2">IRS publications</a> and{' '}
+                  <a href="https://taxfoundation.org/" target="_blank" rel="noopener noreferrer nofollow" className="text-emerald-400 hover:text-emerald-300 underline underline-offset-2">state revenue departments</a>, not some third-party blog post.
                 </p>
               </div>
               <ul className="mt-6 space-y-3">

@@ -288,6 +288,40 @@ export function SalarySSRContent({ salary }: Props) {
           ))}
         </div>
       </section>
+
+      {/* ─── Quick State Lookup (SSR version — reduces bounce rate) ─── */}
+      <section className="mt-12 rounded-xl border border-emerald-500/30 bg-emerald-500/5 p-6 sm:p-8">
+        <h2 className="text-2xl font-bold text-foreground mb-3">
+          Find Your {formatted} Take-Home Pay by State
+        </h2>
+        <p className="text-muted-foreground mb-5 leading-relaxed">
+          Skip the scrolling — jump straight to your state&apos;s calculator to see your exact
+          take-home pay, monthly breakdown, and effective tax rate. All 50 states covered with
+          2026 federal and state tax brackets.
+        </p>
+        <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+          {sortedStates.map((s) => {
+            const stateSlug = s.stateName.toLowerCase().replace(/\s/g, '-');
+            return (
+              <Link
+                key={s.stateKey}
+                href={`/${stateSlug}-tax-calculator`}
+                className="group rounded-lg border border-border/30 bg-background/40 px-3 py-2 text-sm hover:border-emerald-500/40 hover:bg-emerald-500/5 transition-all"
+              >
+                <div className="font-medium text-foreground group-hover:text-emerald-400 transition-colors">
+                  {s.stateName}
+                </div>
+                <div className="text-xs text-muted-foreground">
+                  {fmt(s.netAnnual)}/yr
+                </div>
+              </Link>
+            );
+          })}
+        </div>
+        <p className="mt-4 text-xs text-muted-foreground">
+          Click your state to open its dedicated {formatted} tax calculator with full breakdown.
+        </p>
+      </section>
     </div>
   );
 }

@@ -3,12 +3,12 @@ import Link from 'next/link';
 import { SITE_URL } from '@/lib/site-config';
 
 export const metadata: Metadata = {
-  title: 'For Tax Professionals — CPAs, EAs & Tax Preparers | TheTaxCalc',
+  title: 'For Tax Professionals — CPAs, EAs & Tax Preparers',
   description:
     'Free tools, data, and resources for tax professionals. Embed our calculators on your firm website, access 2026 federal and state tax data, and share our methodology with clients. No cost, no sign-up.',
   alternates: { canonical: `${SITE_URL}/tax-professionals` },
   openGraph: {
-    title: 'For Tax Professionals — CPAs, EAs & Tax Preparers | TheTaxCalc',
+    title: 'For Tax Professionals — CPAs, EAs & Tax Preparers',
     description:
       'Free calculators, tax data, and embeddable widgets for CPAs, Enrolled Agents, and tax preparers. Updated for 2026.',
     url: `${SITE_URL}/tax-professionals`,

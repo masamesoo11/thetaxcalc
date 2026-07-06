@@ -13,8 +13,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Updated dates — Google prefers accurate lastModified values
   // Use today's date for homepage (signals freshness)
   // Use last content update date for static pages
-  const taxYearUpdate = '2026-06-18'; // Today — signals recent update
-  const siteUpdate = '2026-06-18';    // Today — homepage/landing updated
+  const today = new Date().toISOString().split('T')[0]; // YYYY-MM-DD
+  const taxYearUpdate = today; // Today — signals recent update
+  const siteUpdate = today;    // Today — homepage/landing updated
 
   const entries: MetadataRoute.Sitemap = [
     { url: baseUrl, lastModified: siteUpdate, changeFrequency: 'weekly', priority: 1.0 },

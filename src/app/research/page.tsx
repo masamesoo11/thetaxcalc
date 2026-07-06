@@ -3,12 +3,12 @@ import Link from 'next/link';
 import { SITE_URL } from '@/lib/site-config';
 
 export const metadata: Metadata = {
-  title: 'Research Hub — 2026 Tax Data & Original Studies | TheTaxCalc',
+  title: 'Research Hub — 2026 Tax Data & Original Studies',
   description:
     'Browse TheTaxCalc original research: 2026 state tax burden rankings, best states for remote workers, child tax credit guide, property tax by state, salary needed to live comfortably, and tax refund statistics.',
   alternates: { canonical: `${SITE_URL}/research` },
   openGraph: {
-    title: 'Research Hub — 2026 Tax Data & Original Studies | TheTaxCalc',
+    title: 'Research Hub — 2026 Tax Data & Original Studies',
     description:
       'Original research and data studies from TheTaxCalc. State tax burden, remote work, child tax credit, property tax, salary needs, and refund statistics for 2026.',
     url: `${SITE_URL}/research`,
