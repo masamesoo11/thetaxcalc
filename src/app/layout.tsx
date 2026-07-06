@@ -159,8 +159,19 @@ export default function RootLayout({
   return (
     <html lang="en-US" className="dark" suppressHydrationWarning>
       <head>
+        {/* Resource hints — preconnect to critical third-party origins */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="preconnect" href="https://www.google-analytics.com" />
+        <link rel="preconnect" href="https://analytics.ahrefs.com" />
+        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+        <link rel="dns-prefetch" href="https://analytics.ahrefs.com" />
+        <link rel="dns-prefetch" href="https://www.irs.gov" />
+        <link rel="dns-prefetch" href="https://taxfoundation.org" />
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#0a0f1e" />
 
