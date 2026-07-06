@@ -1169,6 +1169,118 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ─── Featured Resources (boosts link equity to strategic pages) ─── */}
+      <section className="py-16 border-t border-border/20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl font-bold text-foreground">
+              Featured <span className="gradient-text">Resources</span>
+            </h2>
+            <p className="mt-3 text-muted-foreground max-w-xl mx-auto">
+              Free tools and original research to help you understand the 2026 tax landscape.
+            </p>
+          </div>
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            <Link
+              prefetch={false}
+              href="/obbba-tax-calculator"
+              className="group rounded-xl border border-border/30 bg-card/50 p-6 hover:border-emerald-500/30 hover-lift transition-all"
+            >
+              <Scale className="h-8 w-8 text-emerald-400 mb-3" />
+              <h3 className="text-lg font-semibold text-foreground group-hover:text-emerald-400 transition-colors">
+                OBBBA Tax Calculator
+              </h3>
+              <p className="mt-2 text-sm text-muted-foreground">
+                Compare your 2026 taxes under the One Big Beautiful Bill Act vs prior law. See SALT cap, Child Tax Credit, and tip deduction savings.
+              </p>
+              <span className="mt-3 inline-flex items-center gap-1.5 text-sm font-medium text-emerald-400 group-hover:gap-3 transition-all">
+                Try it now <ArrowRight className="h-4 w-4" />
+              </span>
+            </Link>
+            <Link
+              prefetch={false}
+              href="/research"
+              className="group rounded-xl border border-border/30 bg-card/50 p-6 hover:border-emerald-500/30 hover-lift transition-all"
+            >
+              <FileText className="h-8 w-8 text-emerald-400 mb-3" />
+              <h3 className="text-lg font-semibold text-foreground group-hover:text-emerald-400 transition-colors">
+                2026 Tax Research Hub
+              </h3>
+              <p className="mt-2 text-sm text-muted-foreground">
+                Original studies: state tax burden rankings, best states for remote workers, child tax credit guide, property tax by state, and tax refund statistics.
+              </p>
+              <span className="mt-3 inline-flex items-center gap-1.5 text-sm font-medium text-emerald-400 group-hover:gap-3 transition-all">
+                Browse research <ArrowRight className="h-4 w-4" />
+              </span>
+            </Link>
+            <Link
+              prefetch={false}
+              href="/scholarship"
+              className="group rounded-xl border border-border/30 bg-card/50 p-6 hover:border-emerald-500/30 hover-lift transition-all"
+            >
+              <Gift className="h-8 w-8 text-emerald-400 mb-3" />
+              <h3 className="text-lg font-semibold text-foreground group-hover:text-emerald-400 transition-colors">
+                $2,500 Student Scholarship
+              </h3>
+              <p className="mt-2 text-sm text-muted-foreground">
+                TheTaxCalc awards $2,500 annually to finance, accounting, economics, or tax students. Free to apply. Deadline May 31, 2026.
+              </p>
+              <span className="mt-3 inline-flex items-center gap-1.5 text-sm font-medium text-emerald-400 group-hover:gap-3 transition-all">
+                Apply now <ArrowRight className="h-4 w-4" />
+              </span>
+            </Link>
+            <Link
+              prefetch={false}
+              href="/tax-professionals"
+              className="group rounded-xl border border-border/30 bg-card/50 p-6 hover:border-emerald-500/30 hover-lift transition-all"
+            >
+              <Shield className="h-8 w-8 text-emerald-400 mb-3" />
+              <h3 className="text-lg font-semibold text-foreground group-hover:text-emerald-400 transition-colors">
+                For Tax Professionals
+              </h3>
+              <p className="mt-2 text-sm text-muted-foreground">
+                Free CPA and EA tools: embeddable widgets, 2026 federal and state tax data, methodology, and client-ready calculators. No cost, no sign-up.
+              </p>
+              <span className="mt-3 inline-flex items-center gap-1.5 text-sm font-medium text-emerald-400 group-hover:gap-3 transition-all">
+                Professional tools <ArrowRight className="h-4 w-4" />
+              </span>
+            </Link>
+            <Link
+              prefetch={false}
+              href="/smartasset-alternative"
+              className="group rounded-xl border border-border/30 bg-card/50 p-6 hover:border-emerald-500/30 hover-lift transition-all"
+            >
+              <Calculator className="h-8 w-8 text-emerald-400 mb-3" />
+              <h3 className="text-lg font-semibold text-foreground group-hover:text-emerald-400 transition-colors">
+                SmartAsset Alternative
+              </h3>
+              <p className="mt-2 text-sm text-muted-foreground">
+                A free, no-sign-up SmartAsset alternative. Paycheck, mortgage, retirement, and tax calculators for all 50 states — no paywall, no data collection.
+              </p>
+              <span className="mt-3 inline-flex items-center gap-1.5 text-sm font-medium text-emerald-400 group-hover:gap-3 transition-all">
+                Compare features <ArrowRight className="h-4 w-4" />
+              </span>
+            </Link>
+            <Link
+              prefetch={false}
+              href="/methodology"
+              className="group rounded-xl border border-border/30 bg-card/50 p-6 hover:border-emerald-500/30 hover-lift transition-all"
+            >
+              <BookOpen className="h-8 w-8 text-emerald-400 mb-3" />
+              <h3 className="text-lg font-semibold text-foreground group-hover:text-emerald-400 transition-colors">
+                How We Calculate Taxes
+              </h3>
+              <p className="mt-2 text-sm text-muted-foreground">
+                Our methodology: 2026 federal brackets, FICA rates, state tax laws, and standard deductions — all sourced from IRS publications and state revenue departments.
+              </p>
+              <span className="mt-3 inline-flex items-center gap-1.5 text-sm font-medium text-emerald-400 group-hover:gap-3 transition-all">
+                Read methodology <ArrowRight className="h-4 w-4" />
+              </span>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* ─── Blog Preview ──────────────────────────────────────── */}
       <section className="py-16 border-t border-border/20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

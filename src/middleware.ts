@@ -541,6 +541,11 @@ Visit https://thetaxcalc.com/about for the full page.`,
   // ─── AI Content Signals ────────────────────────────────────────────
   response.headers.set('Content-Signal', 'ai-train=yes, search=yes, ai-input=yes');
 
+  // ─── Internal search results: noindex, follow (prevent indexation of search pages) ──
+  if (searchParams.has('q') && !searchParams.get('q')?.includes('{search_term_string}')) {
+    response.headers.set('X-Robots-Tag', 'noindex, follow');
+  }
+
   // ─── AI Agent Discovery: Link Headers (RFC 8288) ────────────────────
   response.headers.set('Link', [
     '</.well-known/api-catalog>; rel="service-doc"',
