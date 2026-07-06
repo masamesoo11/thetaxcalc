@@ -32,6 +32,26 @@ export const HOME_FAQS: FAQItem[] = [
     answer:
       "Here's the thing — they sound similar but they're completely different. Your effective rate is your overall average: total tax divided by gross income. Your marginal rate is what hits your last dollar earned, meaning the top bracket you fall into. So someone making $75K has a marginal rate of 22%, but their effective federal rate is more like 11–12% because the first chunk of income gets taxed at way lower rates. People mix these up all the time and it leads to bad decisions.",
   },
+  {
+    question: 'What is the 2026 standard deduction?',
+    answer:
+      "For 2026, the federal standard deduction is $16,100 for single filers, $32,200 for married filing jointly, and $24,150 for head of household. The standard deduction reduces your taxable income dollar-for-dollar — a single filer earning $75,000 is only taxed on $58,900. Most taxpayers (about 87%) take the standard deduction instead of itemizing because it's higher than their total itemized deductions (SALT, mortgage interest, charity). The OBBBA increased the SALT cap to $40,400 for 2026, which may make itemizing more attractive for taxpayers in high-tax states like California, New York, and New Jersey.",
+  },
+  {
+    question: 'When are 2026 taxes due?',
+    answer:
+      "For the 2026 tax year (income earned January 1 – December 31, 2026), your federal tax return is due on Tuesday, April 15, 2027. If you file for an extension with Form 4868, you get until October 15, 2027 to file — but any taxes you owe are still due by April 15. Quarterly estimated tax payments for self-employed individuals are due April 15, June 15, September 15, 2026, and January 15, 2027. State income tax deadlines vary by state but typically align with the federal April 15 deadline.",
+  },
+  {
+    question: 'How much is $75,000 a year after taxes in 2026?',
+    answer:
+      "On a $75,000 salary in 2026, your take-home pay depends on your state. After federal income tax ($7,670 for single filers) and FICA ($5,738), you keep about $61,592 in no-income-tax states like Texas, Florida, Washington, Nevada, and Wyoming. In Illinois (4.95% flat), you keep about $58,017. In California (1%–13.3%), take-home drops to around $54,849. In New York (4%–10.9%), about $55,413. Use our paycheck calculator above to see exact numbers for your state and filing status.",
+  },
+  {
+    question: 'How to calculate federal income tax step by step?',
+    answer:
+      "To calculate your 2026 federal income tax: (1) Start with your gross income (wages, salary, self-employment income). (2) Subtract pre-tax deductions like 401(k) contributions and HSA. (3) Subtract the standard deduction ($16,100 single / $32,200 married). (4) Apply the 2026 federal tax brackets progressively — 10% on the first $11,600, then 12%, 22%, 24%, 32%, 35%, and 37% as income increases. (5) Subtract any tax credits (Child Tax Credit $2,200, education credits). (6) Add FICA (7.65%). The result is your total tax liability. Our paycheck calculator does all of this instantly for all 50 states.",
+  },
 ];
 
 export const ILLINOIS_FAQS: FAQItem[] = [
