@@ -38,9 +38,11 @@ import {
   INCOME_TAX_FAQS,
   TAX_CALC_FAQS,
   EMPLOYEE_COST_FAQS,
+  GENERIC_STATE_FAQS,
 } from '@/lib/faq-data';
 import { SITE_URL } from '@/lib/site-config';
 import { getAuthorForCalculator, authorToJsonLd } from '@/lib/authors';
+import { STATE_TAX_DATA } from '@/lib/state-tax-data';
 
 // ─── JSON-LD FAQ Helper ─────────────────────────────────────────────────────────
 
@@ -827,6 +829,77 @@ export function getJsonLdForType(type: string) {
     case 'employee-cost': return getEmployeeCostJsonLd();
     case 'income-tax': return getIncomeTaxJsonLd();
     case 'tax-calc': return getTaxCalcJsonLd();
-    default: return getHomeJsonLd();
+    default: return getGenericStateJsonLd(type);
   }
+}
+
+// ─── Generic State JSON-LD (for the 27 states without dedicated schema) ──────
+// Falls back to STATE_TAX_DATA for unique content per state.
+// Fixes the issue where 27 state pages used getHomeJsonLd() (duplicate WebPage schema).
+
+function getGenericStateJsonLd(stateKey: string) {
+  const stateData = STATE_TAX_DATA[stateKey];
+  const author = getAuthorForCalculator('home');
+  const authorId = `${SITE_URL}#author`;
+
+  // Fallback if stateKey not found in STATE_TAX_DATA
+  if (!stateData) {
+    return getHomeJsonLd();
+  }
+
+  const stateName = stateData.name;
+  const slug = stateData.slug;
+  const baseId = `${SITE_URL}/${slug}`;
+
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@id': `${baseId}#webpage`,
+        '@type': 'WebPage',
+        url: `${SITE_URL}/${slug}`,
+        name: `${stateName} Tax Calculator 2026`,
+        description: `Free ${stateName} tax calculator 2026. Take-home pay after ${stateData.incomeTaxRate} state income tax. ${stateData.incomeTaxDesc}`,
+        inLanguage: 'en-US',
+        dateModified: '2026-06-25',
+        author: { '@id': authorId },
+        publisher: { '@id': `${SITE_URL}/#organization` },
+      },
+      {
+        '@id': `${baseId}#breadcrumb`,
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+          { '@type': 'ListItem', position: 2, name: `${stateName} Tax Calculator`, item: `${SITE_URL}/${slug}` },
+        ],
+      },
+      {
+        '@id': `${baseId}#webapp`,
+        '@type': 'WebApplication',
+        name: `${stateName} Tax Calculator`,
+        applicationCategory: 'FinanceApplication',
+        operatingSystem: 'Web',
+        offers: {
+          '@type': 'Offer',
+          price: '0',
+          priceCurrency: 'USD',
+          availability: 'https://schema.org/InStock',
+          url: `${SITE_URL}/${slug}`,
+        },
+      },
+      {
+        '@id': `${baseId}#faq`,
+        '@type': 'FAQPage',
+        mainEntity: GENERIC_STATE_FAQS.map((faq) => ({
+          '@type': 'Question',
+          name: faq.question,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: faq.answer,
+          },
+        })),
+      },
+      authorToJsonLd(author),
+    ],
+  };
 }
