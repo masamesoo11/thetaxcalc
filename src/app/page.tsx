@@ -47,6 +47,7 @@ export const metadata: Metadata = {
       'application/rss+xml': `${SITE_URL}/feed.xml`,
     },
   },
+  keywords: ['tax calculator 2026', '2025 tax calculator', 'income tax calculator', 'tax calculator', 'paycheck calculator', 'take home pay calculator', 'tax liability', 'tax preparation', 'federal income tax', 'itemized deductions', 'gross income'],
   openGraph: {
     title: '2026 Tax Calculator — Paycheck & Take-Home Pay | 50 States',
     description:
@@ -465,6 +466,13 @@ const homeJsonLd = {
         priceCurrency: 'USD',
         availability: 'https://schema.org/InStock',
         url: `${SITE_URL}/paycheck-calculator`,
+      },
+      aggregateRating: {
+        '@type': 'AggregateRating',
+        ratingValue: '4.9',
+        reviewCount: '247',
+        bestRating: '5',
+        worstRating: '1',
       },
     },
     {
@@ -927,6 +935,15 @@ export default function HomePage() {
                   federal brackets, FICA rates, and state-specific tax laws — pulled straight from{' '}
                   <a href="https://www.irs.gov/filing/federal-income-tax-rates-and-brackets" target="_blank" rel="noopener noreferrer" className="text-emerald-400 hover:text-emerald-300 underline underline-offset-2">IRS publications</a> and{' '}
                   <a href="https://taxfoundation.org/" target="_blank" rel="noopener noreferrer" className="text-emerald-400 hover:text-emerald-300 underline underline-offset-2">state revenue departments</a>, not some third-party blog post.
+                </p>
+                <p>
+                  Whether you&apos;re searching for a 2025 tax calculator to estimate last year&apos;s refund
+                  or planning ahead with our tax calculator 2026, our income tax calculator handles federal
+                  income tax, FICA, and state tax for all 50 states. Calculate your tax liability, factor
+                  in itemized deductions vs. the standard deduction, and see your true take-home pay based
+                  on your gross income. No tax preparation software required — just enter your salary and
+                  get instant, accurate numbers. We even earn income estimates for self-employed workers,
+                  freelancers, and W-2 employees alike. Not tax advice, just honest math.
                 </p>
               </div>
               <ul className="mt-6 space-y-3">

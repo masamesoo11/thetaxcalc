@@ -393,11 +393,11 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     description:
       'A $1M lottery jackpot pays only ~$510K after federal 24% withholding + state taxes. Calculate your real Powerball or Mega Millions payout after all taxes. Free, no sign-up.',
     h1: 'Free Lottery Tax Calculator — Powerball & Mega Millions',
-    metaTitle: 'Free Lottery Tax Calculator 2026 — Powerball & Mega Millions',
+    metaTitle: 'Free Lottery Calculator & Tax Calculator 2026 — Powerball Payout',
     metaDesc:
-      'How much tax on lottery winnings? A $1M jackpot nets ~$510K after 24% federal + state taxes. See your actual Powerball & Mega Millions payout. Free.',
+      'Free lottery calculator and lottery tax calculator. See your actual Powerball & Mega Millions payout after 24% federal + state taxes on taxable income. Jackpot amounts, tax return impact, federal and state taxes, financial advisors guidance.',
     keywords: [
-      'free lottery tax calculator', 'lottery tax calculator', 'lottery winnings tax',
+      'lottery calculator', 'lottery tax calculator', 'lottery winnings tax',
       'lottery tax rate', 'after tax lottery winnings', 'powerball tax calculator',
       'mega millions tax calculator', 'lottery withholding rate',
       'free tax calculator for 2026', 'lottery payout calculator',
