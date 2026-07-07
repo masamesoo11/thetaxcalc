@@ -922,7 +922,8 @@ export default function HomePage() {
                 <p>
                   Honestly? We got tired of tax calculators that felt like they were designed by the IRS.
                   You know the ones — confusing interfaces, outdated brackets, and somehow always trying
-                  to sell you something at the end.
+                  to sell you something at the end. Whether you need a 2025 tax calculator for last year&apos;s
+                  return or a tax calculator 2026 for this year, we&apos;ve got you covered.
                 </p>
                 <p>
                   One of our team members moved from California to Texas a few years back. Same salary,

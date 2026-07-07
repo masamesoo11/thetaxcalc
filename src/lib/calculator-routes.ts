@@ -391,7 +391,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     slug: 'lottery-tax-calculator',
     title: 'Lottery Tax Calculator 2026 | $1M Jackpot = $510K Take-Home',
     description:
-      'A $1M lottery jackpot pays only ~$510K after federal 24% withholding + state taxes. Calculate your real Powerball or Mega Millions payout after all taxes. Free, no sign-up.',
+      'Free lottery calculator and lottery tax calculator. A $1M jackpot pays only ~$510K after federal 24% withholding + state taxes. Calculate your real Powerball or Mega Millions payout after all taxes. No sign-up.',
     h1: 'Free Lottery Tax Calculator — Powerball & Mega Millions',
     metaTitle: 'Free Lottery Calculator & Tax Calculator 2026 — Powerball Payout',
     metaDesc:

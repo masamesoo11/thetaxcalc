@@ -226,7 +226,7 @@ export const BLOG_INDEX: BlogPostMeta[] = [
   },
   {
     "id": "cmpmabv3i0000mnivco81phfw",
-    "title": "2026 Federal Tax Brackets Explained",
+    "title": "2026 Tax Brackets: IRS Income Tax Brackets 2026 Explained",
     "slug": "2026-federal-tax-brackets-explained",
     "excerpt": "Complete guide to the IRS 2026 tax brackets — income tax brackets 2026, marginal tax rate, federal income tax rates, adjusted gross income, and tax credits for married couples filing jointly.",
     "category": "tax-guide",
