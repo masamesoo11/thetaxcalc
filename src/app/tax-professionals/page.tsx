@@ -5,7 +5,7 @@ import { SITE_URL } from '@/lib/site-config';
 export const metadata: Metadata = {
   title: 'For Tax Professionals — CPAs, EAs & Tax Preparers',
   description:
-    'Free tools, data, and resources for tax professionals. Embed our calculators on your firm website, access 2026 federal and state tax data, and share our methodology with clients. No cost, no sign-up.',
+    'Free tools for tax professionals. Embeddable calculators, 2026 federal and state tax data, methodology, and client-ready tools for CPAs and EAs. No cost.',
   alternates: { canonical: `${SITE_URL}/tax-professionals` },
   openGraph: {
     title: 'For Tax Professionals — CPAs, EAs & Tax Preparers',

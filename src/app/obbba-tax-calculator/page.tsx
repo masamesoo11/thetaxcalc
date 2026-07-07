@@ -6,7 +6,7 @@ import { OBBBACalculatorClient } from './obbba-calculator-client';
 export const metadata: Metadata = {
   title: 'OBBBA Tax Calculator 2026 — Compare New Tax Law vs Prior Law',
   description:
-    'Free OBBBA tax calculator for 2026. Compare your federal income tax under the One Big Beautiful Bill Act vs prior law. See your SALT cap, Child Tax Credit, tip & overtime deduction savings instantly. No sign-up.',
+    'Free OBBBA tax calculator 2026. Compare federal tax under the One Big Beautiful Bill Act vs prior law. See SALT cap, CTC, and tip deduction savings.',
   alternates: { canonical: `${SITE_URL}/obbba-tax-calculator` },
   openGraph: {
     title: 'OBBBA Tax Calculator 2026 | Compare New Tax Law vs Prior Law',

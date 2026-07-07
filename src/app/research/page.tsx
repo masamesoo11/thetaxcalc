@@ -5,7 +5,7 @@ import { SITE_URL } from '@/lib/site-config';
 export const metadata: Metadata = {
   title: 'Research Hub — 2026 Tax Data & Original Studies',
   description:
-    'Browse TheTaxCalc original research: 2026 state tax burden rankings, best states for remote workers, child tax credit guide, property tax by state, salary needed to live comfortably, and tax refund statistics.',
+    'Browse TheTaxCalc 2026 research: state tax burden rankings, best states for remote workers, child tax credit guide, property tax by state, and refund stats.',
   alternates: { canonical: `${SITE_URL}/research` },
   openGraph: {
     title: 'Research Hub — 2026 Tax Data & Original Studies',

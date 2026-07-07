@@ -5,7 +5,7 @@ import { SITE_URL } from '@/lib/site-config';
 export const metadata: Metadata = {
   title: 'SmartAsset Alternative 2026 — Free Paycheck & Tax Calculators',
   description:
-    'Looking for a free SmartAsset alternative? TheTaxCalc offers paycheck, mortgage, retirement, and tax calculators with no sign-up, no paywall, and no data collection. Compare 50 states instantly.',
+    'Free SmartAsset alternative 2026. Paycheck, mortgage, retirement, and tax calculators for all 50 states. No sign-up, no paywall, no data collection.',
   alternates: { canonical: `${SITE_URL}/smartasset-alternative` },
   openGraph: {
     title: 'SmartAsset Alternative 2026 | Free Paycheck & Tax Calculators',

@@ -5,7 +5,7 @@ import { SITE_URL } from '@/lib/site-config';
 export const metadata: Metadata = {
   title: 'Scholarship 2026 — $2,500 Tax & Finance Student Award',
   description:
-    'Apply for the 2026 TheTaxCalc Scholarship — a $2,500 award for undergraduate and graduate students studying finance, accounting, economics, or tax. Free to apply. Deadline May 31, 2026.',
+    'Apply for the 2026 TheTaxCalc Scholarship — $2,500 for finance, accounting, economics, or tax students. Free to apply. Deadline May 31, 2026.',
   alternates: { canonical: `${SITE_URL}/scholarship` },
   openGraph: {
     title: 'TheTaxCalc Scholarship 2026 | $2,500 Finance & Tax Student Award',

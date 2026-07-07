@@ -101,6 +101,13 @@ const STRATEGIC_PAGE_LINKS: { href: string; label: string }[] = [
   { href: '/federal-tax-brackets', label: 'Federal Tax Brackets' },
 ];
 
+// City tax calculators — prevents orphan pages for Chicago, NYC, LA
+const CITY_CALCULATOR_LINKS: { href: string; label: string }[] = [
+  { href: '/chicago-tax-calculator', label: 'Chicago Tax Calculator' },
+  { href: '/new-york-city-tax-calculator', label: 'NYC Tax Calculator' },
+  { href: '/los-angeles-tax-calculator', label: 'Los Angeles Tax Calculator' },
+];
+
 const RESOURCE_LINKS = [
   { label: 'IRS Official Site', url: 'https://www.irs.gov/', category: 'government' },
   { label: 'Tax Foundation', url: 'https://taxfoundation.org/', category: 'resource' },
@@ -395,6 +402,19 @@ export function Footer() {
           </h4>
           <div className="flex flex-wrap gap-x-4 gap-y-1.5">
             {STRATEGIC_PAGE_LINKS.map((link) => (
+              <Link
+                key={link.href}
+                prefetch={false}
+                href={link.href}
+                className="text-xs text-muted-foreground underline underline-offset-2 decoration-border/40 transition-colors hover:text-emerald-400 hover:decoration-emerald-400"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
+          {/* City Tax Calculators — prevents orphan pages */}
+          <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1.5">
+            {CITY_CALCULATOR_LINKS.map((link) => (
               <Link
                 key={link.href}
                 prefetch={false}

@@ -359,6 +359,11 @@ Visit https://thetaxcalc.com/about for the full page.`,
     '/blog/income-tax-guide': '/blog/how-much-tax-will-i-owe-2026',
     '/blog/state-tax-comparison': '/blog/florida-vs-texas-tax-comparison',
     '/blog/tax-tips': '/blog/2026-federal-tax-brackets-explained',
+    // Fix broken links to unpublished articles — redirect to closest published equivalents
+    '/blog/2026-federal-tax-refund-estimator-guide': '/blog/tax-refund-questions-2026',
+    '/blog/how-to-calculate-federal-tax-refund-2026': '/blog/tax-refund-questions-2026',
+    '/blog/2026-paycheck-take-home-pay-guide': '/blog/take-home-pay-calculator-guide-2026',
+    '/blog/1099-vs-w2-take-home-pay-comparison-2026': '/blog/1099-tax-guide-self-employed-2026',
   };
 
   if (BLOG_REDIRECTS[pathname]) {
