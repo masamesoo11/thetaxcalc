@@ -297,7 +297,7 @@ export function FreefileIrsClient() {
                 <a
                   href={result.partnerLink}
                   target="_blank"
-                  rel="noopener noreferrer nofollow"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-emerald-600 to-emerald-500 px-4 py-2 text-sm font-medium text-white hover:from-emerald-500 hover:to-emerald-400 transition-all"
                 >
                   {result.program === 'guided' && 'Go to IRS Free File'}

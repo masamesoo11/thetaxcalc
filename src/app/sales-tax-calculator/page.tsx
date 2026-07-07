@@ -850,7 +850,7 @@ export default function SalesTaxHubPage() {
           </h2>
           <div className="max-w-4xl space-y-4 text-muted-foreground leading-relaxed">
             <p>
-              Since the landmark 2018 Supreme Court ruling in <a href="https://www.oyez.org/cases/2017/17-494" target="_blank" rel="noopener noreferrer nofollow" className="text-emerald-400 hover:underline">South Dakota v. Wayfair, Inc.</a>, states can require online retailers to collect sales tax even if the retailer has no physical presence in the state. This decision overturned the previous physical presence requirement and fundamentally changed e-commerce taxation.
+              Since the landmark 2018 Supreme Court ruling in <a href="https://www.oyez.org/cases/2017/17-494" target="_blank" rel="noopener noreferrer" className="text-emerald-400 hover:underline">South Dakota v. Wayfair, Inc.</a>, states can require online retailers to collect sales tax even if the retailer has no physical presence in the state. This decision overturned the previous physical presence requirement and fundamentally changed e-commerce taxation.
             </p>
             <h3 className="text-lg font-semibold text-foreground mt-4">Marketplace Facilitator Laws</h3>
             <p>

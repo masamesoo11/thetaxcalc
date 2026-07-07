@@ -275,7 +275,7 @@ export function getStateContent(stateKey: string): StateContent {
 
     `Need to work backwards? If you have a total receipt and need to find the original price before tax, use the reverse sales tax formula: divide the total by (1 + tax rate). For example, a $${totalOn1000} total with ${combinedPct}% tax means the original price was $1,000 ($${totalOn1000} ÷ 1.${combinedPct.replace('.', '')}). This is useful for expense reports and bookkeeping.`,
 
-    `Since the 2018 <a href="https://www.oyez.org/cases/2017/17-494" target="_blank" rel="noopener noreferrer nofollow">South Dakota v. Wayfair</a> Supreme Court decision, online retailers must collect ${name} sales tax on purchases shipped to ${abbr} residents. Most online purchases now include ${name} sales tax based on the buyer's location, including any applicable local taxes.`,
+    `Since the 2018 <a href="https://www.oyez.org/cases/2017/17-494" target="_blank" rel="noopener noreferrer">South Dakota v. Wayfair</a> Supreme Court decision, online retailers must collect ${name} sales tax on purchases shipped to ${abbr} residents. Most online purchases now include ${name} sales tax based on the buyer's location, including any applicable local taxes.`,
   ];
 
   const keyRates = [

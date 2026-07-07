@@ -40,9 +40,9 @@ const CONFIG = {
 // ─── Content ────────────────────────────────────────────────────────────────
 const FREEFILE_CONTENT = {
   howItWorks: [
-    'IRS Free File is a partnership between the IRS and private tax software companies. If your adjusted gross income (AGI) is $84,000 or less for the 2025 tax year (filed in 2026), you qualify for <strong>Guided Tax Preparation</strong> — that\'s brand-name software like TaxSlayer, OLT, or FreeTaxUSA walking you through your return step by step, asking you questions and doing the math for you. No charge for the federal return. Some partners also include free state filing, though that varies. The whole thing runs through <a href="https://apps.irs.gov/app/freeFile" target="_blank" rel="noopener noreferrer nofollow">irs.gov/freefile</a> — you pick a partner, create an account on their site, and file. The IRS doesn\'t see your data until you hit submit.',
+    'IRS Free File is a partnership between the IRS and private tax software companies. If your adjusted gross income (AGI) is $84,000 or less for the 2025 tax year (filed in 2026), you qualify for <strong>Guided Tax Preparation</strong> — that\'s brand-name software like TaxSlayer, OLT, or FreeTaxUSA walking you through your return step by step, asking you questions and doing the math for you. No charge for the federal return. Some partners also include free state filing, though that varies. The whole thing runs through <a href="https://apps.irs.gov/app/freeFile" target="_blank" rel="noopener noreferrer">irs.gov/freefile</a> — you pick a partner, create an account on their site, and file. The IRS doesn\'t see your data until you hit submit.',
     'If your AGI is over $84,000, or you\'re comfortable doing your own taxes without hand-holding, <strong>Free File Fillable Forms</strong> are the other option. These are electronic versions of IRS paper forms — Form 1040, Schedule A, Schedule C, Schedule SE, and dozens more. No income limit, no age restriction. You type in the numbers, the forms do basic math, and you e-file directly. It\'s free. The tradeoff: you\'re on your own. No interview process, no "did you forget about this deduction?" prompts. If you know what forms you need and how to fill them out, it\'s fantastic. If you\'re new to taxes, stick with Guided Preparation.',
-    'A lot of people don\'t realize you can also <strong>file a free tax extension</strong> through IRS Free File. Form 4868 gives you until October 15 to file your return — but you still have to pay what you owe by April 15. The extension is just for the paperwork, not the payment. Free File partners let you e-file Form 4868 for free. If you\'re owed a refund, there\'s no penalty for filing late, but getting that money sooner is always better. For detailed IRS rules, check the <a href="https://www.irs.gov/e-file-providers/irs-free-file-program-for-online-tax-preparation" target="_blank" rel="noopener noreferrer nofollow">official IRS Free File page</a>.\n\nKey things to know:\n- IRS Free File opens in late January each year\n- Your AGI threshold is $84,000 for Guided Preparation (2026 filing season)\n- Free File Fillable Forms have no income limit\n- Active-duty military with AGI ≤ $84,000 get free state filing too\n- Seniors (57+) and low-income taxpayers may have additional free options through VITA/TCE\n- You can file Form 4868 (extension) for free through IRS Free File',
+    'A lot of people don\'t realize you can also <strong>file a free tax extension</strong> through IRS Free File. Form 4868 gives you until October 15 to file your return — but you still have to pay what you owe by April 15. The extension is just for the paperwork, not the payment. Free File partners let you e-file Form 4868 for free. If you\'re owed a refund, there\'s no penalty for filing late, but getting that money sooner is always better. For detailed IRS rules, check the <a href="https://www.irs.gov/e-file-providers/irs-free-file-program-for-online-tax-preparation" target="_blank" rel="noopener noreferrer">official IRS Free File page</a>.\n\nKey things to know:\n- IRS Free File opens in late January each year\n- Your AGI threshold is $84,000 for Guided Preparation (2026 filing season)\n- Free File Fillable Forms have no income limit\n- Active-duty military with AGI ≤ $84,000 get free state filing too\n- Seniors (57+) and low-income taxpayers may have additional free options through VITA/TCE\n- You can file Form 4868 (extension) for free through IRS Free File',
   ],
   keyRates: [
     { label: 'Guided Prep AGI Limit', value: '$84,000 (2025 tax year)' },
@@ -277,7 +277,7 @@ export default async function FreefileIrsPage() {
           <a
             href="https://apps.irs.gov/app/freeFile"
             target="_blank"
-            rel="noopener noreferrer nofollow"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 rounded-lg bg-gradient-to-r from-emerald-600 to-emerald-500 px-4 py-2 text-sm font-medium text-white hover:from-emerald-500 hover:to-emerald-400 transition-all"
           >
             Go to IRS Free File →
@@ -285,7 +285,7 @@ export default async function FreefileIrsPage() {
           <a
             href="https://www.freefilefillableforms.com/"
             target="_blank"
-            rel="noopener noreferrer nofollow"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 rounded-lg border border-sky-500/30 bg-sky-500/5 px-4 py-2 text-sm font-medium text-sky-400 hover:bg-sky-500/10 transition-all"
           >
             Open Fillable Forms →
@@ -400,7 +400,7 @@ export default async function FreefileIrsPage() {
               </div>
             </div>
             <p>
-              <strong className="text-foreground">How to file a free extension:</strong> Go to <a href="https://apps.irs.gov/app/freeFile" target="_blank" rel="noopener noreferrer nofollow">irs.gov/freefile</a>, choose any partner, and look for the &quot;File an Extension&quot; option. Most partners support free extension filing. You can also use Free File Fillable Forms to complete and e-file Form 4868 directly. If you expect a refund, there&apos;s no penalty for filing late — but don&apos;t wait, because that&apos;s your money sitting with the IRS.
+              <strong className="text-foreground">How to file a free extension:</strong> Go to <a href="https://apps.irs.gov/app/freeFile" target="_blank" rel="noopener noreferrer">irs.gov/freefile</a>, choose any partner, and look for the &quot;File an Extension&quot; option. Most partners support free extension filing. You can also use Free File Fillable Forms to complete and e-file Form 4868 directly. If you expect a refund, there&apos;s no penalty for filing late — but don&apos;t wait, because that&apos;s your money sitting with the IRS.
             </p>
           </div>
         </section>
@@ -437,7 +437,7 @@ export default async function FreefileIrsPage() {
               </div>
             </div>
             <p>
-              To find a VITA or TCE site near you, visit <a href="https://www.irs.gov/individuals/find-a-location-for-free-tax-prep" target="_blank" rel="noopener noreferrer nofollow">irs.gov/individuals/find-a-location-for-free-tax-prep</a> or call 1-800-906-9887. Many sites operate on a first-come, first-served basis, so arrive early during peak season (February–March).
+              To find a VITA or TCE site near you, visit <a href="https://www.irs.gov/individuals/find-a-location-for-free-tax-prep" target="_blank" rel="noopener noreferrer">irs.gov/individuals/find-a-location-for-free-tax-prep</a> or call 1-800-906-9887. Many sites operate on a first-come, first-served basis, so arrive early during peak season (February–March).
             </p>
           </div>
         </section>
@@ -452,14 +452,14 @@ export default async function FreefileIrsPage() {
               Made a mistake on your return? You can <strong className="text-foreground">file an amended tax return online for free</strong> using Form 1040-X. Here&apos;s how:
             </p>
             <ol className="list-decimal list-inside space-y-2 text-sm">
-              <li>Go to <a href="https://www.freefilefillableforms.com/" target="_blank" rel="noopener noreferrer nofollow">Free File Fillable Forms</a> — they support Form 1040-X</li>
+              <li>Go to <a href="https://www.freefilefillableforms.com/" target="_blank" rel="noopener noreferrer">Free File Fillable Forms</a> — they support Form 1040-X</li>
               <li>Complete Form 1040-X with the corrected information</li>
               <li>Include any changed schedules or forms</li>
               <li>E-file the amended return (available for 2020 tax year and later)</li>
               <li>For years before 2020, download Form 1040-X from irs.gov and mail it</li>
             </ol>
             <p>
-              <strong className="text-foreground">Important:</strong> Amended returns can take up to 16 weeks to process. If you&apos;re owed an additional refund, wait until you receive your original refund before filing Form 1040-X. Track your amended return status using the <a href="https://www.irs.gov/refunds" target="_blank" rel="noopener noreferrer nofollow">IRS Where&apos;s My Amended Return?</a> tool.
+              <strong className="text-foreground">Important:</strong> Amended returns can take up to 16 weeks to process. If you&apos;re owed an additional refund, wait until you receive your original refund before filing Form 1040-X. Track your amended return status using the <a href="https://www.irs.gov/refunds" target="_blank" rel="noopener noreferrer">IRS Where&apos;s My Amended Return?</a> tool.
             </p>
           </div>
         </section>
@@ -495,7 +495,7 @@ export default async function FreefileIrsPage() {
           </h2>
           <div className="space-y-3 text-muted-foreground leading-relaxed">
             <p>
-              The IRS partners with multiple tax software companies to offer free federal tax filing. Each partner has different features and eligibility criteria. Here are the typical offerings (check <a href="https://apps.irs.gov/app/freeFile" target="_blank" rel="noopener noreferrer nofollow">irs.gov/freefile</a> for the current list):
+              The IRS partners with multiple tax software companies to offer free federal tax filing. Each partner has different features and eligibility criteria. Here are the typical offerings (check <a href="https://apps.irs.gov/app/freeFile" target="_blank" rel="noopener noreferrer">irs.gov/freefile</a> for the current list):
             </p>
             <div className="grid gap-3 sm:grid-cols-2 mt-4">
               {[

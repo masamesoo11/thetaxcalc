@@ -57,19 +57,19 @@ export default function MethodologyPage() {
           <p className="font-semibold text-foreground mb-2">Primary Sources:</p>
           <ul className="space-y-1.5 text-muted-foreground">
             <li>
-              <a href="https://www.irs.gov/publications/p15t" target="_blank" rel="noopener noreferrer nofollow" className="text-emerald-400 hover:text-emerald-300 underline">
+              <a href="https://www.irs.gov/publications/p15t" target="_blank" rel="noopener noreferrer" className="text-emerald-400 hover:text-emerald-300 underline">
                 IRS Publication 15-T
               </a>
               {' '}&mdash; Federal Income Tax Withholding Methods (2026)
             </li>
             <li>
-              <a href="https://www.irs.gov/taxtopics/tc551" target="_blank" rel="noopener noreferrer nofollow" className="text-emerald-400 hover:text-emerald-300 underline">
+              <a href="https://www.irs.gov/taxtopics/tc551" target="_blank" rel="noopener noreferrer" className="text-emerald-400 hover:text-emerald-300 underline">
                 IRS Topic No. 551
               </a>
               {' '}&mdash; Standard Deduction
             </li>
             <li>
-              <a href="https://www.irs.gov/filing/federal-income-tax-rates-and-brackets" target="_blank" rel="noopener noreferrer nofollow" className="text-emerald-400 hover:text-emerald-300 underline">
+              <a href="https://www.irs.gov/filing/federal-income-tax-rates-and-brackets" target="_blank" rel="noopener noreferrer" className="text-emerald-400 hover:text-emerald-300 underline">
                 Revenue Procedure 2025-25
               </a>
               {' '}&mdash; Annual inflation adjustments for 2026
@@ -97,19 +97,19 @@ export default function MethodologyPage() {
           <p className="font-semibold text-foreground mb-2">Primary Sources:</p>
           <ul className="space-y-1.5 text-muted-foreground">
             <li>
-              <a href="https://www.ssa.gov/oact/cola/cbb.html" target="_blank" rel="noopener noreferrer nofollow" className="text-emerald-400 hover:text-emerald-300 underline">
+              <a href="https://www.ssa.gov/oact/cola/cbb.html" target="_blank" rel="noopener noreferrer" className="text-emerald-400 hover:text-emerald-300 underline">
                 SSA Contribution and Benefit Base
               </a>
               {' '}&mdash; 2026 wage base: $184,500
             </li>
             <li>
-              <a href="https://www.irs.gov/taxtopics/tc751" target="_blank" rel="noopener noreferrer nofollow" className="text-emerald-400 hover:text-emerald-300 underline">
+              <a href="https://www.irs.gov/taxtopics/tc751" target="_blank" rel="noopener noreferrer" className="text-emerald-400 hover:text-emerald-300 underline">
                 IRS Topic No. 751
               </a>
               {' '}&mdash; Social Security and Medicare Withholding Rates
             </li>
             <li>
-              <a href="https://www.irs.gov/taxtopics/tc860" target="_blank" rel="noopener noreferrer nofollow" className="text-emerald-400 hover:text-emerald-300 underline">
+              <a href="https://www.irs.gov/taxtopics/tc860" target="_blank" rel="noopener noreferrer" className="text-emerald-400 hover:text-emerald-300 underline">
                 IRS Topic No. 860
               </a>
               {' '}&mdash; Additional Medicare Tax
@@ -140,25 +140,25 @@ export default function MethodologyPage() {
           <p className="font-semibold text-foreground mb-2">Primary Sources (examples):</p>
           <ul className="space-y-1.5 text-muted-foreground">
             <li>
-              <a href="https://www.ftb.ca.gov/forms" target="_blank" rel="noopener noreferrer nofollow" className="text-emerald-400 hover:text-emerald-300 underline">
+              <a href="https://www.ftb.ca.gov/forms" target="_blank" rel="noopener noreferrer" className="text-emerald-400 hover:text-emerald-300 underline">
                 California FTB
               </a>
               {' '}&mdash; 2026 tax rate schedules and brackets
             </li>
             <li>
-              <a href="https://www.tax.ny.gov/" target="_blank" rel="noopener noreferrer nofollow" className="text-emerald-400 hover:text-emerald-300 underline">
+              <a href="https://www.tax.ny.gov/" target="_blank" rel="noopener noreferrer" className="text-emerald-400 hover:text-emerald-300 underline">
                 NY Dept. of Taxation &amp; Finance
               </a>
               {' '}&mdash; 2026 income tax brackets
             </li>
             <li>
-              <a href="https://revenue.illinois.gov/" target="_blank" rel="noopener noreferrer nofollow" className="text-emerald-400 hover:text-emerald-300 underline">
+              <a href="https://revenue.illinois.gov/" target="_blank" rel="noopener noreferrer" className="text-emerald-400 hover:text-emerald-300 underline">
                 IL Dept. of Revenue
               </a>
               {' '}&mdash; 4.95% flat rate and personal exemption
             </li>
             <li>
-              <a href="https://taxfoundation.org/" target="_blank" rel="noopener noreferrer nofollow" className="text-emerald-400 hover:text-emerald-300 underline">
+              <a href="https://taxfoundation.org/" target="_blank" rel="noopener noreferrer" className="text-emerald-400 hover:text-emerald-300 underline">
                 Tax Foundation
               </a>
               {' '}&mdash; State Individual Income Tax Rates and Brackets (2026)
@@ -188,13 +188,13 @@ export default function MethodologyPage() {
           <p className="font-semibold text-foreground mb-2">Primary Sources:</p>
           <ul className="space-y-1.5 text-muted-foreground">
             <li>
-              <a href="https://www.irs.gov/newsroom/401k-limit-increases-to-23500-for-2026" target="_blank" rel="noopener noreferrer nofollow" className="text-emerald-400 hover:text-emerald-300 underline">
+              <a href="https://www.irs.gov/newsroom/401k-limit-increases-to-23500-for-2026" target="_blank" rel="noopener noreferrer" className="text-emerald-400 hover:text-emerald-300 underline">
                 IRS Notice 2025-XX
               </a>
               {' '}&mdash; 2026 401(k) contribution limits: $23,500 / $31,000 (50+)
             </li>
             <li>
-              <a href="https://www.irs.gov/retirement-plans/plan-participant-employee/retirement-topics-401k-and-profit-sharing-plan-contribution-limits" target="_blank" rel="noopener noreferrer nofollow" className="text-emerald-400 hover:text-emerald-300 underline">
+              <a href="https://www.irs.gov/retirement-plans/plan-participant-employee/retirement-topics-401k-and-profit-sharing-plan-contribution-limits" target="_blank" rel="noopener noreferrer" className="text-emerald-400 hover:text-emerald-300 underline">
                 IRS Retirement Topics
               </a>
               {' '}&mdash; 401(k) and profit sharing plan contribution limits
@@ -224,13 +224,13 @@ export default function MethodologyPage() {
           <p className="font-semibold text-foreground mb-2">Primary Sources:</p>
           <ul className="space-y-1.5 text-muted-foreground">
             <li>
-              <a href="https://www.irs.gov/taxtopics/tc409" target="_blank" rel="noopener noreferrer nofollow" className="text-emerald-400 hover:text-emerald-300 underline">
+              <a href="https://www.irs.gov/taxtopics/tc409" target="_blank" rel="noopener noreferrer" className="text-emerald-400 hover:text-emerald-300 underline">
                 IRS Topic No. 409
               </a>
               {' '}&mdash; Capital Gains and Losses
             </li>
             <li>
-              <a href="https://www.irs.gov/taxtopics/tc559" target="_blank" rel="noopener noreferrer nofollow" className="text-emerald-400 hover:text-emerald-300 underline">
+              <a href="https://www.irs.gov/taxtopics/tc559" target="_blank" rel="noopener noreferrer" className="text-emerald-400 hover:text-emerald-300 underline">
                 IRS Topic No. 559
               </a>
               {' '}&mdash; Net Investment Income Tax
@@ -257,13 +257,13 @@ export default function MethodologyPage() {
           <p className="font-semibold text-foreground mb-2">Primary Sources:</p>
           <ul className="space-y-1.5 text-muted-foreground">
             <li>
-              <a href="https://www.irs.gov/forms-pubs/about-schedule-se-form-1040" target="_blank" rel="noopener noreferrer nofollow" className="text-emerald-400 hover:text-emerald-300 underline">
+              <a href="https://www.irs.gov/forms-pubs/about-schedule-se-form-1040" target="_blank" rel="noopener noreferrer" className="text-emerald-400 hover:text-emerald-300 underline">
                 IRS Schedule SE
               </a>
               {' '}&mdash; Self-Employment Tax
             </li>
             <li>
-              <a href="https://www.irs.gov/publications/p533" target="_blank" rel="noopener noreferrer nofollow" className="text-emerald-400 hover:text-emerald-300 underline">
+              <a href="https://www.irs.gov/publications/p533" target="_blank" rel="noopener noreferrer" className="text-emerald-400 hover:text-emerald-300 underline">
                 IRS Publication 533
               </a>
               {' '}&mdash; Self-Employment Tax
@@ -291,13 +291,13 @@ export default function MethodologyPage() {
           <p className="font-semibold text-foreground mb-2">Primary Sources:</p>
           <ul className="space-y-1.5 text-muted-foreground">
             <li>
-              <a href="https://taxfoundation.org/" target="_blank" rel="noopener noreferrer nofollow" className="text-emerald-400 hover:text-emerald-300 underline">
+              <a href="https://taxfoundation.org/" target="_blank" rel="noopener noreferrer" className="text-emerald-400 hover:text-emerald-300 underline">
                 Tax Foundation
               </a>
               {' '}&mdash; State and Local Sales Tax Rates, Midyear 2026
             </li>
             <li>
-              <a href="https://www.irs.gov/taxtopics/tc505" target="_blank" rel="noopener noreferrer nofollow" className="text-emerald-400 hover:text-emerald-300 underline">
+              <a href="https://www.irs.gov/taxtopics/tc505" target="_blank" rel="noopener noreferrer" className="text-emerald-400 hover:text-emerald-300 underline">
                 IRS Topic No. 505
               </a>
               {' '}&mdash; Deductible taxes (SALT deduction context)
@@ -326,13 +326,13 @@ export default function MethodologyPage() {
           <p className="font-semibold text-foreground mb-2">Primary Sources:</p>
           <ul className="space-y-1.5 text-muted-foreground">
             <li>
-              <a href="https://taxfoundation.org/data/all/state/property-taxes-by-state-county/" target="_blank" rel="noopener noreferrer nofollow" className="text-emerald-400 hover:text-emerald-300 underline">
+              <a href="https://taxfoundation.org/data/all/state/property-taxes-by-state-county/" target="_blank" rel="noopener noreferrer" className="text-emerald-400 hover:text-emerald-300 underline">
                 Tax Foundation
               </a>
               {' '}&mdash; Property Taxes by State and County
             </li>
             <li>
-              <a href="https://www.census.gov/" target="_blank" rel="noopener noreferrer nofollow" className="text-emerald-400 hover:text-emerald-300 underline">
+              <a href="https://www.census.gov/" target="_blank" rel="noopener noreferrer" className="text-emerald-400 hover:text-emerald-300 underline">
                 U.S. Census Bureau
               </a>
               {' '}&mdash; Median home values and property tax data
@@ -360,13 +360,13 @@ export default function MethodologyPage() {
           <p className="font-semibold text-foreground mb-2">Primary Sources:</p>
           <ul className="space-y-1.5 text-muted-foreground">
             <li>
-              <a href="https://www.irs.gov/publications/p15t" target="_blank" rel="noopener noreferrer nofollow" className="text-emerald-400 hover:text-emerald-300 underline">
+              <a href="https://www.irs.gov/publications/p15t" target="_blank" rel="noopener noreferrer" className="text-emerald-400 hover:text-emerald-300 underline">
                 IRS Publication 15-T
               </a>
               {' '}&mdash; Supplemental wage withholding rates
             </li>
             <li>
-              <a href="https://www.irs.gov/taxtopics/tc419" target="_blank" rel="noopener noreferrer nofollow" className="text-emerald-400 hover:text-emerald-300 underline">
+              <a href="https://www.irs.gov/taxtopics/tc419" target="_blank" rel="noopener noreferrer" className="text-emerald-400 hover:text-emerald-300 underline">
                 IRS Topic No. 419
               </a>
               {' '}&mdash; Gambling income and withholding

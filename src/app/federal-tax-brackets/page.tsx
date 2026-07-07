@@ -575,7 +575,7 @@ export default function FederalTaxBracketsPage() {
               <Link href="/glossary" className="text-muted-foreground hover:text-emerald-400 underline transition-colors">
                 Tax Glossary
               </Link>
-              <a href="https://www.irs.gov/filing/federal-income-tax-rates-and-brackets" target="_blank" rel="noopener noreferrer nofollow" className="text-muted-foreground hover:text-emerald-400 underline transition-colors">
+              <a href="https://www.irs.gov/filing/federal-income-tax-rates-and-brackets" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-emerald-400 underline transition-colors">
                 IRS Brackets Page ↗
               </a>
             </div>

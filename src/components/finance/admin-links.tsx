@@ -280,7 +280,7 @@ export function AdminLinks() {
                       <a
                         href={link.url}
                         target="_blank"
-                        rel="noopener noreferrer nofollow"
+                        rel="noopener noreferrer"
                         className="p-1.5 rounded-md hover:bg-muted transition-colors"
                         aria-label="Visit link"
                       >

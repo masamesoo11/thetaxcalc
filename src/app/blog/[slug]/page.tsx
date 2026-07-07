@@ -282,7 +282,7 @@ function inlineMarkdown(text: string): string {
   return text
     .replace(/\[(.+?)\]\((.+?)\)/g, (_match, linkText, url) => {
         const isExternal = url.startsWith('http');
-        const rel = isExternal ? 'noopener noreferrer nofollow' : '';
+        const rel = isExternal ? 'noopener noreferrer' : '';
         return `<a href="${url}"${rel ? ` rel="${rel}"` : ''}>${linkText}</a>`;
       })
     .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')

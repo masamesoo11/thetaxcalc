@@ -373,16 +373,16 @@ export default function AboutPage() {
               <h3 className="text-sm font-semibold text-foreground mb-2">Go Straight to the Source</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">
                 Federal brackets come from{' '}
-                <a href="https://www.irs.gov/publications/p15" target="_blank" rel="noopener noreferrer nofollow" className="text-emerald-400 hover:text-emerald-300 underline">IRS Publication 15</a>{' '}
+                <a href="https://www.irs.gov/publications/p15" target="_blank" rel="noopener noreferrer" className="text-emerald-400 hover:text-emerald-300 underline">IRS Publication 15</a>{' '}
                 (Employer&apos;s Tax Guide) and{' '}
-                <a href="https://www.irs.gov/publications/p15t" target="_blank" rel="noopener noreferrer nofollow" className="text-emerald-400 hover:text-emerald-300 underline">Publication 15-T</a>.
+                <a href="https://www.irs.gov/publications/p15t" target="_blank" rel="noopener noreferrer" className="text-emerald-400 hover:text-emerald-300 underline">Publication 15-T</a>.
                 Not a blog post summarizing them — the actual IRS documents.
                 State rates come from each state&apos;s Department of Revenue directly. Illinois?{' '}
-                <a href="https://revenue.illinois.gov/" target="_blank" rel="noopener noreferrer nofollow" className="text-emerald-400 hover:text-emerald-300 underline">IDOR</a>.
+                <a href="https://revenue.illinois.gov/" target="_blank" rel="noopener noreferrer" className="text-emerald-400 hover:text-emerald-300 underline">IDOR</a>.
                 California?{' '}
-                <a href="https://www.ftb.ca.gov/forms" target="_blank" rel="noopener noreferrer nofollow" className="text-emerald-400 hover:text-emerald-300 underline">FTB</a>.
+                <a href="https://www.ftb.ca.gov/forms" target="_blank" rel="noopener noreferrer" className="text-emerald-400 hover:text-emerald-300 underline">FTB</a>.
                 New York?{' '}
-                <a href="https://www.tax.ny.gov/" target="_blank" rel="noopener noreferrer nofollow" className="text-emerald-400 hover:text-emerald-300 underline">NYS Department of Taxation and Finance</a>.
+                <a href="https://www.tax.ny.gov/" target="_blank" rel="noopener noreferrer" className="text-emerald-400 hover:text-emerald-300 underline">NYS Department of Taxation and Finance</a>.
               </p>
             </div>
             <div className="rounded-lg bg-muted/20 p-4">

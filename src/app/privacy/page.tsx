@@ -182,7 +182,7 @@ export default function PrivacyPage() {
                 <a
                   href="https://policies.google.com/privacy"
                   target="_blank"
-                  rel="noopener noreferrer nofollow"
+                  rel="noopener noreferrer"
                   className="text-emerald-400 hover:text-emerald-300 underline"
                 >
                   Google&apos;s Privacy Policy — TheTaxCalc Tax Calculator Data Protection

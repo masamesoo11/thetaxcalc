@@ -361,7 +361,7 @@ export function Footer() {
                   <a
                     href={link.url}
                     target="_blank"
-                    rel="noopener noreferrer nofollow"
+                    rel="noopener noreferrer"
                     className="flex items-center gap-2 text-sm text-muted-foreground underline underline-offset-2 decoration-border/50 transition-colors hover:text-emerald-400 hover:decoration-emerald-400"
                   >
                     <ExternalLink className="h-3 w-3 shrink-0" />

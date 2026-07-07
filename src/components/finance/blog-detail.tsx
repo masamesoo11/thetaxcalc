@@ -213,7 +213,7 @@ function ShareButtons({ title, slug }: { title: string; slug: string }) {
         <a
           href={`https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`}
           target="_blank"
-          rel="noopener noreferrer nofollow"
+          rel="noopener noreferrer"
         >
           <Twitter className="mr-1.5 h-3.5 w-3.5" />
           Twitter
@@ -228,7 +228,7 @@ function ShareButtons({ title, slug }: { title: string; slug: string }) {
         <a
           href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`}
           target="_blank"
-          rel="noopener noreferrer nofollow"
+          rel="noopener noreferrer"
         >
           <Linkedin className="mr-1.5 h-3.5 w-3.5" />
           LinkedIn
@@ -613,7 +613,7 @@ export function BlogDetail({
                     href={href}
                     className="text-emerald-400 underline hover:text-emerald-300 transition-colors"
                     target={href?.startsWith('http') ? '_blank' : undefined}
-                    rel={href?.startsWith('http') ? 'noopener noreferrer nofollow' : undefined}
+                    rel={href?.startsWith('http') ? 'noopener noreferrer' : undefined}
                     {...props}
                   >
                     {children}
