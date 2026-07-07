@@ -45,7 +45,10 @@ export async function generateMetadata({
     return { title: 'Post Not Found' };
   }
 
-  const metaTitle = post.metaTitle || post.title;
+  // Ensure title and H1 are different — add "| TheTaxCalc" suffix to metaTitle
+  // if it doesn't already end with it. This prevents duplicate H1/title warnings.
+  const baseMetaTitle = post.metaTitle || post.title;
+  const metaTitle = baseMetaTitle.endsWith('| TheTaxCalc') ? baseMetaTitle : `${baseMetaTitle} | TheTaxCalc`;
   const metaDesc = post.metaDesc || post.excerpt || `Read ${post.title} on TheTaxCalc — expert tax guides and financial tips.`;
 
   return {
