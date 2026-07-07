@@ -583,6 +583,66 @@ export const BLOG_INDEX: BlogPostMeta[] = [
     "metaDesc": "See exactly how the One Big Beautiful Bill Act (OBBBA) changes your 2026 tax refund. New SALT cap, doubled Child Tax Credit, tip/overtime deductions, and worked examples comparing OBBBA vs prior law.",
     "createdAt": "2026-07-04T20:50:00.000Z",
     "updatedAt": "2026-07-04T20:50:00.000Z"
+  },
+  {
+    "id": "oasdi-tax-explained-2026",
+    "title": "OASDI Tax Explained: What It Is and How Much You Pay in 2026",
+    "slug": "oasdi-tax-explained-2026",
+    "excerpt": "OASDI tax is 6.2% of your wages up to $184,500 in 2026. Learn what OASDI means, how it differs from FICA, and how to calculate your Social Security tax.",
+    "category": "tax-guide",
+    "tags": "oasdi tax,social security tax,fica tax,payroll tax,oasdi 2026,social security wage cap,oasdi vs fica",
+    "coverImage": "",
+    "published": true,
+    "featured": false,
+    "metaTitle": "OASDI Tax Explained 2026: What It Is & How Much You Pay | TheTaxCalc",
+    "metaDesc": "OASDI tax is 6.2% of wages up to $184,500 in 2026. Learn what OASDI means, how it differs from FICA, and calculate your Social Security tax. Free guide.",
+    "createdAt": "2026-07-07T20:00:00.000Z",
+    "updatedAt": "2026-07-07T20:00:00.000Z"
+  },
+  {
+    "id": "rd-tax-credit-guide-2026",
+    "title": "R&D Tax Credit Guide 2026: Qualification Criteria for Startups",
+    "slug": "rd-tax-credit-guide-2026",
+    "excerpt": "Complete R&D tax credit guide for 2026. Qualification criteria, four-part test, payroll tax offset for startups, and how to calculate your credit.",
+    "category": "tax-guide",
+    "tags": "r&d tax credit,research and development tax credit,r&d qualification criteria,startup tax credits,form 6765,rd tax credit 2026",
+    "coverImage": "",
+    "published": true,
+    "featured": false,
+    "metaTitle": "R&D Tax Credit Guide 2026: Qualification Criteria for Startups | TheTaxCalc",
+    "metaDesc": "Complete R&D tax credit guide for 2026. Qualification criteria, four-part test, payroll tax offset for startups, and how to calculate your credit. Free guide.",
+    "createdAt": "2026-07-07T20:05:00.000Z",
+    "updatedAt": "2026-07-07T20:05:00.000Z"
+  },
+  {
+    "id": "amended-tax-return-guide-2026",
+    "title": "Amended Tax Return Guide: How to Check Status and File Form 1040-X",
+    "slug": "amended-tax-return-guide-2026",
+    "excerpt": "Complete amended tax return guide. How to file Form 1040-X, check amended return status online, processing times, and deadlines.",
+    "category": "tax-guide",
+    "tags": "amended tax return,form 1040-x,amended return status,where is my amended return,irs amended return,amended tax return 2026",
+    "coverImage": "",
+    "published": true,
+    "featured": false,
+    "metaTitle": "Amended Tax Return Guide: Check Status & File Form 1040-X (2026) | TheTaxCalc",
+    "metaDesc": "Complete amended tax return guide. How to file Form 1040-X, check amended return status online, processing times, and deadlines. Free 2026 guide.",
+    "createdAt": "2026-07-07T20:10:00.000Z",
+    "updatedAt": "2026-07-07T20:10:00.000Z"
+  },
+  {
+    "id": "irs-tax-refund-schedule-2026",
+    "title": "IRS Tax Refund Schedule 2026: When Will You Get Your Refund?",
+    "slug": "irs-tax-refund-schedule-2026",
+    "excerpt": "2026 IRS tax refund schedule. E-file direct deposit takes 8-14 days. Check refund status, processing times, delays, and $3,000 refund qualification.",
+    "category": "tax-guide",
+    "tags": "irs tax refund schedule,refund schedule 2026,where is my refund,tax refund timeline,irs refund schedule,refund processing time",
+    "coverImage": "",
+    "published": true,
+    "featured": false,
+    "metaTitle": "IRS Tax Refund Schedule 2026: When Will You Get Your Refund? | TheTaxCalc",
+    "metaDesc": "2026 IRS tax refund schedule. E-file direct deposit takes 8-14 days. Check refund status, processing times, delays, and $3,000 refund qualification. Free guide.",
+    "createdAt": "2026-07-07T20:15:00.000Z",
+    "updatedAt": "2026-07-07T20:15:00.000Z"
   }
 ];
 
