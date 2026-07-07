@@ -2,14 +2,15 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { getPublishedPostsMeta, getPostMeta, getPublishedSlugs } from '@/lib/blog-index';
-import { BLOG_CONTENT } from '@/lib/blog-content';
+import { getBlogContentFromFile } from '@/lib/blog-content-loader';
 import { SITE_URL } from '@/lib/site-config';
 import { BlogTableOfContents, type TocEntry } from './blog-toc';
 import { getCalculatorAuthor, authorToJsonLd, getAuthorForCalculator } from '@/lib/authors';
 import { AuthorBioCard } from '@/components/finance/author-bio-card';
 
-// ISR: Revalidate every 24 hours — enables Cloudflare CDN edge caching
-export const revalidate = 86400;
+// Pure SSG — no ISR. Content is baked into HTML at build time.
+// This is the BEST approach for SEO: content is in the initial HTML,
+// no runtime fetch needed, Worker stays small.
 
 export function generateStaticParams() {
   return getPublishedSlugs().map(slug => ({ slug }));
@@ -20,13 +21,13 @@ export function generateStaticParams() {
 function getStaticPost(slug: string) {
   const meta = getPostMeta(slug);
   if (!meta) return null;
-  return { ...meta, content: BLOG_CONTENT[meta.slug] || '' };
+  return { ...meta, content: getBlogContentFromFile(meta.slug) };
 }
 
 function getStaticPosts() {
   return getPublishedPostsMeta().map(meta => ({
     ...meta,
-    content: BLOG_CONTENT[meta.slug] || '',
+    content: getBlogContentFromFile(meta.slug),
   }));
 }
 
