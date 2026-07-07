@@ -1361,7 +1361,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     breadcrumbLabel: 'New York City',
     ogTitle: 'NYC Tax Calculator 2026 — Local City Taxes Included',
     ogDescription: 'Free NYC tax calculator. Take-home pay after federal, NY state, and NYC local taxes (3.078% - 3.876%). 2026 data.',
-    canonicalPath: '/new-york-city-tax-calculator',
+    canonicalPath: '/new-york-tax-calculator',
     jsonLdType: 'nyc',
   },
   {
