@@ -172,7 +172,7 @@ export default function SalesTaxHubPage() {
         url: pageUrl,
         applicationCategory: 'FinanceApplication',
         operatingSystem: 'Web',
-        offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD', availability: 'https://schema.org/InStock', url: pageUrl },
+        offers: { '@type': 'Offer', price: 0, priceCurrency: 'USD', availability: 'https://schema.org/InStock', url: pageUrl },
         author: { '@id': `${pageUrl}#author` },
         publisher: { '@id': `${SITE_URL}/#organization` },
       },

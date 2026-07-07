@@ -124,7 +124,7 @@ const jsonLd = {
       },
       offers: {
         '@type': 'Offer',
-        price: '0',
+        price: 0,
         priceCurrency: 'USD',
         availability: 'https://schema.org/InStock',
         description: 'Free for all tax professionals, no cost, no sign-up required.',

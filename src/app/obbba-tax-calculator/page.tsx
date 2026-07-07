@@ -99,7 +99,7 @@ const jsonLd = {
       url: `${SITE_URL}/obbba-tax-calculator`,
       applicationCategory: 'FinanceApplication',
       operatingSystem: 'Web',
-      offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+      offers: { '@type': 'Offer', price: 0, priceCurrency: 'USD' },
       publisher: { '@type': 'Organization', name: 'TheTaxCalc' },
     },
   ],

@@ -446,7 +446,7 @@ export function getStateJsonLd(stateKey: string, siteUrl: string) {
         url,
         applicationCategory: 'FinanceApplication',
         operatingSystem: 'Web',
-        offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+        offers: { '@type': 'Offer', price: 0, priceCurrency: 'USD' },
         author: { '@id': `${url}#author` },
         publisher: { '@id': `${siteUrl}/#organization` },
       },
