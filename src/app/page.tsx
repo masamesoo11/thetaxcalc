@@ -926,6 +926,11 @@ export default function HomePage() {
                   return or a tax calculator 2026 for this year, we&apos;ve got you covered.
                 </p>
                 <p>
+                  Every paycheck has OASDI tax (Social Security), Medicare, federal income tax, and state tax
+                  taken out. We show you exactly where each dollar goes — from the 6.2% OASDI tax up to the
+                  $184,500 wage cap, to the 1.45% Medicare with no cap, to your state&apos;s specific brackets.
+                </p>
+                <p>
                   One of our team members moved from California to Texas a few years back. Same salary,
                   same company — but his take-home jumped by over $8,700 a year. He had no idea the
                   difference would be that big until the first paycheck hit. That&apos;s when we thought:

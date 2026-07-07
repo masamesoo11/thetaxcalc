@@ -52,6 +52,16 @@ export const HOME_FAQS: FAQItem[] = [
     answer:
       "To calculate your 2026 federal income tax: (1) Start with your gross income (wages, salary, self-employment income). (2) Subtract pre-tax deductions like 401(k) contributions and HSA. (3) Subtract the standard deduction ($16,100 single / $32,200 married). (4) Apply the 2026 federal tax brackets progressively — 10% on the first $11,600, then 12%, 22%, 24%, 32%, 35%, and 37% as income increases. (5) Subtract any tax credits (Child Tax Credit $2,200, education credits). (6) Add FICA (7.65%). The result is your total tax liability. Our paycheck calculator does all of this instantly for all 50 states.",
   },
+  {
+    question: 'What is OASDI tax and how much is it?',
+    answer:
+      "OASDI stands for Old-Age, Survivors, and Disability Insurance — it's the official name for Social Security tax. OASDI tax is 6.2% of your wages up to the 2026 wage cap of $184,500. Your employer matches this 6.2%, for a total of 12.4% sent to the Social Security Administration. OASDI is part of FICA (Federal Insurance Contributions Act), which also includes Medicare tax at 1.45% with no wage cap. Together, FICA totals 7.65% of your paycheck. If you earn over $200,000, an additional 0.9% Medicare surtax applies. Use our paycheck calculator above to see exactly how much OASDI tax comes out of your salary.",
+  },
+  {
+    question: 'How to check amended tax return status?',
+    answer:
+      "To check your amended tax return status (Form 1040-X), use the IRS 'Where's My Amended Return?' tool at IRS.gov/individuals/where-s-my-amended-return. You'll need your Social Security number, date of birth, and ZIP code. Amended returns take up to 16 weeks to process (up from 8 weeks in prior years). You can also call the IRS amended return hotline at 866-464-2050, but wait at least 3 weeks after mailing your Form 1040-X before checking. If you filed electronically, the IRS typically processes amendments faster than paper-filed ones. Note: amended returns cannot be tracked through the standard 'Where's My Refund?' tool — only through the dedicated amended return tracker.",
+  },
 ];
 
 export const ILLINOIS_FAQS: FAQItem[] = [
