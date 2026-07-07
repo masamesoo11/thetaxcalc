@@ -40,5 +40,12 @@ domain:linkbooster.website
 domain:fiverr-cost-effective-seo.site
 domain:rankxlinks.shop
 
+# ─── Added 2026-07-07: Spam/PBN backlinks found in Semrush ───────────────
+domain:sheepnav.com
+domain:stackscope.dev
+domain:readerfi.com
+domain:lockedinai.com
+domain:thetaxcalc.online
+
 # End of disavow file
-# Total toxic domains disavowed: 29
+# Total toxic domains disavowed: 34
