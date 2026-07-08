@@ -643,6 +643,66 @@ export const BLOG_INDEX: BlogPostMeta[] = [
     "metaDesc": "2026 IRS tax refund schedule. E-file direct deposit takes 8-14 days. Check refund status, processing times, delays, and $3,000 refund qualification. Free guide.",
     "createdAt": "2026-07-07T20:15:00.000Z",
     "updatedAt": "2026-07-07T20:15:00.000Z"
+  },
+  {
+    "id": "brian-kemp-income-tax-rebates-2026",
+    "title": "Brian Kemp Income Tax Rebates 2026: Who Qualifies and How Much?",
+    "slug": "brian-kemp-income-tax-rebates-2026",
+    "excerpt": "Brian Kemp income tax rebates 2026. Up to $500 for Georgia residents. Who qualifies, how much you'll receive, when to expect payment, and how to check status.",
+    "category": "tax-guide",
+    "tags": "brian kemp income tax rebates,georgia tax rebate,georgia income tax refund,house bill 112,georgia flat tax,kemp tax rebate 2026",
+    "coverImage": "",
+    "published": true,
+    "featured": false,
+    "metaTitle": "Brian Kemp Income Tax Rebates 2026: Who Qualifies & How Much | TheTaxCalc",
+    "metaDesc": "Brian Kemp income tax rebates 2026. Up to $500 for Georgia residents. Who qualifies, how much you'll receive, when to expect payment, and how to check status.",
+    "createdAt": "2026-07-07T20:20:00.000Z",
+    "updatedAt": "2026-07-07T20:20:00.000Z"
+  },
+  {
+    "id": "turbotax-lawsuit-guide-2026",
+    "title": "TurboTax Lawsuit Explained: What Happened and What It Means for You",
+    "slug": "turbotax-lawsuit-guide-2026",
+    "excerpt": "TurboTax lawsuit explained. $141M settlement, who qualifies, payment amounts, and how to file taxes for free without TurboTax.",
+    "category": "tax-guide",
+    "tags": "turbotax lawsuit,intuit settlement,turbotax settlement,turbotax free file,irs free file,turbotax lawsuit 2026",
+    "coverImage": "",
+    "published": true,
+    "featured": false,
+    "metaTitle": "TurboTax Lawsuit Explained: What Happened & What It Means (2026) | TheTaxCalc",
+    "metaDesc": "TurboTax lawsuit explained. $141M settlement, who qualifies, payment amounts, and how to file taxes for free without TurboTax. Complete 2026 guide.",
+    "createdAt": "2026-07-07T20:25:00.000Z",
+    "updatedAt": "2026-07-07T20:25:00.000Z"
+  },
+  {
+    "id": "best-tax-preparer-near-me-2026",
+    "title": "Best Tax Preparer Near Me: How to Find a Qualified CPA or EA in 2026",
+    "slug": "best-tax-preparer-near-me-2026",
+    "excerpt": "How to find the best tax preparer near you. CPA vs EA vs unenrolled, cost, red flags, free VITA options, and questions to ask.",
+    "category": "tax-guide",
+    "tags": "best tax preparer near me,tax preparer,cpa near me,enrolled agent,tax professional,find tax preparer,vita free tax help",
+    "coverImage": "",
+    "published": true,
+    "featured": false,
+    "metaTitle": "Best Tax Preparer Near Me: How to Find a CPA or EA (2026) | TheTaxCalc",
+    "metaDesc": "How to find the best tax preparer near you. CPA vs EA vs unenrolled, cost, red flags, free VITA options, and questions to ask. Complete 2026 guide.",
+    "createdAt": "2026-07-07T20:30:00.000Z",
+    "updatedAt": "2026-07-07T20:30:00.000Z"
+  },
+  {
+    "id": "alameda-county-property-tax-2026",
+    "title": "Alameda County Property Tax 2026: Rates, Assessment, and How to Pay",
+    "slug": "alameda-county-property-tax-2026",
+    "excerpt": "Complete Alameda County property tax guide 2026. Rates by city, payment schedule, exemptions, how to appeal assessments, and OBBBA SALT cap impact.",
+    "category": "tax-guide",
+    "tags": "alameda county property tax,property tax california,oakland property tax,alameda county tax collector,prop 13,property tax 2026",
+    "coverImage": "",
+    "published": true,
+    "featured": false,
+    "metaTitle": "Alameda County Property Tax 2026: Rates, Assessment & How to Pay | TheTaxCalc",
+    "metaDesc": "Complete Alameda County property tax guide 2026. Rates by city, payment schedule, exemptions, how to appeal assessments, and OBBBA SALT cap impact. Free guide.",
+    "createdAt": "2026-07-07T20:35:00.000Z",
+    "updatedAt": "2026-07-07T20:35:00.000Z"
   }
 ];
 
