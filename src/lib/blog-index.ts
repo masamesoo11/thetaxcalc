@@ -703,6 +703,36 @@ export const BLOG_INDEX: BlogPostMeta[] = [
     "metaDesc": "Complete Alameda County property tax guide 2026. Rates by city, payment schedule, exemptions, how to appeal assessments, and OBBBA SALT cap impact. Free guide.",
     "createdAt": "2026-07-07T20:35:00.000Z",
     "updatedAt": "2026-07-07T20:35:00.000Z"
+  },
+  {
+    "id": "reverse-sales-tax-calculator-guide-2026",
+    "title": "Reverse Sales Tax Calculator: How to Calculate Pre-Tax Price",
+    "slug": "reverse-sales-tax-calculator-guide-2026",
+    "excerpt": "Free reverse sales tax calculator guide. Calculate pre-tax price from any total. Formula, examples by state, and common mistakes to avoid.",
+    "category": "tax-guide",
+    "tags": "reverse sales tax calculator,reverse tax calculator,pre-tax price,sales tax calculation,reverse sales tax 2026,tax inclusive pricing",
+    "coverImage": "",
+    "published": true,
+    "featured": false,
+    "metaTitle": "Reverse Sales Tax Calculator: Calculate Pre-Tax Price (2026) | TheTaxCalc",
+    "metaDesc": "Free reverse sales tax calculator guide. Calculate pre-tax price from any total. Formula, examples by state, and common mistakes to avoid. Updated for 2026.",
+    "createdAt": "2026-07-08T07:00:00.000Z",
+    "updatedAt": "2026-07-08T07:00:00.000Z"
+  },
+  {
+    "id": "robux-tax-calculator-guide-2026",
+    "title": "Robux Tax Calculator: How Much Tax Does Roblox Take?",
+    "slug": "robux-tax-calculator-guide-2026",
+    "excerpt": "Robux tax calculator. Roblox takes 30% marketplace fee on all sales. Calculate your earnings, reverse calculator, DevEx rates, and real-world tax implications.",
+    "category": "tax-guide",
+    "tags": "robux tax calculator,roblox tax,robux marketplace fee,roblox developer tax,robux calculator 2026,devex roblox",
+    "coverImage": "",
+    "published": true,
+    "featured": false,
+    "metaTitle": "Robux Tax Calculator: How Much Tax Does Roblox Take? (2026) | TheTaxCalc",
+    "metaDesc": "Robux tax calculator. Roblox takes 30% marketplace fee on all sales. Calculate your earnings, reverse calculator, DevEx rates, and real-world tax implications.",
+    "createdAt": "2026-07-08T07:10:00.000Z",
+    "updatedAt": "2026-07-08T07:10:00.000Z"
   }
 ];
 
