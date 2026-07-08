@@ -388,7 +388,7 @@ export function CalculatorContentClient({ jsonLdType }: CalculatorContentClientP
       {/* How This Calculator Works */}
       <section className="rounded-xl border border-border/30 bg-card/50 p-6 sm:p-8">
         <h2 className="text-2xl font-bold text-foreground mb-4">
-          How the {getCalculatorDisplayName(jsonLdType)} Works
+          How This Calculator Works
         </h2>
         <div className="space-y-4">
           {content.howItWorks.map((paragraph, i) => (
@@ -401,7 +401,7 @@ export function CalculatorContentClient({ jsonLdType }: CalculatorContentClientP
       {content.keyRates.length > 0 && (
         <section className="rounded-xl border border-emerald-500/20 bg-emerald-500/5 p-6 sm:p-8">
           <h2 className="text-2xl font-bold text-foreground mb-4">
-            {getCalculatorDisplayName(jsonLdType)} — Key Rates &amp; Data for 2026
+            Key Rates &amp; Data for 2026
           </h2>
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {content.keyRates.map((rate) => (

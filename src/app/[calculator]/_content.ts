@@ -223,15 +223,15 @@ export function getCalculatorContent(type: string): CalculatorContent {
           'A coworker of mine was offered a $130K job in San Francisco and almost took it without running the numbers. California state tax alone on that salary is roughly $8,500. The same job in <a href="/texas-tax-calculator">Texas</a>? $0 state tax. That\'s not chump change. <a href="/relocation-calculator">Do the math before you accept that offer</a>.',
         ],
         calculationMethod: {
-          formula: 'CA State Tax = ∑(Bracket Income × Bracket Rate), with CA standard deduction of $6,183 (single)',
+          formula: 'CA State Tax = ∑(Bracket Income × Bracket Rate), with CA standard deduction of $6,083 (single)',
           steps: [
-            'Subtract the CA standard deduction ($6,183 single / $12,366 married) from gross income',
+            'Subtract the CA standard deduction ($6,083 single / $12,166 married) from gross income',
             'Apply CA progressive brackets (1% to 13.3%) to state taxable income',
             'Add federal tax (10%–37%) and FICA (7.65%)',
             'Pre-tax deductions reduce both federal and CA taxable income',
             'Sum all taxes and subtract from gross pay',
           ],
-          example: '$100,000 salary, single in CA: CA taxable = $93,817. CA tax ≈ $6,450. Federal tax ≈ $11,670. FICA = $7,650. Net ≈ $74,230/year.',
+          example: '$100,000 salary, single in CA: CA taxable = $93,917. CA tax ≈ $6,450. Federal tax ≈ $11,670. FICA = $7,650. Net ≈ $74,230/year.',
         },
         keyRates: [
           { label: 'CA Tax Brackets', value: '1% – 13.3% (9 brackets)' },

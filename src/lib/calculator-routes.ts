@@ -42,7 +42,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     componentKey: 'home',
     category: 'paycheck',
     breadcrumbLabel: 'Paycheck Calculator',
-    ogTitle: 'Paycheck Tax Calculator 2026 — Federal & State Take-Home',
+    ogTitle: 'Free Paycheck Calculator 2026 | After-Tax Take-Home Pay',
     ogDescription:
       'Free paycheck tax calculator for 2026. Take-home pay after federal, FICA & state taxes. No sign-up. IL, TX, FL, CA, NY.',
     canonicalPath: '/paycheck-calculator',
