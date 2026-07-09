@@ -733,6 +733,36 @@ export const BLOG_INDEX: BlogPostMeta[] = [
     "metaDesc": "Robux tax calculator. Roblox takes 30% marketplace fee on all sales. Calculate your earnings, reverse calculator, DevEx rates, and real-world tax implications.",
     "createdAt": "2026-07-08T07:10:00.000Z",
     "updatedAt": "2026-07-08T07:10:00.000Z"
+  },
+  {
+    "id": "federal-income-tax-rate-calculator-guide-2026",
+    "title": "Federal Income Tax Rate Calculator: How to Calculate Your 2026 Tax",
+    "slug": "federal-income-tax-rate-calculator-guide-2026",
+    "excerpt": "Free federal income tax rate calculator guide for 2026. Seven tax brackets, standard deductions, step-by-step calculation examples, and OBBBA changes.",
+    "category": "tax-guide",
+    "tags": "federal income tax rate calculator,calculate federal income tax,federal tax rate 2026,tax brackets 2026,federal income tax calculator",
+    "coverImage": "",
+    "published": true,
+    "featured": false,
+    "metaTitle": "Federal Income Tax Rate Calculator: Calculate Your 2026 Tax | TheTaxCalc",
+    "metaDesc": "Free federal income tax rate calculator guide for 2026. Seven tax brackets, standard deductions, step-by-step calculation examples, and OBBBA changes. Calculate your federal tax.",
+    "createdAt": "2026-07-09T08:30:00.000Z",
+    "updatedAt": "2026-07-09T08:30:00.000Z"
+  },
+  {
+    "id": "spreadsheet-formula-to-calculate-income-tax-2026",
+    "title": "Spreadsheet Formula to Calculate Income Tax (Excel & Google Sheets)",
+    "slug": "spreadsheet-formula-to-calculate-income-tax-2026",
+    "excerpt": "Ready-to-use spreadsheet formulas for calculating 2026 federal income tax. Nested IF, VLOOKUP, and SUMPRODUCT methods for Excel and Google Sheets.",
+    "category": "tax-guide",
+    "tags": "spreadsheet formula to calculate income tax,excel tax formula,google sheets tax calculator,progressive tax formula,vlookup tax calculation,income tax spreadsheet 2026",
+    "coverImage": "",
+    "published": true,
+    "featured": false,
+    "metaTitle": "Spreadsheet Formula to Calculate Income Tax (Excel & Google Sheets) 2026 | TheTaxCalc",
+    "metaDesc": "Ready-to-use spreadsheet formulas for calculating 2026 federal income tax. Nested IF, VLOOKUP, and SUMPRODUCT methods for Excel and Google Sheets. Includes FICA and standard deduction.",
+    "createdAt": "2026-07-09T08:40:00.000Z",
+    "updatedAt": "2026-07-09T08:40:00.000Z"
   }
 ];
 
