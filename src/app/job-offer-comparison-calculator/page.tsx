@@ -92,7 +92,7 @@ const jsonLd = {
   '@graph': [
     {
       '@id': `${SITE_URL}/job-offer-comparison-calculator#software`,
-      '@type': 'SoftwareApplication',
+      '@type': 'WebApplication',
       name: 'Job Offer Comparison Calculator',
       url: `${SITE_URL}/job-offer-comparison-calculator`,
       applicationCategory: 'FinanceApplication',

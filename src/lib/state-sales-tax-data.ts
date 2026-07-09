@@ -441,7 +441,7 @@ export function getStateJsonLd(stateKey: string, siteUrl: string) {
       },
       {
         '@id': `${url}#webapp`,
-        '@type': 'SoftwareApplication',
+        '@type': 'WebApplication',
         name: `${state.name} Sales Tax Calculator 2026`,
         url,
         applicationCategory: 'FinanceApplication',

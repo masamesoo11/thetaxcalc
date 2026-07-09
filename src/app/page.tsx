@@ -456,7 +456,7 @@ const homeJsonLd = {
     },
     {
       '@id': `${SITE_URL}/#software`,
-      '@type': 'SoftwareApplication',
+      '@type': 'WebApplication',
       name: 'TheTaxCalc Paycheck Calculator',
       applicationCategory: 'FinanceApplication',
       operatingSystem: 'Web',

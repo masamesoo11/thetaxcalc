@@ -167,7 +167,7 @@ export default function SalesTaxHubPage() {
       },
       {
         '@id': `${pageUrl}#webapp`,
-        '@type': 'SoftwareApplication',
+        '@type': 'WebApplication',
         name: 'Sales Tax Calculator 2026',
         url: pageUrl,
         applicationCategory: 'FinanceApplication',

@@ -1042,7 +1042,7 @@ export default function SEOAuditDashboard() {
                 <h3 className="text-base font-semibold text-foreground">Missing Schema (Critical)</h3>
                 <div className="space-y-2">
                   {[
-                    { type: 'SoftwareApplication', note: 'For each calculator — enables calculator rich results' },
+                    { type: 'WebApplication', note: 'For each calculator — enables calculator rich results' },
                     { type: 'FAQPage', note: 'Calculator FAQ sections — enables FAQ rich results' },
                     { type: 'BreadcrumbList', note: 'Navigation breadcrumbs — improves SERP appearance' },
                     { type: 'HowTo', note: 'Step-by-step guides — enables HowTo rich results' },

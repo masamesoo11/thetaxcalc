@@ -92,7 +92,7 @@ const jsonLd = {
   '@graph': [
     {
       '@id': `${SITE_URL}/paycheck-difference-calculator#software`,
-      '@type': 'SoftwareApplication',
+      '@type': 'WebApplication',
       name: 'Paycheck Difference Calculator',
       url: `${SITE_URL}/paycheck-difference-calculator`,
       applicationCategory: 'FinanceApplication',

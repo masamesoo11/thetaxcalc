@@ -83,11 +83,13 @@ function breadcrumbJsonLd(id: string, position2Name: string, _position2Url: stri
  * WebApplication doesn't require aggregateRating or review fields.
  */
 function webAppJsonLd(id: string, name: string, urlPath: string, authorId: string) {
-  // Extract calculator slug from URL path for rating lookup
-  const slug = urlPath.replace(/^\//, '').replace(/-tax-calculator$/, '-tax-calculator');
+  // NOTE: SoftwareApplication schema removed — Google requires aggregateRating or review
+  // for SoftwareApplication rich results, and we don't have real reviews.
+  // Using WebApplication instead (valid Schema.org type, no aggregateRating required).
+  // FAQPage and BreadcrumbList still provide rich results.
   return {
     '@id': id,
-    '@type': 'SoftwareApplication' as const,
+    '@type': 'WebApplication' as const,
     name,
     url: `${SITE_URL}${urlPath}`,
     applicationCategory: 'FinanceApplication',
@@ -157,7 +159,7 @@ function getHomeJsonLd() {
       },
       {
         '@id': `${baseId}#software`,
-        '@type': 'SoftwareApplication',
+        '@type': 'WebApplication',
         name: 'TheTaxCalc Paycheck Calculator',
         applicationCategory: 'FinanceApplication',
         operatingSystem: 'Web',
@@ -875,7 +877,7 @@ function getGenericStateJsonLd(stateKey: string) {
       },
       {
         '@id': `${baseId}#webapp`,
-        '@type': 'SoftwareApplication',
+        '@type': 'WebApplication',
         name: `${stateName} Tax Calculator`,
         applicationCategory: 'FinanceApplication',
         operatingSystem: 'Web',
