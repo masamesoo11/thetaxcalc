@@ -92,7 +92,7 @@ const jsonLd = {
       })),
     },
     {
-      '@type': 'WebApplication',
+      '@type': 'SoftwareApplication',
       name: 'OBBBA Tax Calculator 2026',
       description:
         'Free OBBBA tax calculator for 2026. Compare your federal income tax under the One Big Beautiful Bill Act vs prior law.',

@@ -152,7 +152,7 @@ function generateJsonLd(salary: number) {
       },
       {
         '@id': `${SITE_URL}${path}#software`,
-        '@type': 'WebApplication',
+        '@type': 'SoftwareApplication',
         name: `${formatted} After Tax Calculator 2026`,
         description: `Calculate ${formatted} take-home pay after federal, FICA, and state income tax. Compare net pay across all 50 states for the 2026 tax year.`,
         url: `${SITE_URL}${path}`,

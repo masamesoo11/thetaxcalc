@@ -87,7 +87,7 @@ function webAppJsonLd(id: string, name: string, urlPath: string, authorId: strin
   const slug = urlPath.replace(/^\//, '').replace(/-tax-calculator$/, '-tax-calculator');
   return {
     '@id': id,
-    '@type': 'WebApplication' as const,
+    '@type': 'SoftwareApplication' as const,
     name,
     url: `${SITE_URL}${urlPath}`,
     applicationCategory: 'FinanceApplication',
@@ -157,7 +157,7 @@ function getHomeJsonLd() {
       },
       {
         '@id': `${baseId}#software`,
-        '@type': 'WebApplication',
+        '@type': 'SoftwareApplication',
         name: 'TheTaxCalc Paycheck Calculator',
         applicationCategory: 'FinanceApplication',
         operatingSystem: 'Web',
@@ -875,7 +875,7 @@ function getGenericStateJsonLd(stateKey: string) {
       },
       {
         '@id': `${baseId}#webapp`,
-        '@type': 'WebApplication',
+        '@type': 'SoftwareApplication',
         name: `${stateName} Tax Calculator`,
         applicationCategory: 'FinanceApplication',
         operatingSystem: 'Web',
