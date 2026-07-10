@@ -208,9 +208,9 @@ export function Footer() {
 
           {/* Calculators Column — SEO internal links with <a> */}
           <div>
-            <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-foreground">
+            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-foreground">
               Calculators
-            </h4>
+            </h3>
             <ul className="space-y-2">
               {CALCULATOR_LINKS.slice(0, 7).map((link) => {
                 const Icon = link.icon;
@@ -232,9 +232,9 @@ export function Footer() {
 
           {/* More Tools + Blog Column */}
           <div>
-            <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-foreground">
+            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-foreground">
               More Tools
-            </h4>
+            </h3>
             <ul className="space-y-2">
               {CALCULATOR_LINKS.slice(7).map((link) => {
                 const Icon = link.icon;
@@ -352,9 +352,9 @@ export function Footer() {
 
           {/* External Resources Column — external links with <a rel="noopener"> */}
           <div>
-            <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-foreground">
+            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-foreground">
               Tax Resources
-            </h4>
+            </h3>
             <ul className="space-y-2">
               {RESOURCE_LINKS.map((link) => (
                 <li key={link.url}>
@@ -376,10 +376,10 @@ export function Footer() {
 
         {/* ─── All 50 State Tax Calculators Directory ───────────────────────── */}
         <div className="mt-10 pt-8 border-t border-border/20">
-          <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-foreground flex items-center gap-2">
+          <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-foreground flex items-center gap-2">
             <MapPin className="h-4 w-4 text-emerald-400" />
             All 50 State Tax Calculators
-          </h4>
+          </h3>
           <div className="grid grid-cols-2 gap-x-4 gap-y-1.5 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-6">
             {ALL_STATE_LINKS.map((link) => (
               <Link
@@ -396,10 +396,10 @@ export function Footer() {
 
         {/* ─── Strategic Pages ────────────────────────────────────────────── */}
         <div className="mt-6 pt-6 border-t border-border/20">
-          <h4 className="mb-3 text-sm font-semibold uppercase tracking-wider text-foreground flex items-center gap-2">
+          <h3 className="mb-3 text-sm font-semibold uppercase tracking-wider text-foreground flex items-center gap-2">
             <FileText className="h-4 w-4 text-emerald-400" />
             Guides & Resources
-          </h4>
+          </h3>
           <div className="flex flex-wrap gap-x-4 gap-y-1.5">
             {STRATEGIC_PAGE_LINKS.map((link) => (
               <Link
