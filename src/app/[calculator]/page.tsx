@@ -496,12 +496,6 @@ export default async function CalculatorPage({
         </p>
       </div>
 
-      {/* Scenario Comparison CTA — Above the fold, all calculators */}
-      <ScenarioCTABanner
-        calculatorType={config.componentKey}
-        stateName={config.breadcrumbLabel}
-      />
-
       {/* Client-Side Calculator */}
       <CalculatorClientPage componentKey={config.componentKey} />
 
@@ -781,41 +775,7 @@ export default async function CalculatorPage({
           </div>
         </section>
 
-        {/* Link & Embed — Earns backlinks for Domain Authority */}
-        <section className="rounded-xl border border-border/30 bg-card/50 p-6 sm:p-8">
-          <p className="text-lg font-semibold text-foreground mb-4">
-            Link to This Calculator
-          </p>
-          <p className="text-sm text-muted-foreground mb-4">
-            Want to reference this tool on your website or blog? Copy the HTML below — no attribution required, but appreciated.
-          </p>
-          <div className="space-y-3">
-            <div className="rounded-lg bg-muted/30 p-3">
-              <p className="text-xs font-mono text-muted-foreground break-all">
-                {`<a href="${SITE_URL}${config.canonicalPath}" title="${config.h1}">${config.h1} — TheTaxCalc</a>`}
-              </p>
-            </div>
-            <p className="text-sm text-muted-foreground">
-              Want to <Link href="/widgets" className="text-emerald-400 hover:text-emerald-300 underline">embed this calculator on your site</Link>? We offer free embeddable widgets for all our tools.
-            </p>
-            <div className="flex flex-wrap gap-2">
-              <Link
-                href="/widgets"
-                className="inline-flex items-center gap-1.5 rounded-lg border border-emerald-500/30 bg-emerald-500/5 px-3 py-1.5 text-sm font-medium text-emerald-400 hover:bg-emerald-500/10 transition-all"
-              >
-                📎 Free Embed Widgets
-              </Link>
-              <Link
-                href="/tax-data"
-                className="inline-flex items-center gap-1.5 rounded-lg border border-border/50 px-3 py-1.5 text-sm text-muted-foreground hover:text-emerald-400 hover:border-emerald-500/30 transition-all"
-              >
-                📊 Tax Data & Rates
-              </Link>
-            </div>
-          </div>
-        </section>
-
-        {/* Explore More Tools */}
+      {/* Explore More Tools */}
         <section className="rounded-xl border border-border/30 bg-card/50 p-6 sm:p-8">
           <p className="text-lg font-semibold text-foreground mb-4">
             Explore More Tools
