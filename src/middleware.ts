@@ -119,7 +119,7 @@ Calculate your take-home pay after federal, FICA & state taxes.
 
 ## FICA Taxes
 
-- Social Security: 6.2% (up to $176,100)
+- Social Security: 6.2% (up to $184,500)
 - Medicare: 1.45% (no limit)
 
 Visit https://thetaxcalc.com/paycheck-calculator for the interactive calculator.`,
