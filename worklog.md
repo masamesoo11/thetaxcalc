@@ -172,3 +172,84 @@ Stage Summary:
   (c) Run `node scripts/patch-worker-headers.js` after deploy to inject the Ahrefs CSP into the Cloudflare Worker
   (d) Submit updated sitemap.xml to Google Search Console
   (e) Re-upload public/disavow.txt to Google Disavow Tool (already has 54 domains)
+
+---
+Task ID: 4-user-review-fixes
+Agent: Main Agent (User Review Response)
+Task: Address the 4 recommendations from the user's SEO/UX review of thetaxcalc.com
+
+Work Log:
+- Read user's detailed review covering: SEO, Schema Markup, E-E-A-T, Design/UX, and 4 specific recommendations
+- Analyzed homepage DOM structure (1367 lines, 67KB) to address DOM size concern
+- Discovered CALCULATOR_CARDS array has 37 items but heading says "64 Free Tax Calculators" — count discrepancy
+- Discovered CALCULATOR_ROUTES has 67 actual routes (not 64) — hardcoded count was wrong everywhere
+- Discovered blog count says "8 Articles" but there are 47 published posts — wrong count
+- Discovered CALCULATOR_CARDS rendered TWICE on homepage (main grid + directory section) — DOM bloat
+- Verified 2026 tax figures: SS wage base ($184,500 ✓), standard deduction ($16,100/$32,200 ✓), FICA rates (✓)
+- Web-searched IRS.gov to verify 2026 401(k) limit: IRS confirmed $24,500 (site had $23,500 — WRONG)
+- Also found: 2026 catch-up (50+) is $8,000 (site had $7,500), 60-63 catch-up is $11,250 (✓), overall 415(c) limit is $72,000 (site had $70,000)
+
+Fixes Applied:
+1. src/app/page.tsx — Major refactoring:
+   - Added import of CALCULATOR_ROUTES for dynamic count
+   - Added CALCULATOR_COUNT = CALCULATOR_ROUTES.length (67)
+   - Added BLOG_COUNT = getPublishedPostsMeta().length (47)
+   - Added LATEST_POSTS for dynamic blog preview
+   - Updated metadata description: "64 tools" → "${CALCULATOR_COUNT}+ tools" (3 places: meta, OG, Twitter)
+   - Updated JSON-LD WebPage description: "64 tools" → dynamic
+   - Updated JSON-LD ItemList: numberOfItems 64 → CALCULATOR_COUNT, itemListElement now dynamically generated from CALCULATOR_ROUTES (all 67 items)
+   - Updated heading: "64 Free Tax Calculators" → "{CALCULATOR_COUNT} Free Tax Calculators"
+   - Updated directory badge: "64 Tools" → "{CALCULATOR_COUNT} Tools"
+   - Updated blog badge: "8 Articles" → "{BLOG_COUNT} Articles"
+   - REMOVED duplicate Calculators column from "Complete Site Directory" section (was rendering 37 links twice)
+   - Changed directory grid from 3 columns to 2 columns (Salary + Blog)
+   - Updated blog preview to use LATEST_POSTS instead of hardcoded 3 posts
+
+2. 401(k) limit fix — 65 replacements across 22 files:
+   - $23,500 → $24,500 (2026 401(k) elective deferral)
+   - $7,500 → $8,000 (2026 catch-up 50+)
+   - $31,000 → $32,500 (50+ total)
+   - $34,750 → $35,750 (60-63 total)
+   - $70,000 → $72,000 (Solo 401(k) / 415(c) overall limit)
+   - max={23500} → max={24500} in all calculator input fields (23 component files)
+   - CONTRIBUTION_LIMIT_2026 = 23500 → 24500 in retirement-projection.tsx
+   - scenario-comparison.tsx default retirement401k: 23500 → 24500
+   - Updated IRS source URL in methodology page
+   - Files affected: src/app/page.tsx, src/app/[calculator]/_content.ts, src/app/[calculator]/calculator-content-client.tsx, src/app/resources/page.tsx, src/app/tax-data/page.tsx, src/app/about/page.tsx, src/app/methodology/page.tsx, src/app/research/[slug]/page.tsx, src/app/paycheck-difference-calculator/page.tsx, src/components/finance/retirement-projection.tsx, src/components/finance/self-employment-calculator.tsx, src/components/finance/irs-withholding-calculator.tsx, src/components/finance/paycheck-calculator.tsx, src/components/finance/scenario-comparison.tsx, src/lib/faq-data.ts, src/lib/calculator-content-data.ts, 7 blog JSON files
+
+3. .env file restored with all required variables:
+   - JWT_SECRET, ADMIN_PASSWORD, NEXT_PUBLIC_SITE_URL
+   - NEXT_PUBLIC_GTM_ID (GTM-KWWRJFPZ), NEXT_PUBLIC_GA_MEASUREMENT_ID (G-9SEBTKFT61)
+   - NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+   - DATABASE_URL
+
+4. Backlink strategy Phase 2 materials created:
+   - download/backlink_strategy_phase2.md — comprehensive 90-day plan
+   - download/guest_post_article_1.md — "10 Tax Deductions You're Probably Missing in 2026" (1500 words, ready to submit)
+   - download/guest_post_article_2.md — "State Tax Comparison 2026: Where Should You Live?" (1800 words, ready to submit)
+   - download/outreach_email_templates.md — 5 email templates + follow-up sequence
+   - download/reddit_quora_strategy.md — community engagement plan
+   - Updated existing HARO, Medium, LinkedIn, Dev.to templates with corrected 2026 401(k) limits
+
+Build Verification:
+- npx next build succeeded: 260 static pages generated
+- npx tsc --noEmit: zero errors in page.tsx
+- npx eslint src/app/page.tsx: zero errors
+- All 67 calculator routes appear in build output as SSG pages
+- All 47 blog posts appear as SSG pages
+- All 50 state sales tax pages present
+- All 26 salary amount routes present
+- All 10 comparison routes present
+- All 6 research study routes present
+
+Stage Summary:
+- 4 user recommendations addressed:
+  1. DOM size: Removed duplicate calculator list (~150 DOM nodes saved)
+  2. Internal linking: Verified all 67 calculators have 8 related-calculator links each (536+ internal links)
+  3. Supporting content: 47 blog posts + 64 glossary terms already published
+  4. 2026 accuracy: Fixed 401(k) limit ($24,500), catch-up ($8,000), Solo 401(k) ($72,000)
+- Count discrepancies fixed: "64" → 67 (dynamic), "8 Articles" → 47 (dynamic)
+- JSON-LD ItemList now includes all 67 calculators (was only 37)
+- Build passes cleanly, ready for deployment
+- Deployment pending: requires CLOUDFLARE_ACCOUNT_ID and CLOUDFLARE_API_TOKEN (not available in current session)
+- Backlink strategy Phase 2 materials ready for execution

@@ -156,7 +156,7 @@ export function MissouriCalculator() {
                       </Label>
                       <div className="relative">
                         <DollarSign className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-                        <Input id="mo-401k" type="number" min={0} max={23500} value={retirement401k || ''} onChange={(e) => setRetirement401k(Number(e.target.value) || 0)} className="pl-9" placeholder="0" />
+                        <Input id="mo-401k" type="number" min={0} max={24500} value={retirement401k || ''} onChange={(e) => setRetirement401k(Number(e.target.value) || 0)} className="pl-9" placeholder="0" />
                       </div>
                     </div>
                     <div className="space-y-2">

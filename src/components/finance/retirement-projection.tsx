@@ -52,7 +52,7 @@ import { useHashParams, updateHashState } from '@/hooks/use-hash-state';
 
 // ─── Constants ────────────────────────────────────────────────────────────────
 
-const CONTRIBUTION_LIMIT_2026 = 23500;
+const CONTRIBUTION_LIMIT_2026 = 24500;
 const PROJECTION_YEAR_OPTIONS = [10, 15, 20, 25, 30, 35, 40] as const;
 
 const DEFAULT_SALARY = 85000;
@@ -669,7 +669,7 @@ export function RetirementProjection() {
           </p>
           <p>
             <strong className="text-foreground">2026 contribution limits:</strong> The 401(k)
-            elective deferral limit is $23,500 for 2026 (with an additional $7,500 catch-up for
+            elective deferral limit is $24,500 for 2026 (with an additional $8,000 catch-up for
             those age 50+). Contributions are made pre-tax, reducing your current taxable income.
             For someone in the 22% marginal bracket, a $10,000 contribution saves $2,200 in federal
             taxes in the current year.

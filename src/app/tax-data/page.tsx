@@ -130,8 +130,8 @@ const STANDARD_DEDUCTIONS = [
 // ─── Data: Retirement Contribution Limits ──────────────────────────────────────
 
 const RETIREMENT_LIMITS = [
-  { plan: '401(k) / 403(b) / 457', limit: '$23,500', catchUp: '$7,500 (age 50+)', total50: '$31,000' },
-  { plan: 'Enhanced Catch-up (60–63)', limit: '$23,500', catchUp: '$11,250 (age 60–63)', total50: '$34,750' },
+  { plan: '401(k) / 403(b) / 457', limit: '$24,500', catchUp: '$8,000 (age 50+)', total50: '$32,500' },
+  { plan: 'Enhanced Catch-up (60–63)', limit: '$24,500', catchUp: '$11,250 (age 60–63)', total50: '$35,750' },
   { plan: 'Traditional & Roth IRA', limit: '$7,000', catchUp: '$1,000 (age 50+)', total50: '$8,000' },
   { plan: 'HSA — Individual', limit: '$4,300', catchUp: '$1,000 (age 55+)', total50: '$5,300' },
   { plan: 'HSA — Family', limit: '$8,550', catchUp: '$1,000 (age 55+)', total50: '$9,550' },
@@ -184,7 +184,7 @@ const FAQ_ITEMS = [
   },
   {
     q: 'How much can I contribute to my 401(k) in 2026?',
-    a: 'The 2026 401(k) contribution limit is $23,500. If you are 50+, you can add $7,500 in catch-up contributions ($31,000 total). Under SECURE 2.0, workers aged 60–63 have an enhanced catch-up of $11,250 ($34,750 total).',
+    a: 'The 2026 401(k) contribution limit is $24,500. If you are 50+, you can add $8,000 in catch-up contributions ($32,500 total). Under SECURE 2.0, workers aged 60–63 have an enhanced catch-up of $11,250 ($35,750 total).',
   },
 ];
 
@@ -347,7 +347,7 @@ export default function TaxDataPage() {
             { label: 'Federal Brackets', value: '7 rates', detail: '3 filing statuses' },
             { label: 'No-Tax States', value: '9', detail: 'No income tax on wages' },
             { label: 'SS Wage Base', value: '$184,500', detail: '6.2% OASDI' },
-            { label: '401(k) Limit', value: '$23,500', detail: '+$7,500 catch-up' },
+            { label: '401(k) Limit', value: '$24,500', detail: '+$8,000 catch-up' },
           ].map((stat) => (
             <div
               key={stat.label}

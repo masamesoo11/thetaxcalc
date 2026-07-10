@@ -441,12 +441,12 @@ export function SelfEmploymentCalculator() {
                 id="se-401k"
                 type="number"
                 min={0}
-                max={23500}
+                max={24500}
                 value={retirement401k || ''}
                 onChange={(e) => setRetirement401k(Number(e.target.value) || 0)}
                 placeholder="0"
               />
-              <p className="text-xs text-muted-foreground">Reduces federal &amp; state taxable income (2026 limit: $23,500)</p>
+              <p className="text-xs text-muted-foreground">Reduces federal &amp; state taxable income (2026 limit: $24,500)</p>
             </div>
           </div>
 
@@ -869,7 +869,7 @@ export function SelfEmploymentCalculator() {
           <p>
             <strong className="text-foreground">Tax advantages for the self-employed:</strong> Despite the
             additional SE tax, self-employed individuals have access to powerful tax advantages: higher 401(k)
-            contribution limits (up to $70,000 as both employer and employee in 2026), the home office deduction,
+            contribution limits (up to $72,000 as both employer and employee in 2026), the home office deduction,
             health insurance premium deduction, and business expense deductions that W-2 employees cannot claim.
             These can often offset the additional SE tax burden.
           </p>

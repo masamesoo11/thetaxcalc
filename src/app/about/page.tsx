@@ -328,7 +328,7 @@ export default function AboutPage() {
             <li>2026 Social Security wage cap: $184,500</li>
             <li>Additional Medicare Tax: 0.9% above $200,000</li>
             <li>State-specific tax rates and exemptions for IL, TX, FL, CA, NY</li>
-            <li>2026 401(k) contribution limits ($23,500 + catch-up)</li>
+            <li>2026 401(k) contribution limits ($24,500 + catch-up)</li>
           </ul>
           <p className="text-xs mt-2">
             That said, our tools produce estimates. We can&apos;t account for every possible deduction,

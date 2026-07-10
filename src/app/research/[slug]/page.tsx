@@ -346,7 +346,7 @@ const STUDIES: Study[] = [
       {
         heading: 'How OBBBA Affects Property Taxpayers',
         body:
-          'The OBBBA SALT cap increase from $10,000 to $40,400 (with a phaseout for high earners) is one of the most impactful changes for property taxpayers in 2026. For an itemizing homeowner in New Jersey with a $9,500 property tax bill plus $8,000 in state income tax, the old $10,000 cap meant they could only deduct $10,000 of the $17,500 total — losing $7,500 of deductions. Under OBBBA, they can deduct the full $17,500, saving approximately $1,650 in federal tax (at the 22% marginal rate on the additional $7,500 of deductible SALT). Single filers with MAGI above $500,000 and married filers above $1,000,000 face a phaseout that reduces the cap back to $10,000 over a $200,000 range. Use our OBBBA tax calculator to see your exact savings.',
+          'The OBBBA SALT cap increase from $10,000 to $40,400 (with a phaseout for high earners) is one of the most impactful changes for property taxpayers in 2026. For an itemizing homeowner in New Jersey with a $9,500 property tax bill plus $8,000 in state income tax, the old $10,000 cap meant they could only deduct $10,000 of the $17,500 total — losing $7,500 of deductions. Under OBBBA, they can deduct the full $17,500, saving approximately $1,650 in federal tax (at the 22% marginal rate on the additional $8,000 of deductible SALT). Single filers with MAGI above $500,000 and married filers above $1,000,000 face a phaseout that reduces the cap back to $10,000 over a $200,000 range. Use our OBBBA tax calculator to see your exact savings.',
       },
       {
         heading: 'County-Level Variation Within States',

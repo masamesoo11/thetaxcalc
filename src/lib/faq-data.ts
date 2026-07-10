@@ -25,7 +25,7 @@ export const HOME_FAQS: FAQItem[] = [
   {
     question: 'Does contributing to a 401(k) reduce my taxes?',
     answer:
-      "Yep, and it's pretty much the easiest tax win out there. Every dollar you put in a traditional 401(k) drops your taxable income by a dollar for federal and state tax purposes (though not for FICA). Toss in $10,000 on a $75K salary and you're only taxed on $65K — that could save you over $2,200 in federal tax alone if you're in the 22% bracket. The 2026 limit is $23,500 if you want to go hard.",
+      "Yep, and it's pretty much the easiest tax win out there. Every dollar you put in a traditional 401(k) drops your taxable income by a dollar for federal and state tax purposes (though not for FICA). Toss in $10,000 on a $75K salary and you're only taxed on $65K — that could save you over $2,200 in federal tax alone if you're in the 22% bracket. The 2026 limit is $24,500 if you want to go hard.",
   },
   {
     question: 'What is the difference between effective tax rate and marginal tax rate?',
@@ -296,7 +296,7 @@ export const SELF_EMPLOYMENT_FAQS: FAQItem[] = [
   {
     question: 'What tax deductions are available for self-employed individuals?',
     answer:
-      "There's actually a lot to work with. Half your SE tax is deductible above the line. You can stash up to $70,000 in a Solo 401(k) for 2026 (including the employer portion). Health insurance premiums? Deductible above the line. Home office — $5 per square foot up to 300 sq ft using the simplified method, or actual expenses if you want to go that route. Business expenses like software, travel, meals (50%), supplies, and professional services all count. And don't forget the Qualified Business Income deduction, which can shave up to 20% off your qualified business income. That one's easy to miss.",
+      "There's actually a lot to work with. Half your SE tax is deductible above the line. You can stash up to $72,000 in a Solo 401(k) for 2026 (including the employer portion). Health insurance premiums? Deductible above the line. Home office — $5 per square foot up to 300 sq ft using the simplified method, or actual expenses if you want to go that route. Business expenses like software, travel, meals (50%), supplies, and professional services all count. And don't forget the Qualified Business Income deduction, which can shave up to 20% off your qualified business income. That one's easy to miss.",
   },
   {
     question: 'Should I form an S-Corporation to save on self-employment tax?',
@@ -324,7 +324,7 @@ export const RETIREMENT_FAQS: FAQItem[] = [
   {
     question: 'How much should I contribute to my 401(k)?',
     answer:
-      "At minimum, contribute enough to grab the full employer match — usually 4–6% of salary. Beyond that, most financial folks suggest aiming for 10–15% of gross income including the match. The 2026 contribution cap is $23,500, plus a $7,500 catch-up if you're 50+ and an extra $11,250 catch-up for ages 60–63. But honestly, anything is better than nothing, so just start somewhere.",
+      "At minimum, contribute enough to grab the full employer match — usually 4–6% of salary. Beyond that, most financial folks suggest aiming for 10–15% of gross income including the match. The 2026 contribution cap is $24,500, plus a $8,000 catch-up if you're 50+ and an extra $11,250 catch-up for ages 60–63. But honestly, anything is better than nothing, so just start somewhere.",
   },
   {
     question: 'What is the difference between traditional and Roth 401(k)?',
@@ -532,7 +532,7 @@ export const INCOME_TAX_FAQS: FAQItem[] = [
   {
     question: 'What deductions can reduce my taxable income?',
     answer:
-      "The biggest ones: 401(k) contributions (up to $23,500 in 2026), HSA contributions, and the standard deduction. Pre-tax deductions reduce your taxable income for federal and state income tax but not for FICA. At a 22% marginal rate, every $1,000 in 401(k) contributions saves you $220 in federal tax plus whatever your state charges.",
+      "The biggest ones: 401(k) contributions (up to $24,500 in 2026), HSA contributions, and the standard deduction. Pre-tax deductions reduce your taxable income for federal and state income tax but not for FICA. At a 22% marginal rate, every $1,000 in 401(k) contributions saves you $220 in federal tax plus whatever your state charges.",
   },
 ];
 
@@ -555,7 +555,7 @@ export const TAX_CALC_FAQS: FAQItem[] = [
   {
     question: 'How can I reduce my tax burden?',
     answer:
-      "Max out your 401(k) ($23,500 in 2026) — every dollar reduces your taxable income at both federal and state level. HSA contributions work the same way. If you're self-employed, you can deduct half your self-employment tax and contribute to a Solo 401(k) with limits up to $70,000. Tax credits like the Child Tax Credit ($2,000 per child) reduce your bill dollar for dollar.",
+      "Max out your 401(k) ($24,500 in 2026) — every dollar reduces your taxable income at both federal and state level. HSA contributions work the same way. If you're self-employed, you can deduct half your self-employment tax and contribute to a Solo 401(k) with limits up to $72,000. Tax credits like the Child Tax Credit ($2,000 per child) reduce your bill dollar for dollar.",
   },
   {
     question: 'Does this calculator include self-employment tax?',
@@ -1290,7 +1290,7 @@ export const GENERIC_STATE_FAQS: FAQItem[] = [
   {
     question: 'Does this calculator account for 401(k) and HSA contributions?',
     answer:
-      "Yes. Traditional 401(k) contributions reduce your taxable income for both federal and state income tax purposes, which lowers the income tax withheld from each paycheck. For 2026, you can contribute up to $23,500 to a 401(k) ($31,000 if you're 50+, and even more with the 60–63 catch-up). HSA contributions also reduce your taxable income — the 2026 limit is $4,300 for individual coverage or $8,550 for family. Note that neither 401(k) nor HSA contributions reduce FICA taxes, only income taxes. Roth 401(k) contributions are made after-tax, so they don't reduce your current taxable income but grow tax-free.",
+      "Yes. Traditional 401(k) contributions reduce your taxable income for both federal and state income tax purposes, which lowers the income tax withheld from each paycheck. For 2026, you can contribute up to $24,500 to a 401(k) ($32,500 if you're 50+, and even more with the 60–63 catch-up). HSA contributions also reduce your taxable income — the 2026 limit is $4,300 for individual coverage or $8,550 for family. Note that neither 401(k) nor HSA contributions reduce FICA taxes, only income taxes. Roth 401(k) contributions are made after-tax, so they don't reduce your current taxable income but grow tax-free.",
   },
   {
     question: 'How does filing status affect my paycheck?',

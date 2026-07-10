@@ -187,8 +187,8 @@ const STANDARD_DEDUCTIONS = [
 // ─── Data: Retirement Contribution Limits ──────────────────────────────────────
 
 const RETIREMENT_LIMITS = [
-  { plan: '401(k) / 403(b) / 457', limit: '$23,500', catchUp: '$7,500 (age 50+)', notes: '' },
-  { plan: 'Enhanced Catch-up', limit: '$23,500', catchUp: '$11,250 (age 60–63)', notes: 'New under SECURE 2.0' },
+  { plan: '401(k) / 403(b) / 457', limit: '$24,500', catchUp: '$8,000 (age 50+)', notes: '' },
+  { plan: 'Enhanced Catch-up', limit: '$24,500', catchUp: '$11,250 (age 60–63)', notes: 'New under SECURE 2.0' },
   { plan: 'Traditional & Roth IRA', limit: '$7,000', catchUp: '$1,000 (age 50+)', notes: '' },
   { plan: 'HSA — Individual', limit: '$4,300', catchUp: '$1,000 (age 55+)', notes: '' },
   { plan: 'HSA — Family', limit: '$8,550', catchUp: '$1,000 (age 55+)', notes: '' },
@@ -237,7 +237,7 @@ const FAQ_ITEMS = [
   },
   {
     q: 'How much can I contribute to my 401(k) in 2026?',
-    a: 'The 2026 401(k) contribution limit is $23,500. If you are age 50 or older, you can make an additional catch-up contribution of $7,500, for a total of $31,000. Under SECURE 2.0, workers aged 60–63 have an enhanced catch-up limit of $11,250, for a total of $34,750.',
+    a: 'The 2026 401(k) contribution limit is $24,500. If you are age 50 or older, you can make an additional catch-up contribution of $8,000, for a total of $32,500. Under SECURE 2.0, workers aged 60–63 have an enhanced catch-up limit of $11,250, for a total of $35,750.',
   },
   {
     q: 'Can I cite this data in my article or report?',
@@ -402,7 +402,7 @@ export default function ResourcesPage() {
             { label: 'Federal Brackets', value: '7 rates', detail: '3 filing statuses' },
             { label: 'States Covered', value: '50', detail: 'All US states' },
             { label: 'SS Wage Base', value: '$184,500', detail: '6.2% OASDI' },
-            { label: '401(k) Limit', value: '$23,500', detail: '+$7,500 catch-up' },
+            { label: '401(k) Limit', value: '$24,500', detail: '+$8,000 catch-up' },
           ].map((stat) => (
             <div
               key={stat.label}

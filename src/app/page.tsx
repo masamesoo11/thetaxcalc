@@ -6,6 +6,7 @@ import { getPublishedPostsMeta } from '@/lib/blog-index';
 import { COMPARISON_SLUGS, COMPARE_STATES, parseComparisonSlug } from '@/lib/compare-config';
 import { getCalculatorAuthor, authorToJsonLd } from '@/lib/authors';
 import { AuthorBioCard } from '@/components/finance/author-bio-card';
+import { CALCULATOR_ROUTES } from '@/lib/calculator-routes';
 import {
   DollarSign,
   MapPin,
@@ -34,12 +35,17 @@ import {
   Ticket,
 } from 'lucide-react';
 
+// ─── Dynamic Counts (single source of truth) ─────────────────────────────────
+const CALCULATOR_COUNT = CALCULATOR_ROUTES.length;
+const BLOG_COUNT = getPublishedPostsMeta().length;
+const LATEST_POSTS = getPublishedPostsMeta().slice(0, 3);
+
 // ─── Home Page Metadata ───────────────────────────────────────────────────────
 
 export const metadata: Metadata = {
   title: '2026 Tax Calculator — Paycheck & Take-Home Pay | 50 States',
   description:
-    'Free 2026 tax calculator. Take-home pay after federal, FICA & state tax. 64 tools & 50-state sales tax data. No sign-up.',
+    `Free 2026 tax calculator. Take-home pay after federal, FICA & state tax. ${CALCULATOR_COUNT}+ tools & 50-state sales tax data. No sign-up.`,
   authors: [{ name: 'Rachel Mitchell, CPA', url: `${SITE_URL}/about#rachel-mitchell` }],
   alternates: {
     canonical: SITE_HOME_URL,
@@ -51,7 +57,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: '2026 Tax Calculator — Paycheck & Take-Home Pay | 50 States',
     description:
-      'Free 2026 tax calculator. Take-home pay after federal, FICA & state tax. 64 tools & 50-state sales tax data. No sign-up.',
+      `Free 2026 tax calculator. Take-home pay after federal, FICA & state tax. ${CALCULATOR_COUNT}+ tools & 50-state sales tax data. No sign-up.`,
     url: SITE_HOME_URL,
     siteName: 'TheTaxCalc',
     type: 'website',
@@ -69,7 +75,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: '2026 Tax Calculator — Paycheck & Take-Home Pay | 50 States',
     description:
-      'Free 2026 tax calculator. Take-home pay after federal, FICA & state tax. 64 tools & 50-state sales tax data. No sign-up.',
+      `Free 2026 tax calculator. Take-home pay after federal, FICA & state tax. ${CALCULATOR_COUNT}+ tools & 50-state sales tax data. No sign-up.`,
     images: [`${SITE_URL}/opengraph-image.png`],
   },
 };
@@ -434,7 +440,7 @@ const homeJsonLd = {
       '@type': 'WebPage',
       name: '2026 Tax Calculator — Paycheck & Take-Home Pay | 50 States',
       description:
-        'Free 2026 tax calculators — paycheck, mortgage, 401(k), capital gains, and self-employment. 64 tools & 50-state sales tax data.',
+        `Free 2026 tax calculators — paycheck, mortgage, 401(k), capital gains, and self-employment. ${CALCULATOR_COUNT} tools & 50-state sales tax data.`,
       url: SITE_URL,
       inLanguage: 'en-US',
       dateModified: '2026-06-14',
@@ -501,7 +507,7 @@ const homeJsonLd = {
         {
           '@type': 'HowToStep',
           name: 'Add Pre-Tax Deductions',
-          text: 'Enter 401(k) contributions (up to $23,500) and HSA contributions to reduce your taxable income.',
+          text: 'Enter 401(k) contributions (up to $24,500) and HSA contributions to reduce your taxable income.',
         },
         {
           '@type': 'HowToStep',
@@ -514,47 +520,14 @@ const homeJsonLd = {
       '@id': `${SITE_URL}/#itemlist`,
       '@type': 'ItemList',
       name: 'Free 2026 Tax Calculators',
-      description: '64 free tax calculators for 2026 covering paycheck, state tax, mortgage, retirement, and more.',
-      numberOfItems: 64,
-      itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Paycheck Calculator', url: `${SITE_URL}/paycheck-calculator` },
-        { '@type': 'ListItem', position: 2, name: 'Illinois Tax Calculator', url: `${SITE_URL}/illinois-tax-calculator` },
-        { '@type': 'ListItem', position: 3, name: 'Texas Tax Calculator', url: `${SITE_URL}/texas-tax-calculator` },
-        { '@type': 'ListItem', position: 4, name: 'Florida Tax Calculator', url: `${SITE_URL}/florida-tax-calculator` },
-        { '@type': 'ListItem', position: 5, name: 'California Tax Calculator', url: `${SITE_URL}/california-tax-calculator` },
-        { '@type': 'ListItem', position: 6, name: 'New York Tax Calculator', url: `${SITE_URL}/new-york-tax-calculator` },
-        { '@type': 'ListItem', position: 7, name: 'Georgia Tax Calculator', url: `${SITE_URL}/georgia-tax-calculator` },
-        { '@type': 'ListItem', position: 8, name: 'Virginia Tax Calculator', url: `${SITE_URL}/virginia-tax-calculator` },
-        { '@type': 'ListItem', position: 9, name: 'North Carolina Tax Calculator', url: `${SITE_URL}/north-carolina-tax-calculator` },
-        { '@type': 'ListItem', position: 10, name: 'Pennsylvania Tax Calculator', url: `${SITE_URL}/pennsylvania-tax-calculator` },
-        { '@type': 'ListItem', position: 11, name: 'Ohio Tax Calculator', url: `${SITE_URL}/ohio-tax-calculator` },
-        { '@type': 'ListItem', position: 12, name: 'Michigan Tax Calculator', url: `${SITE_URL}/michigan-tax-calculator` },
-        { '@type': 'ListItem', position: 13, name: 'New Jersey Tax Calculator', url: `${SITE_URL}/new-jersey-tax-calculator` },
-        { '@type': 'ListItem', position: 14, name: 'Colorado Tax Calculator', url: `${SITE_URL}/colorado-tax-calculator` },
-        { '@type': 'ListItem', position: 15, name: 'Arizona Tax Calculator', url: `${SITE_URL}/arizona-tax-calculator` },
-        { '@type': 'ListItem', position: 16, name: 'Washington Tax Calculator', url: `${SITE_URL}/washington-tax-calculator` },
-        { '@type': 'ListItem', position: 17, name: 'Massachusetts Tax Calculator', url: `${SITE_URL}/massachusetts-tax-calculator` },
-        { '@type': 'ListItem', position: 18, name: 'Indiana Tax Calculator', url: `${SITE_URL}/indiana-tax-calculator` },
-        { '@type': 'ListItem', position: 19, name: 'Tennessee Tax Calculator', url: `${SITE_URL}/tennessee-tax-calculator` },
-        { '@type': 'ListItem', position: 20, name: 'Missouri Tax Calculator', url: `${SITE_URL}/missouri-tax-calculator` },
-        { '@type': 'ListItem', position: 21, name: 'Maryland Tax Calculator', url: `${SITE_URL}/maryland-tax-calculator` },
-        { '@type': 'ListItem', position: 22, name: 'Wisconsin Tax Calculator', url: `${SITE_URL}/wisconsin-tax-calculator` },
-        { '@type': 'ListItem', position: 23, name: 'Minnesota Tax Calculator', url: `${SITE_URL}/minnesota-tax-calculator` },
-        { '@type': 'ListItem', position: 24, name: 'Oregon Tax Calculator', url: `${SITE_URL}/oregon-tax-calculator` },
-        { '@type': 'ListItem', position: 25, name: 'Mortgage Calculator', url: `${SITE_URL}/mortgage-calculator` },
-        { '@type': 'ListItem', position: 26, name: '401(k) Retirement Calculator', url: `${SITE_URL}/401k-retirement-calculator` },
-        { '@type': 'ListItem', position: 27, name: 'Capital Gains Calculator', url: `${SITE_URL}/capital-gains-calculator` },
-        { '@type': 'ListItem', position: 28, name: 'Self-Employment Calculator', url: `${SITE_URL}/self-employment-tax-calculator` },
-        { '@type': 'ListItem', position: 29, name: 'Tax Refund Calculator', url: `${SITE_URL}/tax-refund-calculator` },
-        { '@type': 'ListItem', position: 30, name: 'IRS Withholding Calculator', url: `${SITE_URL}/irs-withholding-calculator` },
-        { '@type': 'ListItem', position: 31, name: 'Sales Tax Calculator', url: `${SITE_URL}/sales-tax-calculator` },
-        { '@type': 'ListItem', position: 32, name: 'Property Tax Calculator', url: `${SITE_URL}/property-tax-calculator` },
-        { '@type': 'ListItem', position: 33, name: 'Overtime Tax Calculator', url: `${SITE_URL}/overtime-tax-calculator` },
-        { '@type': 'ListItem', position: 34, name: 'Bonus Tax Calculator', url: `${SITE_URL}/bonus-tax-calculator` },
-        { '@type': 'ListItem', position: 35, name: 'Lottery Tax Calculator', url: `${SITE_URL}/lottery-tax-calculator` },
-        { '@type': 'ListItem', position: 36, name: 'Relocation Calculator', url: `${SITE_URL}/relocation-calculator` },
-        { '@type': 'ListItem', position: 37, name: 'Employee Cost Calculator', url: `${SITE_URL}/employee-cost-calculator` },
-      ],
+      description: `${CALCULATOR_COUNT} free tax calculators for 2026 covering paycheck, state tax, mortgage, retirement, and more.`,
+      numberOfItems: CALCULATOR_COUNT,
+      itemListElement: CALCULATOR_ROUTES.map((route, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        name: route.breadcrumbLabel,
+        url: `${SITE_URL}${route.canonicalPath}`,
+      })),
     },
 
     { '@id': homeAuthorId, ...authorToJsonLd(homeAuthor) },
@@ -599,7 +572,7 @@ const homeJsonLd = {
           name: 'Does contributing to a 401(k) reduce my taxes?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Yes. Every dollar in a traditional 401(k) drops your taxable income for federal and state tax (but not FICA). Contributing $10,000 on a $75K salary saves over $2,200 in federal tax at the 22% bracket. The 2026 limit is $23,500.',
+            text: 'Yes. Every dollar in a traditional 401(k) drops your taxable income for federal and state tax (but not FICA). Contributing $10,000 on a $75K salary saves over $2,200 in federal tax at the 22% bracket. The 2026 limit is $24,500.',
           },
         },
       ],
@@ -692,7 +665,7 @@ export default function HomePage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-10 text-center">
             <h2 className="text-3xl font-bold text-foreground">
-              64 Free <span className="gradient-text">Tax Calculators</span>
+              {CALCULATOR_COUNT} Free <span className="gradient-text">Tax Calculators</span>
             </h2>
             <p className="mt-3 text-muted-foreground max-w-xl mx-auto">
               Pick the one you need. They&apos;re all free, they all use 2026 data, and none of them will
@@ -1020,33 +993,8 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid gap-6 lg:grid-cols-3">
-            {/* ── Column 1: Calculators ── */}
-            <div className="rounded-xl border border-border/30 bg-card/50 p-5">
-              <div className="flex items-center gap-2 mb-4">
-                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-emerald-500/10">
-                  <Calculator className="h-4 w-4 text-emerald-400" />
-                </div>
-                <h3 className="text-base font-semibold text-foreground">Tax Calculators</h3>
-                <span className="ml-auto text-[10px] font-semibold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 rounded-full px-2 py-0.5">64 Tools</span>
-              </div>
-              <ul className="space-y-2">
-                {CALCULATOR_CARDS.map((card) => (
-                  <li key={card.href}>
-                    <Link
-                      prefetch={false}
-                      href={card.href}
-                      className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-400 transition-colors py-0.5"
-                    >
-                      <span className="h-1 w-1 rounded-full bg-emerald-500/40 shrink-0 group-hover:bg-emerald-400 transition-colors" />
-                      {card.title}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* ── Column 2: Salary After Tax ── */}
+          <div className="grid gap-6 lg:grid-cols-2">
+            {/* ── Column 1: Salary After Tax ── */}
             <div className="rounded-xl border border-border/30 bg-card/50 p-5">
               <div className="flex items-center gap-2 mb-4">
                 <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-emerald-500/10">
@@ -1079,14 +1027,14 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* ── Column 3: Blog & Guides ── */}
+            {/* ── Column 2: Blog & Guides ── */}
             <div className="rounded-xl border border-border/30 bg-card/50 p-5">
               <div className="flex items-center gap-2 mb-4">
                 <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-emerald-500/10">
                   <BookOpen className="h-4 w-4 text-emerald-400" />
                 </div>
                 <h3 className="text-base font-semibold text-foreground">Blog & Guides</h3>
-                <span className="ml-auto text-[10px] font-semibold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 rounded-full px-2 py-0.5">8 Articles</span>
+                <span className="ml-auto text-[10px] font-semibold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 rounded-full px-2 py-0.5">{BLOG_COUNT} Articles</span>
               </div>
               <ul className="space-y-2">
                 <li>
@@ -1324,15 +1272,11 @@ export default function HomePage() {
             </Link>
           </div>
           <div className="grid gap-6 sm:grid-cols-3">
-            {[
-              { title: '2026 Federal Tax Brackets Explained', href: '/blog/2026-federal-tax-brackets-explained', category: 'Tax Guide' },
-              { title: 'Illinois Income Tax Guide 2026', href: '/blog/illinois-income-tax-guide-2026', category: 'State Tax' },
-              { title: 'Florida vs Texas Tax Comparison', href: '/blog/florida-vs-texas-tax-comparison', category: 'Comparison' },
-            ].map((post) => (
+            {LATEST_POSTS.map((post) => (
               <Link
                 prefetch={false}
-                key={post.href}
-                href={post.href}
+                key={post.slug}
+                href={`/blog/${post.slug}`}
                 className="group rounded-xl border border-border/30 bg-card/50 p-5 transition-all hover:border-emerald-500/30 hover-lift"
               >
                 <span className="text-[10px] font-semibold uppercase tracking-wider text-emerald-400">{post.category}</span>

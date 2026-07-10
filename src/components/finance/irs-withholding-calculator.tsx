@@ -518,7 +518,7 @@ export function IRSWithholdingCalculator() {
                     onChange={(e) => setRetirement401k(Number(e.target.value) || 0)}
                     placeholder="0"
                   />
-                  <p className="text-xs text-muted-foreground">2026 annual limit: $23,500</p>
+                  <p className="text-xs text-muted-foreground">2026 annual limit: $24,500</p>
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="hsa" className="text-sm font-medium">

@@ -178,8 +178,8 @@ export default function MethodologyPage() {
           [((1 + r)<sup>n</sup> &minus; 1) / r], where P is the current balance,
           r is the assumed annual rate of return, n is the number of years, and C
           is the total annual contribution (employee + employer match). The 2026
-          401(k) contribution limit is $23,500 for those under 50, with an additional
-          $7,500 catch-up contribution for those aged 50+, as set by the IRS. Employer
+          401(k) contribution limit is $24,500 for those under 50, with an additional
+          $8,000 catch-up contribution for those aged 50+, as set by the IRS. Employer
           match is applied according to the most common formula (50% match on the
           first 6% of salary). Projections are estimates only; actual returns will
           vary based on market conditions.
@@ -188,10 +188,10 @@ export default function MethodologyPage() {
           <p className="font-semibold text-foreground mb-2">Primary Sources:</p>
           <ul className="space-y-1.5 text-muted-foreground">
             <li>
-              <a href="https://www.irs.gov/newsroom/401k-limit-increases-to-23500-for-2026" target="_blank" rel="noopener noreferrer" className="text-emerald-400 hover:text-emerald-300 underline">
-                IRS Notice 2025-XX
+              <a href="https://www.irs.gov/newsroom/401k-limit-increases-to-24500-for-2026-ira-limit-increases-to-7500" target="_blank" rel="noopener noreferrer" className="text-emerald-400 hover:text-emerald-300 underline">
+                IRS 401(k) Limit Announcement 2026
               </a>
-              {' '}&mdash; 2026 401(k) contribution limits: $23,500 / $31,000 (50+)
+              {' '}&mdash; 2026 401(k) contribution limits: $24,500 / $32,500 (50+)
             </li>
             <li>
               <a href="https://www.irs.gov/retirement-plans/plan-participant-employee/retirement-topics-401k-and-profit-sharing-plan-contribution-limits" target="_blank" rel="noopener noreferrer" className="text-emerald-400 hover:text-emerald-300 underline">

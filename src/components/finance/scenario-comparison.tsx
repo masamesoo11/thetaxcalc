@@ -115,7 +115,7 @@ const PRESET_SCENARIOS: Omit<TaxScenario, 'id'>[] = [
     payFrequency: 'annual',
     stateKey: 'illinois',
     filingStatus: 'single',
-    retirement401k: 23500,
+    retirement401k: 24500,
     hsaContribution: 4150,
     nycResident: false,
   },
@@ -284,7 +284,7 @@ function ScenarioEditor({
             <Input
               type="number"
               min={0}
-              max={23500}
+              max={24500}
               value={scenario.retirement401k || ''}
               onChange={(e) => onChange({ ...scenario, retirement401k: Number(e.target.value) || 0 })}
               className="h-8 text-sm pl-6"
