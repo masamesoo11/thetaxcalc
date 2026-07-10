@@ -288,3 +288,38 @@ Stage Summary:
 - Count discrepancies fixed (67 calculators, 47 articles — dynamic)
 - JSON-LD ItemList now includes all 67 calculators
 - Deployment successful and verified
+
+---
+Task ID: 6-fake-ratings-removal
+Agent: Main Agent (Critical Fix)
+Task: Remove fake aggregateRating from WebApplication schema (Google policy violation)
+
+Work Log:
+- User uploaded rendered HTML of thetaxcalc.com homepage
+- Verified JSON-LD on live site: found aggregateRating with fake 4.9/5 rating and 247 reviews
+- This violates Google's structured data policy: "Reviews must be genuine user reviews. Self-serving reviews or fabricated ratings are not allowed."
+- Risk: Google could disable rich snippets for entire site or apply manual spam action
+- Found the aggregateRating in src/app/page.tsx lines 476-482
+- Also noted: src/components/seo-audit-dashboard.tsx already flagged this as risky ("Self-generated 4.8/5 rating — risky, not from real reviews")
+- Removed the aggregateRating block from WebApplication schema
+- Verified no other aggregateRating/reviewCount/ratingValue references remain in source code (excluding the audit dashboard warning and _jsonld.ts comments)
+
+Build & Deploy:
+- npx next build: succeeded
+- npx @cloudflare/next-on-pages: succeeded (6.29s)
+- patch-worker-headers.js: applied
+- fix-routes.js: applied
+- wrangler pages deploy: succeeded (https://cc42428b.thetaxcalc.pages.dev)
+- CDN cache purge failed (API token lacks Zone:Cache Purge permission)
+- Verified via cache-busting URL: aggregateRating REMOVED ✅
+
+Final Schema Verification (live site):
+- Block 1: Organization, WebSite, WebPage ✅
+- Block 2: WebPage, BreadcrumbList, WebApplication (NO aggregateRating), HowTo (5 steps), ItemList (67/67), Person, FAQPage (5 questions) ✅
+- All schema now compliant with Google's structured data policies
+
+Stage Summary:
+- CRITICAL fix: Removed fake aggregateRating that could trigger Google spam penalty
+- Site now fully compliant with Google's structured data guidelines
+- All rich snippets (FAQ, HowTo, ItemList, BreadcrumbList) remain intact
+- WebApplication schema still valid (offers, applicationCategory, operatingSystem)

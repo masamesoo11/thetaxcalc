@@ -473,13 +473,6 @@ const homeJsonLd = {
         availability: 'https://schema.org/InStock',
         url: `${SITE_URL}/paycheck-calculator`,
       },
-      aggregateRating: {
-        '@type': 'AggregateRating',
-        ratingValue: '4.9',
-        reviewCount: '247',
-        bestRating: '5',
-        worstRating: '1',
-      },
     },
     {
       '@id': `${SITE_URL}/#howto`,
