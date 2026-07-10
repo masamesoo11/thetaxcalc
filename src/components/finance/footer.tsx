@@ -380,13 +380,13 @@ export function Footer() {
             <MapPin className="h-4 w-4 text-emerald-400" />
             All 50 State Tax Calculators
           </h3>
-          <div className="grid grid-cols-2 gap-x-4 gap-y-1.5 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-6">
+          <div className="grid grid-cols-2 gap-x-4 gap-y-1 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-6">
             {ALL_STATE_LINKS.map((link) => (
               <Link
                 key={link.href}
                 prefetch={false}
                 href={link.href}
-                className="text-xs text-muted-foreground underline underline-offset-2 decoration-border/40 transition-colors hover:text-emerald-400 hover:decoration-emerald-400"
+                className="inline-block py-1 text-xs text-muted-foreground underline underline-offset-2 decoration-border/40 transition-colors hover:text-emerald-400 hover:decoration-emerald-400"
               >
                 {link.label}
               </Link>
@@ -406,7 +406,7 @@ export function Footer() {
                 key={link.href}
                 prefetch={false}
                 href={link.href}
-                className="text-xs text-muted-foreground underline underline-offset-2 decoration-border/40 transition-colors hover:text-emerald-400 hover:decoration-emerald-400"
+                className="inline-block py-1 text-xs text-muted-foreground underline underline-offset-2 decoration-border/40 transition-colors hover:text-emerald-400 hover:decoration-emerald-400"
               >
                 {link.label}
               </Link>
@@ -419,7 +419,7 @@ export function Footer() {
                 key={link.href}
                 prefetch={false}
                 href={link.href}
-                className="text-xs text-muted-foreground underline underline-offset-2 decoration-border/40 transition-colors hover:text-emerald-400 hover:decoration-emerald-400"
+                className="inline-block py-1 text-xs text-muted-foreground underline underline-offset-2 decoration-border/40 transition-colors hover:text-emerald-400 hover:decoration-emerald-400"
               >
                 {link.label}
               </Link>
