@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "functions": {
+    "/[calculator]/opengraph-image": {},
+    "/api": {},
+    "/api/admin/db-status": {},
+    "/api/admin/seed-db": {},
+    "/api/admin/stats": {},
+    "/api/ads": {},
+    "/api/ads/[id]": {},
+    "/api/auth/login": {},
+    "/api/auth/logout": {},
+    "/api/auth/verify": {},
+    "/api/blog": {},
+    "/api/blog/[slug]": {},
+    "/api/indexnow": {},
+    "/api/links": {},
+    "/api/links/[id]": {},
+    "/api/ping-search-engines": {},
+    "/api/seed": {},
+    "/api/settings": {},
+    "/api/track": {},
+    "/apple-icon": {},
+    "/feed.xml": {},
+    "/icon": {},
+    "/opengraph-image": {}
+  }
+}

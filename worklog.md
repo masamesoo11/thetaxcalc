@@ -253,3 +253,38 @@ Stage Summary:
 - Build passes cleanly, ready for deployment
 - Deployment pending: requires CLOUDFLARE_ACCOUNT_ID and CLOUDFLARE_API_TOKEN (not available in current session)
 - Backlink strategy Phase 2 materials ready for execution
+
+---
+Task ID: 5-deployment
+Agent: Main Agent (Deployment)
+Task: Deploy all fixes to Cloudflare Pages production
+
+Work Log:
+- User provided Cloudflare credentials (Account ID + API Token)
+- Verified credentials via wrangler pages project list — confirmed thetaxcalc project exists
+- Updated open-next.config.ts with required fields (proxyExternalRequest, queue: "direct", middleware config)
+- Built with @cloudflare/next-on-pages (legacy peer deps) — succeeded, 287MB output, 1.2MB worker
+- Applied patch-worker-headers.js (security + indexing headers)
+- Applied fix-routes.js (static asset excludes for _routes.json)
+- Deployed via wrangler pages deploy — succeeded
+- Deployment URL: https://58f2c90f.thetaxcalc.pages.dev
+- Production URL: https://thetaxcalc.com
+
+Verification on live site:
+- HTTP 200, response time 0.85s, 480KB
+- Title: "2026 Tax Calculator — Paycheck & Take-Home Pay | 50 States" ✓
+- Meta description: "Free 2026 tax calculator. Take-home pay after federal, FICA & state tax. 67+ tools & 50-state sales tax data. No sign-up." ✓ (was "64 tools")
+- JSON-LD ItemList: numberOfItems: 67, actual items: 67 ✓ (was 37 items with numberOfItems: 64)
+- 401(k) limit on /401k-retirement-calculator: $24,500 ✓ (was $23,500)
+- 401(k) catch-up: $8,000 ✓ (was $7,500)
+- Calculator count "67+ tools" appears 5+ times in HTML ✓
+
+Stage Summary:
+- All 4 user recommendations are now LIVE on production:
+  1. DOM size reduced (removed duplicate calculator column)
+  2. Internal linking verified (536+ contextual links between calculators)
+  3. Supporting content (47 blog posts + glossary)
+  4. 2026 numbers verified correct ($24,500 401k, $8,000 catch-up, $184,500 SS wage base)
+- Count discrepancies fixed (67 calculators, 47 articles — dynamic)
+- JSON-LD ItemList now includes all 67 calculators
+- Deployment successful and verified

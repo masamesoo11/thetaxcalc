@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "description": "Built with @cloudflare/next-on-pages@1.13.16.",
+  "include": [
+    "/*"
+  ],
+  "exclude": [
+    "/_next/static/*",
+    "/favicon.ico",
+    "/icon.png",
+    "/apple-touch-icon.png",
+    "/manifest.json",
+    "/opengraph-image.png",
+    "/robots.txt",
+    "/d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9.txt"
+  ]
+}

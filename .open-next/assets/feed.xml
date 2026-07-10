@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>TheTaxCalc — Free 2026 Tax Calculators</title>
+    <link>https://thetaxcalc.com</link>
+    <description>Free 2026 paycheck, mortgage, 401(k), capital gains, and self-employment tax calculators for IL, TX, FL, CA, NY.</description>
+    <language>en-us</language>
+    <lastBuildDate>2026-01-01T00:00:00Z</lastBuildDate>
+    <atom:link href="https://thetaxcalc.com/feed.xml" rel="self" type="application/rss+xml" />
+    <copyright>Copyright 2026 TheTaxCalc</copyright>
+    <managingEditor>info@thetaxcalc.com (TheTaxCalc)</managingEditor>
+    <webMaster>info@thetaxcalc.com (TheTaxCalc)</webMaster>
+  </channel>
+</rss>
