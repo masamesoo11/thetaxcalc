@@ -1,0 +1,78 @@
+# Vercel Ignore — speed up builds by excluding unnecessary files
+
+# Skills (not needed for production)
+skills/
+
+# Upload directory (user uploads, not needed)
+upload/
+
+# Tool results (debugging only)
+tool-results/
+
+# Agent context (development only)
+agent-ctx/
+
+# Examples (not needed)
+examples/
+
+# Build artifacts
+.next/
+.vercel/
+.open-next/
+
+# Development files
+*.md
+!README.md
+!DEPLOYMENT.md
+
+# Scripts (not needed at runtime)
+scripts/
+
+# Database
+db/
+*.db
+*.sqlite
+
+# Logs
+*.log
+crash.log
+
+# Keep-alive scripts (not needed)
+keep-*.sh
+dev-keep-alive.sh
+server-keep-alive.sh
+
+# Supervisor
+supervisor.js
+
+# Source repository backup
+thetaxcalc-repo/
+thetaxcalc-source-*.zip
+thetaxcalc-source-*.tar.gz
+thetaxcalc-deploy.zip
+
+# Disavow file (not needed at runtime)
+disavow.txt
+
+# Banner screenshot
+ph-banner-screenshot.png
+
+# Dev server files
+server.js
+run-*.sh
+start-*.sh
+
+# Caddy config
+Caddyfile
+
+# OpenNext config (using Vercel directly)
+open-next.config.ts
+wrangler.toml
+
+# Prisma (will be generated during build)
+prisma/migrations/
+
+# Test files
+*.test.ts
+*.test.tsx
+*.spec.ts
