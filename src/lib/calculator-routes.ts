@@ -78,7 +78,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     description:
       'Free Texas tax calculator for 2026. Calculate take-home pay with 0% state income tax. Includes federal tax, FICA, property tax analysis & cost-of-living. No sign-up.',
     h1: 'Free Texas Tax Calculator — No Income Tax in TX',
-    metaTitle: 'Texas Tax Calculator 2026: No Income Tax in Texas — $75K Take-Home',
+    metaTitle: 'Texas Tax Calculator 2026: No Income Tax, $75K Take-Home',
     metaDesc:
       'Texas has 0% state income tax. On $75K, keep $61,592. Calculate your exact TX take-home pay. Free 2026 calculator, no sign-up.',
     keywords: [
@@ -102,7 +102,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     description:
       'Free Florida tax calculator for 2026. Calculate take-home pay with 0% state income tax. Includes homestead exemption, property tax & cost-of-living. No sign-up.',
     h1: 'Free Florida Tax Calculator',
-    metaTitle: 'Florida Tax Calculator 2026: 0% Tax — $75K = $61,592 Take-Home',
+    metaTitle: 'Florida Tax Calculator 2026: $75K = $61,592 Take-Home',
     metaDesc:
       'Florida has 0% state income tax. On $75K salary, you keep $61,592 after federal & FICA. Calculate your exact FL take-home pay. Free 2026 calculator, no sign-up.',
     keywords: [
@@ -126,7 +126,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     description:
       'Free California tax calculator for 2026. Calculate take-home pay after progressive state tax (1%–13.3%), federal tax & FICA. No sign-up. 401(k) and HSA deductions.',
     h1: 'Free California Tax Calculator — Tax Amount in CA',
-    metaTitle: 'California Tax Calculator 2026: Tax Amount in CA — $75K = $54,849',
+    metaTitle: 'California Tax Calculator 2026: $75K = $54,849 Take-Home',
     metaDesc:
       'CA charges up to 13.3% state tax. On $75K salary, you take home ~$54,849. Calculate your exact California take-home pay after state, federal & FICA tax. Free 2026 calculator, no sign-up.',
     keywords: [
@@ -150,7 +150,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     description:
       'Free New York tax calculator for 2026. Calculate take-home pay after progressive state tax (4%–10.9%), NYC tax, federal tax & FICA. No sign-up.',
     h1: 'Free New York Tax Calculator — NYC Tax Rates',
-    metaTitle: 'New York Tax Calculator 2026: NYC Tax — $75K = $55,413 Take-Home',
+    metaTitle: 'New York Tax Calculator 2026: $75K = $55,413 Take-Home',
     metaDesc:
       'NY charges up to 10.9% + NYC tax. On $75K salary, you take home ~$55,413. Calculate your exact NY take-home pay after state, federal & FICA tax. Free 2026 calculator, no sign-up.',
     keywords: [
@@ -393,7 +393,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     description:
       'Free lottery calculator and lottery tax calculator. A $1M jackpot pays only ~$510K after federal 24% withholding + state taxes. Calculate your real Powerball or Mega Millions payout after all taxes. No sign-up.',
     h1: 'Free Lottery Tax Calculator — Powerball & Mega Millions',
-    metaTitle: 'Free Lottery Calculator & Tax Calculator 2026 — Powerball Payout',
+    metaTitle: 'Free Lottery Tax Calculator 2026 — Powerball Payout',
     metaDesc:
       'Free lottery calculator and lottery tax calculator. See your actual Powerball & Mega Millions payout after 24% federal + state taxes on taxable income. Jackpot amounts, tax return impact, federal and state taxes, financial advisors guidance.',
     keywords: [
@@ -442,7 +442,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     description:
       'Free property tax calculator for 2026. Calculate annual property tax for any US state with average effective rates. Includes homestead exemptions. No sign-up.',
     h1: 'Free Property Tax Calculator',
-    metaTitle: 'Free Property Tax Calculator 2026 — Cost by State & Home Value',
+    metaTitle: 'Free Property Tax Calculator 2026 — Cost by State',
     metaDesc:
       '$500K home in AZ = ~$6,750/year property tax. Same home in NJ = ~$14,250. Calculate your annual property tax by state & home value. Free 2026 calculator, all 50 states.',
     keywords: [

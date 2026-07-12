@@ -3,12 +3,12 @@ import Link from 'next/link';
 import { SITE_URL } from '@/lib/site-config';
 
 export const metadata: Metadata = {
-  title: 'SmartAsset Alternative 2026 — Free Paycheck & Tax Calculators',
+  title: 'SmartAsset Alternative 2026 — Free Tax Calculators',
   description:
     'Free SmartAsset alternative 2026. Paycheck, mortgage, retirement, and tax calculators for all 50 states. No sign-up, no paywall, no data collection.',
   alternates: { canonical: `${SITE_URL}/smartasset-alternative` },
   openGraph: {
-    title: 'SmartAsset Alternative 2026 | Free Paycheck & Tax Calculators',
+    title: 'SmartAsset Alternative 2026 | Free Tax Calculators',
     description:
       'A free, no-sign-up SmartAsset alternative. Paycheck, mortgage, retirement, and tax calculators for all 50 states.',
     url: `${SITE_URL}/smartasset-alternative`,
@@ -107,7 +107,7 @@ const jsonLd = {
     },
     {
       '@type': 'WebPage',
-      name: 'SmartAsset Alternative 2026 — Free Paycheck & Tax Calculators',
+      name: 'SmartAsset Alternative 2026 — Free Tax Calculators',
       description:
         'A free, no-sign-up SmartAsset alternative with paycheck, mortgage, retirement, and tax calculators for all 50 states.',
       url: `${SITE_URL}/smartasset-alternative`,

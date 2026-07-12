@@ -506,8 +506,8 @@ const STUDIES: Study[] = [
   },
   {
     slug: 'tax-refund-statistics-2026',
-    title: 'Tax Refund Statistics 2026 — Average Refunds by State & Income',
-    metaTitle: 'Tax Refund Statistics 2026 — Average Refunds by State & Income',
+    title: 'Tax Refund Statistics 2026 — Refunds by State & Income',
+    metaTitle: 'Tax Refund Statistics 2026 — Refunds by State & Income',
     metaDescription:
       'IRS statistics on average federal tax refunds by state, income bracket, and filing status for the 2026 filing season. Plus how OBBBA is expected to change refund sizes.',
     category: 'Tax Refunds',
