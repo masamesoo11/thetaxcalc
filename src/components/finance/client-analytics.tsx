@@ -4,10 +4,14 @@ import { useEffect, useRef } from 'react';
 import { getSettings } from '@/lib/settings-store';
 
 /**
- * ClientAnalytics — Reads GA & AdSense IDs from localStorage
- * (set via the admin panel) and injects the scripts dynamically.
+ * ClientAnalytics — Reads AdSense ID from localStorage (set via admin panel)
+ * and injects the script dynamically.
  *
- * Also falls back to NEXT_PUBLIC_GA_MEASUREMENT_ID env var.
+ * NOTE: GA4 is loaded ONCE in layout.tsx (server-side) to avoid duplicate
+ * page_view events that caused 100% bounce rate in GA4.
+ *
+ * If you need to change GA4 settings, update NEXT_PUBLIC_GA_MEASUREMENT_ID
+ * in .env or Vercel environment variables — do NOT re-add GA4 here.
  */
 export function ClientAnalytics() {
   const injectedRef = useRef(false);
@@ -17,36 +21,10 @@ export function ClientAnalytics() {
     injectedRef.current = true;
 
     const settings = getSettings();
-    const gaId = settings.ga_tracking_id || process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
     const adsenseId = settings.adsense_client_id;
 
-    // ─── Google Analytics ──────────────────────────────────────
-    if (gaId && gaId.trim() !== '') {
-      // Avoid duplicate GA scripts
-      if (!document.querySelector(`script[src*="googletagmanager.com/gtag/js?id=${gaId}"]`)) {
-        const scriptSrc = document.createElement('script');
-        scriptSrc.async = true;
-        scriptSrc.setAttribute('data-cfasync', 'false'); // Bypass Cloudflare Rocket Loader
-        scriptSrc.src = `https://www.googletagmanager.com/gtag/js?id=${gaId}`;
-        document.head.appendChild(scriptSrc);
-
-        const scriptInit = document.createElement('script');
-        scriptInit.setAttribute('data-cfasync', 'false'); // Bypass Cloudflare Rocket Loader
-        scriptInit.innerHTML = `
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', '${gaId}', {
-            page_path: window.location.pathname,
-          });
-        `;
-        document.head.appendChild(scriptInit);
-
-        console.log('[Analytics] Google Analytics loaded:', gaId);
-      }
-    }
-
     // ─── Google AdSense ───────────────────────────────────────
+    // Only AdSense is loaded here. GA4 is in layout.tsx.
     if (adsenseId && adsenseId.trim() !== '') {
       // Avoid duplicate AdSense scripts
       if (!document.querySelector('script[data-adsense-client]')) {
@@ -61,6 +39,10 @@ export function ClientAnalytics() {
         console.log('[Analytics] AdSense loaded:', adsenseId);
       }
     }
+
+    // ─── GA4 is NOT loaded here — it's in layout.tsx ──────────
+    // Loading GA4 twice causes duplicate page_view events and
+    // artificially inflates bounce rate to 100%.
   }, []);
 
   return null;
