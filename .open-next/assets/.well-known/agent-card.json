@@ -1,0 +1,84 @@
+{
+  "name": "TheTaxCalc Tax Calculator Agent",
+  "version": "1.0.0",
+  "description": "AI agent for tax calculations, paycheck analysis, and state tax comparisons. Provides accurate 2026 federal and state tax computations across all 50 US states.",
+  "url": "https://thetaxcalc.com",
+  "iconUrl": "https://thetaxcalc.com/opengraph-image.png",
+  "documentationUrl": "https://thetaxcalc.com/llms.txt",
+  "capabilities": {
+    "streaming": true,
+    "pushNotifications": false,
+    "stateTransitionHistory": false
+  },
+  "supportedInterfaces": [
+    {
+      "serviceUrl": "https://thetaxcalc.com",
+      "protocolBinding": "a2a",
+      "transportProtocol": "HTTPS+JSON-RPC",
+      "authMethods": ["oauth2", "bearer"],
+      "inputFormats": ["application/json", "text/plain", "text/markdown"],
+      "outputFormats": ["application/json", "text/plain", "text/markdown"]
+    }
+  ],
+  "defaultInputModes": [
+    "application/json",
+    "text/plain",
+    "text/markdown"
+  ],
+  "defaultOutputModes": [
+    "application/json",
+    "text/plain",
+    "text/markdown"
+  ],
+  "skills": [
+    {
+      "id": "tax-calculation",
+      "name": "Tax Calculation",
+      "description": "Calculate federal and state income tax, FICA, and take-home pay for any US state and salary level.",
+      "inputModes": ["application/json", "text/plain"],
+      "outputModes": ["application/json", "text/markdown"]
+    },
+    {
+      "id": "paycheck-analysis",
+      "name": "Paycheck Analysis",
+      "description": "Analyze paycheck breakdown including 401(k) contributions, HSA, filing status, and pre-tax deductions.",
+      "inputModes": ["application/json", "text/plain"],
+      "outputModes": ["application/json", "text/markdown"]
+    },
+    {
+      "id": "state-tax-comparison",
+      "name": "State Tax Comparison",
+      "description": "Compare tax burden between any two US states at various salary levels.",
+      "inputModes": ["application/json", "text/plain"],
+      "outputModes": ["application/json", "text/markdown"]
+    }
+  ],
+  "security": {
+    "schemes": {
+      "oauth2": {
+        "type": "oauth2",
+        "description": "OAuth 2.0 for authenticated agent interactions",
+        "flows": {
+          "clientCredentials": {
+            "tokenUrl": "https://thetaxcalc.com/.well-known/oauth-authorization-server",
+            "scopes": {
+              "tax:calculate": "Calculate taxes",
+              "tax:compare": "Compare state taxes",
+              "read:public": "Read public tax data"
+            }
+          }
+        }
+      }
+    }
+  },
+  "provider": {
+    "organization": "TheTaxCalc",
+    "url": "https://thetaxcalc.com",
+    "logo": "https://thetaxcalc.com/icon.png"
+  },
+  "author": {
+    "name": "Rachel Mitchell, CPA",
+    "url": "https://thetaxcalc.com/about#rachel-mitchell"
+  },
+  "lastUpdated": "2026-06-20"
+}

@@ -1,0 +1,51 @@
+# Disavow file for thetaxcalc.com
+# Generated: 2026-06-08
+# Purpose: Disavow ALL toxic/spam backlinks pointing to thetaxcalc.com
+# 
+# These are ALL PBN/spam/fiverr-generated backlinks that harm our SEO.
+# Submit this file at: https://search.google.com/search-console/disavow-links
+#
+# IMPORTANT: This file must be submitted through Google Search Console.
+# Simply placing it on the server is NOT enough.
+
+# Domain-level disavows (blocks ALL links from these domains)
+
+domain:linkrankpro.shop
+domain:fiverr-quality-seo-at-affordable-rates.site
+domain:geko-backlinks.site
+domain:linkseopro.shop
+domain:seolinkpro.shop
+domain:rankboss.shop
+domain:ranklinkx.shop
+domain:premiumseolinks.shop
+domain:linkrankboost.shop
+domain:pbnseolinks.shop
+domain:ranklinkerpro.shop
+domain:toplinkranker.shop
+domain:itxoft-seo-for-modern-business.site
+domain:itxoft-results-focused-seo.site
+domain:itxoft-seo-for-higher-rankings.site
+domain:authoritybacklinks.shop
+domain:rank-optimizer.website
+domain:fiverr-seo-for-business-growth.site
+domain:fiverr-seo-for-small-businesses.site
+domain:buyseobacklinks.shop
+domain:seopxl-performance-authority-engine.shop
+domain:seopxl-organic-boost-lab.shop
+domain:fiverr-affordable-seo-services.site
+domain:seodaro.com
+domain:ranksupreme.shop
+domain:itxoft-professional-seo-services.site
+domain:linkbooster.website
+domain:fiverr-cost-effective-seo.site
+domain:rankxlinks.shop
+
+# ─── Added 2026-07-07: Spam/PBN backlinks found in Semrush ───────────────
+domain:sheepnav.com
+domain:stackscope.dev
+domain:readerfi.com
+domain:lockedinai.com
+domain:thetaxcalc.online
+
+# End of disavow file
+# Total toxic domains disavowed: 34
