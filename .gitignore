@@ -94,3 +94,5 @@ server.log
 Thumbs.db
 work/
 *.pack
+download/
+work/
