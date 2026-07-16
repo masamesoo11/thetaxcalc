@@ -8,7 +8,7 @@
   "scripts": {
     "dev": "next dev -p 3000",
     "build": "next build",
-    "build:cf": "NPM_CONFIG_LEGACY_PEER_DEPS=true npx @cloudflare/next-on-pages && node scripts/patch-worker-headers.js && node scripts/fix-routes.js",
+    "build:cf": "NPM_CONFIG_LEGACY_PEER_DEPS=true npx @cloudflare/next-on-pages",
     "start": "npx serve out",
     "lint": "eslint .",
     "db:push": "prisma db push",
