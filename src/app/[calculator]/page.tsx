@@ -21,7 +21,21 @@ import { getCalculatorContent } from './_content';
 export const revalidate = 86400;
 
 export function generateStaticParams() {
-  return getCalculatorSlugs().map((slug) => ({ calculator: slug }));
+  // Only pre-generate top 10 calculators to reduce build time
+  // Other calculators will be generated on-demand (ISR)
+  const topCalculators = [
+    'paycheck-calculator',
+    'illinois-tax-calculator',
+    'texas-tax-calculator',
+    'florida-tax-calculator',
+    'california-tax-calculator',
+    'new-york-tax-calculator',
+    'mortgage-calculator',
+    '401k-retirement-calculator',
+    'capital-gains-calculator',
+    'self-employment-tax-calculator',
+  ];
+  return topCalculators.map((slug) => ({ calculator: slug }));
 }
 
 // ─── Per-Page Metadata ────────────────────────────────────────────────────────
