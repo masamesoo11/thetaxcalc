@@ -1,0 +1,26 @@
+{
+  "$schema": "https://dnsaid.org/schema/agent-index.json",
+  "version": "1.0.0",
+  "domain": "thetaxcalc.com",
+  "updated": "2026-06-20",
+  "agents": [
+    {
+      "id": "thetaxcalc-primary",
+      "name": "TheTaxCalc Tax Calculator Agent",
+      "description": "AI agent for tax calculations, paycheck analysis, and state tax comparisons.",
+      "endpoint": "https://thetaxcalc.com/.well-known/ai-plugin.json",
+      "transport": "a2a",
+      "alpn": "a2a",
+      "port": 443,
+      "capabilities": [
+        "tax-calculation",
+        "paycheck-analysis",
+        "state-tax-comparison",
+        "salary-after-tax"
+      ],
+      "documentation": "https://thetaxcalc.com/llms.txt",
+      "skills": "https://thetaxcalc.com/.well-known/agent-skills/index.json",
+      "mcp": "https://thetaxcalc.com/.well-known/mcp/server-card.json"
+    }
+  ]
+}

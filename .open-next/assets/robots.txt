@@ -1,0 +1,79 @@
+# TheTaxCalc robots.txt
+# https://thetaxcalc.com
+
+# ─── Search Engine Bots ───
+# Note: /cdn-cgi/ scripts (rocket-loader, email-decode) are ALLOWED
+# because Googlebot needs them for proper JavaScript rendering.
+# Blocking them causes "blocked internal resources" warnings in GSC and Ahrefs.
+
+User-Agent: Googlebot
+Allow: /
+Allow: /_next/static/
+Allow: /cdn-cgi/scripts/
+Disallow: /api/
+Disallow: /admin/
+
+User-Agent: Googlebot-Image
+Allow: /
+Allow: /_next/static/
+Allow: /cdn-cgi/scripts/
+Disallow: /api/
+Disallow: /admin/
+
+User-Agent: Bingbot
+Allow: /
+Allow: /_next/static/
+Allow: /cdn-cgi/scripts/
+Disallow: /api/
+Disallow: /admin/
+
+# ─── AI Training & Search Bots ───
+User-Agent: Google-Extended
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+
+User-Agent: ChatGPT-User
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+
+User-Agent: OAI-SearchBot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+
+User-Agent: GPTBot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+
+User-Agent: PerplexityBot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+
+User-Agent: Claude-Web
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+
+User-Agent: anthropic-ai
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+
+User-Agent: CCBot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+
+# ─── Default ───
+User-Agent: *
+Allow: /
+Allow: /_next/static/
+Allow: /cdn-cgi/scripts/
+Disallow: /api/
+Disallow: /admin/
+
+Sitemap: https://thetaxcalc.com/sitemap.xml

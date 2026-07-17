@@ -15,13 +15,13 @@ import { CalculatorScenarioSection } from '@/components/finance/calculator-scena
 import { getJsonLdForType } from './_jsonld';
 import { getCalculatorContent } from './_content';
 
-export const dynamic = 'force-static';
 // ISR: Revalidate every 24 hours — enables Cloudflare CDN edge caching
 // Without this, cf-cache-status = DYNAMIC → no CDN cache → Connection Timeout under crawl load
 export const revalidate = 86400;
+export const dynamic = "force-dynamic"; // temporary - reduce build memory
 
 export function generateStaticParams() {
-  return getCalculatorSlugs().map((slug) => ({ calculator: slug }));
+  return [];
 }
 
 // ─── Per-Page Metadata ────────────────────────────────────────────────────────

@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic"; // temporary - reduce build memory
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
@@ -603,7 +604,7 @@ const STUDIES: Study[] = [
 // ─── Static Params & Metadata ────────────────────────────────────────────
 
 export function generateStaticParams() {
-  return STUDIES.map((s) => ({ slug: s.slug }));
+  return [];
 }
 
 export function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {

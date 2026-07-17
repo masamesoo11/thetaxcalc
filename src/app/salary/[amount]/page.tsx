@@ -21,20 +21,12 @@ import { AuthorBioCard } from '@/components/finance/author-bio-card';
 
 // ISR: Revalidate every 24 hours — enables Cloudflare CDN edge caching
 export const revalidate = 86400;
+export const dynamic = "force-dynamic"; // temporary - reduce build memory
 
-export const dynamicParams = false;
+// export const dynamicParams = false; // temporary - allow dynamic rendering
 
 export function generateStaticParams() {
-  // Generate BOTH new SEO-friendly URLs (/salary/85000-after-taxes)
-  // and legacy URLs (/salary/85000) for backward compatibility
-  const params: { amount: string }[] = [];
-  for (const amount of SALARY_AMOUNTS) {
-    // New canonical URL pattern
-    params.push({ amount: salaryToSlug(amount) });
-    // Legacy URL pattern (still serves the page with canonical pointing to new URL)
-    params.push({ amount: String(amount) });
-  }
-  return params;
+  return [];
 }
 
 // ─── Per-Page Metadata ────────────────────────────────────────────────────────

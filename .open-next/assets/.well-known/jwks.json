@@ -1,0 +1,10 @@
+{
+  "keys": [
+    {
+      "kty": "oct",
+      "alg": "HS256",
+      "kid": "thetaxcalc-2026",
+      "use": "sig"
+    }
+  ]
+}
