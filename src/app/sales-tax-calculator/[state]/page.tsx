@@ -1,4 +1,3 @@
-export const dynamic = "force-dynamic"; // temporary - reduce build memory
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
@@ -22,10 +21,10 @@ import { AuthorBioCard } from '@/components/finance/author-bio-card';
 // (Connection Timeout, Status Code 0). CDN caching is handled by _headers.
 
 // Only serve pre-generated state pages (50 states) — return 404 for unknown slugs
-// export const dynamicParams = false; // temporary - allow dynamic rendering
+export const dynamicParams = false;
 
 export function generateStaticParams() {
-  return [];
+  return ALL_STATE_KEYS.map((state) => ({ state }));
 }
 
 // ─── Metadata ────────────────────────────────────────────────────────────────

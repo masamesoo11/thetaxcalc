@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
+import { Suspense } from 'react';
 import {
   SLUG_TO_CONFIG,
   getCalculatorSlugs,
@@ -18,10 +19,9 @@ import { getCalculatorContent } from './_content';
 // ISR: Revalidate every 24 hours — enables Cloudflare CDN edge caching
 // Without this, cf-cache-status = DYNAMIC → no CDN cache → Connection Timeout under crawl load
 export const revalidate = 86400;
-export const dynamic = "force-dynamic"; // temporary - reduce build memory
 
 export function generateStaticParams() {
-  return [];
+  return getCalculatorSlugs().map((slug) => ({ calculator: slug }));
 }
 
 // ─── Per-Page Metadata ────────────────────────────────────────────────────────
@@ -500,10 +500,12 @@ export default async function CalculatorPage({
       <CalculatorClientPage componentKey={config.componentKey} />
 
       {/* Scenario Comparison — Below calculator for paycheck-type calculators */}
-      <CalculatorScenarioSection
-        calculatorType={config.componentKey}
-        calculatorSlug={config.slug}
-      />
+      <Suspense fallback={null}>
+        <CalculatorScenarioSection
+          calculatorType={config.componentKey}
+          calculatorSlug={config.slug}
+        />
+      </Suspense>
 
       {/* Next Steps */}
       <section className="mt-8 rounded-xl border border-emerald-500/20 bg-emerald-500/5 p-6 sm:p-8">

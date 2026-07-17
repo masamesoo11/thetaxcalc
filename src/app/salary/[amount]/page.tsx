@@ -21,12 +21,11 @@ import { AuthorBioCard } from '@/components/finance/author-bio-card';
 
 // ISR: Revalidate every 24 hours — enables Cloudflare CDN edge caching
 export const revalidate = 86400;
-export const dynamic = "force-dynamic"; // temporary - reduce build memory
 
-// export const dynamicParams = false; // temporary - allow dynamic rendering
+export const dynamicParams = false;
 
 export function generateStaticParams() {
-  return [];
+  return SALARY_AMOUNTS.map((amount) => ({ amount: String(amount) }));
 }
 
 // ─── Per-Page Metadata ────────────────────────────────────────────────────────

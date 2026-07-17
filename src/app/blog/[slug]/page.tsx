@@ -1,4 +1,3 @@
-export const dynamic = "force-dynamic"; // temporary - reduce build memory
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
@@ -14,7 +13,7 @@ import { AuthorBioCard } from '@/components/finance/author-bio-card';
 // no runtime fetch needed, Worker stays small.
 
 export function generateStaticParams() {
-  return [];
+  return getPublishedSlugs().map(slug => ({ slug }));
 }
 
 // ─── Static Data Helpers ────────────────────────────────────────────────────────
