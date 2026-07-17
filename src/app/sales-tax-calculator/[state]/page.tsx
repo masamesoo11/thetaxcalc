@@ -20,11 +20,16 @@ import { AuthorBioCard } from '@/components/finance/author-bio-card';
 // routes ISR pages through the Worker, which times out under crawl load
 // (Connection Timeout, Status Code 0). CDN caching is handled by _headers.
 
-// Only serve pre-generated state pages (50 states) — return 404 for unknown slugs
-export const dynamicParams = false;
+// Allow on-demand generation for all states
+export const dynamicParams = true;
 
 export function generateStaticParams() {
-  return ALL_STATE_KEYS.map((state) => ({ state }));
+  // Only pre-generate top 10 states to reduce build time
+  const topStates = [
+    'california', 'texas', 'florida', 'new-york', 'illinois',
+    'pennsylvania', 'ohio', 'georgia', 'north-carolina', 'michigan'
+  ];
+  return topStates.map((state) => ({ state }));
 }
 
 // ─── Metadata ────────────────────────────────────────────────────────────────

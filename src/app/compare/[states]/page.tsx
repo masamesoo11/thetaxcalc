@@ -17,10 +17,12 @@ import { AuthorBioCard } from '@/components/finance/author-bio-card';
 // ISR: Revalidate every 24 hours — enables Cloudflare CDN edge caching
 export const revalidate = 86400;
 
-export const dynamicParams = false;
+export const dynamicParams = true; // Allow on-demand generation for other comparisons
 
 export function generateStaticParams() {
-  return COMPARISON_SLUGS.map((slug) => ({ states: slug }));
+  // Only pre-generate top 4 comparisons to reduce build time
+  const topComparisons = COMPARISON_SLUGS.slice(0, 4);
+  return topComparisons.map((slug) => ({ states: slug }));
 }
 
 // ─── Per-Page Metadata ────────────────────────────────────────────────────────

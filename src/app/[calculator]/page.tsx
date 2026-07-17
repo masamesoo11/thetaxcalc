@@ -19,6 +19,7 @@ import { getCalculatorContent } from './_content';
 // ISR: Revalidate every 24 hours — enables Cloudflare CDN edge caching
 // Without this, cf-cache-status = DYNAMIC → no CDN cache → Connection Timeout under crawl load
 export const revalidate = 86400;
+export const dynamicParams = true; // Allow on-demand generation
 
 export function generateStaticParams() {
   // Only pre-generate top 10 calculators to reduce build time

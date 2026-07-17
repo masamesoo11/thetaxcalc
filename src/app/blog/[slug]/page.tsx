@@ -12,8 +12,23 @@ import { AuthorBioCard } from '@/components/finance/author-bio-card';
 // This is the BEST approach for SEO: content is in the initial HTML,
 // no runtime fetch needed, Worker stays small.
 
+export const dynamicParams = true; // Allow on-demand generation
 export function generateStaticParams() {
-  return getPublishedSlugs().map(slug => ({ slug }));
+  // Only pre-generate top 10 blog posts to reduce build time
+  // Other posts will be generated on-demand (ISR)
+  const topPosts = [
+    'oasdi-tax-explained-2026',
+    'rd-tax-credit-guide-2026',
+    'amended-tax-return-guide-2026',
+    'irs-tax-refund-schedule-2026',
+    'brian-kemp-income-tax-rebates-2026',
+    'turbotax-lawsuit-guide-2026',
+    'best-tax-preparer-near-me-2026',
+    'robux-tax-calculator-guide-2026',
+    'federal-income-tax-rate-calculator-guide-2026',
+    'spreadsheet-formula-to-calculate-income-tax-2026',
+  ];
+  return topPosts.map(slug => ({ slug }));
 }
 
 // ─── Static Data Helpers ────────────────────────────────────────────────────────
