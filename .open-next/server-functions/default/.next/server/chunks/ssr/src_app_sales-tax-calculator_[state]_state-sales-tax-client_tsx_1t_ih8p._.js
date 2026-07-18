@@ -1,3 +1,0 @@
-module.exports=[86435,a=>{"use strict";var b=a.i(87924);let c=(0,a.i(19721).default)(async()=>{},{loadableGenerated:{modules:[13007]},ssr:!1,loading:()=>(0,b.jsx)("div",{className:"flex items-center justify-center py-20",children:(0,b.jsx)("div",{className:"h-8 w-8 animate-spin rounded-full border-2 border-emerald-500 border-t-transparent"})})});a.s(["StateSalesTaxClientPage",0,function({defaultState:a}){return(0,b.jsx)(c,{defaultState:a})}])}];
-
-//# sourceMappingURL=src_app_sales-tax-calculator_%5Bstate%5D_state-sales-tax-client_tsx_1t_ih8p._.js.map

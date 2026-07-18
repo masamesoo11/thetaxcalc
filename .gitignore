@@ -97,3 +97,6 @@ work/
 download/
 work/
 thetaxcalc-repo/
+.open-next/
+tool-results/
+upload/
