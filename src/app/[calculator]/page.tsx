@@ -751,7 +751,7 @@ export default async function CalculatorPage({
               <span className="text-lg">💰</span>
               <div>
                 <span className="text-sm font-medium text-foreground group-hover:text-emerald-400 transition-colors">Salary After Tax</span>
-                <p className="text-xs text-muted-foreground mt-0.5">See take-home pay for $30K–$500K across 23 states</p>
+                <p className="text-xs text-muted-foreground mt-0.5">See take-home pay for $30K–$500K across all 50 states</p>
               </div>
             </Link>
             <Link href="/compare" className="group flex items-start gap-3 rounded-lg border border-border/50 p-4 hover:border-emerald-500/30 hover:bg-emerald-500/5 transition-all">
