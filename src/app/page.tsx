@@ -1075,7 +1075,7 @@ export default function HomePage() {
                   { href: '/research', label: 'Research Hub', desc: 'Original 2026 tax studies', icon: FileText },
                   { href: '/tax-professionals', label: 'For Tax Professionals', desc: 'CPA tools & resources', icon: Shield },
                   { href: '/smartasset-alternative', label: 'SmartAsset Alternative', desc: 'Compare features & privacy', icon: Calculator },
-                  { href: '/scholarship', label: 'Tax Literacy Scholarship', desc: '$1,000 student award', icon: Gift },
+                  { href: '/scholarship', label: 'Tax Literacy Scholarship', desc: '$2,500 student award', icon: Gift },
                   { href: '/methodology', label: 'Methodology', desc: 'How we calculate taxes', icon: BookOpen },
                 ].map((res) => {
                   const ResIcon = res.icon;
