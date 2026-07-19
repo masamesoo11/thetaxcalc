@@ -502,7 +502,7 @@ export const BLOG_INDEX: BlogPostMeta[] = [
     "category": "tax-guide",
     "tags": "paycheck calculator 2026,take home pay calculator,net pay,FICA 2026,federal tax brackets 2026,state income tax,w-4 withholding,self-employment tax,OBBBA 2026,social security wage base 2026,how to calculate take home pay,payroll deductions,401k contributions,bonus tax rate,overtime tax",
     "coverImage": "",
-    "published": false,
+    "published": true,
     "featured": true,
     "metaTitle": "2026 Paycheck Tax Calculator: Take-Home Pay Guide",
     "metaDesc": "Calculate your 2026 take-home pay. Guide to federal brackets, FICA, state taxes, and payroll deductions with examples.",
