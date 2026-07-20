@@ -1,23 +1,74 @@
-# Disavow file for thetaxcalc.com
-# Created: 2026-07-19
-# Purpose: Disavow toxic spam backlinks from PBN and Fiverr scam sites
+# Google Disavow File for thetaxcalc.com
+# Created: 2026-06-20
+# Updated: 2026-07-19 (merged all spam networks from Semrush + SEOExpress)
+# Reason: Negative SEO attack - unsolicited spam/PBN backlinks
 
-# ─── Fiverr scam/PBN sites ─────────────────────────────────────
-domain:fiverr-affordable-seo-services.site
-domain:fiverr-cost-effective-seo.site
+# SEOExpress Spam Network (.store TLD)
+domain:brilliant-edu-link-firm-outrank-hq.store
+domain:trusted-seoexpress-backlink-experts.store
+domain:master-seoexpress-guest-post-partners.store
+domain:expert-search-seoexpress-team.store
+domain:anchor-text-link-juice-and-high-da-depot.store
+domain:ctr-agency-rank-forge.store
+domain:certified-seoexpress-organic-services.store
+domain:seoexpress-content-experts.store
+domain:seoexpress-website-experts.store
+domain:seoexpress-keyword-network.store
+
+# SEO Spam Shops (.shop TLD) - NEW
+domain:seoloot.shop
+domain:seohighranking.shop
+domain:seoprime.shop
+domain:rankinghighseo.shop
+domain:rankfinds.shop
+domain:rankingseohigh.shop
+
+# SEOExpress main domain
+domain:seoexpress.org
+
+# OLD: PBN / Link Network Shops (.shop TLD)
+domain:linkrankpro.shop
+domain:linkseopro.shop
+domain:seolinkpro.shop
+domain:rankboss.shop
+domain:ranklinkx.shop
+domain:premiumseolinks.shop
+domain:linkrankboost.shop
+domain:pbnseolinks.shop
+domain:ranklinkerpro.shop
+domain:toplinkranker.shop
+domain:authoritybacklinks.shop
+domain:buyseobacklinks.shop
+domain:seopxl-performance-authority-engine.shop
+domain:seopxl-organic-boost-lab.shop
+domain:seopxl-ranking-boost-lab.shop
+domain:seopxl-traffic-growth-lab.shop
+domain:ranksupreme.shop
+domain:rankxlinks.shop
+domain:seo-website-ranking-top-10-usa.shop
+domain:seo-growth-optimization-hub.shop
+domain:seo-growth-authority-boost-hub.shop
+
+# SEO Service Promotion Sites (.site TLD)
 domain:fiverr-quality-seo-at-affordable-rates.site
 domain:fiverr-seo-for-business-growth.site
 domain:fiverr-seo-for-small-businesses.site
+domain:fiverr-affordable-seo-services.site
+domain:fiverr-cost-effective-seo.site
+domain:geko-backlinks.site
+domain:itxoft-seo-for-modern-business.site
+domain:itxoft-results-focused-seo.site
+domain:itxoft-seo-for-higher-rankings.site
+domain:itxoft-professional-seo-services.site
 
-# ─── SEO spam/PBN shops ────────────────────────────────────────
-domain:seo-growth-authority-boost-hub.shop
-domain:seo-growth-optimization-hub.shop
-domain:seo-website-ranking-top-10-usa.shop
-domain:seopxl-organic-boost-lab.shop
-domain:seopxl-performance-authority-engine.shop
-domain:seopxl-ranking-boost-lab.shop
-domain:seopxl-traffic-growth-lab.shop
+# Spam SEO Promotion Sites (.website TLD)
+domain:rank-optimizer.website
+domain:linkbooster.website
 
-# ─── Low-quality directory/list sites ──────────────────────────
+# Spam List / Article Sites
 domain:8coint.com
+domain:seodaro.com
 domain:toplikevideo.com
+
+# Copycat / Impersonation Domain
+domain:thetaxcalc.online
