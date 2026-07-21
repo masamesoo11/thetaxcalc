@@ -28,7 +28,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     description:
       'Free paycheck tax calculator for 2026. Calculate take-home pay after federal, FICA & state taxes. No sign-up required. Supports IL, TX, FL, CA, NY with 401(k) and HSA deductions.',
     h1: 'Free Paycheck Calculator',
-    metaTitle: 'Free Paycheck Calculator 2026 | After-Tax Take-Home Pay',
+    metaTitle: 'Free Paycheck Calculator 2026 — Instant Results',
     metaDesc:
       'Free paycheck tax calculator for 2026. Calculate take-home pay after federal, FICA & state taxes. No sign-up. Covers IL, TX, FL, CA, NY.',
     keywords: [
@@ -54,9 +54,9 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     description:
       'Free Illinois tax calculator for 2026. Calculate take-home pay after 4.95% flat state tax, $2,775 personal exemption, federal tax & FICA. No sign-up.',
     h1: 'Free Illinois Tax Calculator',
-    metaTitle: 'Illinois Tax Calculator 2026: $75K = $57,880 Take-Home',
+    metaTitle: 'Illinois Tax Calculator 2026 — Free, Instant Take-Home Pay',
     metaDesc:
-      'IL flat 4.95% income tax. On $75K, take home ~$57,880. Calculate your exact Illinois after-tax pay. Free 2026 calculator, no sign-up.',
+      'Enter your salary and instantly see your Illinois take-home pay. Flat 4.95% tax, exact numbers for 2026. Free, no signup — try it now!',
     keywords: [
       'free Illinois tax calculator', 'Illinois tax calculator', 'IL paycheck calculator',
       'Illinois income tax', 'Illinois 4.95% tax', 'Illinois take home pay',
@@ -78,7 +78,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     description:
       'Free Texas tax calculator for 2026. Calculate take-home pay with 0% state income tax. Includes federal tax, FICA, property tax analysis & cost-of-living. No sign-up.',
     h1: 'Free Texas Tax Calculator — No Income Tax in TX',
-    metaTitle: 'Texas Tax Calculator 2026: No Income Tax, $75K Take-Home',
+    metaTitle: 'Texas Tax Calculator 2026 — 0% State Tax, Instant Results',
     metaDesc:
       'Texas has 0% state income tax. On $75K, keep $61,592. Calculate your exact TX take-home pay. Free 2026 calculator, no sign-up.',
     keywords: [
@@ -102,9 +102,9 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     description:
       'Free Florida tax calculator for 2026. Calculate take-home pay with 0% state income tax. Includes homestead exemption, property tax & cost-of-living. No sign-up.',
     h1: 'Free Florida Tax Calculator',
-    metaTitle: 'Florida Tax Calculator 2026: $75K = $61,592 Take-Home',
+    metaTitle: 'Florida Tax Calculator 2026 — Free, 0% State Tax',
     metaDesc:
-      'Florida has 0% state income tax. On $75K salary, you keep $61,592 after federal & FICA. Calculate your exact FL take-home pay. Free 2026 calculator, no sign-up.',
+      'Florida has 0% income tax! Enter your salary and instantly see your full take-home pay. Free 2026 Florida tax calculator — no signup required.',
     keywords: [
       'free Florida tax calculator', 'Florida tax calculator', 'FL paycheck calculator',
       'Florida no income tax', 'Florida take home pay', 'Florida salary calculator',
@@ -126,9 +126,9 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     description:
       'Free California tax calculator for 2026. Calculate take-home pay after progressive state tax (1%–13.3%), federal tax & FICA. No sign-up. 401(k) and HSA deductions.',
     h1: 'Free California Tax Calculator — Tax Amount in CA',
-    metaTitle: 'California Tax Calculator 2026: $75K = $54,849 Take-Home',
+    metaTitle: 'California Tax Calculator 2026 — Free, Instant Take-Home Pay',
     metaDesc:
-      'CA charges up to 13.3% state tax. On $75K salary, you take home ~$54,849. Calculate your exact California take-home pay after state, federal & FICA tax. Free 2026 calculator, no sign-up.',
+      'CA charges up to 13.3% state tax. Enter your salary and instantly see your exact CA take-home pay. Free 2026 calculator, no signup.',
     keywords: [
       'free California tax calculator', 'California tax calculator', 'CA paycheck calculator',
       'California income tax', 'California 13.3% tax', 'California take home pay',
@@ -150,9 +150,9 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     description:
       'Free New York tax calculator for 2026. Calculate take-home pay after progressive state tax (4%–10.9%), NYC tax, federal tax & FICA. No sign-up.',
     h1: 'Free New York Tax Calculator — NYC Tax Rates',
-    metaTitle: 'New York Tax Calculator 2026: $75K = $55,413 Take-Home',
+    metaTitle: 'New York Tax Calculator 2026 — Free, Instant NYC Tax Results',
     metaDesc:
-      'NY charges up to 10.9% + NYC tax. On $75K salary, you take home ~$55,413. Calculate your exact NY take-home pay after state, federal & FICA tax. Free 2026 calculator, no sign-up.',
+      'NY charges up to 10.9% + NYC tax. Enter your salary and instantly see your exact NY take-home pay. Free 2026 calculator, no signup.',
     keywords: [
       'free New York tax calculator', 'free tax calculator new york', 'free tax calculator nyc',
       'NY paycheck calculator', 'New York income tax', 'NYC tax calculator',
@@ -294,9 +294,9 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     description:
       'Free sales tax calculator for 2026. Calculate sales tax for any US state with combined rates. Includes reverse sales tax calculator. No sign-up required.',
     h1: 'Free Sales Tax Calculator — All 50 States & Reverse',
-    metaTitle: 'Free Sales Tax Calculator 2026 — All 50 States + Reverse Tax',
+    metaTitle: 'Free Sales Tax Calculator 2026 — Instant Results, No Signup',
     metaDesc:
-      'Free 2026 sales tax calculator for all 50 US states. Calculate combined state + local sales tax, reverse tax from total, car sales tax & IRS deductions. No sign-up.',
+      'Instant 2026 sales tax calculator for all 50 states. Enter your amount, get exact state + local tax in seconds. Free, no signup. Try it now!',
     keywords: [
       'free sales tax calculator', 'sales tax calculator', 'reverse sales tax calculator',
       'sales tax by state', 'calculate sales tax', 'sales tax rate',
@@ -395,7 +395,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     h1: 'Free Lottery Tax Calculator — Powerball & Mega Millions',
     metaTitle: 'Free Lottery Tax Calculator 2026 — Powerball Payout',
     metaDesc:
-      'Free lottery calculator and lottery tax calculator. See your actual Powerball & Mega Millions payout after 24% federal + state taxes on taxable income. Jackpot amounts, tax return impact, federal and state taxes, financial advisors guidance.',
+      'Instant lottery tax calculator. See your actual Powerball & Mega Millions payout after federal + state tax. Free, no signup — try it now!',
     keywords: [
       'lottery calculator', 'lottery tax calculator', 'lottery winnings tax',
       'lottery tax rate', 'after tax lottery winnings', 'powerball tax calculator',
@@ -444,7 +444,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     h1: 'Free Property Tax Calculator',
     metaTitle: 'Free Property Tax Calculator 2026 — Cost by State',
     metaDesc:
-      '$500K home in AZ = ~$6,750/year property tax. Same home in NJ = ~$14,250. Calculate your annual property tax by state & home value. Free 2026 calculator, all 50 states.',
+      'Enter your home value and instantly see your property tax for any state. Free 2026 property tax calculator — no signup required.',
     keywords: [
       'free property tax calculator', 'property tax calculator', 'property tax by state',
       'home property tax calculator', 'property tax rate', 'property tax estimator',
