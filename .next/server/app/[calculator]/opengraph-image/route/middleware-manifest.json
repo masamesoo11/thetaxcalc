@@ -1,0 +1,42 @@
+{
+  "sorted_middleware": [
+    "/[calculator]/opengraph-image/route"
+  ],
+  "middleware": {},
+  "instrumentation": null,
+  "functions": {
+    "/[calculator]/opengraph-image/route": {
+      "files": [
+        "server/middleware-build-manifest.js",
+        "server/interception-route-rewrite-manifest.js",
+        "required-server-files.js",
+        "server/server-reference-manifest.js",
+        "server/app/[calculator]/opengraph-image/route_client-reference-manifest.js",
+        "server/edge/chunks/_next-internal_server_app_[calculator]_opengraph-image_route_actions_0c6wqr7.js",
+        "server/edge/chunks/[root-of-the-server]__1dsapnu._.js",
+        "server/edge/chunks/node_modules_next_dist_02n0dof._.js",
+        "server/edge/chunks/src_lib_calculator-routes_ts_0ybvzak._.js",
+        "server/edge/chunks/node_modules_next_dist_1c6he51._.js",
+        "server/edge/chunks/turbopack-node_modules_next_dist_esm_build_templates_edge-wrapper_04x3tpy.js"
+      ],
+      "name": "app/[calculator]/opengraph-image/route",
+      "page": "/[calculator]/opengraph-image/route",
+      "entrypoint": "server/edge/chunks/turbopack-node_modules_next_dist_esm_build_templates_edge-wrapper_04x3tpy.js",
+      "matchers": [
+        {
+          "regexp": "^/(?P<nxtPcalculator>[^/]+?)/opengraph-image(?:/)?$",
+          "originalSource": "/[calculator]/opengraph-image"
+        }
+      ],
+      "wasm": [],
+      "assets": [],
+      "env": {
+        "__NEXT_BUILD_ID": "uqXxnTncIeSVGGMzGY-E4",
+        "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "ehWJTHRQzQVbwooigIkHzBrTJ/WWHS4mgtjYHidruMQ=",
+        "__NEXT_PREVIEW_MODE_ID": "946dc7dd11fa31bd74d59c47c8453bf5",
+        "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "a787893aa312bc533d77e1bf1340a4571c304e88caba8e33723153f9c0653e27",
+        "__NEXT_PREVIEW_MODE_SIGNING_KEY": "9a769327a992218002db612ce6edc8abf70ada78e12f0d70ba08bbf252e1e07c"
+      }
+    }
+  }
+}
