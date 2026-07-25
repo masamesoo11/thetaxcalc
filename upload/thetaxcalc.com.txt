@@ -1,0 +1,43 @@
+;;
+;; Domain:     thetaxcalc.com.
+;; Exported:   2026-07-25 14:34:08
+;;
+;; This file is intended for use for informational and archival
+;; purposes ONLY and MUST be edited before use on a production
+;; DNS server.  In particular, you must:
+;;   -- update the SOA record with the correct authoritative name server
+;;   -- update the SOA record with the contact e-mail address information
+;;   -- update the NS record(s) with the authoritative name servers for this domain.
+;;
+;; For further information, please consult the BIND documentation
+;; located on the following website:
+;;
+;; http://www.isc.org/
+;;
+;; And RFC 1035:
+;;
+;; http://www.ietf.org/rfc/rfc1035.txt
+;;
+;; Please note that we do NOT offer technical support for any use
+;; of this zone data, the BIND name server, or any other third-party
+;; DNS software.
+;;
+;; Use at your own risk.
+;; SOA Record
+thetaxcalc.com	3600	IN	SOA	bonnie.ns.cloudflare.com. dns.cloudflare.com. 2053665664 10000 2400 604800 3600
+
+;; NS Records
+thetaxcalc.com.	86400	IN	NS	bonnie.ns.cloudflare.com.
+thetaxcalc.com.	86400	IN	NS	dane.ns.cloudflare.com.
+
+;; CNAME Records
+thetaxcalc.com.	1	IN	CNAME	spontaneous-cascaron-6a8fd1.netlify.app. ; cf_tags=cf-proxied:false
+www.thetaxcalc.com.	1	IN	CNAME	spontaneous-cascaron-6a8fd1.netlify.app. ; cf_tags=cf-proxied:false
+
+;; SVCB Records
+_a2a._agents.thetaxcalc.com.	1	IN	SVCB	1 thetaxcalc.com. alpn="a2a" port="443" mandatory="alpn,port"
+_index._agents.thetaxcalc.com.	1	IN	SVCB	1 thetaxcalc.com. alpn="a2a" port="443" mandatory="alpn,port"
+_mcp._agents.thetaxcalc.com.	1	IN	SVCB	1 thetaxcalc.com. alpn="a2a" port="443" mandatory="alpn,port"
+
+;; TXT Records
+thetaxcalc.com.	1	IN	TXT	"google-site-verification=IjY8E0IXEao7ZZLUmPpUPruH_vyEnsP1jWCdOsvxVSs"
