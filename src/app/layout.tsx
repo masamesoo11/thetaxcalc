@@ -233,13 +233,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground`}
       >
-        {/* Skip to content link — accessibility (WCAG 2.1 SC 2.4.1) */}
-        <a
-          href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:rounded-lg focus:bg-emerald-600 focus:px-4 focus:py-2 focus:text-white focus:shadow-lg"
-        >
-          Skip to main content
-        </a>
+        {/* Skip to content link — handled by SiteShell component to avoid duplicates */}
 
         {/* Google Tag Manager (noscript) */}
         {process.env.NEXT_PUBLIC_GTM_ID && (
