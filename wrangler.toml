@@ -8,7 +8,12 @@ compatibility_flags = ["nodejs_compat"]
 # point at the CONVERTED directory, not the raw OpenNext output.
 pages_build_output_dir = "pages-deploy"
 
-[[kv_namespaces]]
-binding = "BLOG_KV"
-id = "b188ee44437c4909b366b47e7a6a4eee"
-preview_id = "55826597bd5c42fd9501ebec421a9d10"
+# BLOG_KV binding temporarily REMOVED (2026-10-20): the CI deploy stage fails
+# when it tries to bind the KV namespace. Current production runs WITHOUT the
+# binding (blog pages serve built-in fallback content), so this matches live
+# behavior. To re-enable: create an API token with KV:Edit (or add the binding
+# from the dashboard), verify these namespace IDs exist, then restore:
+# [[kv_namespaces]]
+# binding = "BLOG_KV"
+# id = "b188ee44437c4909b366b47e7a6a4eee"
+# preview_id = "55826597bd5c42fd9501ebec421a9d10"
