@@ -1,7 +1,12 @@
 name = "thetaxcalc"
 compatibility_date = "2026-05-28"
 compatibility_flags = ["nodejs_compat"]
-pages_build_output_dir = ".open-next"
+# NOTE: @opennextjs/cloudflare outputs Workers format to .open-next/, which
+# Pages cannot deploy (static-only, no worker). scripts/build-pages-deploy.mjs
+# converts it into Pages format (pages-deploy/ with _worker.js/). The build
+# command in the Cloudflare Pages dashboard runs both steps, so this must
+# point at the CONVERTED directory, not the raw OpenNext output.
+pages_build_output_dir = "pages-deploy"
 
 [[kv_namespaces]]
 binding = "BLOG_KV"
