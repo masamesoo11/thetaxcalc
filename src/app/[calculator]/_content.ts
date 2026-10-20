@@ -39,6 +39,11 @@ import {
   FAQItem,
 } from '@/lib/faq-data';
 import { generateStateContent } from '@/lib/state-tax-data';
+import {
+  getStateContentEntry,
+  buildStateCalculationMethod,
+  buildStateRelatedCalculators,
+} from '@/lib/state-content-unique';
 
 // ─── Calculator Content Data (Server-Rendered for SEO) ─────────────────────────
 
@@ -1391,7 +1396,20 @@ export function getCalculatorContent(type: string): CalculatorContent {
         ],
       };
     default:
-      // Try to generate unique content from state tax data
+      // 1st priority: hand-written unique content per state — the primary fix
+      // for the duplicate-content problem (89–95% template similarity was
+      // blocking Google indexing of these 27 state pages).
+      const stateEntry = getStateContentEntry(type);
+      if (stateEntry) {
+        return {
+          howItWorks: stateEntry.howItWorks,
+          calculationMethod: buildStateCalculationMethod(stateEntry),
+          keyRates: stateEntry.keyRates,
+          faqs: stateEntry.faqs,
+          relatedCalculators: buildStateRelatedCalculators(stateEntry),
+        };
+      }
+      // 2nd priority: template-generated content from state tax data
       const stateContent = generateStateContent(type);
       if (stateContent) {
         return stateContent;

@@ -43,6 +43,7 @@ import {
 import { SITE_URL } from '@/lib/site-config';
 import { getAuthorForCalculator, authorToJsonLd } from '@/lib/authors';
 import { STATE_TAX_DATA } from '@/lib/state-tax-data';
+import { getStateContentEntry } from '@/lib/state-content-unique';
 
 // ─── JSON-LD FAQ Helper ─────────────────────────────────────────────────────────
 
@@ -843,6 +844,10 @@ function getGenericStateJsonLd(stateKey: string) {
   const stateData = STATE_TAX_DATA[stateKey];
   const author = getAuthorForCalculator('home');
   const authorId = `${SITE_URL}#author`;
+  // Prefer hand-written state-specific FAQs when available — keeps the FAQ
+  // schema in sync with the visible on-page FAQ content.
+  const stateEntry = getStateContentEntry(stateKey);
+  const stateFaqs = stateEntry ? stateEntry.faqs : GENERIC_STATE_FAQS;
 
   // Fallback if stateKey not found in STATE_TAX_DATA
   if (!stateData) {
@@ -892,7 +897,7 @@ function getGenericStateJsonLd(stateKey: string) {
       {
         '@id': `${baseId}#faq`,
         '@type': 'FAQPage',
-        mainEntity: GENERIC_STATE_FAQS.map((faq) => ({
+        mainEntity: stateFaqs.map((faq) => ({
           '@type': 'Question',
           name: faq.question,
           acceptedAnswer: {
