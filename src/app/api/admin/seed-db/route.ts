@@ -1,6 +1,5 @@
 import { NextResponse } from 'next/server';
 import { getPublishedPostsMeta } from '@/lib/blog-index';
-export const runtime = 'edge';
 import { BLOG_CONTENT } from '@/lib/blog-content';
 
 

@@ -13,7 +13,6 @@ import { NextRequest, NextResponse } from 'next/server';
 import { SITE_URL } from '@/lib/site-config';
 import { verifySessionToken, getCookieName } from '@/lib/auth';
 
-export const runtime = 'edge';
 
 const SITEMAP_URL = `${SITE_URL}/sitemap.xml`;
 

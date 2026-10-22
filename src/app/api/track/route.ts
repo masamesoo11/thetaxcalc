@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { checkRateLimit, getClientIP } from '@/lib/rate-limit';
-export const runtime = 'edge';
 
 
 

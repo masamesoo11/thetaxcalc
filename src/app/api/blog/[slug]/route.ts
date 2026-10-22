@@ -2,7 +2,6 @@ import { NextRequest, NextResponse } from 'next/server';
 import { getPostMeta, type BlogPost, type BlogPostMeta } from '@/lib/blog-index';
 import { BLOG_CONTENT } from '@/lib/blog-content';
 
-export const runtime = 'edge';
 
 /** Convert BlogPostMeta to BlogPost with embedded content */
 function metaToPostWithContent(meta: BlogPostMeta): BlogPost {

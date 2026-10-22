@@ -17,7 +17,6 @@ import {
 import { SITE_URL } from '@/lib/site-config';
 import { verifySessionToken, getCookieName } from '@/lib/auth';
 
-export const runtime = 'edge';
 
 // ─── POST Handler ───────────────────────────────────────────────────────────
 

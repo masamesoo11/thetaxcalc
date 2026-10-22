@@ -1,7 +1,6 @@
 import { NextResponse } from 'next/server';
 
 // Route segment config
-export const runtime = 'edge';
 
 // Image metadata
 export const alt = 'TheTaxCalc — Free 2026 Paycheck & Mortgage Calculator';

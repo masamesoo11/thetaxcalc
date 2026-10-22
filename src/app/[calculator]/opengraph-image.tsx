@@ -2,7 +2,6 @@ import { NextResponse } from 'next/server';
 import { SLUG_TO_CONFIG } from '@/lib/calculator-routes';
 
 // Route segment config
-export const runtime = 'edge';
 
 // Image metadata
 export const alt = 'TheTaxCalc Calculator';
