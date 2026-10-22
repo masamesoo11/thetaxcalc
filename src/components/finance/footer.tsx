@@ -436,7 +436,7 @@ export function Footer() {
               © {new Date().getFullYear()} TheTaxCalc.com — Free 2026 paycheck & mortgage calculators.
               All calculations are estimates for informational purposes only.
             </p>
-            <div className="flex items-center gap-4 text-xs text-muted-foreground">
+            <div className="flex flex-wrap items-center justify-center gap-4 gap-y-2 text-xs text-muted-foreground">
               <Link href="/privacy" className="underline underline-offset-2 decoration-border/50 hover:text-emerald-400 hover:decoration-emerald-400 transition-colors">
                 Privacy Policy
               </Link>

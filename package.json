@@ -7,8 +7,9 @@
   },
   "scripts": {
     "dev": "next dev -p 3000",
+    "prebuild": "node scripts/generate-syndication-content.mjs",
     "build": "next build",
-    "build:cf": "npx opennextjs-cloudflare build",
+    "build:cf": "node scripts/generate-syndication-content.mjs && npx opennextjs-cloudflare build",
     "start": "npx serve out",
     "lint": "eslint .",
     "db:push": "prisma db push",

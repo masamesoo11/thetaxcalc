@@ -80,8 +80,35 @@ export function AdminGate({ children }: { children: React.ReactNode }) {
     }
   };
 
+  const handleLogout = () => {
+    setUnlocked(false);
+    try {
+      sessionStorage.removeItem(SESSION_KEY);
+    } catch {
+      // sessionStorage not available
+    }
+    // Invalidate the server-side JWT cookie as well (fire-and-forget)
+    fetch('/api/auth/logout', { method: 'POST' }).catch(() => {});
+  };
+
   if (isAuthenticated) {
-    return <>{children}</>;
+    return (
+      <div className="relative">
+        {/* Logout button */}
+        <div className="absolute -top-2 right-0 z-10">
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={handleLogout}
+            className="text-xs text-muted-foreground hover:text-red-400 gap-1.5"
+          >
+            <Lock className="h-3 w-3" />
+            Logout
+          </Button>
+        </div>
+        {children}
+      </div>
+    );
   }
 
   return (

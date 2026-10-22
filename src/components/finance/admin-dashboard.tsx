@@ -16,6 +16,7 @@ import {
   BarChart3,
   Database,
   Loader2,
+  Share2,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -34,6 +35,7 @@ const AdminAds = lazy(() => import('@/components/finance/admin-ads').then(m => (
 const AdminLinks = lazy(() => import('@/components/finance/admin-links').then(m => ({ default: m.AdminLinks })));
 const BlogEditor = lazy(() => import('@/components/finance/blog-editor').then(m => ({ default: m.BlogEditor })));
 const DatabaseClient = lazy(() => import('@/components/finance/database-client').then(m => ({ default: m.DatabaseClient })));
+const SyndicationPanel = lazy(() => import('@/components/finance/syndication-panel').then(m => ({ default: m.SyndicationPanel })));
 
 // Direct import for AdminSettings — must NOT use lazy/dynamic to ensure
 // React event handlers work correctly for controlled inputs
@@ -76,6 +78,7 @@ interface AdminStats {
 const NAV_ITEMS = [
   { key: 'overview', label: 'Overview', icon: LayoutDashboard },
   { key: 'blog', label: 'Blog Posts', icon: FileText },
+  { key: 'syndication', label: 'Syndication', icon: Share2 },
   { key: 'ads', label: 'Ad Management', icon: Megaphone },
   { key: 'database', label: 'Database', icon: Database },
   { key: 'settings', label: 'Settings', icon: Settings },
@@ -125,6 +128,9 @@ export function AdminDashboard() {
     }
     if (parts[0] === 'admin' && parts[1] === 'blog' && parts[2] === 'new') {
       return { section: 'blog', sub: 'new', slug: '' };
+    }
+    if (parts[0] === 'admin' && parts[1] === 'syndication') {
+      return { section: 'syndication', sub: '', slug: '' };
     }
     if (parts[0] === 'admin' && parts[1] === 'blog' && parts[2] === 'edit' && parts[3]) {
       return { section: 'blog', sub: 'edit', slug: parts[3] };
@@ -239,6 +245,7 @@ export function AdminDashboard() {
               {adminSection.section === 'blog' && adminSection.sub === 'list' && 'Blog Management'}
               {adminSection.section === 'ads' && 'Ad Management'}
               {adminSection.section === 'database' && 'Database Setup'}
+              {adminSection.section === 'syndication' && 'Syndication — dev.to & Medium'}
               {adminSection.section === 'settings' && 'Site Settings'}
               {adminSection.section === 'links' && 'External Links'}
               {adminSection.section === 'overview' && 'Dashboard Overview'}
@@ -269,6 +276,11 @@ export function AdminDashboard() {
           {adminSection.section === 'database' && (
             <Suspense fallback={<SectionLoader />}>
               <DatabaseClient />
+            </Suspense>
+          )}
+          {adminSection.section === 'syndication' && (
+            <Suspense fallback={<SectionLoader />}>
+              <SyndicationPanel />
             </Suspense>
           )}
           {adminSection.section === 'settings' && <AdminSettings />}

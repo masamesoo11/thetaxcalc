@@ -13,6 +13,7 @@ export function ProductHuntBanner() {
     // Only show if not previously dismissed
     const wasDismissed = localStorage.getItem(STORAGE_KEY);
     if (!wasDismissed) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- deliberate mount-time reveal: the banner must stay hidden during SSR/hydration (dismissed starts true) and can only be shown after mount, reading localStorage
       setDismissed(false);
     }
   }, []);
