@@ -1,3 +1,0 @@
-module.exports=[87487,a=>{"use strict";var b=a.i(87924),c=a.i(72131);a.s(["default",0,function(){return(0,c.useEffect)(()=>{window.location.href="/admin#admin/settings"},[]),(0,b.jsx)("div",{className:"flex items-center justify-center min-h-[70vh]",children:(0,b.jsxs)("div",{className:"text-center",children:[(0,b.jsx)("div",{className:"animate-spin h-8 w-8 border-2 border-emerald-500 border-t-transparent rounded-full mx-auto mb-4"}),(0,b.jsx)("p",{className:"text-muted-foreground",children:"Redirecting to Admin Settings..."})]})})}])}];
-
-//# sourceMappingURL=src_app_admin_settings_page_tsx_1dsazas._.js.map
