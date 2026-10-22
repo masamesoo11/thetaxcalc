@@ -8,11 +8,15 @@ compatibility_flags = ["nodejs_compat"]
 # point at the CONVERTED directory, not the raw OpenNext output.
 pages_build_output_dir = "pages-deploy"
 
-# BLOG_KV binding temporarily REMOVED (2026-10-20): the CI deploy stage fails
-# when it tries to bind the KV namespace. Current production runs WITHOUT the
-# binding (blog pages serve built-in fallback content), so this matches live
-# behavior. To re-enable: create an API token with KV:Edit (or add the binding
-# from the dashboard), verify these namespace IDs exist, then restore:
+# BLOG_KV: NOT NEEDED by the current architecture (verified audit):
+# - OpenNext caches are dummy (incrementalCache/tagCache dummy) - no KV ISR
+# - Blog reads come from bundled JSON content (content/blog/*.json)
+# - Blog writes are disabled by design: POST /api/blog returns 501 (static mode)
+# - src/lib/kv-blog.ts (the only BLOG_KV consumer) was dead code from the
+#   @cloudflare/next-on-pages era and has been removed.
+# CONSCIOUSLY DEFERRED, not pending on a token. If a future feature needs KV,
+# create an API token with KV:Edit (or bind from the dashboard), verify these
+# namespace IDs still exist, then restore:
 # [[kv_namespaces]]
 # binding = "BLOG_KV"
 # id = "b188ee44437c4909b366b47e7a6a4eee"

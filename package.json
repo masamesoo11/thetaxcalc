@@ -15,7 +15,7 @@
     "db:generate": "prisma generate",
     "db:migrate": "prisma migrate dev",
     "db:reset": "prisma migrate reset",
-    "pages:deploy": "npx wrangler pages deploy out",
+    "pages:deploy": "npx wrangler pages deploy pages-deploy",
     "seed:blog": "bun run scripts/seed-blog-db.ts"
   },
   "dependencies": {
