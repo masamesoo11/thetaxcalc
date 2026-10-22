@@ -10,11 +10,11 @@
  *    (stateless — dev.to's own canonical_url fields are the source of truth).
  * 3. Publish: per-post or bulk, with a dry-run Preview that shows the EXACT
  *    markdown that would go out (canonical + credit footer included).
- * 4. Automate: step-by-step instructions for the Cloudflare Pages deploy hook
- *    that publishes new posts automatically after every deploy.
+ * 4. Automate: a scheduled GitHub Actions workflow in the site repository
+ *    POSTs /api/syndicate daily (max 5 newest per run — deliberate drip).
  */
 
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useMutation } from '@tanstack/react-query';
 import {
   Send,
@@ -158,9 +158,10 @@ export function SyndicationPanel() {
   // Scan state
   const [diff, setDiff] = useState<DiffResponse | null>(null);
 
-  // Local posts list (pre-scan): always available from the public blog API,
-  // so Preview (dry-run) works WITHOUT a dev.to key
-  const [localPosts, setLocalPosts] = useState<LocalPostRow[]>([]);
+  // Local posts list (pre-scan): DERIVED from rawPosts + pipeline status —
+  // computed via useMemo, not mirrored into state
+  // (raw rows themselves come from the public /api/blog, so Preview — dry-run —
+  // works WITHOUT a dev.to key)
   // Raw rows from /api/blog — content truth arrives separately (contentSlugs)
   const [rawPosts, setRawPosts] = useState<{ slug: string; title: string; category: string }[]>([]);
 
@@ -204,16 +205,14 @@ export function SyndicationPanel() {
   // (the two fetches resolve in any order). hasContent truth = the syndication
   // route's contentSlugs — /api/blog serves empty content in production (SSG
   // architecture) and must never be trusted for this flag.
-  useEffect(() => {
-    setLocalPosts(
+  const localPosts: LocalPostRow[] = useMemo(
+    () =>
       rawPosts.map((p) => ({
         ...p,
-        hasContent: pipeline?.contentSlugs
-          ? pipeline.contentSlugs.includes(p.slug)
-          : false,
-      }))
-    );
-  }, [rawPosts, pipeline]);
+        hasContent: pipeline?.contentSlugs ? pipeline.contentSlugs.includes(p.slug) : false,
+      })),
+    [rawPosts, pipeline]
+  );
 
   const saveMediumRecord = useCallback((slug: string, record: MediumRecord) => {
     setMediumRecords((prev) => {
@@ -536,7 +535,7 @@ export function SyndicationPanel() {
         </CardContent>
       </Card>
 
-      {/* ── Automation setup (deploy hook) ────────────────────────────── */}
+      {/* ── Automation setup (GitHub Actions daily drip) ──────────────── */}
       <Card className="border-border/50">
         <CardHeader className="pb-3">
           <Collapsible defaultOpen={false}>
@@ -544,37 +543,38 @@ export function SyndicationPanel() {
               <button className="flex items-center justify-between w-full text-left">
                 <CardTitle className="flex items-center gap-2 text-base">
                   <ServerCog className="h-4 w-4 text-emerald-500" />
-                  Automatic syndication after each deploy
+                  Automatic syndication — daily drip (GitHub Actions)
                 </CardTitle>
                 <span className="text-xs text-muted-foreground">Open setup guide ↓</span>
               </button>
             </CollapsibleTrigger>
             <CollapsibleContent className="mt-3 space-y-3">
               <div className="text-xs text-muted-foreground leading-relaxed">
-                Blog posts arrive via code deploys, so the pipeline hooks into the deploy itself.
-                Set this up once:
+                A scheduled workflow in the site repository (already committed:
+                <code className="rounded bg-muted px-1">.github/workflows/devto-syndicate.yml</code>)
+                POSTs to this pipeline daily at 09:00 Tripoli time, and can also be run manually
+                from the Actions tab on GitHub. One-time setup:
               </div>
               <ol className="list-decimal list-inside space-y-3 text-xs">
                 <li className="leading-relaxed">
                   <strong>Environment variables</strong> — Cloudflare Pages → thetaxcalc → Settings →
                   Environment variables → add for <strong>Production</strong>:
                   <pre className="mt-1.5 p-2 rounded-md bg-muted/70 overflow-x-auto">
-{`DEVTO_API_KEY     your dev.to API key
-SYNDICATION_TOKEN a long random string (e.g. from openssl rand -hex 32)`}
+{`DEVTO_API_KEY      your dev.to API key (dev.to → Settings → Extensions)
+SYNDICATION_TOKEN  long random string — same value as the SYNDICATION_TOKEN
+                   secret in the site repository (Settings → Secrets → Actions)
+ADMIN_PASSWORD    the admin password used to log into this panel
+JWT_SECRET        long random string (session cookie signing)`}
                   </pre>
                 </li>
                 <li className="leading-relaxed">
-                  <strong>Deploy hook</strong> — same dashboard → Settings → Deploy hooks → Create new
-                  hook, name it <code className="rounded bg-muted px-1">syndication</code>, and paste
-                  this as the target URL:
-                  <pre className="mt-1.5 p-2 rounded-md bg-muted/70 overflow-x-auto">
-{`https://thetaxcalc.com/api/syndicate?token=YOUR_SYNDICATION_TOKEN`}
-                  </pre>
+                  <strong>Redeploy</strong> — env vars only apply to deployments made <em>after</em>
+                  saving them: Deployments tab → latest deployment → <strong>⋯ → Retry deployment</strong>.
                 </li>
                 <li className="leading-relaxed">
-                  Done — every successful deploy now POSTs to that URL, and the endpoint publishes
-                  every <strong>new</strong> post (stateless diff against your dev.to account). Already
-                  -syndicated posts are never duplicated.
+                  Done — each daily run publishes up to <strong>5 newest</strong> new posts (a
+                  deliberate drip for a young dev.to account), continuing on the following days.
+                  Already-syndicated posts are never duplicated (stateless canonical diff).
                 </li>
               </ol>
               {pipeline && (
@@ -582,8 +582,8 @@ SYNDICATION_TOKEN a long random string (e.g. from openssl rand -hex 32)`}
                   <Info className="h-4 w-4" />
                   <AlertDescription className="text-xs">
                     {pipeline.envKeyConfigured
-                      ? `✓ DEVTO_API_KEY detected in the environment${pipeline.tokenConfigured ? ' — and SYNDICATION_TOKEN is set, deploy-hook automation is LIVE' : ' — set SYNDICATION_TOKEN too to enable the deploy hook'}.`
-                      : 'DEVTO_API_KEY is not in the environment yet — paste a key above for manual publishing, or set the env var to enable deploy-hook automation.'}
+                      ? `✓ DEVTO_API_KEY detected in the environment${pipeline.tokenConfigured ? ' — and SYNDICATION_TOKEN is set, the daily GitHub Actions drip is LIVE' : ' — set SYNDICATION_TOKEN (Cloudflare env var + the GitHub repo secret) to complete the automation'}.`
+                      : 'DEVTO_API_KEY is not in the environment yet — paste a key above for manual publishing, or set the env vars to enable the daily automation.'}
                   </AlertDescription>
                 </Alert>
               )}

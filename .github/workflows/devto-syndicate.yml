@@ -1,0 +1,41 @@
+name: dev.to syndication
+
+# Auto-publishes new blog posts to dev.to via https://thetaxcalc.com/api/syndicate
+# · Runs daily at 09:00 Tripoli time (07:00 UTC) + manual run from the Actions tab
+# · The endpoint self-dedupes (canonical matching) and caps each automated run
+#   at the 5 newest posts — a deliberate drip for a young dev.to account
+# · Requires this repo secret: SYNDICATION_TOKEN (same value as the Cloudflare
+#   Pages env var of the same name). Until it exists, this workflow no-ops.
+# · Cloudflare Pages must also have DEVTO_API_KEY + SYNDICATION_TOKEN set for
+#   Production, with a deployment made AFTER saving them (env vars only apply
+#   to new deployments).
+
+on:
+  schedule:
+    - cron: "0 7 * * *"
+  workflow_dispatch: {}
+
+jobs:
+  syndicate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Publish new posts to dev.to (max 5 per run)
+        env:
+          TOKEN: ${{ secrets.SYNDICATION_TOKEN }}
+        run: |
+          if [ -z "$TOKEN" ]; then
+            echo "::notice::SYNDICATION_TOKEN secret is not set — skipping. Add it under Settings → Secrets and variables → Actions."
+            exit 0
+          fi
+          echo "→ POST https://thetaxcalc.com/api/syndicate (publish-all, capped at 5 newest)"
+          code=$(curl -sS --max-time 300 -o /tmp/resp.json -w '%{http_code}' -X POST \
+            "https://thetaxcalc.com/api/syndicate?token=$TOKEN" \
+            -H "Content-Type: application/json" \
+            -d '{"action":"publish-all"}')
+          echo "HTTP $code"
+          head -c 4000 /tmp/resp.json 2>/dev/null; echo
+          if [ "$code" -lt 200 ] || [ "$code" -ge 300 ]; then
+            echo "::error::Syndication endpoint returned HTTP $code (see body above)"
+            exit 1
+          fi
