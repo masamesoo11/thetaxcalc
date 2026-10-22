@@ -8,3 +8,10 @@ node_modules/
 /.open-next/
 /pages-deploy/
 /.wrangler/
+
+# vercel-era leftovers (untracked; local copies kept on disk)
+/.vercel/
+vercel.json
+
+# IDE paste artifacts (reference copies live outside the repo)
+upload/Pasted Content_*.txt
