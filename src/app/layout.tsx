@@ -175,6 +175,19 @@ export default function RootLayout({
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#0a0f1e" />
 
+        {/* Google AdSense — site verification + loader (static so crawlers
+            see it in the raw HTML; data-adsense-client also lets
+            ClientAnalytics skip its dynamic injection → no duplicates) */}
+        <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
+        <meta name="google-adsense-account" content="ca-pub-5542276525674040" />
+        <script
+          async
+          data-cfasync="false"
+          data-adsense-client="ca-pub-5542276525674040"
+          crossOrigin="anonymous"
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5542276525674040"
+        />
+
         {/* Google Tag Manager */}
         {process.env.NEXT_PUBLIC_GTM_ID && (
           <script
