@@ -30,6 +30,9 @@ import {
   ServerCog,
   Info,
   Globe,
+  Layers,
+  Newspaper,
+  Users,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
@@ -50,6 +53,9 @@ const LS_DEVTO_KEY = 'thetaxcalc_devto_api_key';
 const LS_MEDIUM_TOKEN = 'thetaxcalc_medium_token';
 const LS_MODE = 'thetaxcalc_syndication_mode';
 const LS_MEDIUM_RECORDS = 'thetaxcalc_medium_records';
+const LS_FOREM_BASE = 'thetaxcalc_forem_base';
+const LS_FOREM_KEY = 'thetaxcalc_forem_key';
+const LS_TELEGRAPH_RECORDS = 'thetaxcalc_telegraph_records';
 
 interface MediumRecord {
   id: string;
@@ -60,8 +66,32 @@ interface PipelineStatus {
   totalPublishedPosts: number;
   envKeyConfigured: boolean;
   tokenConfigured: boolean;
+  foremConfigured?: boolean;
   /** Server-side truth: slugs that actually have syndicatable content */
   contentSlugs?: string[];
+  /** Committed telegraph publish-state map (slugs already on telegra.ph) */
+  telegraphMap?: Record<string, TelegraphRecord>;
+}
+
+interface TelegraphRecord {
+  url: string;
+  publishedAt?: string;
+}
+
+interface ForemVerifyResponse {
+  ok: boolean;
+  username?: string;
+  error?: string;
+  foremBase?: string;
+}
+
+interface TelegraphPublishResponse {
+  ok: boolean;
+  attempted?: number;
+  succeeded?: number;
+  failed?: number;
+  results?: { slug: string; ok: boolean; url?: string; error?: string; skipped?: string }[];
+  error?: string;
 }
 
 /** Local (pre-scan) row — statuses unknown until a diff against dev.to runs */
@@ -149,6 +179,14 @@ export function SyndicationPanel() {
   const [devtoVerified, setDevtoVerified] = useState<{ ok: boolean; username?: string } | null>(null);
   const [mediumInput, setMediumInput] = useState<string>(() => readLS(LS_MEDIUM_TOKEN) ?? '');
   const [mediumVerified, setMediumVerified] = useState<{ ok: boolean; name?: string } | null>(null);
+  const [foremBaseInput, setForemBaseInput] = useState<string>(() => readLS(LS_FOREM_BASE) ?? '');
+  const [foremKeyInput, setForemKeyInput] = useState<string>(() => readLS(LS_FOREM_KEY) ?? '');
+  const [foremVerified, setForemVerified] = useState<{
+    ok: boolean;
+    username?: string;
+    base?: string;
+    error?: string;
+  } | null>(null);
   const [mode, setMode] = useState<SyndicationMode>(() => {
     const saved = readLS(LS_MODE);
     return saved === 'teaser' ? 'teaser' : 'full';
@@ -172,6 +210,16 @@ export function SyndicationPanel() {
   const [mediumRecords, setMediumRecords] = useState<Record<string, MediumRecord>>(() =>
     readLSJson<Record<string, MediumRecord>>(LS_MEDIUM_RECORDS, {})
   );
+
+  // Telegraph records (localStorage mirror of the committed state map —
+  // covers manual publishes until the next automated run syncs them into
+  // src/generated/telegraph-published.ts)
+  const [telegraphRecords, setTelegraphRecords] = useState<Record<string, TelegraphRecord>>(() =>
+    readLSJson<Record<string, TelegraphRecord>>(LS_TELEGRAPH_RECORDS, {})
+  );
+
+  // Forem scan state
+  const [foremDiff, setForemDiff] = useState<DiffResponse | null>(null);
 
   // ── Pipeline status + local posts list (both read-only, mount-time) ──
   useEffect(() => {
@@ -225,6 +273,24 @@ export function SyndicationPanel() {
       return next;
     });
   }, []);
+
+  const saveTelegraphRecord = useCallback((slug: string, record: TelegraphRecord) => {
+    setTelegraphRecords((prev) => {
+      const next = { ...prev, [slug]: record };
+      try {
+        localStorage.setItem(LS_TELEGRAPH_RECORDS, JSON.stringify(next));
+      } catch {
+        // ignore
+      }
+      return next;
+    });
+  }, []);
+
+  /** Merged telegraph view: committed state map + local manual-publish records */
+  const telegraphMap = useMemo<Record<string, TelegraphRecord>>(
+    () => ({ ...(pipeline?.telegraphMap ?? {}), ...telegraphRecords }),
+    [pipeline, telegraphRecords]
+  );
 
   // ── Mutations ──
 
@@ -375,6 +441,174 @@ export function SyndicationPanel() {
     onError: (error: Error) => toast.error(error.message),
   });
 
+  const foremVerifyMutation = useMutation({
+    mutationFn: async (): Promise<ForemVerifyResponse> => {
+      const res = await fetch('/api/syndicate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          action: 'verify-forem',
+          foremBase: foremBaseInput.trim() || undefined,
+          foremKey: foremKeyInput.trim() || undefined,
+        }),
+      });
+      const data = (await res.json()) as ForemVerifyResponse;
+      if (!res.ok && !data.error) data.error = `Request failed (HTTP ${res.status})`;
+      return data;
+    },
+    onSuccess: (data) => {
+      try {
+        if (foremBaseInput.trim()) localStorage.setItem(LS_FOREM_BASE, foremBaseInput.trim());
+        if (foremKeyInput.trim()) localStorage.setItem(LS_FOREM_KEY, foremKeyInput.trim());
+      } catch {
+        // ignore
+      }
+      setForemVerified({
+        ok: data.ok,
+        username: data.username,
+        base: data.foremBase ?? foremBaseInput.trim(),
+        error: data.error,
+      });
+      setForemDiff(null);
+      if (data.ok) {
+        toast.success(`Community connected as @${data.username ?? 'unknown'}`);
+      } else {
+        toast.error(data.error ?? 'Verification failed');
+      }
+    },
+    onError: (error: Error) => toast.error(error.message),
+  });
+
+  const foremScanMutation = useMutation({
+    mutationFn: async (): Promise<DiffResponse> => {
+      const res = await fetch('/api/syndicate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          action: 'diff-forem',
+          foremBase: foremBaseInput.trim() || undefined,
+          foremKey: foremKeyInput.trim() || undefined,
+        }),
+      });
+      const data = (await res.json()) as DiffResponse;
+      if (!res.ok && !data.error) data.error = `Request failed (HTTP ${res.status})`;
+      return data;
+    },
+    onSuccess: (data) => {
+      if (data.ok) {
+        setForemDiff(data);
+        toast.success(
+          `Scan complete — ${data.newCount} new, ${data.syndicatedCount} syndicated, ${data.staleCount} updated on site`
+        );
+      } else {
+        setForemDiff(null);
+        toast.error(data.error ?? 'Scan failed');
+      }
+    },
+    onError: (error: Error) => toast.error(error.message),
+  });
+
+  const foremPublishAllMutation = useMutation({
+    mutationFn: async (): Promise<PublishResponse> => {
+      const res = await fetch('/api/syndicate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          action: 'publish-all-forem',
+          foremBase: foremBaseInput.trim() || undefined,
+          foremKey: foremKeyInput.trim() || undefined,
+          mode,
+        }),
+      });
+      return res.json();
+    },
+    onSuccess: (data) => {
+      if (data.ok) {
+        toast.success(`Community bulk publish done — ${data.succeeded ?? 0}/${data.attempted ?? 0} succeeded`);
+        foremScanMutation.mutate();
+      } else {
+        toast.error(data.error ?? 'Community bulk publish failed');
+      }
+    },
+    onError: (error: Error) => toast.error(error.message),
+  });
+
+  const foremPublishOneMutation = useMutation({
+    mutationFn: async (slug: string): Promise<PublishResponse> => {
+      const res = await fetch('/api/syndicate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          action: 'publish-forem',
+          slug,
+          foremBase: foremBaseInput.trim() || undefined,
+          foremKey: foremKeyInput.trim() || undefined,
+          mode,
+        }),
+      });
+      return res.json();
+    },
+    onSuccess: (data) => {
+      if (data.result?.ok) {
+        toast.success(`Published to the community${data.result.url ? `: ${data.result.url}` : ''}`);
+        foremScanMutation.mutate();
+      } else {
+        toast.error(data.result?.error ?? data.error ?? 'Community publish failed');
+      }
+    },
+    onError: (error: Error) => toast.error(error.message),
+  });
+
+  const telegraphPublishOneMutation = useMutation({
+    mutationFn: async (slug: string): Promise<TelegraphPublishResponse> => {
+      const res = await fetch('/api/syndicate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ action: 'publish-telegraph', slug }),
+      });
+      return res.json();
+    },
+    onSuccess: (data) => {
+      const r = data.results?.[0];
+      if (r?.ok && r.url) {
+        if (r.url) saveTelegraphRecord(r.slug, { url: r.url, publishedAt: new Date().toISOString() });
+        toast.success(`Teaser live on telegra.ph: ${r.url}`);
+      } else {
+        toast.error(r?.error ?? data.error ?? 'Telegraph publish failed');
+      }
+    },
+    onError: (error: Error) => toast.error(error.message),
+  });
+
+  const telegraphAutoMutation = useMutation({
+    mutationFn: async (): Promise<TelegraphPublishResponse> => {
+      const res = await fetch('/api/syndicate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ action: 'publish-telegraph' }),
+      });
+      return res.json();
+    },
+    onSuccess: (data) => {
+      if (!data.ok) {
+        toast.error(data.error ?? 'Telegraph batch failed');
+        return;
+      }
+      let published = 0;
+      for (const r of data.results ?? []) {
+        if (r.ok && r.url) {
+          saveTelegraphRecord(r.slug, { url: r.url, publishedAt: new Date().toISOString() });
+          published++;
+        }
+      }
+      const skipped = (data.results ?? []).filter((r) => r.skipped).length;
+      toast.success(
+        `Telegraph batch done — ${data.succeeded ?? published} teaser(s) live${skipped ? `, ${skipped} already published` : ''}`
+      );
+    },
+    onError: (error: Error) => toast.error(error.message),
+  });
+
   const handleModeChange = (value: string) => {
     const next = value === 'teaser' ? 'teaser' : 'full';
     setMode(next);
@@ -391,7 +625,13 @@ export function SyndicationPanel() {
     previewMutation.isPending ||
     publishAllMutation.isPending ||
     publishMutation.isPending ||
-    mediumPublishMutation.isPending;
+    mediumPublishMutation.isPending ||
+    foremVerifyMutation.isPending ||
+    foremScanMutation.isPending ||
+    foremPublishAllMutation.isPending ||
+    foremPublishOneMutation.isPending ||
+    telegraphPublishOneMutation.isPending ||
+    telegraphAutoMutation.isPending;
 
   return (
     <div className="space-y-6">
@@ -400,12 +640,13 @@ export function SyndicationPanel() {
         <Wand2 className="h-4 w-4 text-emerald-500" />
         <AlertTitle>What this does</AlertTitle>
         <AlertDescription className="text-xs leading-relaxed">
-          Publishes blog posts to <strong>dev.to</strong> with a{' '}
-          <code className="rounded bg-muted px-1">canonical_url</code> pointing back to thetaxcalc.com —
-          the syndicated copy never competes with the original in Google, but earns referral traffic,
-          brand mentions, and dofollow links from your dev.to profile. New posts are managed through
-          code deploys, so the pipeline diff is <strong>stateless</strong>: dev.to&apos;s own canonical
-          fields are the source of truth. No database involved.
+          Publishes blog posts to multiple channels with{' '}
+          <code className="rounded bg-muted px-1">canonical_url</code> attribution back to thetaxcalc.com:{' '}
+          <strong>dev.to</strong> and any <strong>Forem community</strong> carry the full text (the canonical tag keeps
+          the copies from ever competing with the original in Google), <strong>Telegraph</strong> gets a short teaser
+          + read-more link, and <strong>Medium</strong> is wired for legacy tokens. New posts are managed through code
+          deploys, so diffs are <strong>stateless</strong> — each platform&apos;s own canonical fields are the source of
+          truth (Telegraph uses a committed state map, since its API has no listing). No database involved.
         </AlertDescription>
       </Alert>
 
@@ -564,7 +805,9 @@ export function SyndicationPanel() {
 SYNDICATION_TOKEN  long random string — same value as the SYNDICATION_TOKEN
                    secret in the site repository (Settings → Secrets → Actions)
 ADMIN_PASSWORD    the admin password used to log into this panel
-JWT_SECRET        long random string (session cookie signing)`}
+JWT_SECRET        long random string (session cookie signing)
+FOREM_API_BASE    optional — https://<community-host>/api of another Forem site
+FOREM_API_KEY     optional — that community's API key (its Settings → Extensions)`}
                   </pre>
                 </li>
                 <li className="leading-relaxed">
@@ -572,9 +815,9 @@ JWT_SECRET        long random string (session cookie signing)`}
                   saving them: Deployments tab → latest deployment → <strong>⋯ → Retry deployment</strong>.
                 </li>
                 <li className="leading-relaxed">
-                  Done — each daily run publishes up to <strong>5 newest</strong> new posts (a
-                  deliberate drip for a young dev.to account), continuing on the following days.
-                  Already-syndicated posts are never duplicated (stateless canonical diff).
+                  Done — each daily run publishes up to <strong>5 newest</strong> new posts <em>per channel</em>{' '}
+                  (dev.to, Telegraph teasers, and the Forem community once configured), continuing on the
+                  following days. Already-syndicated posts are never duplicated.
                 </li>
               </ol>
               {pipeline && (
@@ -684,6 +927,16 @@ JWT_SECRET        long random string (session cookie signing)`}
                             Medium copy <ExternalLink className="h-3 w-3" />
                           </a>
                         )}
+                        {telegraphMap[item2.slug]?.url && (
+                          <a
+                            href={telegraphMap[item2.slug].url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="ml-2 text-muted-foreground hover:text-foreground hover:underline inline-flex items-center gap-0.5"
+                          >
+                            Telegraph teaser <ExternalLink className="h-3 w-3" />
+                          </a>
+                        )}
                       </div>
                     </div>
 
@@ -739,6 +992,40 @@ JWT_SECRET        long random string (session cookie signing)`}
                           )}
                         </Button>
                       )}
+                      {item2.hasContent && (
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          className="h-8 px-2"
+                          onClick={() => telegraphPublishOneMutation.mutate(item2.slug)}
+                          disabled={busy}
+                          aria-label={`Publish ${item2.title} teaser to Telegraph`}
+                          title="Publish a teaser to telegra.ph (free, no account)"
+                        >
+                          {telegraphPublishOneMutation.isPending && telegraphPublishOneMutation.variables === item2.slug ? (
+                            <Loader2 className="h-4 w-4 animate-spin" />
+                          ) : (
+                            'T'
+                          )}
+                        </Button>
+                      )}
+                      {foremVerified?.ok && item2.hasContent && (
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          className="h-8 px-2"
+                          onClick={() => foremPublishOneMutation.mutate(item2.slug)}
+                          disabled={busy}
+                          aria-label={`Publish ${item2.title} to the Forem community`}
+                          title="Publish to the connected Forem community"
+                        >
+                          {foremPublishOneMutation.isPending && foremPublishOneMutation.variables === item2.slug ? (
+                            <Loader2 className="h-4 w-4 animate-spin" />
+                          ) : (
+                            'F'
+                          )}
+                        </Button>
+                      )}
                     </div>
                   </div>
                   );
@@ -746,6 +1033,158 @@ JWT_SECRET        long random string (session cookie signing)`}
               </div>
             </div>
           )}
+        </CardContent>
+      </Card>
+
+      {/* ── More channels: Telegraph + any Forem community ────────────── */}
+      <Card className="border-border/50">
+        <CardHeader className="pb-3">
+          <CardTitle className="flex items-center gap-2 text-base">
+            <Layers className="h-4 w-4 text-emerald-500" />
+            More channels
+          </CardTitle>
+          <CardDescription>
+            Additional syndication targets alongside dev.to — everything carries attribution back to
+            thetaxcalc.com (Telegraph is teaser-only; see notes).
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-5">
+          {/* Telegraph */}
+          <div className="space-y-2">
+            <div className="flex flex-wrap items-center justify-between gap-2">
+              <Label className="flex items-center gap-2 text-sm font-medium">
+                <Newspaper className="h-4 w-4 text-emerald-500" /> Telegraph (telegra.ph)
+                <Badge variant="outline" className="bg-emerald-500/15 text-emerald-400 border-emerald-500/30">
+                  Live · free · zero setup
+                </Badge>
+              </Label>
+              <Button size="sm" variant="outline" onClick={() => telegraphAutoMutation.mutate()} disabled={busy}>
+                {telegraphAutoMutation.isPending ? (
+                  <Loader2 className="h-4 w-4 animate-spin" />
+                ) : (
+                  <Send className="h-4 w-4" />
+                )}
+                Publish 5 newest teasers now
+              </Button>
+            </div>
+            <p className="text-xs text-muted-foreground leading-relaxed">
+              {Object.keys(telegraphMap).length} teaser page(s) live. Each post gets a short preview + a
+              &quot;read the full guide&quot; link on telegra.ph (a high-authority publishing platform) — full text is
+              deliberately <em>not</em> published there because Telegraph has no canonical support
+              (duplicate-content safety). Telegraph article links are nofollow, so treat this as a
+              discovery/brand-mentions channel; the daily workflow also drips up to 5 new teasers automatically.
+            </p>
+          </div>
+
+          <Separator className="bg-border/50" />
+
+          {/* Forem community */}
+          <div className="space-y-2">
+            <Label htmlFor="forem-base" className="flex items-center gap-2 text-sm font-medium">
+              <Users className="h-4 w-4 text-emerald-500" /> Any Forem community (dev.to-compatible)
+              <Badge variant="outline" className="text-[10px] bg-muted text-muted-foreground">
+                Optional · bring your own community
+              </Badge>
+            </Label>
+            <div className="grid gap-2 md:grid-cols-[1fr_1fr_auto]">
+              <Input
+                id="forem-base"
+                type="text"
+                placeholder="Community URL (e.g. https://community.codenewbie.org)"
+                value={foremBaseInput}
+                onChange={(e) => setForemBaseInput(e.target.value)}
+                autoComplete="off"
+              />
+              <Input
+                id="forem-key"
+                type="password"
+                placeholder="That community's API key (its Settings → Extensions)"
+                value={foremKeyInput}
+                onChange={(e) => setForemKeyInput(e.target.value)}
+                autoComplete="off"
+              />
+              <Button
+                onClick={() => foremVerifyMutation.mutate()}
+                disabled={busy || (!foremBaseInput.trim() && !pipeline?.foremConfigured)}
+                size="sm"
+                className="shrink-0"
+              >
+                {foremVerifyMutation.isPending ? <Loader2 className="h-4 w-4 animate-spin" /> : 'Verify'}
+              </Button>
+            </div>
+            {foremVerified?.ok && (
+              <p className="text-xs text-emerald-400 flex items-center gap-1">
+                <CheckCircle2 className="h-3 w-3" /> Connected as @{foremVerified.username} on {foremVerified.base}
+              </p>
+            )}
+            {foremVerified && !foremVerified.ok && foremVerified.error && (
+              <p className="text-xs text-rose-400 flex items-center gap-1">
+                <XCircle className="h-3 w-3" /> {foremVerified.error}
+              </p>
+            )}
+            <div className="flex flex-wrap gap-2">
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => foremScanMutation.mutate()}
+                disabled={busy || !foremVerified?.ok}
+              >
+                {foremScanMutation.isPending ? (
+                  <Loader2 className="h-4 w-4 animate-spin" />
+                ) : (
+                  <SearchCheck className="h-4 w-4" />
+                )}
+                Scan community
+              </Button>
+              {foremDiff?.ok && foremDiff.newCount > 0 && (
+                <Button size="sm" onClick={() => foremPublishAllMutation.mutate()} disabled={busy}>
+                  {foremPublishAllMutation.isPending ? (
+                    <Loader2 className="h-4 w-4 animate-spin" />
+                  ) : (
+                    <Send className="h-4 w-4" />
+                  )}
+                  Publish all new ({foremDiff.newCount})
+                </Button>
+              )}
+            </div>
+            {foremDiff?.ok && (
+              <p className="text-xs text-muted-foreground">
+                Community scan: {foremDiff.newCount} new · {foremDiff.syndicatedCount} syndicated ·{' '}
+                {foremDiff.staleCount} updated on site
+              </p>
+            )}
+            <p className="text-xs text-muted-foreground leading-relaxed">
+              Works with any site running{' '}
+              <a
+                href="https://github.com/forem/forem"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-emerald-400 hover:underline inline-flex items-center gap-0.5"
+              >
+                Forem <ExternalLink className="h-3 w-3" />
+              </a>
+              , the same platform dev.to runs on — create an account on the community, generate an API key under
+              its Settings → Extensions, then paste both here. For the daily automation, set the same values as
+              FOREM_API_BASE + FOREM_API_KEY in Cloudflare (automation status:{' '}
+              {pipeline?.foremConfigured ? 'configured ✓' : 'not configured yet'}).
+            </p>
+          </div>
+
+          <Separator className="bg-border/50" />
+
+          {/* Platform notes */}
+          <div className="text-xs text-muted-foreground space-y-1.5">
+            <p>
+              <strong className="text-foreground">Medium:</strong> token generation is frozen for most accounts —
+              the free manual path (medium.com → Write → Import story → paste a thetaxcalc.com/blog/… URL) is
+              still open and Medium adds the canonical automatically. That import flow is the strongest DR link
+              you can get with zero API.
+            </p>
+            <p>
+              <strong className="text-foreground">Hashnode:</strong> retired free API access in May 2026 —
+              publishing via API now requires a paid Hashnode Pro plan, so it is not wired up.
+            </p>
+          </div>
         </CardContent>
       </Card>
 

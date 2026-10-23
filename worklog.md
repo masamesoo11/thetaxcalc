@@ -323,3 +323,23 @@ Stage Summary:
 - Site now fully compliant with Google's structured data guidelines
 - All rich snippets (FAQ, HowTo, ItemList, BreadcrumbList) remain intact
 - WebApplication schema still valid (offers, applicationCategory, operatingSystem)
+
+---
+Task ID: 15
+Agent: Main Agent
+Task: User asked "can we add other sites alongside dev.to?" — expand the syndication pipeline to more channels.
+
+Work Log:
+- Surveyed the October-2026 syndication landscape: Hashnode RETIRED free API access on 2026-05-13 (now Pro-plan-only — announcement at hashnode.com/announcements/graphql-api) → excluded. Forem consolidated forem.dev INTO dev.to; independent Forem communities are rare but the API is identical to dev.to. Telegraph (telegra.ph) is alive, free, and needs zero accounts.
+- BUILT Channel "Telegraph (telegra.ph)": teaser-only (no canonical support on Telegraph → full copies would create duplicate content; the teaser + read-more + credit footer avoids that). Markdown→Telegraph-node converter + throwaway-account createPage flow (Telegraph has no listing API). Links are nofollow — positioned as a discovery/brand-mentions channel.
+- BUILT Channel "Any Forem community": parameterized Forem platform adapter (dev.to's own API) — normalizeForemBase + foremVerify/List/Create/Update via shared foremRequest helper (devtoFetch now delegates; zero behavior change on the live dev.to path).
+- Statefulness: Telegraph dedup state lives in a committed map src/generated/telegraph-published.ts (read via lib/telegraph-published.ts); the daily workflow is the only writer (Telegraph has no list API). dev.to/Forem remain stateless via canonical_url diffing.
+- /api/syndicate gained actions: verify-forem, diff-forem, publish-forem, publish-all-forem (clean notConfigured skip), publish-telegraph (slug | slugs[] | auto-5-newest, dedup via state map, dryRun). GET status now returns posts[slug,updatedAt,hasContent], telegraphMap, foremConfigured.
+- Admin panel: new "More channels" card (Telegraph live-status + batch button; Forem connect/scan/publish; Medium manual-import tip; Hashnode Pro note), per-row T/F publish buttons, Telegraph teaser links.
+- Workflow devto-syndicate.yml → 3 channels: dev.to (unchanged), telegra.ph (python3 plans 5 newest unpublished, publishes, commits state map back via GITHUB_TOKEN), Forem (skips until FOREM_API_BASE/FOREM_API_KEY env vars exist on Cloudflare).
+- Verified locally: lint clean; GET/dry-run/forem-error-paths all behave; LIVE telegraph E2E produced the first real teaser page https://telegra.ph/IRS-Withholding-2026-How-to-Fill-Out-Your-W-4-and-Avoid-Surprises-10-23 (canonical blog link + author attribution render correctly) — recorded in the committed state map.
+- Repo hygiene note: the sandbox clone diverged from origin/main (platform auto-commits vs the pushed production history) — integrated this work SURGICALLY on top of origin/main via a temp worktree (only the 7 intended files), never merging sandbox history.
+
+Stage Summary:
+- 3 syndication channels now: dev.to (full+canonical, live) + telegra.ph (teaser, live, zero setup) + any Forem community (ready, needs FOREM_API_BASE+FOREM_API_KEY on Cloudflare when the user picks a community). Medium adapter retained (tokens frozen) + manual Import tip surfaced in the panel.
+- To activate Forem later: set FOREM_API_BASE + FOREM_API_KEY as Cloudflare Pages Production env vars (any Forem community the user joins + its Settings→Extensions key) — no code changes needed.

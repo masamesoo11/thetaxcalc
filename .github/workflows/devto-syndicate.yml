@@ -1,26 +1,34 @@
-name: dev.to syndication
+name: blog syndication (dev.to + telegra.ph + Forem)
 
-# Auto-publishes new blog posts to dev.to via https://thetaxcalc.com/api/syndicate
-# · Runs daily at 09:00 Tripoli time (07:00 UTC) + manual run from the Actions tab
-# · The endpoint self-dedupes (canonical matching) and caps each automated run
-#   at the 5 newest posts — a deliberate drip for a young dev.to account
+# Multi-channel auto-syndication via https://thetaxcalc.com/api/syndicate:
+#   1. dev.to     — full text + canonical (needs DEVTO_API_KEY on Cloudflare)
+#   2. telegra.ph — teaser + backlink, zero setup (dedup state map committed back)
+#   3. Forem site — full text + canonical (needs FOREM_API_BASE + FOREM_API_KEY on
+#                   Cloudflare; cleanly skips until both are set)
+#
+# · Runs daily at 09:00 Tripoli time (07:00 UTC) + manual runs from the Actions tab
+# · Every channel self-dedupes and drips at most 5 newest posts per run — a
+#   deliberate pace for young accounts and spam-heuristic safety
 # · Requires this repo secret: SYNDICATION_TOKEN (same value as the Cloudflare
 #   Pages env var of the same name). Until it exists, this workflow no-ops.
-# · Cloudflare Pages must also have DEVTO_API_KEY + SYNDICATION_TOKEN set for
-#   Production, with a deployment made AFTER saving them (env vars only apply
-#   to new deployments).
+# · Cloudflare Pages env vars only apply to deployments made AFTER saving them.
 
 on:
   schedule:
     - cron: "0 7 * * *"
   workflow_dispatch: {}
 
+permissions:
+  contents: write # the telegra.ph step commits its dedup state map back
+
 jobs:
   syndicate:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
     steps:
-      - name: Publish new posts to dev.to (max 5 per run)
+      - uses: actions/checkout@v4
+
+      - name: Channel 1 - dev.to (full text + canonical, max 5 per run)
         env:
           TOKEN: ${{ secrets.SYNDICATION_TOKEN }}
         run: |
@@ -28,14 +36,131 @@ jobs:
             echo "::notice::SYNDICATION_TOKEN secret is not set — skipping. Add it under Settings → Secrets and variables → Actions."
             exit 0
           fi
-          echo "→ POST https://thetaxcalc.com/api/syndicate (publish-all, capped at 5 newest)"
-          code=$(curl -sS --max-time 300 -o /tmp/resp.json -w '%{http_code}' -X POST \
+          echo "→ POST /api/syndicate (publish-all, capped at 5 newest)"
+          code=$(curl -sS --max-time 300 -o /tmp/devto.json -w '%{http_code}' -X POST \
             "https://thetaxcalc.com/api/syndicate?token=$TOKEN" \
             -H "Content-Type: application/json" \
             -d '{"action":"publish-all"}')
           echo "HTTP $code"
-          head -c 4000 /tmp/resp.json 2>/dev/null; echo
+          head -c 4000 /tmp/devto.json 2>/dev/null; echo
           if [ "$code" -lt 200 ] || [ "$code" -ge 300 ]; then
-            echo "::error::Syndication endpoint returned HTTP $code (see body above)"
+            echo "::error::dev.to syndication returned HTTP $code (see body above)"
+            exit 1
+          fi
+
+      - name: Channel 2 - telegra.ph (teaser + backlink, max 5 per run)
+        id: telegraph
+        env:
+          TOKEN: ${{ secrets.SYNDICATION_TOKEN }}
+        run: |
+          if [ -z "$TOKEN" ]; then
+            echo "::notice::SYNDICATION_TOKEN secret is not set — skipping."
+            exit 0
+          fi
+          python3 - <<'PY'
+          import json, os, re, sys, time, urllib.request
+
+          token = os.environ.get("TOKEN", "")
+          if not token:
+              print("::notice::no token — skipping the telegra.ph channel")
+              sys.exit(0)
+
+          STATE = "src/generated/telegraph-published.ts"
+
+          def api(method, path, payload=None):
+              data = json.dumps(payload).encode() if payload is not None else None
+              headers = {"Content-Type": "application/json"} if payload is not None else {}
+              req = urllib.request.Request(
+                  "https://thetaxcalc.com" + path, method=method, data=data, headers=headers)
+              with urllib.request.urlopen(req, timeout=300) as r:
+                  return json.loads(r.read().decode())
+
+          # 1) committed state — the freshest record of what is already published
+          state = {}
+          try:
+              src = open(STATE, encoding="utf-8").read()
+              m = re.search(r"=\s*(\{[\s\S]*\})\s*;?\s*$", src)
+              if m:
+                  state = json.loads(m.group(1))
+          except Exception as e:
+              print("warn: could not parse the state file (%s); starting from the server map" % e)
+          # merge in the server's bundled map (covers manual commits made outside this workflow)
+          status = api("GET", "/api/syndicate?token=" + token)
+          for slug, rec in (status.get("telegraphMap") or {}).items():
+              state.setdefault(slug, rec)
+          print("telegra.ph: %d slug(s) already published" % len(state))
+
+          # 2) newest unpublished content posts, capped at 5 per run
+          posts = status.get("posts", [])
+          fresh = [p for p in posts if p.get("hasContent") and p.get("slug") not in state]
+          fresh.sort(key=lambda p: p.get("updatedAt") or "", reverse=True)
+          batch = [p["slug"] for p in fresh[:5]]
+          if not batch:
+              print("::notice::telegra.ph — nothing new to publish")
+              sys.exit(0)
+
+          # 3) publish the batch
+          resp = api("POST", "/api/syndicate?token=" + token,
+                     {"action": "publish-telegraph", "slugs": batch})
+          if not resp.get("ok"):
+              print("::error::telegra.ph publish failed: " + str(resp)[:2000])
+              sys.exit(1)
+          now = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
+          changed = False
+          for r in resp.get("results", []):
+              if r.get("ok") and r.get("url"):
+                  state[r["slug"]] = {"url": r["url"], "publishedAt": now}
+                  changed = True
+          print("telegra.ph: published %d/%d teaser page(s)" % (resp.get("succeeded", 0), resp.get("attempted", 0)))
+
+          # 4) write the state file back (stable, machine-generated format)
+          if changed:
+              out = (
+                  "/**\n"
+                  " * AUTO-GENERATED / AUTO-UPDATED by the daily syndication workflow\n"
+                  " * (.github/workflows/devto-syndicate.yml) — the publish-state map for the\n"
+                  " * Telegraph (telegra.ph) channel. Telegraph has no \"list my pages\" API, so\n"
+                  " * dedup state lives here and the workflow commits it after every run.\n"
+                  " * Empty = nothing published yet. Do not edit by hand.\n"
+                  " */\n"
+                  "export const TELEGRAPH_PUBLISHED: Record<string, { url: string; publishedAt: string }> = "
+                  + json.dumps(state, indent=2, ensure_ascii=False)
+                  + ";\n"
+              )
+              open(STATE, "w", encoding="utf-8").write(out)
+              with open(os.environ.get("GITHUB_OUTPUT", "/dev/null"), "a") as f:
+                  f.write("changed=true\n")
+          PY
+
+      - name: Commit telegra.ph state map (only when it changed)
+        if: steps.telegraph.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/generated/telegraph-published.ts
+          git commit -m "chore(syndication): telegra.ph publish-state update"
+          git pull --rebase origin main || true
+          git push origin HEAD:main
+
+      - name: Channel 3 - Forem community (optional, full text + canonical)
+        env:
+          TOKEN: ${{ secrets.SYNDICATION_TOKEN }}
+        run: |
+          if [ -z "$TOKEN" ]; then
+            echo "::notice::SYNDICATION_TOKEN secret is not set — skipping."
+            exit 0
+          fi
+          code=$(curl -sS --max-time 300 -o /tmp/forem.json -w '%{http_code}' -X POST \
+            "https://thetaxcalc.com/api/syndicate?token=$TOKEN" \
+            -H "Content-Type: application/json" \
+            -d '{"action":"publish-all-forem"}')
+          echo "HTTP $code"
+          head -c 4000 /tmp/forem.json 2>/dev/null; echo
+          if grep -q '"notConfigured":true' /tmp/forem.json 2>/dev/null; then
+            echo "::notice::Forem channel not configured (set FOREM_API_BASE + FOREM_API_KEY on Cloudflare) — skipping."
+            exit 0
+          fi
+          if [ "$code" -lt 200 ] || [ "$code" -ge 300 ]; then
+            echo "::error::Forem syndication returned HTTP $code (see body above)"
             exit 1
           fi

@@ -200,6 +200,21 @@ function extractTeaser(markdown: string, maxWords = 120): string {
 }
 
 /**
+ * Build the teaser body for a post: absolutized links, leading H1 stripped,
+ * first ~150 words, a "read the complete guide" link and the credit footer.
+ * Shared by the Telegraph channel (which must stay teaser-only because it
+ * has no canonical_url support) and teaser-mode previews.
+ */
+export function buildTeaserBody(post: SitePostInfo, maxWords = 150): string {
+  let body = absolutizeMarkdownLinks(post.content || '', SITE_URL);
+  body = stripLeadingH1(body, post.title);
+  body = extractTeaser(body, maxWords);
+  body += `\n\n*This is a preview — [read the complete guide on TheTaxCalc](${canonicalForSlug(post.slug)}).*`;
+  body += buildCreditFooter(post.slug);
+  return body;
+}
+
+/**
  * Build the exact dev.to payload for a site post.
  * Full mode = entire article (canonical_url handles SEO);
  * Teaser mode = opening paragraphs + "read the full guide" link.
@@ -267,8 +282,21 @@ async function devtoFetch(
   apiKey: string,
   init?: RequestInit
 ): Promise<DevtoResponse> {
+  return foremRequest(`${DEVTO_API}${path}`, 'dev.to', apiKey, init);
+}
+
+/**
+ * Shared request helper for every Forem platform (dev.to IS a Forem instance).
+ * Parameterized by full API endpoint URL + human label for error messages.
+ */
+async function foremRequest(
+  url: string,
+  label: string,
+  apiKey: string,
+  init?: RequestInit
+): Promise<DevtoResponse> {
   try {
-    const res = await fetch(`${DEVTO_API}${path}`, {
+    const res = await fetch(url, {
       ...init,
       headers: {
         'api-key': apiKey,
@@ -290,15 +318,17 @@ async function devtoFetch(
       const error =
         (data && typeof data === 'object' && 'error' in data
           ? String((data as { error: unknown }).error)
-          : null) ?? `dev.to API error (HTTP ${res.status})`;
+          : null) ?? `${label} API error (HTTP ${res.status})`;
       return {
         ok: false,
         status: res.status,
         error:
           res.status === 401
-            ? 'Invalid dev.to API key (401 Unauthorized). Generate a fresh key at dev.to → Settings → Extensions.'
+            ? label === 'dev.to'
+              ? 'Invalid dev.to API key (401 Unauthorized). Generate a fresh key at dev.to → Settings → Extensions.'
+              : `${label} rejected the API key (401). Generate a fresh key in that community's Settings → Extensions.`
             : res.status === 429
-              ? 'dev.to rate limit hit (429). Wait a minute and retry.'
+              ? `${label} rate limit hit (429). Wait a minute and retry.`
               : error,
       };
     }
@@ -307,7 +337,7 @@ async function devtoFetch(
     return {
       ok: false,
       status: 0,
-      error: `Network error reaching dev.to: ${err instanceof Error ? err.message : 'unknown'}`,
+      error: `Network error reaching ${label}: ${err instanceof Error ? err.message : 'unknown'}`,
     };
   }
 }
@@ -490,4 +520,309 @@ export function maskKey(key: string | undefined): string {
   const k = key.trim();
   if (k.length <= 8) return '••••••••';
   return `${k.slice(0, 4)}••••${k.slice(-4)}`;
+}
+
+// ─── Generic Forem adapter (any dev.to-compatible community) ─────────────────
+
+/**
+ * The dev.to public API IS the Forem platform API — every Forem community
+ * (dev.to, community.codenewbie.org, forem.dev, …) exposes the same
+ * /api/articles contract and issues its own API keys under
+ * Settings → Extensions. These wrappers parameterize the base URL so posts
+ * can be syndicated to ANY Forem community the admin holds an API key for.
+ */
+
+/** Normalize user/env input into a canonical https://host/api base (or null). */
+export function normalizeForemBase(input: string): string | null {
+  let s = (input ?? '').trim();
+  if (!s) return null;
+  if (!/^https?:\/\//i.test(s)) s = `https://${s}`;
+  s = s.replace(/\/+$/, '');
+  if (!/\/api$/i.test(s)) s = `${s}/api`;
+  try {
+    const u = new URL(s);
+    if (u.protocol !== 'https:') return null;
+    if (!u.hostname.includes('.')) return null; // reject "localhost"-style input
+    return s;
+  } catch {
+    return null;
+  }
+}
+
+export async function foremVerify(
+  foremBase: string,
+  apiKey: string
+): Promise<{ ok: boolean; username?: string; error?: string }> {
+  if (!apiKey?.trim()) return { ok: false, error: 'No API key provided for this Forem community' };
+  const res = await foremRequest(`${foremBase}/users/me`, 'Forem', apiKey);
+  if (!res.ok) return { ok: false, error: res.error };
+  const user = res.data as { username?: string; name?: string } | null;
+  return { ok: true, username: user?.username || user?.name || 'unknown' };
+}
+
+export async function foremListArticles(
+  foremBase: string,
+  apiKey: string
+): Promise<{ ok: boolean; articles?: DevtoArticleInfo[]; error?: string }> {
+  const res = await foremRequest(`${foremBase}/articles/me/all?per_page=100&page=1`, 'Forem', apiKey);
+  if (!res.ok) return { ok: false, error: res.error };
+  const raw = Array.isArray(res.data) ? (res.data as Record<string, unknown>[]) : [];
+  const articles: DevtoArticleInfo[] = raw.map((a) => ({
+    id: Number(a.id) || 0,
+    title: String(a.title ?? ''),
+    slug: String(a.slug ?? ''),
+    canonicalUrl: String(a.canonical_url ?? ''),
+    published: Boolean(a.published),
+    publishedAt: String(a.published_at ?? ''),
+    editedAt: String(a.edited_at ?? a.published_at ?? ''),
+    url: a.url ? String(a.url) : foremBase,
+  }));
+  return { ok: true, articles };
+}
+
+export async function foremCreate(
+  foremBase: string,
+  apiKey: string,
+  payload: DevtoPayload
+): Promise<{ ok: boolean; id?: string; url?: string; error?: string }> {
+  const res = await foremRequest(`${foremBase}/articles`, 'Forem', apiKey, {
+    method: 'POST',
+    body: JSON.stringify({ article: payload }),
+  });
+  if (!res.ok) return { ok: false, error: res.error };
+  const article = res.data as Record<string, unknown>;
+  return {
+    ok: true,
+    id: String(article.id ?? ''),
+    url: article.url ? String(article.url) : undefined,
+  };
+}
+
+export async function foremUpdate(
+  foremBase: string,
+  apiKey: string,
+  articleId: number,
+  payload: DevtoPayload
+): Promise<{ ok: boolean; id?: string; url?: string; error?: string }> {
+  const res = await foremRequest(`${foremBase}/articles/${articleId}`, 'Forem', apiKey, {
+    method: 'PUT',
+    body: JSON.stringify({ article: payload }),
+  });
+  if (!res.ok) return { ok: false, error: res.error };
+  const article = res.data as Record<string, unknown>;
+  return {
+    ok: true,
+    id: String(article.id ?? articleId),
+    url: article.url ? String(article.url) : undefined,
+  };
+}
+
+// ─── Telegraph adapter (telegra.ph — free, zero-account, teaser-only) ────────
+
+const TELEGRAPH_API = 'https://api.telegra.ph';
+const TELEGRAPH_AUTHOR_NAME = 'TheTaxCalc';
+
+/** Telegraph's allowed-node subset: string | {tag, attrs, children}. */
+export type TelegraphNode =
+  | string
+  | {
+      tag:
+        | 'a' | 'aside' | 'b' | 'blockquote' | 'br' | 'code' | 'em'
+        | 'figcaption' | 'figure' | 'h3' | 'h4' | 'hr' | 'i' | 'img'
+        | 'li' | 'ol' | 'p' | 'pre' | 's' | 'strong' | 'u' | 'ul';
+      attrs?: Record<string, string>;
+      children?: TelegraphNode[];
+    };
+
+async function telegraphCall(
+  method: string,
+  params: Record<string, unknown>
+): Promise<{ ok: boolean; result?: Record<string, unknown>; error?: string }> {
+  try {
+    const res = await fetch(`${TELEGRAPH_API}/${method}`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(params),
+    });
+    const body = (await res.json()) as { ok?: boolean; result?: Record<string, unknown>; error?: string };
+    if (!body.ok) {
+      return { ok: false, error: body.error ? `Telegraph: ${body.error}` : `Telegraph API error (HTTP ${res.status})` };
+    }
+    return { ok: true, result: body.result };
+  } catch (err) {
+    return { ok: false, error: `Network error reaching telegra.ph: ${err instanceof Error ? err.message : 'unknown'}` };
+  }
+}
+
+/** Parse inline markdown (links, bold, italics, code, images) into Telegraph nodes. */
+function inlineToTelegraph(text: string, depth = 0): TelegraphNode[] {
+  if (!text) return [''];
+  if (depth > 2) return [text.replace(/\*\*|\*|`/g, '')];
+
+  const out: TelegraphNode[] = [];
+  const re =
+    /!\[[^\]]*\]\(\s*([^)\s]+)[^)]*\)|\[([^\]]+)\]\(\s*([^)\s]+)[^)]*\)|\*\*([\s\S]+?)\*\*|`([^`]+)`|\*([^*\n]+)\*/g;
+  let last = 0;
+  let m: RegExpExecArray | null;
+  while ((m = re.exec(text)) !== null) {
+    if (m.index > last) out.push(text.slice(last, m.index));
+    if (m[1] !== undefined) {
+      out.push({ tag: 'img', attrs: { src: m[1] } });
+    } else if (m[2] !== undefined) {
+      out.push({ tag: 'a', attrs: { href: m[3] ?? '' }, children: inlineToTelegraph(m[2], depth + 1) });
+    } else if (m[4] !== undefined) {
+      out.push({ tag: 'strong', children: inlineToTelegraph(m[4], depth + 1) });
+    } else if (m[5] !== undefined) {
+      out.push({ tag: 'code', children: [m[5]] });
+    } else if (m[6] !== undefined) {
+      out.push({ tag: 'em', children: inlineToTelegraph(m[6], depth + 1) });
+    }
+    last = re.lastIndex;
+  }
+  if (last < text.length) out.push(text.slice(last));
+  return out.length ? out : [text];
+}
+
+/**
+ * Convert (teaser) markdown into Telegraph's node tree. Covers the block
+ * grammar our teasers actually contain: paragraphs, headings (→ h3/h4 —
+ * Telegraph has no h1/h2), bullet/ordered lists, blockquotes, hr, code
+ * fences; table rows and anything exotic fall back to plain paragraphs.
+ */
+export function markdownToTelegraphNodes(markdown: string): TelegraphNode[] {
+  const nodes: TelegraphNode[] = [];
+  const lines = markdown.split(/\r?\n/);
+  let para: string[] = [];
+  let list: { ordered: boolean; items: string[] } | null = null;
+  let codeBuf: string[] | null = null;
+
+  const flushPara = () => {
+    if (para.length) {
+      nodes.push({ tag: 'p', children: inlineToTelegraph(para.join(' ').replace(/\|/g, ' ')) });
+      para = [];
+    }
+  };
+  const flushList = () => {
+    if (list) {
+      nodes.push({
+        tag: list.ordered ? 'ol' : 'ul',
+        children: list.items.map((i) => ({ tag: 'li', children: inlineToTelegraph(i) })),
+      });
+      list = null;
+    }
+  };
+
+  for (const raw of lines) {
+    const line = raw.trimEnd();
+
+    if (codeBuf !== null) {
+      if (line.trim().startsWith('```')) {
+        nodes.push({ tag: 'pre', children: [codeBuf.join('\n')] });
+        codeBuf = null;
+      } else {
+        codeBuf.push(raw);
+      }
+      continue;
+    }
+    if (line.trim().startsWith('```')) {
+      flushPara();
+      flushList();
+      codeBuf = [];
+      continue;
+    }
+
+    if (!line.trim()) {
+      flushPara();
+      flushList();
+      continue;
+    }
+
+    const h = line.match(/^(#{1,6})\s+(.*)$/);
+    if (h) {
+      flushPara();
+      flushList();
+      nodes.push({ tag: h[1].length <= 2 ? 'h3' : 'h4', children: inlineToTelegraph(h[2]) });
+      continue;
+    }
+
+    if (/^\s*([-*_])\s*\1\s*\1[\s\-*_]*$/.test(line)) {
+      flushPara();
+      flushList();
+      nodes.push({ tag: 'hr' });
+      continue;
+    }
+
+    const ul = line.match(/^\s*[-*+]\s+(.*)$/);
+    if (ul) {
+      flushPara();
+      if (!list || list.ordered) {
+        flushList();
+        list = { ordered: false, items: [] };
+      }
+      list.items.push(ul[1]);
+      continue;
+    }
+
+    const ol = line.match(/^\s*\d+[.)]\s+(.*)$/);
+    if (ol) {
+      flushPara();
+      if (!list || !list.ordered) {
+        flushList();
+        list = { ordered: true, items: [] };
+      }
+      list.items.push(ol[1]);
+      continue;
+    }
+
+    const bq = line.match(/^\s*>\s?(.*)$/);
+    if (bq) {
+      flushPara();
+      flushList();
+      nodes.push({ tag: 'blockquote', children: inlineToTelegraph(bq[1]) });
+      continue;
+    }
+
+    para.push(line.trim());
+  }
+  if (codeBuf !== null && codeBuf.length) nodes.push({ tag: 'pre', children: [codeBuf.join('\n')] });
+  flushPara();
+  flushList();
+  return nodes;
+}
+
+/**
+ * Publish a post to telegra.ph as a TEASER (no canonical support on Telegraph —
+ * full copies would create duplicate content, so only the opening paragraphs
+ * + a "read the full guide" link go out). Telegraph requires an access_token
+ * but has no listing API and accounts are free/anonymous: mint a throwaway
+ * account per page and carry author attribution on the page itself.
+ */
+export async function telegraphPublish(
+  post: SitePostInfo
+): Promise<{ ok: boolean; url?: string; error?: string }> {
+  const home = SITE_URL.replace(/\/$/, '');
+  const teaser = buildTeaserBody(post);
+  const content = markdownToTelegraphNodes(teaser);
+  const title = post.title.length > 250 ? `${post.title.slice(0, 247)}...` : post.title;
+
+  const acct = await telegraphCall('createAccount', {
+    short_name: TELEGRAPH_AUTHOR_NAME,
+    author_name: TELEGRAPH_AUTHOR_NAME,
+    author_url: home,
+  });
+  if (!acct.ok) return { ok: false, error: acct.error };
+  const accessToken = (acct.result as { access_token?: string } | undefined)?.access_token;
+  if (!accessToken) return { ok: false, error: 'Telegraph did not return an access token' };
+
+  const page = await telegraphCall('createPage', {
+    access_token: accessToken,
+    title,
+    content,
+    author_name: TELEGRAPH_AUTHOR_NAME,
+    author_url: home,
+    return_content: false,
+  });
+  if (!page.ok) return { ok: false, error: page.error };
+  const url = (page.result as { url?: string } | undefined)?.url;
+  return { ok: Boolean(url), url, error: url ? undefined : 'Telegraph returned no URL' };
 }
