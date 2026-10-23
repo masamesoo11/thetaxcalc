@@ -29,5 +29,25 @@ export const TELEGRAPH_PUBLISHED: Record<string, { url: string; publishedAt: str
   "best-tax-preparer-near-me-2026": {
     "url": "https://telegra.ph/Best-Tax-Preparer-Near-Me-How-to-Find-a-Qualified-CPA-or-EA-in-2026-10-23",
     "publishedAt": "2026-10-23T05:31:59Z"
+  },
+  "turbotax-lawsuit-guide-2026": {
+    "url": "https://telegra.ph/TurboTax-Lawsuit-Explained-What-Happened-and-What-It-Means-for-You-10-23",
+    "publishedAt": "2026-10-23T12:29:57Z"
+  },
+  "brian-kemp-income-tax-rebates-2026": {
+    "url": "https://telegra.ph/Brian-Kemp-Income-Tax-Rebates-2026-Who-Qualifies-and-How-Much-10-23",
+    "publishedAt": "2026-10-23T12:29:57Z"
+  },
+  "irs-tax-refund-schedule-2026": {
+    "url": "https://telegra.ph/IRS-Tax-Refund-Schedule-2026-When-Will-You-Get-It-10-23",
+    "publishedAt": "2026-10-23T12:29:57Z"
+  },
+  "amended-tax-return-guide-2026": {
+    "url": "https://telegra.ph/Amended-Tax-Return-Guide-How-to-Check-Status-and-File-Form-1040-X-10-23",
+    "publishedAt": "2026-10-23T12:29:57Z"
+  },
+  "rd-tax-credit-guide-2026": {
+    "url": "https://telegra.ph/RD-Tax-Credit-Guide-2026-Qualify-as-a-Startup-10-23",
+    "publishedAt": "2026-10-23T12:29:57Z"
   }
 };
