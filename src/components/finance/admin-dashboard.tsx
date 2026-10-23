@@ -245,7 +245,7 @@ export function AdminDashboard() {
               {adminSection.section === 'blog' && adminSection.sub === 'list' && 'Blog Management'}
               {adminSection.section === 'ads' && 'Ad Management'}
               {adminSection.section === 'database' && 'Database Setup'}
-              {adminSection.section === 'syndication' && 'Syndication — dev.to & Medium'}
+              {adminSection.section === 'syndication' && 'Syndication — dev.to, telegra.ph & more'}
               {adminSection.section === 'settings' && 'Site Settings'}
               {adminSection.section === 'links' && 'External Links'}
               {adminSection.section === 'overview' && 'Dashboard Overview'}
