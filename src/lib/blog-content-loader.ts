@@ -19,6 +19,7 @@
 
 import fs from 'fs';
 import path from 'path';
+import { SYNDICATION_CONTENT } from '@/generated/syndication-content';
 
 interface BlogJsonData {
   id?: string;
@@ -46,12 +47,14 @@ export function getBlogContentFromFile(slug: string): string {
     const filePath = path.join(process.cwd(), 'content', 'blog', `${slug}.json`);
     const fileContent = fs.readFileSync(filePath, 'utf-8');
     const data: BlogJsonData = JSON.parse(fileContent);
-    return data.content || '';
+    if (data.content && data.content.trim()) return data.content;
   } catch {
-    // Fallback: if JSON file doesn't exist, return empty string
-    // This prevents build errors for posts without JSON files
-    return '';
+    // fs unavailable (Cloudflare Worker runtime) or file missing — fall through.
   }
+  // Worker-safe fallback: generated map compiled from the SAME content/blog/*.json
+  // (bundled into the worker; already powers /api/syndicate). Fixes on-demand-rendered
+  // blog pages serving empty bodies in production, where fs silently fails.
+  return SYNDICATION_CONTENT[slug] || '';
 }
 
 /**

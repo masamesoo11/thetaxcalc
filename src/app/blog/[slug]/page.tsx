@@ -14,21 +14,12 @@ import { AuthorBioCard } from '@/components/finance/author-bio-card';
 
 export const dynamicParams = true; // Allow on-demand generation
 export function generateStaticParams() {
-  // Only pre-generate top 10 blog posts to reduce build time
-  // Other posts will be generated on-demand (ISR)
-  const topPosts = [
-    'oasdi-tax-explained-2026',
-    'rd-tax-credit-guide-2026',
-    'amended-tax-return-guide-2026',
-    'irs-tax-refund-schedule-2026',
-    'brian-kemp-income-tax-rebates-2026',
-    'turbotax-lawsuit-guide-2026',
-    'best-tax-preparer-near-me-2026',
-    'robux-tax-calculator-guide-2026',
-    'federal-income-tax-rate-calculator-guide-2026',
-    'spreadsheet-formula-to-calculate-income-tax-2026',
-  ];
-  return topPosts.map(slug => ({ slug }));
+  // Pre-generate ALL published posts so every blog page ships as static HTML with
+  // the full article body baked in — fastest TTFB, and crawlers/importers (Medium's
+  // "Import a story", social previews, AI search) see the complete content in the
+  // initial HTML. New posts added later still render on-demand (dynamicParams=true)
+  // with full content via the worker-safe fallback in blog-content-loader.ts.
+  return getPublishedSlugs().map(slug => ({ slug }));
 }
 
 // ─── Static Data Helpers ────────────────────────────────────────────────────────
