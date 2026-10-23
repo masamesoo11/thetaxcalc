@@ -58,7 +58,7 @@ jobs:
             exit 0
           fi
           python3 - <<'PY'
-          import json, os, re, sys, time, urllib.request
+          import json, os, re, sys, time, urllib.error, urllib.request
 
           token = os.environ.get("TOKEN", "")
           if not token:
@@ -68,12 +68,21 @@ jobs:
           STATE = "src/generated/telegraph-published.ts"
 
           def api(method, path, payload=None):
+              # Custom User-Agent: python-urllib's default UA is blocked by the
+              # site's bot protection (observed 403); curl's requests pass fine.
               data = json.dumps(payload).encode() if payload is not None else None
-              headers = {"Content-Type": "application/json"} if payload is not None else {}
+              headers = {"User-Agent": "TheTaxCalc-Syndication/1.0"}
+              if payload is not None:
+                  headers["Content-Type"] = "application/json"
               req = urllib.request.Request(
                   "https://thetaxcalc.com" + path, method=method, data=data, headers=headers)
-              with urllib.request.urlopen(req, timeout=300) as r:
-                  return json.loads(r.read().decode())
+              try:
+                  with urllib.request.urlopen(req, timeout=300) as r:
+                      return json.loads(r.read().decode())
+              except urllib.error.HTTPError as e:
+                  body = e.read().decode(errors="replace")[:2000]
+                  print("::error::HTTP %s from thetaxcalc.com%s: %s" % (e.code, path.split("?")[0], body))
+                  sys.exit(1)
 
           # 1) committed state — the freshest record of what is already published
           state = {}
