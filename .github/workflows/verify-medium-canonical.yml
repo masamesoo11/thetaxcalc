@@ -4,6 +4,8 @@ name: verify medium canonical
 # back to the original thetaxcalc.com article (the core SEO mechanism of the
 # manual Medium "Import a story" channel).
 # Manual trigger only. Reusable for every future Medium import: pass the post URL.
+# Uses real Chromium via Playwright because medium.com serves a Cloudflare JS
+# challenge to plain curl/datacenter requests.
 
 on:
   workflow_dispatch:
@@ -16,42 +18,67 @@ on:
 jobs:
   verify:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 15
     steps:
-      - name: Fetch Medium post and extract canonical
+      - name: Install Chromium (Playwright)
+        run: npx -y playwright@1.49.1 install chromium --with-deps 2>&1 | tail -1
+
+      - name: Verify canonical via real browser
         env:
           MEDIUM_URL: ${{ inputs.medium_url }}
         run: |
-          UA="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"
-          echo "URL: $MEDIUM_URL"
-          for i in 1 2 3; do
-            code=$(curl -sL --compressed -A "$UA" \
-              -H "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8" \
-              -H "Accept-Language: en-US,en;q=0.9" \
-              -H "Sec-Fetch-Dest: document" -H "Sec-Fetch-Mode: navigate" \
-              --max-time 45 -w "%{http_code}" "$MEDIUM_URL" -o medium.html || echo "000")
-            echo "attempt $i -> HTTP $code, size $(wc -c < medium.html)"
-            if [ "$code" = "200" ] && [ "$(wc -c < medium.html)" -gt 50000 ]; then break; fi
-            sleep 8
-          done
-          echo "===================="
-          echo "--- CANONICAL TAG ---"
-          grep -o '<link[^>]*rel="canonical"[^>]*>' medium.html || echo "!!! NO CANONICAL TAG FOUND"
-          echo "--- ORIGINALLY PUBLISHED FOOTER ---"
-          grep -o 'Originally published[^<"]*' medium.html | head -3 || true
-          grep -o 'first published[^<"]*' medium.html | head -2 || true
-          echo "--- LINKS TO THETAXCALC ---"
-          grep -o 'href="https://thetaxcalc[^"]*"' medium.html | sort -u | head -8 || echo "!!! NO THETAXCALC LINK"
-          echo "--- TITLE ---"
-          grep -o '<title>[^<]*</title>' medium.html | head -1
-          echo "===================="
-          {
-            echo "### Medium canonical verification"
-            echo "URL: \`${MEDIUM_URL}\`"
-            echo '```'
-            grep -o '<link[^>]*rel="canonical"[^>]*>' medium.html || echo "NO CANONICAL TAG FOUND"
-            grep -o 'Originally published[^<"]*' medium.html | head -3 || true
-            grep -o 'href="https://thetaxcalc[^"]*"' medium.html | sort -u | head -8 || true
-            grep -o '<title>[^<]*</title>' medium.html | head -1 || true
-            echo '```'
-          } >> "$GITHUB_STEP_SUMMARY"
+          npm i -D playwright-core@1.49.1 playwright@1.49.1 --no-save >/dev/null 2>&1 || npm i playwright-core@1.49.1 --no-save >/dev/null 2>&1
+          cat > verify.mjs << 'SCRIPT'
+          import { chromium } from 'playwright-core';
+          const url = process.env.MEDIUM_URL;
+          const browser = await chromium.launch({
+            headless: true,
+            args: ['--disable-blink-features=AutomationControlled', '--no-sandbox'],
+          });
+          const ctx = await browser.newContext({
+            userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36',
+            locale: 'en-US',
+            viewport: { width: 1440, height: 900 },
+            extraHTTPHeaders: { 'Accept-Language': 'en-US,en;q=0.9' },
+          });
+          await ctx.addInitScript(() => {
+            Object.defineProperty(navigator, 'webdriver', { get: () => undefined });
+          });
+          const page = await ctx.newPage();
+          console.log('URL:', url);
+          try {
+            await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 60000 });
+            for (let i = 0; i < 15; i++) {
+              const t = await page.title();
+              if (!/just a moment|attention required|checking your browser|verify you are human/i.test(t)) break;
+              console.log('challenge in progress (' + t + '), waiting...');
+              await page.waitForTimeout(5000);
+            }
+            await page.waitForTimeout(4000);
+            const title = await page.title();
+            const canonical = await page.evaluate(() =>
+              document.querySelector('link[rel="canonical"]')?.outerHTML || 'NO CANONICAL TAG');
+            const footer = await page.evaluate(() =>
+              (document.body.innerText.match(/originally published[^\n\r]*/i) || ['NO ORIGINALLY-PUBLISHED FOOTER'])[0]);
+            const links = await page.evaluate(() =>
+              Array.from(document.querySelectorAll('a[href*="thetaxcalc"]')).map(a => a.href));
+            console.log('====================');
+            console.log('TITLE:', title);
+            console.log('CANONICAL:', canonical);
+            console.log('FOOTER:', footer);
+            console.log('THETAXCALC LINKS:', JSON.stringify([...new Set(links)].slice(0, 8)));
+            console.log('====================');
+            const fs = await import('fs');
+            fs.writeFileSync('summary.md',
+              '### Medium canonical verification\nURL: `' + url + '`\n```\nTITLE: ' + title +
+              '\nCANONICAL: ' + canonical + '\nFOOTER: ' + footer +
+              '\nTHETAXCALC LINKS: ' + JSON.stringify([...new Set(links)].slice(0, 8)) + '\n```\n');
+          } catch (e) {
+            console.log('ERROR:', e.message);
+            process.exitCode = 1;
+          } finally {
+            await browser.close();
+          }
+          SCRIPT
+          node verify.mjs
+          cat summary.md >> "$GITHUB_STEP_SUMMARY" 2>/dev/null || true
