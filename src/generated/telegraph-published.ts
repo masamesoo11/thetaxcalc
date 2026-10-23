@@ -7,7 +7,27 @@
  */
 export const TELEGRAPH_PUBLISHED: Record<string, { url: string; publishedAt: string }> = {
   "irs-withholding-w4-guide-2026": {
-    url: "https://telegra.ph/IRS-Withholding-2026-How-to-Fill-Out-Your-W-4-and-Avoid-Surprises-10-23",
-    publishedAt: "2026-10-23T05:26:46.606Z"
+    "url": "https://telegra.ph/IRS-Withholding-2026-How-to-Fill-Out-Your-W-4-and-Avoid-Surprises-10-23",
+    "publishedAt": "2026-10-23T05:26:46.606Z"
+  },
+  "federal-income-tax-rate-calculator-guide-2026": {
+    "url": "https://telegra.ph/Federal-Income-Tax-Rate-Calculator-How-to-Calculate-Your-2026-Tax-10-23",
+    "publishedAt": "2026-10-23T05:31:59Z"
+  },
+  "robux-tax-calculator-guide-2026": {
+    "url": "https://telegra.ph/Robux-Tax-Calculator-How-Much-Tax-Does-Roblox-Take-10-23",
+    "publishedAt": "2026-10-23T05:31:59Z"
+  },
+  "reverse-sales-tax-calculator-guide-2026": {
+    "url": "https://telegra.ph/Reverse-Sales-Tax-Calculator-How-to-Calculate-Pre-Tax-Price-10-23",
+    "publishedAt": "2026-10-23T05:31:59Z"
+  },
+  "alameda-county-property-tax-2026": {
+    "url": "https://telegra.ph/Alameda-County-Property-Tax-2026-Rates-Assessment-and-How-to-Pay-10-23",
+    "publishedAt": "2026-10-23T05:31:59Z"
+  },
+  "best-tax-preparer-near-me-2026": {
+    "url": "https://telegra.ph/Best-Tax-Preparer-Near-Me-How-to-Find-a-Qualified-CPA-or-EA-in-2026-10-23",
+    "publishedAt": "2026-10-23T05:31:59Z"
   }
 };
