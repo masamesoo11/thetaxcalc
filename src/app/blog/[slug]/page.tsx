@@ -214,6 +214,20 @@ function simpleMarkdownToHtml(markdown: string): { html: string; toc: TocEntry[]
       i++; continue;
     }
 
+    // H4–H6 — render as headings (kept out of the TOC; sidebar lists h2/h3 only).
+    // REQUIRED: without this handler such a line matched no branch below, was
+    // excluded from paragraph collection by /^#{1,6}\s/, and the outer loop never
+    // advanced — an INFINITE LOOP that hung the entire Cloudflare Pages build
+    // until its 20-min timeout (every deploy after the all-posts prerender
+    // change failed because of one "#### Example Calculation" line).
+    const h456Match = line.match(/^(#{4,6})\s+(.+)$/);
+    if (h456Match) {
+      const level = h456Match[1].length;
+      const id = headingId(h456Match[2]);
+      htmlParts.push(`<h${level} id="${id}">${inlineMarkdown(h456Match[2])}</h${level}>`);
+      i++; continue;
+    }
+
     // Tables
     if (isTableRow(line)) {
       const tableRows: string[] = [];
@@ -275,6 +289,12 @@ function simpleMarkdownToHtml(markdown: string): { html: string; toc: TocEntry[]
     }
     if (paraLines.length > 0) {
       htmlParts.push(`<p>${inlineMarkdown(paraLines.join(' '))}</p>`);
+    } else {
+      // Safety net: this line matched no handler above but was excluded from
+      // paragraph collection. ALWAYS render it and advance — otherwise the
+      // outer loop spins forever (guarantees forward progress on any input).
+      htmlParts.push(`<p>${inlineMarkdown(line)}</p>`);
+      i++;
     }
   }
 
