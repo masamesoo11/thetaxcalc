@@ -569,10 +569,12 @@ Visit https://thetaxcalc.com/about for the full page.`,
   // Cache for HTML pages — CDN edge caching for Cloudflare Pages
   // Must delete Next.js default Cache-Control (max-age=0) before setting ours,
   // otherwise Next.js overwrites it AFTER middleware runs on Cloudflare Pages.
+  // 1-hour edge TTL + stale-while-revalidate: content fixes propagate quickly
+  // (a 30-day s-maxage made corrected pages invisible to Google for a month).
   const isHtmlPage = !pathname.startsWith('/_next') && !pathname.startsWith('/api') && !pathname.startsWith('/admin') && !pathname.match(/\.(svg|png|jpg|jpeg|gif|webp|ico|xml|json|txt|css|js|woff2?|ttf|eot)$/);
   if (isHtmlPage) {
     response.headers.delete('Cache-Control');
-    response.headers.set('Cache-Control', 'public, max-age=3600, s-maxage=2592000, stale-while-revalidate=31536000');
+    response.headers.set('Cache-Control', 'public, max-age=300, s-maxage=3600, stale-while-revalidate=604800');
   }
 
   // Check if this is a public API route (always allow)
