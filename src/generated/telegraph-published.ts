@@ -69,5 +69,25 @@ export const TELEGRAPH_PUBLISHED: Record<string, { url: string; publishedAt: str
   "2026-w2-tax-refund-calculator-guide": {
     "url": "https://telegra.ph/W-2-Tax-Refund-Calculator-Guide-2026-Exact-Numbers-10-24",
     "publishedAt": "2026-10-24T10:50:16Z"
+  },
+  "2026-federal-tax-refund-estimator-guide": {
+    "url": "https://telegra.ph/2026-Federal-Tax-Refund-Estimator-How-Much-Back-10-24",
+    "publishedAt": "2026-10-24T11:54:12Z"
+  },
+  "2026-paycheck-take-home-pay-guide": {
+    "url": "https://telegra.ph/2026-Paycheck--Take-Home-Pay-Calculator-Guide-How-Much-of-Your-Salary-You-Actually-Keep-10-24",
+    "publishedAt": "2026-10-24T11:54:12Z"
+  },
+  "bonus-tax-flat-vs-aggregate-method-explained": {
+    "url": "https://telegra.ph/Why-Is-My-Bonus-Taxed-So-High-22-Flat-Rate-vs-Aggregate-Method-10-24",
+    "publishedAt": "2026-10-24T11:54:12Z"
+  },
+  "how-to-calculate-overtime-pay-tax-rate": {
+    "url": "https://telegra.ph/Is-Overtime-Taxed-More-The-Truth-About-Overtime-Tax-Rates-10-24",
+    "publishedAt": "2026-10-24T11:54:12Z"
+  },
+  "1099-vs-w2-take-home-pay-comparison-2026": {
+    "url": "https://telegra.ph/W2-vs-1099-Take-Home-Pay-Which-Actually-Pays-More-in-2026-10-24",
+    "publishedAt": "2026-10-24T11:54:12Z"
   }
 };
