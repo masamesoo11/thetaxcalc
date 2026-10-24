@@ -853,6 +853,36 @@ export const BLOG_INDEX: BlogPostMeta[] = [
     "metaDesc": "Compare the exact tax differences between California and Texas in 2026. See how 0% income tax stacks up against high property taxes.",
     "createdAt": "2026-06-25T10:05:00.000Z",
     "updatedAt": "2026-06-25T10:05:00.000Z"
+  },
+  {
+    "id": "home-sale-tax-guide-2026",
+    "title": "Selling Your House in 2026? Here's How Much Tax You'll Actually Pay",
+    "slug": "home-sale-tax-guide-2026",
+    "excerpt": "How much tax do you pay when you sell your house? The 2026 rules explained: the $250K/$500K exclusion, cost basis, capital gains rates, depreciation recapture, and state taxes — with worked examples.",
+    "category": "tax-guide",
+    "tags": "home sale tax,selling a house,capital gains tax,section 121 exclusion,primary residence,tax calculator,2026 taxes",
+    "coverImage": "",
+    "published": true,
+    "featured": false,
+    "metaTitle": "Selling Your House in 2026: Taxes, Exclusions & Real Examples | TheTaxCalc",
+    "metaDesc": "How much tax do you pay when you sell your house? 2026 rules for the $250K/$500K exclusion, capital gains rates, cost basis, and depreciation recapture — with worked examples.",
+    "createdAt": "2026-10-24T12:30:00.000Z",
+    "updatedAt": "2026-10-24T12:30:00.000Z"
+  },
+  {
+    "id": "how-to-calculate-sales-tax-2026",
+    "title": "How to Calculate Sales Tax in 2026: The Formula, Examples, and Rates for Every State",
+    "slug": "how-to-calculate-sales-tax-2026",
+    "excerpt": "Learn the exact sales tax formula with worked examples at real 2026 rates. Find your combined state, county, and city rate, plus reverse calculation and exemptions.",
+    "category": "tax-guide",
+    "tags": "sales tax,sales tax calculator,how to calculate sales tax,sales tax rate,tax formula,2026",
+    "coverImage": "",
+    "published": true,
+    "featured": false,
+    "metaTitle": "How to Calculate Sales Tax in 2026: Formula, Examples & Rates | TheTaxCalc",
+    "metaDesc": "The exact sales tax formula with worked examples at real 2026 rates. Find your combined rate for any ZIP code, reverse calculation, and state-by-state rates.",
+    "createdAt": "2026-10-24T12:45:00.000Z",
+    "updatedAt": "2026-10-24T12:45:00.000Z"
   }
 ];
 
