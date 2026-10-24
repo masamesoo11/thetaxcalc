@@ -302,8 +302,8 @@ export default function SmartAssetAlternativePage() {
           TheTaxCalc offers dedicated paycheck calculators for all 50 states. That includes
           no-income-tax states (Texas, Florida, Washington, Nevada, Wyoming, South Dakota,
           Alaska, New Hampshire, Tennessee), flat-tax states (Illinois at 4.95%, Pennsylvania
-          at 3.07%, Colorado at 4.4%, Indiana at 3.05%, Michigan at 4.25%, Massachusetts at
-          5.0%, Georgia at 5.49%, North Carolina at 4.5%), and the most progressive states
+          at 3.07%, Colorado at 4.4%, Indiana at 2.95%, Michigan at 4.25%, Massachusetts at
+          5.0%, Georgia at 4.99%, North Carolina at 3.99%), and the most progressive states
           (California at 1%–13.3%, New York at 4%–10.9% plus NYC tax). Use our{' '}
           <Link
             href="/paycheck-calculator"

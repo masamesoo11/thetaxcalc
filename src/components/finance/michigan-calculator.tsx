@@ -123,13 +123,13 @@ export function MichiganCalculator() {
               <p className="font-medium text-foreground">How Michigan Income Tax Works</p>
               <p>
                 Michigan uses a <strong className="text-emerald-400">flat tax rate of 4.25%</strong> on
-                all taxable income. Michigan does not offer a standard deduction, but provides a <strong className="text-emerald-400">personal exemption</strong> ($5,500 single / $11,000 married / $5,500 head of household) which reduces your taxable income before the flat rate is applied.
+                all taxable income. Michigan does not offer a standard deduction, but provides a <strong className="text-emerald-400">personal exemption</strong> ($5,900 single / $11,800 married / $5,900 head of household) which reduces your taxable income before the flat rate is applied.
               </p>
               <p>
                 Some cities like <strong className="text-emerald-400">Detroit</strong> levy additional city income taxes (~2.4% for residents, ~1.2% for non-residents working in the city). These city taxes are not included in this calculator.
               </p>
               <p>
-                For a $75,000 salary (single): Taxable income = $75,000 - $5,500 = $69,500. State tax = $69,500 × 4.25% = $2,953.75.
+                For a $75,000 salary (single): Taxable income = $75,000 - $5,900 = $69,100. State tax = $69,100 × 4.25% = $2,936.75.
               </p>
             </div>
           </div>
@@ -327,17 +327,17 @@ export function MichiganCalculator() {
               </TableRow>
               <TableRow>
                 <TableCell>Personal Exemption (Single)</TableCell>
-                <TableCell className="font-medium">$5,500</TableCell>
+                <TableCell className="font-medium">$5,900</TableCell>
                 <TableCell>Subtracted from gross before tax computation</TableCell>
               </TableRow>
               <TableRow>
                 <TableCell>Personal Exemption (Married)</TableCell>
                 <TableCell className="font-medium">$11,000</TableCell>
-                <TableCell>$5,500 per person for married filing jointly</TableCell>
+                <TableCell>$5,900 per person for married filing jointly</TableCell>
               </TableRow>
               <TableRow>
                 <TableCell>Personal Exemption (Head of Household)</TableCell>
-                <TableCell className="font-medium">$5,500</TableCell>
+                <TableCell className="font-medium">$5,900</TableCell>
                 <TableCell>Same as single filer</TableCell>
               </TableRow>
               <TableRow>
@@ -374,14 +374,14 @@ export function MichiganCalculator() {
         <h2 className="text-xl font-bold text-foreground">Michigan $75,000 Salary Example (2026)</h2>
         <div className="mt-3 space-y-1 text-sm text-muted-foreground">
           <p>Gross Annual Salary: $75,000.00</p>
-          <p>Michigan Personal Exemption: -$5,500.00</p>
-          <p>Michigan Taxable Income: $69,500.00</p>
-          <p>Michigan State Tax (4.25%): $2,953.75</p>
+          <p>Michigan Personal Exemption: -$5,900.00</p>
+          <p>Michigan Taxable Income: $69,100.00</p>
+          <p>Michigan State Tax (4.25%): $2,936.75</p>
           <p>Federal Tax (after $16,100 std deduction): $7,670.00</p>
           <p>FICA Total (7.65%): $5,737.50</p>
-          <p>Total Deductions: $16,361.25</p>
-          <p>Net Annual Take-Home: $58,638.75</p>
-          <p>Monthly Take-Home: $4,886.56</p>
+          <p>Total Deductions: $16,344.25</p>
+          <p>Net Annual Take-Home: $58,655.75</p>
+          <p>Monthly Take-Home: $4,887.98</p>
         </div>
       </div>
 

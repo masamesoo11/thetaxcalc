@@ -65,7 +65,7 @@ export function MarylandCalculator() {
           Maryland Paycheck Calculator
         </h2>
         <p className="mt-2 text-muted-foreground">
-          Maryland progressive income tax (2%–5.75%) plus county taxes — complete take-home breakdown
+          Maryland progressive income tax (2%–6.5%) plus county taxes — complete take-home breakdown
         </p>
       </div>
 
@@ -76,7 +76,7 @@ export function MarylandCalculator() {
             <div className="space-y-2 text-sm text-muted-foreground">
               <p className="font-medium text-foreground">How Maryland Income Tax Works</p>
               <p>
-                Maryland uses a <strong className="text-sky-400">progressive tax system with brackets from 2% to 5.75%</strong>.
+                Maryland uses a <strong className="text-sky-400">progressive tax system with brackets from 2% to 6.5% for 2026</strong> — two new top brackets (6.25% and 6.5%) took effect in tax year 2025.
                 Maryland offers a <strong className="text-sky-400">standard deduction</strong> ($2,400 single / $4,800 married) and a
                 <strong className="text-sky-400"> personal exemption</strong> ($3,200 single / $6,400 married).
                 <strong className="text-amber-400"> County income taxes</strong> (2.25%–3.28%) are also imposed on top of the state tax,
@@ -239,7 +239,7 @@ export function MarylandCalculator() {
                   <div className="flex justify-between"><span>Less: Standard Deduction</span><span>-{formatCurrency(mdBreakdown.standardDeduction)}</span></div>
                   <div className="flex justify-between"><span>Less: Personal Exemption</span><span>-{formatCurrency(mdBreakdown.personalExemption)}</span></div>
                   <div className="flex justify-between"><span>MD Taxable Income</span><span>{formatCurrency(mdBreakdown.mdTaxableIncome)}</span></div>
-                  <div className="flex justify-between"><span>MD Tax Rate</span><span>2%–5.75%</span></div>
+                  <div className="flex justify-between"><span>MD Tax Rate</span><span>2%–6.5%</span></div>
                   <div className="flex justify-between font-medium text-amber-400"><span>MD State Tax</span><span>{formatCurrency(result.stateTax)}</span></div>
                 </div>
               </div>
@@ -271,8 +271,8 @@ export function MarylandCalculator() {
               <TableRow><TableHead>Parameter</TableHead><TableHead>Value</TableHead><TableHead>Notes</TableHead></TableRow>
             </TableHeader>
             <TableBody>
-              <TableRow><TableCell>State Income Tax</TableCell><TableCell className="font-medium text-sky-400">2%–5.75% (Progressive)</TableCell><TableCell>8 brackets; top rate above $300K</TableCell></TableRow>
-              <TableRow><TableCell>Standard Deduction (Single)</TableCell><TableCell className="font-medium">$2,400</TableCell><TableCell>Subtracted from gross before tax computation</TableCell></TableRow>
+              <TableRow><TableCell>State Income Tax</TableCell><TableCell className="font-medium text-sky-400">2%–6.5% (Progressive)</TableCell><TableCell>10 brackets; top rate of 6.5% above $1M</TableCell></TableRow>
+              <TableRow><TableCell>Standard Deduction (Single)</TableCell><TableCell className="font-medium">$3,350</TableCell><TableCell>Subtracted from gross before tax computation</TableCell></TableRow>
               <TableRow><TableCell>Standard Deduction (Married)</TableCell><TableCell className="font-medium">$4,800</TableCell><TableCell>Married filing jointly</TableCell></TableRow>
               <TableRow><TableCell>Personal Exemption (Single)</TableCell><TableCell className="font-medium">$3,200</TableCell><TableCell>Per person exemption</TableCell></TableRow>
               <TableRow><TableCell>County Income Tax</TableCell><TableCell className="font-medium text-amber-400">2.25%–3.28%</TableCell><TableCell>Varies by county; not included in this calculation</TableCell></TableRow>
@@ -287,15 +287,15 @@ export function MarylandCalculator() {
         <h2 className="text-xl font-bold text-foreground">Maryland $75,000 Salary Example (2026)</h2>
         <div className="mt-3 space-y-1 text-sm text-muted-foreground">
           <p>Gross Annual Salary: $75,000.00</p>
-          <p>MD Standard Deduction: -$2,400.00</p>
+          <p>MD Standard Deduction: -$3,350.00</p>
           <p>MD Personal Exemption: -$3,200.00</p>
-          <p>MD Taxable Income: $69,400.00</p>
-          <p>MD State Tax (2%–5.75%): ~$3,250</p>
+          <p>MD Taxable Income: $68,450.00</p>
+          <p>MD State Tax (2%–6.5%): ~$3,199</p>
           <p>Federal Tax (after $16,100 std deduction): $7,670.00</p>
           <p>FICA Total (7.65%): $5,737.50</p>
-          <p>Total Deductions: ~$16,657.50</p>
-          <p>Net Annual Take-Home: ~$58,342.50</p>
-          <p>Monthly Take-Home: ~$4,861.88</p>
+          <p>Total Deductions: ~$16,606.50</p>
+          <p>Net Annual Take-Home: ~$58,393.50</p>
+          <p>Monthly Take-Home: ~$4,866.13</p>
         </div>
       </div>
 

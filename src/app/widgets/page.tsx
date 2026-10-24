@@ -633,7 +633,7 @@ export default function WidgetsPage() {
                 { href: '/florida-tax-calculator', label: 'Florida (0%)' },
                 { href: '/california-tax-calculator', label: 'California (1%–13.3%)' },
                 { href: '/new-york-tax-calculator', label: 'New York (4%–10.9%)' },
-                { href: '/georgia-tax-calculator', label: 'Georgia (5.49%)' },
+                { href: '/georgia-tax-calculator', label: 'Georgia (4.99%)' },
               ].map((item) => (
                 <Link
                   key={item.href}

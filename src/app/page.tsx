@@ -257,7 +257,7 @@ const CALCULATOR_CARDS = [
   {
     href: '/georgia-tax-calculator',
     title: 'Georgia Tax Calculator',
-    desc: '5.49% flat state tax — GA take-home pay with standard deductions',
+    desc: '4.99% flat state tax — GA take-home pay with standard deductions',
     icon: MapPin,
     badge: 'GA',
     badgeColor: 'bg-red-500/20 text-red-400',
@@ -275,7 +275,7 @@ const CALCULATOR_CARDS = [
   {
     href: '/north-carolina-tax-calculator',
     title: 'North Carolina Tax Calculator',
-    desc: '4.5% flat tax with $12,750 standard deduction — NC take-home pay',
+    desc: '3.99% flat tax with $12,750 standard deduction — NC take-home pay',
     icon: MapPin,
     badge: 'NC',
     badgeColor: 'bg-blue-500/20 text-blue-400',
@@ -356,7 +356,7 @@ const CALCULATOR_CARDS = [
   {
     href: '/indiana-tax-calculator',
     title: 'Indiana Tax Calculator',
-    desc: '3.05% flat tax + county taxes 1.5%–2% — IN take-home pay',
+    desc: '2.95% flat tax + county taxes 1.5%–2% — IN take-home pay',
     icon: MapPin,
     badge: 'IN',
     badgeColor: 'bg-amber-500/20 text-amber-400',
@@ -392,7 +392,7 @@ const CALCULATOR_CARDS = [
   {
     href: '/wisconsin-tax-calculator',
     title: 'Wisconsin Tax Calculator',
-    desc: '3.54%–7.65% progressive — WI take-home pay',
+    desc: '3.5%–7.65% progressive — WI take-home pay',
     icon: MapPin,
     badge: 'WI',
     badgeColor: 'bg-amber-500/20 text-amber-400',

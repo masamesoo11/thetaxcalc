@@ -87,14 +87,14 @@ export function getStateContentEntry(state: string): StateContentEntry | null {
         name: 'Oklahoma',
         hasIncomeTax: true,
         howItWorks: [
-          'Oklahoma runs a nine-bracket progressive income tax — one of the most granular bracket systems in the country. Rates start at just 0.25% on your first $1,000 of taxable income and climb slowly: 0.75% up to $2,500, 1.25% up to $3,750, and so on through 4% at $12,200. Everything above $12,200 gets the top rate of 4.75%. Because the early brackets are so low, a typical middle-income earner\'s effective Oklahoma tax rate lands around 3.2%–3.8% — meaningfully below the 4.75% headline number.',
-          'Here\'s the math on a $75,000 single-filer salary. Oklahoma starts from federal AGI and applies the federal standard deduction of $16,100, leaving $58,900 of taxable income. Running that through the nine brackets produces roughly $1,880 in state tax — an effective rate of about 2.5% of gross pay. Add federal tax and FICA on top and total take-home lands near $59,700.',
+          'Oklahoma runs a four-bracket progressive income tax for 2026 — HB 2764 replaced the old nine-bracket ladder. Rates start at 0% on your first $3,750 of taxable income, then 2.5% to $4,900, 3.5% to $7,200, and 4.5% above. Oklahoma also keeps a $1,000 personal exemption for you and each dependent on top of the state standard deduction.',
+          'Here\'s the math on a $75,000 single-filer salary. Oklahoma starts from federal AGI and applies its own standard deduction ($7,350) plus the $1,000 exemption, leaving about $50,550 of taxable income. The brackets produce roughly $2,065 in state tax — a 2.75% effective rate, well below the 4.5% top rate.',
           'Two Oklahoma quirks worth knowing. First, the state keeps a personal exemption on top of the standard deduction for you and each dependent, which trims taxable income a bit further. Second, Oklahoma taxes all retirement income — Social Security included for higher earners — but seniors with household income under $75,000 ($100,000 married) are fully exempt. Tulsa and Oklahoma City add no local income taxes, so the state rate is the whole story on your pay stub.',
           'Sales tax is Oklahoma\'s real revenue engine: 4.5% state plus local add-ons averages 8.95% combined — top-10 in the nation. Property tax averages just 0.95%, which is one of the lowest rates in the country. So Oklahoma trades cheap property tax for pricey sales tax, a mix that favors homeowners over frequent spenders.',
           'Filing in Oklahoma: the state return is Form 511, sent to the Oklahoma Tax Commission by April 15 alongside your federal 1040. Oklahoma offers free e-file for most residents, and withholding starts from the first dollar of wages — there are no local returns to worry about.',
         ],
         keyRates: [
-          { label: 'OK Tax Brackets', value: '0.25% – 4.75% (9 brackets)' },
+          { label: 'OK Tax Brackets', value: '0% / 2.5% / 3.5% / 4.5% (2026)' },
           { label: 'OK Standard Deduction (Single)', value: '$16,100 (federal SD)' },
           { label: 'OK Avg Property Tax Rate', value: '~0.95%' },
           { label: 'OK Avg Combined Sales Tax', value: '8.95% (top-10 US)' },
@@ -102,9 +102,9 @@ export function getStateContentEntry(state: string): StateContentEntry | null {
         ],
         faqs: [
           {
-            question: 'Why is my Oklahoma effective tax rate lower than the 4.75% top rate?',
+            question: 'Why is my Oklahoma effective tax rate lower than the 4.5% top rate?',
             answer:
-              'Because Oklahoma spreads nine brackets across the bottom of the income scale. The first $1,000 of taxable income is taxed at just 0.25%, and the rate doesn\'t reach 4% until $8,700. The 4.75% top rate only applies above $12,200, so most of a middle-class salary is taxed at 2.5%–4%. The blended result for a typical $75,000 earner is roughly $1,880 — about a 2.5% effective rate.',
+              'Because Oklahoma\'s four-bracket structure starts with a 0% band on the first $3,750 of taxable income and only reaches the 4.5% top rate above $7,200. The standard deduction and $1,000 exemptions come off before the brackets even start, so most earners pay well below 4.5% overall.',
           },
           {
             question: 'Does Oklahoma tax Social Security and 401(k) withdrawals?',
@@ -123,7 +123,7 @@ export function getStateContentEntry(state: string): StateContentEntry | null {
           },
         ],
         calcStep1:
-          'Run Oklahoma\'s nine brackets (0.25% to 4.75%) against your taxable income after the federal standard deduction',
+          'Run Oklahoma\'s four brackets (0% / 2.5% / 3.5% / 4.5%) against your taxable income after the state standard deduction and exemptions',
         calcExample:
           'A single filer earning $75,000: the $16,100 federal standard deduction leaves $58,900 taxable. Oklahoma\'s nine brackets produce about $1,880 in state tax — roughly a 2.5% effective rate on gross pay.',
         neighbors: [
@@ -139,15 +139,15 @@ export function getStateContentEntry(state: string): StateContentEntry | null {
         name: 'Kansas',
         hasIncomeTax: true,
         howItWorks: [
-          'Kansas keeps its income tax simple: three brackets. 3.1% on your first $23,000 of taxable income (married — $11,500 single), 5.25% on the middle band, and 5.7% on income above $46,000 married ($23,000 single). Unlike most states, Kansas does NOT let you use the federal standard deduction — it has its own smaller deduction of $3,500 single / $8,000 married. That smaller deduction is why the effective rate runs higher than you might guess from the bracket numbers.',
-          'Run a $70,000 single salary through it: Kansas taxable income is $70,000 minus the $3,500 state deduction, so $66,500. The first $11,500 is taxed at 3.1% ($356.50), the next $11,500 at 5.25% ($603.75), and the remaining $43,500 at 5.7% ($2,479.50) — roughly $3,440 total, an effective rate of about 4.9% of gross. For 2026, Kansas has scheduled the brackets to compress further, which will shave a bit off the top band.',
+          'Kansas keeps its income tax simple: two brackets for 2026. 5.2% on your first $23,000 of taxable income (single; $46,000 married filing jointly) and 5.58% on income above. Unlike most states, Kansas does NOT let you use the federal standard deduction — it has its own larger deduction of $12,765 single / $26,560 married (2026), plus a $9,160 personal exemption.',
+          'Run a $70,000 single salary through it: Kansas taxable income is $70,000 minus the $12,765 state deduction and $9,160 exemption, so $48,075. The first $23,000 is taxed at 5.2% ($1,196.00) and the remaining $25,075 at 5.58% ($1,399.19) — roughly $2,595 total, an effective rate of about 3.7% of gross.',
           'Kansas is one of the states that still fully taxes Social Security benefits for higher earners, though seniors earning under $75,000 AGI get relief. The state levies no local income taxes — not even in Wichita, Topeka, or Kansas City (Kansas side) — so what you see in the brackets is what gets withheld.',
           'Property tax averages a moderate 1.37%, and combined sales tax runs 8.66% on average thanks to substantial local add-ons — top-10 nationally. Worth noting: the Kansas City metro area has a peculiar situation where living in Kansas but working in Missouri (or vice versa) triggers credit rules between the two states, which the calculator handles only implicitly — check with your payroll department for that edge case.',
           'Filing in Kansas: resident returns go to the Kansas Department of Revenue on Form K-40, due April 15 with your federal return. The state supports free online filing, and employer withholding follows your federal W-4 selections unless you file a separate Kansas K-4 to fine-tune it.',
         ],
         keyRates: [
-          { label: 'KS Tax Brackets', value: '3.1% / 5.25% / 5.7%' },
-          { label: 'KS Standard Deduction (Single)', value: '$3,500 (not federal SD)' },
+          { label: 'KS Tax Brackets', value: '5.2% / 5.58% (2026)' },
+          { label: 'KS Standard Deduction (Single)', value: '$12,765 (2026, not federal SD)' },
           { label: 'KS Standard Deduction (Married)', value: '$8,000' },
           { label: 'KS Avg Property Tax Rate', value: '~1.37%' },
           { label: 'KS Avg Combined Sales Tax', value: '8.66% (top-10 US)' },
@@ -156,12 +156,12 @@ export function getStateContentEntry(state: string): StateContentEntry | null {
           {
             question: 'Why can\'t I use the federal standard deduction on my Kansas return?',
             answer:
-              'Kansas is one of the few states that rejected the federal standard deduction. The state allows only its own deduction — $3,500 for singles and $8,000 for joint filers — far smaller than the federal $16,100. That\'s why a Kansas effective rate (about 4.9% on a $70,000 salary) runs higher than the bracket numbers alone suggest.',
+              'Kansas is one of the few states that rejected the federal standard deduction. The state allows only its own deduction — $12,765 for singles and $26,560 for joint filers for 2026, plus a $9,160 personal exemption. That\'s why a Kansas effective rate (about 3.7% on a $70,000 salary) lands lower than the 5.2%/5.58% bracket numbers alone suggest.',
           },
           {
             question: 'What are the Kansas state income tax brackets?',
             answer:
-              'Three brackets: 3.1% on your first $23,000 of taxable income (married) or $11,500 (single), 5.25% on the middle band, and 5.7% on everything above $46,000 (married) or $23,000 (single). The brackets are scheduled to compress further in 2026, trimming the top band slightly.',
+              'Two brackets for 2026: 5.2% on taxable income up to $23,000 (single) or $46,000 (married filing jointly), and 5.58% above. The 2024 tax law cut the old 5.7% top rate and roughly doubled the standard deduction.',
           },
           {
             question: 'I live in Kansas but work in Kansas City, Missouri — how does that work?',
@@ -175,9 +175,9 @@ export function getStateContentEntry(state: string): StateContentEntry | null {
           },
         ],
         calcStep1:
-          'Subtract Kansas\'s own standard deduction ($3,500 single / $8,000 married) — the federal deduction does NOT apply — then run the 3.1% / 5.25% / 5.7% brackets',
+          'Subtract Kansas\'s own standard deduction ($12,765 single / $26,560 married) and the $9,160 personal exemption — the federal deduction does NOT apply — then run the 5.2% / 5.58% brackets',
         calcExample:
-          'A single filer earning $70,000: Kansas taxable income is $66,500 after the $3,500 state deduction. The brackets produce 3.1% of the first $11,500, 5.25% of the next $11,500, and 5.7% of the remaining $43,500 — about $3,440 total.',
+          'A single filer earning $70,000: Kansas taxable income is $48,075 after the $12,765 deduction and $9,160 exemption. The brackets produce 5.2% of the first $23,000 and 5.58% of the rest — about $2,595 total.',
         neighbors: [
           { slug: 'missouri-tax-calculator', label: 'Missouri Calculator' },
           { slug: 'oklahoma-tax-calculator', label: 'Oklahoma Calculator' },
@@ -191,9 +191,9 @@ export function getStateContentEntry(state: string): StateContentEntry | null {
         name: 'Idaho',
         hasIncomeTax: true,
         howItWorks: [
-          'Idaho charges a flat 5.695% income tax for 2026 — and that single number is exactly what makes Idaho unusual: it uses your federal taxable income as the starting point, which means the federal standard deduction of $16,100 (single) automatically reduces Idaho taxable income too. There are no separate state deduction schedules to figure out.',
-          'On a $75,000 salary, your federal taxable income is $58,900 after the standard deduction. Idaho takes 5.695% of that — about $3,354. Federal tax and FICA stack on top, leaving take-home around $57,300. High earners should note Idaho added a temporary 5.3% surcharge bracket on income above $250,000 (single) in recent years, which is why some Idaho pay stubs show two state lines.',
-          'Idaho gives significant retirement breaks: Social Security is fully exempt, and there\'s a $60,000-per-person deduction for qualifying retirement income (45+ with earned income requirements). That makes Idaho surprisingly competitive for retirees despite the 5.695% working-years rate. Grocery shoppers get an odd perk — Idaho refunds $120 per person annually ($240 for seniors) to offset grocery sales tax.',
+          'Idaho charges a flat 5.3% income tax for 2026 — and that single number is exactly what makes Idaho unusual: it uses your federal taxable income as the starting point, with a small 0% band on the first ~$4,800 of taxable income before the 5.3% rate kicks in.',
+          'On a $75,000 salary, your federal taxable income is $58,900 after the standard deduction. Idaho taxes the first $4,811 at 0% and the remaining $54,089 at 5.3% — about $2,866. Federal tax and FICA stack on top, leaving roughly $50,000 of take-home.',
+          'Idaho gives significant retirement breaks: Social Security is fully exempt, and there\'s a $60,000-per-person deduction for qualifying retirement income (45+ with earned income requirements). That makes Idaho surprisingly competitive for retirees despite the 5.3% working-years rate. Grocery shoppers get an odd perk — Idaho refunds $120 per person annually ($240 for seniors) to offset grocery sales tax.',
           'Boise adds no city income tax. Property tax averages 0.96% of home value — near the national average — while combined sales tax sits at 8.05%, mostly from the state\'s 6% base rate plus municipal add-ons. Idaho\'s overall burden is close to the national median.',
           'Filing in Idaho: the resident return is Form 40, filed with the Idaho State Tax Commission by April 15. Idaho supports free e-file, and the grocery credit is claimed on the same form — no local returns exist.',
         ],
@@ -243,15 +243,15 @@ export function getStateContentEntry(state: string): StateContentEntry | null {
         name: 'Kentucky',
         hasIncomeTax: true,
         howItWorks: [
-          'Kentucky levies a flat 4% income tax for 2026 — down from 4.5% the year before, part of a planned series of cuts that could eventually reach 3.5% if revenue targets keep being met. The flat rate means no bracket math at all: Kentucky taxable income × 4% = state tax. The state uses its own standard deduction of $3,510 (single), scheduled to keep rising with inflation.',
-          'A $70,000 single salary pays Kentucky roughly $2,660 after the $3,510 deduction — an effective rate of 3.8% of gross. Louisville and Lexington add no city income taxes on wages (Louisville\'s occupational tax of 2.2% applies to net profits from business, not regular W-2 withholding), so the 4% is what comes out of your paycheck.',
+          'Kentucky levies a flat 3.5% income tax for 2026 — down from 4% in 2025 and 4.5% in 2024, part of a planned series of cuts that could eventually reach 3% if revenue targets keep being met.',
+          'A $70,000 single salary pays Kentucky roughly $2,332 after the $3,360 state deduction — an effective rate of 3.3% of gross. Louisville and Lexington add no city income taxes on wages, but most Kentucky counties levy a local occupational tax of roughly 1-2%.',
           'Retirees: Kentucky exempts Social Security entirely and allows a $31,110 exclusion per person on most retirement income (pensions, 401(k) distributions, IRAs) once you meet the age and service requirements. Combined with the declining flat rate, that makes Kentucky one of the more retiree-friendly states among flat-tax states.',
           'Property tax is cheap — 0.86% average effective, bottom-15 nationally — while the 6% state sales tax carries no local add-ons (Kentucky bans local sales taxes), leaving combined at a flat 6%. Kentucky\'s overall tax burden ranks among the lower third of states.',
           'Filing in Kentucky: the resident return is Form 740, due to the Kentucky Department of Revenue by April 15. The state offers free e-file, and your employer handles withholding via the federal W-4 — Kentucky has no separate state withholding form.',
         ],
         keyRates: [
           { label: 'KY Flat Tax Rate', value: '4% (dropping yearly)' },
-          { label: 'KY Standard Deduction', value: '$3,510' },
+          { label: 'KY Standard Deduction', value: '$3,360 (2026)' },
           { label: 'Retirement Income Exclusion', value: '$31,110/person' },
           { label: 'KY Avg Property Tax Rate', value: '~0.86%' },
           { label: 'KY Sales Tax', value: '6% flat (no local)' },
@@ -260,7 +260,7 @@ export function getStateContentEntry(state: string): StateContentEntry | null {
           {
             question: 'When will Kentucky\'s flat tax rate drop again?',
             answer:
-              'Kentucky cut its rate from 4.5% to 4% and built a statutory trigger for further reductions — down toward 3.5% — if revenue targets keep being met. The cuts happen automatically once the state hits its savings goals, so the rate on your paycheck can fall without new legislation.',
+              'Kentucky cut its rate in steps — 4.5% in 2024, 4% in 2025, and 3.5% for 2026 — and built a statutory trigger for further reductions.',
           },
           {
             question: 'Does Louisville\'s 2.2% occupational tax come out of my paycheck?',
@@ -279,9 +279,9 @@ export function getStateContentEntry(state: string): StateContentEntry | null {
           },
         ],
         calcStep1:
-          'Subtract Kentucky\'s own standard deduction ($3,510 single) and multiply the rest by the flat 4% rate',
+          'Subtract Kentucky\'s own standard deduction ($3,360 single) and multiply the rest by the flat 3.5% rate',
         calcExample:
-          'A single filer earning $70,000 subtracts the $3,510 state deduction, leaving $66,490 taxable. Kentucky\'s flat 4% produces about $2,660 in state tax — an effective 3.8% of gross.',
+          'A single filer earning $70,000 subtracts the $3,360 state deduction, leaving $66,640 taxable. Kentucky\'s flat 3.5% produces about $2,332 in state tax — an effective 3.3% of gross.',
         neighbors: [
           { slug: 'tennessee-tax-calculator', label: 'Tennessee Calculator (0% income tax)' },
           { slug: 'ohio-tax-calculator', label: 'Ohio Calculator' },
@@ -295,14 +295,14 @@ export function getStateContentEntry(state: string): StateContentEntry | null {
         name: 'Mississippi',
         hasIncomeTax: true,
         howItWorks: [
-          'Mississippi applies a flat 4.7% income tax on taxable income for 2026 — but "taxable income" in Mississippi means something different than almost anywhere else. The state eliminates its own standard deduction entirely in 2026 (it was $2,300, now zero) and replaces the old multi-bracket structure with the flat rate. Deductions come only from the federal side: itemized deductions carry over, but the federal standard deduction does NOT.',
-          'That quirk matters for your paycheck. On a $65,000 salary, Mississippi taxes the full $65,000 at 4.7% unless you itemize — about $3,055. Compare that to a state like Idaho (also a flat-tax state, at 5.695%) which lets you subtract the federal standard deduction first, and you\'ll see why two similar-looking flat rates produce very different real burdens. For 2026, Mississippi also maintains a self-employment income exemption on the first $10,000 of business income.',
-          'Retirees love Mississippi. Social Security is fully exempt, and — uniquely — Mississippi exempts ALL retirement income: pensions, 401(k), IRA withdrawals, annuities. There\'s no dollar cap and no age gate beyond the standard retirement definitions. For a retiree drawing $60,000 from a 401(k), Mississippi income tax is literally zero. Working years you pay 4.7%, retirement years you pay nothing.',
+          'Mississippi taxes income at a flat 4% for 2026 — with a $10,000 zero bracket: the first $10,000 of taxable income is exempt, and everything above is taxed at 4%. Mississippi still offers its own standard deduction ($2,300 single / $4,600 joint) plus a $6,000 personal exemption, and itemized deductions carry over from the federal side.',
+          'That quirk matters for your paycheck. On a $65,000 salary, Mississippi exempts the first $10,000 of taxable income and taxes the rest at a flat 4% after the standard deduction and personal exemptions — about $1,868. Compare that to a state like Idaho (also flat, at 5.3%) and Mississippi stays competitive.',
+          'Retirees love Mississippi. Social Security is fully exempt, and — uniquely — Mississippi exempts ALL retirement income: pensions, 401(k), IRA withdrawals, annuities. There\'s no dollar cap and no age gate beyond the standard retirement definitions. For a retiree drawing $60,000 from a 401(k), Mississippi income tax is literally zero. Working years you pay 4%, retirement years you pay nothing.',
           'Property tax averages 0.98% and sales tax runs 7.07% combined (the state rate is 7% — one of the highest base rates in the country, with minimal local add-ons). Jackson adds no city income tax. Mississippi\'s total tax burden is bottom-5 nationally, especially for retirees.',
           'Filing in Mississippi: resident returns use Form 80-105, filed with the Mississippi Department of Revenue by April 15. The state provides free online filing, and withholding is handled through your employer — no separate state W-4 is needed.',
         ],
         keyRates: [
-          { label: 'MS Flat Tax Rate', value: '4.7%' },
+          { label: 'MS Flat Tax Rate', value: '4% (0% on first $10,000)' },
           { label: 'MS Standard Deduction', value: 'Eliminated for 2026' },
           { label: 'Retirement Income', value: 'Fully exempt (no cap)' },
           { label: 'MS Avg Property Tax Rate', value: '~0.98%' },
@@ -310,9 +310,9 @@ export function getStateContentEntry(state: string): StateContentEntry | null {
         ],
         faqs: [
           {
-            question: 'Why does Mississippi feel more expensive than its 4.7% flat rate?',
+            question: 'Why is Mississippi\'s flat tax cheaper than the headline rate suggests?',
             answer:
-              'Because Mississippi eliminated its standard deduction in 2026 — previously $2,300, now zero. Unless you itemize, the state taxes your income from the first dollar. On a $65,000 salary that\'s the full $65,000 × 4.7% ≈ $3,055, noticeably more than flat-tax states that let you subtract deductions first.',
+              'Because the first $10,000 of taxable income is exempt (0% bracket), and the standard deduction plus personal exemption come off before anything is taxed. On a $65,000 salary that\'s about $1,868 in state tax — noticeably less than flat-tax states that start from dollar one.',
           },
           {
             question: 'Is Mississippi really tax-free for retirees?',
@@ -331,9 +331,9 @@ export function getStateContentEntry(state: string): StateContentEntry | null {
           },
         ],
         calcStep1:
-          'Apply the flat 4.7% to your full income — Mississippi eliminated its standard deduction for 2026',
+          'Subtract the standard deduction and personal exemptions, apply 0% to the first $10,000 of taxable income, then the flat 4% to the rest',
         calcExample:
-          'A single filer earning $65,000 with no itemized deductions owes 4.7% on the full amount — about $3,055. Mississippi is the rare flat-tax state that starts from dollar one.',
+              'Subtract the $2,300 standard deduction and $6,000 personal exemption, then apply 0% to the first $10,000 of taxable income and the flat 4% above — about $1,868 on a $65,000 salary. Mississippi finished phasing out its lower brackets in 2025.',
         neighbors: [
           { slug: 'louisiana-tax-calculator', label: 'Louisiana Calculator' },
           { slug: 'tennessee-tax-calculator', label: 'Tennessee Calculator (0% income tax)' },
@@ -347,9 +347,9 @@ export function getStateContentEntry(state: string): StateContentEntry | null {
         name: 'Utah',
         hasIncomeTax: true,
         howItWorks: [
-          'Utah charges a flat 4.65% income tax for 2026 — but Utah\'s twist is the taxpayer tax credit system. Instead of exemptions and deductions, Utah starts from federal taxable income, applies the 4.65% to get a preliminary tax, then subtracts a credit worth 4.65% of your dependents\' deductions (about $1,900 per dependent). For a family of four, that credit alone removes roughly $350 from the state bill.',
-          'Single earner making $80,000: federal taxable income after the standard deduction is $63,900. Utah takes 4.65% — roughly $2,971 — with no dependent credit unless you have kids. Families get real relief: that same $80,000 with two dependents pays about $2,620 after the credit. Salt Lake City and Provo levy no local income taxes, so the state rate is the whole withholding story.',
-          'Utah fully exempts Social Security and provides a retirement credit up to $450 per person for qualifying retirement income — modest, but the flat 4.65% (down from 4.95% a few years ago) keeps working-years burden reasonable. Utah has been cutting the rate steadily; every cut triggers an automatic taxpayer credit bump in the same bill.',
+          'Utah\'s twist is the taxpayer tax credit system. Instead of exemptions and deductions, Utah starts from federal taxable income, applies the 4.45% to get a preliminary tax, then subtracts a credit worth about 6% of the federal standard deduction for lower earners.',
+          'Single earner making $80,000: federal taxable income after the standard deduction is $63,900. Utah takes 4.45% — roughly $2,844 — with the taxpayer credit subtracted on top for lower incomes.',
+          'Utah fully exempts Social Security and provides a retirement credit up to $450 per person for qualifying retirement income — modest, but the flat 4.45% (cut from 4.65% by S.B. 60 in 2026) keeps the overall burden reasonable.',
           'Property tax averages a low 0.67%, while combined sales tax runs 7.19%. Utah\'s overall burden sits close to the national median, but the flat structure means high earners do notably better here than in progressive-rate states like California or Oregon.',
           'Filing in Utah: the resident return is Form TC-40, sent to the Utah State Tax Commission by April 15. Utah offers free e-file for most filers, and the dependent tax credit is claimed directly on the TC-40.',
         ],
@@ -383,7 +383,7 @@ export function getStateContentEntry(state: string): StateContentEntry | null {
           },
         ],
         calcStep1:
-          'Multiply federal taxable income by the flat 4.65%, then subtract the taxpayer credit (4.65% of ~$1,900 per dependent)',
+          'Multiply federal taxable income by the flat 4.45%, then subtract the taxpayer credit (about 4.45% of the federal standard deduction, phased down at higher incomes)',
         calcExample:
           'A single filer earning $80,000 has $63,900 of federal taxable income. Utah\'s 4.65% produces about $2,971 — and with two dependents, the credit cuts it to roughly $2,620.',
         neighbors: [
@@ -451,14 +451,14 @@ export function getStateContentEntry(state: string): StateContentEntry | null {
         name: 'Arkansas',
         hasIncomeTax: true,
         howItWorks: [
-          'Arkansas uses a six-bracket progressive tax running from 2% up to 4.4% for 2026. The brackets are narrow at the bottom — 2% on your first $5,000, 3% to $10,000, 3.4% to $14,000 — and the top 4.4% rate starts at just $25,000 of taxable income. Because the top bracket hits so early, most middle-class earners are effectively paying 4.4% on the bulk of their income. The state standard deduction is $2,620 single / $5,240 married, notably smaller than the federal one.',
-          'A $68,000 single salary works out like this: taxable income after the state deduction is about $65,380. The lower brackets consume the first $25,000, and everything above gets 4.4%. Total Arkansas tax lands near $2,640 — an effective rate of 3.9% of gross pay. Little Rock adds no city income tax.',
-          'Arkansas has been quietly reducing rates: the top rate was 5.9% a few years ago and has fallen in steps to 4.4%, with the bottom bracket doubling to 4% scheduled in future years. The state keeps a unique tax table system (like the federal wage tables) that most payroll departments use for withholding.',
+          'Arkansas uses a five-bracket progressive tax running from 0% up to 3.9% for 2026. The brackets are narrow at the bottom — 0% on your first $5,599, 2% to $11,199, 3% to $15,999, 3.4% to $26,399 — and the top 3.9% rate starts at just $26,400 of taxable income. Because the top bracket hits so early, most middle-class earners are effectively paying 3.9% on the bulk of their income. The state standard deduction is $2,470 single / $4,940 married, notably smaller than the federal one.',
+          'A $68,000 single salary works out like this: taxable income after the state deduction is about $65,530. The first $26,400 runs through the 0%/2%/3%/3.4% brackets, and everything above is taxed at 3.9% — about $2,137 total.',
+          'Arkansas has been quietly reducing rates: the top rate was 5.9% a few years ago and has fallen in steps to 3.9% for 2026, with the first $5,599 of taxable income sitting in a 0% bracket.',
           'Retirement treatment is mixed: Social Security is exempt, and military retirement pay is fully exempt, but private pensions and 401(k)/IRA distributions are taxed at standard rates. Property tax runs 0.93% average, while combined sales tax is high at 9.44% — third-highest in the country — driven by a 6.5% state rate plus substantial local add-ons.',
           'Filing in Arkansas: full-year residents file Form AR1000F with the Arkansas Department of Finance and Administration by April 15. Arkansas offers free online filing, and most payroll systems use the state wage tables for withholding.',
         ],
         keyRates: [
-          { label: 'AR Tax Brackets', value: '2% – 4.4% (6 brackets)' },
+          { label: 'AR Tax Brackets', value: '0% – 3.9% (5 brackets, 2026)' },
           { label: 'AR Top Rate Threshold', value: '$25,000 (early)' },
           { label: 'AR Standard Deduction (Single)', value: '$2,620' },
           { label: 'AR Avg Property Tax Rate', value: '~0.93%' },
@@ -466,9 +466,9 @@ export function getStateContentEntry(state: string): StateContentEntry | null {
         ],
         faqs: [
           {
-            question: 'When does Arkansas\'s 4.4% top rate kick in?',
+            question: 'When does Arkansas\'s 3.9% top rate kick in?',
             answer:
-              'At just $25,000 of taxable income — one of the earliest top-bracket thresholds in the country. The lower brackets (2%, 3%, 3.4%) cover only the first $14,000, so most middle-class Arkansans pay 4.4% on the bulk of their income.',
+              'At just $26,400 of taxable income — one of the earliest top-bracket thresholds in the country. The lower brackets (0%, 2%, 3%, 3.4%) cover only the first $26,400, so most middle-class Arkansans pay 4.4% on the bulk of their income.',
           },
           {
             question: 'Is military retirement taxed in Arkansas?',
@@ -478,7 +478,7 @@ export function getStateContentEntry(state: string): StateContentEntry | null {
           {
             question: 'How much have Arkansas income tax rates fallen?',
             answer:
-              'The top rate has dropped from 5.9% to 4.4% in a series of legislative steps, and the bottom bracket is scheduled to keep expanding. Arkansas ties future cuts to revenue triggers, similar to its neighbors.',
+              'The top rate has dropped from 5.9% to 3.9% in a series of legislative steps, and the bottom bracket is scheduled to keep expanding. Arkansas ties future cuts to revenue triggers, similar to its neighbors.',
           },
           {
             question: 'Why are Arkansas sales taxes so high?',
@@ -489,7 +489,7 @@ export function getStateContentEntry(state: string): StateContentEntry | null {
         calcStep1:
           'Run Arkansas\'s six brackets (2% to 4.4%) after the state standard deduction ($2,620 single)',
         calcExample:
-          'A single filer earning $68,000 has $65,380 of taxable income after the state deduction. The lower brackets cover the first $25,000; the rest is taxed at 4.4% — about $2,640 total.',
+              'A single filer earning $68,000 has $65,530 of taxable income after the state deduction. The lower brackets cover the first $26,400; the rest is taxed at 3.9% — about $2,137 total.',
         neighbors: [
           { slug: 'texas-tax-calculator', label: 'Texas Calculator (0% income tax)' },
           { slug: 'oklahoma-tax-calculator', label: 'Oklahoma Calculator' },
@@ -503,14 +503,14 @@ export function getStateContentEntry(state: string): StateContentEntry | null {
         name: 'Connecticut',
         hasIncomeTax: true,
         howItWorks: [
-          'Connecticut layers a seven-bracket progressive tax from 3% up to 6.99% for 2026. The brackets rise quickly: 3% on your first $10,000, 5% to $50,000, 5.5% to $100,000, then 6%, 6.5%, and 6.9% steps before the 6.99% top rate above $500,000. Unlike most states, Connecticut gives you NO standard deduction — the state eliminated it and instead phases out exemptions as income rises ($24,000 phase-out starting at $30,000 for singles, $48,000 at $56,000 married).',
+          'Connecticut layers a seven-bracket progressive tax from 2% up to 6.99% for 2026. The brackets rise quickly: 2% on your first $10,000, 5% to $50,000, 5.5% to $100,000, then 6%, 6.5%, 6.9% and 6.99% at the top.',
           'That phase-out design means middle-income earners with moderate salaries often lose most of their exemption. On $85,000 single, the personal exemption is largely phased out, and Connecticut tax runs about $4,240 — an effective 5% of gross. High earners above $500,000 face an extra complexity: the 6.99% rate applies to ALL income once you cross the threshold in certain phase-out zones (an effective bump that functions like a 7%–8% marginal rate for a narrow income band).',
           'Connecticut fully exempts Social Security and phases out pension-income taxation for lower earners, but 401(k)/IRA withdrawals are taxed at full rates. There\'s no city income tax — Hartford, New Haven, and Bridgeport add nothing to wages — but property tax is where Connecticut hurts: 2.15% average effective, third-highest nationally.',
           'Combined sales tax is a moderate 6.35% (6.99% on certain goods). Connecticut has one of the highest per-capita total tax burdens in the country — not because of any single rate, but because the property tax, income tax phase-outs, and inheritance tax (estates above $5.1M) all stack together.',
           'Filing in Connecticut: the resident return is Form CT-1040, due to the Connecticut Department of Revenue Services by April 15. Connecticut offers free e-file, and employees can submit Form CT-W4 to fine-tune withholding beyond the federal W-4.',
         ],
         keyRates: [
-          { label: 'CT Tax Brackets', value: '3% – 6.99% (7 brackets)' },
+          { label: 'CT Tax Brackets', value: '2% – 6.99% (7 brackets)' },
           { label: 'CT Standard Deduction', value: 'None (exemption phase-out)' },
           { label: 'CT Avg Property Tax Rate', value: '~2.15% (3rd-highest)' },
           { label: 'CT State Sales Tax', value: '6.35%' },
@@ -539,7 +539,7 @@ export function getStateContentEntry(state: string): StateContentEntry | null {
           },
         ],
         calcStep1:
-          'Run Connecticut\'s seven brackets (3% to 6.99%) with the phase-out-adjusted personal exemption — Connecticut has no standard deduction',
+          'Run Connecticut\'s seven brackets (2% to 6.99%) with the phase-out-adjusted personal exemption — Connecticut has no standard deduction',
         calcExample:
           'A single filer earning $85,000: the personal exemption is largely phased out at this income, so Connecticut tax runs about $4,240 — an effective 5% of gross.',
         neighbors: [
@@ -555,8 +555,8 @@ export function getStateContentEntry(state: string): StateContentEntry | null {
         name: 'Delaware',
         hasIncomeTax: true,
         howItWorks: [
-          'Delaware runs a seven-bracket progressive tax from 2.2% up to 6.6% for 2026. The brackets are unusual in their shape: 2.2% on your first $2,000, then 3.9%, 4.8%, 5.2%, 5.5%, and 6.6% steps — with the top 6.6% rate starting at $60,000 of taxable income. That early top-rate threshold means most professional earners are paying 6.6% on the majority of their income. The state standard deduction is $3,250 single / $6,500 married, plus a personal exemption of $110 per person (yes, $110 — one of the smallest in the country).',
-          'Run $78,000 single through it: after the $3,250 deduction, taxable income is $74,750. The first five brackets consume up to $40,000, leaving about $34,750 taxed at 6.6%. Total Delaware tax: roughly $3,470, an effective rate of 4.5% of gross. Wilmington adds no city income tax — Delaware bans local income taxes entirely.',
+          'The structure climbs from 0% on your first $2,000 through 2.2%, 3.9%, 4.8%, 5.2%, 5.55%, and 6.6% steps — with the top rate kicking in above $60,000.',
+          'Run $78,000 single through it: after the $3,250 deduction, taxable income is $74,750. The first $60,000 runs through the bracket ladder (starting with a 0% band on the first $2,000), leaving about $14,750 taxed at 6.6% — roughly $3,920 total.',
           'The famous Delaware perks are real but specific: NO state sales tax at all (Delaware is one of five states with zero sales tax), which makes it a shopping destination and cuts effective consumption-tax burden substantially. Retirees get partial relief — Social Security is exempt, and those 60+ can exclude up to $12,500 of investment and pension income.',
           'Property tax is remarkably low at 0.57% average — but Delaware makes up for it with a quirky gross-receipts tax on businesses that gets embedded in prices. The overall picture: moderate income tax, zero sales tax, cheap property tax. For high-spenders and homeowners, Delaware often beats its reputation.',
           'Filing in Delaware: the resident return is Form 200-01, filed with the Delaware Division of Revenue — and uniquely, Delaware gives you until April 30, two weeks longer than the federal deadline. Free e-file is available for most residents.',
@@ -593,7 +593,7 @@ export function getStateContentEntry(state: string): StateContentEntry | null {
         calcStep1:
           'Run Delaware\'s seven brackets (2.2% to 6.6%) after the state deduction ($3,250 single)',
         calcExample:
-          'A single filer earning $78,000 has $74,750 of taxable income after the state deduction. The first five brackets consume up to $40,000; the remainder is taxed at 6.6% — about $3,470 total.',
+              'A single filer earning $78,000 has $74,750 of taxable income after the state deduction. The first $60,000 runs through the bracket ladder (with a 0% band on the first $2,000); the remainder is taxed at 6.6% — about $3,920 total.',
         neighbors: [
           { slug: 'pennsylvania-tax-calculator', label: 'Pennsylvania Calculator' },
           { slug: 'new-jersey-tax-calculator', label: 'New Jersey Calculator' },
@@ -659,14 +659,14 @@ export function getStateContentEntry(state: string): StateContentEntry | null {
         name: 'Iowa',
         hasIncomeTax: true,
         howItWorks: [
-          'Iowa taxes income through six brackets from 4.4% up to a top rate of 5.7% for 2026 — but Iowa has been in the middle of a multi-year tax overhaul. The brackets: 4.4% on your first $11,820, then 4.82%, 5.28%, 5.63%, and 5.96% steps, with 5.7% above $78,435. Note the odd inversion in 2026: the fifth bracket (5.96%) is actually HIGHER than the top rate (5.7%) because the overhaul compressed the top two brackets first. Iowa lets you use the federal standard deduction ($16,100 single / $32,200 married) on the state return.',
-          'A $72,000 single salary: taxable income after the federal deduction is $55,900. The first four brackets run through $41,360, and the remainder lands at 5.96% (the temporary high bracket). Total Iowa tax: roughly $2,890 — a 4% effective rate. Des Moines, Cedar Rapids, and Iowa City add no local income taxes.',
+          'Iowa taxes income at a single flat 3.8% rate for 2026 — one of the lowest flat rates in the country. The old bracket ladder (the odd 2024 version had a 5.96% middle rate above a 5.7% top rate) is gone: all levels of taxable individual income are subject to the same 3.8%. Iowa lets you use the federal standard deduction ($16,100 single / $32,200 married) on the state return.',
+          'A $72,000 single salary: taxable income after the federal deduction is $55,900. The flat 3.8% applies to all of it — about $2,124, a 2.95% effective rate. Des Moines, Cedar Rapids, and Iowa City add no local income taxes.',
           'Iowa is one of the states that taxes Social Security for high earners (phase-out starts at $75,000 for 2026, exempt below), though the exemption rules keep expanding. The state offers a notable deduction for federal income taxes paid — one of the last states to allow it — which softens the effective burden for mid-to-high earners.',
           'Property tax runs 1.71% average — high, driven by school district levies — while combined sales tax is 6.94%. Iowa has also been cutting corporate rates aggressively, and the income tax is scheduled to keep simplifying toward a flatter structure in future years.',
           'Filing in Iowa: the resident return is Form IA 1040, filed with the Iowa Department of Revenue — and Iowa\'s deadline is April 30, two weeks after the federal due date. Free e-file is available for most residents.',
         ],
         keyRates: [
-          { label: 'IA Tax Brackets', value: '4.4% – 5.7% (6 brackets)' },
+          { label: 'IA Flat Tax Rate', value: '3.8% (2026)' },
           { label: 'IA Standard Deduction', value: 'Federal SD ($16,100)' },
           { label: 'Federal Tax Deduction', value: 'Allowed (rare)' },
           { label: 'IA Avg Property Tax Rate', value: '~1.71%' },
@@ -676,7 +676,7 @@ export function getStateContentEntry(state: string): StateContentEntry | null {
           {
             question: 'Why does Iowa\'s fifth bracket have a higher rate than its top bracket?',
             answer:
-              'Iowa\'s ongoing tax overhaul compressed the top brackets first, creating a temporary oddity for 2026: the fifth bracket runs 5.96% while the top bracket runs 5.7%. The structure will keep simplifying toward a flatter system in future years.',
+              'Iowa\'s multi-year overhaul replaced the bracket ladder with a single flat rate — 3.8% for 2026 — and the rate is scheduled to fall further in future years.',
           },
           {
             question: 'Can I deduct federal income tax on my Iowa return?',
@@ -695,9 +695,9 @@ export function getStateContentEntry(state: string): StateContentEntry | null {
           },
         ],
         calcStep1:
-          'Run Iowa\'s six brackets (4.4% to 5.96%) against federal taxable income — Iowa keeps the federal standard deduction',
+          'Multiply federal taxable income by the flat 3.8% — Iowa keeps the federal standard deduction',
         calcExample:
-          'A single filer earning $72,000 has $55,900 of federal taxable income. Iowa\'s brackets (including the temporary 5.96% fifth band) produce about $2,890 in state tax.',
+          'A single filer earning $72,000 has $55,900 of federal taxable income. Iowa\'s flat 3.8% produces about $2,124 in state tax — a low 2.95% effective rate.',
         neighbors: [
           { slug: 'illinois-tax-calculator', label: 'Illinois Calculator' },
           { slug: 'minnesota-tax-calculator', label: 'Minnesota Calculator' },
@@ -711,14 +711,14 @@ export function getStateContentEntry(state: string): StateContentEntry | null {
         name: 'Louisiana',
         hasIncomeTax: true,
         howItWorks: [
-          'Louisiana uses a three-bracket progressive tax for 2026: 1.85% on your first $12,500 of taxable income (single), 1.85% on the band from $12,500 to $50,000 (the rate structure is in transition — both bottom brackets sit at 1.85% this year), and 4.75% above $50,000. That top rate is what drives the real cost: any professional earner above $50,000 taxable income pays 4.75% on everything over the line. Louisiana uses the federal standard deduction ($16,100 single / $32,200 married) on the state return.',
-          'The math on $70,000 single: taxable income after the standard deduction is $53,900. The first $50,000 gets the 1.85% treatment ($925), and the remaining $3,900 gets 4.75% ($185.25). Total: about $1,110 — a strikingly low 1.6% effective rate. Louisiana is genuinely one of the cheapest income-tax states for middle earners.',
+          'Louisiana uses a flat 3% income tax for 2026: the flat rate (effective 2025) replaced the old 1.85%-4.75% bracket system. Louisiana pairs it with a generous standard deduction of $12,875 single / $25,750 married plus a $4,500 deduction per dependent. The federal standard deduction does NOT apply — the state deduction stands alone, which keeps the effective rate low for middle earners.',
+          'The math on $70,000 single: taxable income after the $12,875 state deduction is $57,125, all of it taxed at the flat 3% — about $1,714, a strikingly low 2.4% effective rate. Louisiana is genuinely one of the cheapest income-tax states for middle earners.',
           'Louisiana fully exempts Social Security and gives a generous retirement exclusion: up to $6,000 per person of annual retirement income (pensions, 401(k), IRA) escapes state tax, plus military pensions are fully exempt. New Orleans adds no city income tax on wages (there\'s a peculiar occupational license tax for businesses, not employees).',
           'Property tax averages 0.74% — low — but sales tax is the opposite: 9.55% combined average, the HIGHEST in the nation, driven by a 4.45% state rate plus some of the country\'s highest local add-ons. Louisiana\'s revenue model shifts burden from income/property to consumption, which is worth factoring into relocation math.',
           'Filing in Louisiana: the resident return is Form IT-540, sent to the Louisiana Department of Revenue — and Louisiana\'s deadline is May 15, a full month after the federal deadline, the latest state filing deadline in the country. Free e-file is available.',
         ],
         keyRates: [
-          { label: 'LA Tax Brackets', value: '1.85% / 1.85% / 4.75%' },
+          { label: 'LA Flat Tax Rate', value: '3% (2026)' },
           { label: 'LA Standard Deduction', value: 'Federal SD ($16,100)' },
           { label: 'LA Avg Property Tax Rate', value: '~0.74%' },
           { label: 'LA Avg Combined Sales Tax', value: '9.55% (HIGHEST US)' },
@@ -747,9 +747,9 @@ export function getStateContentEntry(state: string): StateContentEntry | null {
           },
         ],
         calcStep1:
-          'Run Louisiana\'s brackets (1.85% below $50,000 taxable, 4.75% above) after the federal standard deduction',
+          'Subtract the $12,875 standard deduction ($25,750 married), then apply the flat 3% rate',
         calcExample:
-          'A single filer earning $70,000 has $53,900 of taxable income after the federal deduction. The first $50,000 is taxed at 1.85% and the remainder at 4.75% — about $1,110 total, one of the lowest state bills in the country.',
+          'A single filer earning $70,000 has $57,125 of taxable income after the state standard deduction. The flat 3% produces about $1,714 total, one of the lowest state income-tax bills in the South.',
         neighbors: [
           { slug: 'texas-tax-calculator', label: 'Texas Calculator (0% income tax)' },
           { slug: 'mississippi-tax-calculator', label: 'Mississippi Calculator' },
@@ -815,14 +815,14 @@ export function getStateContentEntry(state: string): StateContentEntry | null {
         name: 'Montana',
         hasIncomeTax: true,
         howItWorks: [
-          'Montana runs a six-bracket progressive tax from 1% up to 5.9% for 2026. The brackets: 1% on your first $3,600 of taxable income, 2% to $6,500, 3% to $10,100, 4% to $14,000, 5% to $19,800, and 5.9% above. Those are narrow low brackets — a $60,000 earner\'s income above $19,800 is all at 5.9%. The state standard deduction is $5,510 single / $11,020 married (capped), plus Montana offers a unique 4.3%–4.8% capital gains credit that effectively cuts the top rate on investment income to about 5.37%.',
-          'On $65,000 single: taxable income after the $5,510 deduction is $59,490. The brackets through $19,800 cost about $775, and the remaining $39,690 at 5.9% costs $2,342 — total roughly $3,117, an effective 4.8% of gross. Billings, Missoula, and Bozeman add no city income taxes.',
+          'Montana runs a two-rate income tax for 2026 under HB 337: 4.7% on taxable income up to $47,500 (single; $95,000 married) and 5.65% above. Montana\'s 2026 withholding applies the federal standard deduction ($16,100 single / $32,200 married). Long-term capital gains keep a special credit worth about 2% of the gain.',
+          'On $65,000 single: taxable income after the federal standard deduction is $48,900. The first $47,500 is taxed at 4.7% ($2,232.50) and the remaining $1,400 at 5.65% ($79.10) — roughly $2,312 total, a 3.6% effective rate.',
           'Montana fully exempts Social Security and allows a partial pension/retirement deduction ($4,310 per person against qualifying income). The state is one of the few that still allows deducting federal income taxes paid (capped), which trims the effective rate — a legacy provision most states have abandoned.',
           'Property tax averages 0.91%, and there\'s no general sales tax at the state level on most purchases — Montana is one of the few zero-sales-tax states (resort areas can levy small local options). Combined with the moderate income tax, Montana\'s total burden is genuinely low for a state with no sales tax.',
           'Filing in Montana: the resident return is Form 2, filed with the Montana Department of Revenue by April 15. Montana offers free e-file, and the capital gains credit is claimed on the same form.',
         ],
         keyRates: [
-          { label: 'MT Tax Brackets', value: '1% – 5.9% (6 brackets)' },
+          { label: 'MT Tax Rates', value: '4.7% / 5.65% (2026, HB 337)' },
           { label: 'MT Standard Deduction (Single)', value: '$5,510' },
           { label: 'Capital Gains Credit', value: 'Top eff. rate ~5.37%' },
           { label: 'MT Avg Property Tax Rate', value: '~0.91%' },
@@ -851,9 +851,9 @@ export function getStateContentEntry(state: string): StateContentEntry | null {
           },
         ],
         calcStep1:
-          'Run Montana\'s six brackets (1% to 5.9%) after the state standard deduction ($5,510 single)',
+          'Apply the federal standard deduction, then Montana\'s two rates: 4.7% up to $47,500 of taxable income (single) and 5.65% above',
         calcExample:
-          'A single filer earning $65,000 has $59,490 of taxable income after the state deduction. The brackets through $19,800 cost about $775, and the remaining $39,690 is taxed at 5.9% — roughly $3,117 total.',
+          'A single filer earning $65,000 has $48,900 of taxable income after the federal standard deduction. 4.7% on the first $47,500 plus 5.65% on the rest — roughly $2,312 total, a 3.6% effective rate.',
         neighbors: [
           { slug: 'wyoming-tax-calculator', label: 'Wyoming Calculator (0% income tax)' },
           { slug: 'idaho-tax-calculator', label: 'Idaho Calculator' },
@@ -868,13 +868,13 @@ export function getStateContentEntry(state: string): StateContentEntry | null {
         hasIncomeTax: true,
         howItWorks: [
           'Nebraska applies a four-bracket progressive tax: 2.46% on your first $4,130 of taxable income (single), 3.51% to $24,720, 5.01% to $78,990, and 5.84% above that. The state standard deduction matches the federal one ($16,100 single / $32,200 married), and Nebraska has been on a rate-cutting trajectory — every bracket rate has dropped over the past three years, and further cuts are triggered when revenue targets are met.',
-          'Run $71,000 single through it: taxable income after the standard deduction is $54,900. The first $24,720 costs about $820 through the low brackets, and the remaining $30,180 at 5.01% costs $1,512 — total about $2,332, an effective 3.3% of gross. Omaha and Lincoln add no city income taxes on wages.',
+          'Run $71,000 single through it: taxable income after the $8,850 standard deduction is $62,150. The first $4,130 costs about $102 at 2.46%, the middle band about $724 at 3.51%, and the remaining $37,390 about $1,701 at 4.55% — roughly $2,526 total, a 3.6% effective rate.',
           'Nebraska taxes Social Security for higher earners (exempt for AGI under roughly $45,000 single / $58,000 married, with a phase-out above) — one of the less retiree-friendly rules in the region. Military retirement, however, is fully exempt, and Nebraska added a targeted tax cut for veterans recently.',
           'Property tax is high at 1.73% average — driven heavily by school funding from agricultural land valuations — while combined sales tax runs 6.94%. The overall burden is moderate but the property tax side hits homeowners.',
           'Filing in Nebraska: the resident return is Form 1040N, sent to the Nebraska Department of Revenue by April 15. Nebraska provides free online filing, and the state accepts the federal standard deduction without adjustment.',
         ],
         keyRates: [
-          { label: 'NE Tax Brackets', value: '2.46% – 5.84% (4 brackets)' },
+          { label: 'NE Tax Brackets', value: '2.46% / 3.51% / 4.55% (2026)' },
           { label: 'NE Standard Deduction', value: 'Federal SD ($16,100)' },
           { label: 'Military Retirement', value: 'Fully exempt' },
           { label: 'NE Avg Property Tax Rate', value: '~1.73% (high)' },
@@ -903,9 +903,9 @@ export function getStateContentEntry(state: string): StateContentEntry | null {
           },
         ],
         calcStep1:
-          'Run Nebraska\'s four brackets (2.46% to 5.84%) against federal taxable income — Nebraska matches the federal standard deduction',
+          'Subtract the $8,850 standard deduction, then run the 2.46% / 3.51% / 4.55% brackets (top rate cut from 5.84% in 2024)',
         calcExample:
-          'A single filer earning $71,000 has $54,900 of taxable income after the standard deduction. The lower brackets and the 5.01% band produce about $2,332 in state tax — a 3.3% effective rate.',
+          'A single filer earning $71,000 has $62,150 of taxable income after the standard deduction. The 2.46%/3.51%/4.55% brackets produce about $2,526 in state tax — a 3.6% effective rate.',
         neighbors: [
           { slug: 'iowa-tax-calculator', label: 'Iowa Calculator' },
           { slug: 'kansas-tax-calculator', label: 'Kansas Calculator' },
@@ -919,14 +919,14 @@ export function getStateContentEntry(state: string): StateContentEntry | null {
         name: 'New Mexico',
         hasIncomeTax: true,
         howItWorks: [
-          'New Mexico runs a six-bracket progressive tax from 1.7% up to 5.9% for 2026. The structure: 1.7% on your first $5,500 of taxable income (single), 3.2% to $16,500, 4.7% to $33,500, 4.9% to $66,000, 5.9% above. The state uses the federal standard deduction ($16,100 single / $32,200 married), and 2026 is the first year New Mexico\'s major rate overhaul takes effect — rates dropped across the board in 2024–2025.',
-          'On a $64,000 single salary: taxable income after the standard deduction is $47,900. The low brackets consume $33,500 at about $960, the $18,400 band to $66,000 at 4.9% costs $902, and nothing hits the top rate. Total: roughly $1,862 — a low 2.9% effective rate. Albuquerque, Santa Fe, and Las Cruces add no city income taxes.',
+          'New Mexico runs a six-bracket progressive tax from 1.5% up to 5.9% for 2026 (HB 252 lowered the rates for 2025). The structure: 1.5% on your first $5,500 of taxable income (single), 3.2% to $16,500, 4.3% to $33,500, 4.7% to $66,500, 4.9% to $210,000, and 5.9% above.',
+          'On a $64,000 single salary: taxable income after the standard deduction is $47,900. The low brackets consume $33,500 at about $1,166, and the remaining $14,400 at 4.7% costs about $677 — roughly $1,842 total, a 2.9% effective rate.',
           'New Mexico is one of the most retiree-friendly states in the West: Social Security is fully exempt, and there\'s a deduction of up to $8,000 per person ($15,200 for 65+) for qualifying retirement income (pensions, 401(k), IRA). The state also allows a deduction for certain military benefits. Low income-tax rates plus generous retirement breaks make New Mexico competitive with zero-tax states for retirees.',
           'Property tax is cheap at 0.92%, but combined sales tax (called gross receipts tax in New Mexico) runs 7.66% on average and applies broadly to services. The GRT structure embeds tax at multiple production levels, which pushes effective consumption costs above the stated rate.',
           'Filing in New Mexico: the resident return is Form PIT-1, due to the Taxation and Revenue Department by April 15. New Mexico offers free e-file, and the retirement deductions are claimed directly on the PIT-1.',
         ],
         keyRates: [
-          { label: 'NM Tax Brackets', value: '1.7% – 5.9% (6 brackets)' },
+          { label: 'NM Tax Brackets', value: '1.5% – 5.9% (6 brackets, 2026)' },
           { label: 'NM Standard Deduction', value: 'Federal SD ($16,100)' },
           { label: 'Retirement Exclusion (65+)', value: 'Up to $15,200' },
           { label: 'NM Avg Property Tax Rate', value: '~0.92%' },
@@ -936,7 +936,7 @@ export function getStateContentEntry(state: string): StateContentEntry | null {
           {
             question: 'What changed in New Mexico\'s 2026 tax rates?',
             answer:
-              'New Mexico completed a major rate overhaul in 2024–2025 — every bracket dropped, with the top rate falling to 5.9% and the bottom to 1.7%. The state also kept the federal standard deduction, so effective rates are genuinely low: about 2.9% on a $64,000 salary.',
+              'New Mexico completed a major rate overhaul in 2024–2025 — every bracket dropped, with the top rate falling to 5.9% and the bottom to 1.5%. The state also kept the federal standard deduction.',
           },
           {
             question: 'How retiree-friendly is New Mexico?',
@@ -955,9 +955,9 @@ export function getStateContentEntry(state: string): StateContentEntry | null {
           },
         ],
         calcStep1:
-          'Run New Mexico\'s six brackets (1.7% to 5.9%) against federal taxable income — New Mexico keeps the federal standard deduction',
+          'Run New Mexico\'s 1.5%–5.9% brackets against federal taxable income — New Mexico keeps the federal standard deduction',
         calcExample:
-          'A single filer earning $64,000 has $47,900 of taxable income after the federal deduction. The brackets produce roughly $1,862 in state tax — a low 2.9% effective rate.',
+          'A single filer earning $64,000 has $47,900 of taxable income after the federal deduction. The brackets produce roughly $1,842 in state tax — a low 2.9% effective rate.',
         neighbors: [
           { slug: 'arizona-tax-calculator', label: 'Arizona Calculator' },
           { slug: 'colorado-tax-calculator', label: 'Colorado Calculator' },
@@ -971,14 +971,14 @@ export function getStateContentEntry(state: string): StateContentEntry | null {
         name: 'North Dakota',
         hasIncomeTax: true,
         howItWorks: [
-          'North Dakota keeps a three-bracket progressive tax that is genuinely low: 1.1% on your first $47,770 of taxable income (single), 2.04% up to $393,975, and 2.5% above that. Yes, you read that right — 2.5% is the TOP rate, one of the lowest top rates of any income-tax state in the country. The state standard deduction matches the federal one ($16,100 single / $32,200 married).',
-          'The math is almost anticlimactic: a $78,000 single salary has $61,900 of taxable income after the standard deduction, ALL of which falls in the 1.1% bracket. North Dakota tax: $680. Total effective rate: 0.87% of gross. Only the zero-tax states (Alaska, Florida, Nevada, South Dakota, Texas, Washington, and Wyoming) beat that. Fargo, Bismarck, and Grand Forks add no local income taxes.',
+          'North Dakota keeps a three-bracket progressive tax that is genuinely low: 0% on your first $48,475 of taxable income (single; about $80,975 married), 1.95% up to $244,825, and 2.5% above that. Yes — the bottom bracket rate is literally zero, which makes an ND tax bill one of the smallest in the nation.',
+          'The math is almost anticlimactic: a $78,000 single salary has $61,900 of taxable income after the standard deduction — the first $48,475 is tax-free, and the remaining $13,425 is taxed at 1.95%. North Dakota tax: about $262, an effective 0.34% of gross.',
           'North Dakota\'s tax code is shaped by the energy economy — oil revenue funds the state budget and keeps income-tax rates among the lowest in the nation. The state has also been running a long-term trend of rate reductions and credits.',
           'Retirees: Social Security is fully exempt, and North Dakota exempts most military, federal, and state pension income. Property tax averages 1.07%, and combined sales tax runs 7.09% (with a notable local-option structure — municipalities set their own add-ons, so rates range 6%–8.5% by city). The overall tax burden is one of the lowest of any state.',
           'Filing in North Dakota: the resident return is Form ND-1, filed with the Office of State Tax Commissioner by April 15. North Dakota offers free e-file and is one of the few states that lets you itemize on the state return even if you take the federal standard deduction.',
         ],
         keyRates: [
-          { label: 'ND Tax Brackets', value: '1.1% / 2.04% / 2.5% (lowest top)' },
+          { label: 'ND Tax Brackets', value: '0% / 1.95% / 2.5% (2026)' },
           { label: 'ND Standard Deduction', value: 'Federal SD ($16,100)' },
           { label: 'ND Avg Property Tax Rate', value: '~1.07%' },
           { label: 'ND Avg Combined Sales Tax', value: '7.09% (city-dependent)' },
@@ -988,7 +988,7 @@ export function getStateContentEntry(state: string): StateContentEntry | null {
           {
             question: 'Which state has the lowest top income tax rate?',
             answer:
-              'North Dakota — the top bracket is just 2.5%, and the first $47,770 of taxable income is taxed at only 1.1%. No other income-tax state comes close; the next-lowest top rates run well above 3%.',
+              'North Dakota — the top bracket is just 2.5%, and the first $48,475 of taxable income is taxed at 0%. No other income-tax state comes close; the next-lowest top rates (Arizona, Pennsylvania) are still more than double.',
           },
           {
             question: 'Why are North Dakota\'s taxes so low?',
@@ -998,7 +998,7 @@ export function getStateContentEntry(state: string): StateContentEntry | null {
           {
             question: 'How much is $78,000 after taxes in North Dakota?',
             answer:
-              'State income tax is about $680 — a 0.87% effective rate. After federal tax and FICA, a $78,000 single filer keeps roughly $63,000, which is why North Dakota routinely appears on lists of best take-home states.',
+              'State income tax is about $262 — a 0.34% effective rate. After federal tax and FICA, a $78,000 single filer keeps roughly $63,400, which is why North Dakota routinely ranks #1 for take-home pay.',
           },
           {
             question: 'Do North Dakota cities add their own taxes?',
@@ -1007,9 +1007,9 @@ export function getStateContentEntry(state: string): StateContentEntry | null {
           },
         ],
         calcStep1:
-          'Run North Dakota\'s three brackets (1.1%, 2.04%, 2.5%) against federal taxable income',
+          'Run North Dakota\'s three brackets (0% to $48,475, 1.95%, 2.5%) against federal taxable income',
         calcExample:
-          'A single filer earning $78,000 has $61,900 of taxable income — all of it inside the 1.1% bottom bracket. North Dakota tax: about $680, an effective 0.87% of gross — the lowest income-tax bill of any taxing state.',
+          'A single filer earning $78,000 has $61,900 of taxable income — the first $48,475 is tax-free and the rest is taxed at 1.95%. North Dakota tax: about $262, an effective 0.34% of gross — the lowest income-tax bill of any taxing state.',
         neighbors: [
           { slug: 'minnesota-tax-calculator', label: 'Minnesota Calculator' },
           { slug: 'south-dakota-tax-calculator', label: 'South Dakota Calculator (0% income tax)' },
@@ -1075,14 +1075,14 @@ export function getStateContentEntry(state: string): StateContentEntry | null {
         name: 'South Carolina',
         hasIncomeTax: true,
         howItWorks: [
-          'South Carolina runs a three-bracket progressive tax with a striking bottom rung: 0% on your first $3,560 of taxable income — yes, the first bracket rate is literally zero. The middle bracket is 3% on income up to $17,830, and the top rate of 6.4% applies above that. The state standard deduction is $16,100, plus personal exemptions of $4,430 per person that phase out at higher incomes.',
-          'A $73,000 single salary: taxable income after deductions is about $52,470. The 0% bracket costs nothing, the 3% bracket adds about $428, and the remaining $34,640 at 6.4% costs $2,217 — total roughly $2,645, an effective 3.6% of gross. Columbia, Charleston, and Greenville add no city income taxes.',
+          'South Carolina runs a three-bracket progressive tax with a striking bottom rung: 0% on your first $3,640 of taxable income — yes, the first bracket rate is literally zero. The middle bracket runs 3% to $18,230, and the top rate is 6% for 2026 (the final step of a multi-year cut from 7%).',
+          'A $73,000 single salary: taxable income after deductions is $56,900. The 0% bracket costs nothing, the 3% bracket adds about $438, and the remaining $38,670 at 6% costs about $2,320 — roughly $2,758 total, a 3.8% effective rate.',
           'South Carolina is a genuine retiree destination, and the tax code shows it: Social Security is fully exempt, and residents 65+ can deduct up to $10,000 of ANY retirement income type (pension, 401(k), IRA, annuity). Under 65, the exclusion is $3,000. Military retirement is fully exempt at every age. That 6.4% top rate is what working earners pay — retirees face a much gentler schedule.',
           'Property tax averages 0.88% — below average — while combined sales tax runs 7.59%. South Carolina has no estate or inheritance tax, which rounds out its appeal for retirees and high-net-worth households.',
           'Filing in South Carolina: the resident return is Form SC1040, sent to the South Carolina Department of Revenue by April 15. The state offers free e-file, and the retirement exclusions are claimed on the SC1040 itself.',
         ],
         keyRates: [
-          { label: 'SC Tax Brackets', value: '0% / 3% / 6.4%' },
+          { label: 'SC Tax Brackets', value: '0% / 3% / 6% (2026)' },
           { label: 'SC First Bracket', value: '0% (rare)' },
           { label: 'Retirement Exclusion (65+)', value: '$10,000 any type' },
           { label: 'SC Avg Property Tax Rate', value: '~0.88%' },
@@ -1111,9 +1111,9 @@ export function getStateContentEntry(state: string): StateContentEntry | null {
           },
         ],
         calcStep1:
-          'Run South Carolina\'s brackets (0% to $3,560, 3% to $17,830, 6.4% above) after deductions and exemptions',
+          'Run South Carolina\'s 0% / 3% / 6% brackets after the federal standard deduction — South Carolina starts from federal taxable income',
         calcExample:
-          'A single filer earning $73,000 has about $52,470 of taxable income after deductions. The 0% bracket costs nothing, the 3% band adds about $428, and the rest is taxed at 6.4% — roughly $2,645 total.',
+          'A single filer earning $73,000 has $56,900 of taxable income after deductions. The 0% bracket costs nothing, the 3% band adds about $438, and the rest is taxed at 6% — roughly $2,758 total.',
         neighbors: [
           { slug: 'north-carolina-tax-calculator', label: 'North Carolina Calculator' },
           { slug: 'georgia-tax-calculator', label: 'Georgia Calculator' },
@@ -1179,9 +1179,9 @@ export function getStateContentEntry(state: string): StateContentEntry | null {
         name: 'West Virginia',
         hasIncomeTax: true,
         howItWorks: [
-          'West Virginia runs a five-bracket progressive tax from 3% up to 5.12% for 2026. The brackets: 3% on your first $10,000 of taxable income, 4% to $25,000, 4.5% to $40,000, and 5.12% on everything above $60,000 after the ongoing phase-down compressed the former 6% and 6.5% mid and top brackets. The state standard deduction matches the federal one ($16,100 single / $32,200 married).',
-          'Run $62,000 single through it: taxable income after the standard deduction is $45,900. The first three brackets cost about $1,075 through $40,000, and the remaining $5,900 lands at the top rate for roughly $302 — total about $1,377, an effective 2.2% of gross. Charleston, Morgantown, and Huntington add no city income taxes, but the state does allow a handful of small municipal fees on specific worker categories.',
-          'West Virginia has been on an aggressive tax-cut path: the top rate has fallen in steps (from 6.5% down to 5.12%), triggered by revenue surpluses, and the state legislature has discussed eventually phasing toward zero. Social Security is fully exempt for most retirees (phase-out starts at $50,000 AGI single / $100,000 married), and there\'s a $8,000-per-person senior income deduction (65+) that applies broadly.',
+          'West Virginia runs a five-bracket progressive tax from 2.11% up to 4.58% for 2026 (SB 392, enacted retroactive to January 1). The brackets: 2.11% on your first $10,000 of taxable income, 2.81% to $25,000, 3.16% to $40,000, 4.22% to $60,000, and 4.58% on everything above. West Virginia has no state standard deduction — each $2,000 personal exemption reduces taxable income instead.',
+          'Run $62,000 single through it: taxable income after the $2,000 exemption is $60,000 (no standard deduction — West Virginia does NOT use the federal one). The brackets produce about $1,951 in state tax — a 3.1% effective rate.',
+          'West Virginia has been on an aggressive tax-cut path: the top rate has fallen in steps (from 6.5% down to 4.58% for 2026), triggered by revenue surpluses, and the state legislature has discussed eliminating the income tax entirely.',
           'Property tax is low at 0.69%, and combined sales tax runs 6.57%. With an income tax that keeps shrinking, low property tax, and moderate sales tax, West Virginia\'s total burden has dropped below the national average in recent years.',
           'Filing in West Virginia: the resident return is Form IT-140, due to the West Virginia State Tax Department by April 15. West Virginia provides free e-file, and the senior deduction is claimed directly on the IT-140.',
         ],
@@ -1196,7 +1196,7 @@ export function getStateContentEntry(state: string): StateContentEntry | null {
           {
             question: 'How low can West Virginia\'s income tax go?',
             answer:
-              'The top rate has fallen in steps from 6.5% to 5.12%, and the legislature has openly discussed phasing the income tax toward zero. Each cut is triggered by revenue surpluses, so the rate on your paycheck keeps dropping when the state\'s coffers are full.',
+              'The top rate has fallen in steps from 6.5% to 4.58%, and the legislature has openly discussed phasing the income tax toward zero. Each cut is triggered by revenue surpluses, so the rate can keep dropping.',
           },
           {
             question: 'What is West Virginia\'s senior deduction?',
@@ -1215,9 +1215,9 @@ export function getStateContentEntry(state: string): StateContentEntry | null {
           },
         ],
         calcStep1:
-          'Run West Virginia\'s brackets (3%, 4%, 4.5%, then 5.12% above $60,000) against federal taxable income — West Virginia matches the federal standard deduction',
+          'Subtract the $2,000 personal exemptions (no standard deduction in WV), then run the 2.11% / 2.81% / 3.16% / 4.22% / 4.58% brackets',
         calcExample:
-          'A single filer earning $62,000 has $45,900 of taxable income after the federal deduction. The lower brackets cover the first $40,000, and the remainder lands at the top rate — about $1,377 total, a 2.2% effective rate.',
+          'A single filer earning $62,000 has $60,000 of taxable income after the $2,000 exemption (West Virginia does NOT use the federal standard deduction). The brackets produce about $1,951 total — a 3.1% effective rate.',
         neighbors: [
           { slug: 'virginia-tax-calculator', label: 'Virginia Calculator' },
           { slug: 'ohio-tax-calculator', label: 'Ohio Calculator' },

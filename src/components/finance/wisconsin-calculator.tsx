@@ -55,7 +55,7 @@ export function WisconsinCalculator() {
           Wisconsin Paycheck Calculator
         </h2>
         <p className="mt-2 text-muted-foreground">
-          Wisconsin progressive income tax (3.54%–7.65%) with standard deduction — complete take-home breakdown
+          Wisconsin progressive income tax (3.5%–7.65%) with sliding standard deduction — complete take-home breakdown
         </p>
       </div>
 
@@ -66,7 +66,7 @@ export function WisconsinCalculator() {
             <div className="space-y-2 text-sm text-muted-foreground">
               <p className="font-medium text-foreground">How Wisconsin Income Tax Works</p>
               <p>
-                Wisconsin uses a <strong className="text-amber-400">progressive tax system with brackets from 3.54% to 7.65%</strong>.
+                Wisconsin uses a <strong className="text-amber-400">progressive tax system with brackets from 3.5% to 7.65% for 2026</strong>.
                 Wisconsin offers a <strong className="text-amber-400">standard deduction</strong> that varies by filing status
                 ($12,990 single / $24,070 married / $18,340 head of household) and phases out at higher income levels.
               </p>
@@ -247,8 +247,8 @@ export function WisconsinCalculator() {
               <TableRow><TableHead>Parameter</TableHead><TableHead>Value</TableHead><TableHead>Notes</TableHead></TableRow>
             </TableHeader>
             <TableBody>
-              <TableRow><TableCell>State Income Tax</TableCell><TableCell className="font-medium text-amber-400">3.54%–7.65% (Progressive)</TableCell><TableCell>4 brackets; top rate above $276,270</TableCell></TableRow>
-              <TableRow><TableCell>Standard Deduction (Single)</TableCell><TableCell className="font-medium">$12,990</TableCell><TableCell>Phases out at higher income levels</TableCell></TableRow>
+              <TableRow><TableCell>State Income Tax</TableCell><TableCell className="font-medium text-amber-400">3.5%–7.65% (Progressive)</TableCell><TableCell>4 brackets; top rate above $323,290</TableCell></TableRow>
+              <TableRow><TableCell>Standard Deduction (Single)</TableCell><TableCell className="font-medium">Up to $13,560</TableCell><TableCell>Sliding deduction — begins phasing out at $19,550 of income</TableCell></TableRow>
               <TableRow><TableCell>Standard Deduction (Married)</TableCell><TableCell className="font-medium">$24,070</TableCell><TableCell>Married filing jointly</TableCell></TableRow>
               <TableRow><TableCell>Standard Deduction (HOH)</TableCell><TableCell className="font-medium">$18,340</TableCell><TableCell>Head of household</TableCell></TableRow>
               <TableRow><TableCell>Federal Standard Deduction</TableCell><TableCell className="font-medium">$16,100</TableCell><TableCell>Applied to federal tax calculation only</TableCell></TableRow>
@@ -262,14 +262,14 @@ export function WisconsinCalculator() {
         <h2 className="text-xl font-bold text-foreground">Wisconsin $75,000 Salary Example (2026)</h2>
         <div className="mt-3 space-y-1 text-sm text-muted-foreground">
           <p>Gross Annual Salary: $75,000.00</p>
-          <p>WI Standard Deduction: -$12,990.00</p>
-          <p>WI Taxable Income: $62,010.00</p>
-          <p>WI State Tax (3.54%–7.65%): ~$3,615</p>
+          <p>WI Standard Deduction: -$13,560.00</p>
+          <p>WI Taxable Income: $61,440.00</p>
+          <p>WI State Tax (3.5%–7.65%): ~$2,670</p>
           <p>Federal Tax (after $16,100 std deduction): $7,670.00</p>
           <p>FICA Total (7.65%): $5,737.50</p>
-          <p>Total Deductions: ~$17,022.50</p>
-          <p>Net Annual Take-Home: ~$57,977.50</p>
-          <p>Monthly Take-Home: ~$4,831.46</p>
+          <p>Total Deductions: ~$16,077.50</p>
+          <p>Net Annual Take-Home: ~$58,922.50</p>
+          <p>Monthly Take-Home: ~$4,910.21</p>
         </div>
       </div>
 

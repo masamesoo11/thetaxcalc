@@ -55,7 +55,7 @@ export function MissouriCalculator() {
           Missouri Paycheck Calculator
         </h2>
         <p className="mt-2 text-muted-foreground">
-          Missouri progressive income tax (2%–4.8%) with federal standard deduction — complete take-home breakdown
+          Missouri progressive income tax (0%–4.7%) with federal standard deduction — complete take-home breakdown
         </p>
       </div>
 
@@ -66,7 +66,7 @@ export function MissouriCalculator() {
             <div className="space-y-2 text-sm text-muted-foreground">
               <p className="font-medium text-foreground">How Missouri Income Tax Works</p>
               <p>
-                Missouri uses a <strong className="text-amber-400">progressive tax system with brackets from 2% to 4.8%</strong>.
+                Missouri uses a <strong className="text-amber-400">progressive tax system with brackets from 0% to 4.7% for 2026</strong> — the first $1,348 of taxable income is tax-free.
                 Missouri uses federal taxable income as its starting point, meaning the federal standard deduction
                 ($16,100 single / $32,200 married) is applied before state tax. Missouri has been gradually
                 reducing its top rate in recent years.
@@ -248,7 +248,7 @@ export function MissouriCalculator() {
               <TableRow><TableHead>Parameter</TableHead><TableHead>Value</TableHead><TableHead>Notes</TableHead></TableRow>
             </TableHeader>
             <TableBody>
-              <TableRow><TableCell>State Income Tax</TableCell><TableCell className="font-medium text-amber-400">2%–4.8% (Progressive)</TableCell><TableCell>8 brackets; top rate applies above $8,099</TableCell></TableRow>
+              <TableRow><TableCell>State Income Tax</TableCell><TableCell className="font-medium text-amber-400">0%–4.7% (Progressive)</TableCell><TableCell>8 brackets; top rate of 4.7% applies above $9,436</TableCell></TableRow>
               <TableRow><TableCell>MO Standard Deduction</TableCell><TableCell className="font-medium">Uses Federal</TableCell><TableCell>$16,100 single / $32,200 married via federal taxable income</TableCell></TableRow>
               <TableRow><TableCell>Federal Standard Deduction</TableCell><TableCell className="font-medium">$16,100</TableCell><TableCell>Applied to federal tax calculation</TableCell></TableRow>
               <TableRow><TableCell>Social Security Wage Cap</TableCell><TableCell className="font-medium">{formatCurrency(FICA_2026.socialSecurityWageCap)}</TableCell><TableCell>6.2% SS tax applies only up to this amount</TableCell></TableRow>
@@ -262,12 +262,12 @@ export function MissouriCalculator() {
         <h2 className="text-xl font-bold text-foreground">Missouri $75,000 Salary Example (2026)</h2>
         <div className="mt-3 space-y-1 text-sm text-muted-foreground">
           <p>Gross Annual Salary: $75,000.00</p>
-          <p>Missouri State Tax (2%–4.8%): ~$2,775</p>
+          <p>Missouri State Tax (0%–4.7%): ~$2,588</p>
           <p>Federal Tax (after $16,100 std deduction): $7,670.00</p>
           <p>FICA Total (7.65%): $5,737.50</p>
-          <p>Total Deductions: ~$16,182.50</p>
-          <p>Net Annual Take-Home: ~$58,817.50</p>
-          <p>Monthly Take-Home: ~$4,901.46</p>
+          <p>Total Deductions: ~$15,995.50</p>
+          <p>Net Annual Take-Home: ~$59,004.50</p>
+          <p>Monthly Take-Home: ~$4,917.04</p>
         </div>
       </div>
 

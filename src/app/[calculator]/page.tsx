@@ -138,22 +138,22 @@ function getOtherStates(currentState: string) {
     { slug: 'florida-tax-calculator', name: 'Florida', rate: '0%', key: 'florida' },
     { slug: 'california-tax-calculator', name: 'California', rate: '1%–13.3%', key: 'california' },
     { slug: 'new-york-tax-calculator', name: 'New York', rate: '4%–10.9%', key: 'newyork' },
-    { slug: 'georgia-tax-calculator', name: 'Georgia', rate: '5.49%', key: 'georgia' },
+    { slug: 'georgia-tax-calculator', name: 'Georgia', rate: '4.99%', key: 'georgia' },
     { slug: 'virginia-tax-calculator', name: 'Virginia', rate: '2%–5.75%', key: 'virginia' },
     { slug: 'north-carolina-tax-calculator', name: 'North Carolina', rate: '4.5%', key: 'northcarolina' },
     { slug: 'pennsylvania-tax-calculator', name: 'Pennsylvania', rate: '3.07%', key: 'pennsylvania' },
-    { slug: 'ohio-tax-calculator', name: 'Ohio', rate: '0%–3.99%', key: 'ohio' },
+    { slug: 'ohio-tax-calculator', name: 'Ohio', rate: '0%–2.75%', key: 'ohio' },
     { slug: 'michigan-tax-calculator', name: 'Michigan', rate: '4.25%', key: 'michigan' },
     { slug: 'new-jersey-tax-calculator', name: 'New Jersey', rate: '1.4%–10.75%', key: 'newjersey' },
     { slug: 'colorado-tax-calculator', name: 'Colorado', rate: '4.4%', key: 'colorado' },
     { slug: 'arizona-tax-calculator', name: 'Arizona', rate: '2.5%', key: 'arizona' },
     { slug: 'washington-tax-calculator', name: 'Washington', rate: '0%', key: 'washington' },
     { slug: 'massachusetts-tax-calculator', name: 'Massachusetts', rate: '5%/9%', key: 'massachusetts' },
-    { slug: 'indiana-tax-calculator', name: 'Indiana', rate: '3.05%', key: 'indiana' },
+    { slug: 'indiana-tax-calculator', name: 'Indiana', rate: '2.95%', key: 'indiana' },
     { slug: 'tennessee-tax-calculator', name: 'Tennessee', rate: '0%', key: 'tennessee' },
-    { slug: 'missouri-tax-calculator', name: 'Missouri', rate: '2%–4.8%', key: 'missouri' },
-    { slug: 'maryland-tax-calculator', name: 'Maryland', rate: '2%–5.75%', key: 'maryland' },
-    { slug: 'wisconsin-tax-calculator', name: 'Wisconsin', rate: '3.54%–7.65%', key: 'wisconsin' },
+    { slug: 'missouri-tax-calculator', name: 'Missouri', rate: '0%–4.7%', key: 'missouri' },
+    { slug: 'maryland-tax-calculator', name: 'Maryland', rate: '2%–6.5%', key: 'maryland' },
+    { slug: 'wisconsin-tax-calculator', name: 'Wisconsin', rate: '3.5%–7.65%', key: 'wisconsin' },
     { slug: 'minnesota-tax-calculator', name: 'Minnesota', rate: '5.35%–9.85%', key: 'minnesota' },
     { slug: 'oregon-tax-calculator', name: 'Oregon', rate: '4.75%–9.9%', key: 'oregon' },
   ];
@@ -275,7 +275,7 @@ function getNextSteps(type: string): { href: string; icon: string; title: string
     case 'georgia':
       return [
         { href: '/paycheck-calculator', icon: '\u{1F4B5}', title: 'Paycheck Calculator', description: 'Full take-home pay breakdown' },
-        { href: '/virginia-tax-calculator', icon: '\u{1F3E0}', title: 'Virginia Calculator', description: 'Compare VA 2%–5.75% vs GA 5.49%' },
+        { href: '/virginia-tax-calculator', icon: '\u{1F3E0}', title: 'Virginia Calculator', description: 'Compare VA 2%–5.75% vs GA 4.99%' },
         { href: '/relocation-calculator', icon: '\u{1F4CA}', title: 'Relocation Calculator', description: 'Compare GA to other states' },
         { href: '/salary', icon: '\u{1F4B0}', title: 'Salary After Tax', description: 'Take-home pay at every level' },
       ];
@@ -310,14 +310,14 @@ function getNextSteps(type: string): { href: string; icon: string; title: string
     case 'virginia':
       return [
         { href: '/paycheck-calculator', icon: '\u{1F4B5}', title: 'Paycheck Calculator', description: 'Full take-home pay breakdown' },
-        { href: '/georgia-tax-calculator', icon: '\u{1F3E0}', title: 'Georgia Calculator', description: 'Compare GA 5.49% vs VA 2%–5.75%' },
+        { href: '/georgia-tax-calculator', icon: '\u{1F3E0}', title: 'Georgia Calculator', description: 'Compare GA 4.99% vs VA 2%–5.75%' },
         { href: '/relocation-calculator', icon: '\u{1F4CA}', title: 'Relocation Calculator', description: 'Compare VA to other states' },
         { href: '/salary', icon: '\u{1F4B0}', title: 'Salary After Tax', description: 'Take-home pay at every level' },
       ];
     case 'northcarolina':
       return [
         { href: '/paycheck-calculator', icon: '\u{1F4B5}', title: 'Paycheck Calculator', description: 'Full take-home pay breakdown' },
-        { href: '/georgia-tax-calculator', icon: '\u{1F3E0}', title: 'Georgia Calculator', description: 'Compare GA 5.49% vs NC 4.5%' },
+        { href: '/georgia-tax-calculator', icon: '\u{1F3E0}', title: 'Georgia Calculator', description: 'Compare GA 4.99% vs NC 3.99%' },
         { href: '/relocation-calculator', icon: '\u{1F4CA}', title: 'Relocation Calculator', description: 'Compare NC to other states' },
         { href: '/salary', icon: '\u{1F4B0}', title: 'Salary After Tax', description: 'Take-home pay at every level' },
       ];
@@ -338,7 +338,7 @@ function getNextSteps(type: string): { href: string; icon: string; title: string
     case 'michigan':
       return [
         { href: '/paycheck-calculator', icon: '\u{1F4B5}', title: 'Paycheck Calculator', description: 'Full take-home pay breakdown' },
-        { href: '/ohio-tax-calculator', icon: '\u{1F3E0}', title: 'Ohio Calculator', description: 'Compare OH 0%–3.99% vs MI 4.25%' },
+        { href: '/ohio-tax-calculator', icon: '\u{1F3E0}', title: 'Ohio Calculator', description: 'Compare OH 0%–2.75% vs MI 4.25%' },
         { href: '/relocation-calculator', icon: '\u{1F4CA}', title: 'Relocation Calculator', description: 'Compare MI to other states' },
         { href: '/salary', icon: '\u{1F4B0}', title: 'Salary After Tax', description: 'Take-home pay at every level' },
       ];
@@ -380,7 +380,7 @@ function getNextSteps(type: string): { href: string; icon: string; title: string
     case 'indiana':
       return [
         { href: '/paycheck-calculator', icon: '\u{1F4B5}', title: 'Paycheck Calculator', description: 'Full take-home pay breakdown' },
-        { href: '/illinois-tax-calculator', icon: '\u{1F3E0}', title: 'Illinois Calculator', description: 'Compare IL 4.95% vs IN 3.05%' },
+        { href: '/illinois-tax-calculator', icon: '\u{1F3E0}', title: 'Illinois Calculator', description: 'Compare IL 4.95% vs IN 2.95%' },
         { href: '/relocation-calculator', icon: '\u{1F4CA}', title: 'Relocation Calculator', description: 'Compare IN to other states' },
         { href: '/salary', icon: '\u{1F4B0}', title: 'Salary After Tax', description: 'Take-home pay at every level' },
       ];
@@ -394,7 +394,7 @@ function getNextSteps(type: string): { href: string; icon: string; title: string
     case 'missouri':
       return [
         { href: '/paycheck-calculator', icon: '\u{1F4B5}', title: 'Paycheck Calculator', description: 'Full take-home pay breakdown' },
-        { href: '/illinois-tax-calculator', icon: '\u{1F3E0}', title: 'Illinois Calculator', description: 'Compare IL 4.95% vs MO 2%–4.8%' },
+        { href: '/illinois-tax-calculator', icon: '\u{1F3E0}', title: 'Illinois Calculator', description: 'Compare IL 4.95% vs MO 0%–4.7%' },
         { href: '/relocation-calculator', icon: '\u{1F4CA}', title: 'Relocation Calculator', description: 'Compare MO to other states' },
         { href: '/salary', icon: '\u{1F4B0}', title: 'Salary After Tax', description: 'Take-home pay at every level' },
       ];
@@ -408,14 +408,14 @@ function getNextSteps(type: string): { href: string; icon: string; title: string
     case 'wisconsin':
       return [
         { href: '/paycheck-calculator', icon: '\u{1F4B5}', title: 'Paycheck Calculator', description: 'Full take-home pay breakdown' },
-        { href: '/minnesota-tax-calculator', icon: '\u{1F3E0}', title: 'Minnesota Calculator', description: 'Compare MN 5.35%–9.85% vs WI 3.54%–7.65%' },
+        { href: '/minnesota-tax-calculator', icon: '\u{1F3E0}', title: 'Minnesota Calculator', description: 'Compare MN 5.35%–9.85% vs WI 3.5%–7.65%' },
         { href: '/relocation-calculator', icon: '\u{1F4CA}', title: 'Relocation Calculator', description: 'Compare WI to other states' },
         { href: '/salary', icon: '\u{1F4B0}', title: 'Salary After Tax', description: 'Take-home pay at every level' },
       ];
     case 'minnesota':
       return [
         { href: '/paycheck-calculator', icon: '\u{1F4B5}', title: 'Paycheck Calculator', description: 'Full take-home pay breakdown' },
-        { href: '/wisconsin-tax-calculator', icon: '\u{1F3E0}', title: 'Wisconsin Calculator', description: 'Compare WI 3.54%–7.65% vs MN 5.35%–9.85%' },
+        { href: '/wisconsin-tax-calculator', icon: '\u{1F3E0}', title: 'Wisconsin Calculator', description: 'Compare WI 3.5%–7.65% vs MN 5.35%–9.85%' },
         { href: '/relocation-calculator', icon: '\u{1F4CA}', title: 'Relocation Calculator', description: 'Compare MN to other states' },
         { href: '/salary', icon: '\u{1F4B0}', title: 'Salary After Tax', description: 'Take-home pay at every level' },
       ];

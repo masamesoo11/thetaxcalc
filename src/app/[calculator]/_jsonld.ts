@@ -399,7 +399,7 @@ function getGeorgiaJsonLd() {
   return {
     '@context': 'https://schema.org',
     '@graph': [
-      webPageJsonLd(`${baseId}#webpage`, 'Georgia Tax Calculator 2026', '/georgia-tax-calculator', 'Free Georgia paycheck calculator with 5.49% flat state income tax for 2026 take-home pay estimates.', authorId),
+      webPageJsonLd(`${baseId}#webpage`, 'Georgia Tax Calculator 2026', '/georgia-tax-calculator', 'Free Georgia paycheck calculator with 4.99% flat state income tax for 2026 take-home pay estimates.', authorId),
       breadcrumbJsonLd(`${baseId}#breadcrumb`, 'Georgia Tax Calculator', '/georgia-tax-calculator'),
       webAppJsonLd(`${baseId}#webapp`, 'Georgia Tax Calculator 2026', '/georgia-tax-calculator', authorId),
       { '@id': authorId, ...authorToJsonLd(author) },
@@ -495,7 +495,7 @@ function getNorthCarolinaJsonLd() {
   return {
     '@context': 'https://schema.org',
     '@graph': [
-      webPageJsonLd(`${baseId}#webpage`, 'North Carolina Tax Calculator 2026', '/north-carolina-tax-calculator', 'Free North Carolina paycheck calculator with 4.5% flat state income tax for 2026 take-home pay estimates.', authorId),
+      webPageJsonLd(`${baseId}#webpage`, 'North Carolina Tax Calculator 2026', '/north-carolina-tax-calculator', 'Free North Carolina paycheck calculator with 3.99% flat state income tax for 2026 take-home pay estimates.', authorId),
       breadcrumbJsonLd(`${baseId}#breadcrumb`, 'North Carolina Tax Calculator', '/north-carolina-tax-calculator'),
       webAppJsonLd(`${baseId}#webapp`, 'North Carolina Tax Calculator 2026', '/north-carolina-tax-calculator', authorId),
       { '@id': authorId, ...authorToJsonLd(author) },
@@ -639,7 +639,7 @@ function getIndianaJsonLd() {
   return {
     '@context': 'https://schema.org',
     '@graph': [
-      webPageJsonLd(`${baseId}#webpage`, 'Indiana Tax Calculator 2026', '/indiana-tax-calculator', 'Free Indiana paycheck calculator with 3.05% flat state income tax for 2026 take-home pay estimates.', authorId),
+      webPageJsonLd(`${baseId}#webpage`, 'Indiana Tax Calculator 2026', '/indiana-tax-calculator', 'Free Indiana paycheck calculator with 2.95% flat state income tax for 2026 take-home pay estimates.', authorId),
       breadcrumbJsonLd(`${baseId}#breadcrumb`, 'Indiana Tax Calculator', '/indiana-tax-calculator'),
       webAppJsonLd(`${baseId}#webapp`, 'Indiana Tax Calculator 2026', '/indiana-tax-calculator', authorId),
       { '@id': authorId, ...authorToJsonLd(author) },
@@ -671,7 +671,7 @@ function getMissouriJsonLd() {
   return {
     '@context': 'https://schema.org',
     '@graph': [
-      webPageJsonLd(`${baseId}#webpage`, 'Missouri Tax Calculator 2026', '/missouri-tax-calculator', 'Free Missouri paycheck calculator with progressive state income tax (2%–4.8%) for 2026 take-home pay estimates.', authorId),
+      webPageJsonLd(`${baseId}#webpage`, 'Missouri Tax Calculator 2026', '/missouri-tax-calculator', 'Free Missouri paycheck calculator with progressive state income tax (0%–4.7%) for 2026 take-home pay estimates.', authorId),
       breadcrumbJsonLd(`${baseId}#breadcrumb`, 'Missouri Tax Calculator', '/missouri-tax-calculator'),
       webAppJsonLd(`${baseId}#webapp`, 'Missouri Tax Calculator 2026', '/missouri-tax-calculator', authorId),
       { '@id': authorId, ...authorToJsonLd(author) },
@@ -703,7 +703,7 @@ function getWisconsinJsonLd() {
   return {
     '@context': 'https://schema.org',
     '@graph': [
-      webPageJsonLd(`${baseId}#webpage`, 'Wisconsin Tax Calculator 2026', '/wisconsin-tax-calculator', 'Free Wisconsin paycheck calculator with progressive state income tax (3.54%–7.65%) for 2026 take-home pay estimates.', authorId),
+      webPageJsonLd(`${baseId}#webpage`, 'Wisconsin Tax Calculator 2026', '/wisconsin-tax-calculator', 'Free Wisconsin paycheck calculator with progressive state income tax (3.5%–7.65%) for 2026 take-home pay estimates.', authorId),
       breadcrumbJsonLd(`${baseId}#breadcrumb`, 'Wisconsin Tax Calculator', '/wisconsin-tax-calculator'),
       webAppJsonLd(`${baseId}#webapp`, 'Wisconsin Tax Calculator 2026', '/wisconsin-tax-calculator', authorId),
       { '@id': authorId, ...authorToJsonLd(author) },

@@ -72,7 +72,7 @@ export const BLOG_INDEX: BlogPostMeta[] = [
     "metaTitle": "Take Home Pay Calculator 2026: How Much You Keep",
     "metaDesc": "Calculate your 2026 take-home pay after all taxes. Real examples for $50K-$200K salaries in all 50 states. Free calculator, no signup required.",
     "createdAt": "2026-06-21T14:00:00.000Z",
-    "updatedAt": "2026-06-21T14:00:00.000Z"
+    "updatedAt": "2026-10-24"
   },
 {
     "id": "how-much-tax-will-i-owe-2026",
@@ -222,7 +222,7 @@ export const BLOG_INDEX: BlogPostMeta[] = [
     "metaTitle": "1099 Taxes 2026: How Much Freelancers Pay",
     "metaDesc": "Guide to 1099 taxes for self-employed workers in 2026. Calculate your tax bill, find deductions, and learn quarterly payment deadlines.",
     "createdAt": "2026-05-28T12:00:00.000Z",
-    "updatedAt": "2026-05-28T12:00:00.000Z"
+    "updatedAt": "2026-10-24"
   },
   {
     "id": "cmpmabv3i0000mnivco81phfw",
@@ -297,7 +297,7 @@ export const BLOG_INDEX: BlogPostMeta[] = [
     "metaTitle": "Illinois Income Tax 2026 — 4.95% Guide",
     "metaDesc": "Complete guide to Illinois income tax for 2026. Flat rate, personal exemptions, property taxes, and neighboring state comparison.",
     "createdAt": "2026-05-26T06:59:34.065Z",
-    "updatedAt": "2026-05-26T20:31:33.164Z"
+    "updatedAt": "2026-10-24"
   },
   {
     "id": "sep-ira-solo-401k-2026-guide",
@@ -357,7 +357,7 @@ export const BLOG_INDEX: BlogPostMeta[] = [
     "metaTitle": "No Tax on Overtime 2025-2028: Complete Guide",
     "metaDesc": "Complete guide to the No Tax on Overtime law for 2025-2028. Calculate your savings, understand eligibility, and see how FICA and state taxes still apply.",
     "createdAt": "2026-06-01T12:00:00.000Z",
-    "updatedAt": "2026-06-01T12:00:00.000Z"
+    "updatedAt": "2026-10-24"
   },
   {
     "id": "how-bonuses-are-taxed-2026",
@@ -372,7 +372,7 @@ export const BLOG_INDEX: BlogPostMeta[] = [
     "metaTitle": "Bonus Tax 2026 | 22% Flat vs Aggregate",
     "metaDesc": "Complete guide to bonus taxation in 2026. Understand the 22% flat rate vs aggregate method, FICA on bonuses, and state taxes. Free bonus tax calculator.",
     "createdAt": "2026-06-01T12:00:00.000Z",
-    "updatedAt": "2026-06-01T12:00:00.000Z"
+    "updatedAt": "2026-10-24"
   },
   {
     "id": "property-tax-by-state-guide-2026",
@@ -402,7 +402,7 @@ export const BLOG_INDEX: BlogPostMeta[] = [
     "metaTitle": "Lottery Tax 2026 | After-Tax Winnings",
     "metaDesc": "Complete guide to lottery taxes in 2026. Federal tax, state tax, lump sum vs annuity, and how much you actually keep. Free lottery tax calculator.",
     "createdAt": "2026-06-01T12:00:00.000Z",
-    "updatedAt": "2026-06-01T12:00:00.000Z"
+    "updatedAt": "2026-10-24"
   },
   {
     "id": "irs-withholding-w4-guide-2026",
@@ -462,7 +462,7 @@ export const BLOG_INDEX: BlogPostMeta[] = [
     "metaTitle": "Texas Tax Guide 2026: No Income Tax, Property & Sales Tax",
     "metaDesc": "Complete guide to Texas taxes in 2026. No state income tax, but property tax rates are among the highest.",
     "createdAt": "2026-06-19T12:00:00.000Z",
-    "updatedAt": "2026-06-19T12:00:00.000Z"
+    "updatedAt": "2026-10-24"
   },
   {
     "id": "new-york-tax-guide-2026",
@@ -477,7 +477,7 @@ export const BLOG_INDEX: BlogPostMeta[] = [
     "metaTitle": "New York State Taxes 2026: NYC Tax, Filing & What You Owe",
     "metaDesc": "Complete guide to New York taxes in 2026. NYC tax rates, state income tax brackets, estate tax, filing deadlines.",
     "createdAt": "2026-06-19T12:00:00.000Z",
-    "updatedAt": "2026-06-19T12:00:00.000Z"
+    "updatedAt": "2026-10-24"
   },
   {
     "id": "washington-tax-guide-2026",
@@ -582,7 +582,7 @@ export const BLOG_INDEX: BlogPostMeta[] = [
     "metaTitle": "OBBBA Tax Refund Impact 2026: How It Changes Your Refund",
     "metaDesc": "How OBBBA changes your 2026 tax refund. New SALT cap, doubled Child Tax Credit, tip/overtime deductions with examples.",
     "createdAt": "2026-07-04T20:50:00.000Z",
-    "updatedAt": "2026-07-04T20:50:00.000Z"
+    "updatedAt": "2026-10-24"
   },
   {
     "id": "oasdi-tax-explained-2026",
@@ -657,7 +657,7 @@ export const BLOG_INDEX: BlogPostMeta[] = [
     "metaTitle": "Brian Kemp Income Tax Rebates 2026: Do You Qualify?",
     "metaDesc": "Brian Kemp income tax rebates 2026. Up to $500 for Georgia residents. Who qualifies, how much you'll receive, when to expect payment, and how to check.",
     "createdAt": "2026-07-07T20:20:00.000Z",
-    "updatedAt": "2026-07-07T20:20:00.000Z"
+    "updatedAt": "2026-10-24"
   },
   {
     "id": "turbotax-lawsuit-guide-2026",
@@ -762,7 +762,7 @@ export const BLOG_INDEX: BlogPostMeta[] = [
     "metaTitle": "Spreadsheet Formula to Calculate Income Tax 2026",
     "metaDesc": "Spreadsheet formulas for 2026 federal income tax. Nested IF, VLOOKUP, and SUMPRODUCT for Excel and Google Sheets.",
     "createdAt": "2026-07-09T08:40:00.000Z",
-    "updatedAt": "2026-07-09T08:40:00.000Z"
+    "updatedAt": "2026-10-24"
   },
   {
     "id": "blog_1099_vs_w2_2026",
@@ -822,7 +822,7 @@ export const BLOG_INDEX: BlogPostMeta[] = [
     "metaTitle": "How Much Tax Do You Pay on a $100K Salary by State? (2026)",
     "metaDesc": "See exactly how much of your $100,000 salary you take home in all 50 states after federal, FICA, and state taxes in 2026.",
     "createdAt": "2026-06-25T10:00:00.000Z",
-    "updatedAt": "2026-06-25T10:00:00.000Z"
+    "updatedAt": "2026-10-24"
   },
   {
     "id": "blog_overtime_tax_rate_2026",

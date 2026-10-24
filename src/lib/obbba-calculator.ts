@@ -5,7 +5,7 @@
  *   1. OBBBA (One Big Beautiful Bill Act) — the law in effect for 2026.
  *   2. Prior law — what would have applied if TCJA had sunset on 12/31/2025.
  *
- * All figures are sourced from IRS Revenue Procedure 2025-25, the SSA
+ * All figures are sourced from IRS Revenue Procedure 2025-32, the SSA
  * Contribution and Benefit Base announcement, and the Joint Committee on
  * Taxation's description of OBBBA (P.L. 119-1).
  *
@@ -14,33 +14,33 @@
  */
 
 // ─── 2026 OBBBA Federal Brackets (TCJA made permanent) ────────────────────
-// Source: IRS Revenue Procedure 2025-25
+// Source: IRS Revenue Procedure 2025-32
 const OBBBA_BRACKETS = {
   single: [
-    { rate: 0.10, upTo: 11925 },
-    { rate: 0.12, upTo: 48475 },
-    { rate: 0.22, upTo: 103350 },
-    { rate: 0.24, upTo: 197300 },
-    { rate: 0.32, upTo: 250525 },
-    { rate: 0.35, upTo: 626350 },
+    { rate: 0.10, upTo: 12400 },
+    { rate: 0.12, upTo: 50400 },
+    { rate: 0.22, upTo: 105700 },
+    { rate: 0.24, upTo: 201775 },
+    { rate: 0.32, upTo: 256225 },
+    { rate: 0.35, upTo: 640600 },
     { rate: 0.37, upTo: Infinity },
   ],
   mfj: [
-    { rate: 0.10, upTo: 23850 },
-    { rate: 0.12, upTo: 96950 },
-    { rate: 0.22, upTo: 206700 },
-    { rate: 0.24, upTo: 394600 },
-    { rate: 0.32, upTo: 501050 },
-    { rate: 0.35, upTo: 751600 },
+    { rate: 0.10, upTo: 24800 },
+    { rate: 0.12, upTo: 100800 },
+    { rate: 0.22, upTo: 211400 },
+    { rate: 0.24, upTo: 403550 },
+    { rate: 0.32, upTo: 512450 },
+    { rate: 0.35, upTo: 768700 },
     { rate: 0.37, upTo: Infinity },
   ],
   hoh: [
-    { rate: 0.10, upTo: 17000 },
-    { rate: 0.12, upTo: 64850 },
-    { rate: 0.22, upTo: 165500 },
-    { rate: 0.24, upTo: 315900 },
-    { rate: 0.32, upTo: 400000 },
-    { rate: 0.35, upTo: 638300 },
+    { rate: 0.10, upTo: 17700 },
+    { rate: 0.12, upTo: 67450 },
+    { rate: 0.22, upTo: 105700 },
+    { rate: 0.24, upTo: 201750 },
+    { rate: 0.32, upTo: 256200 },
+    { rate: 0.35, upTo: 640600 },
     { rate: 0.37, upTo: Infinity },
   ],
 } as const;
@@ -91,10 +91,12 @@ const PRIOR_STANDARD_DEDUCTION = {
   hoh: 11600,
 } as const;
 
-// Additional standard deduction for 65+ (2026, approximated)
+// Additional standard deduction for 65+ / blind (2026, §63(f)): $2,050 unmarried
+// or $1,650 per spouse on a joint return
 const ADDITIONAL_SENIOR_DEDUCTION = {
-  single: 1950,
-  mfj: 1950, // per spouse; simplified
+  single: 2050,
+  mfj: 1650, // per spouse
+  hoh: 2050,
 } as const;
 
 // ─── OBBBA New Provisions ─────────────────────────────────────────────────
@@ -109,7 +111,13 @@ const OBBBA_SALT_FLOOR = 10000;
 const OBBBA_SALT_PHASEOUT_SINGLE = 500000;
 const OBBBA_SALT_PHASEOUT_MFJ = 1000000;
 
-const OBBBA_SENIOR_DEDUCTION = 2000; // additional $2,000 for 65+
+// OBBBA senior deduction (new IRC §151(d)(5)(C)): $6,000 per qualified
+// individual 65+ for taxable years 2025–2028, reduced by 6% of MAGI over
+// $75,000 ($150,000 on a joint return)
+const OBBBA_SENIOR_DEDUCTION = 6000;
+const OBBBA_SENIOR_PHASEOUT_SINGLE = 75000;
+const OBBBA_SENIOR_PHASEOUT_MFJ = 150000;
+const OBBBA_SENIOR_PHASEOUT_RATE = 0.06;
 
 const OBBBA_TIP_DEDUCTION_RATE = 1.0; // 100% of qualifying tip income
 const OBBBA_OVERTIME_DEDUCTION_RATE = 1.0; // 100% of qualifying overtime
@@ -251,6 +259,17 @@ function computeFICA(grossIncome: number, filingStatus: FilingStatus): number {
   return ssTax + medicareTax + additionalMedicare;
 }
 
+/**
+ * OBBBA senior deduction per qualified individual (65+), after the MAGI
+ * phase-out: reduced by 6% of MAGI over $75,000 ($150,000 joint).
+ * Uses AGI as the MAGI approximation (ignores §911/931/933 exclusions).
+ */
+function seniorPerPersonDeduction(agi: number, filingStatus: FilingStatus): number {
+  const threshold = filingStatus === 'mfj' ? OBBBA_SENIOR_PHASEOUT_MFJ : OBBBA_SENIOR_PHASEOUT_SINGLE;
+  const excess = Math.max(0, agi - threshold);
+  return Math.max(0, OBBBA_SENIOR_DEDUCTION - OBBBA_SENIOR_PHASEOUT_RATE * excess);
+}
+
 function computeCTC(
   agi: number,
   children: number,
@@ -338,7 +357,7 @@ function computeScenario(input: OBBBAScenario, isOBBBA: boolean): ScenarioResult
   if (isOBBBA) {
     standardDeductionUsed += (isSenior > 0 ? ADDITIONAL_SENIOR_DEDUCTION[filingStatus] : 0) * (isSenior === 2 ? 2 : 1);
     if (isSenior > 0) {
-      standardDeductionUsed += OBBBA_SENIOR_DEDUCTION * (isSenior === 2 ? 2 : 1);
+      standardDeductionUsed += seniorPerPersonDeduction(agi, filingStatus) * (isSenior === 2 ? 2 : 1);
     }
   }
 
@@ -382,7 +401,7 @@ function computeScenario(input: OBBBAScenario, isOBBBA: boolean): ScenarioResult
 
   // Senior deduction tracker (OBBBA only, included in standardDeductionUsed above)
   const seniorDeduction = isOBBBA && isSenior > 0
-    ? OBBBA_SENIOR_DEDUCTION * (isSenior === 2 ? 2 : 1)
+    ? seniorPerPersonDeduction(agi, filingStatus) * (isSenior === 2 ? 2 : 1)
     : 0;
 
   return {

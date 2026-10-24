@@ -161,7 +161,7 @@ The one small mercy: groceries are taxed at just 1%, and prescription meds are e
 
 This is the part that really stings. Our [compare states tool](/compare) lays it out side by side, but here are the highlights:
 
-**Indiana** — 3.05% flat tax, 0.82% average property tax. Literally right next door and way cheaper on both fronts.
+**Indiana** — 2.95% flat tax, 0.82% average property tax. Literally right next door and way cheaper on both fronts.
 
 **Wisconsin** — Progressive rates from 3.50% to 7.65%, but their property tax averages 1.73%. If you're a high earner, Illinois might actually be better. If you're middle income? Wisconsin's looking pretty good.
 

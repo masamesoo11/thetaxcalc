@@ -107,7 +107,7 @@ const FAQS = [
   {
     question: 'Where does your data come from?',
     answer:
-      'Every figure in our research comes from an official government source. Federal tax data is sourced from IRS publications (Rev. Proc. 2025-25, Pub. 15-T, Pub. 972) and the Social Security Administration. State tax data comes from each state\'s Department of Revenue. Demographic and income data comes from the U.S. Census Bureau. Cost of living data comes from the Bureau of Economic Analysis and the Council for Community and Economic Research. We publish the full methodology and source list at the bottom of every study.',
+      'Every figure in our research comes from an official government source. Federal tax data is sourced from IRS publications (Rev. Proc. 2025-32, Pub. 15-T, Pub. 972) and the Social Security Administration. State tax data comes from each state\'s Department of Revenue. Demographic and income data comes from the U.S. Census Bureau. Cost of living data comes from the Bureau of Economic Analysis and the Council for Community and Economic Research. We publish the full methodology and source list at the bottom of every study.',
   },
   {
     question: 'Is TheTaxCalc research free to access?',

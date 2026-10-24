@@ -110,7 +110,7 @@ export function NorthCarolinaCalculator() {
           North Carolina Paycheck Calculator
         </h2>
         <p className="mt-2 text-muted-foreground">
-          North Carolina flat 4.5% income tax with standard deduction — complete take-home breakdown
+          North Carolina flat 3.99% income tax with standard deduction — complete take-home breakdown
         </p>
       </div>
 
@@ -121,11 +121,11 @@ export function NorthCarolinaCalculator() {
             <div className="space-y-2 text-sm text-muted-foreground">
               <p className="font-medium text-foreground">How North Carolina Income Tax Works</p>
               <p>
-                North Carolina uses a <strong className="text-emerald-400">flat tax rate of 4.5%</strong> on
-                all taxable income. The state offers a <strong className="text-emerald-400">standard deduction</strong> ($12,750 single / $25,500 married / $19,125 head of household) but <strong className="text-emerald-400">no personal exemption</strong>. North Carolina uses federal adjusted gross income as its starting point, and the standard deduction is subtracted before the flat rate is applied.
+                North Carolina uses a <strong className="text-emerald-400">flat tax rate of 3.99%</strong> on
+                all taxable income (down from 4.25% in 2025 and 4.5% in 2024, per the NC Department of Revenue). The state offers a <strong className="text-emerald-400">standard deduction</strong> ($12,750 single / $25,500 married / $19,125 head of household) but <strong className="text-emerald-400">no personal exemption</strong>. North Carolina uses federal adjusted gross income as its starting point, and the standard deduction is subtracted before the flat rate is applied.
               </p>
               <p>
-                For a $75,000 salary (single): Taxable income = $75,000 - $12,750 = $62,250. State tax = $62,250 × 4.5% = $2,801.25.
+                For a $75,000 salary (single): Taxable income = $75,000 - $12,750 = $62,250. State tax = $62,250 × 3.99% = $2,483.78.
               </p>
             </div>
           </div>
@@ -257,7 +257,7 @@ export function NorthCarolinaCalculator() {
                   <span className="text-sm font-medium text-orange-400">-{formatCurrency(result.ficaTotal)}</span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="flex items-center gap-1.5 text-sm text-muted-foreground"><TrendingDown className="h-3.5 w-3.5 text-amber-400" />NC State Tax (4.5%)</span>
+                  <span className="flex items-center gap-1.5 text-sm text-muted-foreground"><TrendingDown className="h-3.5 w-3.5 text-amber-400" />NC State Tax (3.99%)</span>
                   <span className="text-sm font-medium text-amber-400">-{formatCurrency(result.stateTax)}</span>
                 </div>
                 {result.retirement401k > 0 && (
@@ -280,7 +280,7 @@ export function NorthCarolinaCalculator() {
                   <div className="flex justify-between"><span>Gross Income</span><span>{formatCurrency(result.grossAnnual)}</span></div>
                   <div className="flex justify-between"><span>Less: Standard Deduction</span><span>-{formatCurrency(ncBreakdown.standardDeduction)}</span></div>
                   <div className="flex justify-between"><span>NC Taxable Income</span><span>{formatCurrency(ncBreakdown.ncTaxableIncome)}</span></div>
-                  <div className="flex justify-between"><span>NC Tax Rate</span><span>4.5%</span></div>
+                  <div className="flex justify-between"><span>NC Tax Rate</span><span>3.99%</span></div>
                   <div className="flex justify-between font-medium text-amber-400"><span>NC State Tax</span><span>{formatCurrency(ncBreakdown.ncTax)}</span></div>
                 </div>
               </div>
@@ -318,8 +318,8 @@ export function NorthCarolinaCalculator() {
             <TableBody>
               <TableRow>
                 <TableCell>State Income Tax Rate</TableCell>
-                <TableCell className="font-medium text-emerald-400">4.5% (Flat)</TableCell>
-                <TableCell>Flat rate applies to all taxable income; no brackets</TableCell>
+                <TableCell className="font-medium text-emerald-400">3.99% (Flat)</TableCell>
+                <TableCell>Flat rate applies to all taxable income; no brackets (4.25% for 2025)</TableCell>
               </TableRow>
               <TableRow>
                 <TableCell>Standard Deduction (Single)</TableCell>
@@ -367,12 +367,12 @@ export function NorthCarolinaCalculator() {
           <p>Gross Annual Salary: $75,000.00</p>
           <p>NC Standard Deduction: -$12,750.00</p>
           <p>NC Taxable Income: $62,250.00</p>
-          <p>NC State Tax (4.5%): $2,801.25</p>
+          <p>NC State Tax (3.99%): $2,483.78</p>
           <p>Federal Tax (after $16,100 std deduction): $7,670.00</p>
           <p>FICA Total (7.65%): $5,737.50</p>
-          <p>Total Deductions: $16,208.75</p>
-          <p>Net Annual Take-Home: $58,791.25</p>
-          <p>Monthly Take-Home: $4,899.27</p>
+          <p>Total Deductions: $15,891.28</p>
+          <p>Net Annual Take-Home: $59,108.72</p>
+          <p>Monthly Take-Home: $4,925.73</p>
         </div>
       </div>
 

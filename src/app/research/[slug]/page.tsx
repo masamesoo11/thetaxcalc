@@ -148,7 +148,7 @@ const STUDIES: Study[] = [
       {
         heading: 'Top 10 Best States for Remote Workers in 2026',
         body:
-          'Texas ranks first in our 2026 index, combining zero state income tax with a moderate cost of living and good broadband coverage in major metros. Florida follows at second — no state income tax, warm weather, and a growing tech corridor. Tennessee, Nevada, Wyoming, Washington, South Dakota, New Hampshire, and North Carolina round out the top 10. Several of these states have no state individual income tax at all (Texas, Florida, Tennessee, Nevada, Wyoming, Washington, South Dakota). New Hampshire makes the list despite taxing dividend and interest income because wages are exempt and the state has excellent broadband. North Carolina rounds out the top 10 with a flat 4.5% income tax and a strong research-triangle tech corridor.',
+          'Texas ranks first in our 2026 index, combining zero state income tax with a moderate cost of living and good broadband coverage in major metros. Florida follows at second — no state income tax, warm weather, and a growing tech corridor. Tennessee, Nevada, Wyoming, Washington, South Dakota, New Hampshire, and North Carolina round out the top 10. Several of these states have no state individual income tax at all (Texas, Florida, Tennessee, Nevada, Wyoming, Washington, South Dakota). New Hampshire makes the list despite taxing dividend and interest income because wages are exempt and the state has excellent broadband. North Carolina rounds out the top 10 with a flat 3.99% income tax and a strong research-triangle tech corridor.',
       },
       {
         heading: 'Bottom 10 States for Remote Workers in 2026',
@@ -830,7 +830,7 @@ export default async function ResearchStudyPage({ params }: PageProps) {
         <h2 className="text-2xl font-bold text-foreground mb-4">Sources &amp; Methodology</h2>
         <p className="text-sm text-muted-foreground leading-relaxed mb-3">
           This study uses official government data, including IRS publications (Rev. Proc.
-          2025-25, Pub. 15-T, Pub. 972), Social Security Administration data, U.S. Census
+          2025-32, Pub. 15-T, Pub. 972), Social Security Administration data, U.S. Census
           Bureau American Community Survey, the FCC Broadband Deployment Report, and each
           state&rsquo;s Department of Revenue. Tax law changes from the One Big Beautiful Bill
           Act (P.L. 119-1) are incorporated throughout. For full calculation details, see our{' '}

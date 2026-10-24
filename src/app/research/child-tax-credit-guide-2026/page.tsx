@@ -122,7 +122,7 @@ export default function ResearchPage() {
 
         <section className="mb-10">
           <h2 className="text-2xl font-bold text-foreground mb-4">Methodology</h2>
-          <p className="text-muted-foreground">Based on the statutory text of OBBBA (P.L. 119-1), IRS Publication 972, and Revenue Procedure 2025-25.</p>
+          <p className="text-muted-foreground">Based on the statutory text of OBBBA (P.L. 119-1), IRS Publication 972, and Revenue Procedure 2025-32.</p>
         </section>
 
         <section className="mb-10">
@@ -165,7 +165,7 @@ export default function ResearchPage() {
           <ul className="space-y-2 text-sm text-muted-foreground">
 <li>One Big Beautiful Bill Act, P.L. 119-1 (2025).</li>
             <li>IRS. (2026). <em>Publication 972: Child Tax Credit</em>.</li>
-            <li>IRS Revenue Procedure 2025-25.</li>
+            <li>IRS Revenue Procedure 2025-32.</li>
             <li>Internal Revenue Code Section 24, as amended by OBBBA.</li>
             <li>Tax Foundation. (2025). <em>Analysis of OBBBA Child Tax Credit Provisions</em>.</li>
           </ul>

@@ -111,7 +111,7 @@ export function GeorgiaCalculator() {
           Georgia Paycheck Calculator
         </h2>
         <p className="mt-2 text-muted-foreground">
-          Georgia flat 5.49% income tax with standard deduction and personal exemption — complete take-home breakdown
+          Georgia flat 4.99% income tax with a $15,000 standard deduction — complete take-home breakdown
         </p>
       </div>
 
@@ -122,12 +122,12 @@ export function GeorgiaCalculator() {
             <div className="space-y-2 text-sm text-muted-foreground">
               <p className="font-medium text-foreground">How Georgia Income Tax Works</p>
               <p>
-                Georgia uses a <strong className="text-emerald-400">flat tax rate of 5.49%</strong> on
-                all taxable income. Georgia transitioned from a graduated bracket system to this flat rate
-                starting in 2024. The state offers both a <strong className="text-emerald-400">standard deduction</strong> ($5,400 single / $7,100 married / $5,400 head of household) and a <strong className="text-emerald-400">personal exemption</strong> ($2,700 single / $5,400 married / $2,700 head of household), both of which reduce your taxable income before the flat rate is applied.
+                Georgia uses a <strong className="text-emerald-400">flat tax rate of 4.99%</strong> on
+                taxable income for 2026 — HB 463 cut the rate from 5.19% retroactive to January 1, 2026 (5.49% applied in 2024).
+                The state offers a <strong className="text-emerald-400">standard deduction</strong> ($15,000 single / $30,000 married filing jointly / $15,000 head of household) plus a <strong className="text-emerald-400">$5,000 deduction per dependent</strong>. Georgia no longer has a personal exemption for the taxpayer, and there are no local income taxes in Georgia.
               </p>
               <p>
-                For a $75,000 salary (single): Taxable income = $75,000 - $2,700 - $5,400 = $66,900. State tax = $66,900 × 5.49% = $3,672.81.
+                For a $75,000 salary (single): Taxable income = $75,000 - $15,000 = $60,000. State tax = $60,000 × 4.99% = $2,994.00.
               </p>
             </div>
           </div>
@@ -259,7 +259,7 @@ export function GeorgiaCalculator() {
                   <span className="text-sm font-medium text-orange-400">-{formatCurrency(result.ficaTotal)}</span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="flex items-center gap-1.5 text-sm text-muted-foreground"><TrendingDown className="h-3.5 w-3.5 text-amber-400" />GA State Tax (5.49%)</span>
+                  <span className="flex items-center gap-1.5 text-sm text-muted-foreground"><TrendingDown className="h-3.5 w-3.5 text-amber-400" />GA State Tax (4.99%)</span>
                   <span className="text-sm font-medium text-amber-400">-{formatCurrency(result.stateTax)}</span>
                 </div>
                 {result.retirement401k > 0 && (
@@ -280,10 +280,9 @@ export function GeorgiaCalculator() {
                 <p className="text-xs font-medium text-amber-400">Georgia Tax Breakdown</p>
                 <div className="mt-1.5 space-y-1 text-xs text-muted-foreground">
                   <div className="flex justify-between"><span>Gross Income</span><span>{formatCurrency(result.grossAnnual)}</span></div>
-                  <div className="flex justify-between"><span>Less: Personal Exemption</span><span>-{formatCurrency(gaBreakdown.personalExemption)}</span></div>
                   <div className="flex justify-between"><span>Less: Standard Deduction</span><span>-{formatCurrency(gaBreakdown.standardDeduction)}</span></div>
                   <div className="flex justify-between"><span>GA Taxable Income</span><span>{formatCurrency(gaBreakdown.gaTaxableIncome)}</span></div>
-                  <div className="flex justify-between"><span>GA Tax Rate</span><span>5.49%</span></div>
+                  <div className="flex justify-between"><span>GA Tax Rate</span><span>4.99%</span></div>
                   <div className="flex justify-between font-medium text-amber-400"><span>GA State Tax</span><span>{formatCurrency(gaBreakdown.gaTax)}</span></div>
                 </div>
               </div>
@@ -321,33 +320,28 @@ export function GeorgiaCalculator() {
             <TableBody>
               <TableRow>
                 <TableCell>State Income Tax Rate</TableCell>
-                <TableCell className="font-medium text-emerald-400">5.49% (Flat)</TableCell>
-                <TableCell>Transitioned to flat rate in 2024; applies to all taxable income</TableCell>
+                <TableCell className="font-medium text-emerald-400">4.99% (Flat)</TableCell>
+                <TableCell>HB 463 cut the rate from 5.19% retroactive to January 1, 2026</TableCell>
               </TableRow>
               <TableRow>
                 <TableCell>Standard Deduction (Single)</TableCell>
-                <TableCell className="font-medium">$5,400</TableCell>
+                <TableCell className="font-medium">$15,000</TableCell>
                 <TableCell>Subtracted from gross before tax computation</TableCell>
               </TableRow>
               <TableRow>
                 <TableCell>Standard Deduction (Married)</TableCell>
-                <TableCell className="font-medium">$7,100</TableCell>
+                <TableCell className="font-medium">$30,000</TableCell>
                 <TableCell>Married filing jointly standard deduction</TableCell>
               </TableRow>
               <TableRow>
                 <TableCell>Standard Deduction (Head of Household)</TableCell>
-                <TableCell className="font-medium">$5,400</TableCell>
+                <TableCell className="font-medium">$15,000</TableCell>
                 <TableCell>Same as single filer</TableCell>
               </TableRow>
               <TableRow>
-                <TableCell>Personal Exemption (Single)</TableCell>
-                <TableCell className="font-medium">$2,700</TableCell>
-                <TableCell>Per person exemption subtracted from gross income</TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell>Personal Exemption (Married)</TableCell>
-                <TableCell className="font-medium">$5,400</TableCell>
-                <TableCell>$2,700 per person for married filing jointly</TableCell>
+                <TableCell>Personal Exemption</TableCell>
+                <TableCell className="font-medium">None</TableCell>
+                <TableCell>Repealed; dependents instead get a $5,000 deduction each (not included here)</TableCell>
               </TableRow>
               <TableRow>
                 <TableCell>Federal Standard Deduction</TableCell>
@@ -373,15 +367,14 @@ export function GeorgiaCalculator() {
         <h2 className="text-xl font-bold text-foreground">Georgia $75,000 Salary Example (2026)</h2>
         <div className="mt-3 space-y-1 text-sm text-muted-foreground">
           <p>Gross Annual Salary: $75,000.00</p>
-          <p>Georgia Personal Exemption: -$2,700.00</p>
-          <p>Georgia Standard Deduction: -$5,400.00</p>
-          <p>Georgia Taxable Income: $66,900.00</p>
-          <p>Georgia State Tax (5.49%): $3,672.81</p>
+          <p>Georgia Standard Deduction: -$15,000.00</p>
+          <p>Georgia Taxable Income: $60,000.00</p>
+          <p>Georgia State Tax (4.99%): $2,994.00</p>
           <p>Federal Tax (after $16,100 std deduction): $7,670.00</p>
           <p>FICA Total (7.65%): $5,737.50</p>
-          <p>Total Deductions: $17,080.31</p>
-          <p>Net Annual Take-Home: $57,919.69</p>
-          <p>Monthly Take-Home: $4,739.35</p>
+          <p>Total Deductions: $16,401.50</p>
+          <p>Net Annual Take-Home: $58,598.50</p>
+          <p>Monthly Take-Home: $4,883.21</p>
         </div>
       </div>
 

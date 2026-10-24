@@ -126,7 +126,7 @@ export function OhioCalculator() {
           Ohio Paycheck Calculator
         </h2>
         <p className="mt-2 text-muted-foreground">
-          Ohio progressive income tax (0%–3.99%) with a large tax-free threshold — complete take-home breakdown
+          Ohio income tax (0% up to $26,050, then 2.75%) — complete take-home breakdown
         </p>
       </div>
 
@@ -137,18 +137,13 @@ export function OhioCalculator() {
             <div className="space-y-2 text-sm text-muted-foreground">
               <p className="font-medium text-foreground">How Ohio Income Tax Works</p>
               <p>
-                Ohio uses a <strong className="text-emerald-400">progressive income tax</strong> with
-                five brackets: <strong className="text-emerald-400">0%</strong> on the first $26,050,{' '}
-                <strong className="text-emerald-400">2.765%</strong> on $26,050–$46,100,{' '}
-                <strong className="text-emerald-400">3.226%</strong> on $46,100–$92,150,{' '}
-                <strong className="text-emerald-400">3.688%</strong> on $92,150–$115,300, and{' '}
-                <strong className="text-emerald-400">3.99%</strong> on income over $115,300.
-                Ohio does not offer a separate state standard deduction or personal exemption — it uses federal AGI as its starting point.
+                For 2026, Ohio (HB 96) taxes the first <strong className="text-emerald-400">$26,050 of taxable income at 0%</strong> and applies a single{' '}
+                <strong className="text-emerald-400">2.75% rate</strong> above that (the statutory schedule adds a $332 base once income crosses the threshold).
+                Ohio also offers personal and dependent exemptions ($2,400 each at low incomes, phasing down to $1,900) that reduce taxable income.
                 The <strong className="text-emerald-400">0% bracket on the first $26,050</strong> effectively acts as a large tax-free threshold.
-                Rates have been gradually decreasing in recent years.
               </p>
               <p>
-                For a $75,000 salary (single): Ohio taxable income = $75,000. First $26,050 at 0% = $0, next $20,050 at 2.765% = $554.38, remaining $28,900 at 3.226% = $932.31. Total OH tax = $1,486.69.
+                For a $75,000 salary (single): after the $2,400 exemption, Ohio taxable income = $72,600. The first $26,050 is tax-free, and the remaining $46,550 is taxed at 2.75% = $1,280.13. Total OH tax = $1,280.13.
               </p>
             </div>
           </div>
@@ -280,7 +275,7 @@ export function OhioCalculator() {
                   <span className="text-sm font-medium text-orange-400">-{formatCurrency(result.ficaTotal)}</span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="flex items-center gap-1.5 text-sm text-muted-foreground"><TrendingDown className="h-3.5 w-3.5 text-amber-400" />OH State Tax (0%–3.99%)</span>
+                  <span className="flex items-center gap-1.5 text-sm text-muted-foreground"><TrendingDown className="h-3.5 w-3.5 text-amber-400" />OH State Tax (0%–2.75%)</span>
                   <span className="text-sm font-medium text-amber-400">-{formatCurrency(result.stateTax)}</span>
                 </div>
                 {result.retirement401k > 0 && (
@@ -348,7 +343,7 @@ export function OhioCalculator() {
             <TableBody>
               <TableRow>
                 <TableCell>Ohio Tax Brackets</TableCell>
-                <TableCell className="font-medium text-emerald-400">0% – 3.99% (5 brackets)</TableCell>
+                <TableCell className="font-medium text-emerald-400">0% / 2.75% (2026)</TableCell>
                 <TableCell>Progressive rate structure with five brackets</TableCell>
               </TableRow>
               <TableRow>
@@ -358,8 +353,8 @@ export function OhioCalculator() {
               </TableRow>
               <TableRow>
                 <TableCell>Second Bracket</TableCell>
-                <TableCell className="font-medium text-emerald-400">2.765% ($26,050–$46,100)</TableCell>
-                <TableCell>Applies to income between $26,050 and $46,100</TableCell>
+                <TableCell className="font-medium text-emerald-400">2.75% (above $26,050)</TableCell>
+                <TableCell>Single rate on all taxable income above $26,050 (plus a $332 statutory base)</TableCell>
               </TableRow>
               <TableRow>
                 <TableCell>Third Bracket</TableCell>
@@ -410,16 +405,16 @@ export function OhioCalculator() {
         <h2 className="text-xl font-bold text-foreground">Ohio $75,000 Salary Example (2026)</h2>
         <div className="mt-3 space-y-1 text-sm text-muted-foreground">
           <p>Gross: $75,000.00</p>
-          <p>OH Taxable Income: $75,000.00</p>
+          <p>OH Exemption: -$2,400.00</p>
+          <p>OH Taxable Income: $72,600.00</p>
           <p>0% bracket ($0–$26,050): $0.00</p>
-          <p>2.765% bracket ($26,050–$46,100): $554.38</p>
-          <p>3.226% bracket ($46,100–$75,000): $932.31</p>
-          <p>OH State Tax: $1,486.69</p>
+          <p>2.75% on remaining $46,550: $1,280.13</p>
+          <p>OH State Tax: $1,280.13</p>
           <p>Federal Tax (after $16,100 std deduction): $7,670.00</p>
           <p>FICA Total (7.65%): $5,737.50</p>
-          <p>Total Deductions: $14,894.19</p>
-          <p>Net Annual Take-Home: $60,105.81</p>
-          <p>Monthly Take-Home: $5,008.82</p>
+          <p>Total Deductions: $14,687.63</p>
+          <p>Net Annual Take-Home: $60,312.37</p>
+          <p>Monthly Take-Home: $5,026.03</p>
         </div>
       </div>
 

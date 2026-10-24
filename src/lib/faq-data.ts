@@ -715,32 +715,32 @@ export const GEORGIA_FAQS: FAQItem[] = [
   {
     question: 'How much is Georgia state income tax in 2026?',
     answer:
-      "Georgia uses a flat 5.49% rate — that's it, one rate for all taxable income. This is a recent change; Georgia used to have a graduated bracket system but transitioned to the flat rate starting in 2024. Whether that's better for you depends on your income level, but it does simplify the math considerably.",
+      "Georgia uses a flat 4.99% rate for 2026 — that's it, one rate for all taxable income. HB 463 cut the rate from 5.19% retroactive to January 1, 2026 (it was 5.49% in 2024). Whether that's better for you depends on your income level, but it does simplify the math considerably.",
   },
   {
     question: 'What deductions does Georgia offer?',
     answer:
-      "Georgia gives you both a standard deduction and a personal exemption, which is nice. The standard deduction is $5,400 for single filers, $7,100 for married filing jointly, and $5,400 for head of household. On top of that, you get a personal exemption of $2,700 per person ($5,400 for married couples). So a single filer making $75K would subtract $2,700 + $5,400 = $8,100 before applying the 5.49% rate — that brings taxable income down to $66,900.",
+      "Georgia gives you a large standard deduction: $15,000 for single filers and head of household, $30,000 for married filing jointly (HB 463 raised it from $12,000/$24,000). The old personal exemption is gone — instead each dependent gets a $5,000 deduction. So a single filer making $75K subtracts $15,000 before applying the 4.99% rate — that brings taxable income down to $60,000.",
   },
   {
     question: 'Does Georgia tax Social Security benefits?',
     answer:
-      "Nope, Georgia does not tax Social Security benefits. They also exclude up to $35,000 of retirement income ($65,000 for couples) for folks 62 and older. That includes 401(k) withdrawals, IRA distributions, and pensions. Combined with the flat 5.49% rate, Georgia is actually one of the more retiree-friendly states with an income tax.",
+      "Nope, Georgia does not tax Social Security benefits. They also exclude up to $35,000 of retirement income ($65,000 for couples) for folks 62 and older. That includes 401(k) withdrawals, IRA distributions, and pensions. Combined with the flat 4.99% rate, Georgia is actually one of the more retiree-friendly states with an income tax.",
   },
   {
     question: 'How does Georgia compare to neighboring states for taxes?',
     answer:
-      "Georgia's 5.49% flat rate is pretty middle-of-the-road for the Southeast. Florida and Tennessee have no income tax, so they win on that front. But Georgia's property taxes are quite reasonable — about 0.92% average effective rate compared to North Carolina's 0.82% or South Carolina's 0.57%. The sales tax averages around 7.35% (4% state + local). Overall, Georgia isn't the cheapest or the most expensive — it's a reasonable middle ground.",
+      "Georgia's 4.99% flat rate is pretty middle-of-the-road for the Southeast. Florida and Tennessee have no income tax, so they win on that front. But Georgia's property taxes are quite reasonable — about 0.92% average effective rate compared to North Carolina's 0.82% or South Carolina's 0.57%. The sales tax averages around 7.35% (4% state + local). Overall, Georgia isn't the cheapest or the most expensive — it's a reasonable middle ground.",
   },
   {
     question: 'What is the Georgia standard deduction for 2026?',
     answer:
-      "$5,400 for single filers, $7,100 for married filing jointly, and $5,400 for head of household. It's not as generous as the federal $16,100 standard deduction, but combined with the $2,700 personal exemption, a single filer gets $8,100 knocked off their income before the 5.49% rate applies. That's actually better than what Illinois offers — they don't have a standard deduction at all.",
+      "$15,000 for single filers and head of household, $30,000 for married filing jointly for 2026. It's not quite as generous as the federal $16,100 standard deduction, but a single filer still gets $15,000 knocked off their income before the 4.99% rate applies. That's actually better than what Illinois offers — they don't have a standard deduction at all.",
   },
   {
     question: 'Is Georgia a good state for retirees?',
     answer:
-      "Surprisingly, yes. No tax on Social Security, the $35,000/$65,000 retirement income exclusion for those 62+, moderate property taxes, and the flat 5.49% income tax rate. Georgia consistently ranks as one of the more tax-friendly states for retirees. The cost of living is also below the national average, which helps stretch those retirement dollars further. It's not Florida-level tax-free, but it's solid.",
+      "Surprisingly, yes. No tax on Social Security, the $35,000/$65,000 retirement income exclusion for those 62+, moderate property taxes, and the flat 4.99% income tax rate. Georgia consistently ranks as one of the more tax-friendly states for retirees. The cost of living is also below the national average, which helps stretch those retirement dollars further. It's not Florida-level tax-free, but it's solid.",
   },
 ];
 
@@ -768,7 +768,7 @@ export const ARIZONA_FAQS: FAQItem[] = [
   {
     question: 'How does Arizona compare to neighboring states for taxes?',
     answer:
-      "Arizona's 2.5% flat rate beats every neighboring state with an income tax. Nevada has zero income tax, so that wins, but among states that do tax income, Arizona is the lowest in the region. New Mexico goes up to 5.9%, California up to 13.3%, and Utah has a flat 4.65%. Arizona's property taxes are also reasonable at about 0.63% average effective rate, and sales tax averages around 8.37% with local additions. Overall, Arizona is one of the most tax-friendly states in the Southwest.",
+      "Arizona's 2.5% flat rate beats every neighboring state with an income tax. Nevada has zero income tax, so that wins, but among states that do tax income, Arizona is the lowest in the region. New Mexico goes up to 5.9%, California up to 13.3%, and Utah has a flat 4.45%. Arizona's property taxes are also reasonable at about 0.63% average effective rate, and sales tax averages around 8.37% with local additions. Overall, Arizona is one of the most tax-friendly states in the Southwest.",
   },
   {
     question: 'Is Arizona a good state for high-income earners?',
@@ -796,7 +796,7 @@ export const VIRGINIA_FAQS: FAQItem[] = [
   {
     question: 'How does Virginia compare to neighboring states for taxes?',
     answer:
-      "Virginia's top rate of 5.75% is a bit higher than Georgia's 5.49% flat rate, but the lower brackets help for moderate incomes. North Carolina has a flat 4.5% rate, Maryland goes up to 5.75% with local county taxes on top, and West Virginia tops out at 5.12%. Virginia sits in the middle — not the cheapest, not the most expensive. The 5.3% average sales tax is reasonable, and property taxes average 0.82%, which is below the national average.",
+      "Virginia's top rate of 5.75% is a bit higher than Georgia's 4.99% flat rate, but the lower brackets help for moderate incomes. North Carolina has a flat 3.99% rate, Maryland goes up to 6.5% with local county taxes on top, and West Virginia tops out at 4.58%. Virginia sits in the middle — not the cheapest, not the most expensive. The 5.3% average sales tax is reasonable, and property taxes average 0.82%, which is below the national average.",
   },
   {
     question: 'Does Virginia have local income taxes like Maryland?',
@@ -867,7 +867,7 @@ export const PENNSYLVANIA_FAQS: FAQItem[] = [
   {
     question: 'How does Pennsylvania compare to neighboring states for taxes?',
     answer:
-      "Pennsylvania's 3.07% flat rate looks great next to New Jersey (up to 10.75%) and New York (up to 10.9%). Even with a 1–2% local EIT, you're likely paying less than you would across the river. Compared to Ohio (up to 3.99%) it's similar, though Ohio has a standard deduction that PA lacks. Delaware's top rate of 6.6% is much higher. The main caveat: if you live in Philadelphia, the combined 7%+ rate isn't as competitive. For most of PA though, it's a pretty good deal.",
+      "Pennsylvania's 3.07% flat rate looks great next to New Jersey (up to 10.75%) and New York (up to 10.9%). Even with a 1–2% local EIT, you're likely paying less than you would across the river. Compared to Ohio (up to 2.75%) it's similar, though Ohio has a standard deduction that PA lacks. Delaware's top rate of 6.6% is much higher. The main caveat: if you live in Philadelphia, the combined 7%+ rate isn't as competitive. For most of PA though, it's a pretty good deal.",
   },
   {
     question: 'How high are Pennsylvania property taxes?',
@@ -895,7 +895,7 @@ export const OHIO_FAQS: FAQItem[] = [
   {
     question: 'How does Ohio compare to neighboring states for taxes?',
     answer:
-      "Ohio's top rate of 3.99% is lower than most neighboring states with income tax. Indiana has a flat 3.05% rate, which is lower at the top end, but Ohio's 0% bracket on the first $26,050 often makes it cheaper for moderate earners. Pennsylvania has a flat 3.07% rate with no standard deduction or 0% bracket. Michigan has a flat 4.25% rate. Kentucky tops out at 4%. West Virginia goes up to 5.12%. So Ohio is competitive, especially for middle-income earners who benefit from that 0% bracket.",
+      "Ohio's top rate of 2.75% is lower than most neighboring states with income tax. Indiana has a flat 2.95% rate, which is lower at the top end, but Ohio's 0% bracket on the first $26,050 often makes it cheaper for moderate earners. Pennsylvania has a flat 3.07% rate with no standard deduction or 0% bracket. Michigan has a flat 4.25% rate. Kentucky is 3.5% for 2026. West Virginia goes up to 4.58%. So Ohio is competitive, especially for middle-income earners who benefit from that 0% bracket.",
   },
   {
     question: 'Are Ohio tax rates decreasing?',
@@ -913,7 +913,7 @@ export const MICHIGAN_FAQS: FAQItem[] = [
   {
     question: 'How much is Michigan state income tax in 2026?',
     answer:
-      "Michigan uses a flat 4.25% income tax rate on all taxable income. Unlike most states with progressive brackets, every dollar above your personal exemption is taxed at the same rate whether you make $30K or $300K. It's similar to Illinois (4.95%) and Indiana (3.05%) — the Great Lakes region likes its flat taxes.",
+      "Michigan uses a flat 4.25% income tax rate on all taxable income. Unlike most states with progressive brackets, every dollar above your personal exemption is taxed at the same rate whether you make $30K or $300K. It's similar to Illinois (4.95%) and Indiana (2.95%) — the Great Lakes region likes its flat taxes.",
   },
   {
     question: 'What is the Michigan personal exemption for 2026?',
@@ -938,7 +938,7 @@ export const MICHIGAN_FAQS: FAQItem[] = [
   {
     question: 'How does Michigan compare to neighboring states for taxes?',
     answer:
-      "Michigan's 4.25% flat rate is lower than Illinois's 4.95% but higher than Indiana's 3.05% (plus Indiana's county taxes). Ohio uses progressive brackets from 2.765% to 3.99%, and Wisconsin tops out at 7.65%. Michigan sits in the middle — not the cheapest, not the most expensive in the Midwest. Property taxes are moderate (about 1.54% average effective rate) and the 6% state sales tax is reasonable, though Michigan doesn't allow local sales tax add-ons.",
+      "Michigan's 4.25% flat rate is lower than Illinois's 4.95% but higher than Indiana's 2.95% (plus Indiana's county taxes). Ohio taxes income above $26,050 at a flat 2.75%, and Wisconsin tops out at 7.65%. Michigan sits in the middle — not the cheapest, not the most expensive in the Midwest. Property taxes are moderate (about 1.54% average effective rate) and the 6% state sales tax is reasonable, though Michigan doesn't allow local sales tax add-ons.",
   },
 ];
 
@@ -946,12 +946,12 @@ export const NORTHCAROLINA_FAQS: FAQItem[] = [
   {
     question: 'How much is North Carolina state income tax in 2026?',
     answer:
-      "North Carolina uses a flat 4.5% rate on all taxable income — one rate, no brackets, simple math. The rate has been gradually coming down over the years and is now one of the lower flat rates in the Southeast. Whether that's good or bad depends on your income, but compared to progressive states where the top rate can exceed 9%, 4.5% looks pretty reasonable.",
+      "North Carolina uses a flat 3.99% rate on all taxable income for 2026 — one rate, no brackets, simple math. The rate has been gradually coming down over the years (4.5% in 2024, 4.25% in 2025) and is now one of the lower flat rates in the Southeast. Whether that's good or bad depends on your income, but compared to progressive states where the top rate can exceed 9%, 3.99% looks pretty reasonable.",
   },
   {
     question: 'What is the North Carolina standard deduction for 2026?',
     answer:
-      "$12,750 for single filers, $25,500 for married filing jointly, and $19,125 for head of household. These are actually pretty generous compared to neighboring states — Georgia only offers $5,400 single / $7,100 married, and South Carolina doesn't have its own standard deduction at all. The NC standard deduction is subtracted from your federal AGI before the 4.5% rate applies.",
+      "$12,750 for single filers, $25,500 for married filing jointly, and $19,125 for head of household. These are actually pretty generous — Georgia offers $15,000 single / $30,000 married, and South Carolina doesn't have its own standard deduction at all (it uses the federal one). The NC standard deduction is subtracted from your federal AGI before the 3.99% rate applies.",
   },
   {
     question: 'Does North Carolina have a personal exemption?',
@@ -961,17 +961,17 @@ export const NORTHCAROLINA_FAQS: FAQItem[] = [
   {
     question: 'Does North Carolina tax Social Security benefits?',
     answer:
-      "No, North Carolina does not tax Social Security benefits. The state also doesn't tax most pension income for retirees who meet certain requirements. Combined with the low 4.5% flat rate and that generous standard deduction, North Carolina is actually one of the more tax-friendly states in the Southeast for retirees — especially compared to Georgia's 5.49% rate.",
+      "No, North Carolina does not tax Social Security benefits. The state also doesn't tax most pension income for retirees who meet certain requirements. Combined with the low 3.99% flat rate and that generous standard deduction, North Carolina is actually one of the more tax-friendly states in the Southeast for retirees — especially compared to Georgia's 4.99% rate.",
   },
   {
     question: 'How does North Carolina compare to neighboring states for taxes?',
     answer:
-      "North Carolina's 4.5% flat rate is lower than Georgia's 5.49% and Virginia's top rate of 5.75%. South Carolina has a top rate of 6.4% but uses the federal standard deduction, while Tennessee and Florida have zero income tax. Property taxes in NC are quite reasonable at about 0.82% average effective rate, and the combined sales tax averages around 7.1% (4.75% state + local). Overall, NC sits in a nice middle ground — not as tax-free as Florida or Tennessee, but definitely on the lower end for states that do have income tax.",
+      "North Carolina's 3.99% flat rate is lower than Georgia's 4.99% and Virginia's top rate of 5.75%. South Carolina has a top rate of 6% but uses the federal standard deduction, while Tennessee and Florida have zero income tax. Property taxes in NC are quite reasonable at about 0.82% average effective rate, and the combined sales tax averages around 7.1% (4.75% state + local). Overall, NC sits in a nice middle ground — not as tax-free as Florida or Tennessee, but definitely on the lower end for states that do have income tax.",
   },
   {
     question: 'Is North Carolina tax-friendly for retirees?',
     answer:
-      "Surprisingly, yes. No tax on Social Security, low flat income tax rate, generous standard deductions, and moderate property taxes. The 4.5% rate on non-Social Security income is well below what you'd pay in most Northeastern or Midwestern states. And if you're a married couple filing jointly, that $25,500 standard deduction shields a big chunk of your retirement income from state tax entirely. North Carolina's been attracting a lot of retirees for good reason.",
+      "Surprisingly, yes. No tax on Social Security, low flat income tax rate, generous standard deductions, and moderate property taxes. The 3.99% rate on non-Social Security income is well below what you'd pay in most Northeastern or Midwestern states. And if you're a married couple filing jointly, that $25,500 standard deduction shields a big chunk of your retirement income from state tax entirely. North Carolina's been attracting a lot of retirees for good reason.",
   },
 ];
 
@@ -979,7 +979,7 @@ export const COLORADO_FAQS: FAQItem[] = [
   {
     question: 'How much is Colorado state income tax in 2026?',
     answer:
-      "Colorado uses a flat 4.4% income tax rate — same rate whether you make $30K or $300K. The rate has been steadily decreasing over the years, down from 4.63% not too long ago. It's one of the lower flat tax rates among states that have them, sitting below Illinois (4.95%) and Michigan (4.25%) but above Arizona (2.5%) and Indiana (3.05%).",
+      "Colorado uses a flat 4.4% income tax rate — same rate whether you make $30K or $300K. The rate has been steadily decreasing over the years, down from 4.63% not too long ago. It's one of the lower flat tax rates among states that have them, sitting below Illinois (4.95%) and Michigan (4.25%) but above Arizona (2.5%) and Indiana (2.95%).",
   },
   {
     question: 'How does Colorado use federal taxable income as a starting point?',
@@ -999,7 +999,7 @@ export const COLORADO_FAQS: FAQItem[] = [
   {
     question: 'How does Colorado compare to neighboring states for taxes?',
     answer:
-      "Colorado's 4.4% flat rate is quite competitive in the Mountain West. Wyoming and Nevada have zero income tax, so they win on that front. Utah charges 4.65%, Arizona is at 2.5%, and New Mexico goes up to 5.9%. But Colorado's use of federal taxable income means you get the benefit of the federal standard deduction automatically, which narrows the gap with zero-tax states for many earners. Property taxes are also quite low at about 0.55% average effective rate — among the lowest in the nation.",
+      "Colorado's 4.4% flat rate is quite competitive in the Mountain West. Wyoming and Nevada have zero income tax, so they win on that front. Utah charges 4.45%, Arizona is at 2.5%, and New Mexico goes up to 5.9%. But Colorado's use of federal taxable income means you get the benefit of the federal standard deduction automatically, which narrows the gap with zero-tax states for many earners. Property taxes are also quite low at about 0.55% average effective rate — among the lowest in the nation.",
   },
   {
     question: 'Is Colorado tax-friendly for retirees?',
@@ -1045,7 +1045,7 @@ export const MASSACHUSETTS_FAQS: FAQItem[] = [
   {
     question: 'How much is Massachusetts state income tax in 2026?',
     answer:
-      "Massachusetts has a flat 5% rate on most income, plus a 4% surtax (the millionaire's tax) on income exceeding $1 million — making the effective top rate 9%. For the vast majority of earners making under $1M, it's just 5%. That's lower than many progressive states' top rates but higher than flat-tax states like Pennsylvania (3.07%) or Indiana (3.05%).",
+      "Massachusetts has a flat 5% rate on most income, plus a 4% surtax (the millionaire's tax) on income exceeding $1 million — making the effective top rate 9%. For the vast majority of earners making under $1M, it's just 5%. That's lower than many progressive states' top rates but higher than flat-tax states like Pennsylvania (3.07%) or Indiana (2.95%).",
   },
   {
     question: 'Does Massachusetts have a standard deduction?',
@@ -1078,27 +1078,27 @@ export const INDIANA_FAQS: FAQItem[] = [
   {
     question: 'How much is Indiana state income tax in 2026?',
     answer:
-      "Indiana has a flat 3.05% state income tax rate — one of the lowest flat rates in the country. It applies to all taxable income regardless of how much you make. The rate has been gradually decreasing over the years (it was 3.15% in 2024), and Indiana law ties future rate reductions to state revenue triggers.",
+      "Indiana has a flat 2.95% state income tax rate for 2026 — one of the lowest flat rates in the country. It applies to all taxable income regardless of how much you make. The rate has been gradually decreasing over the years (3.05% in 2024 and 3.0% in 2025), and Indiana law ties future rate reductions to state revenue triggers.",
   },
   {
     question: 'Does Indiana have a standard deduction?',
     answer:
-      "No. Indiana doesn't offer a standard deduction. Instead, you get a $1,000 personal exemption per person ($2,000 for married filing jointly). It's less generous than states with standard deductions, but the 3.05% rate is low enough that the total tax burden stays manageable. On a $75K salary (single), taxable income = $75,000 - $1,000 = $74,000, and state tax = $2,257.",
+      "No. Indiana doesn't offer a standard deduction. Instead, you get a $1,000 personal exemption per person ($2,000 for married filing jointly). It's less generous than states with standard deductions, but the 2.95% rate is low enough that the total tax burden stays manageable. On a $75K salary (single), taxable income = $75,000 - $1,000 = $74,000, and state tax = $2,183.",
   },
   {
     question: 'What are Indiana county taxes?',
     answer:
-      "Most Indiana counties impose an additional county income tax ranging from about 1.5% to 2% on top of the 3.05% state rate. That means your effective Indiana tax rate is typically 4.55% to 5.05% combined. The county tax is based on where you live (not work), and rates vary significantly. This calculator shows the state portion only — check your county rate for the full picture.",
+      "Most Indiana counties impose an additional county income tax ranging from about 1.5% to 2% on top of the 2.95% state rate. That means your effective Indiana tax rate is typically 4.45% to 4.95% combined. The county tax is based on where you live (not work), and rates vary significantly. This calculator shows the state portion only — check your county rate for the full picture.",
   },
   {
     question: 'Does Indiana tax retirement income?',
     answer:
-      "Yes, Indiana taxes most retirement income including 401(k) withdrawals, IRA distributions, and private pensions at the 3.05% flat rate (plus county tax). Social Security benefits are exempt from state tax. Indiana also offers a small pension income exclusion for some government retirees, but it's limited.",
+      "Yes, Indiana taxes most retirement income including 401(k) withdrawals, IRA distributions, and private pensions at the 2.95% flat rate (plus county tax). Social Security benefits are exempt from state tax. Indiana also offers a small pension income exclusion for some government retirees, but it's limited.",
   },
   {
     question: 'How does Indiana compare to neighboring states on taxes?',
     answer:
-      "Indiana's 3.05% rate is very competitive regionally. Illinois charges 4.95%, Ohio goes up to 3.99%, Michigan is at 4.25%, and Kentucky is 4%. The main catch is Indiana's county taxes, which can push your effective rate over 5%. But even with county tax, Indiana is generally cheaper than its neighbors for most income levels. Property taxes are also moderate at around 0.82% effective rate.",
+      "Indiana's 2.95% rate is very competitive regionally. Illinois charges 4.95%, Ohio tops out at 2.75%, Michigan is at 4.25%, and Kentucky is 3.5% for 2026. The main catch is Indiana's county taxes, which can push your effective rate over 5%. But even with county tax, Indiana is generally cheaper than its neighbors for most income levels. Property taxes are also moderate at around 0.82% effective rate.",
   },
 ];
 
@@ -1149,7 +1149,7 @@ export const MISSOURI_FAQS: FAQItem[] = [
   {
     question: 'How does Missouri compare to neighboring states on taxes?',
     answer:
-      "Missouri sits in the middle of the pack regionally. Its top rate of 4.8% is higher than Indiana's flat 3.05% (plus county) and lower than Iowa's top rate. Kansas charges up to 5.7%, Illinois is a flat 4.95%, and Arkansas tops out at 4.4%. Because Missouri uses federal taxable income, the effective rate is often lower than the bracket suggests. Property taxes are moderate at around 0.97%.",
+      "Missouri sits in the middle of the pack regionally. Its top rate of 4.7% is higher than Indiana's flat 2.95% (plus county) and lower than Iowa's flat 3.8%. Kansas charges up to 5.58%, Illinois is a flat 4.95%, and Arkansas tops out at 3.9%. Because Missouri uses federal taxable income, the effective rate is often lower than the bracket suggests. Property taxes are moderate at around 0.97%.",
   },
   {
     question: 'Is Missouri a good state for retirees?',
@@ -1162,7 +1162,7 @@ export const MARYLAND_FAQS: FAQItem[] = [
   {
     question: 'How much is Maryland state income tax in 2026?',
     answer:
-      "Maryland has a progressive state income tax with brackets from 2% to 5.75%. But here's the catch — every Maryland county also imposes a county income tax ranging from 2.25% to 3.28%. That means your combined top state + county rate can reach 8.03% to 9.03%, which is among the highest in the nation. For a $75K single filer in Montgomery County (3.2% county rate), combined state + county tax is roughly $3,800.",
+      "Maryland has a progressive state income tax with brackets from 2% to 6.5% for 2026. But here's the catch — every Maryland county also imposes a county income tax ranging from 2.25% to 3.28%. That means your combined top state + county rate can reach 8.03% to 9.03%, which is among the highest in the nation. For a $75K single filer in Montgomery County (3.2% county rate), combined state + county tax is roughly $3,800.",
   },
   {
     question: 'Does Maryland have a standard deduction?',
@@ -1190,7 +1190,7 @@ export const WISCONSIN_FAQS: FAQItem[] = [
   {
     question: 'How much is Wisconsin state income tax in 2026?',
     answer:
-      "Wisconsin uses a progressive income tax with four brackets ranging from 3.54% to 7.65%. The top rate of 7.65% kicks in above $276,270 in taxable income for single filers. For a $75K single filer, the effective state tax rate works out to roughly 4.2% after the standard deduction. That's higher than neighboring Minnesota's bottom bracket but lower than Minnesota's top rate of 9.85%.",
+      "Wisconsin uses a progressive income tax with four brackets ranging from 3.5% to 7.65%. The top rate of 7.65% kicks in above $323,290 in taxable income for single filers. For a $75K single filer, the effective state tax rate works out to roughly 3.6% after the standard deduction. That's higher than neighboring Minnesota's bottom bracket but lower than Minnesota's top rate of 9.85%.",
   },
   {
     question: 'What is the Wisconsin standard deduction for 2026?',
@@ -1205,7 +1205,7 @@ export const WISCONSIN_FAQS: FAQItem[] = [
   {
     question: 'How does Wisconsin compare to neighboring states on taxes?',
     answer:
-      "Wisconsin's top rate of 7.65% is higher than all its neighbors except Minnesota (9.85%). Iowa is transitioning to a flat rate around 5.7%, Illinois is flat at 4.95%, and Michigan is flat at 4.25%. However, Wisconsin's standard deduction is more generous than some states, so the effective rate for moderate earners is often lower than the bracket rate suggests. Property taxes are also relatively high at about 1.63%.",
+      "Wisconsin's top rate of 7.65% is higher than all its neighbors except Minnesota (9.85%). Iowa has a flat 3.8% rate, Illinois is flat at 4.95%, and Michigan is flat at 4.25%. However, Wisconsin's standard deduction is more generous than some states, so the effective rate for moderate earners is often lower than the bracket rate suggests. Property taxes are also relatively high at about 1.63%.",
   },
   {
     question: 'Is Wisconsin a good state for retirees?',
@@ -1233,7 +1233,7 @@ export const MINNESOTA_FAQS: FAQItem[] = [
   {
     question: 'How does Minnesota compare to neighboring states on taxes?',
     answer:
-      "Minnesota has the highest income tax rates in the Midwest by a significant margin. Wisconsin's top rate is 7.65%, Iowa is around 5.7%, North Dakota tops out at 2.5%, and South Dakota has no income tax at all. On the plus side, Minnesota has a generous standard deduction and various credits (including a working family credit). But for high earners, Minnesota is a tough sell compared to its neighbors. Property taxes are moderate at about 1.08%.",
+      "Minnesota has the highest income tax rates in the Midwest by a significant margin. Wisconsin's top rate is 7.65%, Iowa has a flat 3.8% rate, North Dakota tops out at 2.5%, and South Dakota has no income tax at all. On the plus side, Minnesota has a generous standard deduction and various credits (including a working family credit). But for high earners, Minnesota is a tough sell compared to its neighbors. Property taxes are moderate at about 1.08%.",
   },
   {
     question: 'Is Minnesota a high-tax state overall?',

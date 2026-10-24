@@ -45,7 +45,7 @@ const FAQS = [
   {
     question: 'How do you source your 2026 tax data?',
     answer:
-      'We source every figure from the official IRS publications (Rev. Proc. 2025-25 for inflation-adjusted brackets, Publication 15-T for withholding tables, Publication 972 for the Child Tax Credit), the Social Security Administration for the FICA wage base ($184,500 for 2026), and each state\'s Department of Revenue for state income tax brackets, standard deductions, and personal exemptions. Our full methodology is published at /methodology and is updated within 48 hours of any official change. We also cite the One Big Beautiful Bill Act (P.L. 119-1) for OBBBA provisions.',
+      'We source every figure from the official IRS publications (Rev. Proc. 2025-32 for inflation-adjusted brackets, Publication 15-T for withholding tables, Publication 972 for the Child Tax Credit), the Social Security Administration for the FICA wage base ($184,500 for 2026), and each state\'s Department of Revenue for state income tax brackets, standard deductions, and personal exemptions. Our full methodology is published at /methodology and is updated within 48 hours of any official change. We also cite the One Big Beautiful Bill Act (P.L. 119-1) for OBBBA provisions.',
   },
   {
     question: 'Can I use TheTaxCalc calculators during client meetings?',

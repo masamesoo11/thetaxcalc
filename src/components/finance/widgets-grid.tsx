@@ -156,9 +156,9 @@ const WIDGETS: WidgetInfo[] = [
     slug: 'georgia-tax-calculator',
     title: 'Georgia Tax Calculator',
     description:
-      'Estimate your Georgia take-home pay with the 5.49% flat income tax rate and standard deductions.',
+      'Estimate your Georgia take-home pay with the 4.99% flat income tax rate and standard deductions.',
     icon: MapPin,
-    badge: 'GA — 5.49%',
+    badge: 'GA — 4.99%',
     defaultHeight: 650,
     color: 'emerald',
   },

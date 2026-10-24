@@ -109,7 +109,7 @@ export function IndianaCalculator() {
           Indiana Paycheck Calculator
         </h2>
         <p className="mt-2 text-muted-foreground">
-          Indiana flat 3.05% income tax with personal exemption — plus county taxes
+          Indiana flat 2.95% income tax with personal exemption — plus county taxes
         </p>
       </div>
 
@@ -120,12 +120,12 @@ export function IndianaCalculator() {
             <div className="space-y-2 text-sm text-muted-foreground">
               <p className="font-medium text-foreground">How Indiana Income Tax Works</p>
               <p>
-                Indiana uses a <strong className="text-sky-400">flat tax rate of 3.05%</strong> on
+                Indiana uses a <strong className="text-sky-400">flat tax rate of 2.95%</strong> on
                 all taxable income. Indiana does not offer a standard deduction but provides a <strong className="text-sky-400">personal exemption</strong> of $1,000 (single) / $2,000 (married).
                 Most Indiana counties also levy <strong className="text-amber-400">county income taxes</strong> averaging 1.5%–2%, which are not included in this calculator.
               </p>
               <p>
-                For a $75,000 salary (single): Taxable income = $75,000 - $1,000 = $74,000. State tax = $74,000 × 3.05% = $2,257.
+                For a $75,000 salary (single): Taxable income = $75,000 - $1,000 = $74,000. State tax = $74,000 × 2.95% = $2,183.
               </p>
             </div>
           </div>
@@ -257,7 +257,7 @@ export function IndianaCalculator() {
                   <span className="text-sm font-medium text-orange-400">-{formatCurrency(result.ficaTotal)}</span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="flex items-center gap-1.5 text-sm text-muted-foreground"><TrendingDown className="h-3.5 w-3.5 text-amber-400" />IN State Tax (3.05%)</span>
+                  <span className="flex items-center gap-1.5 text-sm text-muted-foreground"><TrendingDown className="h-3.5 w-3.5 text-amber-400" />IN State Tax (2.95%)</span>
                   <span className="text-sm font-medium text-amber-400">-{formatCurrency(result.stateTax)}</span>
                 </div>
                 {result.retirement401k > 0 && (
@@ -280,7 +280,7 @@ export function IndianaCalculator() {
                   <div className="flex justify-between"><span>Gross Income</span><span>{formatCurrency(result.grossAnnual)}</span></div>
                   <div className="flex justify-between"><span>Less: Personal Exemption</span><span>-{formatCurrency(inBreakdown.personalExemption)}</span></div>
                   <div className="flex justify-between"><span>IN Taxable Income</span><span>{formatCurrency(inBreakdown.inTaxableIncome)}</span></div>
-                  <div className="flex justify-between"><span>IN Tax Rate</span><span>3.05%</span></div>
+                  <div className="flex justify-between"><span>IN Tax Rate</span><span>2.95%</span></div>
                   <div className="flex justify-between font-medium text-amber-400"><span>IN State Tax</span><span>{formatCurrency(inBreakdown.inTax)}</span></div>
                 </div>
               </div>
@@ -318,7 +318,7 @@ export function IndianaCalculator() {
             <TableBody>
               <TableRow>
                 <TableCell>State Income Tax Rate</TableCell>
-                <TableCell className="font-medium text-sky-400">3.05% (Flat)</TableCell>
+                <TableCell className="font-medium text-sky-400">2.95% (Flat)</TableCell>
                 <TableCell>One of the lowest flat rates in the nation</TableCell>
               </TableRow>
               <TableRow>
@@ -367,12 +367,12 @@ export function IndianaCalculator() {
           <p>Gross Annual Salary: $75,000.00</p>
           <p>Indiana Personal Exemption: -$1,000.00</p>
           <p>Indiana Taxable Income: $74,000.00</p>
-          <p>Indiana State Tax (3.05%): $2,257.00</p>
+          <p>Indiana State Tax (2.95%): $2,183.00</p>
           <p>Federal Tax (after $16,100 std deduction): $7,670.00</p>
           <p>FICA Total (7.65%): $5,737.50</p>
-          <p>Total Deductions: $15,664.50</p>
-          <p>Net Annual Take-Home: $59,335.50</p>
-          <p>Monthly Take-Home: $4,944.63</p>
+          <p>Total Deductions: $15,590.50</p>
+          <p>Net Annual Take-Home: $59,409.50</p>
+          <p>Monthly Take-Home: $4,950.79</p>
         </div>
       </div>
 

@@ -45,7 +45,7 @@ export default function MethodologyPage() {
         </h2>
         <p className="text-muted-foreground leading-relaxed mb-4">
           Federal income tax is computed using the progressive bracket system defined in
-          IRS Revenue Procedure 2025-25 and IRS Publication 15-T (Percentage Method
+          IRS Revenue Procedure 2025-32 and IRS Publication 15-T (Percentage Method
           Tables for Income Tax Withholding). For the 2026 tax year, there are seven
           brackets ranging from 10% to 37%. The standard deduction amounts are
           $16,100 for Single filers, $32,200 for Married Filing Jointly, and
@@ -70,7 +70,7 @@ export default function MethodologyPage() {
             </li>
             <li>
               <a href="https://www.irs.gov/filing/federal-income-tax-rates-and-brackets" target="_blank" rel="noopener noreferrer" className="text-emerald-400 hover:text-emerald-300 underline">
-                Revenue Procedure 2025-25
+                Revenue Procedure 2025-32
               </a>
               {' '}&mdash; Annual inflation adjustments for 2026
             </li>

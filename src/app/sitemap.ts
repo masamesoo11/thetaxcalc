@@ -10,12 +10,13 @@ import { ALL_STATE_KEYS } from '@/lib/state-sales-tax-data';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = SITE_URL;
-  // Updated dates — Google prefers accurate lastModified values
-  // Use today's date for homepage (signals freshness)
-  // Use last content update date for static pages
-  const today = new Date().toISOString().split('T')[0]; // YYYY-MM-DD
-  const taxYearUpdate = today; // Today — signals recent update
-  const siteUpdate = today;    // Today — homepage/landing updated
+  // Google prefers truthful lastModified values that reflect actual content
+  // changes — every URL using "today" on each build makes lastmod meaningless.
+  // These constants record the dates content actually changed.
+  const TAX_DATA_UPDATED = '2026-10-24'; // 2026 state rate overhaul (29 states corrected)
+  const SITE_CONTENT_UPDATED = '2026-10-24'; // site copy, methodology, about pages
+  const taxYearUpdate = TAX_DATA_UPDATED;
+  const siteUpdate = SITE_CONTENT_UPDATED;
 
   const entries: MetadataRoute.Sitemap = [
     { url: baseUrl, lastModified: siteUpdate, changeFrequency: 'weekly', priority: 1.0 },

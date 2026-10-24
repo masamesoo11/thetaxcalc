@@ -37,7 +37,7 @@ const FAQS = [
   {
     question: 'What is the OBBBA tax calculator?',
     answer:
-      'The OBBBA tax calculator compares your 2026 federal income tax under the One Big Beautiful Bill Act (OBBBA, P.L. 119-1) against what you would have paid if the Tax Cuts and Jobs Act (TCJA) had sunset as scheduled on December 31, 2025. It applies every relevant OBBBA provision — permanent TCJA brackets, the $40,400 SALT cap, the doubled $2,200 Child Tax Credit, the new tip and overtime deductions, and the $2,000 senior deduction — and shows your tax savings (or cost) line by line.',
+      'The OBBBA tax calculator compares your 2026 federal income tax under the One Big Beautiful Bill Act (OBBBA, P.L. 119-1) against what you would have paid if the Tax Cuts and Jobs Act (TCJA) had sunset as scheduled on December 31, 2025. It applies every relevant OBBBA provision — permanent TCJA brackets, the $40,400 SALT cap, the doubled $2,200 Child Tax Credit, the new tip and overtime deductions, and the $6,000 senior deduction for taxpayers 65+ — and shows your tax savings (or cost) line by line.',
   },
   {
     question: 'How does OBBBA change my 2026 tax refund?',
@@ -62,7 +62,7 @@ const FAQS = [
   {
     question: 'Who benefits most from OBBBA?',
     answer:
-      'The biggest winners under OBBBA are families with children (thanks to the doubled Child Tax Credit), upper-middle-income itemizers in high-tax states (California, New York, New Jersey, Connecticut, Illinois — thanks to the SALT cap increase), tipped workers (new tip deduction), hourly employees with regular overtime (new overtime deduction), and seniors 65+ (new $2,000 senior deduction). Households without children in no-income-tax states who take the standard deduction benefit least, though they still gain from the permanent TCJA brackets.',
+      'The biggest winners under OBBBA are families with children (thanks to the doubled Child Tax Credit), upper-middle-income itemizers in high-tax states (California, New York, New Jersey, Connecticut, Illinois — thanks to the SALT cap increase), tipped workers (new tip deduction), hourly employees with regular overtime (new overtime deduction), and seniors 65+ (new $6,000 senior deduction). Households without children in no-income-tax states who take the standard deduction benefit least, though they still gain from the permanent TCJA brackets.',
   },
 ];
 
@@ -238,15 +238,16 @@ export default function OBBBATaxCalculatorPage() {
       {/* Senior Deduction */}
       <section className="mb-10 rounded-xl border border-border/30 bg-card/50 p-6">
         <h2 className="text-2xl font-bold text-foreground mb-4">
-          New $2,000 Senior Deduction
+          New $6,000 Senior Deduction
         </h2>
         <p className="text-muted-foreground leading-relaxed">
-          Taxpayers aged 65 and older can claim an additional $2,000 deduction on top of the
-          standard deduction under OBBBA. Combined with the existing additional standard
-          deduction for seniors (approximately $1,950 for single filers in 2026), a single
-          senior taking the standard deduction can subtract roughly $20,050 from gross income
-          before calculating federal tax. For married couples where both spouses are 65+, the
-          combined deduction is even larger. This is particularly valuable for retirees with
+          Taxpayers aged 65 and older can claim an additional $6,000 deduction on top of the
+          standard deduction under OBBBA (2025–2028, $6,000 per qualifying spouse on a joint
+          return). Combined with the existing additional standard deduction for seniors
+          ($2,050 for single filers in 2026), a single senior taking the standard deduction can
+          subtract roughly $24,150 from gross income before calculating federal tax. The benefit
+          phases out at higher incomes: the $6,000 is reduced by 6% of modified AGI above
+          $75,000 ($150,000 for joint filers). This is particularly valuable for retirees with
           pension, Social Security, or IRA distribution income.
         </p>
       </section>
@@ -415,7 +416,7 @@ export default function OBBBATaxCalculatorPage() {
           <p className="text-sm text-muted-foreground leading-relaxed">
             This OBBBA tax calculator provides estimates for informational and educational
             purposes only. It does not constitute tax advice. The calculator uses 2026
-            federal tax figures from IRS Revenue Procedure 2025-25 and the JCT description of
+            federal tax figures from IRS Revenue Procedure 2025-32 and the JCT description of
             OBBBA (P.L. 119-1). State taxes, AMT, and special circumstances are not included.
             Tax law changes frequently — consult a qualified tax professional (CPA, EA, or tax
             attorney) for advice specific to your situation.

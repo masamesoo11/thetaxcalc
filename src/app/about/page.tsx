@@ -190,7 +190,7 @@ export default function AboutPage() {
           <p>
             TheTaxCalc started as a weekend project — a single paycheck calculator that actually
             used current tax data and didn&apos;t try to sell you anything. It turns out a lot of people
-            wanted exactly that. Today we have 64 calculators covering paycheck estimation, mortgage
+            wanted exactly that. Today we have 67 calculators covering paycheck estimation, mortgage
             amortization, 401(k) projections, capital gains, self-employment taxes, sales tax,
             overtime, lottery, bonus, property tax, IRS withholding, and side-by-side
             state comparisons — all updated for the 2026 tax year.
@@ -268,7 +268,7 @@ export default function AboutPage() {
               { state: 'Florida', rate: '0% state income tax', href: '/florida-tax-calculator' },
               { state: 'California', rate: '1%–13.3% progressive', href: '/california-tax-calculator' },
               { state: 'New York', rate: '4%–10.9% + NYC tax', href: '/new-york-tax-calculator' },
-              { state: 'Georgia', rate: '5.49% flat tax', href: '/georgia-tax-calculator' },
+              { state: 'Georgia', rate: '4.99% flat tax', href: '/georgia-tax-calculator' },
               { state: 'Virginia', rate: '2%–5.75% progressive', href: '/virginia-tax-calculator' },
               { state: 'Colorado', rate: '4.4% flat tax', href: '/colorado-tax-calculator' },
               { state: 'Washington', rate: '0% state income tax', href: '/washington-tax-calculator' },
@@ -598,7 +598,7 @@ export default function AboutPage() {
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed">
               We cite official sources for every tax figure: IRS Publication 15-T for federal
-              withholding, IRS Rev. Proc. 2025-25 for 2026 inflation adjustments, state revenue
+              withholding, IRS Rev. Proc. 2025-32 for 2026 inflation adjustments, state revenue
               department publications for state-specific rules, and the Social Security
               Administration for the annual wage base. Outdated or broken links are reviewed
               quarterly.
