@@ -89,5 +89,25 @@ export const TELEGRAPH_PUBLISHED: Record<string, { url: string; publishedAt: str
   "1099-vs-w2-take-home-pay-comparison-2026": {
     "url": "https://telegra.ph/W2-vs-1099-Take-Home-Pay-Which-Actually-Pays-More-in-2026-10-24",
     "publishedAt": "2026-10-24T11:54:12Z"
+  },
+  "how-to-calculate-sales-tax-2026": {
+    "url": "https://telegra.ph/How-to-Calculate-Sales-Tax-in-2026-The-Formula-Examples-and-Rates-for-Every-State-10-24",
+    "publishedAt": "2026-10-24T12:58:02Z"
+  },
+  "home-sale-tax-guide-2026": {
+    "url": "https://telegra.ph/Selling-Your-House-in-2026-Heres-How-Much-Tax-Youll-Actually-Pay-10-24",
+    "publishedAt": "2026-10-24T12:58:02Z"
+  },
+  "moving-from-california-to-texas-tax-savings-2026": {
+    "url": "https://telegra.ph/Moving-from-California-to-Texas-Exactly-How-Much-Tax-Youll-Save-in-2026-10-24",
+    "publishedAt": "2026-10-24T12:58:02Z"
+  },
+  "how-much-tax-on-100k-salary-by-state-2026": {
+    "url": "https://telegra.ph/How-Much-Tax-Do-You-Pay-on-a-100K-Salary-in-Every-State-2026-10-24",
+    "publishedAt": "2026-10-24T12:58:02Z"
+  },
+  "what-is-taxable-income-guide-2026": {
+    "url": "https://telegra.ph/What-Is-Taxable-Income-Complete-Guide-2026-10-24",
+    "publishedAt": "2026-10-24T12:58:02Z"
   }
 };
