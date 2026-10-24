@@ -49,5 +49,25 @@ export const TELEGRAPH_PUBLISHED: Record<string, { url: string; publishedAt: str
   "rd-tax-credit-guide-2026": {
     "url": "https://telegra.ph/RD-Tax-Credit-Guide-2026-Qualify-as-a-Startup-10-23",
     "publishedAt": "2026-10-23T12:29:57Z"
+  },
+  "oasdi-tax-explained-2026": {
+    "url": "https://telegra.ph/OASDI-Tax-Explained-What-It-Is-and-How-Much-You-Pay-in-2026-10-24",
+    "publishedAt": "2026-10-24T10:50:16Z"
+  },
+  "obbba-tax-refund-impact-2026": {
+    "url": "https://telegra.ph/OBBBA-Tax-Refund-Impact-2026-How-It-Changes-Your-Refund-10-24",
+    "publishedAt": "2026-10-24T10:50:16Z"
+  },
+  "how-to-calculate-federal-tax-refund-2026": {
+    "url": "https://telegra.ph/How-to-Calculate-Your-2026-Federal-Tax-Refund-10-24",
+    "publishedAt": "2026-10-24T10:50:16Z"
+  },
+  "2026-self-employed-tax-refund-calculator": {
+    "url": "https://telegra.ph/Self-Employed-Tax-Refund-Calculator-2026-SE-Tax-Quarterly-Payments--Deductions-10-24",
+    "publishedAt": "2026-10-24T10:50:16Z"
+  },
+  "2026-w2-tax-refund-calculator-guide": {
+    "url": "https://telegra.ph/W-2-Tax-Refund-Calculator-Guide-2026-Exact-Numbers-10-24",
+    "publishedAt": "2026-10-24T10:50:16Z"
   }
 };
