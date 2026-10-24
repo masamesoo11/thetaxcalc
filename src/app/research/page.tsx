@@ -153,6 +153,7 @@ const jsonLd = {
         'Original tax research and data studies from TheTaxCalc, covering state tax burden, property tax, the Child Tax Credit, remote work, and tax refund statistics.',
       url: `${SITE_URL}/research`,
       inLanguage: 'en-US',
+      dateModified: '2026-10-24', // matches sitemap lastmod (a29d0fe rate-data corrections)
       isPartOf: { '@type': 'WebSite', name: 'TheTaxCalc', url: SITE_URL },
       hasPart: STUDIES.map((s) => ({
         '@type': 'ScholarlyArticle',

@@ -56,7 +56,7 @@ export async function generateMetadata({
   const baseUrl = SITE_URL;
 
   return {
-    title: { absolute: config.metaTitle },
+    title: { absolute: config.metaTitle ?? config.title },
     description: config.metaDesc,
     keywords: config.keywords,
     authors: [{ name: 'Rachel Mitchell, CPA' }],

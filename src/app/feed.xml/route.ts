@@ -8,7 +8,7 @@ export async function GET() {
 
   const calculatorItems = CALCULATOR_ROUTES.map(
     (route) => `    <item>
-      <title>${escapeXml(route.metaTitle)}</title>
+      <title>${escapeXml(route.metaTitle ?? route.title)}</title>
       <link>${SITE_URL}${route.canonicalPath}</link>
       <description>${escapeXml(route.metaDesc)}</description>
       <guid isPermaLink="true">${SITE_URL}${route.canonicalPath}</guid>

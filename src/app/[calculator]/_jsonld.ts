@@ -172,7 +172,7 @@ function getHomeJsonLd() {
         name: 'How to Calculate Your Take-Home Pay',
         step: [
           { '@type': 'HowToStep', name: 'Enter Gross Salary', text: 'Input your annual, monthly, bi-weekly, weekly, or hourly salary' },
-          { '@type': 'HowToStep', name: 'Select State', text: 'Choose IL (4.95%), TX (0%), FL (0%), CA (1%–13.3%), or NY (4%–10.9%)' },
+          { '@type': 'HowToStep', name: 'Select State', text: 'Choose IL (4.95%), TX (0%), FL (0%), CA (1%–13.3%), or NY (3.9%–10.9%)' },
           { '@type': 'HowToStep', name: 'Choose Filing Status', text: 'Select Single, Married, or Head of Household' },
           { '@type': 'HowToStep', name: 'Add Pre-Tax Deductions', text: 'Enter 401(k) and HSA contributions' },
           { '@type': 'HowToStep', name: 'View Instant Results', text: 'See your net take-home pay, effective tax rate, and full deduction breakdown' },
@@ -255,7 +255,7 @@ function getNewYorkJsonLd() {
   return {
     '@context': 'https://schema.org',
     '@graph': [
-      webPageJsonLd(`${baseId}#webpage`, 'New York Paycheck Calculator 2026', '/new-york-tax-calculator', 'Free New York paycheck calculator with progressive state tax (4%–10.9%) and NYC city tax for 2026.', authorId),
+      webPageJsonLd(`${baseId}#webpage`, 'New York Paycheck Calculator 2026', '/new-york-tax-calculator', 'Free New York paycheck calculator with progressive state tax (3.9%–10.9%) and NYC city tax for 2026.', authorId),
       breadcrumbJsonLd(`${baseId}#breadcrumb`, 'New York Paycheck Calculator', '/new-york-tax-calculator'),
       webAppJsonLd(`${baseId}#webapp`, 'New York Paycheck Calculator 2026', '/new-york-tax-calculator', authorId),
       { '@id': authorId, ...authorToJsonLd(author) },
@@ -527,7 +527,7 @@ function getOhioJsonLd() {
   return {
     '@context': 'https://schema.org',
     '@graph': [
-      webPageJsonLd(`${baseId}#webpage`, 'Ohio Tax Calculator 2026', '/ohio-tax-calculator', 'Free Ohio paycheck calculator with progressive state income tax (0%–3.99%) for 2026 take-home pay estimates.', authorId),
+      webPageJsonLd(`${baseId}#webpage`, 'Ohio Tax Calculator 2026', '/ohio-tax-calculator', 'Free Ohio paycheck calculator with progressive state income tax (0%–2.75%) for 2026 take-home pay estimates.', authorId),
       breadcrumbJsonLd(`${baseId}#breadcrumb`, 'Ohio Tax Calculator', '/ohio-tax-calculator'),
       webAppJsonLd(`${baseId}#webapp`, 'Ohio Tax Calculator 2026', '/ohio-tax-calculator', authorId),
       { '@id': authorId, ...authorToJsonLd(author) },
@@ -687,7 +687,7 @@ function getMarylandJsonLd() {
   return {
     '@context': 'https://schema.org',
     '@graph': [
-      webPageJsonLd(`${baseId}#webpage`, 'Maryland Tax Calculator 2026', '/maryland-tax-calculator', 'Free Maryland paycheck calculator with progressive state income tax (2%–5.75%) plus county taxes for 2026.', authorId),
+      webPageJsonLd(`${baseId}#webpage`, 'Maryland Tax Calculator 2026', '/maryland-tax-calculator', 'Free Maryland paycheck calculator with progressive state income tax (2%–6.5%) plus county taxes for 2026.', authorId),
       breadcrumbJsonLd(`${baseId}#breadcrumb`, 'Maryland Tax Calculator', '/maryland-tax-calculator'),
       webAppJsonLd(`${baseId}#webapp`, 'Maryland Tax Calculator 2026', '/maryland-tax-calculator', authorId),
       { '@id': authorId, ...authorToJsonLd(author) },
