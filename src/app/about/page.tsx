@@ -18,6 +18,7 @@ import {
 import Link from 'next/link';
 import { Breadcrumb } from '@/components/finance/breadcrumb';
 import { ProtectedEmail } from '@/components/finance/protected-email';
+import { TOTAL_CALCULATOR_COUNT } from '@/lib/calculator-routes';
 import { SITE_URL } from '@/lib/site-config';
 import { getCalculatorAuthor, authorToJsonLd, AUTHORS } from '@/lib/authors';
 import { AuthorBioCard } from '@/components/finance/author-bio-card';
@@ -79,7 +80,7 @@ const organizationJsonLd = {
       description: 'Learn about TheTaxCalc — our mission to provide free, accurate tax calculators for every American.',
       url: `${SITE_URL}/about`,
       inLanguage: 'en-US',
-      dateModified: '2026-02-01',
+      dateModified: '2026-10-24',
       author: { '@id': `${SITE_URL}/about#author` },
       reviewedBy: { '@id': `${SITE_URL}/about#author` },
       publisher: { '@id': `${SITE_URL}/#organization` },
@@ -190,7 +191,7 @@ export default function AboutPage() {
           <p>
             TheTaxCalc started as a weekend project — a single paycheck calculator that actually
             used current tax data and didn&apos;t try to sell you anything. It turns out a lot of people
-            wanted exactly that. Today we have 67 calculators covering paycheck estimation, mortgage
+            wanted exactly that. Today we have {TOTAL_CALCULATOR_COUNT} calculators covering paycheck estimation, mortgage
             amortization, 401(k) projections, capital gains, self-employment taxes, sales tax,
             overtime, lottery, bonus, property tax, IRS withholding, and side-by-side
             state comparisons — all updated for the 2026 tax year.

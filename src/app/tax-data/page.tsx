@@ -210,7 +210,7 @@ const jsonLd = {
         'Free, citable 2026 tax data for all 50 US states. Sales tax rates, federal brackets, FICA rates, and more.',
       url: `${SITE_URL}/tax-data`,
       inLanguage: 'en-US',
-      dateModified: '2026-01-15',
+      dateModified: '2026-10-24',
       author: { '@id': `${SITE_URL}/tax-data#author` },
       reviewedBy: { '@id': `${SITE_URL}/tax-data#author` },
       publisher: { '@id': `${SITE_URL}/#organization` },

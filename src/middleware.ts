@@ -54,7 +54,7 @@ export async function middleware(request: NextRequest) {
     const markdownMap: Record<string, string> = {
       '/': `# TheTaxCalc — Free 2026 Tax Calculator
 
-> Free, accurate, no-sign-up tax calculators for US taxpayers. 64 calculators covering all 50 states.
+> Free, accurate, no-sign-up tax calculators for US taxpayers, covering all 50 states.
 
 ## Key Tools
 
@@ -109,13 +109,13 @@ Calculate your take-home pay after federal, FICA & state taxes.
 
 | Rate | Income Range |
 |------|-------------|
-| 10% | $0 – $11,925 |
-| 12% | $11,926 – $48,475 |
-| 22% | $48,476 – $103,350 |
-| 24% | $103,351 – $197,300 |
-| 32% | $197,301 – $250,525 |
-| 35% | $250,526 – $626,350 |
-| 37% | Over $626,350 |
+| 10% | $0 – $12,400 |
+| 12% | $12,401 – $50,400 |
+| 22% | $50,401 – $105,700 |
+| 24% | $105,701 – $201,775 |
+| 32% | $201,776 – $256,225 |
+| 35% | $256,226 – $640,600 |
+| 37% | Over $640,600 |
 
 ## FICA Taxes
 
@@ -135,20 +135,20 @@ Calculate combined state + local sales tax for any US state.
 - IRS sales tax deduction estimator
 - All 50 states with local rates
 
-## State Sales Tax Rates (Top 10)
+## State Sales Tax Rates (Top 10 by combined rate)
 
 | State | State Rate | Avg Combined |
 |-------|-----------|-------------|
-| California | 7.25% | 8.82% |
-| Indiana | 7.00% | 7.00% |
-| Tennessee | 7.00% | 9.55% |
+| Louisiana | 5.00% | 9.56% |
+| Tennessee | 7.00% | 9.56% |
 | Arkansas | 6.50% | 9.47% |
-| Washington | 6.50% | 9.59% |
-| Louisiana | 4.45% | 9.56% |
+| Washington | 6.50% | 9.41% |
 | Alabama | 4.00% | 9.24% |
-| Oklahoma | 4.50% | 8.95% |
+| Oklahoma | 4.50% | 8.87% |
+| Illinois | 6.25% | 8.86% |
+| California | 7.25% | 8.82% |
+| Kansas | 6.50% | 8.70% |
 | New York | 4.00% | 8.52% |
-| Texas | 6.25% | 8.19% |
 
 Visit https://thetaxcalc.com/sales-tax-calculator for the interactive calculator.`,
       '/lottery-tax-calculator': `# Lottery Tax Calculator 2026

@@ -203,7 +203,7 @@ function BarCustomTooltip({ active, payload }: { active?: boolean; payload?: Arr
 
 // ─── Main Component ──────────────────────────────────────────────────────────
 
-export function SalesTaxCalculator() {
+export function SalesTaxCalculator({ defaultState }: { defaultState?: string } = {}) {
   migrateHashUrl();
   const hashParams = useUrlParams();
 
@@ -211,9 +211,12 @@ export function SalesTaxCalculator() {
   const [purchasePrice, setPurchasePrice] = useState<number>(
     () => hashParams.price ? Number(hashParams.price) : 1000
   );
-  const [stateKey, setStateKey] = useState<string>(
-    () => hashParams.state || 'california'
-  );
+  // On state pages (/sales-tax-calculator/texas) default the calculator to
+  // that state instead of California (the generic hub default).
+  const [stateKey, setStateKey] = useState<string>(() => {
+    if (hashParams.state && STATE_SALES_TAX[hashParams.state]) return hashParams.state;
+    return defaultState && STATE_SALES_TAX[defaultState] ? defaultState : 'california';
+  });
   const [localRateOverride, setLocalRateOverride] = useState<number>(
     () => hashParams.local ? Number(hashParams.local) : 0
   );
@@ -223,7 +226,9 @@ export function SalesTaxCalculator() {
 
   // Reverse calculator state
   const [budgetAmount, setBudgetAmount] = useState<number>(1100);
-  const [reverseStateKey, setReverseStateKey] = useState<string>('california');
+  const [reverseStateKey, setReverseStateKey] = useState<string>(
+    () => (defaultState && STATE_SALES_TAX[defaultState] ? defaultState : 'california')
+  );
   const [reverseResult, setReverseResult] = useState<ReverseTaxResult | null>(null);
 
   const [hasCalculated, setHasCalculated] = useState(false);
@@ -398,19 +403,26 @@ export function SalesTaxCalculator() {
         </p>
       </div>
 
-      {/* ─── Pre-rendered SEO Example ───────────────────── */}
-      <div className="rounded-xl border border-border/30 bg-muted/10 p-6" aria-hidden="true">
-        <h2 className="text-xl font-bold text-foreground">Sales Tax Example: $1,000 Purchase in California (2026)</h2>
-        <div className="mt-3 space-y-1 text-sm text-muted-foreground">
-          <p>Purchase Price: $1,000.00</p>
-          <p>California State Sales Tax Rate: 7.25%</p>
-          <p>Average Local Surtax: 1.57%</p>
-          <p>Combined Sales Tax Rate: 8.82%</p>
-          <p>State Tax: $72.50 | Local Tax: $15.70 | Total Tax: $88.20</p>
-          <p>Total Price (Price + Tax): $1,088.20</p>
-          <p>Reverse Calculation: $1,088.20 ÷ 1.0882 = $1,000.00 original price</p>
-        </div>
-      </div>
+      {/* ─── Static Example (uses the page's default state) ─────────────── */}
+      {currentState && !currentState.noStateTax && (() => {
+        const exRate = currentState.combinedRate;
+        const exTax = 1000 * exRate;
+        const exTotal = 1000 + exTax;
+        return (
+          <div className="rounded-xl border border-border/30 bg-muted/10 p-6" aria-hidden="true">
+            <h2 className="text-xl font-bold text-foreground">Sales Tax Example: $1,000 Purchase in {currentState.name} (2026)</h2>
+            <div className="mt-3 space-y-1 text-sm text-muted-foreground">
+              <p>Purchase Price: $1,000.00</p>
+              <p>{currentState.name} State Sales Tax Rate: {(currentState.stateRate * 100).toFixed(2).replace(/\.00$/, '')}%</p>
+              <p>Average Local Surtax: {(Math.max(0, currentState.avgLocalRate) * 100).toFixed(2).replace(/\.00$/, '')}%</p>
+              <p>Combined Sales Tax Rate: {(exRate * 100).toFixed(2).replace(/\.00$/, '')}%</p>
+              <p>State Tax: ${(1000 * currentState.stateRate).toFixed(2)} | Local Tax: ${(1000 * Math.max(0, currentState.avgLocalRate)).toFixed(2)} | Total Tax: ${exTax.toFixed(2)}</p>
+              <p>Total Price (Price + Tax): ${exTotal.toFixed(2)}</p>
+              <p>Reverse Calculation: ${exTotal.toFixed(2)} ÷ {(1 + exRate).toFixed(4)} = $1,000.00 original price</p>
+            </div>
+          </div>
+        );
+      })()}
 
       {/* ─── Main Calculator Grid ───────────────────────── */}
       <div className="grid gap-6 lg:grid-cols-5">

@@ -103,7 +103,7 @@ function buildJsonLd(
         description: `Side-by-side comparison of ${s1.name} and ${s2.name} taxes. Income tax, property tax, sales tax, and take-home pay analysis.`,
         url: `${baseUrl}${canonicalPath}`,
         inLanguage: 'en-US',
-        dateModified: '2026-01-01',
+        dateModified: '2026-10-24',
         author: { '@id': authorId },
         reviewedBy: { '@id': authorId },
         publisher: { '@id': `${baseUrl}/#organization` },

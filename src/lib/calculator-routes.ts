@@ -490,7 +490,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     description:
       'Calculate your 2026 North Carolina take-home pay after 3.99% flat state tax, federal tax & FICA. Standard deduction $12,750. No sign-up.',
     h1: 'Free North Carolina Tax Calculator',
-    metaTitle: 'NC Tax Calculator 2026 | 3.99% Flat',
+    metaTitle: 'Free 2026 Paycheck Calculator — Federal, FICA & State Tax',
     metaDesc:
       'Free North Carolina tax calculator 2026. Take-home pay after 3.99% flat tax and $12,750 standard deduction. No sign-up.',
     keywords: [
@@ -514,7 +514,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     description:
       'Calculate your 2026 Pennsylvania take-home pay after 3.07% flat state tax, federal tax & FICA. No state deductions. No sign-up.',
     h1: 'Free Pennsylvania Tax Calculator',
-    metaTitle: 'PA Tax Calculator 2026 | 3.07% Flat',
+    metaTitle: 'Pennsylvania Tax Calculator 2026 | 3.07% Flat Rate',
     metaDesc:
       'Free Pennsylvania tax calculator 2026. Take-home pay after 3.07% flat tax. No state deductions. No sign-up.',
     keywords: [
@@ -538,7 +538,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     description:
       'Calculate your 2026 Ohio take-home pay after progressive state tax (0%–3.99%), federal tax & FICA. First $26,050 tax-free. No sign-up.',
     h1: 'Free Ohio Tax Calculator',
-    metaTitle: 'OH Tax Calculator 2026 | 0-3.99%',
+    metaTitle: 'Ohio Tax Calculator 2026 | 0% to 3.99% Progressive',
     metaDesc:
       'Free Ohio tax calculator 2026. Take-home pay after progressive tax (0%–3.99%). First $26,050 tax-free. No sign-up.',
     keywords: [
@@ -562,7 +562,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     description:
       'Calculate your 2026 Michigan take-home pay after 4.25% flat state tax, federal tax & FICA. $5,500 personal exemption. No sign-up.',
     h1: 'Free Michigan Tax Calculator',
-    metaTitle: 'MI Tax Calculator 2026 | 4.25% Flat',
+    metaTitle: 'Michigan Tax Calculator 2026 | 4.25% Flat Rate',
     metaDesc:
       'Free Michigan tax calculator 2026. Take-home pay after 4.25% flat tax and $5,500 personal exemption. No sign-up.',
     keywords: [
@@ -586,7 +586,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     description:
       'Calculate your 2026 New Jersey take-home pay after progressive state tax (1.4%–10.75%), federal tax & FICA. No sign-up.',
     h1: 'Free New Jersey Tax Calculator',
-    metaTitle: 'NJ Tax Calculator 2026 | 1.4-10.75%',
+    metaTitle: 'New Jersey Tax Calculator 2026 | 1.4% to 10.75%',
     metaDesc:
       'Free New Jersey tax calculator 2026. Take-home pay after progressive tax (1.4%–10.75%). No sign-up.',
     keywords: [
@@ -610,7 +610,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     description:
       'Calculate your 2026 Colorado take-home pay after 4.4% flat state tax, federal tax & FICA. Uses federal taxable income. No sign-up.',
     h1: 'Free Colorado Tax Calculator',
-    metaTitle: 'CO Tax Calculator 2026 | 4.4% Flat',
+    metaTitle: 'Colorado Tax Calculator 2026 | 4.4% Flat Rate',
     metaDesc:
       'Free Colorado tax calculator 2026. Take-home pay after 4.4% flat tax. Uses federal taxable income. No sign-up.',
     keywords: [
@@ -874,7 +874,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     description:
       'Calculate your 2026 Virginia take-home pay after progressive state tax (2%–5.75%), federal tax & FICA. See real numbers instantly. No sign-up.',
     h1: 'Free Virginia Tax Calculator',
-    metaTitle: 'VA Tax Calculator 2026 | 2-5.75% Rate',
+    metaTitle: 'Arizona Tax Calculator 2026 | 2.5% Flat Rate',
     metaDesc:
       'Calculate 2026 Virginia take-home after 2%-5.75% state tax, federal & FICA. See real numbers instantly. No sign-up.',
     keywords: [
@@ -978,7 +978,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     title: 'Idaho Tax Calculator 2026 | 5.3% Flat Rate',
     description: 'Calculate your 2026 Idaho take-home pay after 5.3% flat state tax, federal tax & FICA. No sign-up.',
     h1: 'Free Idaho Tax Calculator',
-    metaTitle: 'ID Tax Calculator 2026 | 5.3% Flat',
+    metaTitle: '0% Income Tax — Alaska Tax Calculator 2026',
     metaDesc: 'Free Idaho tax calculator 2026. Take-home pay after 5.3% flat tax. No sign-up.',
     keywords: ['free Idaho tax calculator', 'Idaho tax calculator', 'ID paycheck calculator', 'Idaho income tax', 'Idaho 5.3% tax', 'Idaho take home pay', 'Idaho salary calculator', 'Idaho flat tax rate', 'free tax calculator for 2026', 'ID state tax 2026'],
     componentKey: 'idaho',
@@ -994,7 +994,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     title: 'Kentucky Tax Calculator 2026 | 4% Flat Rate',
     description: 'Calculate your 2026 Kentucky take-home pay after 4% flat state tax, federal tax & FICA. No sign-up.',
     h1: 'Free Kentucky Tax Calculator',
-    metaTitle: 'KY Tax Calculator 2026 | 4% Flat',
+    metaTitle: 'Kentucky Tax Calculator 2026 | 4% Flat Rate',
     metaDesc: 'Free Kentucky tax calculator 2026. Take-home pay after 4% flat tax. No sign-up.',
     keywords: ['free Kentucky tax calculator', 'Kentucky tax calculator', 'KY paycheck calculator', 'Kentucky income tax', 'Kentucky 4% tax', 'Kentucky take home pay', 'Kentucky salary calculator', 'Kentucky flat tax rate', 'free tax calculator for 2026', 'KY state tax 2026'],
     componentKey: 'kentucky',
@@ -1010,7 +1010,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     title: 'Mississippi Tax Calculator 2026 | 4.7% Flat Rate',
     description: 'Calculate your 2026 Mississippi take-home pay after 4.7% flat state tax, federal tax & FICA. No sign-up.',
     h1: 'Free Mississippi Tax Calculator',
-    metaTitle: 'MS Tax Calculator 2026 | 4.7% Flat',
+    metaTitle: 'Mississippi Tax Calculator 2026 | 4.7% Flat Rate',
     metaDesc: 'Free Mississippi tax calculator 2026. Take-home pay after 4.7% flat tax. No sign-up.',
     keywords: ['free Mississippi tax calculator', 'Mississippi tax calculator', 'MS paycheck calculator', 'Mississippi income tax', 'Mississippi 4.7% tax', 'Mississippi take home pay', 'Mississippi salary calculator', 'free tax calculator for 2026', 'MS state tax 2026'],
     componentKey: 'mississippi',
@@ -1026,7 +1026,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     title: 'Utah Tax Calculator 2026 | 4.45% Flat Rate',
     description: 'Calculate your 2026 Utah take-home pay after 4.45% flat state tax, federal tax & FICA. No sign-up.',
     h1: 'Free Utah Tax Calculator',
-    metaTitle: 'UT Tax Calculator 2026 | 4.45% Flat',
+    metaTitle: 'Utah Tax Calculator 2026 | 4.45% Flat Rate',
     metaDesc: 'Free Utah tax calculator 2026. Take-home pay after 4.45% flat tax. No sign-up.',
     keywords: ['free Utah tax calculator', 'Utah tax calculator', 'UT paycheck calculator', 'Utah income tax', 'Utah 4.45% tax', 'Utah take home pay', 'Utah salary calculator', 'Utah flat tax rate', 'free tax calculator for 2026', 'UT state tax 2026'],
     componentKey: 'utah',
@@ -1058,7 +1058,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     title: 'Arkansas Tax Calculator 2026 | 2-4.4% Progressive',
     description: 'Calculate your 2026 Arkansas take-home pay after progressive state tax (2%–4.4%), federal tax & FICA. No sign-up.',
     h1: 'Free Arkansas Tax Calculator',
-    metaTitle: 'AR Tax Calculator 2026 | 2-4.4%',
+    metaTitle: 'Alabama Tax Calculator 2026 | 2-5% Progressive',
     metaDesc: 'Free Arkansas tax calculator 2026. Take-home pay after progressive tax (2%–4.4%). No sign-up.',
     keywords: ['free Arkansas tax calculator', 'Arkansas tax calculator', 'AR paycheck calculator', 'Arkansas income tax', 'Arkansas 4.4% tax', 'Arkansas take home pay', 'Arkansas salary calculator', 'free tax calculator for 2026', 'AR state tax 2026'],
     componentKey: 'arkansas',
@@ -1074,7 +1074,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     title: 'Connecticut Tax Calculator 2026 | 3-6.99% Progressive',
     description: 'Calculate your 2026 Connecticut take-home pay after progressive state tax (3%–6.99%), federal tax & FICA. No sign-up.',
     h1: 'Free Connecticut Tax Calculator',
-    metaTitle: 'CT Tax Calculator 2026 | 3-6.99%',
+    metaTitle: 'Connecticut Tax Calculator 2026 | 3-6.99% Progressive',
     metaDesc: 'Free Connecticut tax calculator 2026. Take-home pay after progressive tax (3%–6.99%). No sign-up.',
     keywords: ['free Connecticut tax calculator', 'Connecticut tax calculator', 'CT paycheck calculator', 'Connecticut income tax', 'Connecticut 6.99% tax', 'Connecticut take home pay', 'Connecticut salary calculator', 'free tax calculator for 2026', 'CT state tax 2026'],
     componentKey: 'connecticut',
@@ -1090,7 +1090,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     title: 'Delaware Tax Calculator 2026 | 2.2-6.6% Progressive',
     description: 'Calculate your 2026 Delaware take-home pay after progressive state tax (2.2%–6.6%), federal tax & FICA. No sign-up.',
     h1: 'Free Delaware Tax Calculator',
-    metaTitle: 'DE Tax Calculator 2026 | 2.2-6.6%',
+    metaTitle: 'Delaware Tax Calculator 2026 | 2.2-6.6% Progressive',
     metaDesc: 'Free Delaware tax calculator 2026. Take-home pay after progressive tax (2.2%–6.6%). No sign-up.',
     keywords: ['free Delaware tax calculator', 'Delaware tax calculator', 'DE paycheck calculator', 'Delaware income tax', 'Delaware 6.6% tax', 'Delaware take home pay', 'Delaware salary calculator', 'free tax calculator for 2026', 'DE state tax 2026'],
     componentKey: 'delaware',
@@ -1106,7 +1106,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     title: 'Hawaii Tax Calculator 2026 | 1.4-11% Progressive',
     description: 'Calculate your 2026 Hawaii take-home pay after progressive state tax (1.4%–11%), federal tax & FICA. No sign-up.',
     h1: 'Free Hawaii Tax Calculator',
-    metaTitle: 'HI Tax Calculator 2026 | 1.4-11%',
+    metaTitle: 'Hawaii Tax Calculator 2026 | 1.4-11% Progressive',
     metaDesc: 'Free Hawaii tax calculator 2026. Take-home pay after progressive tax (1.4%–11%). No sign-up.',
     keywords: ['free Hawaii tax calculator', 'Hawaii tax calculator', 'HI paycheck calculator', 'Hawaii income tax', 'Hawaii 11% tax', 'Hawaii take home pay', 'Hawaii salary calculator', 'free tax calculator for 2026', 'HI state tax 2026'],
     componentKey: 'hawaii',
@@ -1122,7 +1122,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     title: 'Iowa Tax Calculator 2026 | 4.4-5.96% Progressive',
     description: 'Calculate your 2026 Iowa take-home pay after progressive state tax (4.4%–5.96%), federal tax & FICA. No sign-up.',
     h1: 'Free Iowa Tax Calculator',
-    metaTitle: 'IA Tax Calculator 2026 | 4.4-5.96%',
+    metaTitle: 'Iowa Tax Calculator 2026 | 4.4-5.96% Progressive',
     metaDesc: 'Free Iowa tax calculator 2026. Take-home pay after progressive tax (4.4%–5.96%). No sign-up.',
     keywords: ['free Iowa tax calculator', 'Iowa tax calculator', 'IA paycheck calculator', 'Iowa income tax', 'Iowa take home pay', 'Iowa salary calculator', 'free tax calculator for 2026', 'IA state tax 2026'],
     componentKey: 'iowa',
@@ -1138,7 +1138,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     title: 'Kansas Tax Calculator 2026 | 3.1-5.7% Progressive',
     description: 'Calculate your 2026 Kansas take-home pay after progressive state tax (3.1%–5.7%), federal tax & FICA. No sign-up.',
     h1: 'Free Kansas Tax Calculator',
-    metaTitle: 'KS Tax Calculator 2026 | 3.1-5.7%',
+    metaTitle: 'Kansas Tax Calculator 2026 | 3.1-5.7% Progressive',
     metaDesc: 'Free Kansas tax calculator 2026. Take-home pay after progressive tax (3.1%–5.7%). No sign-up.',
     keywords: ['free Kansas tax calculator', 'Kansas tax calculator', 'KS paycheck calculator', 'Kansas income tax', 'Kansas 5.7% tax', 'Kansas take home pay', 'Kansas salary calculator', 'free tax calculator for 2026', 'KS state tax 2026'],
     componentKey: 'kansas',
@@ -1154,7 +1154,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     title: 'Louisiana Tax Calculator 2026 | 1.85-4.75% Progressive',
     description: 'Calculate your 2026 Louisiana take-home pay after the 3% flat state tax, federal tax & FICA. No sign-up.',
     h1: 'Free Louisiana Tax Calculator',
-    metaTitle: 'LA Tax Calculator 2026 | 1.85-4.75%',
+    metaTitle: 'Louisiana Tax Calculator 2026 | 1.85-4.75% Progressive',
     metaDesc: 'Free Louisiana tax calculator 2026. Take-home pay after the 3% flat tax. No sign-up.',
     keywords: ['free Louisiana tax calculator', 'Louisiana tax calculator', 'LA paycheck calculator', 'Louisiana income tax', 'Louisiana 4.75% tax', 'Louisiana take home pay', 'Louisiana salary calculator', 'free tax calculator for 2026', 'LA state tax 2026'],
     componentKey: 'louisiana',
@@ -1170,7 +1170,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     title: 'Maine Tax Calculator 2026 | 5.8-7.15% Progressive',
     description: 'Calculate your 2026 Maine take-home pay after progressive state tax (5.8%–7.15%), federal tax & FICA. No sign-up.',
     h1: 'Free Maine Tax Calculator',
-    metaTitle: 'ME Tax Calculator 2026 | 5.8-7.15%',
+    metaTitle: 'Maine Tax Calculator 2026 | 5.8-7.15% Progressive',
     metaDesc: 'Free Maine tax calculator 2026. Take-home pay after progressive tax (5.8%–7.15%). No sign-up.',
     keywords: ['free Maine tax calculator', 'Maine tax calculator', 'ME paycheck calculator', 'Maine income tax', 'Maine 7.15% tax', 'Maine take home pay', 'Maine salary calculator', 'free tax calculator for 2026', 'ME state tax 2026'],
     componentKey: 'maine',
@@ -1186,7 +1186,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     title: 'Montana Tax Calculator 2026 | 1-5.9% Progressive',
     description: 'Calculate your 2026 Montana take-home pay after progressive state tax (1%–5.9%), federal tax & FICA. No sales tax. No sign-up.',
     h1: 'Free Montana Tax Calculator',
-    metaTitle: 'MT Tax Calculator 2026 | 1-5.9%',
+    metaTitle: 'Montana Tax Calculator 2026 | 1-5.9% Progressive',
     metaDesc: 'Free Montana tax calculator 2026. Take-home pay after progressive tax (1%–5.9%). No sales tax. No sign-up.',
     keywords: ['free Montana tax calculator', 'Montana tax calculator', 'MT paycheck calculator', 'Montana income tax', 'Montana 5.9% tax', 'Montana take home pay', 'Montana salary calculator', 'Montana no sales tax', 'free tax calculator for 2026', 'MT state tax 2026'],
     componentKey: 'montana',
@@ -1202,7 +1202,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     title: 'Nebraska Tax Calculator 2026 | 2.46-4.55% Progressive',
     description: 'Calculate your 2026 Nebraska take-home pay after progressive state tax (2.46%–4.55%), federal tax & FICA. No sign-up.',
     h1: 'Free Nebraska Tax Calculator',
-    metaTitle: 'NE Tax Calculator 2026 | 2.46-4.55%',
+    metaTitle: 'Nebraska Tax Calculator 2026 | 2.46-4.55% Progressive',
     metaDesc: 'Free Nebraska tax calculator 2026. Take-home pay after progressive tax (2.46%–4.55%). No sign-up.',
     keywords: ['free Nebraska tax calculator', 'Nebraska tax calculator', 'NE paycheck calculator', 'Nebraska income tax', 'Nebraska 4.55% tax', 'Nebraska take home pay', 'Nebraska salary calculator', 'free tax calculator for 2026', 'NE state tax 2026'],
     componentKey: 'nebraska',
@@ -1218,7 +1218,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     title: 'New Mexico Tax Calculator 2026 | 1.7-5.9% Progressive',
     description: 'Calculate your 2026 New Mexico take-home pay after progressive state tax (1.7%–5.9%), federal tax & FICA. No sign-up.',
     h1: 'Free New Mexico Tax Calculator',
-    metaTitle: 'NM Tax Calculator 2026 | 1.7-5.9%',
+    metaTitle: 'New Mexico Tax Calculator 2026 | 1.7-5.9% Progressive',
     metaDesc: 'Free New Mexico tax calculator 2026. Take-home pay after progressive tax (1.7%–5.9%). No sign-up.',
     keywords: ['free New Mexico tax calculator', 'New Mexico tax calculator', 'NM paycheck calculator', 'New Mexico income tax', 'New Mexico 5.9% tax', 'New Mexico take home pay', 'New Mexico salary calculator', 'free tax calculator for 2026', 'NM state tax 2026'],
     componentKey: 'newmexico',
@@ -1234,7 +1234,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     title: 'North Dakota Tax Calculator 2026 | 1.1-2.5% Progressive',
     description: 'Calculate your 2026 North Dakota take-home pay after progressive state tax (1.1%–2.5%), federal tax & FICA. No sign-up.',
     h1: 'Free North Dakota Tax Calculator',
-    metaTitle: 'ND Tax Calculator 2026 | 1.1-2.5%',
+    metaTitle: 'North Dakota Tax Calculator 2026 | 1.1-2.5% Progressive',
     metaDesc: 'Free North Dakota tax calculator 2026. Take-home pay after progressive tax (1.1%–2.5%). No sign-up.',
     keywords: ['free North Dakota tax calculator', 'North Dakota tax calculator', 'ND paycheck calculator', 'North Dakota income tax', 'North Dakota 2.5% tax', 'North Dakota take home pay', 'North Dakota salary calculator', 'free tax calculator for 2026', 'ND state tax 2026'],
     componentKey: 'northdakota',
@@ -1250,7 +1250,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     title: 'Oklahoma Tax Calculator 2026 | 0.25-4.75% Progressive',
     description: 'Calculate your 2026 Oklahoma take-home pay after progressive state tax (0.25%–4.75%), federal tax & FICA. No sign-up.',
     h1: 'Free Oklahoma Tax Calculator',
-    metaTitle: 'OK Tax Calculator 2026 | 0.25-4.75%',
+    metaTitle: 'Oklahoma Tax Calculator 2026 | 0.25-4.75% Progressive',
     metaDesc: 'Free Oklahoma tax calculator 2026. Take-home pay after progressive tax (0.25%–4.75%). No sign-up.',
     keywords: ['free Oklahoma tax calculator', 'Oklahoma tax calculator', 'OK paycheck calculator', 'Oklahoma income tax', 'Oklahoma 4.75% tax', 'Oklahoma take home pay', 'Oklahoma salary calculator', 'free tax calculator for 2026', 'OK state tax 2026'],
     componentKey: 'oklahoma',
@@ -1266,7 +1266,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     title: 'Rhode Island Tax Calculator 2026 | 3.75-5.99% Progressive',
     description: 'Calculate your 2026 Rhode Island take-home pay after progressive state tax (3.75%–5.99%), federal tax & FICA. No sign-up.',
     h1: 'Free Rhode Island Tax Calculator',
-    metaTitle: 'RI Tax Calculator 2026 | 3.75-5.99%',
+    metaTitle: 'Rhode Island Tax Calculator 2026 | 3.75-5.99% Progressive',
     metaDesc: 'Free Rhode Island tax calculator 2026. Take-home pay after progressive tax (3.75%–5.99%). No sign-up.',
     keywords: ['free Rhode Island tax calculator', 'Rhode Island tax calculator', 'RI paycheck calculator', 'Rhode Island income tax', 'Rhode Island 5.99% tax', 'Rhode Island take home pay', 'Rhode Island salary calculator', 'free tax calculator for 2026', 'RI state tax 2026'],
     componentKey: 'rhodeisland',
@@ -1282,7 +1282,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     title: 'South Carolina Tax Calculator 2026 | 0-6% Progressive',
     description: 'Calculate your 2026 South Carolina take-home pay after progressive state tax (up to 6%), federal tax & FICA. No sign-up.',
     h1: 'Free South Carolina Tax Calculator',
-    metaTitle: 'SC Tax Calculator 2026 | 0-6%',
+    metaTitle: 'South Carolina Tax Calculator 2026 | 0-6% Progressive',
     metaDesc: 'Free South Carolina tax calculator 2026. Take-home pay after progressive tax (up to 6%). No sign-up.',
     keywords: ['free South Carolina tax calculator', 'South Carolina tax calculator', 'SC paycheck calculator', 'South Carolina income tax', 'South Carolina 6% tax', 'South Carolina take home pay', 'South Carolina salary calculator', 'free tax calculator for 2026', 'SC state tax 2026'],
     componentKey: 'southcarolina',
@@ -1298,7 +1298,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     title: 'Vermont Tax Calculator 2026 | 3.35-8.75% Progressive',
     description: 'Calculate your 2026 Vermont take-home pay after progressive state tax (3.35%–8.75%), federal tax & FICA. No sign-up.',
     h1: 'Free Vermont Tax Calculator',
-    metaTitle: 'VT Tax Calculator 2026 | 3.35-8.75%',
+    metaTitle: 'Vermont Tax Calculator 2026 | 3.35-8.75% Progressive',
     metaDesc: 'Free Vermont tax calculator 2026. Take-home pay after progressive tax (3.35%–8.75%). No sign-up.',
     keywords: ['free Vermont tax calculator', 'Vermont tax calculator', 'VT paycheck calculator', 'Vermont income tax', 'Vermont 8.75% tax', 'Vermont take home pay', 'Vermont salary calculator', 'free tax calculator for 2026', 'VT state tax 2026'],
     componentKey: 'vermont',
@@ -1337,7 +1337,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     title: 'West Virginia Tax Calculator 2026 | 2.11-4.58% Progressive',
     description: 'Calculate your 2026 West Virginia take-home pay after progressive state tax (2.11%–4.58%), federal tax & FICA. No sign-up.',
     h1: 'Free West Virginia Tax Calculator',
-    metaTitle: 'WV Tax Calculator 2026 | 2.11-4.58%',
+    metaTitle: 'Employee Cost Calculator 2026 — True Cost of Hiring | Salary + Employer Taxes + Benefits',
     metaDesc: 'Free West Virginia tax calculator 2026. Take-home pay after progressive tax (2.11%–4.58%). No sign-up.',
     keywords: ['free West Virginia tax calculator', 'West Virginia tax calculator', 'WV paycheck calculator', 'West Virginia income tax', 'West Virginia 4.58% tax', 'West Virginia take home pay', 'West Virginia salary calculator', 'free tax calculator for 2026', 'WV state tax 2026'],
     componentKey: 'westvirginia',
@@ -1411,4 +1411,28 @@ export const SLUG_TO_CONFIG: Record<string, CalculatorRouteConfig> = Object.from
 /** Get all slugs for generateStaticParams */
 export function getCalculatorSlugs(): string[] {
   return CALCULATOR_ROUTES.map((r) => r.slug);
+}
+
+// ─── Site-wide calculator count (single source of truth) ─────────────────────
+// The homepage H2, meta descriptions, ItemList schema, llms.txt, and the about
+// page must all quote the SAME number. It is derived, never hardcoded:
+// 67 routes above + 5 standalone calculator pages that live outside this file
+// (dedicated page.tsx files with their own client components).
+export const STANDALONE_CALCULATOR_ROUTES: { path: string; label: string }[] = [
+  { path: '/home-sale-tax-calculator', label: 'Home Sale Tax Calculator' },
+  { path: '/salary-comparison-calculator', label: 'Salary Comparison Calculator' },
+  { path: '/job-offer-comparison-calculator', label: 'Job Offer Comparison Calculator' },
+  { path: '/paycheck-difference-calculator', label: 'Paycheck Difference Calculator' },
+  { path: '/obbba-tax-calculator', label: 'OBBBA Tax Calculator' },
+];
+
+export const TOTAL_CALCULATOR_COUNT =
+  CALCULATOR_ROUTES.length + STANDALONE_CALCULATOR_ROUTES.length;
+
+/** ItemList entries for ALL calculators (used by the homepage ItemList schema). */
+export function getAllCalculatorListItems(): { name: string; url: string }[] {
+  return [
+    ...CALCULATOR_ROUTES.map((r) => ({ name: r.breadcrumbLabel, url: r.canonicalPath })),
+    ...STANDALONE_CALCULATOR_ROUTES.map((r) => ({ name: r.label, url: r.path })),
+  ];
 }

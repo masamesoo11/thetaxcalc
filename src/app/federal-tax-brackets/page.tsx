@@ -127,7 +127,7 @@ const faqJsonLd = {
       description: 'Official 2026 federal income tax brackets for all filing statuses with standard deductions and tax calculator.',
       url: `${SITE_URL}/federal-tax-brackets`,
       inLanguage: 'en-US',
-      dateModified: '2026-01-15',
+      dateModified: '2026-10-24',
       author: { '@id': `${SITE_URL}/federal-tax-brackets#author` },
       reviewedBy: { '@id': `${SITE_URL}/federal-tax-brackets#author` },
       publisher: { '@id': `${SITE_URL}/#organization` },

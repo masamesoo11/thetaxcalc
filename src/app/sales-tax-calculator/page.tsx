@@ -159,7 +159,7 @@ export default function SalesTaxHubPage() {
           'Free sales tax calculator for 2026. Calculate sales tax for all 50 US states with combined rates. Includes reverse sales tax calculator, car sales tax, IRS deduction, and tax-exempt items.',
         url: pageUrl,
         inLanguage: 'en-US',
-        dateModified: '2026-01-01',
+        dateModified: '2026-10-24',
         author: { '@id': `${pageUrl}#author` },
         reviewedBy: { '@id': `${pageUrl}#author` },
         publisher: { '@id': `${SITE_URL}/#organization` },

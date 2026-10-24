@@ -54,7 +54,7 @@ export default async function BlogPage() {
         name: 'TheTaxCalc Blog', description: 'Expert tax guides, state-by-state comparisons, and financial tips from TheTaxCalc.',
         url: `${SITE_URL}/blog`, publisher: { '@id': `${SITE_URL}/#organization` },
         author: { '@id': `${SITE_URL}/blog#author` },
-        dateModified: '2026-02-01',
+        dateModified: '2026-10-24',
       },
       {
         '@id': `${SITE_URL}/blog#itemlist`, '@type': 'ItemList',

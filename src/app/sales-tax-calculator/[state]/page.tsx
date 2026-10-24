@@ -103,7 +103,10 @@ export default async function StateSalesTaxPage({
 
   // Inject author Person schema into JSON-LD graph
   if (jsonLd && jsonLd['@graph'] && Array.isArray(jsonLd['@graph'])) {
-    jsonLd['@graph'].push({ '@id': `${SITE_URL}/sales-tax-calculator/${stateKey}#author`, ...authorToJsonLd(author) });
+    (jsonLd['@graph'] as Record<string, unknown>[]).push({
+      '@id': `${SITE_URL}/sales-tax-calculator/${stateKey}#author`,
+      ...authorToJsonLd(author),
+    } as Record<string, unknown>);
   }
 
   return (
@@ -151,7 +154,7 @@ export default async function StateSalesTaxPage({
         {content.howItWorks.length > 0 && (
           <section className="mt-12">
             <h2 className="text-2xl font-bold text-foreground mb-6">
-              How {stateData.name} Sales Tax Works
+              {content.howHeading ?? `How ${stateData.name} Sales Tax Works`}
             </h2>
             <div className="space-y-4 max-w-4xl">
               {content.howItWorks.map((paragraph, i) => (
@@ -169,7 +172,7 @@ export default async function StateSalesTaxPage({
         {content.keyRates.length > 0 && (
           <section className="mt-10">
             <h2 className="text-2xl font-bold text-foreground mb-4">
-              {stateData.name} Sales Tax Key Rates (2026)
+              {content.ratesHeading ?? `${stateData.name} Sales Tax Key Rates (2026)`}
             </h2>
             <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3 max-w-4xl">
               {content.keyRates.map((rate) => (
@@ -191,7 +194,7 @@ export default async function StateSalesTaxPage({
         {content.faqs.length > 0 && (
           <section className="mt-10">
             <h2 className="text-2xl font-bold text-foreground mb-6">
-              {stateData.name} Sales Tax FAQ
+              {content.faqHeading ?? `${stateData.name} Sales Tax FAQ`}
             </h2>
             <div className="space-y-4 max-w-4xl">
               {content.faqs.map((faq, i) => (

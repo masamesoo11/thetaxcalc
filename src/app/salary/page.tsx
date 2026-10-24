@@ -105,7 +105,7 @@ const salaryPageJsonLd = {
       description: 'See your take-home pay for every salary from $30K to $500K. Compare after-tax income across IL, TX, FL, CA, NY.',
       url: `${SITE_URL}/salary`,
       inLanguage: 'en-US',
-      dateModified: '2026-01-01',
+      dateModified: '2026-10-24',
       author: { '@id': `${SITE_URL}/salary#author` },
       reviewedBy: { '@id': `${SITE_URL}/salary#author` },
       publisher: { '@id': `${SITE_URL}/#organization` },
@@ -126,7 +126,7 @@ const salaryPageJsonLd = {
         '@id': `${SITE_URL}/salary/${salaryToSlug(amount)}#webpage`,
         name: `$${amount.toLocaleString()} After Tax in 2026`,
         url: `${SITE_URL}/salary/${salaryToSlug(amount)}`,
-        dateModified: '2026-01-01',
+        dateModified: '2026-10-24',
       })),
     },
     {

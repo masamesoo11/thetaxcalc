@@ -6,7 +6,8 @@ import { getPublishedPostsMeta } from '@/lib/blog-index';
 import { COMPARISON_SLUGS, COMPARE_STATES, parseComparisonSlug } from '@/lib/compare-config';
 import { getCalculatorAuthor, authorToJsonLd } from '@/lib/authors';
 import { AuthorBioCard } from '@/components/finance/author-bio-card';
-import { CALCULATOR_ROUTES } from '@/lib/calculator-routes';
+import { CALCULATOR_ROUTES, TOTAL_CALCULATOR_COUNT, getAllCalculatorListItems } from '@/lib/calculator-routes';
+import { STATE_SALES_TAX, ALL_STATE_KEYS } from '@/lib/state-sales-tax-data';
 import {
   DollarSign,
   MapPin,
@@ -36,9 +37,22 @@ import {
 } from 'lucide-react';
 
 // ─── Dynamic Counts (single source of truth) ─────────────────────────────────
-const CALCULATOR_COUNT = CALCULATOR_ROUTES.length;
+// TOTAL_CALCULATOR_COUNT = 67 route-based calculators + 5 standalone pages.
+// Never hardcode this number anywhere — import it (audit 2026-10: site quoted
+// 67, 64, and 72 in different places).
+const CALCULATOR_COUNT = TOTAL_CALCULATOR_COUNT;
 const BLOG_COUNT = getPublishedPostsMeta().length;
 const LATEST_POSTS = getPublishedPostsMeta().slice(0, 3);
+
+// 50 state sales-tax links for the homepage section (audit 2026-10: these pages
+// were 2 clicks from the homepage with zero internal links — orphan risk).
+const SALES_TAX_STATES = ALL_STATE_KEYS.map((key) => ({
+  key,
+  name: STATE_SALES_TAX[key].name,
+  combined: STATE_SALES_TAX[key].noStateTax
+    ? '0%'
+    : `${(STATE_SALES_TAX[key].combinedRate * 100).toFixed(2)}%`,
+}));
 
 // ─── Home Page Metadata ───────────────────────────────────────────────────────
 
@@ -205,7 +219,7 @@ const CALCULATOR_CARDS = [
     title: 'Sales Tax Calculator',
     desc: 'Calculate sales tax for any US state with combined state + local rates. Reverse calculator included',
     icon: Receipt,
-    badge: '500K/mo',
+    badge: '50 States',
     badgeColor: 'bg-emerald-500/20 text-emerald-400',
     gradient: 'from-emerald-600/20 to-green-600/10',
   },
@@ -443,7 +457,7 @@ const homeJsonLd = {
         `Free 2026 tax calculators — paycheck, mortgage, 401(k), capital gains, and self-employment. ${CALCULATOR_COUNT} tools & 50-state sales tax data.`,
       url: SITE_URL,
       inLanguage: 'en-US',
-      dateModified: '2026-06-14',
+      dateModified: '2026-10-24',
       author: { '@id': homeAuthorId },
       publisher: { '@id': `${SITE_URL}/#organization` },
       isPartOf: { '@id': `${SITE_URL}/#website` },
@@ -513,13 +527,13 @@ const homeJsonLd = {
       '@id': `${SITE_URL}/#itemlist`,
       '@type': 'ItemList',
       name: 'Free 2026 Tax Calculators',
-      description: `${CALCULATOR_COUNT} free tax calculators for 2026 covering paycheck, state tax, mortgage, retirement, and more.`,
-      numberOfItems: CALCULATOR_COUNT,
-      itemListElement: CALCULATOR_ROUTES.map((route, i) => ({
+      description: `${TOTAL_CALCULATOR_COUNT} free tax calculators for 2026 covering paycheck, state tax, mortgage, retirement, and more.`,
+      numberOfItems: TOTAL_CALCULATOR_COUNT,
+      itemListElement: getAllCalculatorListItems().map((item, i) => ({
         '@type': 'ListItem',
         position: i + 1,
-        name: route.breadcrumbLabel,
-        url: `${SITE_URL}${route.canonicalPath}`,
+        name: item.name,
+        url: `${SITE_URL}${item.url}`,
       })),
     },
 
@@ -749,6 +763,47 @@ export default function HomePage() {
               </Link>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ─── Sales Tax by State ───────────────────────────────────── */}
+      <section className="py-16 border-t border-border/20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl font-bold text-foreground">
+              Sales Tax <span className="gradient-text">Rates by State</span> (2026)
+            </h2>
+            <p className="mt-3 text-muted-foreground max-w-2xl mx-auto">
+              Combined state + average local rate for all 50 states. Pick your state for the
+              full breakdown, exemptions, and a dedicated calculator.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+            {SALES_TAX_STATES.map((s) => (
+              <Link
+                prefetch={false}
+                key={s.key}
+                href={`/sales-tax-calculator/${s.key}`}
+                className="group flex items-center justify-between rounded-lg border border-border/30 bg-card/50 px-3 py-2.5 text-sm transition-all hover:border-emerald-500/30 hover-lift"
+              >
+                <span className="font-medium text-foreground group-hover:text-emerald-400 transition-colors">
+                  {s.name}
+                </span>
+                <span className="ml-2 text-xs font-semibold text-muted-foreground group-hover:text-foreground transition-colors">
+                  {s.combined}
+                </span>
+              </Link>
+            ))}
+          </div>
+
+          <p className="mt-6 text-center text-sm text-muted-foreground">
+            Rates are the average combined state + local rate —{' '}
+            <Link href="/sales-tax-calculator" className="text-emerald-400 hover:underline">
+              open the full sales tax calculator
+            </Link>{' '}
+            to override the local rate for your exact city.
+          </p>
         </div>
       </section>
 

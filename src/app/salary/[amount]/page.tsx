@@ -2,19 +2,14 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { SITE_URL } from '@/lib/site-config';
 import {
-  SALARY_AMOUNTS,
-  calculateSalaryTakeHome,
-  generateFAQs,
   isValidSalaryAmount,
   slugToSalary,
   salaryToSlug,
   isLegacySalarySlug,
   formatSalary,
-  fmt,
 } from '@/lib/salary-calculations';
-import { calculateFederalTax, calculateFICA } from '@/lib/finance-utils';
 import { DynamicSalaryPage } from './dynamic-salary-page';
-import { SalarySSRContent } from './salary-ssr-content';
+import { SalarySSRContent, generateTierFaqs, getSalarySeoText } from './salary-ssr-content';
 import { SalaryChart } from './salary-chart';
 import { getCalculatorAuthor, authorToJsonLd } from '@/lib/authors';
 import { AuthorBioCard } from '@/components/finance/author-bio-card';
@@ -30,7 +25,7 @@ export function generateStaticParams() {
   return topSalaries.map((amount) => ({ amount: String(amount) }));
 }
 
-// ─── Per-Page Metadata ────────────────────────────────────────────────────────
+// ─── Per-Page Metadata (tier-differentiated descriptions) ────────────────────
 
 export async function generateMetadata({
   params,
@@ -47,38 +42,23 @@ export async function generateMetadata({
   const canonicalSlug = salaryToSlug(salary);
   const canonicalPath = `/salary/${canonicalSlug}`;
 
-  // Calculate Texas take-home for the meta description (no state tax = highest)
-  const federalTax = calculateFederalTax(salary, 'single');
-  const fica = calculateFICA(salary, 'single');
-  const txTakeHome = salary - federalTax - fica.total;
+  // Tier-specific description & keywords (Task 26-a: de-duplicate the 27 salary
+  // pages — descriptions now vary meaningfully between salary tiers)
+  const seo = getSalarySeoText(salary);
 
   const title = `${formatted} After Taxes 2026 — Take-Home Pay by State`;
-  const description = `${formatted} after taxes in 2026? In Texas, you keep ~${fmt(txTakeHome)} (0% state tax). See take-home pay by state — TX, CA, NY, FL & more. Free calculator.`;
 
   return {
     title: { absolute: title },
-    description,
-    keywords: [
-      `${formatted} after tax`,
-      `${formatted} take home pay`,
-      `${formatted} salary after tax`,
-      `${formatted} net pay`,
-      `${formatted} paycheck`,
-      `${formatted} after tax california`,
-      `${formatted} after tax texas`,
-      `${formatted} after tax new york`,
-      `${formatted} after tax illinois`,
-      `${formatted} after tax florida`,
-      'salary calculator 2026',
-      'take home pay calculator',
-    ],
+    description: seo.description,
+    keywords: seo.keywords,
     authors: [{ name: 'Rachel Mitchell, CPA' }],
     alternates: {
       canonical: `${baseUrl}${canonicalPath}`,
     },
     openGraph: {
       title,
-      description,
+      description: seo.description,
       url: `${baseUrl}${canonicalPath}`,
       siteName: 'TheTaxCalc',
       type: 'website',
@@ -88,7 +68,7 @@ export async function generateMetadata({
     twitter: {
       card: 'summary_large_image',
       title,
-      description,
+      description: seo.description,
       images: [`${baseUrl}/opengraph-image.png`],
     },
   };
@@ -96,10 +76,11 @@ export async function generateMetadata({
 
 // ─── JSON-LD Schema ───────────────────────────────────────────────────────────
 
-function generateJsonLd(salary: number) {
-  const calc = calculateSalaryTakeHome(salary);
+function generateJsonLd(salary: number, description: string, webAppDescription: string) {
   const formatted = formatSalary(salary);
-  const faqs = generateFAQs(salary);
+  // Tier-varied FAQ set — matches the visible SSR FAQ section, so the
+  // FAQPage schema is unique per salary tier instead of templated.
+  const faqs = generateTierFaqs(salary);
   const slug = salaryToSlug(salary);
   const path = `/salary/${slug}`;
 
@@ -119,10 +100,10 @@ function generateJsonLd(salary: number) {
         '@id': `${SITE_URL}${path}#webpage`,
         '@type': 'WebPage',
         name: `${formatted} After Tax in 2026 — Take-Home Pay by State`,
-        description: `Calculate your take-home pay on a ${formatted} salary in 2026. Compare net pay across all 50 states.`,
+        description,
         url: `${SITE_URL}${path}`,
         inLanguage: 'en-US',
-        dateModified: '2026-01-01',
+        dateModified: '2026-10-24',
         author: { '@id': `${SITE_URL}${path}#author` },
         reviewedBy: { '@id': `${SITE_URL}${path}#author` },
         publisher: { '@id': `${SITE_URL}/#organization` },
@@ -147,7 +128,7 @@ function generateJsonLd(salary: number) {
         '@id': `${SITE_URL}${path}#software`,
         '@type': 'WebApplication',
         name: `${formatted} After Tax Calculator 2026`,
-        description: `Calculate ${formatted} take-home pay after federal, FICA, and state income tax. Compare net pay across all 50 states for the 2026 tax year.`,
+        description: webAppDescription,
         url: `${SITE_URL}${path}`,
         applicationCategory: 'FinanceApplication',
         operatingSystem: 'Web',
@@ -180,7 +161,8 @@ export default async function SalaryAmountPage({
     notFound();
   }
 
-  const jsonLd = generateJsonLd(salary);
+  const seo = getSalarySeoText(salary);
+  const jsonLd = generateJsonLd(salary, seo.description, seo.webAppDescription);
   const canonicalSlug = salaryToSlug(salary);
   const isLegacy = isLegacySalarySlug(amountStr);
   const salaryFormatted = formatSalary(salary);
@@ -213,7 +195,7 @@ export default async function SalaryAmountPage({
         <SalaryChart salary={salary} />
       </div>
 
-      {/* ─── Server-Rendered SEO Content (~1000 words) ──────────────────────── */}
+      {/* ─── Server-Rendered SEO Content (tier-based unique article) ──────── */}
       <SalarySSRContent salary={salary} />
 
       {/* ─── Author Attribution (E-E-A-T) ──────────────────────── */}

@@ -17,7 +17,7 @@ const CONFIG = {
   title: 'Mortgage Calculator 2026 | Payment & Amortization',
   description: 'Free mortgage calculator with extra payments, amortization schedule, and payoff comparison. Calculate monthly payment using M = P × [r(1+r)^n] / [(1+r)^n - 1]. No sign-up.',
   h1: 'Free Mortgage Calculator',
-  metaTitle: 'Mortgage Calculator 2026 | Amortization',
+  metaTitle: 'Mortgage Calculator 2026 | Payment & Amortization Schedule',
   metaDesc: 'Free mortgage calculator with extra payments, amortization & payoff comparison. No sign-up. Calculate monthly payment and interest.',
   keywords: [
     'free mortgage calculator', 'mortgage calculator', 'home loan calculator',
@@ -85,7 +85,7 @@ const MORTGAGE_JSONLD = {
       { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
       { '@type': 'ListItem', position: 2, name: 'Mortgage Calculator' },
     ]},
-    { '@id': `${SITE_URL}/mortgage-calculator#webpage`, '@type': 'WebPage', name: 'Mortgage Calculator with Extra Payments', description: 'Free mortgage calculator with extra payments, amortization schedule, and payoff comparison for 2026.', url: `${SITE_URL}/mortgage-calculator`, inLanguage: 'en-US', dateModified: '2026-01-15', author: { '@id': `${SITE_URL}/mortgage-calculator#author` }, reviewedBy: { '@id': `${SITE_URL}/mortgage-calculator#author` }, publisher: { '@id': `${SITE_URL}/#organization` }, breadcrumb: { '@id': `${SITE_URL}/mortgage-calculator#breadcrumb` } },
+    { '@id': `${SITE_URL}/mortgage-calculator#webpage`, '@type': 'WebPage', name: 'Mortgage Calculator with Extra Payments', description: 'Free mortgage calculator with extra payments, amortization schedule, and payoff comparison for 2026.', url: `${SITE_URL}/mortgage-calculator`, inLanguage: 'en-US', dateModified: '2026-10-24', author: { '@id': `${SITE_URL}/mortgage-calculator#author` }, reviewedBy: { '@id': `${SITE_URL}/mortgage-calculator#author` }, publisher: { '@id': `${SITE_URL}/#organization` }, breadcrumb: { '@id': `${SITE_URL}/mortgage-calculator#breadcrumb` } },
     { '@id': `${SITE_URL}/mortgage-calculator#webapp`, '@type': 'WebApplication', name: 'Mortgage Calculator with Extra Payments', url: `${SITE_URL}/mortgage-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: 0, priceCurrency: 'USD', availability: 'https://schema.org/InStock', url: `${SITE_URL}/mortgage-calculator` }, author: { '@id': `${SITE_URL}/mortgage-calculator#author` }, publisher: { '@id': `${SITE_URL}/#organization` } },
     {
       '@id': `${SITE_URL}/mortgage-calculator#faq`,

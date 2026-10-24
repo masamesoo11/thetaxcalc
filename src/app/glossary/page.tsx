@@ -86,7 +86,7 @@ function getGlossaryJsonLd() {
           'Comprehensive tax glossary with 25+ terms explained for 2026. Understand FICA, standard deduction, marginal tax rate, and more.',
         url: `${SITE_URL}/glossary`,
         inLanguage: 'en-US',
-        dateModified: '2026-01-01',
+        dateModified: '2026-10-24',
         author: { '@id': `${SITE_URL}/glossary#author` },
         reviewedBy: { '@id': `${SITE_URL}/glossary#author` },
         publisher: { '@id': `${SITE_URL}/#organization` },

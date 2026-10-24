@@ -53,7 +53,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   entries.push({ url: `${baseUrl}/paycheck-difference-calculator`, lastModified: taxYearUpdate, changeFrequency: 'monthly', priority: 0.92 });
 
   for (const path of ['/privacy', '/terms']) {
-    entries.push({ url: `${baseUrl}${path}`, lastModified: siteUpdate, changeFrequency: 'yearly', priority: 0.3 });
+    entries.push({ url: `${baseUrl}${path}`, lastModified: '2026-03-04', changeFrequency: 'yearly', priority: 0.3 });
   }
 
   entries.push({ url: `${baseUrl}/compare`, lastModified: taxYearUpdate, changeFrequency: 'monthly', priority: 0.9 });
@@ -69,7 +69,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   entries.push({ url: `${baseUrl}/tax-professionals`, lastModified: taxYearUpdate, changeFrequency: 'monthly', priority: 0.85 });
   entries.push({ url: `${baseUrl}/research`, lastModified: taxYearUpdate, changeFrequency: 'monthly', priority: 0.9 });
 
-  // 6 research studies (dynamic [slug] route)
+  // 6 research studies (dynamic [slug] route) — published 2026-07-04; lastmod
+  // records their real content date, matching each page's JSON-LD dateModified.
+  const RESEARCH_PUBLISHED = '2026-07-04';
   const RESEARCH_SLUGS = [
     '2026-state-tax-burden',
     'best-states-for-remote-workers-2026',
@@ -79,7 +81,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     'tax-refund-statistics-2026',
   ];
   for (const slug of RESEARCH_SLUGS) {
-    entries.push({ url: `${baseUrl}/research/${slug}`, lastModified: taxYearUpdate, changeFrequency: 'monthly', priority: 0.85 });
+    entries.push({ url: `${baseUrl}/research/${slug}`, lastModified: RESEARCH_PUBLISHED, changeFrequency: 'monthly', priority: 0.85 });
   }
 
   entries.push({ url: `${baseUrl}/blog`, lastModified: siteUpdate, changeFrequency: 'weekly', priority: 0.8 });
