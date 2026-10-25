@@ -109,5 +109,25 @@ export const TELEGRAPH_PUBLISHED: Record<string, { url: string; publishedAt: str
   "what-is-taxable-income-guide-2026": {
     "url": "https://telegra.ph/What-Is-Taxable-Income-Complete-Guide-2026-10-24",
     "publishedAt": "2026-10-24T12:58:02Z"
+  },
+  "texas-tax-guide-2026": {
+    "url": "https://telegra.ph/Texas-Tax-Guide-2026-No-Income-Tax-But-What-About-Property-and-Sales-Tax-10-25",
+    "publishedAt": "2026-10-25T12:25:13Z"
+  },
+  "new-york-tax-guide-2026": {
+    "url": "https://telegra.ph/New-York-State-Taxes-2026-NYC-Tax-Filing-and-What-You-Owe-10-25",
+    "publishedAt": "2026-10-25T12:25:13Z"
+  },
+  "no-tax-on-overtime-guide-2026": {
+    "url": "https://telegra.ph/No-Tax-on-Overtime-How-the-New-Law-Saves-You-Money-20252028-10-25",
+    "publishedAt": "2026-10-25T12:25:13Z"
+  },
+  "1099-tax-guide-self-employed-2026": {
+    "url": "https://telegra.ph/1099-Taxes-How-Much-Freelancers-Really-Owe-in-2026-10-25",
+    "publishedAt": "2026-10-25T12:25:13Z"
+  },
+  "illinois-income-tax-guide-2026": {
+    "url": "https://telegra.ph/Illinois-Income-Tax-Guide-2026-10-25",
+    "publishedAt": "2026-10-25T12:25:13Z"
   }
 };
