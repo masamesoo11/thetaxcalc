@@ -45,10 +45,19 @@ export async function middleware(request: NextRequest) {
   }
 
 
-  // ─── Markdown Negotiation for AI Agents ─────────────────────────────
-  // When an AI agent sends Accept: text/markdown, return markdown instead of HTML
-  const acceptHeader = request.headers.get('accept') || '';
-  if (acceptHeader.includes('text/markdown') && !pathname.startsWith('/_next') && !pathname.startsWith('/api') && !pathname.includes('.')) {
+  // ─── Markdown for AI Agents ─────────────────────────────────────────
+  // Served ONLY on an explicit ?format=markdown URL — NEVER via Accept
+  // header negotiation. Why: Cloudflare's edge cache key is the URL only
+  // (the Accept header is ignored), so when markdown was negotiated on the
+  // same URL as HTML, any AI agent's request cached the markdown variant
+  // at the edge and regular browsers then saw raw markdown instead of the
+  // site for up to an hour (observed in production — zone cache rules even
+  // rewrote `private, no-store` into a cacheable response). A distinct URL
+  // gives a distinct cache key: the plain URL can now ONLY ever serve HTML.
+  // Agents wanting markdown follow the service-doc Link headers (/llms.txt)
+  // or use ?format=markdown directly.
+  const wantsMarkdown = request.nextUrl.searchParams.get('format') === 'markdown';
+  if (wantsMarkdown && !pathname.startsWith('/_next') && !pathname.startsWith('/api') && !pathname.includes('.')) {
     // Generate markdown version of the page
     const baseUrl = 'https://thetaxcalc.com';
     const markdownMap: Record<string, string> = {
@@ -228,13 +237,11 @@ Visit https://thetaxcalc.com/about for the full page.`,
         status: 200,
         headers: {
           'Content-Type': 'text/markdown; charset=utf-8',
-          // CRITICAL: never cache the markdown variant (edge/browser/proxy).
-          // Cloudflare's cache key is URL-only — it ignores the Accept header —
-          // so a cached markdown response would be served to regular browsers
-          // (they would see raw markdown instead of the site). private, no-store
-          // keeps the edge cache reserved for the HTML variant only.
-          'Cache-Control': 'private, no-store',
-          'Vary': 'Accept',
+          // Safe to cache: this URL (?format=markdown) is a distinct cache
+          // key from the HTML page, so it can never poison the HTML variant.
+          'Cache-Control': 'public, max-age=3600',
+          // Keep markdown variants out of the index (HTML page is canonical).
+          'X-Robots-Tag': 'noindex, follow',
         },
       });
     }
