@@ -15,3 +15,8 @@ vercel.json
 
 # IDE paste artifacts (reference copies live outside the repo)
 upload/Pasted Content_*.txt
+
+# Dev server logs & scratch output (platform auto-commit noise)
+dev.log
+.zscripts/dev.log
+tool-results/
