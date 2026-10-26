@@ -853,3 +853,21 @@ Stage Summary:
 - The user now just opens the preview: the NEW design mockup appears instantly. The Arabic bar explains it is a proposal and links to the consultation deck and the live site; the deck's green button returns to the mockup.
 - Production untouched: page.tsx on origin/main is byte-identical; the redirect exists only in this sandbox's working tree and is invisible to git (skip-worktree).
 - PENDING: the user's 5 decisions (visual direction, boldness level, PH banner fate, scope, sacred sections).
+
+---
+Task ID: 31-d
+Agent: Main Agent
+Task: User asked "هل توجد فخامة واكتر" — wants a MORE luxurious direction plus more options. Still consultation-only; no production code.
+
+Work Log:
+- Built mockups/homepage-luxury.html — Direction C "Luxury": same content/sections/JS as homepage-redesign.html (fair apples-to-apples comparison), fully reskinned: champagne-gold (#c9a961) on warm ink (#0b0d12) default + Ivory & Brass light theme via the theme toggle; serif display typography (Georgia stack) for h1/h2/h3/logo/result number; letter-spaced uppercase eyebrows with hairline rules; gold hairline borders, gold-gradient CTAs, glassy calc card, gold-tinted trust numerals, bronze blog covers, gold CTA band with dark button; Arabic guidance bar (gold-toned) linking to the deck, the CLEAN version (A/B), and the live site.
+- Cross-linked everything: clean mockup's bar gained "👑 النسخة الفخمة"; proposal deck gained a gold button (.openlux) under the green one + new Q1 option "C — فخامة ذهبية 👑"; dev root redirect (git-invisible page.tsx) now targets /mockups/homepage-luxury.html so opening the preview instantly shows the luxury version the user asked about.
+- Verified via agent-browser: root -> 307 -> luxury mockup (title/theme dark/bg #0b0d12); live calculator identical math ($95K/single/TX/monthly -> $6,285); theme toggle dark<->ivory (#f7f4ec) with calculator still live; 0 page errors.
+- VLM QA (3 shots: desktop dark, desktop light, mobile dark): desktop = NO DEFECTS x2; mobile = REAL defect found (states table wider than container, right-clipped by overflow:hidden — 29 offending elements at 390px; nav/compare "clipping" claims were VLM over-reporting, page scrollWidth stayed 390). Same latent defect confirmed in the CLEAN mockup too.
+- Fixed BOTH mockups: new <=560px rule hides the "Avg sales tax" column, drops table font to 13px and tightens cell padding. Re-measured: 0 offenders on both. VLM re-check on both fixed mobile screenshots: NO DEFECTS.
+- Recopied all three files to public/mockups/ + public/index.html (gitignored local copies).
+
+Stage Summary:
+- Three design directions now viewable from the preview root with zero clicks: C Luxury (default at /), A/B Clean (one click), consultation deck (one click) — user just opens the preview.
+- Decision question 1 now has options A (light clean), B (dark pro), C (gold luxury), or keep-improved-current-dark.
+- Production still untouched: page.tsx on origin/main byte-identical (skip-worktree); all changes are docs-only mockup files.
