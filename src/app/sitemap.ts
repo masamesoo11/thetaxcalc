@@ -4,7 +4,7 @@ import { SALARY_AMOUNTS, salaryToSlug } from '@/lib/salary-calculations';
 import { COMPARISON_SLUGS } from '@/lib/compare-config';
 import { getPublishedPostsMeta } from '@/lib/blog-index';
 import { SITE_URL } from '@/lib/site-config';
-import { ALL_STATE_KEYS } from '@/lib/state-sales-tax-data';
+import { ALL_STATE_KEYS, stateKeyToSlug } from '@/lib/state-sales-tax-data';
 
 
 
@@ -30,7 +30,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   // 50 state sales tax pages
   for (const stateKey of ALL_STATE_KEYS) {
-    entries.push({ url: `${baseUrl}/sales-tax-calculator/${stateKey}`, lastModified: taxYearUpdate, changeFrequency: 'monthly', priority: 0.82 });
+    entries.push({ url: `${baseUrl}/sales-tax-calculator/${stateKeyToSlug(stateKey)}`, lastModified: taxYearUpdate, changeFrequency: 'monthly', priority: 0.82 });
   }
 
   entries.push({ url: `${baseUrl}/salary`, lastModified: taxYearUpdate, changeFrequency: 'monthly', priority: 0.9 });

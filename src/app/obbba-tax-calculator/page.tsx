@@ -4,12 +4,12 @@ import { SITE_URL } from '@/lib/site-config';
 import { OBBBACalculatorClient } from './obbba-calculator-client';
 
 export const metadata: Metadata = {
-  title: 'OBBBA Tax Calculator 2026 — Compare New Tax Law vs Prior Law',
+  title: 'OBBBA Tax Calculator 2026 | One Big Beautiful Bill Act',
   description:
     'Free OBBBA tax calculator 2026. Compare federal tax under the One Big Beautiful Bill Act vs prior law. See SALT cap, CTC, and tip deduction savings.',
   alternates: { canonical: `${SITE_URL}/obbba-tax-calculator` },
   openGraph: {
-    title: 'OBBBA Tax Calculator 2026 | Compare New Tax Law vs Prior Law',
+    title: 'OBBBA Tax Calculator 2026 — One Big Beautiful Bill Act Savings',
     description:
       'See exactly how much the One Big Beautiful Bill Act saves you in 2026. Compare OBBBA vs prior law with our free calculator.',
     url: `${SITE_URL}/obbba-tax-calculator`,
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
         url: `${SITE_URL}/opengraph-image.png`,
         width: 1200,
         height: 630,
-        alt: 'OBBBA Tax Calculator 2026 — Compare New Tax Law vs Prior Law',
+        alt: 'OBBBA Tax Calculator 2026 — One Big Beautiful Bill Act Savings',
       },
     ],
   },

@@ -8,7 +8,7 @@ import { SITE_URL } from '@/lib/site-config';
 import { CALCULATOR_ROUTES } from '@/lib/calculator-routes';
 import { SALARY_AMOUNTS } from '@/lib/salary-calculations';
 import { COMPARISON_SLUGS } from '@/lib/compare-config';
-import { ALL_STATE_KEYS } from '@/lib/state-sales-tax-data';
+import { ALL_STATE_KEYS, stateKeyToSlug } from '@/lib/state-sales-tax-data';
 import { getPublishedPostsMeta } from '@/lib/blog-index';
 
 // ─── Configuration ──────────────────────────────────────────────────────────
@@ -217,7 +217,7 @@ export function getAllSiteUrls(): string[] {
 
   // 50 state sales tax pages
   for (const stateKey of ALL_STATE_KEYS) {
-    urls.push(`${SITE_URL}/sales-tax-calculator/${stateKey}`);
+    urls.push(`${SITE_URL}/sales-tax-calculator/${stateKeyToSlug(stateKey)}`);
   }
 
   // Salary landing page

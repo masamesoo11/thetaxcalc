@@ -4,7 +4,7 @@
  * the registry audit could miss (middleware, layout title templates, etc.).
  */
 import { CALCULATOR_ROUTES, STANDALONE_CALCULATOR_ROUTES } from '../src/lib/calculator-routes';
-import { ALL_STATE_KEYS } from '../src/lib/state-sales-tax-data';
+import { ALL_STATE_KEYS, stateKeyToSlug } from '../src/lib/state-sales-tax-data';
 
 const BASE = 'http://localhost:3000';
 const ALIASES: Record<string, string[]> = {
@@ -58,7 +58,7 @@ async function main() {
 
   // 3. Sales-tax state pages
   for (const key of ALL_STATE_KEYS) {
-    const res = await fetch(`${BASE}/sales-tax-calculator/${key}`);
+    const res = await fetch(`${BASE}/sales-tax-calculator/${stateKeyToSlug(key)}`);
     const html = await res.text();
     const title = extract(html, /<title[^>]*>([\s\S]*?)<\/title>/i);
     const h1 = extract(html, /<h1[^>]*>([\s\S]*?)<\/h1>/i);

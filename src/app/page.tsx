@@ -7,7 +7,7 @@ import { COMPARISON_SLUGS, COMPARE_STATES, parseComparisonSlug } from '@/lib/com
 import { getCalculatorAuthor, authorToJsonLd } from '@/lib/authors';
 import { AuthorBioCard } from '@/components/finance/author-bio-card';
 import { CALCULATOR_ROUTES, TOTAL_CALCULATOR_COUNT, getAllCalculatorListItems } from '@/lib/calculator-routes';
-import { STATE_SALES_TAX, ALL_STATE_KEYS } from '@/lib/state-sales-tax-data';
+import { STATE_SALES_TAX, ALL_STATE_KEYS, stateKeyToSlug } from '@/lib/state-sales-tax-data';
 import {
   DollarSign,
   MapPin,
@@ -784,7 +784,7 @@ export default function HomePage() {
               <Link
                 prefetch={false}
                 key={s.key}
-                href={`/sales-tax-calculator/${s.key}`}
+                href={`/sales-tax-calculator/${stateKeyToSlug(s.key)}`}
                 className="group flex items-center justify-between rounded-lg border border-border/30 bg-card/50 px-3 py-2.5 text-sm transition-all hover:border-emerald-500/30 hover-lift"
               >
                 <span className="font-medium text-foreground group-hover:text-emerald-400 transition-colors">

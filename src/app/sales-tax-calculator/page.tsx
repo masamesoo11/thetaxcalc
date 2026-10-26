@@ -3,6 +3,7 @@ import Link from 'next/link';
 import {
   STATE_SALES_TAX,
   ALL_STATE_KEYS,
+  stateKeyToSlug,
 } from '@/lib/state-sales-tax-data';
 import { SITE_URL } from '@/lib/site-config';
 import { getAuthorForCalculator, authorToJsonLd } from '@/lib/authors';
@@ -549,7 +550,7 @@ export default function SalesTaxHubPage() {
                   >
                     <td className="px-4 py-2.5">
                       <Link
-                        href={`/sales-tax-calculator/${s.key}`}
+                        href={`/sales-tax-calculator/${stateKeyToSlug(s.key)}`}
                         className="font-medium text-foreground hover:text-emerald-400 transition-colors"
                       >
                         {s.name}
@@ -882,7 +883,7 @@ export default function SalesTaxHubPage() {
                 {lowestStates.map((s) => (
                   <div key={s.key} className="flex items-center justify-between rounded-lg border border-emerald-500/20 bg-emerald-500/5 px-4 py-2.5">
                     <Link
-                      href={`/sales-tax-calculator/${s.key}`}
+                      href={`/sales-tax-calculator/${stateKeyToSlug(s.key)}`}
                       className="text-sm font-medium text-foreground hover:text-emerald-400 transition-colors"
                     >
                       {s.name}
@@ -905,7 +906,7 @@ export default function SalesTaxHubPage() {
                 {highestStates.map((s) => (
                   <div key={s.key} className="flex items-center justify-between rounded-lg border border-red-500/20 bg-red-500/5 px-4 py-2.5">
                     <Link
-                      href={`/sales-tax-calculator/${s.key}`}
+                      href={`/sales-tax-calculator/${stateKeyToSlug(s.key)}`}
                       className="text-sm font-medium text-foreground hover:text-emerald-400 transition-colors"
                     >
                       {s.name}
@@ -925,7 +926,7 @@ export default function SalesTaxHubPage() {
                 return (
                   <Link
                     key={key}
-                    href={`/sales-tax-calculator/${key}`}
+                    href={`/sales-tax-calculator/${stateKeyToSlug(key)}`}
                     className="inline-flex items-center rounded-lg border border-emerald-500/30 bg-emerald-500/10 px-4 py-2 text-sm font-medium text-emerald-400 hover:bg-emerald-500/20 transition-colors"
                   >
                     {s.name} (0%)
@@ -972,7 +973,7 @@ export default function SalesTaxHubPage() {
               return (
                 <Link
                   key={key}
-                  href={`/sales-tax-calculator/${key}`}
+                  href={`/sales-tax-calculator/${stateKeyToSlug(key)}`}
                   className="inline-flex items-center rounded-md px-3 py-1.5 text-xs font-medium transition-colors bg-muted/30 text-muted-foreground border border-border/30 hover:bg-muted/50 hover:text-foreground"
                 >
                   {s.abbreviation} {s.noStateTax ? '0%' : `${(s.combinedRate * 100).toFixed(1)}%`}

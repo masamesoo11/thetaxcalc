@@ -87,7 +87,7 @@ TheTaxCalc provides free, accurate tax calculators for federal, state, and local
 - [Sales Tax Calculator](https://thetaxcalc.com/sales-tax-calculator): All 50 states with combined state + local rates.
 - [California Sales Tax](https://thetaxcalc.com/sales-tax-calculator/california): 7.25% state + 1.57% avg local = 8.82% combined
 - [Texas Sales Tax](https://thetaxcalc.com/sales-tax-calculator/texas): 6.25% state + 1.95% avg local = 8.2% combined
-- [New York Sales Tax](https://thetaxcalc.com/sales-tax-calculator/newyork): 4% state + 4.52% avg local = 8.52% combined
+- [New York Sales Tax](https://thetaxcalc.com/sales-tax-calculator/new-york): 4% state + 4.52% avg local = 8.52% combined
 - [Florida Sales Tax](https://thetaxcalc.com/sales-tax-calculator/florida): 6% state + 1.02% avg local = 7.02% combined
 - [Illinois Sales Tax](https://thetaxcalc.com/sales-tax-calculator/illinois): 6.25% state + 2.61% avg local = 8.86% combined
 - [Washington Sales Tax](https://thetaxcalc.com/sales-tax-calculator/washington): 6.5% state + 2.91% avg local = 9.41% combined

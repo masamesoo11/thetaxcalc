@@ -483,6 +483,24 @@ Visit https://thetaxcalc.com/about for the full page.`,
     );
   }
 
+  // ─── Sales-tax legacy slug redirects (/sales-tax-calculator/newjersey → new-jersey) ───
+  // Canonical slugs are hyphenated (derived from the state name). Old
+  // non-hyphenated links (blog posts, external backlinks) get a 301 so their
+  // link equity transfers to the canonical URL.
+  const SALES_TAX_LEGACY_SLUGS: Record<string, string> = {
+    newhampshire: 'new-hampshire', newjersey: 'new-jersey', newmexico: 'new-mexico',
+    newyork: 'new-york', northcarolina: 'north-carolina', northdakota: 'north-dakota',
+    rhodeisland: 'rhode-island', southcarolina: 'south-carolina', southdakota: 'south-dakota',
+    westvirginia: 'west-virginia', districtofcolumbia: 'district-of-columbia',
+  };
+  const salesTaxSlugMatch = pathname.match(/^\/sales-tax-calculator\/([a-z]+)$/);
+  if (salesTaxSlugMatch && SALES_TAX_LEGACY_SLUGS[salesTaxSlugMatch[1]]) {
+    return NextResponse.redirect(
+      new URL(`/sales-tax-calculator/${SALES_TAX_LEGACY_SLUGS[salesTaxSlugMatch[1]]}`, request.url),
+      301
+    );
+  }
+
   // ─── State name redirects (/state → /state-tax-calculator) ───
   // Catches broken links where state name is used without -tax-calculator suffix
   const STATE_SLUGS = [

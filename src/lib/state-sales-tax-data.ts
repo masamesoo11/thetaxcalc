@@ -108,6 +108,33 @@ export const STATE_SALES_TAX: Record<string, StateSalesTax> = {
 
 export const ALL_STATE_KEYS = Object.keys(STATE_SALES_TAX) as string[];
 
+// ─── URL slug helpers (single source of truth for sales-tax page URLs) ──────
+
+/**
+ * Canonical URL slug for a state's sales-tax page, derived from the display
+ * name: 'newjersey' -> 'new-jersey'. Every URL builder (links, sitemap,
+ * IndexNow, llms.txt, canonicals, JSON-LD) MUST go through this so slugs
+ * never drift between hyphenated and non-hyphenated forms.
+ */
+export function stateKeyToSlug(stateKey: string): string {
+  const name = STATE_SALES_TAX[stateKey]?.name;
+  return name ? name.toLowerCase().replace(/\s+/g, '-') : stateKey;
+}
+
+/**
+ * Resolve a URL slug to a STATE_SALES_TAX key. Accepts the canonical
+ * hyphenated slug ('new-jersey') and, as a legacy fallback, the raw
+ * non-hyphenated data key ('newjersey'). Returns null for unknown slugs.
+ */
+export function salesTaxSlugToStateKey(slug: string): string | null {
+  if (STATE_SALES_TAX[slug]) return slug; // legacy direct key
+  const normalized = slug.toLowerCase().replace(/-/g, ' ');
+  for (const k of ALL_STATE_KEYS) {
+    if (STATE_SALES_TAX[k].name.toLowerCase() === normalized) return k;
+  }
+  return null;
+}
+
 // ─── Helper ──────────────────────────────────────────────────────────────────
 
 function pct(rate: number): string {
@@ -317,7 +344,7 @@ function nearestByRate(stateKey: string, n = 2, taxingOnly = false): string[] {
 }
 
 function nearestLink(stateKey: string): string {
-  return `<a href="/sales-tax-calculator/${stateKey}">${STATE_SALES_TAX[stateKey].name}</a>`;
+  return `<a href="/sales-tax-calculator/${stateKeyToSlug(stateKey)}">${STATE_SALES_TAX[stateKey].name}</a>`;
 }
 
 // ─── Curated Structural Quirks (facts, no numbers beyond dataset values) ─────
@@ -378,7 +405,7 @@ export function getStateSEOMeta(stateKey: string): StateSEOMeta {
         `${name} tax exempt`, `${name} shopping tax`, `${name} sales tax 2026`,
         `${name.toLowerCase()} sales tax calculator`,
       ],
-      canonicalPath: `/sales-tax-calculator/${stateKey}`,
+      canonicalPath: `/sales-tax-calculator/${stateKeyToSlug(stateKey)}`,
       breadcrumbLabel: `${name} Sales Tax`,
     };
   }
@@ -418,7 +445,7 @@ export function getStateSEOMeta(stateKey: string): StateSEOMeta {
       `${name.toLowerCase()} sales tax calculator`,
       `how much is sales tax in ${name}`, `${name} city tax rate`,
     ],
-    canonicalPath: `/sales-tax-calculator/${stateKey}`,
+    canonicalPath: `/sales-tax-calculator/${stateKeyToSlug(stateKey)}`,
     breadcrumbLabel: `${name} Sales Tax`,
   };
 }
@@ -1328,7 +1355,7 @@ export function getStateJsonLd(stateKey: string, siteUrl: string) {
   const statePct = state.noStateTax ? '0' : formatRate(state.stateRate);
   const localPct = pct(state.avgLocalRate);
   const combinedPct = pct(state.combinedRate);
-  const url = `${siteUrl}/sales-tax-calculator/${stateKey}`;
+  const url = `${siteUrl}/sales-tax-calculator/${stateKeyToSlug(stateKey)}`;
 
   return {
     '@context': 'https://schema.org',

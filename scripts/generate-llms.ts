@@ -13,7 +13,7 @@ import {
   STANDALONE_CALCULATOR_ROUTES,
   TOTAL_CALCULATOR_COUNT,
 } from '../src/lib/calculator-routes';
-import { STATE_SALES_TAX, ALL_STATE_KEYS } from '../src/lib/state-sales-tax-data';
+import { STATE_SALES_TAX, ALL_STATE_KEYS, stateKeyToSlug } from '../src/lib/state-sales-tax-data';
 import { STATE_PROFILES } from '../src/lib/tax-config';
 import { SALARY_AMOUNTS } from '../src/lib/salary-calculations';
 import { COMPARISON_SLUGS } from '../src/lib/compare-config';
@@ -134,7 +134,7 @@ lines.push(`- [Sales Tax Calculator](${SITE}/sales-tax-calculator): All 50 state
 const notable = ['california', 'texas', 'newyork', 'florida', 'illinois', 'washington', 'tennessee', 'louisiana'];
 for (const k of notable) {
   const s = STATE_SALES_TAX[k];
-  lines.push(`- [${s.name} Sales Tax](${SITE}/sales-tax-calculator/${k}): ${s.noStateTax ? 'No state sales tax' : `${pct(s.stateRate)} state + ${pct(Math.max(0, s.avgLocalRate))} avg local = ${pct(s.combinedRate)} combined`}`);
+  lines.push(`- [${s.name} Sales Tax](${SITE}/sales-tax-calculator/${stateKeyToSlug(k)}): ${s.noStateTax ? 'No state sales tax' : `${pct(s.stateRate)} state + ${pct(Math.max(0, s.avgLocalRate))} avg local = ${pct(s.combinedRate)} combined`}`);
 }
 lines.push(`- Every state has a dedicated page: ${SITE}/sales-tax-calculator/<state>`);
 lines.push('');

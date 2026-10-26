@@ -21,6 +21,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  // Resolves relative OG/canonical URLs (file-based opengraph-image etc.)
+  // against the production origin — without it Next falls back to
+  // http://localhost:3000 on non-Vercel hosts (opennextjs-cloudflare).
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "TheTaxCalc — Free 2026 Tax & Paycheck Calculator",
     template: "%s | TheTaxCalc",

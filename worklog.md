@@ -742,3 +742,25 @@ Stage Summary:
 - Post-deploy live titles: Virginia/Arkansas/Idaho/North Carolina/West Virginia Tax Calculator 2026 variants naming their own state; NYC keeps its legitimate shortened title (names NYC; H1 = Free NYC Tax Calculator — per live verification this one is not an error).
 - Sitemap vs page dateModified now consistent everywhere checked: /privacy 03-04, /terms 03-04, /research hub 10-24, studies 07-04.
 - Deployed: a29368b -> Cloudflare Pages, built + live in ~2 min (the new build:cf title-audit gate passed). LIVE VERIFIED (cache-busted): /virginia /arkansas /idaho /north-carolina /west-virginia now serve <title> == og:title == own state; /ohio serves corrected 2.75% title; /california unchanged (no regression); NYC keeps its legitimate shortened title; /research JSON-LD dateModified 2026-10-24 live; /privacy sitemap lastmod 2026-03-04 == page JSON-LD.
+
+---
+Task ID: 28
+Agent: Main Agent
+Task: Verify + fix third external SEO audit findings: sales-tax slug hygiene, missing-Schema claims, OG tags, OBBBA identity, blog freshness.
+
+Work Log:
+- Verified every audit claim against code + live before fixing. Auditor admitted it could not fetch HTML source — most "missing" claims were false: JSON-LD is present and rich (live-verified /texas-tax-calculator: FAQPage + WebApplication(applicationCategory: FinanceApplication) + BreadcrumbList + Person + Organization; homepage: + ItemList + HowTo; /compare/texas-vs-florida: BreadcrumbList + FAQPage + Person; blog posts: canonical + JSON-LD all present when fetched with a REAL slug). og:title/description/image + twitter:card summary_large_image exist sitewide; blog lastmod dates are intentionally honest per-post dates (editorial choice, not a defect).
+- REAL BUG #1 (worse than the audit knew): sales-tax state slugs were non-hyphenated data keys ('/sales-tax-calculator/newjersey') AND generateStaticParams listed hyphenated variants ('new-york') that resolve against the key map -> /sales-tax-calculator/new-york and /north-carolina returned LIVE 404s while the non-hyphenated forms served. Mixed-slug breakage.
+- FIX: single-source slug layer in state-sales-tax-data.ts — stateKeyToSlug(key) derives the canonical hyphenated slug from the state display name; salesTaxSlugToStateKey(slug) resolves either form back to a data key. All URL builders now go through it: [state] page (generateStaticParams now pre-builds ALL 50 hyphenated pages, canonicalPath, JSON-LD @id, related-state + all-states link grids), sitemap.ts, indexnow.ts, homepage 50-state grid, sales-tax hub (5 link blocks), generate-llms.ts, tmp-sweep-local.ts.
+- 301 REDIRECTS for legacy non-hyphenated URLs: middleware block (11 multi-word keys: newhampshire/newjersey/newmexico/newyork/northcarolina/northdakota/rhodeisland/southcarolina/southdakota/westvirginia/districtofcolumbia -> hyphenated) + page-level permanentRedirect fallback in [state]/page.tsx. Preserves backlink equity from existing blog content/external links.
+- REAL BUG #2: no metadataBase in root layout -> Next resolved file-based opengraph-image against http://localhost:3000 on non-Vercel hosts (seen live on not-found pages: og:image content="http://localhost:3000/opengraph-image?..."). Added metadataBase: new URL(SITE_URL) to layout.tsx.
+- OBBBA identity: <title> now 'OBBBA Tax Calculator 2026 | One Big Beautiful Bill Act' (full act name in title for natural search; description/OG/FAQ already spelled it out).
+- Dismissed with evidence: "Schema missing" (all four claimed-missing types live-verified present), "OG tags unverifiable" (present sitewide; auditor could not fetch HTML), "blog lastmod stale" (honest per-post dates by design), compare-page expansion + off-page link building (editorial/out-of-scope, noted not fixed).
+- Verified locally: tsc no new errors in touched files; audit-titles.ts 0 errors/0 warnings; tmp-sweep-local.ts 122 pages 0 problems (now fetching hyphenated URLs); /sales-tax-calculator/new-jersey -> 200 with NJ title + hyphenated canonical; /sales-tax-calculator/newjersey -> 301 -> new-jersey; sitemap emits hyphenated URLs; llms.txt regenerated with hyphenated state links; lint only pre-existing findings.
+- Deployed: commit pushed to origin/main -> Cloudflare Pages auto-build.
+
+Stage Summary:
+- Sales-tax URLs now canonical, hyphenated, self-consistent everywhere (links, sitemap, IndexNow, llms.txt, canonicals, JSON-LD) with legacy 301s — the audit's low-impact suggestion turned out to hide a live 404 bug on the hyphenated forms.
+- metadataBase fixes the localhost og:image class site-wide (not-found pages, any page relying on file-based OG image).
+- Post-deploy verification: hyphenated URLs 200, legacy URLs 301, homepage/hub links hyphenated, OBBBA title carries full act name.
+- Open editorial items NOT code fixes: expand state-comparison coverage beyond CA/TX/FL/NY/IL; systematic link-building via research reports/widgets/scholarship; About-page team depth.

@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import { notFound } from 'next/navigation';
+import { notFound, permanentRedirect } from 'next/navigation';
 import Link from 'next/link';
 import {
   STATE_SALES_TAX,
@@ -7,6 +7,8 @@ import {
   getStateSEOMeta,
   getStateContent,
   getStateJsonLd,
+  stateKeyToSlug,
+  salesTaxSlugToStateKey,
 } from '@/lib/state-sales-tax-data';
 import { SITE_URL } from '@/lib/site-config';
 import { StateSalesTaxClientPage } from './state-sales-tax-client';
@@ -24,12 +26,11 @@ import { AuthorBioCard } from '@/components/finance/author-bio-card';
 export const dynamicParams = true;
 
 export function generateStaticParams() {
-  // Only pre-generate top 10 states to reduce build time
-  const topStates = [
-    'california', 'texas', 'florida', 'new-york', 'illinois',
-    'pennsylvania', 'ohio', 'georgia', 'north-carolina', 'michigan'
-  ];
-  return topStates.map((state) => ({ state }));
+  // Pre-generate EVERY state page under its canonical hyphenated slug
+  // (e.g. /sales-tax-calculator/new-jersey). Legacy non-hyphenated URLs
+  // ('/sales-tax-calculator/newjersey') are 301-redirected by middleware,
+  // with a page-level permanentRedirect fallback below.
+  return ALL_STATE_KEYS.map((k) => ({ state: stateKeyToSlug(k) }));
 }
 
 // ─── Metadata ────────────────────────────────────────────────────────────────
@@ -39,10 +40,10 @@ export async function generateMetadata({
 }: {
   params: Promise<{ state: string }>;
 }): Promise<Metadata> {
-  const { state: stateKey } = await params;
-  const stateData = STATE_SALES_TAX[stateKey];
+  const { state: slug } = await params;
+  const stateKey = salesTaxSlugToStateKey(slug);
 
-  if (!stateData) {
+  if (!stateKey) {
     return { title: 'State Not Found' };
   }
 
@@ -89,7 +90,21 @@ export default async function StateSalesTaxPage({
 }: {
   params: Promise<{ state: string }>;
 }) {
-  const { state: stateKey } = await params;
+  const { state: slug } = await params;
+  const stateKey = salesTaxSlugToStateKey(slug);
+
+  if (!stateKey) {
+    notFound();
+  }
+
+  // Legacy non-hyphenated URL ('/sales-tax-calculator/newjersey') -> 301 to
+  // the canonical hyphenated slug. Middleware handles this too; this is the
+  // fallback for any path that reaches the page directly.
+  const canonicalSlug = stateKeyToSlug(stateKey);
+  if (canonicalSlug !== slug) {
+    permanentRedirect(`/sales-tax-calculator/${canonicalSlug}`);
+  }
+
   const stateData = STATE_SALES_TAX[stateKey];
 
   if (!stateData) {
@@ -104,7 +119,7 @@ export default async function StateSalesTaxPage({
   // Inject author Person schema into JSON-LD graph
   if (jsonLd && jsonLd['@graph'] && Array.isArray(jsonLd['@graph'])) {
     (jsonLd['@graph'] as Record<string, unknown>[]).push({
-      '@id': `${SITE_URL}/sales-tax-calculator/${stateKey}#author`,
+      '@id': `${SITE_URL}/sales-tax-calculator/${stateKeyToSlug(stateKey)}#author`,
       ...authorToJsonLd(author),
     } as Record<string, unknown>);
   }
@@ -230,7 +245,7 @@ export default async function StateSalesTaxPage({
               {content.relatedStates.map((related) => (
                 <Link
                   key={related.slug}
-                  href={`/sales-tax-calculator/${related.slug}`}
+                  href={`/sales-tax-calculator/${stateKeyToSlug(related.slug)}`}
                   className="inline-flex items-center rounded-lg border border-border/50 bg-card/80 px-4 py-2 text-sm font-medium text-foreground hover:bg-muted/50 transition-colors"
                 >
                   {related.label}
@@ -252,7 +267,7 @@ export default async function StateSalesTaxPage({
               return (
                 <Link
                   key={key}
-                  href={`/sales-tax-calculator/${key}`}
+                  href={`/sales-tax-calculator/${stateKeyToSlug(key)}`}
                   className={`inline-flex items-center rounded-md px-3 py-1.5 text-xs font-medium transition-colors ${
                     isActive
                       ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30'
