@@ -783,3 +783,21 @@ Stage Summary:
 - The SEO report deliverable is restored to its post-verification state (score 93) and now TRACKED in git (root index.html — not served by Next, not deployed to production) so it survives future sandbox rebuilds; push triggers a harmless docs-only CF build.
 - The report's factual claims are all backed by the Task 25-28 worklog records and live verifications (commits a29d0fe/1845ba3/180e454/a29368b/6eb31b9/781adef).
 - Reusable: index.html carries meta robots noindex; root-level static deliverables are the pattern for non-deployed report files.
+
+---
+Task ID: 30
+Agent: Main Agent
+Task: User reported thetaxcalc.com "interface became markdown" — the homepage rendered as a raw markdown document instead of the site. Diagnose and fix.
+
+Work Log:
+- Identified the pasted content: exactly the AI-agent markdown map entry for '/' in src/middleware.ts (feature added 2026-06-19, commit d336b43 "Markdown Negotiation for AI agents") — served when a request carries Accept: text/markdown.
+- Confirmed normal browsers still get HTML (both prod + local), and markdown negotiation works as coded — but discovered the REAL bug: the markdown response carried Cache-Control: public, max-age=3600, and Cloudflare's edge cache key is URL-only (Accept header ignored), so any AI agent's markdown request cached the markdown variant under the page's URL — then regular BROWSERS received raw markdown as the "site" for up to an hour. Reproduced end-to-end on production: fresh URL + Accept: text/markdown (markdown cached, cf-cache-status HIT) then browser-Accept fetch of the same URL -> got the markdown. This is exactly what the user saw.
+- First fix attempt (kept, commit 8673ad8): Cache-Control: private, no-store + Vary: Accept on the markdown response. LIVE RESULT: zone cache rules REWROTE it to "private, max-age=3600" and cached it anyway (HIT; browsers still got markdown). Origin-side headers cannot win on this zone — proven empirically.
+- Root fix (commit 1500646): moved the markdown surface to an explicit distinct URL — ?format=markdown. Removed Accept-header negotiation entirely. The query string gives a distinct cache key, so the bare page URL can now ONLY ever serve HTML; the ?format=markdown URL is safely cacheable (public, max-age=3600) and carries X-Robots-Tag: noindex, follow. AI agents follow the existing service-doc Link headers (/llms.txt) or use ?format=markdown directly.
+- Also untracked runtime noise the platform auto-commit had pushed: dev.log (commit 11d63bc) + .zscripts/dev.log + .zscripts/dev.pid; added dev.log/.zscripts/dev.log/tool-results/ to .gitignore (commits 0698af0, d5e006f).
+- Verified locally (5 scenarios: ?format=markdown -> md with right headers; old Accept negotiation -> HTML; plain browser -> HTML; mapped path ?format=markdown -> md; unmapped path -> HTML) and on PRODUCTION post-deploy: browser on same base URL after agent markdown request -> HTML (poison test clean); old negotiation dead; md variant headers correct; plain homepage HTML. tsc + eslint clean on middleware.
+
+Stage Summary:
+- The "site became markdown" incident: root cause was Accept-based content negotiation on cacheable HTML URLs + CF's URL-only cache key = cache poisoning by AI agents. Structurally eliminated by moving markdown to ?format=markdown (distinct cache key); agents now get HTML + Link headers on bare URLs.
+- USER ACTION (one time): (a) if their browser still shows raw markdown, hard-refresh (Ctrl+F5) — the poisoned response was browser-cached with max-age=3600; (b) optional instant cleanup of any remaining pre-fix poisoned edge entries: dash.cloudflare.com -> Caching -> Purge Everything. Without purge, pre-fix entries self-expire within 1 hour (they were served with max-age=3600). Post-fix poisoning is impossible.
+- Deployed: 8673ad8 (no-store attempt, superseded) + 1500646 (root fix). Reusable lesson: on this zone, NEVER serve alternate content representations on the same URL via request headers — CF cache ignores Accept/Vary and overrides no-store; distinguish variants by URL.
