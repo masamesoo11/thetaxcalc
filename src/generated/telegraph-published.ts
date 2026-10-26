@@ -129,5 +129,25 @@ export const TELEGRAPH_PUBLISHED: Record<string, { url: string; publishedAt: str
   "illinois-income-tax-guide-2026": {
     "url": "https://telegra.ph/Illinois-Income-Tax-Guide-2026-10-25",
     "publishedAt": "2026-10-25T12:25:13Z"
+  },
+  "spreadsheet-formula-to-calculate-income-tax-2026": {
+    "url": "https://telegra.ph/Spreadsheet-Formula-to-Calculate-Income-Tax-Excel--Google-Sheets-10-26",
+    "publishedAt": "2026-10-26T14:01:34Z"
+  },
+  "take-home-pay-calculator-guide-2026": {
+    "url": "https://telegra.ph/Take-Home-Pay-Calculator-2026-How-Much-You-Actually-Keep-10-26",
+    "publishedAt": "2026-10-26T14:01:34Z"
+  },
+  "how-bonuses-are-taxed-2026": {
+    "url": "https://telegra.ph/How-Are-Bonuses-Taxed-in-2026-The-22-Flat-Rate-Explained-10-26",
+    "publishedAt": "2026-10-26T14:01:34Z"
+  },
+  "lottery-tax-guide-2026": {
+    "url": "https://telegra.ph/Lottery-Tax-How-Much-You-Really-Keep-After-Winning-in-2026-10-26",
+    "publishedAt": "2026-10-26T14:01:34Z"
+  },
+  "hourly-wage-after-tax-questions-2026": {
+    "url": "https://telegra.ph/Hourly-Wage-After-Tax-Questions-Answered-2026-Calculator-10-26",
+    "publishedAt": "2026-10-26T14:01:34Z"
   }
 };
