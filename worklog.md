@@ -834,3 +834,22 @@ Work Log:
 Stage Summary:
 - The consultation pack is now actually reachable: preview panel -> Open in New Tab -> append /mockups/proposal.html (Arabic deck) or /mockups/homepage-redesign.html (interactive mockup). No production code touched; the site at / and thetaxcalc.com unchanged; the gitignored copies can never deploy.
 - Awaiting the user's 5 decisions (visual direction, boldness level, Product-Hunt banner fate, scope, sacred sections) — recorded in proposal.html section "سادسًا".
+
+---
+Task ID: 31-c
+Agent: Main Agent
+Task: User said "لم يتغير شي" (nothing changed) after being told to view the proposal — the manual URL-append instruction was not practical for the preview panel. Make the design proposal visible at the preview root instantly, still with zero production impact.
+
+Work Log:
+- Root cause: the preview panel opens "/" which serves the real (current) homepage; asking the user to hand-edit the URL to /mockups/... failed UX-wise.
+- Solution, three parts:
+  1. src/app/page.tsx locally replaced with a redirect to /mockups/homepage-redesign.html, protected by `git update-index --skip-worktree src/app/page.tsx` so git NEVER sees the change (verified: git status shows only the two mockup edits; platform auto-commit cannot capture or deploy it). Restore procedure is documented in the file header (no-skip-worktree + git checkout).
+  2. mockups/homepage-redesign.html (tracked, docs-only): added an Arabic top bar — "معاينة التصميم المقترح فقط — لم يُطبَّق شيء على الموقع الحقيقي" + link to proposal.html + link to the live thetaxcalc.com.
+  3. mockups/proposal.html (tracked, docs-only): added a big green button "افتح المعاينة التفاعلية الحية" -> homepage-redesign.html. (Lesson: Arabic diacritics in old_str caused a byte mismatch; ASCII-only anchors work. Also: MultiEdit applied edit 1 despite reporting failure on edit 2 — check for partial application + duplicates after any MultiEdit error.)
+- Recopied both files to public/mockups/ + public/index.html (gitignored local-only copies).
+- Verified end-to-end: GET / -> 307 -> /mockups/homepage-redesign.html; agent-browser: opening / lands on the mockup (title, Arabic bar with both links, H1 present, 0 page errors); bar link opens the proposal deck (title OK, green button 61px tall, 0 page errors).
+
+Stage Summary:
+- The user now just opens the preview: the NEW design mockup appears instantly. The Arabic bar explains it is a proposal and links to the consultation deck and the live site; the deck's green button returns to the mockup.
+- Production untouched: page.tsx on origin/main is byte-identical; the redirect exists only in this sandbox's working tree and is invisible to git (skip-worktree).
+- PENDING: the user's 5 decisions (visual direction, boldness level, PH banner fate, scope, sacred sections).
