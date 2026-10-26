@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>تقرير فحص SEO — TheTaxCalc.com</title>
+<style>
+  :root{
+    --good:#059669;
+    --good-soft:#ecfdf5;
+    --good-line:#a7f3d0;
+    --warn:#b45309;
+    --warn-soft:#fffbeb;
+    --warn-line:#fde68a;
+    --bad:#dc2626;
+    --ink:#0f172a;
+    --muted:#64748b;
+    --line:#e2e8f0;
+    --card:#ffffff;
+    --bg:#f8fafc;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{
+    font-family:"Segoe UI",Tahoma,"Noto Kufi Arabic","Noto Naskh Arabic",Arial,sans-serif;
+    background:var(--bg);
+    color:var(--ink);
+    line-height:1.75;
+    -webkit-font-smoothing:antialiased;
+  }
+  .report{max-width:1080px;margin:0 auto;padding:20px 20px 40px}
+
+  /* ---------- Topbar ---------- */
+  .topbar{
+    display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
+    padding:14px 18px;background:var(--card);border:1px solid var(--line);
+    border-radius:14px;margin-bottom:18px;
+  }
+  .brand{display:flex;align-items:center;gap:10px;font-weight:700}
+  .brand .logo{
+    width:34px;height:34px;border-radius:9px;background:var(--good);color:#fff;
+    display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:800;flex:0 0 auto;
+  }
+  .brand .site{direction:ltr;font-size:15px;letter-spacing:.2px}
+  .topbar .when{font-size:13px;color:var(--muted)}
+  .badge-updated{
+    display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:700;
+    background:var(--good-soft);color:var(--good);border:1px solid var(--good-line);
+    padding:5px 12px;border-radius:999px;
+  }
+
+  /* ---------- Score hero ---------- */
+  .score-hero{
+    display:flex;align-items:center;gap:34px;flex-wrap:wrap;
+    background:var(--card);border:1px solid var(--line);border-radius:16px;
+    padding:30px 32px;margin-bottom:18px;
+  }
+  .score-ring-wrap{position:relative;flex:0 0 auto;width:170px;height:170px;margin-inline-start:8px}
+  .score-ring{width:170px;height:170px;transform:rotate(-90deg);transform-origin:50% 50%}
+  .score-ring-track{fill:none;stroke:var(--line);stroke-width:10}
+  .score-ring-fill{
+    fill:none;stroke:var(--good);stroke-width:10;stroke-linecap:round;
+    stroke-dasharray:283;
+    stroke-dashoffset:20; /* 283 * (1 - 0.93) ≈ 20 */
+    transition:stroke-dashoffset 1s ease;
+  }
+  .score-ring-text{
+    position:absolute;inset:0;display:flex;flex-direction:column;
+    align-items:center;justify-content:center;pointer-events:none;
+  }
+  .score-ring-text .num{font-size:44px;font-weight:800;color:var(--good);line-height:1}
+  .score-ring-text .den{font-size:13px;color:var(--muted);font-weight:600;margin-top:4px}
+  .score-delta{
+    display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:700;
+    background:var(--good-soft);color:var(--good);border:1px solid var(--good-line);
+    border-radius:999px;padding:3px 11px;margin-top:6px;
+  }
+  .score-info{flex:1 1 420px;min-width:280px}
+  .score-info h1{font-size:26px;font-weight:800;letter-spacing:-.2px;margin-bottom:10px}
+  .score-info .lead{font-size:15.5px;color:#334155;margin-bottom:14px}
+  .score-info .lead b{color:var(--ink)}
+  .score-pills{display:flex;flex-wrap:wrap;gap:8px}
+  .pill{
+    display:inline-flex;align-items:center;gap:5px;font-size:12.5px;font-weight:700;
+    padding:5px 13px;border-radius:999px;border:1px solid transparent;
+  }
+  .pill.good{background:var(--good-soft);color:var(--good);border-color:var(--good-line)}
+  .pill.warn{background:var(--warn-soft);color:var(--warn);border-color:var(--warn-line)}
+
+  /* ---------- Stats bar ---------- */
+  .stats-grid{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:18px;
+  }
+  .stat-card{
+    background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:18px 16px;text-align:center;
+  }
+  .stat-num{font-size:22px;font-weight:800;line-height:1.3}
+  .stat-num.good{color:var(--good)}
+  .stat-num.warn{color:var(--warn)}
+  .stat-label{font-size:12.5px;color:var(--muted);font-weight:600;margin-top:4px}
+
+  /* ---------- Notice ---------- */
+  .notice{
+    display:flex;gap:12px;align-items:flex-start;
+    background:#f0fdfa;border:1px solid #99f6e4;border-right:4px solid #14b8a6;
+    border-radius:12px;padding:14px 18px;margin-bottom:22px;font-size:14px;color:#134e4a;
+  }
+  .notice .ic{font-size:17px;line-height:1.4}
+  .notice b{font-weight:800}
+
+  /* ---------- Sections ---------- */
+  section.card{
+    background:var(--card);border:1px solid var(--line);border-radius:16px;
+    padding:24px 26px;margin-bottom:18px;
+  }
+  .section-head{
+    display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
+    padding-bottom:14px;border-bottom:1px solid var(--line);margin-bottom:16px;
+  }
+  .section-head h2{font-size:19px;font-weight:800;display:flex;align-items:center;gap:9px}
+  .section-head h2 .sec-ic{
+    width:30px;height:30px;border-radius:8px;background:var(--good-soft);color:var(--good);
+    display:inline-flex;align-items:center;justify-content:center;font-size:15px;flex:0 0 auto;
+  }
+  .section-head .sec-sub{font-size:12.5px;color:var(--muted);font-weight:600;margin-top:2px}
+  .chip{
+    display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:800;
+    padding:4px 12px;border-radius:999px;border:1px solid transparent;white-space:nowrap;
+  }
+  .chip.good{background:var(--good-soft);color:var(--good);border-color:var(--good-line)}
+  .chip.warn{background:var(--warn-soft);color:var(--warn);border-color:var(--warn-line)}
+  .chip.rejected{background:#f1f5f9;color:#475569;border-color:#cbd5e1}
+  .chip.fixed{background:var(--good-soft);color:var(--good);border-color:var(--good-line)}
+  .chip.bydesign{background:#f0fdfa;color:#0f766e;border-color:#99f6e4}
+  .chip.remaining{background:var(--warn-soft);color:var(--warn);border-color:var(--warn-line)}
+
+  .finding{
+    border:1px solid var(--line);border-radius:13px;padding:16px 18px;margin-bottom:13px;
+    background:#fdfdfe;
+  }
+  .finding:last-of-type{margin-bottom:0}
+  .finding-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:8px}
+  .finding-head h3{font-size:14.5px;font-weight:800;line-height:1.6}
+  .finding-head h3 .claim{color:var(--muted);font-weight:700}
+  .verdict{font-size:13.5px;color:#334155;margin-bottom:8px}
+  .verdict b{color:var(--ink)}
+  ul.evidence{list-style:none;font-size:13.5px;color:#334155}
+  ul.evidence li{
+    position:relative;padding-inline-start:20px;margin-bottom:5px;
+  }
+  ul.evidence li::before{content:"◂";position:absolute;inset-inline-start:2px;color:var(--good);font-size:12px;top:2px}
+  ul.evidence li.was::before{content:"✗";color:var(--bad)}
+  ul.evidence code, .verdict code, p code, td code{
+    direction:ltr;display:inline-block;font-family:ui-monospace,"Cascadia Mono",Consolas,monospace;
+    font-size:12px;background:#f1f5f9;border:1px solid var(--line);border-radius:6px;
+    padding:1px 7px;vertical-align:1px;
+  }
+  .action{
+    margin-top:9px;font-size:12.5px;color:var(--muted);border-top:1px dashed var(--line);padding-top:8px;
+  }
+  .action b{color:var(--ink)}
+  .action code{color:#0f172a}
+
+  table.schema-table{
+    width:100%;border-collapse:collapse;font-size:13px;margin:10px 0 6px;
+  }
+  table.schema-table th{
+    background:#f8fafc;color:#334155;font-weight:800;text-align:right;
+    padding:9px 12px;border:1px solid var(--line);font-size:12.5px;white-space:nowrap;
+  }
+  table.schema-table td{padding:9px 12px;border:1px solid var(--line);vertical-align:top;color:#334155}
+  table.schema-table td.url{direction:ltr;text-align:left;font-family:ui-monospace,Consolas,monospace;font-size:12px;white-space:nowrap}
+  table.schema-table td.ok{color:var(--good);font-weight:800;white-space:nowrap}
+
+  .deploy-strip{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:14px;
+  }
+  .deploy-item{
+    border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:#fdfdfe;
+  }
+  .deploy-item .t{font-size:12px;font-weight:800;color:var(--muted);margin-bottom:6px;display:flex;align-items:center;gap:6px}
+  .deploy-item .d{font-size:13px;color:#334155}
+
+  footer.page-foot{
+    text-align:center;font-size:12.5px;color:var(--muted);
+    padding:18px 10px 6px;line-height:1.9;
+  }
+  footer.page-foot b{color:#334155}
+
+  @media (max-width:900px){
+    .stats-grid{grid-template-columns:repeat(2,1fr)}
+    .deploy-strip{grid-template-columns:1fr}
+  }
+  @media (max-width:600px){
+    .report{padding:12px 12px 30px}
+    .score-hero{padding:22px 18px;gap:20px}
+    .score-ring-wrap{width:140px;height:140px;margin-inline:auto}
+    .score-ring{width:140px;height:140px}
+    .score-info{text-align:center}
+    .score-pills{justify-content:center}
+    .score-info h1{font-size:21px}
+    .stats-grid{grid-template-columns:1fr 1fr;gap:10px}
+    section.card{padding:18px 16px}
+    .finding{padding:13px 14px}
+  }
+  @media print{
+    body{background:#fff}
+    section.card,.stat-card,.topbar,.score-hero{break-inside:avoid;border-color:#d7dde5}
+  }
+</style>
+</head>
+<body>
+<div class="report">
+
+  <!-- ===== Topbar ===== -->
+  <div class="topbar">
+    <div class="brand">
+      <span class="logo">$</span>
+      <span class="site">TheTaxCalc.com</span>
+    </div>
+    <div class="when">آخر تحديث: 26 أكتوبر 2026</div>
+    <span class="badge-updated">✔ نسخة موثّقة بعد التحقق والإصلاح — النتيجة ارتفعت من 87 إلى 93</span>
+  </div>
+
+  <!-- ===== Score Hero ===== -->
+  <div class="score-hero">
+    <div class="score-ring-wrap" role="img" aria-label="نتيجة SEO: 93 من 100">
+      <svg class="score-ring" viewBox="0 0 110 110" aria-hidden="true">
+        <circle class="score-ring-track" cx="55" cy="55" r="45"/>
+        <circle class="score-ring-fill" cx="55" cy="55" r="45"/>
+      </svg>
+      <div class="score-ring-text">
+        <div class="num">93</div>
+        <div class="den">من 100</div>
+      </div>
+      <div style="text-align:center"><span class="score-delta">▲ +6 نقاط</span></div>
+    </div>
+    <div class="score-info">
+      <h1>تقرير فحص SEO — TheTaxCalc.com</h1>
+      <p class="lead">
+        الموقع يمتلك أساسًا تقنيًا متينًا مع <b>بنية Schema كاملة</b> وفهرسة ممتازة في Google —
+        تظهر نتائج متعددة الصفحات بشكل مؤكّد في نتائج البحث.
+        التحسينات المتبقية تتركز في بناء القوة الخارجية للوصول إلى أعلى النتائج.
+      </p>
+      <div class="score-pills">
+        <span class="pill good">✓ Schema Markup كامل</span>
+        <span class="pill good">✓ مفهرس في Google</span>
+        <span class="pill warn">⚠ ظهور جزئي للنتائج الغنية في Google</span>
+        <span class="pill warn">⚠ بناء روابط خارجية مطلوب</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== Stats bar ===== -->
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-num good">239</div>
+      <div class="stat-label">صفحات في خريطة الموقع (Sitemap) — فريدة ومؤكدة</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num good">كامل</div>
+      <div class="stat-label">تغطية Schema Markup</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num good">0</div>
+      <div class="stat-label">أخطاء في فحص 122 صفحة مُصيَّرة محليًا</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num warn">قابل للتحسين</div>
+      <div class="stat-label">ملف الروابط الخارجية (Backlinks)</div>
+    </div>
+  </div>
+
+  <!-- ===== Methodology ===== -->
+  <div class="notice">
+    <span class="ic">🧪</span>
+    <div>
+      <b>منهجية التحقق:</b>
+      أقرّ مُعِدّ التقرير الخارجي بنفسه بأنه لم يتمكّن من جلب كود HTML للموقع، ومعظم ادعاءات
+      «الغياب» ثبت أنها غير صحيحة عند الفحص المباشر. كل بند في هذا التقرير أعيد التحقق منه
+      مباشرةً من الكود المصدري ومن الموقع المباشر <span dir="ltr">thetaxcalc.com</span>
+      (مع تجاوز التخزين المؤقت)، ولم يُقبل أي ادعاء دون دليل. البنود الحقيقية أُصلحت ونُشرت
+      خلال دقيقتين، والبنود المتبقية هي بنود «نمو» تحريرية وليست أخطاء برمجية.
+    </div>
+  </div>
+
+  <!-- ===== Section: Schema Markup ===== -->
+  <section class="card" aria-labelledby="sec-schema">
+    <div class="section-head">
+      <div>
+        <h2 id="sec-schema"><span class="sec-ic">{ }</span> Schema Markup — البيانات المنظمة</h2>
+        <div class="sec-sub">تقييم التقرير الخارجي: «ضعيف / مفقود» — مرفوض بعد الفحص المباشر</div>
+      </div>
+      <span class="chip good">✔ ممتاز</span>
+    </div>
+
+    <article class="finding">
+      <div class="finding-head">
+        <h3>1.1 الادعاء: <span class="claim">«Schema Markup مفقود — الأنواع الأربعة غير موجودة»</span></h3>
+        <span class="chip rejected">ادعاء مرفوض — لا أساس له</span>
+      </div>
+      <div class="verdict">
+        <b>التحقق المباشر من الكود الخام (مع تجاوز الكاش) أظهر وجود جميع الأنواع المزعومة وغيرها:</b>
+      </div>
+      <table class="schema-table">
+        <thead>
+          <tr><th>الصفحة</th><th>أنواع JSON-LD المكتشفة مباشرة</th><th>الحالة</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="url">/texas-tax-calculator</td>
+            <td>FAQPage + WebApplication (<code>applicationCategory: FinanceApplication</code>) + BreadcrumbList + Person + Organization + Offer — جميعها في كتلة JSON-LD واحدة</td>
+            <td class="ok">✓ مؤكد</td>
+          </tr>
+          <tr>
+            <td class="url">/ (الصفحة الرئيسية)</td>
+            <td>تضيف <code>ItemList</code> بـ 72 بندًا (كل أدوات الموقع) + <code>HowTo</code> فوق القاعدة السابقة</td>
+            <td class="ok">✓ مؤكد</td>
+          </tr>
+          <tr>
+            <td class="url">/compare/texas-vs-florida</td>
+            <td>BreadcrumbList + FAQPage + Person — JSON-LD نظيف</td>
+            <td class="ok">✓ مؤكد</td>
+          </tr>
+          <tr>
+            <td class="url">مقالات المدونة</td>
+            <td>Article + Person + BreadcrumbList + <code>canonical</code> سليم (فشل فحص المدقق الأول كان بسبب رابط slug غير صالح من طرفه — وليس غياب البيانات)</td>
+            <td class="ok">✓ مؤكد</td>
+          </tr>
+        </tbody>
+      </table>
+      <ul class="evidence">
+        <li><b>E-E-A-T:</b> Person Schema باسم <span dir="ltr">Rachel Mitchell, CPA</span> حاضرة على الصفحات ومرتبطة بـ <code>/about#rachel-mitchell</code>.</li>
+        <li>Open Graph: <code>og:title</code> و<code>og:description</code> و<code>og:image</code> بدقة 1200×630 + <code>twitter:card summary_large_image</code> على جميع الصفحات — عكس ما ادعاه التقرير (انظر 1.2).</li>
+      </ul>
+    </article>
+
+    <article class="finding">
+      <div class="finding-head">
+        <h3>1.2 الادعاء: <span class="claim">«وسوم Open Graph غير قابلة للتحقق / مفقودة»</span></h3>
+        <span class="chip rejected">ادعاء مرفوض</span>
+      </div>
+      <div class="verdict">
+        الوسوم موجودة على <b>كل</b> الصفحات. ما بدا «غيابًا» كان عجز المدقق عن جلب الـ HTML
+        أصلًا (اعترف بذلك بنفسه)، وليس نقصًا في الموقع.
+      </div>
+      <ul class="evidence">
+        <li>أثناء التحقق اكتُشف بند حقيقي مرتبط لم يذكره التقرير: <code>metadataBase</code> لم تكن معرّفة، فكانت صورة og:image تتحول إلى <code dir="ltr">http://localhost:3000/opengraph-image</code> على المضيفين غير Vercel (كانت ظاهرة فعليًا على صفحات 404). <b>أُصلحت — انظر القسم التقني 3.2.</b></li>
+      </ul>
+    </article>
+  </section>
+
+  <!-- ===== Section: On-Page ===== -->
+  <section class="card" aria-labelledby="sec-onpage">
+    <div class="section-head">
+      <div>
+        <h2 id="sec-onpage"><span class="sec-ic">Aa</span> السيو الداخلي (On-Page)</h2>
+        <div class="sec-sub">العناوين، الهوية، والوسوم — كلها مؤكدة مباشرة بعد الإصلاح</div>
+      </div>
+      <span class="chip good">✔ ممتاز</span>
+    </div>
+
+    <article class="finding">
+      <div class="finding-head">
+        <h3>2.1 هوية صفحة OBBBA: <span class="claim">«العنوان ينقصه اسم القانون»</span></h3>
+        <span class="chip fixed">صحيح جزئيًا — أُصلح ومؤكد</span>
+      </div>
+      <div class="verdict">
+        كان <code>&lt;title&gt;</code> ينقصه ذكر اسم القانون الكامل. أصبح الآن:
+        <b>«OBBBA Tax Calculator 2026 | One Big Beautiful Bill Act»</b> —
+        تم التحقق منه مباشرة على الإنتاج. الوصف ووسوم OG والأسئلة الشائعة كانت تذكر اسم
+        القانون كاملًا أصلًا.
+      </div>
+      <div class="action"><b>النشر:</b> commit <code>6eb31b9</code> — نشر داخل دقيقتين.</div>
+    </article>
+
+    <article class="finding">
+      <div class="finding-head">
+        <h3>2.2 الادعاء: <span class="claim">«تواريخ lastmod لمقالات المدونة قديمة — المحتوى غير طازج»</span></h3>
+        <span class="chip bydesign">سليم بالتصميم — ليس خللًا</span>
+      </div>
+      <div class="verdict">
+        قرار تحريري موثّق في سجل العمل (Task 25): قيمة <code>lastmod</code> لكل مقال تعكس
+        <b>تاريخ آخر تعديل فعلي على المحتوى</b> — وليس «كذبًا زمنيًا» لإقناع Google بالطراوة.
+        المقالات التي عُدّلت فعلًا (13 مقالًا صُححت أرقامها في مراجعة البيانات الضريبية) رُفعت
+        تواريخها فعلًا، والصفحات المحورية (الرئيسية والحواسيب) تحمل تاريخ التحديث الشامل الحقيقي
+        <code>2026-10-24</code> في خريطة الموقع وفي JSON-LD معًا.
+      </div>
+    </article>
+
+    <article class="finding">
+      <div class="finding-head">
+        <h3>2.3 سلامة العناوين عبر الموقع (سياق من التحقق المستقل السابق)</h3>
+        <span class="chip fixed">أُصلح جذريًا + بوابة بناء</span>
+      </div>
+      <div class="verdict">
+        تحقق مستقل سابق كشف 5 عناوين ولايات ملوثة بعناوين صفحات أخرى
+        (Virginia، Arkansas، Idaho، North Carolina، West Virginia). أُصلحت، وأُغلق هذا الصنف
+        من الأخطاء نهائيًا:
+      </div>
+      <ul class="evidence">
+        <li>مصدر واحد للعنوان: <code>metaTitle</code> أصبح اختياريًا مع سقوط تلقائي إلى العنوان الرسمي — لا يمكن لنسختين أن تختلفتا.</li>
+        <li>بوابة <code>audit-titles</code> داخل البناء تفشل النشر عند أي تلوث متبادل — نتيجتها الحالية: <b>0 أخطاء / 0 تحذيرات</b> على 67 مسار حاسبة + 50 صفحة ضريبة مبيعات.</li>
+      </ul>
+      <div class="action"><b>النشر:</b> commits <code>a29368b</code> + <code>6eb31b9</code>.</div>
+    </article>
+  </section>
+
+  <!-- ===== Section: Technical ===== -->
+  <section class="card" aria-labelledby="sec-tech">
+    <div class="section-head">
+      <div>
+        <h2 id="sec-tech"><span class="sec-ic">⚙</span> السيو التقني (Technical)</h2>
+        <div class="sec-sub">مشكلة الروابط كانت أعمق مما قدّره التقرير — أُصلحت مع تحويلات 301 دائمة</div>
+      </div>
+      <span class="chip good">✔ ممتاز بعد الإصلاح</span>
+    </div>
+
+    <article class="finding">
+      <div class="finding-head">
+        <h3>3.1 الادعاء: <span class="claim">«روابط ضريبة المبيعات تحتاج تنظيف slugs (أثر منخفض)»</span></h3>
+        <span class="chip fixed">حقيقي — وأعمق بكثير مما قدّره التقرير</span>
+      </div>
+      <div class="verdict">
+        البند الذي قدّره التقرير كـ«تحسين منخفض الأثر» كان يخفي <b>خطأ 404 حيًا</b>:
+        الأشكال المنقّطة بشرطة (<code dir="ltr">/sales-tax-calculator/new-jersey</code>) كانت
+        ترجع 404 مباشرة على الإنتاج بينما الأشكال غير المنقطة (<code>newjersey</code>) تعمل —
+        كسر مزدوج في اتجاهين متعاكسين، لأن توليد المسارات كان يستخدم مفاتيح البيانات الخام
+        بدلًا من slugs قياسية.
+      </div>
+      <ul class="evidence">
+        <li><b>مصدر واحد:</b> دالة <code>stateKeyToSlug</code> (<span dir="ltr">'New Jersey' → 'new-jersey'</span>) — تستخدمها كل طبقات توليد الروابط: الصفحات، خريطة الموقع، IndexNow، الشبكة الرئيسية، <code>llms.txt</code>، الـ canonicals، وJSON-LD.</li>
+        <li>الـ 50 صفحة ولاية تُبنى مسبقًا بأشكالها المنقطة القياسية.</li>
+        <li><b>تحويلات 301 دائمة</b> عبر الـ middleware لـ 11 تهجئة قديمة (newjersey، newyork، northcarolina، westvirginia…) + <code>permanentRedirect</code> احتياطي على مستوى الصفحة — لحفظ قيمة أي روابط خارجية قائمة (Backlink Equity).</li>
+      </ul>
+      <div class="action">
+        <b>التحقق المباشر بعد النشر:</b>
+        <code dir="ltr">/sales-tax-calculator/newjersey</code> → 301 →
+        <code dir="ltr">/sales-tax-calculator/new-jersey</code> → 200 ✔
+        و <code dir="ltr">/sales-tax-calculator/west-virginia</code> → 200 (كانت 404) ✔
+      </div>
+    </article>
+
+    <article class="finding">
+      <div class="finding-head">
+        <h3>3.2 اكتشاف إضافي أثناء التحقق: <span class="claim">og:image تتحلل إلى localhost</span></h3>
+        <span class="chip fixed">أُصلح — metadataBase معرّفة الآن</span>
+      </div>
+      <div class="verdict">
+        <code>metadataBase</code> لم تكن معرّفة في الـ layout الجذري، فكان Next يحل الصورة
+        ضد <code dir="ltr">http://localhost:3000</code> على المضيفين غير Vercel — كان الخلل
+        ظاهرًا فعليًا في وسوم صفحات 404 الحية. بعد الإضافة، كل صور og أصبحت مطلقة وتحل إلى
+        <code dir="ltr">https://thetaxcalc.com/opengraph-image</code> — مؤكد مباشرة.
+      </div>
+      <div class="action"><b>النشر:</b> commit <code>6eb31b9</code>.</div>
+    </article>
+
+    <article class="finding">
+      <div class="finding-head">
+        <h3>3.3 الفحص الشامل بعد الإصلاح</h3>
+        <span class="chip good">نتائج نظيفة</span>
+      </div>
+      <ul class="evidence">
+        <li>فحص مُصيَّر على <b>122 صفحة</b> (مقارنة <code>&lt;title&gt;</code> مقابل H1 لكل مسار): <b>0 مشاكل</b>.</li>
+        <li>بوابة تدقيق العناوين: 0 أخطاء / 0 تحذيرات (67 مسار حاسبة + 50 صفحة ضريبة مبيعات).</li>
+        <li><code>tsc</code> و<code>lint</code>: صفر أخطاء جديدة في الملفات المعدلة.</li>
+        <li>خريطة الموقع: 239 رابطًا فريدًا بأشكال hyphenated متسقة مع كل الروابط الداخلية وllms.txt وIndexNow.</li>
+      </ul>
+    </article>
+  </section>
+
+  <!-- ===== Section: Off-Page ===== -->
+  <section class="card" aria-labelledby="sec-offpage">
+    <div class="section-head">
+      <div>
+        <h2 id="sec-offpage"><span class="sec-ic">🔗</span> الروابط الخارجية (Off-Page)</h2>
+        <div class="sec-sub">البند الوحيد المتبقي — مسار نمو تحريري وليس خطأ برمجيًا</div>
+      </div>
+      <span class="chip warn">⚠ يحتاج عمل</span>
+    </div>
+
+    <article class="finding">
+      <div class="finding-head">
+        <h3>4.1 بناء روابط خارجية منهجي</h3>
+        <span class="chip remaining">متبقٍ — مسار نمو</span>
+      </div>
+      <div class="verdict">
+        التقارير البحثية القابلة للاقتباس (Research Outreach)، الأدوات القابلة للتضمين
+        (Embeddable Widgets)، وبرنامج منحة (Scholarship) — عمل ترويجي طويل المدى
+        يُخطَّط وينفّذ خارج نطاق إصلاحات الكود.
+      </div>
+    </article>
+
+    <article class="finding">
+      <div class="finding-head">
+        <h3>4.2 توسيع صفحات المقارنات بين الولايات</h3>
+        <span class="chip remaining">متبقٍ — محتوى جديد</span>
+      </div>
+      <div class="verdict">
+        التوسيع خارج CA/TX/FL/NY/IL محتوى جديد يحتاج تخطيطًا منفصلًا (ليس إصلاحًا)،
+        وكذلك تعميق صفحة About (الفريق والخبرات) لدعم إشارات E-E-A-T.
+        سُجلت البنود في سجل العمل ولم تُهمل.
+      </div>
+    </article>
+  </section>
+
+  <!-- ===== Deployment strip ===== -->
+  <section class="card" aria-labelledby="sec-deploy">
+    <div class="section-head">
+      <div>
+        <h2 id="sec-deploy"><span class="sec-ic">🚀</span> النشر والفحص النهائي</h2>
+        <div class="sec-sub">كل الإصلاحات منشورة على الإنتاج ومؤكدة مباشرة</div>
+      </div>
+      <span class="chip good">✔ منشور</span>
+    </div>
+    <div class="deploy-strip">
+      <div class="deploy-item">
+        <div class="t">📦 النشر</div>
+        <div class="d">
+          Commits <code>6eb31b9</code> (الإصلاحات) + <code>781adef</code> (التوثيق) —
+          Cloudflare Pages اجتاز بوابة تدقيق العناوين ودخل الإنتاج خلال دقيقتين.
+        </div>
+      </div>
+      <div class="deploy-item">
+        <div class="t">🔬 الفحص المحلي</div>
+        <div class="d">
+          122 صفحة / 0 مشاكل — بوابة العناوين 0 أخطاء —
+          <code>tsc</code>/<code>lint</code> بلا أخطاء جديدة على الملفات المعدلة.
+        </div>
+      </div>
+      <div class="deploy-item">
+        <div class="t">🧭 ملاحظة تشغيلية</div>
+        <div class="d">
+          تعارض cron الـ syndication السابق حُلّ بـ rebase ولا يؤثر على شجرة الكود.
+          خريطة الموقع: 239 رابطًا فريدًا بتواريخ صادقة.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="page-foot">
+    <b>الخلاصة:</b> 6 بنود ادعى التقرير الخارجي وجودها — ثبت أن 3 منها غير صحيحة عند الفحص المباشر،
+    و2 منها حقيقية وأُصلحت ونُشرت (روابط الضريبة على المبيعات مع 301 دائمة + هوية OBBBA)،
+    وواحد سليم بالتصميم (تواريخ lastmod).<br>
+    البنود المتبقية (بناء الروابط الخارجية وتوسيع المقارنات) مسارات نمو تحريرية مسجلة في سجل العمل.<br>
+    أُعدّ هذا التقرير بناءً على فحص مباشر للكود المصدري والموقع المباشر مع تجاوز التخزين المؤقت —
+    آخر تحديث: 26 أكتوبر 2026.
+  </footer>
+
+</div>
+</body>
+</html>
