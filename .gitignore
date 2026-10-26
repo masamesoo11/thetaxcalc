@@ -19,4 +19,10 @@ upload/Pasted Content_*.txt
 # Dev server logs & scratch output (platform auto-commit noise)
 dev.log
 .zscripts/dev.log
+.zscripts/dev.pid
 tool-results/
+
+# local-only preview copies of design mockups (tracked source of truth: /mockups/)
+# re-create after a sandbox rebuild with: mkdir -p public/mockups && cp mockups/*.html public/mockups/
+/public/mockups/
+/public/index.html

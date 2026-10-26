@@ -818,3 +818,19 @@ Stage Summary:
 - Deliverables awaiting user decision: mockups/proposal.html (Arabic consultation) + mockups/homepage-redesign.html (interactive preview). NO implementation until the user answers the 5 decision questions.
 - Key design facts for the implementation phase: new homepage = 4,690px vs 14,246px; single accent (emerald) replaces neon; state card-wall -> searchable table; 72 cards -> filtered 12 + view-all; hero calculator = the real paycheck calculator embedded.
 - SEO guardrails locked: presentation-layer-only change, all links/content stay SSR, audit gates (titles + 122-page sweep + Lighthouse) run after each phase.
+
+---
+Task ID: 31-b
+Agent: Main Agent
+Task: User reported the preview refused the connection ("المعاينه لم تظهر — رفض preview-chat-...space-z.ai الاتصال") when trying to view the Task 31 consultation pack. Diagnose and make the pack actually viewable in the preview panel — still without touching any production code.
+
+Work Log:
+- Diagnosed: dev server (restarted 16:20) is healthy NOW — port 3000 listening, GET / 200 in ~350ms, and the EXTERNAL preview URL (preview-chat-5e797299-3b84-4113-bffc-005e05109964.space-z.ai) returned HTTP 200 in 0.76s. The user's "connection refused" happened while the server was down/wedged before that restart. Stale .zscripts/dev.pid (1279) updated to the live pid (2030).
+- Root gap found: Task 31's deliverables live in /mockups (repo root) — Next serves ONLY public/ and routes, so they were INVISIBLE through the preview no matter what. That is the real reason "the preview didn't show" the proposal.
+- Fix (zero production impact): copied mockups/proposal.html + mockups/homepage-redesign.html into public/mockups/ (local-only, gitignored) so the preview serves them at /mockups/proposal.html and /mockups/homepage-redesign.html. .gitignore now covers /public/mockups/ + /public/index.html with a re-copy note for future sandbox rebuilds (tracked source of truth stays /mockups). Verified public/index.html does NOT hijack "/" — the app route wins, / still serves the real site.
+- Hygiene: .zscripts/dev.pid was still tracked despite d5e006f's intent — untracked it (git rm --cached) and added to .gitignore.
+- Verified via agent-browser over HTTP: proposal deck (correct title, RTL/ar, 6 sections, 5 decision questions, 4/4 embedded screenshots loaded, option-click interactivity works, 0 page errors); redesign mockup (title, full structure, LIVE calculator: $95k/single/TX/monthly -> $6,285 take-home with correct federal/SS/Medicare breakdown, theme toggle flips body bg rgb(250,250,249) -> rgb(12,15,20), 0 page errors).
+
+Stage Summary:
+- The consultation pack is now actually reachable: preview panel -> Open in New Tab -> append /mockups/proposal.html (Arabic deck) or /mockups/homepage-redesign.html (interactive mockup). No production code touched; the site at / and thetaxcalc.com unchanged; the gitignored copies can never deploy.
+- Awaiting the user's 5 decisions (visual direction, boldness level, Product-Hunt banner fate, scope, sacred sections) — recorded in proposal.html section "سادسًا".
