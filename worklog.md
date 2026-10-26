@@ -871,3 +871,21 @@ Stage Summary:
 - Three design directions now viewable from the preview root with zero clicks: C Luxury (default at /), A/B Clean (one click), consultation deck (one click) — user just opens the preview.
 - Decision question 1 now has options A (light clean), B (dark pro), C (gold luxury), or keep-improved-current-dark.
 - Production still untouched: page.tsx on origin/main byte-identical (skip-worktree); all changes are docs-only mockup files.
+
+---
+Task ID: 31-e
+Agent: Main Agent
+Task: Infra recovery after sandbox rebuild (detected while answering the user's direction-comparison question "ما هو الافضل" A vs B vs C). Zero code changes.
+
+Work Log:
+- Detected sandbox rebuild damage: public/mockups/ wiped (gitignored, didn't survive), root dev.log gone, dev server from 19:13 wedged (next-server pegged 110% CPU for 14+ min in a compile loop, requests hung).
+- src/app/page.tsx local redirect SURVIVED (still skip-worktree 'S' flag, still targets /mockups/homepage-luxury.html) — but with public/mockups gone it would have 404'd.
+- Restored: mkdir public/mockups + copied all three mockups (homepage-luxury / homepage-redesign / proposal) from tracked /mockups source of truth.
+- Killed the wedged server; two relaunch attempts (nohup, then setsid dev.sh) died during the tail of the rebuild instability window. Foreground test proved the app itself was healthy (GET / 307 in 578ms, mockup 200, no crash).
+- Final relaunch (setsid + nohup bash .zscripts/dev.sh, fully detached) is stable across tool calls: root 307 -> luxury 200, clean 200, proposal 200; EXTERNAL preview URL verified: 307 -> title "Design Preview — TheTaxCalc 2026 Luxury Redesign (Mockup, not production)".
+- Answered the user's A/B/C comparison with recommendation: A (light clean) as base + borrow gold accent touches from C; B included as toggle. Full reasoning delivered in Arabic.
+
+Stage Summary:
+- Preview chain fully restored end-to-end: open preview panel -> luxury mockup (C) instantly, bar links to clean A/B version and proposal deck.
+- Lesson recorded: after any sandbox rebuild, gitignored public/mockups/ + public/index.html must be re-copied (already noted in .gitignore), and dev server needs a fresh detached relaunch (setsid survives; plain nohup may not).
+- STILL consultation-only: awaiting user's decision on Q1 (A/B/C direction) + remaining 4 questions; no production code touched.
