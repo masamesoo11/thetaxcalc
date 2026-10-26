@@ -228,7 +228,13 @@ Visit https://thetaxcalc.com/about for the full page.`,
         status: 200,
         headers: {
           'Content-Type': 'text/markdown; charset=utf-8',
-          'Cache-Control': 'public, max-age=3600',
+          // CRITICAL: never cache the markdown variant (edge/browser/proxy).
+          // Cloudflare's cache key is URL-only — it ignores the Accept header —
+          // so a cached markdown response would be served to regular browsers
+          // (they would see raw markdown instead of the site). private, no-store
+          // keeps the edge cache reserved for the HTML variant only.
+          'Cache-Control': 'private, no-store',
+          'Vary': 'Accept',
         },
       });
     }
