@@ -149,5 +149,25 @@ export const TELEGRAPH_PUBLISHED: Record<string, { url: string; publishedAt: str
   "hourly-wage-after-tax-questions-2026": {
     "url": "https://telegra.ph/Hourly-Wage-After-Tax-Questions-Answered-2026-Calculator-10-26",
     "publishedAt": "2026-10-26T14:01:34Z"
+  },
+  "free-tax-calculator-no-signup-2026": {
+    "url": "https://telegra.ph/Free-Tax-Calculator-2026--No-Signup-No-Email-Instant-Results-10-27",
+    "publishedAt": "2026-10-27T13:04:00Z"
+  },
+  "how-much-tax-will-i-owe-2026": {
+    "url": "https://telegra.ph/How-Much-Tax-Will-I-Owe-in-2026-Complete-Calculator--Guide-10-27",
+    "publishedAt": "2026-10-27T13:04:00Z"
+  },
+  "tax-questions-answered-2026": {
+    "url": "https://telegra.ph/Tax-Questions-Answered-Brackets-Overtime--Bonuses-2026-10-27",
+    "publishedAt": "2026-10-27T13:04:00Z"
+  },
+  "tax-refund-questions-2026": {
+    "url": "https://telegra.ph/Tax-Refund-Questions-Answered-2026-10-27",
+    "publishedAt": "2026-10-27T13:04:00Z"
+  },
+  "inheritance-tax-questions-2026": {
+    "url": "https://telegra.ph/Inheritance-Tax-Questions-Answered-2026-Rules-10-27",
+    "publishedAt": "2026-10-27T13:04:00Z"
   }
 };
