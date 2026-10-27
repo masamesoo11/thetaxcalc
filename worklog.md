@@ -923,3 +923,22 @@ Work Log:
 
 Stage Summary:
 - The "not indexable" warning was a string-level canonical mismatch (root slash forms), never a real Google de-indexing risk — Google treats https://thetaxcalc.com and https://thetaxcalc.com/ as ONE URL. Ambiguity eliminated: canonical, og:url and sitemap root are now byte-identical "https://thetaxcalc.com/". Post-deploy live verification + GSC re-validation guidance delivered to user.
+
+---
+Task ID: 33
+Agent: Main Agent
+Task: User reported that after the homepage-only A+ launch, every INNER page (calculators, blog, any section) still showed the OLD dark design. This message answered the pending scope question (Q4) = whole site. Roll the A+ design out site-wide.
+
+Work Log:
+- Sized the surface: 124 tsx files use emerald accents; header/footer/PH-banner sitewide chrome is token-based; the root cause is layout.tsx's hardcoded <html class="dark"> + .dark token set + dark-tuned custom classes.
+- Core mechanism (commit c729333): globals.css :root tokens became the A+ light palette (warm-white #fafaf9, stone-ink #1c1917, champagne primary #b08d3e, gold-tint accent #faf5e9); a NEW @theme block REMAPS the emerald-50..950 scale to champagne-gold (legacy class NAMES kept → all 124 files recolor with zero renames; shade map tuned for light bg: emerald-600=#8a6a24 AA-text). All custom classes rewritten for light (glass→white glass, bg-mesh→gold radials, premium-card, gradient-text, divider, selection, focus, prose links/markers/blockquote/tables→deep gold, light scrollbar; code blocks stay dark-ink). Removed className="dark" from layout.tsx; theme-color + manifest.json → #fafaf9.
+- Ordered shade seds (124 files) to fix dark-tuned contrast on light: text-emerald-300/400/500→700/600/700, bg-emerald-500→600, CTA gradients from-emerald-600-to-500→700-600; then bright semantic texts (amber/red/orange/yellow/sky/blue/cyan/rose/purple/violet 200-500 → 600-700) — was washed-out on white (VLM caught amber-400 on the salary page).
+- Green hex → gold hex in 20 files (charts, icons, OG images); red kept (taxes), teal kept (data series); widgets-grid (3rd-party embeds) + admin audit dashboard (semantic pass/fail) EXCLUDED. error.tsx/global-error.tsx → A+ light. PH banner: orange → ink band + champagne (A+-consistent, still dismissible — Q3 remains open with user). AuthorBioCard: new variant prop ('light' default / 'ink' for dark sections); homepage closing band passes variant="ink".
+- QA: 22 routes across all page types = 200 (home, calculators, salary, compare, research, blog, blog post, strategic pages, legal). VLM batch QA on 7 screenshots → final verdict PASS (light bg everywhere, gold accents, no unreadable text, mobile 390px zero horizontal overflow). Computed-style spot checks: card titles ink-on-white, muted #57534e, footer white-glass. Live calc recompute verified post-reskin ($95k→$71,104.79 IL single with full breakdown). Zero page errors. Lint: unchanged 12 pre-existing.
+- Environment note: dev server died twice SILENTLY during the cold-compile storm of 137 modified files (next-server ~1.9GB, 3.9GB sandbox) — every route that finished compiling returned 200; relaunched (setsid) and completed the battery in small batches. NOT a code issue; production build compiles once.
+- Zero content/SEO changes: titles, H1s, JSON-LD, links, canonical, copy all untouched. 239-URL sitemap unaffected (canonical fix from 32-a intact).
+
+Stage Summary:
+- WHOLE SITE now renders the A+ design (light clean + champagne gold): every calculator, blog post, salary page, compare, research, legal/strategic pages + sitewide header/footer/banner. One commit (c729333, 137 files, +2865/−2808), pushed; Cloudflare Pages auto-deploys. Homepage unchanged (was already A+; its closing band keeps intentional ink + now-ink AuthorBioCard).
+- The A+ system is now THE site system: future pages inherit it automatically. Legacy .dark token block kept (inert) for a potential future dark mode.
+- Open with user: PH banner final fate (currently ink+gold, dismissible); any section the user wants adjusted can be tuned in isolation.
