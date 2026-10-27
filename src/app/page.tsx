@@ -6,8 +6,12 @@ import { getPublishedPostsMeta } from '@/lib/blog-index';
 import { COMPARISON_SLUGS, COMPARE_STATES, parseComparisonSlug } from '@/lib/compare-config';
 import { getCalculatorAuthor, authorToJsonLd } from '@/lib/authors';
 import { AuthorBioCard } from '@/components/finance/author-bio-card';
-import { CALCULATOR_ROUTES, TOTAL_CALCULATOR_COUNT, getAllCalculatorListItems } from '@/lib/calculator-routes';
+import { TOTAL_CALCULATOR_COUNT, getAllCalculatorListItems } from '@/lib/calculator-routes';
 import { STATE_SALES_TAX, ALL_STATE_KEYS, stateKeyToSlug } from '@/lib/state-sales-tax-data';
+import { STATE_TAX_DATA } from '@/lib/state-tax-data';
+import { HeroCalculator } from '@/components/home/hero-calculator';
+import { CalculatorBrowser, type HomeCardData } from '@/components/home/calculator-browser';
+import { StatesTaxTable, type StateTaxRow } from '@/components/home/states-tax-table';
 import {
   DollarSign,
   MapPin,
@@ -20,7 +24,6 @@ import {
   ArrowRight,
   CheckCircle2,
   Zap,
-  BarChart3,
   Star,
   Users,
   Globe,
@@ -44,15 +47,22 @@ const CALCULATOR_COUNT = TOTAL_CALCULATOR_COUNT;
 const BLOG_COUNT = getPublishedPostsMeta().length;
 const LATEST_POSTS = getPublishedPostsMeta().slice(0, 3);
 
-// 50 state sales-tax links for the homepage section (audit 2026-10: these pages
-// were 2 clicks from the homepage with zero internal links — orphan risk).
-const SALES_TAX_STATES = ALL_STATE_KEYS.map((key) => ({
-  key,
-  name: STATE_SALES_TAX[key].name,
-  combined: STATE_SALES_TAX[key].noStateTax
-    ? '0%'
-    : `${(STATE_SALES_TAX[key].combinedRate * 100).toFixed(2)}%`,
-}));
+// 50-state table rows (income tax + sales tax). Replaces the old 50-tile
+// grid — same /sales-tax-calculator/{slug} links, denser presentation.
+const STATE_TABLE_ROWS: StateTaxRow[] = ALL_STATE_KEYS.map((key) => {
+  const sales = STATE_SALES_TAX[key];
+  const tax = STATE_TAX_DATA[key];
+  return {
+    key,
+    name: sales.name,
+    slug: stateKeyToSlug(key),
+    incomeTaxRate: tax?.incomeTaxRate ?? '—',
+    salesTaxCombined: sales.noStateTax
+      ? '0%'
+      : `${(sales.combinedRate * 100).toFixed(2)}%`,
+    isNoIncomeTax: Boolean(tax?.isNoIncomeTax),
+  };
+});
 
 // ─── Home Page Metadata ───────────────────────────────────────────────────────
 
@@ -94,342 +104,46 @@ export const metadata: Metadata = {
   },
 };
 
-// ─── Calculator Data ──────────────────────────────────────────────────────────
+// ─── Calculator Cards (37 — every link from the previous grid is preserved) ───
 
-const CALCULATOR_CARDS = [
-  {
-    href: '/paycheck-calculator',
-    title: 'Paycheck Calculator',
-    desc: 'Federal, FICA & state take-home pay with 401(k) and HSA deductions',
-    icon: DollarSign,
-    badge: 'Most Popular',
-    badgeColor: 'bg-emerald-500/20 text-emerald-400',
-    gradient: 'from-emerald-600/20 to-teal-600/10',
-  },
-  {
-    href: '/illinois-tax-calculator',
-    title: 'Illinois Tax Calculator',
-    desc: '4.95% flat tax with $2,775 personal exemption — IL take-home pay',
-    icon: MapPin,
-    badge: 'IL',
-    badgeColor: 'bg-blue-500/20 text-blue-400',
-    gradient: 'from-blue-600/20 to-indigo-600/10',
-  },
-  {
-    href: '/texas-tax-calculator',
-    title: 'Texas Tax Calculator',
-    desc: '0% state income tax — compute TX take-home pay with property tax analysis',
-    icon: MapPin,
-    badge: 'TX',
-    badgeColor: 'bg-red-500/20 text-red-400',
-    gradient: 'from-red-600/20 to-orange-600/10',
-  },
-  {
-    href: '/florida-tax-calculator',
-    title: 'Florida Tax Calculator',
-    desc: '0% income tax + homestead exemption — FL take-home pay & cost of living',
-    icon: MapPin,
-    badge: 'FL',
-    badgeColor: 'bg-amber-500/20 text-amber-400',
-    gradient: 'from-amber-600/20 to-yellow-600/10',
-  },
-  {
-    href: '/california-tax-calculator',
-    title: 'California Tax Calculator',
-    desc: '1%–13.3% progressive brackets — CA take-home pay with high tax burden',
-    icon: MapPin,
-    badge: 'CA',
-    badgeColor: 'bg-violet-500/20 text-violet-400',
-    gradient: 'from-violet-600/20 to-purple-600/10',
-  },
-  {
-    href: '/new-york-tax-calculator',
-    title: 'New York Tax Calculator',
-    desc: '4%–10.9% progressive + NYC tax — NY take-home pay analysis',
-    icon: MapPin,
-    badge: 'NY',
-    badgeColor: 'bg-cyan-500/20 text-cyan-400',
-    gradient: 'from-cyan-600/20 to-sky-600/10',
-  },
-  {
-    href: '/mortgage-calculator',
-    title: 'Mortgage Calculator',
-    desc: 'Monthly payment, amortization schedule & extra payment savings',
-    icon: Home,
-    badge: 'Finance',
-    badgeColor: 'bg-rose-500/20 text-rose-400',
-    gradient: 'from-rose-600/20 to-pink-600/10',
-  },
-  {
-    href: '/401k-retirement-calculator',
-    title: '401(k) Retirement Calculator',
-    desc: 'Projected balance with employer match & compound annual growth',
-    icon: PiggyBank,
-    badge: 'Planning',
-    badgeColor: 'bg-teal-500/20 text-teal-400',
-    gradient: 'from-teal-600/20 to-emerald-600/10',
-  },
-  {
-    href: '/relocation-calculator',
-    title: 'Relocation Calculator',
-    desc: 'Compare equivalent salary between states — IL, TX, FL, CA, NY',
-    icon: ArrowRightLeft,
-    badge: 'Compare',
-    badgeColor: 'bg-sky-500/20 text-sky-400',
-    gradient: 'from-sky-600/20 to-blue-600/10',
-  },
-  {
-    href: '/capital-gains-calculator',
-    title: 'Capital Gains Calculator',
-    desc: 'Short-term & long-term rates: 0%/15%/20% + 3.8% NIIT',
-    icon: TrendingUp,
-    badge: 'Invest',
-    badgeColor: 'bg-orange-500/20 text-orange-400',
-    gradient: 'from-orange-600/20 to-amber-600/10',
-  },
-  {
-    href: '/self-employment-tax-calculator',
-    title: 'Self-Employment Calculator',
-    desc: '15.3% SE tax on 92.35% of net income + half deduction + quarterly estimates',
-    icon: Shield,
-    badge: 'Business',
-    badgeColor: 'bg-lime-500/20 text-lime-400',
-    gradient: 'from-lime-600/20 to-green-600/10',
-  },
-  {
-    href: '/tax-refund-calculator',
-    title: 'Tax Refund Calculator',
-    desc: 'Estimate your federal & state tax refund — income, withholding, deductions & credits',
-    icon: DollarSign,
-    badge: 'Refund',
-    badgeColor: 'bg-emerald-500/20 text-emerald-400',
-    gradient: 'from-emerald-600/20 to-green-600/10',
-  },
-  {
-    href: '/irs-withholding-calculator',
-    title: 'IRS Withholding Calculator',
-    desc: 'Calculate recommended federal withholding per paycheck & optimize your W-4 for 2026',
-    icon: FileText,
-    badge: 'W-4',
-    badgeColor: 'bg-cyan-500/20 text-cyan-400',
-    gradient: 'from-cyan-600/20 to-teal-600/10',
-  },
-  {
-    href: '/sales-tax-calculator',
-    title: 'Sales Tax Calculator',
-    desc: 'Calculate sales tax for any US state with combined state + local rates. Reverse calculator included',
-    icon: Receipt,
-    badge: '50 States',
-    badgeColor: 'bg-emerald-500/20 text-emerald-400',
-    gradient: 'from-emerald-600/20 to-green-600/10',
-  },
-  {
-    href: '/overtime-tax-calculator',
-    title: 'No Tax on Overtime Calculator',
-    desc: 'Calculate your savings under the 2025–2028 OT tax exemption law. Time-sensitive!',
-    icon: Clock,
-    badge: '2025 Law',
-    badgeColor: 'bg-amber-500/20 text-amber-400',
-    gradient: 'from-amber-600/20 to-yellow-600/10',
-  },
-  {
-    href: '/bonus-tax-calculator',
-    title: 'Bonus Tax Calculator',
-    desc: 'How much tax on your bonus? Compare 22% flat rate vs aggregate method',
-    icon: Gift,
-    badge: 'Bonus',
-    badgeColor: 'bg-pink-500/20 text-pink-400',
-    gradient: 'from-pink-600/20 to-rose-600/10',
-  },
-  {
-    href: '/property-tax-calculator',
-    title: 'Property Tax Calculator',
-    desc: 'Calculate property tax for any US state. Compare all 50 states\' effective rates',
-    icon: Building,
-    badge: 'Property',
-    badgeColor: 'bg-stone-500/20 text-stone-400',
-    gradient: 'from-stone-600/20 to-neutral-600/10',
-  },
-  {
-    href: '/employee-cost-calculator',
-    title: 'Employee Cost Calculator',
-    desc: 'True cost of hiring — salary + employer FICA, FUTA, SUTA, and benefits for small businesses',
-    icon: Building,
-    badge: 'Employer',
-    badgeColor: 'bg-blue-500/20 text-blue-400',
-    gradient: 'from-blue-600/20 to-indigo-600/10',
-  },
-  {
-    href: '/lottery-tax-calculator',
-    title: 'Lottery Tax Calculator',
-    desc: 'How much tax on lottery winnings? Federal + state taxes. Lump sum vs annuity comparison',
-    icon: Ticket,
-    badge: 'Lottery',
-    badgeColor: 'bg-purple-500/20 text-purple-400',
-    gradient: 'from-purple-600/20 to-violet-600/10',
-  },
-  {
-    href: '/georgia-tax-calculator',
-    title: 'Georgia Tax Calculator',
-    desc: '4.99% flat state tax — GA take-home pay with standard deductions',
-    icon: MapPin,
-    badge: 'GA',
-    badgeColor: 'bg-red-500/20 text-red-400',
-    gradient: 'from-red-600/20 to-orange-600/10',
-  },
-  {
-    href: '/virginia-tax-calculator',
-    title: 'Virginia Tax Calculator',
-    desc: '2%–5.75% progressive state tax — VA take-home pay with standard deductions',
-    icon: MapPin,
-    badge: 'VA',
-    badgeColor: 'bg-blue-500/20 text-blue-400',
-    gradient: 'from-blue-600/20 to-indigo-600/10',
-  },
-  {
-    href: '/north-carolina-tax-calculator',
-    title: 'North Carolina Tax Calculator',
-    desc: '3.99% flat tax with $12,750 standard deduction — NC take-home pay',
-    icon: MapPin,
-    badge: 'NC',
-    badgeColor: 'bg-blue-500/20 text-blue-400',
-    gradient: 'from-blue-600/20 to-cyan-600/10',
-  },
-  {
-    href: '/pennsylvania-tax-calculator',
-    title: 'Pennsylvania Tax Calculator',
-    desc: '3.07% flat tax — no state deductions — PA take-home pay',
-    icon: MapPin,
-    badge: 'PA',
-    badgeColor: 'bg-stone-500/20 text-stone-400',
-    gradient: 'from-stone-600/20 to-neutral-600/10',
-  },
-  {
-    href: '/ohio-tax-calculator',
-    title: 'Ohio Tax Calculator',
-    desc: '0%–3.99% progressive — first $26,050 tax-free — OH take-home pay',
-    icon: MapPin,
-    badge: 'OH',
-    badgeColor: 'bg-red-500/20 text-red-400',
-    gradient: 'from-red-600/20 to-gray-600/10',
-  },
-  {
-    href: '/michigan-tax-calculator',
-    title: 'Michigan Tax Calculator',
-    desc: '4.25% flat tax with $5,500 personal exemption — MI take-home pay',
-    icon: MapPin,
-    badge: 'MI',
-    badgeColor: 'bg-amber-500/20 text-amber-400',
-    gradient: 'from-amber-600/20 to-yellow-600/10',
-  },
-  {
-    href: '/new-jersey-tax-calculator',
-    title: 'New Jersey Tax Calculator',
-    desc: '1.4%–10.75% progressive — highest property taxes — NJ take-home pay',
-    icon: MapPin,
-    badge: 'NJ',
-    badgeColor: 'bg-violet-500/20 text-violet-400',
-    gradient: 'from-violet-600/20 to-purple-600/10',
-  },
-  {
-    href: '/colorado-tax-calculator',
-    title: 'Colorado Tax Calculator',
-    desc: '4.4% flat tax using federal taxable income — CO take-home pay',
-    icon: MapPin,
-    badge: 'CO',
-    badgeColor: 'bg-sky-500/20 text-sky-400',
-    gradient: 'from-sky-600/20 to-blue-600/10',
-  },
-  {
-    href: '/arizona-tax-calculator',
-    title: 'Arizona Tax Calculator',
-    desc: '2.5% flat tax — one of the lowest state rates — AZ take-home pay',
-    icon: MapPin,
-    badge: 'AZ',
-    badgeColor: 'bg-orange-500/20 text-orange-400',
-    gradient: 'from-orange-600/20 to-red-600/10',
-  },
-  {
-    href: '/washington-tax-calculator',
-    title: 'Washington Tax Calculator',
-    desc: '0% state income tax — WA take-home pay with property & sales tax analysis',
-    icon: MapPin,
-    badge: 'WA',
-    badgeColor: 'bg-emerald-500/20 text-emerald-400',
-    gradient: 'from-emerald-600/20 to-teal-600/10',
-  },
-  {
-    href: '/massachusetts-tax-calculator',
-    title: 'Massachusetts Tax Calculator',
-    desc: '5% flat tax + 4% surtax over $1M — MA take-home pay',
-    icon: MapPin,
-    badge: 'MA',
-    badgeColor: 'bg-sky-500/20 text-sky-400',
-    gradient: 'from-sky-600/20 to-blue-600/10',
-  },
-  {
-    href: '/indiana-tax-calculator',
-    title: 'Indiana Tax Calculator',
-    desc: '2.95% flat tax + county taxes 1.5%–2% — IN take-home pay',
-    icon: MapPin,
-    badge: 'IN',
-    badgeColor: 'bg-amber-500/20 text-amber-400',
-    gradient: 'from-amber-600/20 to-yellow-600/10',
-  },
-  {
-    href: '/tennessee-tax-calculator',
-    title: 'Tennessee Tax Calculator',
-    desc: '0% state income tax — high sales tax — TN take-home pay',
-    icon: MapPin,
-    badge: 'TN',
-    badgeColor: 'bg-emerald-500/20 text-emerald-400',
-    gradient: 'from-emerald-600/20 to-teal-600/10',
-  },
-  {
-    href: '/missouri-tax-calculator',
-    title: 'Missouri Tax Calculator',
-    desc: '2%–4.8% progressive — uses federal taxable income — MO take-home pay',
-    icon: MapPin,
-    badge: 'MO',
-    badgeColor: 'bg-amber-500/20 text-amber-400',
-    gradient: 'from-amber-600/20 to-red-600/10',
-  },
-  {
-    href: '/maryland-tax-calculator',
-    title: 'Maryland Tax Calculator',
-    desc: '2%–5.75% + county taxes up to 3.28% — MD take-home pay',
-    icon: MapPin,
-    badge: 'MD',
-    badgeColor: 'bg-sky-500/20 text-sky-400',
-    gradient: 'from-sky-600/20 to-red-600/10',
-  },
-  {
-    href: '/wisconsin-tax-calculator',
-    title: 'Wisconsin Tax Calculator',
-    desc: '3.5%–7.65% progressive — WI take-home pay',
-    icon: MapPin,
-    badge: 'WI',
-    badgeColor: 'bg-amber-500/20 text-amber-400',
-    gradient: 'from-amber-600/20 to-green-600/10',
-  },
-  {
-    href: '/minnesota-tax-calculator',
-    title: 'Minnesota Tax Calculator',
-    desc: '5.35%–9.85% progressive — high top rate — MN take-home pay',
-    icon: MapPin,
-    badge: 'MN',
-    badgeColor: 'bg-sky-500/20 text-sky-400',
-    gradient: 'from-sky-600/20 to-purple-600/10',
-  },
-  {
-    href: '/oregon-tax-calculator',
-    title: 'Oregon Tax Calculator',
-    desc: '4.75%–9.9% progressive — no sales tax — OR take-home pay',
-    icon: MapPin,
-    badge: 'OR',
-    badgeColor: 'bg-emerald-500/20 text-emerald-400',
-    gradient: 'from-emerald-600/20 to-sky-600/10',
-  },
+const CALCULATOR_CARDS: HomeCardData[] = [
+  { href: '/paycheck-calculator', title: 'Paycheck Calculator', desc: 'Federal, FICA & state take-home pay with 401(k) and HSA deductions', badge: 'Most Popular', category: 'paycheck', featured: true, icon: 'DollarSign' },
+  { href: '/illinois-tax-calculator', title: 'Illinois Tax Calculator', desc: '4.95% flat tax with $2,775 personal exemption — IL take-home pay', badge: 'IL', category: 'state', featured: true, icon: 'MapPin' },
+  { href: '/texas-tax-calculator', title: 'Texas Tax Calculator', desc: '0% state income tax — compute TX take-home pay with property tax analysis', badge: 'TX', category: 'state', featured: true, icon: 'MapPin' },
+  { href: '/florida-tax-calculator', title: 'Florida Tax Calculator', desc: '0% income tax + homestead exemption — FL take-home pay & cost of living', badge: 'FL', category: 'state', featured: true, icon: 'MapPin' },
+  { href: '/california-tax-calculator', title: 'California Tax Calculator', desc: '1%–13.3% progressive brackets — CA take-home pay with high tax burden', badge: 'CA', category: 'state', featured: true, icon: 'MapPin' },
+  { href: '/new-york-tax-calculator', title: 'New York Tax Calculator', desc: '4%–10.9% progressive + NYC tax — NY take-home pay analysis', badge: 'NY', category: 'state', featured: true, icon: 'MapPin' },
+  { href: '/mortgage-calculator', title: 'Mortgage Calculator', desc: 'Monthly payment, amortization schedule & extra payment savings', badge: 'Finance', category: 'finance', featured: true, icon: 'Home' },
+  { href: '/401k-retirement-calculator', title: '401(k) Retirement Calculator', desc: 'Projected balance with employer match & compound annual growth', badge: 'Planning', category: 'finance', featured: true, icon: 'PiggyBank' },
+  { href: '/relocation-calculator', title: 'Relocation Calculator', desc: 'Compare equivalent salary between states — IL, TX, FL, CA, NY', badge: 'Compare', category: 'business', featured: true, icon: 'ArrowRightLeft' },
+  { href: '/capital-gains-calculator', title: 'Capital Gains Calculator', desc: 'Short-term & long-term rates: 0%/15%/20% + 3.8% NIIT', badge: 'Invest', category: 'finance', featured: true, icon: 'TrendingUp' },
+  { href: '/self-employment-tax-calculator', title: 'Self-Employment Calculator', desc: '15.3% SE tax on 92.35% of net income + half deduction + quarterly estimates', badge: 'Business', category: 'business', featured: true, icon: 'Shield' },
+  { href: '/sales-tax-calculator', title: 'Sales Tax Calculator', desc: 'Calculate sales tax for any US state with combined state + local rates. Reverse calculator included', badge: '50 States', category: 'finance', featured: true, icon: 'Receipt' },
+  { href: '/tax-refund-calculator', title: 'Tax Refund Calculator', desc: 'Estimate your federal & state tax refund — income, withholding, deductions & credits', badge: 'Refund', category: 'paycheck', icon: 'DollarSign' },
+  { href: '/irs-withholding-calculator', title: 'IRS Withholding Calculator', desc: 'Calculate recommended federal withholding per paycheck & optimize your W-4 for 2026', badge: 'W-4', category: 'paycheck', icon: 'FileText' },
+  { href: '/overtime-tax-calculator', title: 'No Tax on Overtime Calculator', desc: 'Calculate your savings under the 2025–2028 OT tax exemption law. Time-sensitive!', badge: '2025 Law', category: 'paycheck', icon: 'Clock' },
+  { href: '/bonus-tax-calculator', title: 'Bonus Tax Calculator', desc: 'How much tax on your bonus? Compare 22% flat rate vs aggregate method', badge: 'Bonus', category: 'paycheck', icon: 'Gift' },
+  { href: '/property-tax-calculator', title: 'Property Tax Calculator', desc: 'Calculate property tax for any US state. Compare all 50 states\' effective rates', badge: 'Property', category: 'finance', icon: 'Building' },
+  { href: '/employee-cost-calculator', title: 'Employee Cost Calculator', desc: 'True cost of hiring — salary + employer FICA, FUTA, SUTA, and benefits for small businesses', badge: 'Employer', category: 'business', icon: 'Building' },
+  { href: '/lottery-tax-calculator', title: 'Lottery Tax Calculator', desc: 'How much tax on lottery winnings? Federal + state taxes. Lump sum vs annuity comparison', badge: 'Lottery', category: 'business', icon: 'Ticket' },
+  { href: '/georgia-tax-calculator', title: 'Georgia Tax Calculator', desc: '4.99% flat state tax — GA take-home pay with standard deductions', badge: 'GA', category: 'state', icon: 'MapPin' },
+  { href: '/virginia-tax-calculator', title: 'Virginia Tax Calculator', desc: '2%–5.75% progressive state tax — VA take-home pay with standard deductions', badge: 'VA', category: 'state', icon: 'MapPin' },
+  { href: '/north-carolina-tax-calculator', title: 'North Carolina Tax Calculator', desc: '3.99% flat tax with $12,750 standard deduction — NC take-home pay', badge: 'NC', category: 'state', icon: 'MapPin' },
+  { href: '/pennsylvania-tax-calculator', title: 'Pennsylvania Tax Calculator', desc: '3.07% flat tax — no state deductions — PA take-home pay', badge: 'PA', category: 'state', icon: 'MapPin' },
+  { href: '/ohio-tax-calculator', title: 'Ohio Tax Calculator', desc: '0%–3.99% progressive — first $26,050 tax-free — OH take-home pay', badge: 'OH', category: 'state', icon: 'MapPin' },
+  { href: '/michigan-tax-calculator', title: 'Michigan Tax Calculator', desc: '4.25% flat tax with $5,500 personal exemption — MI take-home pay', badge: 'MI', category: 'state', icon: 'MapPin' },
+  { href: '/new-jersey-tax-calculator', title: 'New Jersey Tax Calculator', desc: '1.4%–10.75% progressive — highest property taxes — NJ take-home pay', badge: 'NJ', category: 'state', icon: 'MapPin' },
+  { href: '/colorado-tax-calculator', title: 'Colorado Tax Calculator', desc: '4.4% flat tax using federal taxable income — CO take-home pay', badge: 'CO', category: 'state', icon: 'MapPin' },
+  { href: '/arizona-tax-calculator', title: 'Arizona Tax Calculator', desc: '2.5% flat tax — one of the lowest state rates — AZ take-home pay', badge: 'AZ', category: 'state', icon: 'MapPin' },
+  { href: '/washington-tax-calculator', title: 'Washington Tax Calculator', desc: '0% state income tax — WA take-home pay with property & sales tax analysis', badge: 'WA', category: 'state', icon: 'MapPin' },
+  { href: '/massachusetts-tax-calculator', title: 'Massachusetts Tax Calculator', desc: '5% flat tax + 4% surtax over $1M — MA take-home pay', badge: 'MA', category: 'state', icon: 'MapPin' },
+  { href: '/indiana-tax-calculator', title: 'Indiana Tax Calculator', desc: '2.95% flat tax + county taxes 1.5%–2% — IN take-home pay', badge: 'IN', category: 'state', icon: 'MapPin' },
+  { href: '/tennessee-tax-calculator', title: 'Tennessee Tax Calculator', desc: '0% state income tax — high sales tax — TN take-home pay', badge: 'TN', category: 'state', icon: 'MapPin' },
+  { href: '/missouri-tax-calculator', title: 'Missouri Tax Calculator', desc: '2%–4.8% progressive — uses federal taxable income — MO take-home pay', badge: 'MO', category: 'state', icon: 'MapPin' },
+  { href: '/maryland-tax-calculator', title: 'Maryland Tax Calculator', desc: '2%–5.75% + county taxes up to 3.28% — MD take-home pay', badge: 'MD', category: 'state', icon: 'MapPin' },
+  { href: '/wisconsin-tax-calculator', title: 'Wisconsin Tax Calculator', desc: '3.5%–7.65% progressive — WI take-home pay', badge: 'WI', category: 'state', icon: 'MapPin' },
+  { href: '/minnesota-tax-calculator', title: 'Minnesota Tax Calculator', desc: '5.35%–9.85% progressive — high top rate — MN take-home pay', badge: 'MN', category: 'state', icon: 'MapPin' },
+  { href: '/oregon-tax-calculator', title: 'Oregon Tax Calculator', desc: '4.75%–9.9% progressive — no sales tax — OR take-home pay', badge: 'OR', category: 'state', icon: 'MapPin' },
 ];
 
 const TRUST_POINTS = [
@@ -457,7 +171,7 @@ const homeJsonLd = {
         `Free 2026 tax calculators — paycheck, mortgage, 401(k), capital gains, and self-employment. ${CALCULATOR_COUNT} tools & 50-state sales tax data.`,
       url: SITE_URL,
       inLanguage: 'en-US',
-      dateModified: '2026-10-24',
+      dateModified: '2026-10-26',
       author: { '@id': homeAuthorId },
       publisher: { '@id': `${SITE_URL}/#organization` },
       isPartOf: { '@id': `${SITE_URL}/#website` },
@@ -598,762 +312,650 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(homeJsonLd) }}
       />
 
-      {/* ─── Hero Section ──────────────────────────────────────── */}
-      <section id="main-content" className="relative overflow-hidden py-16 sm:py-24 bg-mesh-hero">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center space-y-6">
-            {/* Badge */}
-            <div className="inline-flex items-center gap-2 rounded-full bg-emerald-500/10 border border-emerald-500/20 px-4 py-1.5 text-sm text-emerald-400">
-              <Zap className="h-3.5 w-3.5" />
-              Updated for 2026 Tax Year
-            </div>
+      {/* A+ redesign (Task 32): light warm-white base, stone-ink text,
+          champagne-gold accents. Fixed light styling — independent of the
+          site-wide dark tokens so this page stays light until Phase 2
+          unifies the theme. */}
+      <div className="bg-[#fafaf9] text-[#1c1917]">
 
-            {/* Title */}
-            <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
-              Free <span className="gradient-text">Tax Calculators</span>
-              <br />
-              for 2026
-            </h1>
+        {/* ─── Hero: copy + embedded live calculator ─────────────── */}
+        <section className="relative overflow-hidden">
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_50%_at_80%_10%,rgba(176,141,62,0.07),transparent)]"
+          />
+          <div className="relative mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20 lg:px-8">
+            <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
+              {/* Copy */}
+              <div className="space-y-6">
+                <div className="inline-flex items-center gap-2 rounded-full border border-[#b08d3e]/30 bg-[#faf5e9] px-4 py-1.5 text-sm font-semibold text-[#8a6a24]">
+                  <Zap className="h-3.5 w-3.5" />
+                  Updated for 2026 Tax Year
+                </div>
 
-            {/* Subtitle */}
-            <p className="speakable-summary mx-auto max-w-2xl text-lg text-muted-foreground leading-relaxed">
-              Ever look at your pay stub and think &ldquo;wait, they took <em>how</em> much?&rdquo; Yeah, us too.
-              We built these calculators so you can see exactly where your money goes —
-              <strong className="text-foreground"> federal tax</strong>, FICA, and
-              <strong className="text-foreground"> state taxes</strong> all broken down line by line.
-              No guesswork, no surprises.
-            </p>
+                <h1 className="text-4xl font-bold leading-[1.1] tracking-tight text-[#1c1917] sm:text-5xl lg:text-[3.4rem]">
+                  Free <span className="text-[#8a6a24]">Tax Calculators</span> for 2026
+                </h1>
 
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link
-                prefetch={false}
-                href="/paycheck-calculator"
-                className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-600 to-emerald-500 px-8 py-3.5 text-base font-semibold text-white shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/30 transition-all hover:scale-[1.02]"
-              >
-                <BarChart3 className="h-5 w-5" />
-                Calculate Your Paycheck
-              </Link>
-              <Link
-                prefetch={false}
-                href="/relocation-calculator"
-                className="inline-flex items-center gap-2 rounded-xl border border-border/50 bg-card/50 px-8 py-3.5 text-base font-semibold text-foreground hover:bg-muted/30 transition-all"
-              >
-                <ArrowRightLeft className="h-5 w-5" />
-                Compare States
-              </Link>
-            </div>
+                <p className="speakable-summary max-w-xl text-lg leading-relaxed text-[#57534e]">
+                  Ever look at your pay stub and think &ldquo;wait, they took <em>how</em> much?&rdquo; Yeah, us too.
+                  We built these calculators so you can see exactly where your money goes —
+                  <strong className="text-[#1c1917]"> federal tax</strong>, FICA, and
+                  <strong className="text-[#1c1917]"> state taxes</strong> all broken down line by line.
+                  No guesswork, no surprises.
+                </p>
 
-            {/* Trust Stats */}
-            <div className="flex flex-wrap items-center justify-center gap-6 pt-4 text-sm text-muted-foreground">
-              <span className="flex items-center gap-1.5">
-                <Users className="h-4 w-4 text-emerald-400" />
-                100% Free
-              </span>
-              <span className="flex items-center gap-1.5">
-                <Shield className="h-4 w-4 text-emerald-400" />
-                No Sign-Up Required
-              </span>
-              <span className="flex items-center gap-1.5">
-                <Star className="h-4 w-4 text-emerald-400" />
-                2026 Tax Data
-              </span>
-              <span className="flex items-center gap-1.5">
-                <Globe className="h-4 w-4 text-emerald-400" />
-                50 State Profiles
-              </span>
+                <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
+                  <Link
+                    prefetch={false}
+                    href="/paycheck-calculator"
+                    className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#9a7b2e] to-[#b08d3e] px-8 py-3.5 text-base font-semibold text-white shadow-[0_8px_24px_-8px_rgba(138,106,36,0.5)] transition-all hover:from-[#8a6a24] hover:to-[#9a7b2e] hover:shadow-[0_10px_28px_-8px_rgba(138,106,36,0.6)]"
+                  >
+                    <Calculator className="h-5 w-5" />
+                    Calculate Your Paycheck
+                  </Link>
+                  <Link
+                    prefetch={false}
+                    href="/relocation-calculator"
+                    className="inline-flex items-center justify-center gap-2 rounded-xl border border-[#e7e0d0] bg-white px-8 py-3.5 text-base font-semibold text-[#1c1917] transition-all hover:border-[#b08d3e]/50 hover:text-[#8a6a24]"
+                  >
+                    <ArrowRightLeft className="h-5 w-5" />
+                    Compare States
+                  </Link>
+                </div>
+
+                <div className="flex flex-wrap items-center gap-x-6 gap-y-2 pt-2 text-sm text-[#57534e]">
+                  <span className="flex items-center gap-1.5">
+                    <Users className="h-4 w-4 text-[#8a6a24]" />
+                    100% Free
+                  </span>
+                  <span className="flex items-center gap-1.5">
+                    <Shield className="h-4 w-4 text-[#8a6a24]" />
+                    No Sign-Up Required
+                  </span>
+                  <span className="flex items-center gap-1.5">
+                    <Star className="h-4 w-4 text-[#8a6a24]" />
+                    2026 Tax Data
+                  </span>
+                  <span className="flex items-center gap-1.5">
+                    <Globe className="h-4 w-4 text-[#8a6a24]" />
+                    50 State Profiles
+                  </span>
+                </div>
+              </div>
+
+              {/* Live calculator — the site's real engine, embedded */}
+              <HeroCalculator />
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* ─── Calculator Grid ────────────────────────────────────── */}
-      <section className="py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mb-10 text-center">
-            <h2 className="text-3xl font-bold text-foreground">
-              {CALCULATOR_COUNT} Free <span className="gradient-text">Tax Calculators</span>
-            </h2>
-            <p className="mt-3 text-muted-foreground max-w-xl mx-auto">
-              Pick the one you need. They&apos;re all free, they all use 2026 data, and none of them will
-              ask for your email.
-            </p>
+        {/* ─── Trust stats band ───────────────────────────────────── */}
+        <section className="border-y border-[#e7e0d0] bg-white">
+          <div className="mx-auto grid max-w-7xl grid-cols-2 gap-6 px-4 py-10 sm:px-6 lg:grid-cols-4 lg:px-8">
+            {[
+              { value: `${CALCULATOR_COUNT}`, label: 'Free calculators & tools' },
+              { value: '50', label: 'State tax profiles' },
+              { value: `${BLOG_COUNT}`, label: 'Guides & articles' },
+              { value: '$0', label: 'Cost — no sign-up, ever' },
+            ].map((stat) => (
+              <div key={stat.label} className="text-center">
+                <p className="text-3xl font-bold tracking-tight text-[#8a6a24] sm:text-4xl">
+                  {stat.value}
+                </p>
+                <p className="mt-1 text-sm text-[#57534e]">{stat.label}</p>
+              </div>
+            ))}
           </div>
+        </section>
 
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {CALCULATOR_CARDS.map((card) => {
-              const Icon = card.icon;
-              return (
+        {/* ─── Calculator browser (filterable cards) ──────────────── */}
+        <section className="py-16 sm:py-20">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="mb-10 text-center">
+              <h2 className="text-3xl font-bold tracking-tight text-[#1c1917] sm:text-4xl">
+                {CALCULATOR_COUNT} Free <span className="text-[#8a6a24]">Tax Calculators</span>
+              </h2>
+              <p className="mx-auto mt-3 max-w-xl text-[#57534e]">
+                Pick the one you need. They&apos;re all free, they all use 2026 data, and none of them will
+                ask for your email.
+              </p>
+            </div>
+            <CalculatorBrowser cards={CALCULATOR_CARDS} />
+          </div>
+        </section>
+
+        {/* ─── State comparison preview ────────────────────────────── */}
+        <section className="border-t border-[#e7e0d0] bg-white py-16 sm:py-20">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="mb-10 text-center">
+              <h2 className="text-3xl font-bold tracking-tight text-[#1c1917] sm:text-4xl">
+                Which State Has the <span className="text-[#8a6a24]">Lowest Tax</span>?
+              </h2>
+              <p className="mx-auto mt-3 max-w-xl text-[#57534e]">
+                Same $75,000 salary, wildly different take-home pay. Here&apos;s what you actually keep
+                after taxes in each state.
+              </p>
+            </div>
+
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+              {[
+                { state: 'Washington', net: '$61,593', rate: '0%', label: 'No Income Tax', tone: 'gold', href: '/washington-tax-calculator' },
+                { state: 'Florida', net: '$60,545', rate: '0%', label: 'Lowest Burden', tone: 'gold', href: '/florida-tax-calculator' },
+                { state: 'Arizona', net: '$60,083', rate: '2.5%', label: 'Lowest Rate', tone: 'gold', href: '/arizona-tax-calculator' },
+                { state: 'California', net: '$57,950', rate: '1%–13.3%', label: 'Highest Rate', tone: 'red', href: '/california-tax-calculator' },
+                { state: 'New York', net: '$57,686', rate: '4%–10.9%', label: '+ NYC Tax', tone: 'red', href: '/new-york-tax-calculator' },
+              ].map((item) => (
                 <Link
                   prefetch={false}
-                  key={card.href}
-                  href={card.href}
-                  className="group premium-card hover-lift p-6 flex flex-col gap-4"
+                  key={item.state}
+                  href={item.href}
+                  className={`group rounded-2xl border bg-[#fafaf9] p-5 text-center transition-all hover:-translate-y-0.5 hover:shadow-[0_8px_24px_-8px_rgba(138,106,36,0.18)] ${
+                    item.tone === 'gold' ? 'border-[#b08d3e]/30' : 'border-red-200/60'
+                  }`}
                 >
-                  {/* Header */}
-                  <div className="flex items-start justify-between">
-                    <div className={`flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br ${card.gradient}`}>
-                      <Icon className="h-6 w-6 text-emerald-400" />
-                    </div>
-                    <span className={`text-[10px] font-semibold uppercase tracking-wider rounded-full px-2.5 py-1 ${card.badgeColor}`}>
-                      {card.badge}
-                    </span>
-                  </div>
-
-                  {/* Content */}
-                  <div>
-                    <p className="text-lg font-semibold text-foreground group-hover:text-emerald-400 transition-colors">
-                      {card.title}
-                    </p>
-                    <p className="mt-1.5 text-sm text-muted-foreground leading-relaxed">
-                      {card.desc}
-                    </p>
-                  </div>
-
-                  {/* CTA */}
-                  <div className="mt-auto flex items-center gap-1.5 text-sm font-medium text-emerald-400 group-hover:gap-3 transition-all">
-                    Try Calculator
-                    <ArrowRight className="h-4 w-4" />
-                  </div>
+                  <p
+                    className={`text-xs font-semibold uppercase tracking-wider ${
+                      item.tone === 'gold' ? 'text-[#8a6a24]' : 'text-red-600'
+                    }`}
+                  >
+                    {item.label}
+                  </p>
+                  <p className="mt-2 text-xl font-bold text-[#1c1917]">{item.state}</p>
+                  <p className="mt-1 text-sm text-[#57534e]">Tax: {item.rate}</p>
+                  <p className="mt-2 text-lg font-semibold text-[#1c1917]">Net: {item.net}</p>
+                  <p className={`mt-1 text-[11px] group-hover:underline ${item.tone === 'gold' ? 'text-[#8a6a24]' : 'text-red-600'}`}>
+                    View Calculator →
+                  </p>
                 </Link>
-              );
-            })}
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* ─── State Comparison Preview ───────────────────────────── */}
-      <section className="py-16 border-t border-border/20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10">
-            <h2 className="text-3xl font-bold text-foreground">
-              Which State Has the <span className="gradient-text">Lowest Tax</span>?
-            </h2>
-            <p className="mt-3 text-muted-foreground max-w-xl mx-auto">
-              Same $75,000 salary, wildly different take-home pay. Here&apos;s what you actually keep
-              after taxes in each state.
-            </p>
-          </div>
+        {/* ─── Salary after tax ─────────────────────────────────────── */}
+        <section className="py-16 sm:py-20">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="mb-10 text-center">
+              <h2 className="text-3xl font-bold tracking-tight text-[#1c1917] sm:text-4xl">
+                What&apos;s Your <span className="text-[#8a6a24]">Take-Home Pay</span> After Taxes?
+              </h2>
+              <p className="mx-auto mt-3 max-w-xl text-[#57534e]">
+                Select your salary to see exact take-home pay across all 50 states — including Illinois, Texas, Florida, California, and New York.
+              </p>
+            </div>
 
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-            {[
-              { state: 'Washington', net: '$61,593', rate: '0%', label: 'No Income Tax', color: 'emerald', href: '/washington-tax-calculator' },
-              { state: 'Florida', net: '$60,545', rate: '0%', label: 'Lowest Burden', color: 'emerald', href: '/florida-tax-calculator' },
-              { state: 'Arizona', net: '$60,083', rate: '2.5%', label: 'Lowest Rate', color: 'emerald', href: '/arizona-tax-calculator' },
-              { state: 'California', net: '$57,950', rate: '1%–13.3%', label: 'Highest Rate', color: 'red', href: '/california-tax-calculator' },
-              { state: 'New York', net: '$57,686', rate: '4%–10.9%', label: '+ NYC Tax', color: 'red', href: '/new-york-tax-calculator' },
-            ].map((item) => (
-              <Link
-                prefetch={false}
-                key={item.state}
-                href={item.href}
-                className={`group rounded-xl border border-border/30 bg-card/50 p-5 text-center transition-all hover-lift ${
-                  item.color === 'emerald' ? 'hover:border-emerald-500/30' : item.color === 'amber' ? 'hover:border-amber-500/30' : 'hover:border-red-500/30'
-                }`}
-              >
-                <p className={`text-xs uppercase tracking-wider ${
-                  item.color === 'emerald' ? 'text-emerald-400' : item.color === 'amber' ? 'text-amber-400' : 'text-red-400'
-                }`}>
+            <div className="flex flex-wrap justify-center gap-3">
+              {[
+                { amount: 50000, label: '$50K' },
+                { amount: 60000, label: '$60K' },
+                { amount: 75000, label: '$75K' },
+                { amount: 80000, label: '$80K' },
+                { amount: 100000, label: '$100K' },
+                { amount: 120000, label: '$120K' },
+                { amount: 150000, label: '$150K' },
+                { amount: 200000, label: '$200K' },
+                { amount: 250000, label: '$250K' },
+                { amount: 300000, label: '$300K' },
+              ].map((item) => (
+                <Link
+                  prefetch={false}
+                  key={item.amount}
+                  href={`/salary/${item.amount}`}
+                  className="group inline-flex items-center gap-1.5 rounded-xl border border-[#e7e0d0] bg-white px-5 py-3 text-sm font-semibold text-[#1c1917] transition-all hover:border-[#b08d3e]/50 hover:bg-[#faf5e9] hover:text-[#8a6a24]"
+                >
                   {item.label}
-                </p>
-                <p className="mt-2 text-xl font-bold text-foreground">{item.state}</p>
-                <p className="mt-1 text-sm text-muted-foreground">Tax: {item.rate}</p>
-                <p className="mt-2 text-lg font-semibold text-foreground">Net: {item.net}</p>
-                <p className="mt-1 text-[11px] text-emerald-400 group-hover:underline">View Calculator →</p>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ─── Sales Tax by State ───────────────────────────────────── */}
-      <section className="py-16 border-t border-border/20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10">
-            <h2 className="text-3xl font-bold text-foreground">
-              Sales Tax <span className="gradient-text">Rates by State</span> (2026)
-            </h2>
-            <p className="mt-3 text-muted-foreground max-w-2xl mx-auto">
-              Combined state + average local rate for all 50 states. Pick your state for the
-              full breakdown, exemptions, and a dedicated calculator.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
-            {SALES_TAX_STATES.map((s) => (
-              <Link
-                prefetch={false}
-                key={s.key}
-                href={`/sales-tax-calculator/${stateKeyToSlug(s.key)}`}
-                className="group flex items-center justify-between rounded-lg border border-border/30 bg-card/50 px-3 py-2.5 text-sm transition-all hover:border-emerald-500/30 hover-lift"
-              >
-                <span className="font-medium text-foreground group-hover:text-emerald-400 transition-colors">
-                  {s.name}
-                </span>
-                <span className="ml-2 text-xs font-semibold text-muted-foreground group-hover:text-foreground transition-colors">
-                  {s.combined}
-                </span>
-              </Link>
-            ))}
-          </div>
-
-          <p className="mt-6 text-center text-sm text-muted-foreground">
-            Rates are the average combined state + local rate —{' '}
-            <Link href="/sales-tax-calculator" className="text-emerald-400 hover:underline">
-              open the full sales tax calculator
-            </Link>{' '}
-            to override the local rate for your exact city.
-          </p>
-        </div>
-      </section>
-
-      {/* ─── Salary After Tax Guide ──────────────────────────────── */}
-      <section className="py-16 border-t border-border/20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10">
-            <h2 className="text-3xl font-bold text-foreground">
-              What&apos;s Your <span className="gradient-text">Take-Home Pay</span> After Taxes?
-            </h2>
-            <p className="mt-3 text-muted-foreground max-w-xl mx-auto">
-              Select your salary to see exact take-home pay across all 50 states — including Illinois, Texas, Florida, California, and New York.
-            </p>
-          </div>
-
-          <div className="flex flex-wrap justify-center gap-3">
-            {[
-              { amount: 50000, label: '$50K' },
-              { amount: 60000, label: '$60K' },
-              { amount: 75000, label: '$75K' },
-              { amount: 80000, label: '$80K' },
-              { amount: 100000, label: '$100K' },
-              { amount: 120000, label: '$120K' },
-              { amount: 150000, label: '$150K' },
-              { amount: 200000, label: '$200K' },
-              { amount: 250000, label: '$250K' },
-              { amount: 300000, label: '$300K' },
-            ].map((item) => (
-              <Link
-                prefetch={false}
-                key={item.amount}
-                href={`/salary/${item.amount}`}
-                className="group inline-flex items-center gap-1.5 rounded-xl border border-border/30 bg-card/50 px-5 py-3 text-sm font-semibold text-foreground transition-all hover:border-emerald-500/30 hover:bg-emerald-500/5 hover:text-emerald-400"
-              >
-                {item.label}
-                <ArrowRight className="h-3.5 w-3.5 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
-              </Link>
-            ))}
-          </div>
-
-          <div className="mt-8 text-center">
-            <Link
-              prefetch={false}
-              href="/salary"
-              className="inline-flex items-center gap-2 text-sm font-medium text-emerald-400 hover:text-emerald-300 transition-colors"
-            >
-              View all 26 salary levels
-              <ArrowRight className="h-4 w-4" />
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* ─── For Business Owners ──────────────────────────────────── */}
-      <section className="py-16 border-t border-border/20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10">
-            <div className="inline-flex items-center gap-2 rounded-full bg-blue-500/10 border border-blue-500/20 px-4 py-1.5 text-sm text-blue-400 mb-4">
-              <Building className="h-3.5 w-3.5" />
-              For Business Owners
+                  <ArrowRight className="h-3.5 w-3.5 -translate-x-1 opacity-0 transition-all group-hover:translate-x-0 group-hover:opacity-100" />
+                </Link>
+              ))}
             </div>
-            <h2 className="text-3xl font-bold text-foreground">
-              How Much Does an <span className="gradient-text">Employee Really Cost</span>?
-            </h2>
-            <p className="mt-3 text-muted-foreground max-w-xl mx-auto">
-              Salary is just the beginning. Employer taxes, benefits, and insurance add 25–30% on top.
-              See the true cost of hiring in your state.
+
+            <div className="mt-8 text-center">
+              <Link
+                prefetch={false}
+                href="/salary"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-[#8a6a24] transition-colors hover:text-[#6f551d]"
+              >
+                View all 26 salary levels
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* ─── Sales tax by state (searchable table) ────────────────── */}
+        <section className="border-t border-[#e7e0d0] bg-white py-16 sm:py-20">
+          <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+            <div className="mb-10 text-center">
+              <h2 className="text-3xl font-bold tracking-tight text-[#1c1917] sm:text-4xl">
+                Sales Tax <span className="text-[#8a6a24]">Rates by State</span> (2026)
+              </h2>
+              <p className="mx-auto mt-3 max-w-2xl text-[#57534e]">
+                Income tax and combined state + average local sales tax for all 50 states.
+                Pick your state for the full breakdown, exemptions, and a dedicated calculator.
+              </p>
+            </div>
+
+            <StatesTaxTable rows={STATE_TABLE_ROWS} />
+
+            <p className="mt-6 text-center text-sm text-[#57534e]">
+              Rates are the average combined state + local rate —{' '}
+              <Link prefetch={false} href="/sales-tax-calculator" className="font-semibold text-[#8a6a24] hover:underline">
+                open the full sales tax calculator
+              </Link>{' '}
+              to override the local rate for your exact city.
             </p>
           </div>
+        </section>
 
-          <div className="grid gap-6 lg:grid-cols-3">
-            <div className="lg:col-span-2 rounded-xl border border-border/30 bg-card/50 p-6">
-              <p className="text-lg font-semibold text-foreground mb-4">Example: 5 Employees at $75,000 in Illinois</p>
-              <div className="space-y-3 text-sm">
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">Base Salaries (5 × $75,000)</span>
-                  <span className="font-semibold text-foreground">$375,000</span>
+        {/* ─── For business owners ──────────────────────────────────── */}
+        <section className="py-16 sm:py-20">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="mb-10 text-center">
+              <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#e7e0d0] bg-white px-4 py-1.5 text-sm font-semibold text-[#57534e]">
+                <Building className="h-3.5 w-3.5" />
+                For Business Owners
+              </div>
+              <h2 className="text-3xl font-bold tracking-tight text-[#1c1917] sm:text-4xl">
+                How Much Does an <span className="text-[#8a6a24]">Employee Really Cost</span>?
+              </h2>
+              <p className="mx-auto mt-3 max-w-xl text-[#57534e]">
+                Salary is just the beginning. Employer taxes, benefits, and insurance add 25–30% on top.
+                See the true cost of hiring in your state.
+              </p>
+            </div>
+
+            <div className="grid gap-6 lg:grid-cols-3">
+              <div className="rounded-2xl border border-[#e7e0d0] bg-white p-6 lg:col-span-2">
+                <p className="mb-4 text-lg font-semibold text-[#1c1917]">Example: 5 Employees at $75,000 in Illinois</p>
+                <div className="space-y-3 text-sm">
+                  <div className="flex justify-between">
+                    <span className="text-[#57534e]">Base Salaries (5 × $75,000)</span>
+                    <span className="font-semibold text-[#1c1917]">$375,000</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-[#57534e]">Employer FICA (7.65%)</span>
+                    <span className="font-medium text-orange-700">+$28,688</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-[#57534e]">FUTA + SUTA</span>
+                    <span className="font-medium text-amber-700">+$2,401</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-[#57534e]">Benefits (20% of salary)</span>
+                    <span className="font-medium text-sky-700">+$75,000</span>
+                  </div>
+                  <div className="border-t border-dashed border-[#e7e0d0] pt-3" />
+                  <div className="flex justify-between text-base">
+                    <span className="font-semibold text-[#1c1917]">Total Annual Payroll Cost</span>
+                    <span className="font-bold text-[#8a6a24]">$481,089</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-[#57534e]">Cost Per Employee</span>
+                    <span className="font-medium text-[#1c1917]">$96,218 <span className="text-amber-700">(28.3% over salary)</span></span>
+                  </div>
                 </div>
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">Employer FICA (7.65%)</span>
-                  <span className="text-orange-400">+$28,688</span>
+              </div>
+              <div className="flex flex-col gap-4">
+                <div className="flex flex-1 flex-col justify-center rounded-2xl border border-[#b08d3e]/30 bg-[#faf5e9] p-6">
+                  <p className="text-lg font-semibold text-[#1c1917]">Employee Cost Calculator</p>
+                  <p className="mt-2 text-sm text-[#57534e]">
+                    Estimate your true payroll cost — salary + employer FICA, FUTA, SUTA, and benefits. All 50 states.
+                  </p>
+                  <Link
+                    prefetch={false}
+                    href="/employee-cost-calculator"
+                    className="mt-4 inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-[#9a7b2e] to-[#b08d3e] px-6 py-3 text-sm font-semibold text-white transition-all hover:from-[#8a6a24] hover:to-[#9a7b2e]"
+                  >
+                    <Building className="h-4 w-4" />
+                    Calculate Employee Cost
+                  </Link>
                 </div>
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">FUTA + SUTA</span>
-                  <span className="text-amber-400">+$2,401</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">Benefits (20% of salary)</span>
-                  <span className="text-blue-400">+$75,000</span>
-                </div>
-                <div className="divider-glow" />
-                <div className="flex justify-between text-base">
-                  <span className="font-semibold text-foreground">Total Annual Payroll Cost</span>
-                  <span className="font-bold text-emerald-400">$481,089</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">Cost Per Employee</span>
-                  <span className="font-medium text-foreground">$96,218 <span className="text-amber-400">(28.3% over salary)</span></span>
+                <div className="rounded-2xl border border-[#e7e0d0] bg-white p-4">
+                  <p className="text-xs text-[#57534e]">
+                    <span className="font-medium text-[#1c1917]">Employer FICA alone</span> adds $5,738 per employee
+                    at $75K. That&apos;s $28,688 for 5 employees — before benefits.
+                  </p>
                 </div>
               </div>
             </div>
-            <div className="flex flex-col gap-4">
-              <div className="rounded-xl border border-emerald-500/30 bg-emerald-500/5 p-6 flex-1 flex flex-col justify-center">
-                <p className="text-lg font-semibold text-foreground">Employee Cost Calculator</p>
-                <p className="mt-2 text-sm text-muted-foreground">
-                  Estimate your true payroll cost — salary + employer FICA, FUTA, SUTA, and benefits. All 50 states.
-                </p>
+          </div>
+        </section>
+
+        {/* ─── Why we built this ────────────────────────────────────── */}
+        <section className="border-t border-[#e7e0d0] bg-white py-16 sm:py-20">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="grid items-center gap-12 lg:grid-cols-2">
+              <div>
+                <h2 className="text-3xl font-bold tracking-tight text-[#1c1917] sm:text-4xl">
+                  Why We Built <span className="text-[#8a6a24]">TheTaxCalc</span>
+                </h2>
+                <div className="mt-4 space-y-4 leading-relaxed text-[#57534e]">
+                  <p>
+                    Honestly? We got tired of tax calculators that felt like they were designed by the IRS.
+                    You know the ones — confusing interfaces, outdated brackets, and somehow always trying
+                    to sell you something at the end. Whether you need a 2025 tax calculator for last year&apos;s
+                    return or a tax calculator 2026 for this year, we&apos;ve got you covered.
+                  </p>
+                  <p>
+                    Every paycheck has OASDI tax (Social Security), Medicare, federal income tax, and state tax
+                    taken out. We show you exactly where each dollar goes — from the 6.2% OASDI tax up to the
+                    $184,500 wage cap, to the 1.45% Medicare with no cap, to your state&apos;s specific brackets.
+                  </p>
+                  <p>
+                    One of our team members moved from California to Texas a few years back. Same salary,
+                    same company — but his take-home jumped by over $8,700 a year. He had no idea the
+                    difference would be that big until the first paycheck hit. That&apos;s when we thought:
+                    <em> everyone should be able to see this before they make big decisions.</em>
+                  </p>
+                  <p>
+                    So we built the tools we wished existed. All our calculations use the latest 2026
+                    federal brackets, FICA rates, and state-specific tax laws — pulled straight from{' '}
+                    <a href="https://www.irs.gov/filing/federal-income-tax-rates-and-brackets" target="_blank" rel="noopener noreferrer" className="font-medium text-[#8a6a24] underline underline-offset-2 hover:text-[#6f551d]">IRS publications</a> and{' '}
+                    <a href="https://taxfoundation.org/" target="_blank" rel="noopener noreferrer" className="font-medium text-[#8a6a24] underline underline-offset-2 hover:text-[#6f551d]">state revenue departments</a>, not some third-party blog post.
+                  </p>
+                  <p>
+                    Whether you&apos;re searching for a 2025 tax calculator to estimate last year&apos;s refund
+                    or planning ahead with our tax calculator 2026, our income tax calculator handles federal
+                    income tax, FICA, and state tax for all 50 states. Calculate your tax liability, factor
+                    in itemized deductions vs. the standard deduction, and see your true take-home pay based
+                    on your gross income. No tax preparation software required — just enter your salary and
+                    get instant, accurate numbers. We even earn income estimates for self-employed workers,
+                    freelancers, and W-2 employees alike. Not tax advice, just honest math.
+                  </p>
+                </div>
+                <ul className="mt-6 space-y-3">
+                  {TRUST_POINTS.map((point) => (
+                    <li key={point} className="flex items-start gap-3 text-sm text-[#57534e]">
+                      <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-[#8a6a24]" />
+                      {point}
+                    </li>
+                  ))}
+                </ul>
                 <Link
                   prefetch={false}
-                  href="/employee-cost-calculator"
-                  className="mt-4 inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-600 to-emerald-500 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/30 transition-all"
+                  href="/paycheck-calculator"
+                  className="mt-8 inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-[#9a7b2e] to-[#b08d3e] px-6 py-3 text-sm font-semibold text-white transition-all hover:from-[#8a6a24] hover:to-[#9a7b2e]"
                 >
-                  <Building className="h-4 w-4" />
-                  Calculate Employee Cost
+                  <Calculator className="h-4 w-4" />
+                  Start Calculating
                 </Link>
               </div>
-              <div className="rounded-xl border border-border/30 bg-card/50 p-4">
-                <p className="text-xs text-muted-foreground">
-                  <span className="text-foreground font-medium">Employer FICA alone</span> adds $5,738 per employee
-                  at $75K. That&apos;s $28,688 for 5 employees — before benefits.
-                </p>
+              <div className="rounded-2xl border border-[#e7e0d0] bg-[#fafaf9] p-8">
+                <p className="mb-4 text-lg font-semibold text-[#1c1917]">Example: $75,000 in Illinois</p>
+                <div className="space-y-3 text-sm">
+                  <div className="flex justify-between">
+                    <span className="text-[#57534e]">Gross Annual Salary</span>
+                    <span className="font-semibold text-[#1c1917]">$75,000.00</span>
+                  </div>
+                  <div className="border-t border-dashed border-[#e7e0d0]" />
+                  <div className="flex justify-between">
+                    <span className="text-[#57534e]">Federal Tax (after $16,100 std ded)</span>
+                    <span className="font-medium text-red-700">-$7,670.00</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-[#57534e]">FICA (SS + Medicare)</span>
+                    <span className="font-medium text-orange-700">-$5,737.50</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-[#57534e]">IL State Tax (4.95% on $72,225)</span>
+                    <span className="font-medium text-amber-700">-$3,575.14</span>
+                  </div>
+                  <div className="border-t border-dashed border-[#e7e0d0]" />
+                  <div className="flex justify-between text-base">
+                    <span className="font-semibold text-[#1c1917]">Net Annual Take-Home</span>
+                    <span className="font-bold text-[#8a6a24]">$58,017.36</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-[#57534e]">Effective Tax Rate</span>
+                    <span className="font-medium text-[#1c1917]">22.64%</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* ─── Why We Built This ───────────────────────────────────── */}
-      <section className="py-16 border-t border-border/20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-12 lg:grid-cols-2 items-center">
-            <div>
-              <h2 className="text-3xl font-bold text-foreground">
-                Why We Built <span className="gradient-text">TheTaxCalc</span>
-              </h2>
-              <div className="mt-4 text-muted-foreground leading-relaxed space-y-4">
-                <p>
-                  Honestly? We got tired of tax calculators that felt like they were designed by the IRS.
-                  You know the ones — confusing interfaces, outdated brackets, and somehow always trying
-                  to sell you something at the end. Whether you need a 2025 tax calculator for last year&apos;s
-                  return or a tax calculator 2026 for this year, we&apos;ve got you covered.
-                </p>
-                <p>
-                  Every paycheck has OASDI tax (Social Security), Medicare, federal income tax, and state tax
-                  taken out. We show you exactly where each dollar goes — from the 6.2% OASDI tax up to the
-                  $184,500 wage cap, to the 1.45% Medicare with no cap, to your state&apos;s specific brackets.
-                </p>
-                <p>
-                  One of our team members moved from California to Texas a few years back. Same salary,
-                  same company — but his take-home jumped by over $8,700 a year. He had no idea the
-                  difference would be that big until the first paycheck hit. That&apos;s when we thought:
-                  <em> everyone should be able to see this before they make big decisions.</em>
-                </p>
-                <p>
-                  So we built the tools we wished existed. All our calculations use the latest 2026
-                  federal brackets, FICA rates, and state-specific tax laws — pulled straight from{' '}
-                  <a href="https://www.irs.gov/filing/federal-income-tax-rates-and-brackets" target="_blank" rel="noopener noreferrer" className="text-emerald-400 hover:text-emerald-300 underline underline-offset-2">IRS publications</a> and{' '}
-                  <a href="https://taxfoundation.org/" target="_blank" rel="noopener noreferrer" className="text-emerald-400 hover:text-emerald-300 underline underline-offset-2">state revenue departments</a>, not some third-party blog post.
-                </p>
-                <p>
-                  Whether you&apos;re searching for a 2025 tax calculator to estimate last year&apos;s refund
-                  or planning ahead with our tax calculator 2026, our income tax calculator handles federal
-                  income tax, FICA, and state tax for all 50 states. Calculate your tax liability, factor
-                  in itemized deductions vs. the standard deduction, and see your true take-home pay based
-                  on your gross income. No tax preparation software required — just enter your salary and
-                  get instant, accurate numbers. We even earn income estimates for self-employed workers,
-                  freelancers, and W-2 employees alike. Not tax advice, just honest math.
-                </p>
+        {/* ─── Explore all tools & resources (directory) ───────────── */}
+        <section className="py-16 sm:py-20">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="mb-10 text-center">
+              <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#b08d3e]/30 bg-[#faf5e9] px-4 py-1.5 text-sm font-semibold text-[#8a6a24]">
+                <Compass className="h-3.5 w-3.5" />
+                Complete Site Directory
               </div>
-              <ul className="mt-6 space-y-3">
-                {TRUST_POINTS.map((point) => (
-                  <li key={point} className="flex items-start gap-3 text-sm text-muted-foreground">
-                    <CheckCircle2 className="h-5 w-5 text-emerald-400 shrink-0 mt-0.5" />
-                    {point}
+              <h2 className="text-3xl font-bold tracking-tight text-[#1c1917] sm:text-4xl">
+                Explore All <span className="text-[#8a6a24]">Tools & Resources</span>
+              </h2>
+              <p className="mx-auto mt-3 max-w-2xl text-[#57534e]">
+                Every calculator, salary breakdown, blog article, and state comparison — all in one place.
+              </p>
+            </div>
+
+            <div className="grid gap-6 lg:grid-cols-2">
+              {/* Salary after tax */}
+              <div className="rounded-2xl border border-[#e7e0d0] bg-white p-5">
+                <div className="mb-4 flex items-center gap-2">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#faf5e9]">
+                    <DollarSign className="h-4 w-4 text-[#8a6a24]" />
+                  </div>
+                  <h3 className="text-base font-semibold text-[#1c1917]">Salary After Tax</h3>
+                  <span className="ml-auto rounded-full bg-[#faf5e9] px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-[#8a6a24]">26 Levels</span>
+                </div>
+                <div className="flex flex-wrap gap-1.5">
+                  {SALARY_AMOUNTS.map((amount) => (
+                    <Link
+                      prefetch={false}
+                      key={amount}
+                      href={`/salary/${amount}`}
+                      className="rounded-md border border-[#e7e0d0] bg-[#fafaf9] px-2.5 py-1 text-xs font-medium text-[#57534e] transition-all hover:border-[#b08d3e]/50 hover:bg-[#faf5e9] hover:text-[#8a6a24]"
+                    >
+                      {formatSalaryCompact(amount)}
+                    </Link>
+                  ))}
+                </div>
+                <div className="mt-3 border-t border-[#f0ece3] pt-3">
+                  <Link
+                    prefetch={false}
+                    href="/salary"
+                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#8a6a24] transition-colors hover:text-[#6f551d]"
+                  >
+                    View all salary pages
+                    <ArrowRight className="h-3 w-3" />
+                  </Link>
+                </div>
+              </div>
+
+              {/* Blog & guides */}
+              <div className="rounded-2xl border border-[#e7e0d0] bg-white p-5">
+                <div className="mb-4 flex items-center gap-2">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#faf5e9]">
+                    <BookOpen className="h-4 w-4 text-[#8a6a24]" />
+                  </div>
+                  <h3 className="text-base font-semibold text-[#1c1917]">Blog & Guides</h3>
+                  <span className="ml-auto rounded-full bg-[#faf5e9] px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-[#8a6a24]">{BLOG_COUNT} Articles</span>
+                </div>
+                <ul className="max-h-96 space-y-2 overflow-y-auto pr-2 [scrollbar-width:thin] [scrollbar-color:#d6c9a5_transparent]">
+                  <li>
+                    <Link
+                      prefetch={false}
+                      href="/blog"
+                      className="group flex items-center gap-2 py-0.5 text-sm font-semibold text-[#8a6a24] transition-colors hover:text-[#6f551d]"
+                    >
+                      <span className="h-1 w-1 shrink-0 rounded-full bg-[#b08d3e]" />
+                      All Blog Articles
+                    </Link>
                   </li>
-                ))}
-              </ul>
+                  {getPublishedPostsMeta().map((post) => (
+                    <li key={post.slug}>
+                      <Link
+                        prefetch={false}
+                        href={`/blog/${post.slug}`}
+                        className="group flex items-center gap-2 py-0.5 text-sm text-[#57534e] transition-colors hover:text-[#8a6a24]"
+                      >
+                        <span className="h-1 w-1 shrink-0 rounded-full bg-[#d6c9a5] transition-colors group-hover:bg-[#b08d3e]" />
+                        <span className="line-clamp-1">{post.title}</span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            <div className="mt-6 grid gap-6 lg:grid-cols-2">
+              {/* Resources */}
+              <div className="rounded-2xl border border-[#e7e0d0] bg-white p-5">
+                <div className="mb-4 flex items-center gap-2">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#faf5e9]">
+                    <FileText className="h-4 w-4 text-[#8a6a24]" />
+                  </div>
+                  <h3 className="text-base font-semibold text-[#1c1917]">Resources</h3>
+                </div>
+                <div className="grid gap-3 sm:grid-cols-3">
+                  {[
+                    { href: '/federal-tax-brackets', label: 'Federal Tax Brackets', desc: '2026 brackets & rates', icon: Scale },
+                    { href: '/glossary', label: 'Tax Glossary', desc: 'Key terms explained', icon: BookOpen },
+                    { href: '/compare', label: 'State Comparisons', desc: 'Side-by-side analysis', icon: Map },
+                    { href: '/obbba-tax-calculator', label: 'OBBBA Tax Calculator', desc: '2026 law vs prior law', icon: Scale },
+                    { href: '/research', label: 'Research Hub', desc: 'Original 2026 tax studies', icon: FileText },
+                    { href: '/tax-professionals', label: 'For Tax Professionals', desc: 'CPA tools & resources', icon: Shield },
+                    { href: '/smartasset-alternative', label: 'SmartAsset Alternative', desc: 'Compare features & privacy', icon: Calculator },
+                    { href: '/scholarship', label: 'Tax Literacy Scholarship', desc: '$2,500 student award', icon: Gift },
+                    { href: '/methodology', label: 'Methodology', desc: 'How we calculate taxes', icon: BookOpen },
+                  ].map((res) => {
+                    const ResIcon = res.icon;
+                    return (
+                      <Link
+                        prefetch={false}
+                        key={res.href}
+                        href={res.href}
+                        className="group flex items-start gap-3 rounded-lg border border-[#f0ece3] bg-[#fafaf9] p-3 transition-all hover:border-[#b08d3e]/40 hover:bg-[#faf5e9]"
+                      >
+                        <ResIcon className="mt-0.5 h-4 w-4 shrink-0 text-[#8a6a24]" />
+                        <div>
+                          <p className="text-sm font-medium text-[#1c1917] transition-colors group-hover:text-[#8a6a24]">{res.label}</p>
+                          <p className="text-[11px] text-[#78716c]">{res.desc}</p>
+                        </div>
+                      </Link>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* State comparisons */}
+              <div className="rounded-2xl border border-[#e7e0d0] bg-white p-5">
+                <div className="mb-4 flex items-center gap-2">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#faf5e9]">
+                    <ArrowRightLeft className="h-4 w-4 text-[#8a6a24]" />
+                  </div>
+                  <h3 className="text-base font-semibold text-[#1c1917]">State Tax Comparisons</h3>
+                  <span className="ml-auto rounded-full bg-[#faf5e9] px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-[#8a6a24]">10 Matchups</span>
+                </div>
+                <div className="grid gap-2 sm:grid-cols-2">
+                  {COMPARISON_SLUGS.map((slug) => {
+                    const parsed = parseComparisonSlug(slug);
+                    if (!parsed) return null;
+                    const [key1, key2] = parsed;
+                    const s1 = COMPARE_STATES[key1];
+                    const s2 = COMPARE_STATES[key2];
+                    return (
+                      <Link
+                        prefetch={false}
+                        key={slug}
+                        href={`/compare/${slug}`}
+                        className="group flex items-center gap-2 rounded-md border border-[#f0ece3] bg-[#fafaf9] px-3 py-2 text-sm text-[#57534e] transition-all hover:border-[#b08d3e]/40 hover:bg-[#faf5e9] hover:text-[#8a6a24]"
+                      >
+                        <span className="text-xs font-semibold text-[#78716c] transition-colors group-hover:text-[#8a6a24]">{s1.abbreviation}</span>
+                        <span className="text-[10px] text-[#b08d3e]">vs</span>
+                        <span className="text-xs font-semibold text-[#78716c] transition-colors group-hover:text-[#8a6a24]">{s2.abbreviation}</span>
+                        <span className="ml-auto hidden text-[11px] text-[#78716c] transition-colors group-hover:text-[#8a6a24]/70 sm:inline">{s1.name} vs {s2.name}</span>
+                      </Link>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ─── Blog preview ─────────────────────────────────────────── */}
+        <section className="border-t border-[#e7e0d0] bg-white py-16 sm:py-20">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="mb-8 flex items-center justify-between">
+              <div>
+                <h2 className="text-2xl font-bold tracking-tight text-[#1c1917]">
+                  Latest from the <span className="text-[#8a6a24]">Blog</span>
+                </h2>
+                <p className="mt-1 text-sm text-[#57534e]">We do the homework so you don&apos;t have to</p>
+              </div>
+              <Link
+                prefetch={false}
+                href="/blog"
+                className="hidden items-center gap-1.5 text-sm font-semibold text-[#8a6a24] transition-colors hover:text-[#6f551d] sm:flex"
+              >
+                View All
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
+            <div className="grid gap-6 sm:grid-cols-3">
+              {LATEST_POSTS.map((post) => (
+                <Link
+                  prefetch={false}
+                  key={post.slug}
+                  href={`/blog/${post.slug}`}
+                  className="group rounded-2xl border border-[#e7e0d0] bg-[#fafaf9] p-5 transition-all hover:-translate-y-0.5 hover:border-[#b08d3e]/50 hover:shadow-[0_8px_24px_-8px_rgba(138,106,36,0.18)]"
+                >
+                  <span className="text-[10px] font-semibold uppercase tracking-wider text-[#8a6a24]">{post.category}</span>
+                  <p className="mt-2 text-base font-semibold leading-tight text-[#1c1917] transition-colors group-hover:text-[#8a6a24]">
+                    {post.title}
+                  </p>
+                  <p className="mt-3 text-xs font-semibold text-[#8a6a24] group-hover:underline">Read Article →</p>
+                </Link>
+              ))}
+            </div>
+            <div className="mt-6 text-center sm:hidden">
+              <Link
+                prefetch={false}
+                href="/blog"
+                className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#8a6a24]"
+              >
+                View All Articles
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* ─── Closing CTA + author (dark ink band, gold accents) ──── */}
+        <section className="bg-[#0c0a09] py-16 sm:py-20">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="mx-auto max-w-2xl text-center">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#c9a961]">
+                Free · No sign-up · 50 states
+              </p>
+              <h2 className="mt-3 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+                Run your numbers in <span className="text-[#c9a961]">30 seconds</span>
+              </h2>
+              <p className="mt-4 text-[#a8a29e]">
+                Enter your salary, pick your state, and see your exact take-home pay —
+                federal, FICA, and state taxes broken down line by line with 2026 data.
+              </p>
               <Link
                 prefetch={false}
                 href="/paycheck-calculator"
-                className="mt-8 inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-600 to-emerald-500 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/30 transition-all"
+                className="mt-8 inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#c9a961] to-[#b08d3e] px-8 py-4 text-base font-semibold text-[#0c0a09] transition-all hover:from-[#d4b673] hover:to-[#c9a961]"
               >
-                <Calculator className="h-4 w-4" />
-                Start Calculating
+                <Calculator className="h-5 w-5" />
+                Open the Paycheck Calculator
               </Link>
             </div>
-            <div className="rounded-2xl border border-border/30 bg-card/50 p-8">
-              <p className="text-lg font-semibold text-foreground mb-4">Example: $75,000 in Illinois</p>
-              <div className="space-y-3 text-sm">
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">Gross Annual Salary</span>
-                  <span className="font-semibold text-foreground">$75,000.00</span>
-                </div>
-                <div className="divider-glow" />
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">Federal Tax (after $16,100 std ded)</span>
-                  <span className="text-red-400">-$7,670.00</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">FICA (SS + Medicare)</span>
-                  <span className="text-orange-400">-$5,737.50</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">IL State Tax (4.95% on $72,225)</span>
-                  <span className="text-amber-400">-$3,575.14</span>
-                </div>
-                <div className="divider-glow" />
-                <div className="flex justify-between text-base">
-                  <span className="font-semibold text-foreground">Net Annual Take-Home</span>
-                  <span className="font-bold text-emerald-400">$58,017.36</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">Effective Tax Rate</span>
-                  <span className="font-medium text-foreground">22.64%</span>
-                </div>
-              </div>
+
+            <div className="mx-auto mt-12 max-w-4xl border-t border-white/10 pt-10">
+              <AuthorBioCard authorId="rachel-mitchell" />
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* ─── Explore All Tools & Resources ─────────────────────── */}
-      <section className="py-16 border-t border-border/20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10">
-            <div className="inline-flex items-center gap-2 rounded-full bg-emerald-500/10 border border-emerald-500/20 px-4 py-1.5 text-sm text-emerald-400 mb-4">
-              <Compass className="h-3.5 w-3.5" />
-              Complete Site Directory
-            </div>
-            <h2 className="text-3xl font-bold text-foreground">
-              Explore All <span className="gradient-text">Tools & Resources</span>
-            </h2>
-            <p className="mt-3 text-muted-foreground max-w-2xl mx-auto">
-              Every calculator, salary breakdown, blog article, and state comparison — all in one place.
-            </p>
-          </div>
-
-          <div className="grid gap-6 lg:grid-cols-2">
-            {/* ── Column 1: Salary After Tax ── */}
-            <div className="rounded-xl border border-border/30 bg-card/50 p-5">
-              <div className="flex items-center gap-2 mb-4">
-                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-emerald-500/10">
-                  <DollarSign className="h-4 w-4 text-emerald-400" />
-                </div>
-                <h3 className="text-base font-semibold text-foreground">Salary After Tax</h3>
-                <span className="ml-auto text-[10px] font-semibold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 rounded-full px-2 py-0.5">26 Levels</span>
-              </div>
-              <div className="flex flex-wrap gap-1.5">
-                {SALARY_AMOUNTS.map((amount) => (
-                  <Link
-                    prefetch={false}
-                    key={amount}
-                    href={`/salary/${amount}`}
-                    className="inline-flex items-center rounded-md border border-border/30 bg-background/50 px-2.5 py-1 text-xs font-medium text-muted-foreground hover:border-emerald-500/30 hover:text-emerald-400 hover:bg-emerald-500/5 transition-all"
-                  >
-                    {formatSalaryCompact(amount)}
-                  </Link>
-                ))}
-              </div>
-              <div className="mt-3 pt-3 border-t border-border/20">
-                <Link
-                  prefetch={false}
-                  href="/salary"
-                  className="inline-flex items-center gap-1.5 text-xs font-medium text-emerald-400 hover:text-emerald-300 transition-colors"
-                >
-                  View all salary pages
-                  <ArrowRight className="h-3 w-3" />
-                </Link>
-              </div>
-            </div>
-
-            {/* ── Column 2: Blog & Guides ── */}
-            <div className="rounded-xl border border-border/30 bg-card/50 p-5">
-              <div className="flex items-center gap-2 mb-4">
-                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-emerald-500/10">
-                  <BookOpen className="h-4 w-4 text-emerald-400" />
-                </div>
-                <h3 className="text-base font-semibold text-foreground">Blog & Guides</h3>
-                <span className="ml-auto text-[10px] font-semibold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 rounded-full px-2 py-0.5">{BLOG_COUNT} Articles</span>
-              </div>
-              <ul className="space-y-2">
-                <li>
-                  <Link
-                    prefetch={false}
-                    href="/blog"
-                    className="group flex items-center gap-2 text-sm font-medium text-emerald-400 hover:text-emerald-300 transition-colors py-0.5"
-                  >
-                    <span className="h-1 w-1 rounded-full bg-emerald-400 shrink-0" />
-                    All Blog Articles
-                  </Link>
-                </li>
-                {getPublishedPostsMeta().map((post) => (
-                  <li key={post.slug}>
-                    <Link
-                      prefetch={false}
-                      href={`/blog/${post.slug}`}
-                      className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-400 transition-colors py-0.5"
-                    >
-                      <span className="h-1 w-1 rounded-full bg-emerald-500/40 shrink-0 group-hover:bg-emerald-400 transition-colors" />
-                      <span className="line-clamp-1">{post.title}</span>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-
-          {/* ── Second Row: Resources & State Comparisons ── */}
-          <div className="grid gap-6 lg:grid-cols-2 mt-6">
-            {/* ── Resources ── */}
-            <div className="rounded-xl border border-border/30 bg-card/50 p-5">
-              <div className="flex items-center gap-2 mb-4">
-                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-emerald-500/10">
-                  <FileText className="h-4 w-4 text-emerald-400" />
-                </div>
-                <h3 className="text-base font-semibold text-foreground">Resources</h3>
-              </div>
-              <div className="grid gap-3 sm:grid-cols-3">
-                {[
-                  { href: '/federal-tax-brackets', label: 'Federal Tax Brackets', desc: '2026 brackets & rates', icon: Scale },
-                  { href: '/glossary', label: 'Tax Glossary', desc: 'Key terms explained', icon: BookOpen },
-                  { href: '/compare', label: 'State Comparisons', desc: 'Side-by-side analysis', icon: Map },
-                  { href: '/obbba-tax-calculator', label: 'OBBBA Tax Calculator', desc: '2026 law vs prior law', icon: Scale },
-                  { href: '/research', label: 'Research Hub', desc: 'Original 2026 tax studies', icon: FileText },
-                  { href: '/tax-professionals', label: 'For Tax Professionals', desc: 'CPA tools & resources', icon: Shield },
-                  { href: '/smartasset-alternative', label: 'SmartAsset Alternative', desc: 'Compare features & privacy', icon: Calculator },
-                  { href: '/scholarship', label: 'Tax Literacy Scholarship', desc: '$2,500 student award', icon: Gift },
-                  { href: '/methodology', label: 'Methodology', desc: 'How we calculate taxes', icon: BookOpen },
-                ].map((res) => {
-                  const ResIcon = res.icon;
-                  return (
-                    <Link
-                      prefetch={false}
-                      key={res.href}
-                      href={res.href}
-                      className="group flex items-start gap-3 rounded-lg border border-border/20 bg-background/30 p-3 hover:border-emerald-500/30 hover:bg-emerald-500/5 transition-all"
-                    >
-                      <ResIcon className="h-4 w-4 text-emerald-400 mt-0.5 shrink-0" />
-                      <div>
-                        <p className="text-sm font-medium text-foreground group-hover:text-emerald-400 transition-colors">{res.label}</p>
-                        <p className="text-[11px] text-muted-foreground">{res.desc}</p>
-                      </div>
-                    </Link>
-                  );
-                })}
-              </div>
-            </div>
-
-            {/* ── State Comparisons ── */}
-            <div className="rounded-xl border border-border/30 bg-card/50 p-5">
-              <div className="flex items-center gap-2 mb-4">
-                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-emerald-500/10">
-                  <ArrowRightLeft className="h-4 w-4 text-emerald-400" />
-                </div>
-                <h3 className="text-base font-semibold text-foreground">State Tax Comparisons</h3>
-                <span className="ml-auto text-[10px] font-semibold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 rounded-full px-2 py-0.5">10 Matchups</span>
-              </div>
-              <div className="grid gap-2 sm:grid-cols-2">
-                {COMPARISON_SLUGS.map((slug) => {
-                  const parsed = parseComparisonSlug(slug);
-                  if (!parsed) return null;
-                  const [key1, key2] = parsed;
-                  const s1 = COMPARE_STATES[key1];
-                  const s2 = COMPARE_STATES[key2];
-                  return (
-                    <Link
-                      prefetch={false}
-                      key={slug}
-                      href={`/compare/${slug}`}
-                      className="group flex items-center gap-2 rounded-md border border-border/20 bg-background/30 px-3 py-2 text-sm text-muted-foreground hover:border-emerald-500/30 hover:text-emerald-400 hover:bg-emerald-500/5 transition-all"
-                    >
-                      <span className="text-xs font-semibold text-foreground/70 group-hover:text-emerald-400 transition-colors">{s1.abbreviation}</span>
-                      <span className="text-[10px] text-emerald-500/60">vs</span>
-                      <span className="text-xs font-semibold text-foreground/70 group-hover:text-emerald-400 transition-colors">{s2.abbreviation}</span>
-                      <span className="ml-auto text-[11px] text-muted-foreground group-hover:text-emerald-400/70 transition-colors hidden sm:inline">{s1.name} vs {s2.name}</span>
-                    </Link>
-                  );
-                })}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ─── Featured Resources (boosts link equity to strategic pages) ─── */}
-      <section className="py-16 border-t border-border/20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10">
-            <h2 className="text-3xl font-bold text-foreground">
-              Featured <span className="gradient-text">Resources</span>
-            </h2>
-            <p className="mt-3 text-muted-foreground max-w-xl mx-auto">
-              Free tools and original research to help you understand the 2026 tax landscape.
-            </p>
-          </div>
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            <Link
-              prefetch={false}
-              href="/obbba-tax-calculator"
-              className="group rounded-xl border border-border/30 bg-card/50 p-6 hover:border-emerald-500/30 hover-lift transition-all"
-            >
-              <Scale className="h-8 w-8 text-emerald-400 mb-3" />
-              <h3 className="text-lg font-semibold text-foreground group-hover:text-emerald-400 transition-colors">
-                OBBBA Tax Calculator
-              </h3>
-              <p className="mt-2 text-sm text-muted-foreground">
-                Compare your 2026 taxes under the One Big Beautiful Bill Act vs prior law. See SALT cap, Child Tax Credit, and tip deduction savings.
-              </p>
-              <span className="mt-3 inline-flex items-center gap-1.5 text-sm font-medium text-emerald-400 group-hover:gap-3 transition-all">
-                Try it now <ArrowRight className="h-4 w-4" />
-              </span>
-            </Link>
-            <Link
-              prefetch={false}
-              href="/research"
-              className="group rounded-xl border border-border/30 bg-card/50 p-6 hover:border-emerald-500/30 hover-lift transition-all"
-            >
-              <FileText className="h-8 w-8 text-emerald-400 mb-3" />
-              <h3 className="text-lg font-semibold text-foreground group-hover:text-emerald-400 transition-colors">
-                2026 Tax Research Hub
-              </h3>
-              <p className="mt-2 text-sm text-muted-foreground">
-                Original studies: state tax burden rankings, best states for remote workers, child tax credit guide, property tax by state, and tax refund statistics.
-              </p>
-              <span className="mt-3 inline-flex items-center gap-1.5 text-sm font-medium text-emerald-400 group-hover:gap-3 transition-all">
-                Browse research <ArrowRight className="h-4 w-4" />
-              </span>
-            </Link>
-            <Link
-              prefetch={false}
-              href="/scholarship"
-              className="group rounded-xl border border-border/30 bg-card/50 p-6 hover:border-emerald-500/30 hover-lift transition-all"
-            >
-              <Gift className="h-8 w-8 text-emerald-400 mb-3" />
-              <h3 className="text-lg font-semibold text-foreground group-hover:text-emerald-400 transition-colors">
-                $2,500 Student Scholarship
-              </h3>
-              <p className="mt-2 text-sm text-muted-foreground">
-                TheTaxCalc awards $2,500 annually to finance, accounting, economics, or tax students. Free to apply. Deadline May 31, 2026.
-              </p>
-              <span className="mt-3 inline-flex items-center gap-1.5 text-sm font-medium text-emerald-400 group-hover:gap-3 transition-all">
-                Apply now <ArrowRight className="h-4 w-4" />
-              </span>
-            </Link>
-            <Link
-              prefetch={false}
-              href="/tax-professionals"
-              className="group rounded-xl border border-border/30 bg-card/50 p-6 hover:border-emerald-500/30 hover-lift transition-all"
-            >
-              <Shield className="h-8 w-8 text-emerald-400 mb-3" />
-              <h3 className="text-lg font-semibold text-foreground group-hover:text-emerald-400 transition-colors">
-                For Tax Professionals
-              </h3>
-              <p className="mt-2 text-sm text-muted-foreground">
-                Free CPA and EA tools: embeddable widgets, 2026 federal and state tax data, methodology, and client-ready calculators. No cost, no sign-up.
-              </p>
-              <span className="mt-3 inline-flex items-center gap-1.5 text-sm font-medium text-emerald-400 group-hover:gap-3 transition-all">
-                Professional tools <ArrowRight className="h-4 w-4" />
-              </span>
-            </Link>
-            <Link
-              prefetch={false}
-              href="/smartasset-alternative"
-              className="group rounded-xl border border-border/30 bg-card/50 p-6 hover:border-emerald-500/30 hover-lift transition-all"
-            >
-              <Calculator className="h-8 w-8 text-emerald-400 mb-3" />
-              <h3 className="text-lg font-semibold text-foreground group-hover:text-emerald-400 transition-colors">
-                SmartAsset Alternative
-              </h3>
-              <p className="mt-2 text-sm text-muted-foreground">
-                A free, no-sign-up SmartAsset alternative. Paycheck, mortgage, retirement, and tax calculators for all 50 states — no paywall, no data collection.
-              </p>
-              <span className="mt-3 inline-flex items-center gap-1.5 text-sm font-medium text-emerald-400 group-hover:gap-3 transition-all">
-                Compare features <ArrowRight className="h-4 w-4" />
-              </span>
-            </Link>
-            <Link
-              prefetch={false}
-              href="/methodology"
-              className="group rounded-xl border border-border/30 bg-card/50 p-6 hover:border-emerald-500/30 hover-lift transition-all"
-            >
-              <BookOpen className="h-8 w-8 text-emerald-400 mb-3" />
-              <h3 className="text-lg font-semibold text-foreground group-hover:text-emerald-400 transition-colors">
-                How We Calculate Taxes
-              </h3>
-              <p className="mt-2 text-sm text-muted-foreground">
-                Our methodology: 2026 federal brackets, FICA rates, state tax laws, and standard deductions — all sourced from IRS publications and state revenue departments.
-              </p>
-              <span className="mt-3 inline-flex items-center gap-1.5 text-sm font-medium text-emerald-400 group-hover:gap-3 transition-all">
-                Read methodology <ArrowRight className="h-4 w-4" />
-              </span>
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* ─── Blog Preview ──────────────────────────────────────── */}
-      <section className="py-16 border-t border-border/20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between mb-8">
-            <div>
-              <h2 className="text-2xl font-bold text-foreground">
-                Latest from the <span className="text-emerald-400">Blog</span>
-              </h2>
-              <p className="mt-1 text-sm text-muted-foreground">We do the homework so you don&apos;t have to</p>
-            </div>
-            <Link
-              prefetch={false}
-              href="/blog"
-              className="hidden sm:flex items-center gap-1.5 text-sm font-medium text-emerald-400 hover:text-emerald-300 transition-colors"
-            >
-              View All
-              <ArrowRight className="h-4 w-4" />
-            </Link>
-          </div>
-          <div className="grid gap-6 sm:grid-cols-3">
-            {LATEST_POSTS.map((post) => (
-              <Link
-                prefetch={false}
-                key={post.slug}
-                href={`/blog/${post.slug}`}
-                className="group rounded-xl border border-border/30 bg-card/50 p-5 transition-all hover:border-emerald-500/30 hover-lift"
-              >
-                <span className="text-[10px] font-semibold uppercase tracking-wider text-emerald-400">{post.category}</span>
-                <p className="mt-2 text-base font-semibold text-foreground group-hover:text-emerald-400 transition-colors leading-tight">
-                  {post.title}
-                </p>
-                <p className="mt-3 text-xs text-emerald-400 group-hover:underline">Read Article →</p>
-              </Link>
-            ))}
-          </div>
-          <div className="mt-6 text-center sm:hidden">
-            <Link
-              prefetch={false}
-              href="/blog"
-              className="inline-flex items-center gap-1.5 text-sm font-medium text-emerald-400"
-            >
-              View All Articles
-              <ArrowRight className="h-4 w-4" />
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* ─── Author Attribution (E-E-A-T) ──────────────────────── */}
-      <section className="py-12 border-t border-border/20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <AuthorBioCard authorId="rachel-mitchell" />
-        </div>
-      </section>
+        </section>
+      </div>
     </>
   );
 }

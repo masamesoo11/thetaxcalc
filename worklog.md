@@ -889,3 +889,22 @@ Stage Summary:
 - Preview chain fully restored end-to-end: open preview panel -> luxury mockup (C) instantly, bar links to clean A/B version and proposal deck.
 - Lesson recorded: after any sandbox rebuild, gitignored public/mockups/ + public/index.html must be re-copied (already noted in .gitignore), and dev server needs a fresh detached relaunch (setsid survives; plain nohup may not).
 - STILL consultation-only: awaiting user's decision on Q1 (A/B/C direction) + remaining 4 questions; no production code touched.
+
+---
+Task ID: 32
+Agent: Main Agent
+Task: USER APPROVED DIRECTION A+ ("فاتح نظيف + لمسات ذهبية") — implement the approved homepage redesign on the REAL production page (end of consultation phase; Task 31 mockups → production code).
+
+Work Log:
+- Preserved byte-identical: metadata export, JSON-LD @graph (only dateModified bumped 2026-10-24 → 2026-10-26), H1 text "Free Tax Calculators for 2026", all H2s, speakable-summary class, TRUST_POINTS, all example copy (IL $75K breakdown, 5-employee cost), external IRS/TaxFoundation links.
+- Link-audit gate PASSED: every link from the old page survives — 37 calculator cards (12 featured via pills: Featured/All 37/Paychecks 5/State 23/Finance 5/Business 4), 5 state-compare cards, 50 /sales-tax-calculator/{slug} rows (now a searchable table), 10 salary pills + all 26 salary levels, /salary, /employee-cost-calculator, /blog + all 55+ post links (directory box, capped max-h-96 scroll per UI rules), 9 resources (merged old 6 featured-resources cards in — same hrefs), 10 /compare/{slug}, AuthorBioCard (E-E-A-T).
+- Built 3 client components (src/components/home/): hero-calculator.tsx (embedded LIVE calculator reusing the site's real calculateSalaryTakeHome engine — zero math drift), calculator-browser.tsx (pills filter via CSS visibility, ALL 37 cards always in SSR DOM), states-tax-table.tsx (searchable 50-row table, all rows SSR'd, mobile hides sales-tax column).
+- A+ skin: warm-white #fafaf9 base, stone-ink text, champagne-gold accents (#8a6a24 text / #b08d3e / #c9a961 gradient CTAs, AA-checked), dark ink closing band (#0c0a09) with gold CTA + AuthorBioCard (its dark token styling renders natively there). Fixed-lat — independent of site dark tokens until Phase 2. Fixed latent duplicate id="main-content" (shell main already has it; page no longer adds one).
+- Verification: lint 0 problems in new files (12 pre-existing elsewhere, untouched); SSR battery passed (title/H1/2×JSON-LD/speakable/50 rows/61 calc links/26 salary/10 compare/58 blog); agent-browser golden path: calc $75K/IL→$4,835/mo (matches old page's $58,017 IL example exactly), TX switch →$5,133, $95K→$6,305, married radio; pills 12→23→37; table search "Texas"→1 row; 0 console errors; mobile 390px 0 horizontal offenders; VLM QA NO DEFECTS ×3 (desktop hero, mobile, table+closing). Page height 14,246→10,644px (−25% with ALL links kept; blog directory capped with scroll).
+- Pre-existing non-regressions documented: AdSense self-mutation hydration warning (layout.tsx, untouched), 12 lint problems in obbba/site-shell/layout (untouched).
+- Removed the dev-only root redirect (skip-worktree undone) — the real page IS the new design now, preview shows it directly.
+
+Stage Summary:
+- PRODUCTION CHANGE committed+pushed: new A+ homepage (light clean + gold) with live embedded calculator, filterable tool browser, searchable 50-state table, condensed-but-complete structure. All SEO assets intact (title/JSON-LD/H1/links/canonical).
+- Rollback: git revert <commit> && git push (Cloudflare Pages auto-redeploys).
+- Phase 2 (awaiting user): rest-of-site chrome (dark header/footer/PH-banner fate = Q3), inner-page theming.
