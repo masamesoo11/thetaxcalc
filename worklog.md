@@ -1089,3 +1089,19 @@ Stage Summary:
 - ACCURACY: flagship /federal-tax-brackets fully refreshed to 2026 (was mixing 2025 numbers); effective-rate rendering fixed across salary/compare fleets.
 - Dedup-checked NEW calculator ideas for a future round (user asked): Pay Raise, HSA vs FSA, Roth Conversion.
 - Open (unchanged): PH banner fate (Q3).
+
+---
+Task ID: 38-c (clarification round — no code changes)
+Agent: Main Agent
+Task: User replied "لم افهم" to my options question (second مكس round vs waiting for IRS 2027 vs PH banner) — re-explain everything in plain Arabic and re-present the decision.
+
+Work Log:
+- Read worklog entries 38-a/38-b to reconstruct exact state: hourly fleet (26 pages) + 2027 projected page + stale-2025 accuracy fixes are all committed and live in production; sitemap 270 URLs, hub 77 tools, dev stable.
+- Re-verified dedup with grep against calculators-hub-data.ts: "raise|roth|hsa|fsa" appears exactly once (401k keywords line 283) → Pay Raise, HSA vs FSA, Roth Conversion confirmed non-duplicate candidates.
+- Answered in plain Arabic: (1) the مكس round ALREADY shipped successfully — nothing pending; (2) the 2027 page needs zero work today, only a same-day number swap when IRS publishes (expected Nov 9–15, 2026) — flip IS_OFFICIAL_2027; (3) PH banner is a yes/no marketing decision, not work.
+- Recommendation delivered: next round = build new calculators. Pay Raise = strongest evergreen long-tail + direct internal-link synergy with the new /hourly fleet; HSA vs FSA + Roth Conversion are Dec-31-deadline seasonal (search spike is NOW).
+
+Stage Summary:
+- No files changed, no commits; dev/production untouched.
+- Decision pending with user: «ابدأ» (all three in one round) / one calculator name / «انتظر».
+- Standing commitment regardless of choice: same-day 2027 official-numbers update when IRS announces.
