@@ -179,8 +179,8 @@ export function Header() {
   const dropdownRef = useRef<HTMLDivElement>(null);
   const searchInputRef = useRef<HTMLInputElement>(null);
 
-  // Determine if any calculator page is active
-  const isCalcActive = ALL_CALC_ITEMS.some((c) => pathname === c.href || pathname.startsWith(c.href + '/'));
+  // Determine if any calculator page is active (incl. the /calculators hub)
+  const isCalcActive = pathname === '/calculators' || ALL_CALC_ITEMS.some((c) => pathname === c.href || pathname.startsWith(c.href + '/'));
   const isBlogActive = pathname === '/blog' || pathname.startsWith('/blog/');
 
   const closeMobile = () => {
@@ -386,7 +386,7 @@ export function Header() {
                   </p>
                   <Link
                     prefetch={false}
-                    href="/paycheck-calculator"
+                    href="/calculators"
                     onClick={() => setCalcDropdownOpen(false)}
                     className="text-[11px] font-medium text-emerald-600 hover:text-emerald-700 transition-colors"
                   >
@@ -520,6 +520,21 @@ export function Header() {
                 className="w-full rounded-lg border border-border/40 bg-muted/30 pl-9 pr-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:ring-1 focus:ring-emerald-500/50 transition-all"
               />
             </div>
+
+            {/* All Calculators hub link — direct entry point */}
+            <Link
+              prefetch={false}
+              href="/calculators"
+              onClick={closeMobile}
+              className={`mb-3 flex items-center justify-center gap-2 rounded-xl border px-4 py-2.5 text-sm font-semibold transition-all ${
+                pathname === '/calculators'
+                  ? 'border-emerald-600 bg-emerald-600/12 text-emerald-700'
+                  : 'border-emerald-600/40 bg-emerald-600/5 text-emerald-700 hover:bg-emerald-600/10'
+              }`}
+            >
+              <Calculator className="h-4 w-4" />
+              All Calculators — browse the full directory
+            </Link>
 
             {/* Calculators by Category */}
             <div className="mb-3 max-h-[60vh] overflow-y-auto custom-scrollbar">

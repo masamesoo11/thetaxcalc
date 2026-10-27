@@ -7,6 +7,7 @@ import { DynamicProviders } from "@/components/providers/dynamic-providers";
 import { ClientAnalytics } from "@/components/finance/client-analytics";
 import { SiteShell } from "@/components/finance/site-shell";
 import { WebMCPProvider } from "@/components/finance/webmcp-provider";
+import { PwaClient } from "@/components/pwa/pwa-client";
 import { SITE_URL, SITE_HOME_URL } from '@/lib/site-config';
 import { TOTAL_CALCULATOR_COUNT } from '@/lib/calculator-routes';
 
@@ -269,7 +270,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         )}
         <QueryProvider>
           <SiteShell>
-        <WebMCPProvider />{children}</SiteShell>
+        <WebMCPProvider />{children}<PwaClient /></SiteShell>
           <DynamicProviders />
         </QueryProvider>
       </body>

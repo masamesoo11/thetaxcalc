@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 
 const CALCULATOR_LINKS = [
+  { href: '/calculators', label: 'All Calculators', icon: Calculator },
   { href: '/paycheck-calculator', label: 'Paycheck Calculator', icon: DollarSign },
   { href: '/illinois-tax-calculator', label: 'Illinois Tax', icon: MapPin },
   { href: '/texas-tax-calculator', label: 'Texas Tax', icon: MapPin },
@@ -212,7 +213,7 @@ export function Footer() {
               Calculators
             </h3>
             <ul className="space-y-2">
-              {CALCULATOR_LINKS.slice(0, 7).map((link) => {
+              {CALCULATOR_LINKS.slice(0, 8).map((link) => {
                 const Icon = link.icon;
                 return (
                   <li key={link.href}>

@@ -322,7 +322,9 @@ Visit https://thetaxcalc.com/about for the full page.`,
     '/amortization-calculator': '/mortgage-calculator',
     '/loan-calculator': '/mortgage-calculator',
     '/interest-calculator': '/mortgage-calculator',
-    '/calculators': '/paycheck-calculator',
+    // NOTE: '/calculators' previously 301'd to /paycheck-calculator because no
+    // page existed there. A real /calculators hub page now serves that URL —
+    // the legacy redirect was removed so the directory resolves to a 200.
     '/tools': '/paycheck-calculator',
     '/faq': '/glossary',
     '/help': '/glossary',

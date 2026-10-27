@@ -1,15 +1,41 @@
 {
   "name": "TheTaxCalc",
   "short_name": "TheTaxCalc",
+  "id": "/",
+  "scope": "/",
   "description": "Free 2026 tax calculators \u2014 paycheck, mortgage, 401(k), capital gains, and self-employment.",
   "start_url": "/",
   "display": "standalone",
+  "display_override": ["standalone", "minimal-ui"],
   "background_color": "#fafaf9",
   "theme_color": "#fafaf9",
   "orientation": "portrait-primary",
   "categories": [
     "finance",
     "utilities"
+  ],
+  "shortcuts": [
+    {
+      "name": "Paycheck Calculator",
+      "short_name": "Paycheck",
+      "description": "Take-home pay after all 2026 taxes",
+      "url": "/paycheck-calculator",
+      "icons": [{ "src": "/icon?s=96", "sizes": "96x96", "type": "image/png" }]
+    },
+    {
+      "name": "All Calculators",
+      "short_name": "Calculators",
+      "description": "Browse all 73 free tax calculators",
+      "url": "/calculators",
+      "icons": [{ "src": "/icon?s=96", "sizes": "96x96", "type": "image/png" }]
+    },
+    {
+      "name": "Mortgage Calculator",
+      "short_name": "Mortgage",
+      "description": "Payment + amortization schedule",
+      "url": "/mortgage-calculator",
+      "icons": [{ "src": "/icon?s=96", "sizes": "96x96", "type": "image/png" }]
+    }
   ],
   "icons": [
     {

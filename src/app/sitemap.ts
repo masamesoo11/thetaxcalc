@@ -22,6 +22,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     // Root entry uses the exact canonical form (trailing slash) so sitemap,
     // <link rel=canonical> and og:url are byte-identical for strict auditors.
     { url: SITE_HOME_URL, lastModified: siteUpdate, changeFrequency: 'weekly', priority: 1.0 },
+    // Calculators hub — the /calculators directory (added 2026-10-24)
+    { url: `${baseUrl}/calculators`, lastModified: siteUpdate, changeFrequency: 'weekly', priority: 0.9 },
   ];
 
   // Calculator pages
