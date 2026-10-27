@@ -39,6 +39,9 @@ import {
   TAX_CALC_FAQS,
   EMPLOYEE_COST_FAQS,
   GENERIC_STATE_FAQS,
+  HOURLY_SALARY_FAQS,
+  COMPOUND_INTEREST_FAQS,
+  MARRIAGE_TAX_FAQS,
 } from '@/lib/faq-data';
 import { SITE_URL } from '@/lib/site-config';
 import { getAuthorForCalculator, authorToJsonLd } from '@/lib/authors';
@@ -832,8 +835,61 @@ export function getJsonLdForType(type: string) {
     case 'employee-cost': return getEmployeeCostJsonLd();
     case 'income-tax': return getIncomeTaxJsonLd();
     case 'tax-calc': return getTaxCalcJsonLd();
+    case 'hourly-salary': return getHourlySalaryJsonLd();
+    case 'compound-interest': return getCompoundInterestJsonLd();
+    case 'marriage-tax': return getMarriageTaxJsonLd();
     default: return getGenericStateJsonLd(type);
   }
+}
+
+// ─── New calculators (Task 36): hourly-salary, compound-interest, marriage-tax ──
+
+function getHourlySalaryJsonLd() {
+  const author = getAuthorForCalculator('home');
+  const authorId = `${SITE_URL}/hourly-to-salary-calculator#author`;
+  const baseId = `${SITE_URL}/hourly-to-salary-calculator`;
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      webPageJsonLd(`${baseId}#webpage`, 'Hourly to Salary Calculator 2026', '/hourly-to-salary-calculator', 'Convert any hourly wage to annual salary: $25 an hour is $52,000 a year. Weekly, bi-weekly, monthly pay plus take-home in all 50 states.', authorId),
+      breadcrumbJsonLd(`${baseId}#breadcrumb`, 'Hourly to Salary Calculator', '/hourly-to-salary-calculator'),
+      webAppJsonLd(`${baseId}#webapp`, 'Hourly to Salary Calculator 2026', '/hourly-to-salary-calculator', authorId),
+      { '@id': authorId, ...authorToJsonLd(author) },
+      faqsToJsonLd(HOURLY_SALARY_FAQS, `${baseId}#faq`),
+    ],
+  };
+}
+
+function getCompoundInterestJsonLd() {
+  const author = getAuthorForCalculator('home');
+  const authorId = `${SITE_URL}/compound-interest-calculator#author`;
+  const baseId = `${SITE_URL}/compound-interest-calculator`;
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      webPageJsonLd(`${baseId}#webpage`, 'Compound Interest Calculator 2026', '/compound-interest-calculator', 'Free compound interest calculator: starting balance plus monthly contributions, growth chart, year-by-year milestones, and the Rule of 72.', authorId),
+      breadcrumbJsonLd(`${baseId}#breadcrumb`, 'Compound Interest Calculator', '/compound-interest-calculator'),
+      webAppJsonLd(`${baseId}#webapp`, 'Compound Interest Calculator 2026', '/compound-interest-calculator', authorId),
+      { '@id': authorId, ...authorToJsonLd(author) },
+      faqsToJsonLd(COMPOUND_INTEREST_FAQS, `${baseId}#faq`),
+    ],
+  };
+}
+
+function getMarriageTaxJsonLd() {
+  const author = getAuthorForCalculator('home');
+  const authorId = `${SITE_URL}/marriage-tax-calculator#author`;
+  const baseId = `${SITE_URL}/marriage-tax-calculator`;
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      webPageJsonLd(`${baseId}#webpage`, 'Marriage Tax Calculator 2026 — Penalty or Bonus', '/marriage-tax-calculator', 'Compare your 2026 federal tax as two single filers vs married filing jointly. Exact brackets, $32,200 joint deduction, and the 0.9% Medicare surtax twist.', authorId),
+      breadcrumbJsonLd(`${baseId}#breadcrumb`, 'Marriage Tax Calculator', '/marriage-tax-calculator'),
+      webAppJsonLd(`${baseId}#webapp`, 'Marriage Tax Calculator 2026', '/marriage-tax-calculator', authorId),
+      { '@id': authorId, ...authorToJsonLd(author) },
+      faqsToJsonLd(MARRIAGE_TAX_FAQS, `${baseId}#faq`),
+    ],
+  };
 }
 
 // ─── Generic State JSON-LD (for the 27 states without dedicated schema) ──────

@@ -40,7 +40,7 @@ import {
 } from 'lucide-react';
 
 // ─── Dynamic Counts (single source of truth) ─────────────────────────────────
-// TOTAL_CALCULATOR_COUNT = 67 route-based calculators + 5 standalone pages.
+// TOTAL_CALCULATOR_COUNT = 70 route-based calculators + 5 standalone pages.
 // Never hardcode this number anywhere — import it (audit 2026-10: site quoted
 // 67, 64, and 72 in different places).
 const CALCULATOR_COUNT = TOTAL_CALCULATOR_COUNT;
@@ -127,6 +127,9 @@ const CALCULATOR_CARDS: HomeCardData[] = [
   { href: '/irs-withholding-calculator', title: 'IRS Withholding Calculator', desc: 'Calculate recommended federal withholding per paycheck & optimize your W-4 for 2026', badge: 'W-4', category: 'paycheck', icon: 'FileText' },
   { href: '/overtime-tax-calculator', title: 'No Tax on Overtime Calculator', desc: 'Calculate your savings under the 2025–2028 OT tax exemption law. Time-sensitive!', badge: '2025 Law', category: 'paycheck', icon: 'Clock' },
   { href: '/bonus-tax-calculator', title: 'Bonus Tax Calculator', desc: 'How much tax on your bonus? Compare 22% flat rate vs aggregate method', badge: 'Bonus', category: 'paycheck', icon: 'Gift' },
+  { href: '/hourly-to-salary-calculator', title: 'Hourly to Salary Calculator', desc: 'Convert any hourly wage — see yearly, monthly, bi-weekly pay plus take-home in your state', badge: 'Converter', category: 'paycheck', icon: 'Clock' },
+  { href: '/marriage-tax-calculator', title: 'Marriage Tax Calculator', desc: 'Marriage penalty or bonus? Compare two singles vs married filing jointly with 2026 brackets', badge: 'Marriage', category: 'paycheck', icon: 'ArrowRightLeft' },
+  { href: '/compound-interest-calculator', title: 'Compound Interest Calculator', desc: 'Watch savings snowball — growth chart, Rule of 72 doubling, and year-by-year milestones', badge: 'Growth', category: 'finance', icon: 'TrendingUp' },
   { href: '/property-tax-calculator', title: 'Property Tax Calculator', desc: 'Calculate property tax for any US state. Compare all 50 states\' effective rates', badge: 'Property', category: 'finance', icon: 'Building' },
   { href: '/employee-cost-calculator', title: 'Employee Cost Calculator', desc: 'True cost of hiring — salary + employer FICA, FUTA, SUTA, and benefits for small businesses', badge: 'Employer', category: 'business', icon: 'Building' },
   { href: '/lottery-tax-calculator', title: 'Lottery Tax Calculator', desc: 'How much tax on lottery winnings? Federal + state taxes. Lump sum vs annuity comparison', badge: 'Lottery', category: 'business', icon: 'Ticket' },

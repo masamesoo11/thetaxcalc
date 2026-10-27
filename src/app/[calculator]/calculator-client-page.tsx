@@ -154,6 +154,24 @@ const EmployeeCostCalculator = dynamic(
   { loading: () => <CalculatorSkeleton />, ssr: false }
 );
 
+// Hourly ⇄ salary converter
+const HourlyToSalaryCalculator = dynamic(
+  () => import('@/components/finance/hourly-to-salary-calculator').then((m) => ({ default: m.HourlyToSalaryCalculator })),
+  { loading: () => <CalculatorSkeleton />, ssr: false }
+);
+
+// Compound interest projector
+const CompoundInterestCalculator = dynamic(
+  () => import('@/components/finance/compound-interest-calculator').then((m) => ({ default: m.CompoundInterestCalculator })),
+  { loading: () => <CalculatorSkeleton />, ssr: false }
+);
+
+// Marriage penalty/bonus comparison
+const MarriageTaxCalculator = dynamic(
+  () => import('@/components/finance/marriage-tax-calculator').then((m) => ({ default: m.MarriageTaxCalculator })),
+  { loading: () => <CalculatorSkeleton />, ssr: false }
+);
+
 // Generic state calculator for the 27 remaining states
 const GenericStateCalculator = dynamic(
   () => import('@/components/finance/generic-state-calculator').then((m) => ({ default: m.GenericStateCalculator })),
@@ -282,6 +300,12 @@ export function CalculatorClientPage({ componentKey }: CalculatorClientPageProps
       return <CaliforniaCalculator />;
     case 'chicago':
       return <IllinoisCalculator />;
+    case 'hourly-salary':
+      return <HourlyToSalaryCalculator />;
+    case 'compound-interest':
+      return <CompoundInterestCalculator />;
+    case 'marriage-tax':
+      return <MarriageTaxCalculator />;
     default:
       // Check if it's a generic state key
       if (GENERIC_STATE_KEYS.has(componentKey)) {

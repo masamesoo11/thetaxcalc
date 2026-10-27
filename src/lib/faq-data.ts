@@ -1361,3 +1361,93 @@ export const EMPLOYEE_COST_FAQS: FAQItem[] = [
       "Hiring a W-2 employee is almost always more expensive than the base salary suggests, while hiring a 1099 contractor shifts most costs to the worker. With a W-2 employee, you pay the 7.65% employer FICA match, unemployment taxes, and benefits — typically adding 25–30% over salary. A 1099 contractor handles their own self-employment tax (15.3%), benefits, and workers' comp. However, contractors usually charge higher hourly rates to cover these costs, and you risk misclassification penalties if the IRS determines the worker should have been classified as an employee. The general rule: if you control when, where, and how the work is done, the worker should be W-2. Use our <a href=\"/self-employment-tax-calculator\">self-employment tax calculator</a> to see the contractor side of the equation.",
   },
 ];
+
+// ─── Hourly ⇄ Salary Converter FAQs ─────────────────────────────────────────────
+
+export const HOURLY_SALARY_FAQS: FAQItem[] = [
+  {
+    question: '$25 an hour is how much a year?',
+    answer:
+      "At the standard full-time schedule of 40 hours per week, $25 an hour works out to $1,000 per week, $2,000 every two weeks, and $52,000 per year (40 × 52 = 2,080 hours). That's before any taxes. Your actual take-home pay depends on your state — a $52,000 salary nets roughly $44,000 in a no-income-tax state like Texas or Florida, but closer to $42,600 in California after state taxes. Use the take-home links under the results above to see your exact net pay in your state, or check our detailed <a href=\"/salary/50000-after-taxes\">$50,000 after-tax breakdown</a> for a nearby example.",
+  },
+  {
+    question: 'How many working hours are in a year, really?',
+    answer:
+      "The standard payroll assumption is 2,080 hours (40 hours × 52 weeks), and that's what employers use to convert hourly rates to salary. In reality, a full-time employee with 10 paid holidays and 15 days of PTO actually works about 1,800 hours — but since holidays and PTO are paid, your annual pay still equals rate × 2,080. Where the difference matters is for hourly workers WITHOUT paid time off: if you take two unpaid weeks off at $25/hour, you're really earning $50,000, not $52,000. Part-time? Drop the multiplier: 30 hours a week is 1,560 hours a year ($39,000 at $25/hour).",
+  },
+  {
+    question: 'How does overtime affect the annual total?',
+    answer:
+      "Under the <a href=\"https://www.dol.gov/agencies/whd/overtime\" target=\"_blank\" rel=\"noopener noreferrer\">FLSA</a>, most non-exempt hourly employees earn 1.5× their regular rate for every hour past 40 in a week. Ten overtime hours a week at $25/hour adds $375 in OT pay ($37.50 × 10) — that's an extra $19,500 a year if it continues year-round, putting a $52,000 base at $71,500. Some employers pay double time on holidays or Sundays, and a few states like California require daily overtime (over 8 hours in a day) — those rules can add up fast. Our <a href=\"/overtime-tax-calculator\">overtime tax calculator</a> shows how the extra income is taxed.",
+  },
+  {
+    question: 'Why does my bi-weekly paycheck show different amounts throughout the year?',
+    answer:
+      "Bi-weekly pay means 26 paychecks a year, and each one covers 80 hours — so the gross per check should be identical (rate × 80). If your checks vary, look for three culprits: (1) withholding differences in months with holidays, (2) a pay period with 81–82 hours due to calendar quirks (some years have 27 pay periods instead of 26 — that's a bonus paycheck year, not a raise), and (3) pre-tax deductions like health premiums that change mid-year. Semi-monthly pay (24 checks, 1st and 15th) divides 2,080 hours unevenly — each check averages 86.67 hours, which is why some employers on semi-monthly schedules use 2,088 hours (366-day years).",
+  },
+  {
+    question: 'Is my annualized hourly pay the same as a salary for tax purposes?',
+    answer:
+      "Yes — the IRS doesn't care whether your W-2 income came from an hourly wage or a salaried position; both are ordinary W-2 wages taxed through the same federal brackets, and both get FICA (6.2% Social Security + 1.45% Medicare) withheld. What actually changes your taxes is the total box-1 number at year's end. Two things differ in practice: salaried exempt employees can't get overtime (their weekly rate effectively drops the more hours they work), and hourly workers can boost income with OT that salaried peers work for free. When comparing a job offer, use our <a href=\"/job-offer-comparison-calculator\">job offer comparison calculator</a> to see the after-tax difference.",
+  },
+];
+
+// ─── Compound Interest FAQs ─────────────────────────────────────────────────────
+
+export const COMPOUND_INTEREST_FAQS: FAQItem[] = [
+  {
+    question: 'What is the Rule of 72?',
+    answer:
+      "The Rule of 72 is a mental shortcut for how long money takes to double: divide 72 by your annual return rate. At 7%, money doubles roughly every 10.3 years (72 ÷ 7); at 10%, about every 7.2 years. It works because compound growth is exponential — the growth rate applies to accumulated gains, not just your deposits. It's surprisingly accurate for rates between 4% and 12% (the exact number is 69.3 × ln-adjusted, but 72 is divisible by more numbers, which is why it won). Quick application: if you're 30 and expect 7% average returns, every dollar you invest today doubles about three and a half times by 65 — $10,000 becomes roughly $105,000.",
+  },
+  {
+    question: 'What return rate should I use in the calculator?',
+    answer:
+      "It depends on where the money sits. High-yield savings accounts currently pay around 3.5–4.5% APY (FDIC-insured, no stock risk). A balanced 60/40 portfolio has historically returned about 7–8% annually over long periods. The S&P 500's long-run average is roughly 10% nominal (about 7% after inflation) — but with years that swing +30% and −20% along the way. A common planning default is 6–8% for retirement investments, 4–5% for a conservative mix near retirement, and current HYSA rates for emergency funds. Don't use the best year you remember — sequence of returns matters, and the money you contribute in the final years never gets time to compound.",
+  },
+  {
+    question: 'How much does monthly vs annual compounding actually matter?',
+    answer:
+      "Less than most people think, but it's free money. On $10,000 at 7% for 20 years: annual compounding gives $38,697, monthly gives $40,387 — a difference of about $1,690, or roughly 4.4%. The formula behind it: more frequent compounding means interest earns interest sooner. Daily compounding (what banks advertise) adds only a few dollars more per decade than monthly at the same rate. What matters far more: fees (a 1% annual fee costs about 25% of your final balance over 30 years — it compounds against you) and your contribution amount. Bump monthly savings by $100 at 7% for 30 years and you end up with roughly $122,000 more.",
+  },
+  {
+    question: 'How do taxes affect compound growth?',
+    answer:
+      "Taxes are a silent compounding killer because they skim gains every year, so the base you roll forward shrinks. In a taxable brokerage account, qualified dividends and long-term gains run 0–20% federal (plus 3.8% NIIT at higher incomes), and mutual funds can distribute taxable gains annually even if you never sold. Tax-advantaged accounts fix this: a traditional 401(k) or IRA compounds fully tax-deferred (you pay once at withdrawal), a Roth compounds tax-FREE (you already paid on contributions), and an HSA is the only triple-advantaged account — deductible in, tax-free growth, tax-free out for medical costs. See how your 401(k) compounds with our <a href=\"/401k-calculator\">401(k) calculator</a>.",
+  },
+  {
+    question: 'How much do I need to invest monthly to reach $1 million?',
+    answer:
+      "At a 7% average return: starting at 25, about $381/month does it in 40 years; at 35, $820/month in 30 years; at 45, $1,920/month in 20 years. The pattern is the whole point of compounding — time does more work than deposits. The 25-year-old contributes about $183,000 total and earns $817,000 in interest; the 45-year-old contributes $461,000 to earn $539,000. If $1M sounds abstract, anchor it to the 4% rule: a $1M portfolio can roughly support $40,000/year of inflation-adjusted withdrawals in retirement. Play with the numbers above, then check your state-specific savings power with our <a href=\"/paycheck-calculator\">paycheck calculator</a>.",
+  },
+];
+
+// ─── Marriage Tax Penalty/Bonus FAQs ────────────────────────────────────────────
+
+export const MARRIAGE_TAX_FAQS: FAQItem[] = [
+  {
+    question: 'What is the marriage penalty, exactly?',
+    answer:
+      "It's when two people pay MORE federal income tax as a married-filing-jointly couple than they would have paid as two single filers with the same incomes. It happens because the married 37% top bracket isn't quite double the single one in 2026: single brackets compress above $256,225 of taxable income while joint brackets don't finish stretching until $768,700 — so when both spouses earn similar high incomes, their combined income fills the joint brackets faster than their separate single brackets did. The opposite — a marriage BONUS — happens when one spouse earns most of the income, because the joint brackets are wider than that earner's single brackets were.",
+  },
+  {
+    question: 'Who gets a marriage bonus instead of a penalty?',
+    answer:
+      "Roughly the majority of couples, actually. If one spouse earns substantially more than the other (say $95,000 vs $30,000), marriage almost always cuts the couple's total federal tax: the higher earner's income gets spread across the wider joint brackets ($24,800 and $100,800 at the 10% and 12% marks in 2026 — exactly double the single $12,400 and $50,400), while the lower earner's unused bracket room absorbs income that used to sit in the higher earner's upper brackets. The classic single-earner couple (one income, one $0) gets the biggest bonus. Penalties cluster among dual-high-earner couples with roughly equal incomes — two $200,000 salaries, for example.",
+  },
+  {
+    question: 'Does the 2026 standard deduction change the math?',
+    answer:
+      "It's part of the math. The 2026 standard deduction is $16,100 single and $32,200 married-filing-jointly — exactly double, so the deduction itself is marriage-neutral (unlike pre-TCJA days when married got less than double). What isn't neutral: the top bracket widths. The joint 37% rate starts at $768,700 of taxable income — well under twice the single $640,600 — so two $400,000 earners combined ($800,000) brush against the top of the joint 35% zone sooner than they ever would apart. This calculator uses the exact 2026 brackets and deductions for both scenarios, so the answer you see reflects current law, including the OBBBA changes.",
+  },
+  {
+    question: "We got married in November. Does it count for the whole year?",
+    answer:
+      "For taxes, your filing status is locked in as of December 31 — if you're married on the last day of the year, the IRS considers you married for the ENTIRE year. A December 30 wedding means you must choose married-filing-jointly or married-filing-separately for that year; you can no longer file as single even though you were single for 364 days of it. (The reverse also holds: a spouse who dies mid-year is still considered married for that year.) So a late-year wedding can trigger a surprise penalty or bonus for months you weren't even married. Plan a November/December wedding? Run both scenarios here before the ceremony — sometimes it's worth adjusting withholding on the first paychecks of the new year.",
+  },
+  {
+    question: 'Do states have their own marriage penalties?',
+    answer:
+      "Yes, and they can dwarf the federal one in some states. Most states follow the federal pattern, but a handful use different logic: several states give joint filers LESS than double the single brackets or deductions, creating penalties even for moderate earners. The 0% income-tax states (Texas, Florida, Washington, Nevada and others) make the state question irrelevant for wages. Where it gets interesting is high-tax states like California and New York with steep top brackets — two equal high earners there can stack a state penalty on top of the federal one, while a single-earner couple might get both bonuses. Compare your state's single vs joint math with our <a href=\"/salary-comparison-calculator\">salary comparison calculator</a> or your state's page in our <a href=\"/calculators\">calculator directory</a>.",
+  },
+];

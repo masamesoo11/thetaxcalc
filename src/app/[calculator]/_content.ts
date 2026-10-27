@@ -36,6 +36,9 @@ import {
   MINNESOTA_FAQS,
   OREGON_FAQS,
   EMPLOYEE_COST_FAQS,
+  HOURLY_SALARY_FAQS,
+  COMPOUND_INTEREST_FAQS,
+  MARRIAGE_TAX_FAQS,
   FAQItem,
 } from '@/lib/faq-data';
 import { generateStateContent } from '@/lib/state-tax-data';
@@ -1392,6 +1395,111 @@ export function getCalculatorContent(type: string): CalculatorContent {
           { slug: 'paycheck-calculator', label: 'Paycheck Calculator (Employee View)' },
           { slug: 'self-employment-tax-calculator', label: 'Self-Employment Tax' },
           { slug: '401k-retirement-calculator', label: '401(k) Calculator' },
+          { slug: 'salary', label: 'Salary After Tax' },
+        ],
+      };
+    case 'hourly-salary':
+      return {
+        howItWorks: [
+          'Every job posting shows either an hourly rate or a salary, but your brain thinks in paychecks. The bridge between the two is the standard work year: 40 hours a week × 52 weeks = 2,080 paid hours. Multiply any hourly rate by 2,080 and you get its full-time annual salary. $25 an hour? That\'s $52,000 a year. $18 an hour is $37,440. The math takes ten seconds once you know the multiplier.',
+          'Two wrinkles change the number in real life. First, overtime: under the <a href="https://www.dol.gov/overtime" target="_blank" rel="noopener noreferrer">Fair Labor Standards Act</a>, hourly (non-exempt) employees earn 1.5× their rate past 40 hours in a week — so a steady 10 hours of OT at $25/hour adds $19,500 a year. Some states layer daily overtime on top: California, for instance, pays 1.5× past 8 hours in a single day. Second, unpaid time off: if your job doesn\'t pay vacation, drop the weeks — 50 paid weeks at $20/hour is $40,000, not $41,600.',
+          'The gross-to-net gap is where hourly workers get surprised. A $52,000 salary doesn\'t put $52,000 in your pocket: federal tax, 6.2% Social Security, 1.45% Medicare, and state income tax come out first. In Texas or Florida you\'d keep roughly $44,000 of it; in California, closer to $42,600. That\'s why this calculator doesn\'t stop at the annual figure — pick your state below the results and it shows the after-tax number using the same engine as our <a href="/paycheck-calculator">paycheck calculator</a>.',
+          'One more conversion worth knowing: salary to hourly. Divide annual pay by 2,080 — a $62,400 salary works out to exactly $30/hour. If you\'re comparing a salaried offer against an hourly job, count the hours the salaried role really expects. A $75,000 salary at a 55-hour-a-week startup is effectively $26.22 an hour before taxes — less than the $30/hour job with overtime rights you might be leaving.',
+        ],
+        calculationMethod: {
+          formula: 'Annual Salary = Hourly Rate × (Regular Hours × 52) + Hourly Rate × 1.5 × (OT Hours × 52)',
+          steps: [
+            'Start with your hourly rate (e.g., $25)',
+            'Multiply regular weekly hours by 52 weeks (40 × 52 = 2,080 hours)',
+            'Add overtime at 1.5× the hourly rate for hours past 40/week',
+            'Adjust the week count if you take unpaid time off (50 weeks = −$2,000 at $25/hr)',
+            'Convert to monthly (÷12), bi-weekly (÷26), weekly (÷52), or per-day (÷5)',
+          ],
+          example: '$25/hour, 40 regular hours, 5 OT hours/week: $25 × 2,080 = $52,000 base + $25 × 1.5 × 5 × 52 = $9,750 overtime → $61,750 annual gross.',
+        },
+        keyRates: [
+          { label: 'Standard Work Year', value: '2,080 hours (40 × 52)' },
+          { label: 'Overtime Multiplier', value: '1.5× past 40 hrs/week (FLSA)' },
+          { label: 'Monthly Conversion', value: 'Annual ÷ 12' },
+          { label: 'Bi-weekly Conversion', value: 'Annual ÷ 26' },
+          { label: 'California Daily OT', value: '1.5× past 8 hrs/day' },
+        ],
+        faqs: HOURLY_SALARY_FAQS,
+        relatedCalculators: [
+          { slug: 'paycheck-calculator', label: 'Paycheck Calculator' },
+          { slug: 'overtime-tax-calculator', label: 'Overtime Tax Calculator' },
+          { slug: 'bonus-tax-calculator', label: 'Bonus Tax Calculator' },
+          { slug: 'salary', label: 'Salary After Tax' },
+          { slug: 'job-offer-comparison-calculator', label: 'Job Offer Comparison' },
+        ],
+      };
+    case 'compound-interest':
+      return {
+        howItWorks: [
+          'Simple interest pays you only on your original deposit. Compound interest pays you on your deposits AND on every dollar of interest you\'ve already earned — which is why the curve in the chart above bends upward instead of running straight. Each month the engine below adds your contribution, applies the monthly rate to the whole balance, and starts over. Nothing is withdrawn, everything keeps working.',
+          'The force multiplier is time. At a 7% average return, $500 a month for 10 years grows to about $86,000 — of which $26,000 is interest. Run the same plan for 30 years and it\'s about $610,000, with $430,000 of it earned by compounding. You can verify the pattern with the <a href="https://www.investor.gov/financial-tools-calculators/calculators/compound-interest-calculator" target="_blank" rel="noopener noreferrer">SEC\'s own compound interest tool</a> — the doubling shortcut is the Rule of 72: at 7%, money doubles roughly every 10.3 years.',
+          'Where the money lives decides how much of the growth you keep. In a regular brokerage account, dividends and realized gains are taxed along the way, which shrinks the base that compounds. A <a href="/401k-retirement-calculator">401(k)</a> compounds untaxed until withdrawal, and a Roth does it tax-free forever. The difference isn\'t subtle: a 1% annual tax drag on a 7% return costs roughly a quarter of your final balance over 30 years.',
+          'Two honest caveats the calculator can\'t show. Returns arrive lumpy — a real 7% average includes years at +25% and years at −15%, and money added late in the run never gets time to recover from a bad one. And inflation quietly discounts the ending figure: at 2.5% inflation, $610,000 in 30 years buys what about $291,000 buys today. Plan using nominal returns, but retire knowing the real number.',
+        ],
+        calculationMethod: {
+          formula: 'FV = P(1 + r)^n + PMT × [((1 + r)^n − 1) ÷ r]   (monthly r, n = months)',
+          steps: [
+            'Convert the annual return to a monthly rate (7% ÷ 12 ≈ 0.583%/mo)',
+            'Grow the starting balance each month by (1 + monthly rate)',
+            'Add the monthly contribution after the growth is applied',
+            'Repeat for every month in the horizon; interest earns interest on the new total',
+            'Future Value − Total Deposits = Interest Earned',
+          ],
+          example: '$10,000 start + $500/month at 7% for 30 years: deposits total $190,000; the account ends near $691,000 — compounding contributed about $501,000.',
+        },
+        keyRates: [
+          { label: 'Historical S&P 500 (nominal)', value: '~10% / yr long-run average' },
+          { label: 'Balanced 60/40 Portfolio', value: '~7–8% / yr' },
+          { label: 'High-Yield Savings (2026)', value: '~3.5–4.5% APY' },
+          { label: 'Rule of 72', value: 'Doubling time ≈ 72 ÷ return %' },
+          { label: 'Monthly vs Annual Compounding', value: '~0.03–0.1 pt effective difference' },
+        ],
+        faqs: COMPOUND_INTEREST_FAQS,
+        relatedCalculators: [
+          { slug: '401k-retirement-calculator', label: '401(k) Calculator' },
+          { slug: 'capital-gains-calculator', label: 'Capital Gains Calculator' },
+          { slug: 'paycheck-calculator', label: 'Paycheck Calculator' },
+          { slug: 'mortgage-calculator', label: 'Mortgage Calculator' },
+          { slug: 'salary', label: 'Salary After Tax' },
+        ],
+      };
+    case 'marriage-tax':
+      return {
+        howItWorks: [
+          '"Does it cost money to get married?" is a genuinely American tax question, because the US taxes couples on a joint return while also taxing individuals. The federal code mostly doubles everything for joint filers — the 2026 standard deduction goes from $16,100 to exactly $32,200, and most brackets come close to doubling. The comparison below runs both scenarios with the exact <a href="/federal-tax-brackets">2026 brackets</a>: each of you as a single filer, then the two of you combined on one joint return.',
+          'Marriage BONUSES happen when one spouse earns much more than the other. The joint brackets are wider than one earner\'s single brackets, so the higher earner\'s top dollars drop into lower-rate space the lower earner wasn\'t using. A $95K + $30K couple saves roughly $2,850 a year by filing jointly. Marriage PENALTIES hit equal high earners: the joint 37% bracket starts at $768,700 — well under twice the single $640,600 — so two equal high earners reach the top bracket sooner married than apart.',
+          'The 0.9% additional Medicare tax has its own marriage wrinkle, and the calculator includes it. As singles, each spouse pays it on wages over $200,000. Married, the threshold is $250,000 on COMBINED wages — so two $130,000 earners pay $90 as a couple and $0 as two singles, while a $320K + $0 couple pays $630 jointly instead of $1,080 as individuals. High-earning couples also cross the 3.8% Net Investment Income Tax thresholds the same way ($200K single vs $250K joint) on investment income.',
+          'Two things this comparison deliberately leaves out. Social Security (6.2%) and base Medicare (1.45%) are withheld per person on the same wages either way, so they cancel out. And state income tax adds its own layer — a handful of states don\'t double their brackets for joint filers, while community-property and 0%-tax states change the picture entirely. If the federal verdict is close, your state can decide which filing status actually wins.',
+        ],
+        calculationMethod: {
+          formula: 'Δ = MFJ(combined) − [Single(income₁) + Single(income₂) + surtaxes]   (Δ > 0 = penalty)',
+          steps: [
+            'Calculate each spouse\'s federal tax using single brackets and the $16,100 single deduction',
+            'Add the 0.9% additional Medicare tax each would owe above $200,000 individually',
+            'Calculate the joint return: combined income through married brackets with the $32,200 joint deduction',
+            'Add the joint 0.9% surtax on combined wages above $250,000',
+            'Subtract the two-single total from the joint total — positive is a penalty, negative is a bonus',
+          ],
+          example: '$95,000 + $30,000: singles pay ≈ $13,490 combined; joint pays ≈ $10,640 — a marriage BONUS of about $2,850 a year.',
+        },
+        keyRates: [
+          { label: 'Standard Deduction (Single 2026)', value: '$16,100' },
+          { label: 'Standard Deduction (Joint 2026)', value: '$32,200 (exactly 2×)' },
+          { label: 'Top Single 37% Bracket', value: 'Above $640,600 taxable' },
+          { label: 'Top Joint 37% Bracket', value: 'Above $768,700 taxable' },
+          { label: 'Add\'l Medicare Threshold', value: '$200K single / $250K joint' },
+        ],
+        faqs: MARRIAGE_TAX_FAQS,
+        relatedCalculators: [
+          { slug: 'federal-tax-brackets', label: '2026 Federal Tax Brackets' },
+          { slug: 'paycheck-calculator', label: 'Paycheck Calculator' },
+          { slug: 'salary-comparison-calculator', label: 'Salary Comparison Calculator' },
+          { slug: 'hourly-to-salary-calculator', label: 'Hourly to Salary Converter' },
           { slug: 'salary', label: 'Salary After Tax' },
         ],
       };

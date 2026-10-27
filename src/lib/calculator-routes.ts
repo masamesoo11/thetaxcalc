@@ -1396,6 +1396,78 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     canonicalPath: '/chicago-tax-calculator',
     jsonLdType: 'chicago',
   },
+  {
+    slug: 'hourly-to-salary-calculator',
+    title: 'Hourly to Salary Calculator 2026 — $X/hr Is How Much Per Year?',
+    description:
+      'Convert any hourly wage to annual salary instantly. $25 an hour is $52,000 a year — see weekly, bi-weekly, and monthly pay plus your take-home in all 50 states. Includes 1.5× overtime.',
+    h1: 'Hourly to Salary Calculator',
+    metaTitle: 'Hourly to Salary Calculator 2026 — Instant Conversion + Take-Home',
+    metaDesc:
+      'Convert hourly to salary instantly: $25/hr = $52,000/year. Weekly, bi-weekly, monthly pay + take-home after tax in your state. Overtime at 1.5× included. Free.',
+    keywords: [
+      'hourly to salary calculator', '$25 an hour is how much a year',
+      'hourly to yearly', 'hourly to annual salary', 'hourly wage to salary',
+      'hourly rate to annual', '20 an hour is how much a year', '30 an hour is how much a year',
+      'salary to hourly converter', '2080 hours', 'overtime pay calculator',
+    ],
+    componentKey: 'hourly-salary',
+    category: 'paycheck',
+    breadcrumbLabel: 'Hourly to Salary Calculator',
+    ogTitle: 'Hourly to Salary Calculator 2026 — Instant + 50-State Take-Home',
+    ogDescription:
+      '$25 an hour is $52,000 a year. Convert any hourly wage to salary and see your after-tax take-home in your state. Free 2026 calculator.',
+    canonicalPath: '/hourly-to-salary-calculator',
+    jsonLdType: 'hourly-salary',
+  },
+  {
+    slug: 'compound-interest-calculator',
+    title: 'Compound Interest Calculator 2026 — Free Investment Growth Projector',
+    description:
+      'Free compound interest calculator: see how a starting balance plus monthly contributions grows year by year. Chart, milestones, Rule of 72 doubling, and tax-smart tips.',
+    h1: 'Compound Interest Calculator',
+    metaTitle: 'Compound Interest Calculator 2026 — Free Growth Projector + Chart',
+    metaDesc:
+      'Free compound interest calculator with monthly contributions, growth chart, and year-by-year milestones. See how savings snowball — and how taxes shrink (or spare) the snowball.',
+    keywords: [
+      'compound interest calculator', 'investment growth calculator',
+      'savings growth calculator', 'compound interest with monthly contributions',
+      'future value calculator', 'rule of 72 calculator', 'interest calculator monthly',
+      'investment projection', 'savings snowball calculator', 'free compound interest calculator',
+    ],
+    componentKey: 'compound-interest',
+    category: 'investment',
+    breadcrumbLabel: 'Compound Interest Calculator',
+    ogTitle: 'Compound Interest Calculator 2026 — Watch Savings Snowball',
+    ogDescription:
+      'Free compound interest calculator: starting balance + monthly contributions, growth chart, Rule of 72 doubling time, year-by-year milestones.',
+    canonicalPath: '/compound-interest-calculator',
+    jsonLdType: 'compound-interest',
+  },
+  {
+    slug: 'marriage-tax-calculator',
+    title: 'Marriage Tax Calculator 2026 — Do You Pay a Penalty or Get a Bonus?',
+    description:
+      'Free marriage tax calculator for 2026: compares your federal tax as two single filers vs married filing jointly. Exact 2026 brackets, $32,200 joint deduction, and the 0.9% Medicare surtax twist.',
+    h1: 'Marriage Tax Calculator (Penalty or Bonus?)',
+    metaTitle: 'Marriage Tax Calculator 2026 — Penalty vs Bonus, Exact Brackets',
+    metaDesc:
+      'Will marriage raise or cut your taxes? Compare two single returns vs married filing jointly with exact 2026 federal brackets. Free, instant, no sign-up.',
+    keywords: [
+      'marriage tax calculator', 'marriage penalty calculator', 'marriage tax penalty',
+      'married filing jointly vs single', 'marriage bonus calculator', 'marriage penalty tax calculator',
+      'should we get married tax calculator', 'tax penalty for getting married', 'marriage tax credit 2026',
+      'tax brackets married vs single 2026', 'jointly vs separately calculator', 'wedding tax impact',
+    ],
+    componentKey: 'marriage-tax',
+    category: 'paycheck',
+    breadcrumbLabel: 'Marriage Tax Calculator',
+    ogTitle: 'Marriage Tax Calculator 2026 — Penalty or Bonus?',
+    ogDescription:
+      'Compare your taxes as two singles vs married filing jointly. Exact 2026 brackets and deductions. Free, instant.',
+    canonicalPath: '/marriage-tax-calculator',
+    jsonLdType: 'marriage-tax',
+  },
 ];
 
 /** Map from componentKey (old hash key) to slug (new route) */

@@ -212,6 +212,27 @@ const SPECIAL_CARDS: Record<
     icon: 'percent',
     keywords: 'bonus supplemental withholding',
   },
+  'hourly-to-salary-calculator': {
+    label: 'Hourly to Salary Calculator',
+    desc: '$X/hr → yearly, monthly & take-home',
+    category: 'income',
+    icon: 'swap',
+    keywords: 'hourly to salary hourly to yearly annual wage rate 25 an hour 20 an hour 30 an hour 2080 hours wage converter overtime',
+  },
+  'compound-interest-calculator': {
+    label: 'Compound Interest Calculator',
+    desc: 'Savings snowball + Rule of 72',
+    category: 'invest',
+    icon: 'trending',
+    keywords: 'compound interest investment growth savings future value rule of 72 monthly contributions snowball investing projection',
+  },
+  'marriage-tax-calculator': {
+    label: 'Marriage Tax Calculator',
+    desc: 'Marriage penalty or bonus for 2026?',
+    category: 'compare',
+    icon: 'scale',
+    keywords: 'marriage tax penalty bonus married filing jointly vs single wedding tax jointly separately brackets',
+  },
   'irs-withholding-calculator': {
     label: 'IRS Withholding Calculator',
     desc: 'W-4 optimization for accurate withholding',
