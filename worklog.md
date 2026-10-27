@@ -1105,3 +1105,19 @@ Stage Summary:
 - No files changed, no commits; dev/production untouched.
 - Decision pending with user: «ابدأ» (all three in one round) / one calculator name / «انتظر».
 - Standing commitment regardless of choice: same-day 2027 official-numbers update when IRS announces.
+
+---
+Task ID: 38-d (keyword-list analysis — no code changes)
+Agent: Main Agent
+Task: User pasted ~100 top "calculator" search queries (Keyword Planner style). Analyze against the 77-tool site, filter off-brand, dedup, and propose the next build round.
+
+Work Log:
+- Read calculators-hub-data.ts fully (50 state cards + 3 city cards + 17 SPECIAL_CARDS + 7 EXTRA) and grepped calculator-routes.ts for loan/retire/roth/cd/tip/amortiz/invest/interest/time/hours/percent.
+- Already covered from the list (9 queries): mortgage (#2), tax (#13), mortgage payment (#14, same page), compound interest (#24), cumulative interest (~#75, same intent), 401k (#28), salary (#30), paycheck (#32), calculate my paycheck (#59).
+- Off-brand filtered out with honest rationale (topical authority + unwinnable brands): BMI/calorie/TDEE/BMR/protein (health), math-solver/algebra/quadratic/factoring/slope/lcm/gcf/statistics/fraction (math education), TI-84/Desmos/Google/Bankrate/Microsoft (brand queries), concrete/sq-ft/acreage/GPA/bra-size/date/age/unit-converter/distance/ratio (non-money utilities), pounds-to-dollars (Google/XE dominated).
+- REAL gaps mapped to pages: /auto-loan-calculator (car loan #6 + car payment #8 + auto loan #9 + autoloan #54), /loan-calculator (loan #7 + loan payment #25 + payment #29), /personal-loan-calculator (#10), /amortization-calculator (#22 — mortgage page only claims the keyword, no dedicated page), /retirement-calculator (#11 — 401k page only claims the keyword, 401k-specific intent), /roth-ira-calculator (#16 — ABSORBS the shelved Roth Conversion candidate), /time-card-calculator (time clock #39 + time card #40 + work time #47 + work hours #48 + hours #55). Round 2: /cd-calculator (#12), /interest-calculator (#26 + #75), /investment-calculator (#19), /tip-calculator (#34), /percentage page (#79/#90/#95), /payroll-calculator (#23).
+- Recommendation sent: Round 1 = 7 pages covering 16 list queries, built via parallel subagents on the existing [calculator] registry architecture; sitemap 270→277, hub 77→84.
+
+Stage Summary:
+- No files changed; analysis only. Decision menu sent: «ابدأ» (7 pages) / «الكل» (13) / specific names / «انتظر».
+- Pay Raise + HSA vs FSA stay shelved (user's list points to loans as the bigger prize); roth-ira-calculator absorbs Roth Conversion.
