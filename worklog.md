@@ -1230,3 +1230,28 @@ Stage Summary:
 - NEW files (6): src/lib/loan-math.ts; src/components/finance/auto-loan-calculator.tsx; src/components/finance/loan-calculator.tsx; src/components/finance/personal-loan-calculator.tsx; src/components/finance/amortization-calculator.tsx; src/lib/calculators-additions/loans-additions.ts. componentKey -> slug map: 'auto-loan' -> auto-loan-calculator, 'loan' -> loan-calculator, 'personal-loan' -> personal-loan-calculator, 'amortization' -> amortization-calculator.
 - Orchestrator wiring map (existing files, orchestrator-owned): append LOANS_ROUTES to CALCULATOR_ROUTES; lazy-map the 4 componentKeys to the 4 components in calculator-client-page.tsx (ssr:false); getCalculatorContent cases for the 4 componentKeys serving LOANS_CONTENT; JSON-LD builders for jsonLdTypes auto-loan/loan/personal-loan/amortization; merge LOANS_HUB_CARDS into SPECIAL_CARDS + create the 'loans' HubCategory ("Loans & Debt") in HUB_CATEGORY_LABELS/ORDER; sitemap auto-grows +4 via the registry.
 - Work record: agent-ctx/39-a-full-stack-developer.md.
+
+---
+Task ID: 39 (orchestration of 39-a..39-e) — "مكس الكل": 13 new calculators
+Agent: Main Agent (orchestrator)
+Task: User replied "الكل" to the 38-d decision menu — execute ALL 13 calculators (loans ×4 + retirement ×2 + savings ×3 + work ×2 + quick utils ×2) covering 24 of his top-100 "calculator" search queries.
+
+Work Log:
+- Studied the [calculator] registry architecture end-to-end (routes/client-page/_content/_jsonld/hub; sitemap auto-derives from CALCULATOR_ROUTES; hub count derived).
+- Launched 5 parallel full-stack-developer subagents (39-a/39-b/39-c/39-d/39-e), each building NEW files ONLY (components + pure-math libs + definitions modules in src/lib/calculators-additions/) to avoid shared-file collisions — all delivered, appended worklog + agent-ctx records.
+- Integration (mine): spread additions into CALCULATOR_ROUTES (registry 67→80), 13 lazy mappings + switch cases, 13 content cases, one generic JSON-LD @graph builder (registry-config + module FAQs) in _jsonld, new 'Loans & Debt' hub category + 13 SPECIAL_CARDS (hub 77→90), authors.ts retirement-family keys, sitemap auto-grew 270→283.
+- CRITICAL catch: 5 LEGACY 301s in middleware were hijacking the new URLs (loan-/amortization-/interest-calculator → mortgage; retirement-/roth-ira-calculator → 401k). Removed the 5 per the documented /calculators precedent; all other legacy aliases untouched (ira-calculator 301→401k verified live).
+- Environment incident: dev server dead — the OLD next-server (PID set from 19:36) was thrashing (103% CPU, 1.6GB, unresponsive, port held). Killed the stuck trio, gutted .next to /tmp/gutted-next, relaunch attempt 3 succeeded instantly (documented recovery pattern; EADDRINUSE from attempt 2 was the zombie holding the port).
+- Gates: tsc 0 errors in all new/wired files (pre-existing errors elsewhere only); bun run lint = exactly the 12 documented; audit-titles 0 errors/0 warnings on 83 routes; all 13 pages 200 in dev at 218-229KB.
+- Browser QA (agent-browser): auto-loan default payment $616.33 exact (bun-verified figure); price 40000 edit → ~$714 live update; time-card $750 default; tip $59.00 total; roth-ira MAGI 160k → allowed $2,500 with phase-out warning (exact linear proration); console clean (2 documented AdSense warnings only); hub renders 13 new cards + Loans & Debt chip.
+- Mobile gate (390px, hydration-aware): first sweep caught 8 pages overflowing (660/620/527/486/412px) — grid children missing min-w-0 let table/SVG min-content blow out implicit auto tracks; auto-loan also had overflow-hidden overriding overflow-x-auto + chart Cards without min-w-0. Fixed with min-w-0 discipline across 8 components + overflow-x-auto correction + min-w on wide tables; FINAL SWEEP 13/13 PASS at 390px. (Lesson: measure scrollWidth AFTER networkidle/hydration — early sweeps gave false 390s.)
+- Commits: C1 318d735 (23 new files: 13 components + 5 math libs + 5 additions modules) → C2 af60322 (wiring: routes/client-page/content/jsonld/hub/authors/middleware) → pushed.
+- Production verification (?cb=): all 13 pages 200 at 169-180KB; freed slugs live (loan/amortization/interest/retirement/roth-ira no longer 301); hub "All 90 Tax Calculators"; sitemap 283 <loc>; legacy ira-calculator redirect intact; homepage 200.
+
+Stage Summary:
+- SITE: 90 hub tools (+13), 283 sitemap URLs (+13), registry 80 routes, 5 legacy redirects freed, hub gains "Loans & Debt" category.
+- Query coverage achieved (from user's list): car loan #6, loan #7, car payment #8, auto loan #9, personal loan #10, retirement #11, cd #12, roth ira #16, investment #19, amortization #22, payroll #23, loan payment #25, interest #26, cumulative interest #75, payment #29, tip #34, autoloan #54, time clock #39, time card #40, work time #47, work hours #48, hours #55, percentage increase #79 + difference #90 + change #95.
+- Off-brand queries deliberately skipped (BMI/health, TI-84/Desmos/math education, GPA, converters) — topical authority protected; reasoning delivered to user in 38-d.
+- Shelved candidates (dedup-verified, not built): Pay Raise Calculator, HSA vs FSA — next-round options.
+- Standing: same-day 2027 official-numbers update when IRS publishes (expected Nov 9-15).
+- Open: PH banner (Q3) — QA shows a "VOTE NOW" banner is live in the DOM; keep/remove decision still pending with user.
