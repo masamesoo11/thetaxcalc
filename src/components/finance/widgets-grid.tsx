@@ -307,7 +307,7 @@ function CopyButton({ text, label = 'Copy Code', onCopy }: { text: string; label
       variant="outline"
       size="sm"
       onClick={handleCopy}
-      className="gap-1.5 text-xs border-border/50 hover:border-emerald-500/40 hover:text-emerald-400 transition-all"
+      className="gap-1.5 text-xs border-border/50 hover:border-emerald-500/40 hover:text-emerald-600 transition-all"
       aria-label={copied ? 'Copied!' : label}
     >
       {copied ? (
@@ -340,14 +340,14 @@ function WidgetCard({ widget, compact = false }: { widget: WidgetInfo; compact?:
       <div className="p-6 pb-4">
         <div className="flex items-start justify-between gap-3 mb-3">
           <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-500/10 shrink-0">
-              <Icon className="h-5 w-5 text-emerald-400" />
+            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-600/10 shrink-0">
+              <Icon className="h-5 w-5 text-emerald-600" />
             </div>
             <div>
               <h3 className="text-lg font-semibold text-foreground">{widget.title}</h3>
               <Badge
                 variant="secondary"
-                className="mt-1 bg-emerald-500/10 text-emerald-400 border-emerald-500/20 text-[10px] px-2 py-0"
+                className="mt-1 bg-emerald-600/10 text-emerald-600 border-emerald-500/20 text-[10px] px-2 py-0"
               >
                 {widget.badge}
               </Badge>
@@ -366,7 +366,7 @@ function WidgetCard({ widget, compact = false }: { widget: WidgetInfo; compact?:
             if (!showPreview) trackWidgetPreview(widget.slug);
             setShowPreview(!showPreview);
           }}
-          className="gap-1.5 text-xs text-muted-foreground hover:text-emerald-400 transition-colors w-full justify-center border border-dashed border-border/40 hover:border-emerald-500/30"
+          className="gap-1.5 text-xs text-muted-foreground hover:text-emerald-600 transition-colors w-full justify-center border border-dashed border-border/40 hover:border-emerald-500/30"
           aria-expanded={showPreview}
         >
           {showPreview ? (
@@ -420,7 +420,7 @@ function WidgetCard({ widget, compact = false }: { widget: WidgetInfo; compact?:
       <div className="px-6 pb-3">
         <button
           onClick={() => setShowCustomize(!showCustomize)}
-          className="flex items-center gap-1.5 text-xs text-muted-foreground hover:text-emerald-400 transition-colors"
+          className="flex items-center gap-1.5 text-xs text-muted-foreground hover:text-emerald-600 transition-colors"
           aria-expanded={showCustomize}
         >
           <Palette className="h-3.5 w-3.5" />
@@ -482,7 +482,7 @@ function WidgetCard({ widget, compact = false }: { widget: WidgetInfo; compact?:
           <Button
             variant="outline"
             size="sm"
-            className="gap-1.5 text-xs border-border/50 hover:border-emerald-500/40 hover:text-emerald-400 transition-all"
+            className="gap-1.5 text-xs border-border/50 hover:border-emerald-500/40 hover:text-emerald-600 transition-all"
           >
             <ExternalLink className="h-3.5 w-3.5" />
             Open Calculator
@@ -629,7 +629,7 @@ export function WidgetsGrid() {
               onClick={() => setActiveCategory(cat.key)}
               className={`rounded-lg px-4 py-2 text-xs font-medium transition-all ${
                 activeCategory === cat.key
-                  ? 'bg-emerald-500/15 text-emerald-400 border border-emerald-500/30'
+                  ? 'bg-emerald-600/15 text-emerald-600 border border-emerald-500/30'
                   : 'bg-muted/20 text-muted-foreground border border-border/20 hover:border-emerald-500/20 hover:text-foreground'
               }`}
             >
@@ -654,10 +654,10 @@ export function WidgetsGrid() {
       </section>
 
       {/* ── Badges / "Powered By" Section ─────────────────────────────────── */}
-      <section className="mb-12 rounded-xl border border-emerald-500/20 bg-emerald-500/5 p-8">
+      <section className="mb-12 rounded-xl border border-emerald-500/20 bg-emerald-600/5 p-8">
         <div className="flex items-center gap-3 mb-2">
-          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-500/10">
-            <BadgeCheck className="h-5 w-5 text-emerald-400" />
+          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-600/10">
+            <BadgeCheck className="h-5 w-5 text-emerald-600" />
           </div>
           <div>
             <h2 className="text-2xl font-bold text-foreground">
@@ -671,7 +671,7 @@ export function WidgetsGrid() {
 
         <button
           onClick={() => setShowBadges(!showBadges)}
-          className="mt-4 flex items-center gap-1.5 text-sm font-medium text-emerald-400 hover:text-emerald-300 transition-colors"
+          className="mt-4 flex items-center gap-1.5 text-sm font-medium text-emerald-600 hover:text-emerald-700 transition-colors"
         >
           <ChevronDown className={`h-4 w-4 transition-transform ${showBadges ? 'rotate-180' : ''}`} />
           {showBadges ? 'Hide Badge Options' : 'Show Badge Options'}
@@ -702,10 +702,10 @@ export function WidgetsGrid() {
       </section>
 
       {/* ── Link to Us Section ─────────────────────────────────────────────── */}
-      <section className="mb-12 rounded-xl border border-emerald-500/20 bg-emerald-500/5 p-8">
+      <section className="mb-12 rounded-xl border border-emerald-500/20 bg-emerald-600/5 p-8">
         <div className="flex items-center gap-3 mb-4">
-          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-500/10">
-            <LinkIcon className="h-5 w-5 text-emerald-400" />
+          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-600/10">
+            <LinkIcon className="h-5 w-5 text-emerald-600" />
           </div>
           <div>
             <h2 className="text-2xl font-bold text-foreground">
@@ -737,8 +737,8 @@ export function WidgetsGrid() {
       {/* ── Embed Data Tables Section ──────────────────────────────────────── */}
       <section className="mb-12 rounded-xl border border-border/30 bg-card/50 p-8">
         <div className="flex items-center gap-3 mb-2">
-          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-500/10">
-            <Share2 className="h-5 w-5 text-emerald-400" />
+          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-600/10">
+            <Share2 className="h-5 w-5 text-emerald-600" />
           </div>
           <div>
             <h2 className="text-2xl font-bold text-foreground">
@@ -752,7 +752,7 @@ export function WidgetsGrid() {
 
         <button
           onClick={() => setShowEmbedTables(!showEmbedTables)}
-          className="mt-4 flex items-center gap-1.5 text-sm font-medium text-emerald-400 hover:text-emerald-300 transition-colors"
+          className="mt-4 flex items-center gap-1.5 text-sm font-medium text-emerald-600 hover:text-emerald-700 transition-colors"
         >
           <ChevronDown className={`h-4 w-4 transition-transform ${showEmbedTables ? 'rotate-180' : ''}`} />
           {showEmbedTables ? 'Hide Data Table Embeds' : 'Show Data Table Embeds'}
@@ -777,11 +777,11 @@ export function WidgetsGrid() {
           </div>
         )}
 
-        <div className="mt-4 flex items-start gap-2 rounded-lg border border-emerald-500/20 bg-emerald-500/5 p-4 text-xs text-muted-foreground leading-relaxed">
-          <Download className="h-4 w-4 text-emerald-400 shrink-0 mt-0.5" />
+        <div className="mt-4 flex items-start gap-2 rounded-lg border border-emerald-500/20 bg-emerald-600/5 p-4 text-xs text-muted-foreground leading-relaxed">
+          <Download className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
           <p>
             Want raw data? Visit our{' '}
-            <Link href="/tax-data" className="text-emerald-400 hover:text-emerald-300 underline underline-offset-2">
+            <Link href="/tax-data" className="text-emerald-600 hover:text-emerald-700 underline underline-offset-2">
               Tax Data &amp; Resources
             </Link>{' '}
             page for free, citable 2026 tax brackets, FICA rates, and more. Every section has a &ldquo;Cite this data&rdquo; button.

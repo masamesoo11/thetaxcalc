@@ -137,13 +137,13 @@ function StatusBadge({ item }: { item: { status: string; hasContent: boolean } }
     return <Badge variant="outline" className="bg-muted text-muted-foreground">Not scanned</Badge>;
   }
   if (item.status === 'new') {
-    return <Badge variant="outline" className="bg-amber-500/15 text-amber-400 border-amber-500/30">New</Badge>;
+    return <Badge variant="outline" className="bg-amber-500/15 text-amber-700 border-amber-500/30">New</Badge>;
   }
   if (item.status === 'stale') {
-    return <Badge variant="outline" className="bg-rose-500/15 text-rose-400 border-rose-500/30">Updated on site</Badge>;
+    return <Badge variant="outline" className="bg-rose-500/15 text-rose-700 border-rose-500/30">Updated on site</Badge>;
   }
   return (
-    <Badge variant="outline" className="bg-emerald-500/15 text-emerald-400 border-emerald-500/30">
+    <Badge variant="outline" className="bg-emerald-600/15 text-emerald-600 border-emerald-500/30">
       Syndicated ✓
     </Badge>
   );
@@ -636,8 +636,8 @@ export function SyndicationPanel() {
   return (
     <div className="space-y-6">
       {/* ── What this does ─────────────────────────────────────────────── */}
-      <Alert className="border-emerald-500/30 bg-emerald-500/5">
-        <Wand2 className="h-4 w-4 text-emerald-500" />
+      <Alert className="border-emerald-500/30 bg-emerald-600/5">
+        <Wand2 className="h-4 w-4 text-emerald-700" />
         <AlertTitle>What this does</AlertTitle>
         <AlertDescription className="text-xs leading-relaxed">
           Publishes blog posts to multiple channels with{' '}
@@ -654,7 +654,7 @@ export function SyndicationPanel() {
       <Card className="border-border/50">
         <CardHeader className="pb-3">
           <CardTitle className="flex items-center gap-2 text-base">
-            <KeyRound className="h-4 w-4 text-emerald-500" />
+            <KeyRound className="h-4 w-4 text-emerald-700" />
             Connection
           </CardTitle>
           <CardDescription>
@@ -663,7 +663,7 @@ export function SyndicationPanel() {
               href="https://dev.to/settings/extensions"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-emerald-400 hover:underline inline-flex items-center gap-0.5"
+              className="text-emerald-600 hover:underline inline-flex items-center gap-0.5"
             >
               dev.to/settings/extensions <ExternalLink className="h-3 w-3" />
             </a>
@@ -700,12 +700,12 @@ export function SyndicationPanel() {
                 </Button>
               </div>
               {devtoVerified?.ok && (
-                <p className="text-xs text-emerald-400 flex items-center gap-1">
+                <p className="text-xs text-emerald-600 flex items-center gap-1">
                   <CheckCircle2 className="h-3 w-3" /> Connected as @{devtoVerified.username}
                 </p>
               )}
               {devtoVerified && !devtoVerified.ok && (
-                <p className="text-xs text-rose-400 flex items-center gap-1">
+                <p className="text-xs text-rose-700 flex items-center gap-1">
                   <XCircle className="h-3 w-3" /> Not verified yet
                 </p>
               )}
@@ -764,7 +764,7 @@ export function SyndicationPanel() {
               </Button>
             </div>
             {mediumVerified?.ok && (
-              <p className="text-xs text-emerald-400 flex items-center gap-1">
+              <p className="text-xs text-emerald-600 flex items-center gap-1">
                 <CheckCircle2 className="h-3 w-3" /> Medium connected{mediumVerified.name ? ` (${mediumVerified.name})` : ''}
               </p>
             )}
@@ -783,7 +783,7 @@ export function SyndicationPanel() {
             <CollapsibleTrigger asChild>
               <button className="flex items-center justify-between w-full text-left">
                 <CardTitle className="flex items-center gap-2 text-base">
-                  <ServerCog className="h-4 w-4 text-emerald-500" />
+                  <ServerCog className="h-4 w-4 text-emerald-700" />
                   Automatic syndication — daily drip (GitHub Actions)
                 </CardTitle>
                 <span className="text-xs text-muted-foreground">Open setup guide ↓</span>
@@ -821,7 +821,7 @@ FOREM_API_KEY     optional — that community's API key (its Settings → Extens
                 </li>
               </ol>
               {pipeline && (
-                <Alert className={pipeline.envKeyConfigured ? 'border-emerald-500/30 bg-emerald-500/5' : ''}>
+                <Alert className={pipeline.envKeyConfigured ? 'border-emerald-500/30 bg-emerald-600/5' : ''}>
                   <Info className="h-4 w-4" />
                   <AlertDescription className="text-xs">
                     {pipeline.envKeyConfigured
@@ -841,7 +841,7 @@ FOREM_API_KEY     optional — that community's API key (its Settings → Extens
           <div className="flex flex-wrap items-center justify-between gap-3">
             <div>
               <CardTitle className="flex items-center gap-2 text-base">
-                <Globe className="h-4 w-4 text-emerald-500" />
+                <Globe className="h-4 w-4 text-emerald-700" />
                 Blog posts × syndication status
               </CardTitle>
               <CardDescription className="mt-1">
@@ -912,7 +912,7 @@ FOREM_API_KEY     optional — that community's API key (its Settings → Extens
                             href={item2.devto.url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="ml-2 text-emerald-400 hover:underline inline-flex items-center gap-0.5"
+                            className="ml-2 text-emerald-600 hover:underline inline-flex items-center gap-0.5"
                           >
                             dev.to copy <ExternalLink className="h-3 w-3" />
                           </a>
@@ -1040,7 +1040,7 @@ FOREM_API_KEY     optional — that community's API key (its Settings → Extens
       <Card className="border-border/50">
         <CardHeader className="pb-3">
           <CardTitle className="flex items-center gap-2 text-base">
-            <Layers className="h-4 w-4 text-emerald-500" />
+            <Layers className="h-4 w-4 text-emerald-700" />
             More channels
           </CardTitle>
           <CardDescription>
@@ -1053,8 +1053,8 @@ FOREM_API_KEY     optional — that community's API key (its Settings → Extens
           <div className="space-y-2">
             <div className="flex flex-wrap items-center justify-between gap-2">
               <Label className="flex items-center gap-2 text-sm font-medium">
-                <Newspaper className="h-4 w-4 text-emerald-500" /> Telegraph (telegra.ph)
-                <Badge variant="outline" className="bg-emerald-500/15 text-emerald-400 border-emerald-500/30">
+                <Newspaper className="h-4 w-4 text-emerald-700" /> Telegraph (telegra.ph)
+                <Badge variant="outline" className="bg-emerald-600/15 text-emerald-600 border-emerald-500/30">
                   Live · free · zero setup
                 </Badge>
               </Label>
@@ -1081,7 +1081,7 @@ FOREM_API_KEY     optional — that community's API key (its Settings → Extens
           {/* Forem community */}
           <div className="space-y-2">
             <Label htmlFor="forem-base" className="flex items-center gap-2 text-sm font-medium">
-              <Users className="h-4 w-4 text-emerald-500" /> Any Forem community (dev.to-compatible)
+              <Users className="h-4 w-4 text-emerald-700" /> Any Forem community (dev.to-compatible)
               <Badge variant="outline" className="text-[10px] bg-muted text-muted-foreground">
                 Optional · bring your own community
               </Badge>
@@ -1113,12 +1113,12 @@ FOREM_API_KEY     optional — that community's API key (its Settings → Extens
               </Button>
             </div>
             {foremVerified?.ok && (
-              <p className="text-xs text-emerald-400 flex items-center gap-1">
+              <p className="text-xs text-emerald-600 flex items-center gap-1">
                 <CheckCircle2 className="h-3 w-3" /> Connected as @{foremVerified.username} on {foremVerified.base}
               </p>
             )}
             {foremVerified && !foremVerified.ok && foremVerified.error && (
-              <p className="text-xs text-rose-400 flex items-center gap-1">
+              <p className="text-xs text-rose-700 flex items-center gap-1">
                 <XCircle className="h-3 w-3" /> {foremVerified.error}
               </p>
             )}
@@ -1159,7 +1159,7 @@ FOREM_API_KEY     optional — that community's API key (its Settings → Extens
                 href="https://github.com/forem/forem"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-emerald-400 hover:underline inline-flex items-center gap-0.5"
+                className="text-emerald-600 hover:underline inline-flex items-center gap-0.5"
               >
                 Forem <ExternalLink className="h-3 w-3" />
               </a>
@@ -1204,7 +1204,7 @@ FOREM_API_KEY     optional — that community's API key (its Settings → Extens
                   canonical: {preview.payload.canonical_url}
                 </Badge>
                 {preview.payload.tags.map((t) => (
-                  <Badge key={t} variant="outline" className="bg-emerald-500/10 text-emerald-400 border-emerald-500/30">
+                  <Badge key={t} variant="outline" className="bg-emerald-600/10 text-emerald-600 border-emerald-500/30">
                     #{t}
                   </Badge>
                 ))}

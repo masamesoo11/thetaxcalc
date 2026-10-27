@@ -74,7 +74,7 @@ export default function ResearchPage() {
         </nav>
 
         <header className="mb-10">
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-4 py-1.5 text-sm font-medium text-emerald-400">
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-600/10 px-4 py-1.5 text-sm font-medium text-emerald-600">
             <FileText className="h-4 w-4" />
             Original Research Study
           </div>
@@ -96,22 +96,22 @@ export default function ResearchPage() {
         <section className="mb-10">
           <h2 className="text-2xl font-bold text-foreground mb-4">Key Findings</h2>
           <div className="space-y-4">
-            <div className="flex items-start gap-3 rounded-lg border border-emerald-500/30 bg-emerald-500/5 p-4">
-              <DollarSign className="mt-0.5 h-5 w-5 flex-shrink-0 text-emerald-400" />
+            <div className="flex items-start gap-3 rounded-lg border border-emerald-500/30 bg-emerald-600/5 p-4">
+              <DollarSign className="mt-0.5 h-5 w-5 flex-shrink-0 text-emerald-600" />
               <div>
                 <p className="font-semibold text-foreground">Average refund: $3,052</p>
                 <p className="text-sm text-muted-foreground">The average tax refund for the 2025 filing season was $3,052, up 4.8% year-over-year.</p>
               </div>
             </div>
-            <div className="flex items-start gap-3 rounded-lg border border-emerald-500/30 bg-emerald-500/5 p-4">
-              <Users className="mt-0.5 h-5 w-5 flex-shrink-0 text-emerald-400" />
+            <div className="flex items-start gap-3 rounded-lg border border-emerald-500/30 bg-emerald-600/5 p-4">
+              <Users className="mt-0.5 h-5 w-5 flex-shrink-0 text-emerald-600" />
               <div>
                 <p className="font-semibold text-foreground">69% of filers received a refund</p>
                 <p className="text-sm text-muted-foreground">Nearly 7 in 10 filers received a refund, with highest rates among lower-income households.</p>
               </div>
             </div>
-            <div className="flex items-start gap-3 rounded-lg border border-emerald-500/30 bg-emerald-500/5 p-4">
-              <Zap className="mt-0.5 h-5 w-5 flex-shrink-0 text-emerald-400" />
+            <div className="flex items-start gap-3 rounded-lg border border-emerald-500/30 bg-emerald-600/5 p-4">
+              <Zap className="mt-0.5 h-5 w-5 flex-shrink-0 text-emerald-600" />
               <div>
                 <p className="font-semibold text-foreground">Direct deposit is 5x faster</p>
                 <p className="text-sm text-muted-foreground">Direct deposit refunds arrive in 21 days, vs 6-8 weeks for paper checks.</p>
@@ -141,15 +141,15 @@ export default function ResearchPage() {
                 </tr>
               </thead>
               <tbody className="divide-y divide-border/20">
-                <tr><td className="px-3 py-2 text-left text-muted-foreground">Under $25K</td><td className="px-3 py-2 text-left text-muted-foreground">18.4</td><td className="px-3 py-2 text-right text-muted-foreground">14.2</td><td className="px-3 py-2 text-right text-muted-foreground">77.2%</td><td className="px-3 py-2 text-right text-muted-foreground">$2,890</td><td className="px-3 py-2 text-right font-bold text-emerald-400">$41.0</td></tr>
-                <tr><td className="px-3 py-2 text-left text-muted-foreground">$25K-$50K</td><td className="px-3 py-2 text-left text-muted-foreground">22.7</td><td className="px-3 py-2 text-right text-muted-foreground">17.9</td><td className="px-3 py-2 text-right text-muted-foreground">78.9%</td><td className="px-3 py-2 text-right text-muted-foreground">$3,124</td><td className="px-3 py-2 text-right font-bold text-emerald-400">$55.9</td></tr>
-                <tr><td className="px-3 py-2 text-left text-muted-foreground">$50K-$75K</td><td className="px-3 py-2 text-left text-muted-foreground">18.2</td><td className="px-3 py-2 text-right text-muted-foreground">14.1</td><td className="px-3 py-2 text-right text-muted-foreground">77.5%</td><td className="px-3 py-2 text-right text-muted-foreground">$3,340</td><td className="px-3 py-2 text-right font-bold text-emerald-400">$47.1</td></tr>
-                <tr><td className="px-3 py-2 text-left text-muted-foreground">$75K-$100K</td><td className="px-3 py-2 text-left text-muted-foreground">13.9</td><td className="px-3 py-2 text-right text-muted-foreground">10.2</td><td className="px-3 py-2 text-right text-muted-foreground">73.4%</td><td className="px-3 py-2 text-right text-muted-foreground">$3,521</td><td className="px-3 py-2 text-right font-bold text-emerald-400">$35.9</td></tr>
-                <tr><td className="px-3 py-2 text-left text-muted-foreground">$100K-$200K</td><td className="px-3 py-2 text-left text-muted-foreground">19.3</td><td className="px-3 py-2 text-right text-muted-foreground">12.8</td><td className="px-3 py-2 text-right text-muted-foreground">66.3%</td><td className="px-3 py-2 text-right text-muted-foreground">$3,680</td><td className="px-3 py-2 text-right font-bold text-emerald-400">$47.1</td></tr>
-                <tr><td className="px-3 py-2 text-left text-muted-foreground">$200K-$500K</td><td className="px-3 py-2 text-left text-muted-foreground">6.8</td><td className="px-3 py-2 text-right text-muted-foreground">3.6</td><td className="px-3 py-2 text-right text-muted-foreground">52.9%</td><td className="px-3 py-2 text-right text-muted-foreground">$3,925</td><td className="px-3 py-2 text-right font-bold text-emerald-400">$14.1</td></tr>
-                <tr><td className="px-3 py-2 text-left text-muted-foreground">$500K-$1M</td><td className="px-3 py-2 text-left text-muted-foreground">1.2</td><td className="px-3 py-2 text-right text-muted-foreground">0.5</td><td className="px-3 py-2 text-right text-muted-foreground">41.7%</td><td className="px-3 py-2 text-right text-muted-foreground">$4,280</td><td className="px-3 py-2 text-right font-bold text-emerald-400">$2.1</td></tr>
-                <tr><td className="px-3 py-2 text-left text-muted-foreground">Over $1M</td><td className="px-3 py-2 text-left text-muted-foreground">0.4</td><td className="px-3 py-2 text-right text-muted-foreground">0.1</td><td className="px-3 py-2 text-right text-muted-foreground">25.0%</td><td className="px-3 py-2 text-right text-muted-foreground">$5,140</td><td className="px-3 py-2 text-right font-bold text-emerald-400">$0.5</td></tr>
-                <tr><td className="px-3 py-2 text-left text-muted-foreground">All Returns</td><td className="px-3 py-2 text-left text-muted-foreground">100.9</td><td className="px-3 py-2 text-right text-muted-foreground">73.4</td><td className="px-3 py-2 text-right text-muted-foreground">72.8%</td><td className="px-3 py-2 text-right text-muted-foreground">$3,303</td><td className="px-3 py-2 text-right font-bold text-emerald-400">$242.4</td></tr>
+                <tr><td className="px-3 py-2 text-left text-muted-foreground">Under $25K</td><td className="px-3 py-2 text-left text-muted-foreground">18.4</td><td className="px-3 py-2 text-right text-muted-foreground">14.2</td><td className="px-3 py-2 text-right text-muted-foreground">77.2%</td><td className="px-3 py-2 text-right text-muted-foreground">$2,890</td><td className="px-3 py-2 text-right font-bold text-emerald-600">$41.0</td></tr>
+                <tr><td className="px-3 py-2 text-left text-muted-foreground">$25K-$50K</td><td className="px-3 py-2 text-left text-muted-foreground">22.7</td><td className="px-3 py-2 text-right text-muted-foreground">17.9</td><td className="px-3 py-2 text-right text-muted-foreground">78.9%</td><td className="px-3 py-2 text-right text-muted-foreground">$3,124</td><td className="px-3 py-2 text-right font-bold text-emerald-600">$55.9</td></tr>
+                <tr><td className="px-3 py-2 text-left text-muted-foreground">$50K-$75K</td><td className="px-3 py-2 text-left text-muted-foreground">18.2</td><td className="px-3 py-2 text-right text-muted-foreground">14.1</td><td className="px-3 py-2 text-right text-muted-foreground">77.5%</td><td className="px-3 py-2 text-right text-muted-foreground">$3,340</td><td className="px-3 py-2 text-right font-bold text-emerald-600">$47.1</td></tr>
+                <tr><td className="px-3 py-2 text-left text-muted-foreground">$75K-$100K</td><td className="px-3 py-2 text-left text-muted-foreground">13.9</td><td className="px-3 py-2 text-right text-muted-foreground">10.2</td><td className="px-3 py-2 text-right text-muted-foreground">73.4%</td><td className="px-3 py-2 text-right text-muted-foreground">$3,521</td><td className="px-3 py-2 text-right font-bold text-emerald-600">$35.9</td></tr>
+                <tr><td className="px-3 py-2 text-left text-muted-foreground">$100K-$200K</td><td className="px-3 py-2 text-left text-muted-foreground">19.3</td><td className="px-3 py-2 text-right text-muted-foreground">12.8</td><td className="px-3 py-2 text-right text-muted-foreground">66.3%</td><td className="px-3 py-2 text-right text-muted-foreground">$3,680</td><td className="px-3 py-2 text-right font-bold text-emerald-600">$47.1</td></tr>
+                <tr><td className="px-3 py-2 text-left text-muted-foreground">$200K-$500K</td><td className="px-3 py-2 text-left text-muted-foreground">6.8</td><td className="px-3 py-2 text-right text-muted-foreground">3.6</td><td className="px-3 py-2 text-right text-muted-foreground">52.9%</td><td className="px-3 py-2 text-right text-muted-foreground">$3,925</td><td className="px-3 py-2 text-right font-bold text-emerald-600">$14.1</td></tr>
+                <tr><td className="px-3 py-2 text-left text-muted-foreground">$500K-$1M</td><td className="px-3 py-2 text-left text-muted-foreground">1.2</td><td className="px-3 py-2 text-right text-muted-foreground">0.5</td><td className="px-3 py-2 text-right text-muted-foreground">41.7%</td><td className="px-3 py-2 text-right text-muted-foreground">$4,280</td><td className="px-3 py-2 text-right font-bold text-emerald-600">$2.1</td></tr>
+                <tr><td className="px-3 py-2 text-left text-muted-foreground">Over $1M</td><td className="px-3 py-2 text-left text-muted-foreground">0.4</td><td className="px-3 py-2 text-right text-muted-foreground">0.1</td><td className="px-3 py-2 text-right text-muted-foreground">25.0%</td><td className="px-3 py-2 text-right text-muted-foreground">$5,140</td><td className="px-3 py-2 text-right font-bold text-emerald-600">$0.5</td></tr>
+                <tr><td className="px-3 py-2 text-left text-muted-foreground">All Returns</td><td className="px-3 py-2 text-left text-muted-foreground">100.9</td><td className="px-3 py-2 text-right text-muted-foreground">73.4</td><td className="px-3 py-2 text-right text-muted-foreground">72.8%</td><td className="px-3 py-2 text-right text-muted-foreground">$3,303</td><td className="px-3 py-2 text-right font-bold text-emerald-600">$242.4</td></tr>
               </tbody>
             </table>
           </div>
@@ -172,10 +172,10 @@ export default function ResearchPage() {
         <section className="rounded-2xl border border-emerald-500/30 bg-gradient-to-br from-emerald-500/5 to-emerald-500/10 p-8">
           <h2 className="text-2xl font-bold text-foreground mb-3">Explore More</h2>
           <div className="flex flex-wrap items-center gap-3">
-            <Link href="/research" className="inline-flex items-center gap-2 rounded-xl bg-emerald-500 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-emerald-500/20 transition-colors hover:bg-emerald-600">
+            <Link href="/research" className="inline-flex items-center gap-2 rounded-xl bg-emerald-600 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-emerald-500/20 transition-colors hover:bg-emerald-700">
               All Research <ArrowRight className="h-4 w-4" />
             </Link>
-            <Link href="/paycheck-calculator" className="inline-flex items-center gap-2 rounded-xl border border-emerald-500/30 bg-card/50 px-5 py-2.5 text-sm font-semibold text-emerald-400 transition-colors hover:bg-emerald-500/10">
+            <Link href="/paycheck-calculator" className="inline-flex items-center gap-2 rounded-xl border border-emerald-500/30 bg-card/50 px-5 py-2.5 text-sm font-semibold text-emerald-600 transition-colors hover:bg-emerald-600/10">
               Paycheck Calculator <ArrowRight className="h-4 w-4" />
             </Link>
           </div>

@@ -74,7 +74,7 @@ export default function ResearchPage() {
         </nav>
 
         <header className="mb-10">
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-4 py-1.5 text-sm font-medium text-emerald-400">
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-600/10 px-4 py-1.5 text-sm font-medium text-emerald-600">
             <FileText className="h-4 w-4" />
             Original Research Study
           </div>
@@ -96,22 +96,22 @@ export default function ResearchPage() {
         <section className="mb-10">
           <h2 className="text-2xl font-bold text-foreground mb-4">Key Findings</h2>
           <div className="space-y-4">
-            <div className="flex items-start gap-3 rounded-lg border border-emerald-500/30 bg-emerald-500/5 p-4">
-              <Baby className="mt-0.5 h-5 w-5 flex-shrink-0 text-emerald-400" />
+            <div className="flex items-start gap-3 rounded-lg border border-emerald-500/30 bg-emerald-600/5 p-4">
+              <Baby className="mt-0.5 h-5 w-5 flex-shrink-0 text-emerald-600" />
               <div>
                 <p className="font-semibold text-foreground">CTC doubled to $2,200 under OBBBA</p>
                 <p className="text-sm text-muted-foreground">OBBBA doubled the Child Tax Credit to $2,200 per qualifying child, indexed to inflation.</p>
               </div>
             </div>
-            <div className="flex items-start gap-3 rounded-lg border border-emerald-500/30 bg-emerald-500/5 p-4">
-              <DollarSign className="mt-0.5 h-5 w-5 flex-shrink-0 text-emerald-400" />
+            <div className="flex items-start gap-3 rounded-lg border border-emerald-500/30 bg-emerald-600/5 p-4">
+              <DollarSign className="mt-0.5 h-5 w-5 flex-shrink-0 text-emerald-600" />
               <div>
                 <p className="font-semibold text-foreground">Up to $1,700 refundable</p>
                 <p className="text-sm text-muted-foreground">Up to $1,700 of the CTC is refundable as the Additional Child Tax Credit (ACTC).</p>
               </div>
             </div>
-            <div className="flex items-start gap-3 rounded-lg border border-emerald-500/30 bg-emerald-500/5 p-4">
-              <TrendingUp className="mt-0.5 h-5 w-5 flex-shrink-0 text-emerald-400" />
+            <div className="flex items-start gap-3 rounded-lg border border-emerald-500/30 bg-emerald-600/5 p-4">
+              <TrendingUp className="mt-0.5 h-5 w-5 flex-shrink-0 text-emerald-600" />
               <div>
                 <p className="font-semibold text-foreground">Phaseout at $200K/$400K</p>
                 <p className="text-sm text-muted-foreground">The CTC phases out at $200,000 (single) and $400,000 (married) MAGI.</p>
@@ -140,16 +140,16 @@ export default function ResearchPage() {
                 </tr>
               </thead>
               <tbody className="divide-y divide-border/20">
-                <tr><td className="px-3 py-2 text-left text-muted-foreground">$50,000</td><td className="px-3 py-2 text-left text-muted-foreground">$2,200</td><td className="px-3 py-2 text-right text-muted-foreground">$2,200</td><td className="px-3 py-2 text-right text-muted-foreground">$2,200</td><td className="px-3 py-2 text-right font-bold text-emerald-400">Up to $1,700</td></tr>
-                <tr><td className="px-3 py-2 text-left text-muted-foreground">$100,000</td><td className="px-3 py-2 text-left text-muted-foreground">$2,200</td><td className="px-3 py-2 text-right text-muted-foreground">$2,200</td><td className="px-3 py-2 text-right text-muted-foreground">$2,200</td><td className="px-3 py-2 text-right font-bold text-emerald-400">Up to $1,700</td></tr>
-                <tr><td className="px-3 py-2 text-left text-muted-foreground">$150,000</td><td className="px-3 py-2 text-left text-muted-foreground">$2,200</td><td className="px-3 py-2 text-right text-muted-foreground">$2,200</td><td className="px-3 py-2 text-right text-muted-foreground">$2,200</td><td className="px-3 py-2 text-right font-bold text-emerald-400">Up to $1,700</td></tr>
-                <tr><td className="px-3 py-2 text-left text-muted-foreground">$200,000</td><td className="px-3 py-2 text-left text-muted-foreground">$2,200</td><td className="px-3 py-2 text-right text-muted-foreground">$2,200</td><td className="px-3 py-2 text-right text-muted-foreground">$2,200</td><td className="px-3 py-2 text-right font-bold text-emerald-400">Up to $1,700</td></tr>
-                <tr><td className="px-3 py-2 text-left text-muted-foreground">$210,000</td><td className="px-3 py-2 text-left text-muted-foreground">$1,700</td><td className="px-3 py-2 text-right text-muted-foreground">$2,200</td><td className="px-3 py-2 text-right text-muted-foreground">Varies</td><td className="px-3 py-2 text-right font-bold text-emerald-400">Up to $1,700</td></tr>
-                <tr><td className="px-3 py-2 text-left text-muted-foreground">$300,000</td><td className="px-3 py-2 text-left text-muted-foreground">$0</td><td className="px-3 py-2 text-right text-muted-foreground">$2,200</td><td className="px-3 py-2 text-right text-muted-foreground">Varies</td><td className="px-3 py-2 text-right font-bold text-emerald-400">Up to $1,700</td></tr>
-                <tr><td className="px-3 py-2 text-left text-muted-foreground">$400,000</td><td className="px-3 py-2 text-left text-muted-foreground">$0</td><td className="px-3 py-2 text-right text-muted-foreground">$2,200</td><td className="px-3 py-2 text-right text-muted-foreground">$2,200</td><td className="px-3 py-2 text-right font-bold text-emerald-400">Up to $1,700</td></tr>
-                <tr><td className="px-3 py-2 text-left text-muted-foreground">$410,000</td><td className="px-3 py-2 text-left text-muted-foreground">$0</td><td className="px-3 py-2 text-right text-muted-foreground">$1,700</td><td className="px-3 py-2 text-right text-muted-foreground">Varies</td><td className="px-3 py-2 text-right font-bold text-emerald-400">Up to $1,700</td></tr>
-                <tr><td className="px-3 py-2 text-left text-muted-foreground">$500,000</td><td className="px-3 py-2 text-left text-muted-foreground">$0</td><td className="px-3 py-2 text-right text-muted-foreground">$0</td><td className="px-3 py-2 text-right text-muted-foreground">Varies</td><td className="px-3 py-2 text-right font-bold text-emerald-400">Up to $1,700</td></tr>
-                <tr><td className="px-3 py-2 text-left text-muted-foreground">$1,000,000</td><td className="px-3 py-2 text-left text-muted-foreground">$0</td><td className="px-3 py-2 text-right text-muted-foreground">$0</td><td className="px-3 py-2 text-right text-muted-foreground">Varies</td><td className="px-3 py-2 text-right font-bold text-emerald-400">Up to $1,700</td></tr>
+                <tr><td className="px-3 py-2 text-left text-muted-foreground">$50,000</td><td className="px-3 py-2 text-left text-muted-foreground">$2,200</td><td className="px-3 py-2 text-right text-muted-foreground">$2,200</td><td className="px-3 py-2 text-right text-muted-foreground">$2,200</td><td className="px-3 py-2 text-right font-bold text-emerald-600">Up to $1,700</td></tr>
+                <tr><td className="px-3 py-2 text-left text-muted-foreground">$100,000</td><td className="px-3 py-2 text-left text-muted-foreground">$2,200</td><td className="px-3 py-2 text-right text-muted-foreground">$2,200</td><td className="px-3 py-2 text-right text-muted-foreground">$2,200</td><td className="px-3 py-2 text-right font-bold text-emerald-600">Up to $1,700</td></tr>
+                <tr><td className="px-3 py-2 text-left text-muted-foreground">$150,000</td><td className="px-3 py-2 text-left text-muted-foreground">$2,200</td><td className="px-3 py-2 text-right text-muted-foreground">$2,200</td><td className="px-3 py-2 text-right text-muted-foreground">$2,200</td><td className="px-3 py-2 text-right font-bold text-emerald-600">Up to $1,700</td></tr>
+                <tr><td className="px-3 py-2 text-left text-muted-foreground">$200,000</td><td className="px-3 py-2 text-left text-muted-foreground">$2,200</td><td className="px-3 py-2 text-right text-muted-foreground">$2,200</td><td className="px-3 py-2 text-right text-muted-foreground">$2,200</td><td className="px-3 py-2 text-right font-bold text-emerald-600">Up to $1,700</td></tr>
+                <tr><td className="px-3 py-2 text-left text-muted-foreground">$210,000</td><td className="px-3 py-2 text-left text-muted-foreground">$1,700</td><td className="px-3 py-2 text-right text-muted-foreground">$2,200</td><td className="px-3 py-2 text-right text-muted-foreground">Varies</td><td className="px-3 py-2 text-right font-bold text-emerald-600">Up to $1,700</td></tr>
+                <tr><td className="px-3 py-2 text-left text-muted-foreground">$300,000</td><td className="px-3 py-2 text-left text-muted-foreground">$0</td><td className="px-3 py-2 text-right text-muted-foreground">$2,200</td><td className="px-3 py-2 text-right text-muted-foreground">Varies</td><td className="px-3 py-2 text-right font-bold text-emerald-600">Up to $1,700</td></tr>
+                <tr><td className="px-3 py-2 text-left text-muted-foreground">$400,000</td><td className="px-3 py-2 text-left text-muted-foreground">$0</td><td className="px-3 py-2 text-right text-muted-foreground">$2,200</td><td className="px-3 py-2 text-right text-muted-foreground">$2,200</td><td className="px-3 py-2 text-right font-bold text-emerald-600">Up to $1,700</td></tr>
+                <tr><td className="px-3 py-2 text-left text-muted-foreground">$410,000</td><td className="px-3 py-2 text-left text-muted-foreground">$0</td><td className="px-3 py-2 text-right text-muted-foreground">$1,700</td><td className="px-3 py-2 text-right text-muted-foreground">Varies</td><td className="px-3 py-2 text-right font-bold text-emerald-600">Up to $1,700</td></tr>
+                <tr><td className="px-3 py-2 text-left text-muted-foreground">$500,000</td><td className="px-3 py-2 text-left text-muted-foreground">$0</td><td className="px-3 py-2 text-right text-muted-foreground">$0</td><td className="px-3 py-2 text-right text-muted-foreground">Varies</td><td className="px-3 py-2 text-right font-bold text-emerald-600">Up to $1,700</td></tr>
+                <tr><td className="px-3 py-2 text-left text-muted-foreground">$1,000,000</td><td className="px-3 py-2 text-left text-muted-foreground">$0</td><td className="px-3 py-2 text-right text-muted-foreground">$0</td><td className="px-3 py-2 text-right text-muted-foreground">Varies</td><td className="px-3 py-2 text-right font-bold text-emerald-600">Up to $1,700</td></tr>
               </tbody>
             </table>
           </div>
@@ -174,10 +174,10 @@ export default function ResearchPage() {
         <section className="rounded-2xl border border-emerald-500/30 bg-gradient-to-br from-emerald-500/5 to-emerald-500/10 p-8">
           <h2 className="text-2xl font-bold text-foreground mb-3">Explore More</h2>
           <div className="flex flex-wrap items-center gap-3">
-            <Link href="/research" className="inline-flex items-center gap-2 rounded-xl bg-emerald-500 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-emerald-500/20 transition-colors hover:bg-emerald-600">
+            <Link href="/research" className="inline-flex items-center gap-2 rounded-xl bg-emerald-600 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-emerald-500/20 transition-colors hover:bg-emerald-700">
               All Research <ArrowRight className="h-4 w-4" />
             </Link>
-            <Link href="/paycheck-calculator" className="inline-flex items-center gap-2 rounded-xl border border-emerald-500/30 bg-card/50 px-5 py-2.5 text-sm font-semibold text-emerald-400 transition-colors hover:bg-emerald-500/10">
+            <Link href="/paycheck-calculator" className="inline-flex items-center gap-2 rounded-xl border border-emerald-500/30 bg-card/50 px-5 py-2.5 text-sm font-semibold text-emerald-600 transition-colors hover:bg-emerald-600/10">
               Paycheck Calculator <ArrowRight className="h-4 w-4" />
             </Link>
           </div>

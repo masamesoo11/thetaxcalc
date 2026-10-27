@@ -146,7 +146,7 @@ export default function AboutPage() {
 
       {/* Header */}
       <div className="mb-12 text-center">
-        <div className="inline-flex items-center gap-2 rounded-full bg-emerald-500/10 border border-emerald-500/20 px-4 py-1.5 text-sm text-emerald-400 mb-6">
+        <div className="inline-flex items-center gap-2 rounded-full bg-emerald-600/10 border border-emerald-500/20 px-4 py-1.5 text-sm text-emerald-600 mb-6">
           <Users className="h-3.5 w-3.5" />
           About TheTaxCalc
         </div>
@@ -165,8 +165,8 @@ export default function AboutPage() {
       {/* The Story */}
       <section className="mb-12 rounded-xl border border-border/30 bg-card/50 p-8">
         <div className="flex items-center gap-3 mb-4">
-          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-500/10">
-            <Target className="h-5 w-5 text-emerald-400" />
+          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-600/10">
+            <Target className="h-5 w-5 text-emerald-600" />
           </div>
           <h2 className="text-2xl font-bold text-foreground">Why We Built This</h2>
         </div>
@@ -215,7 +215,7 @@ export default function AboutPage() {
                 key={stat.label}
                 className="rounded-xl border border-border/30 bg-card/50 p-5 text-center"
               >
-                <Icon className="h-5 w-5 text-emerald-400 mx-auto mb-2" />
+                <Icon className="h-5 w-5 text-emerald-600 mx-auto mb-2" />
                 <p className="text-2xl font-bold text-foreground">{stat.value}</p>
                 <p className="text-xs text-muted-foreground">{stat.label}</p>
               </div>
@@ -238,8 +238,8 @@ export default function AboutPage() {
                 className="rounded-xl border border-border/30 bg-card/50 p-6"
               >
                 <div className="flex items-center gap-3 mb-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-500/10">
-                    <Icon className="h-5 w-5 text-emerald-400" />
+                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-600/10">
+                    <Icon className="h-5 w-5 text-emerald-600" />
                   </div>
                   <h3 className="text-lg font-semibold text-foreground">{value.title}</h3>
                 </div>
@@ -282,7 +282,7 @@ export default function AboutPage() {
                 href={item.href}
                 className="flex items-center justify-between rounded-lg bg-muted/20 p-3 hover:bg-muted/30 transition-colors group"
               >
-                <span className="font-medium text-foreground group-hover:text-emerald-400 transition-colors">
+                <span className="font-medium text-foreground group-hover:text-emerald-600 transition-colors">
                   {item.state}
                 </span>
                 <span className="text-xs text-muted-foreground">{item.rate}</span>
@@ -293,17 +293,17 @@ export default function AboutPage() {
             We now cover all 50 states with dedicated income tax calculators — from zero-income-tax states
             (TX, FL, WA, NV, WY, AK, SD, NH, TN) to the highest-tax states in the
             country (CA, NY), with flat-tax states (IL, CO, IN, PA) and progressive states across the country.
-            Plus, our <Link href="/sales-tax-calculator" className="text-emerald-400 hover:text-emerald-300 underline">Sales Tax Calculator</Link> covers
+            Plus, our <Link href="/sales-tax-calculator" className="text-emerald-600 hover:text-emerald-700 underline">Sales Tax Calculator</Link> covers
             all 50 states with combined state + local rates.
           </p>
           <p>
             Beyond state calculators, we also built tools for{' '}
-            <Link href="/mortgage-calculator" className="text-emerald-400 hover:text-emerald-300 underline">mortgage amortization</Link>{' '}
+            <Link href="/mortgage-calculator" className="text-emerald-600 hover:text-emerald-700 underline">mortgage amortization</Link>{' '}
             (with an extra payments feature that shows exactly how much interest you can save),{' '}
-            <Link href="/401k-retirement-calculator" className="text-emerald-400 hover:text-emerald-300 underline">401(k) retirement projections</Link>,{' '}
-            <Link href="/capital-gains-calculator" className="text-emerald-400 hover:text-emerald-300 underline">capital gains tax estimation</Link>,{' '}
-            <Link href="/self-employment-tax-calculator" className="text-emerald-400 hover:text-emerald-300 underline">self-employment tax calculations</Link>, and a{' '}
-            <Link href="/relocation-calculator" className="text-emerald-400 hover:text-emerald-300 underline">relocation calculator</Link>{' '}
+            <Link href="/401k-retirement-calculator" className="text-emerald-600 hover:text-emerald-700 underline">401(k) retirement projections</Link>,{' '}
+            <Link href="/capital-gains-calculator" className="text-emerald-600 hover:text-emerald-700 underline">capital gains tax estimation</Link>,{' '}
+            <Link href="/self-employment-tax-calculator" className="text-emerald-600 hover:text-emerald-700 underline">self-employment tax calculations</Link>, and a{' '}
+            <Link href="/relocation-calculator" className="text-emerald-600 hover:text-emerald-700 underline">relocation calculator</Link>{' '}
             that answers the question: &ldquo;How much would I need to earn in State B to match my
             take-home pay in State A?&rdquo;
           </p>
@@ -311,9 +311,9 @@ export default function AboutPage() {
       </section>
 
       {/* Tax Data Accuracy */}
-      <section className="mb-12 rounded-xl border border-emerald-500/20 bg-emerald-500/5 p-8">
+      <section className="mb-12 rounded-xl border border-emerald-500/20 bg-emerald-600/5 p-8">
         <div className="flex items-center gap-3 mb-4">
-          <CheckCircle2 className="h-6 w-6 text-emerald-400" />
+          <CheckCircle2 className="h-6 w-6 text-emerald-600" />
           <h2 className="text-2xl font-bold text-foreground">Our Tax Data</h2>
         </div>
         <div className="text-sm text-muted-foreground leading-relaxed space-y-3">
@@ -341,7 +341,7 @@ export default function AboutPage() {
 
       {/* Contact */}
       <section id="contact" className="mb-12 rounded-xl border border-border/30 bg-card/50 p-8 text-center">
-        <Mail className="h-8 w-8 text-emerald-400 mx-auto mb-4" />
+        <Mail className="h-8 w-8 text-emerald-600 mx-auto mb-4" />
         <h2 className="text-2xl font-bold text-foreground mb-3">Get in Touch</h2>
         <p className="text-muted-foreground mb-6 max-w-md mx-auto">
           Found a bug? Think our Illinois math is off? Want your state added? We actually
@@ -357,8 +357,8 @@ export default function AboutPage() {
       {/* How We Verify Our Tax Data */}
       <section className="mb-12 rounded-xl border border-border/30 bg-card/50 p-8">
         <div className="flex items-center gap-3 mb-4">
-          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-500/10">
-            <ClipboardCheck className="h-5 w-5 text-emerald-400" />
+          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-600/10">
+            <ClipboardCheck className="h-5 w-5 text-emerald-600" />
           </div>
           <h2 className="text-2xl font-bold text-foreground">How We Verify Our Numbers</h2>
         </div>
@@ -374,16 +374,16 @@ export default function AboutPage() {
               <h3 className="text-sm font-semibold text-foreground mb-2">Go Straight to the Source</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">
                 Federal brackets come from{' '}
-                <a href="https://www.irs.gov/publications/p15" target="_blank" rel="noopener noreferrer" className="text-emerald-400 hover:text-emerald-300 underline">IRS Publication 15</a>{' '}
+                <a href="https://www.irs.gov/publications/p15" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:text-emerald-700 underline">IRS Publication 15</a>{' '}
                 (Employer&apos;s Tax Guide) and{' '}
-                <a href="https://www.irs.gov/publications/p15t" target="_blank" rel="noopener noreferrer" className="text-emerald-400 hover:text-emerald-300 underline">Publication 15-T</a>.
+                <a href="https://www.irs.gov/publications/p15t" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:text-emerald-700 underline">Publication 15-T</a>.
                 Not a blog post summarizing them — the actual IRS documents.
                 State rates come from each state&apos;s Department of Revenue directly. Illinois?{' '}
-                <a href="https://revenue.illinois.gov/" target="_blank" rel="noopener noreferrer" className="text-emerald-400 hover:text-emerald-300 underline">IDOR</a>.
+                <a href="https://revenue.illinois.gov/" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:text-emerald-700 underline">IDOR</a>.
                 California?{' '}
-                <a href="https://www.ftb.ca.gov/forms" target="_blank" rel="noopener noreferrer" className="text-emerald-400 hover:text-emerald-300 underline">FTB</a>.
+                <a href="https://www.ftb.ca.gov/forms" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:text-emerald-700 underline">FTB</a>.
                 New York?{' '}
-                <a href="https://www.tax.ny.gov/" target="_blank" rel="noopener noreferrer" className="text-emerald-400 hover:text-emerald-300 underline">NYS Department of Taxation and Finance</a>.
+                <a href="https://www.tax.ny.gov/" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:text-emerald-700 underline">NYS Department of Taxation and Finance</a>.
               </p>
             </div>
             <div className="rounded-lg bg-muted/20 p-4">
@@ -416,8 +416,8 @@ export default function AboutPage() {
             </div>
           </div>
           <div className="rounded-lg border border-amber-500/20 bg-amber-500/5 p-4 mt-2">
-            <p className="text-sm text-amber-200/90 leading-relaxed">
-              <strong className="text-amber-300">One more thing:</strong> TheTaxCalc gives you
+            <p className="text-sm text-amber-700/90 leading-relaxed">
+              <strong className="text-amber-700">One more thing:</strong> TheTaxCalc gives you
               estimates, not tax advice. Our tools don&apos;t replace a CPA who knows your specific
               situation inside and out. Use us to plan and estimate — then talk to a professional
               when it&apos;s time to actually file.
@@ -427,10 +427,10 @@ export default function AboutPage() {
       </section>
 
       {/* Our Team & Expertise */}
-      <section className="mb-12 rounded-xl border border-emerald-500/20 bg-emerald-500/5 p-8">
+      <section className="mb-12 rounded-xl border border-emerald-500/20 bg-emerald-600/5 p-8">
         <div className="flex items-center gap-3 mb-4">
-          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-500/10">
-            <Users className="h-5 w-5 text-emerald-400" />
+          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-600/10">
+            <Users className="h-5 w-5 text-emerald-600" />
           </div>
           <h2 className="text-2xl font-bold text-foreground">Who&apos;s Behind This</h2>
         </div>
@@ -452,7 +452,7 @@ export default function AboutPage() {
             And when we mess up? We fix it fast and tell you about it. We&apos;d rather earn your
             trust with honesty than pretend we&apos;re infallible.
           </p>
-          <div className="flex items-center gap-2 text-sm text-emerald-400 mt-2">
+          <div className="flex items-center gap-2 text-sm text-emerald-600 mt-2">
             <CheckCircle2 className="h-4 w-4" />
             <span>Last reviewed: January 2026</span>
           </div>
@@ -462,8 +462,8 @@ export default function AboutPage() {
       {/* ─── Our Tax Experts (E-E-A-T) ──────────────────────────── */}
       <section className="mb-12">
         <div className="flex items-center gap-3 mb-6">
-          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-500/10">
-            <ClipboardCheck className="h-5 w-5 text-emerald-400" />
+          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-600/10">
+            <ClipboardCheck className="h-5 w-5 text-emerald-600" />
           </div>
           <h2 className="text-2xl font-bold text-foreground">Our Tax Experts</h2>
         </div>
@@ -491,14 +491,14 @@ export default function AboutPage() {
                   loading="lazy"
                 />
               ) : (
-                <div className="flex h-14 w-14 items-center justify-center rounded-full bg-emerald-500/15 text-base font-bold text-emerald-400 ring-2 ring-emerald-500/30 mb-4">
+                <div className="flex h-14 w-14 items-center justify-center rounded-full bg-emerald-600/15 text-base font-bold text-emerald-600 ring-2 ring-emerald-500/30 mb-4">
                   {author.name.split(' ').map((n) => n[0]).join('')}
                 </div>
               )}
               {/* Name & Credentials */}
               <div className="flex flex-wrap items-center gap-2 mb-1">
                 <h3 className="text-lg font-semibold text-foreground">{author.name}</h3>
-                <span className="inline-flex items-center rounded-md bg-emerald-500/15 px-2 py-0.5 text-xs font-semibold text-emerald-400 ring-1 ring-emerald-500/25">
+                <span className="inline-flex items-center rounded-md bg-emerald-600/15 px-2 py-0.5 text-xs font-semibold text-emerald-600 ring-1 ring-emerald-500/25">
                   {author.credentials}
                 </span>
               </div>
@@ -527,7 +527,7 @@ export default function AboutPage() {
                   href={author.sameAs[0]}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-4 inline-flex items-center gap-1.5 text-xs text-emerald-400 hover:text-emerald-300 transition-colors"
+                  className="mt-4 inline-flex items-center gap-1.5 text-xs text-emerald-600 hover:text-emerald-700 transition-colors"
                 >
                   <svg className="h-3.5 w-3.5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
@@ -547,8 +547,8 @@ export default function AboutPage() {
       {/* ─── Editorial Policy & E-E-A-T ───────────────────────────── */}
       <section className="mb-12 rounded-xl border border-emerald-500/20 bg-gradient-to-br from-emerald-500/5 to-card/80 p-8">
         <div className="flex items-center gap-3 mb-6">
-          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-500/10">
-            <Shield className="h-5 w-5 text-emerald-400" />
+          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-600/10">
+            <Shield className="h-5 w-5 text-emerald-600" />
           </div>
           <h2 className="text-2xl font-bold text-foreground">Editorial Policy &amp; Trust</h2>
         </div>
@@ -563,7 +563,7 @@ export default function AboutPage() {
           {/* Author Credentials */}
           <div className="rounded-lg border border-border/30 bg-card/50 p-5">
             <div className="flex items-center gap-2 mb-3">
-              <ClipboardCheck className="h-5 w-5 text-emerald-400" />
+              <ClipboardCheck className="h-5 w-5 text-emerald-600" />
               <h3 className="text-base font-semibold text-foreground">Credentialed Experts Only</h3>
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed">
@@ -579,7 +579,7 @@ export default function AboutPage() {
           {/* Review Process */}
           <div className="rounded-lg border border-border/30 bg-card/50 p-5">
             <div className="flex items-center gap-2 mb-3">
-              <CheckCircle2 className="h-5 w-5 text-emerald-400" />
+              <CheckCircle2 className="h-5 w-5 text-emerald-600" />
               <h3 className="text-base font-semibold text-foreground">Two-Person Review Process</h3>
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed">
@@ -594,7 +594,7 @@ export default function AboutPage() {
           {/* Source Verification */}
           <div className="rounded-lg border border-border/30 bg-card/50 p-5">
             <div className="flex items-center gap-2 mb-3">
-              <BookOpen className="h-5 w-5 text-emerald-400" />
+              <BookOpen className="h-5 w-5 text-emerald-600" />
               <h3 className="text-base font-semibold text-foreground">Primary Source Verification</h3>
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed">
@@ -609,7 +609,7 @@ export default function AboutPage() {
           {/* Update Frequency */}
           <div className="rounded-lg border border-border/30 bg-card/50 p-5">
             <div className="flex items-center gap-2 mb-3">
-              <Zap className="h-5 w-5 text-emerald-400" />
+              <Zap className="h-5 w-5 text-emerald-600" />
               <h3 className="text-base font-semibold text-foreground">Annual Update Cycle</h3>
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed">
@@ -625,7 +625,7 @@ export default function AboutPage() {
           {/* Corrections Policy */}
           <div className="rounded-lg border border-border/30 bg-card/50 p-5">
             <div className="flex items-center gap-2 mb-3">
-              <Heart className="h-5 w-5 text-emerald-400" />
+              <Heart className="h-5 w-5 text-emerald-600" />
               <h3 className="text-base font-semibold text-foreground">Corrections Policy</h3>
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed">
@@ -640,7 +640,7 @@ export default function AboutPage() {
           {/* Conflict of Interest */}
           <div className="rounded-lg border border-border/30 bg-card/50 p-5">
             <div className="flex items-center gap-2 mb-3">
-              <Shield className="h-5 w-5 text-emerald-400" />
+              <Shield className="h-5 w-5 text-emerald-600" />
               <h3 className="text-base font-semibold text-foreground">Conflict of Interest Policy</h3>
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed">
@@ -654,16 +654,16 @@ export default function AboutPage() {
 
         {/* Trust badges */}
         <div className="mt-6 flex flex-wrap items-center gap-3 text-xs">
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/10 px-3 py-1.5 text-emerald-400 border border-emerald-500/20">
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-600/10 px-3 py-1.5 text-emerald-600 border border-emerald-500/20">
             <CheckCircle2 className="h-3 w-3" /> CPA-Reviewed
           </span>
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/10 px-3 py-1.5 text-emerald-400 border border-emerald-500/20">
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-600/10 px-3 py-1.5 text-emerald-600 border border-emerald-500/20">
             <CheckCircle2 className="h-3 w-3" /> E-E-A-T Compliant
           </span>
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/10 px-3 py-1.5 text-emerald-400 border border-emerald-500/20">
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-600/10 px-3 py-1.5 text-emerald-600 border border-emerald-500/20">
             <CheckCircle2 className="h-3 w-3" /> IRS Source-Verified
           </span>
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/10 px-3 py-1.5 text-emerald-400 border border-emerald-500/20">
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-600/10 px-3 py-1.5 text-emerald-600 border border-emerald-500/20">
             <CheckCircle2 className="h-3 w-3" /> Updated for Tax Year 2026
           </span>
         </div>
@@ -672,8 +672,8 @@ export default function AboutPage() {
       {/* ─── Authorship & Review Statement ──────────────────────────── */}
       <section className="mb-12">
         <div className="flex items-center gap-3 mb-6">
-          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-500/10">
-            <ClipboardCheck className="h-5 w-5 text-emerald-400" />
+          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-600/10">
+            <ClipboardCheck className="h-5 w-5 text-emerald-600" />
           </div>
           <h2 className="text-2xl font-bold text-foreground">Authorship &amp; Review Statement</h2>
         </div>
@@ -715,8 +715,8 @@ export default function AboutPage() {
       {/* FAQ */}
       <section className="mb-12">
         <div className="flex items-center gap-3 mb-6">
-          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-500/10">
-            <BookOpen className="h-5 w-5 text-emerald-400" />
+          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-600/10">
+            <BookOpen className="h-5 w-5 text-emerald-600" />
           </div>
           <h2 className="text-2xl font-bold text-foreground">Questions People Actually Ask Us</h2>
         </div>
@@ -782,9 +782,9 @@ export default function AboutPage() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-400 transition-colors"
+                  className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-600 transition-colors"
                 >
-                  <span className="h-1 w-1 rounded-full bg-emerald-500/40 shrink-0 group-hover:bg-emerald-400 transition-colors" />
+                  <span className="h-1 w-1 rounded-full bg-emerald-600/40 shrink-0 group-hover:bg-emerald-500 transition-colors" />
                   {item.label}
                 </Link>
               ))}
@@ -804,19 +804,19 @@ export default function AboutPage() {
                 <Link
                   key={s.href}
                   href={s.href}
-                  className="inline-flex items-center rounded-lg border border-border/50 bg-muted/20 px-3 py-1.5 text-xs font-medium text-foreground hover:border-emerald-500/30 hover:text-emerald-400 transition-all"
+                  className="inline-flex items-center rounded-lg border border-border/50 bg-muted/20 px-3 py-1.5 text-xs font-medium text-foreground hover:border-emerald-500/30 hover:text-emerald-600 transition-all"
                 >
                   {s.label}
                 </Link>
               ))}
             </div>
             <div className="mt-3 space-y-2">
-              <Link href="/salary" className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-400 transition-colors">
-                <span className="h-1 w-1 rounded-full bg-emerald-500/40 shrink-0 group-hover:bg-emerald-400 transition-colors" />
+              <Link href="/salary" className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-600 transition-colors">
+                <span className="h-1 w-1 rounded-full bg-emerald-600/40 shrink-0 group-hover:bg-emerald-500 transition-colors" />
                 All Salary Levels
               </Link>
-              <Link href="/compare" className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-400 transition-colors">
-                <span className="h-1 w-1 rounded-full bg-emerald-500/40 shrink-0 group-hover:bg-emerald-400 transition-colors" />
+              <Link href="/compare" className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-600 transition-colors">
+                <span className="h-1 w-1 rounded-full bg-emerald-600/40 shrink-0 group-hover:bg-emerald-500 transition-colors" />
                 Compare State Taxes
               </Link>
             </div>
@@ -838,9 +838,9 @@ export default function AboutPage() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-400 transition-colors"
+                  className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-600 transition-colors"
                 >
-                  <span className="h-1 w-1 rounded-full bg-emerald-500/40 shrink-0 group-hover:bg-emerald-400 transition-colors" />
+                  <span className="h-1 w-1 rounded-full bg-emerald-600/40 shrink-0 group-hover:bg-emerald-500 transition-colors" />
                   {item.label}
                 </Link>
               ))}
@@ -853,7 +853,7 @@ export default function AboutPage() {
       <div className="text-center">
         <Link
           href="/paycheck-calculator"
-          className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-600 to-emerald-500 px-8 py-3.5 text-base font-semibold text-white shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/30 transition-all hover:scale-[1.02]"
+          className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-700 to-emerald-600 px-8 py-3.5 text-base font-semibold text-white shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/30 transition-all hover:scale-[1.02]"
         >
           <DollarSign className="h-5 w-5" />
           Try Our Paycheck Calculator

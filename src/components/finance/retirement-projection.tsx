@@ -70,7 +70,7 @@ const chartConfig: ChartConfig = {
   },
   growth: {
     label: 'Total Growth',
-    color: '#10b981',
+    color: '#b08d3e',
   },
 };
 
@@ -98,16 +98,16 @@ function CustomTooltipContent({ active, payload, label }: {
             <span className="inline-block h-2 w-2 rounded-sm bg-amber-500" />
             Contributions
           </span>
-          <span className="font-mono font-medium text-amber-400">
+          <span className="font-mono font-medium text-amber-700">
             {formatCurrency(contributions)}
           </span>
         </div>
         <div className="flex items-center justify-between gap-4">
           <span className="flex items-center gap-1.5 text-muted-foreground">
-            <span className="inline-block h-2 w-2 rounded-sm bg-emerald-500" />
+            <span className="inline-block h-2 w-2 rounded-sm bg-emerald-600" />
             Growth
           </span>
-          <span className="font-mono font-medium text-emerald-400">
+          <span className="font-mono font-medium text-emerald-600">
             {formatCurrency(growth)}
           </span>
         </div>
@@ -202,7 +202,7 @@ export function RetirementProjection() {
       {/* Page Header */}
       <div className="text-center">
         <h2 className="flex items-center justify-center gap-2 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-          <PiggyBank className="h-8 w-8 text-emerald-400" />
+          <PiggyBank className="h-8 w-8 text-emerald-600" />
           401(k) Retirement Projection
         </h2>
         <p className="mt-2 text-muted-foreground">
@@ -211,10 +211,10 @@ export function RetirementProjection() {
       </div>
 
       {/* Info Card */}
-      <Card className="border-emerald-500/20 bg-emerald-500/5">
+      <Card className="border-emerald-500/20 bg-emerald-600/5">
         <CardContent className="p-4">
           <div className="flex items-start gap-3">
-            <Info className="mt-0.5 h-5 w-5 shrink-0 text-emerald-400" />
+            <Info className="mt-0.5 h-5 w-5 shrink-0 text-emerald-600" />
             <div className="space-y-2 text-sm text-muted-foreground">
               <p className="font-medium text-foreground">How 401(k) Compound Growth Works</p>
               <p>
@@ -236,7 +236,7 @@ export function RetirementProjection() {
           <Card className="border-border/50 bg-card/80 backdrop-blur-sm">
             <CardHeader className="pb-4">
               <CardTitle className="flex items-center gap-2 text-lg">
-                <DollarSign className="h-5 w-5 text-emerald-400" />
+                <DollarSign className="h-5 w-5 text-emerald-600" />
                 Contribution Parameters
               </CardTitle>
               <CardDescription>
@@ -272,8 +272,8 @@ export function RetirementProjection() {
                         variant="secondary"
                         className={`text-xs ${
                           annual401k > CONTRIBUTION_LIMIT_2026
-                            ? 'bg-red-500/10 text-red-400'
-                            : 'bg-emerald-500/10 text-emerald-400'
+                            ? 'bg-red-500/10 text-red-600'
+                            : 'bg-emerald-600/10 text-emerald-600'
                         }`}
                       >
                         Max ${formatNumber(CONTRIBUTION_LIMIT_2026)}
@@ -299,7 +299,7 @@ export function RetirementProjection() {
                     />
                   </div>
                   {annual401k > CONTRIBUTION_LIMIT_2026 && (
-                    <p className="text-xs text-red-400">
+                    <p className="text-xs text-red-600">
                       Exceeds 2026 limit of ${formatNumber(CONTRIBUTION_LIMIT_2026)}
                     </p>
                   )}
@@ -313,11 +313,11 @@ export function RetirementProjection() {
                 <div className="flex items-center justify-between">
                   <Label className="text-sm font-medium">
                     <span className="flex items-center gap-1.5">
-                      <Percent className="h-3.5 w-3.5 text-emerald-400" />
+                      <Percent className="h-3.5 w-3.5 text-emerald-600" />
                       Employer Match %
                     </span>
                   </Label>
-                  <Badge variant="secondary" className="bg-emerald-500/10 text-emerald-400">
+                  <Badge variant="secondary" className="bg-emerald-600/10 text-emerald-600">
                     {employerMatchPct}% of salary
                   </Badge>
                 </div>
@@ -347,11 +347,11 @@ export function RetirementProjection() {
                 <div className="flex items-center justify-between">
                   <Label className="text-sm font-medium">
                     <span className="flex items-center gap-1.5">
-                      <TrendingUp className="h-3.5 w-3.5 text-emerald-400" />
+                      <TrendingUp className="h-3.5 w-3.5 text-emerald-600" />
                       Expected Annual Return
                     </span>
                   </Label>
-                  <Badge variant="secondary" className="bg-amber-500/10 text-amber-400">
+                  <Badge variant="secondary" className="bg-amber-500/10 text-amber-700">
                     {returnRate}%
                   </Badge>
                 </div>
@@ -376,7 +376,7 @@ export function RetirementProjection() {
               <div className="space-y-2">
                 <Label htmlFor="ret-years" className="text-sm font-medium">
                   <span className="flex items-center gap-1.5">
-                    <Clock className="h-3.5 w-3.5 text-emerald-400" />
+                    <Clock className="h-3.5 w-3.5 text-emerald-600" />
                     Projection Period
                   </span>
                 </Label>
@@ -403,7 +403,7 @@ export function RetirementProjection() {
           <Card className="border-border/50 bg-card/80 backdrop-blur-sm">
             <CardHeader className="pb-2">
               <CardTitle className="flex items-center gap-2 text-lg">
-                <TrendingUp className="h-5 w-5 text-emerald-400" />
+                <TrendingUp className="h-5 w-5 text-emerald-600" />
                 Growth Projection Over Time
               </CardTitle>
               <CardDescription>
@@ -422,8 +422,8 @@ export function RetirementProjection() {
                       <stop offset="95%" stopColor="#f59e0b" stopOpacity={0.05} />
                     </linearGradient>
                     <linearGradient id="gradGrowth" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="5%" stopColor="#10b981" stopOpacity={0.5} />
-                      <stop offset="95%" stopColor="#10b981" stopOpacity={0.05} />
+                      <stop offset="5%" stopColor="#b08d3e" stopOpacity={0.5} />
+                      <stop offset="95%" stopColor="#b08d3e" stopOpacity={0.05} />
                     </linearGradient>
                   </defs>
                   <CartesianGrid
@@ -475,7 +475,7 @@ export function RetirementProjection() {
                     type="monotone"
                     dataKey="growth"
                     stackId="1"
-                    stroke="#10b981"
+                    stroke="#b08d3e"
                     strokeWidth={2}
                     fill="url(#gradGrowth)"
                     name="growth"
@@ -491,7 +491,7 @@ export function RetirementProjection() {
           <Card className="sticky top-20 border-emerald-500/20 bg-card/90 backdrop-blur-sm">
             <CardHeader className="pb-3">
               <CardTitle className="flex items-center gap-2 text-lg">
-                <Target className="h-5 w-5 text-emerald-400" />
+                <Target className="h-5 w-5 text-emerald-600" />
                 Projection Summary
               </CardTitle>
               <CardDescription>
@@ -500,11 +500,11 @@ export function RetirementProjection() {
             </CardHeader>
             <CardContent className="space-y-4">
               {/* Hero Number */}
-              <div className="rounded-xl bg-emerald-500/10 p-5 text-center">
-                <p className="text-xs font-medium uppercase tracking-wider text-emerald-400/80">
+              <div className="rounded-xl bg-emerald-600/10 p-5 text-center">
+                <p className="text-xs font-medium uppercase tracking-wider text-emerald-600/80">
                   Final Projected Balance
                 </p>
-                <p className="mt-1 text-3xl font-bold text-emerald-400 sm:text-4xl">
+                <p className="mt-1 text-3xl font-bold text-emerald-600 sm:text-4xl">
                   {formatCurrency(projection.finalBalance)}
                 </p>
                 <p className="mt-1 text-xs text-muted-foreground">
@@ -518,30 +518,30 @@ export function RetirementProjection() {
               <div className="grid gap-3">
                 <div className="flex items-center justify-between rounded-lg bg-amber-500/5 px-4 py-3">
                   <div className="flex items-center gap-2">
-                    <PiggyBank className="h-4 w-4 text-amber-400" />
+                    <PiggyBank className="h-4 w-4 text-amber-700" />
                     <span className="text-sm text-muted-foreground">Total Contributed</span>
                   </div>
-                  <span className="text-sm font-semibold text-amber-400">
+                  <span className="text-sm font-semibold text-amber-700">
                     {formatCurrency(projection.totalContributed)}
                   </span>
                 </div>
 
-                <div className="flex items-center justify-between rounded-lg bg-emerald-500/5 px-4 py-3">
+                <div className="flex items-center justify-between rounded-lg bg-emerald-600/5 px-4 py-3">
                   <div className="flex items-center gap-2">
-                    <TrendingUp className="h-4 w-4 text-emerald-400" />
+                    <TrendingUp className="h-4 w-4 text-emerald-600" />
                     <span className="text-sm text-muted-foreground">Total Growth</span>
                   </div>
-                  <span className="text-sm font-semibold text-emerald-400">
+                  <span className="text-sm font-semibold text-emerald-600">
                     {formatCurrency(projection.totalGrowthAmount)}
                   </span>
                 </div>
 
-                <div className="flex items-center justify-between rounded-lg bg-emerald-500/10 px-4 py-3">
+                <div className="flex items-center justify-between rounded-lg bg-emerald-600/10 px-4 py-3">
                   <div className="flex items-center gap-2">
-                    <Target className="h-4 w-4 text-emerald-400" />
+                    <Target className="h-4 w-4 text-emerald-600" />
                     <span className="text-sm text-muted-foreground">Final Balance</span>
                   </div>
-                  <span className="text-sm font-bold text-emerald-400">
+                  <span className="text-sm font-bold text-emerald-600">
                     {formatCurrency(projection.finalBalance)}
                   </span>
                 </div>
@@ -559,7 +559,7 @@ export function RetirementProjection() {
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="text-muted-foreground">Employer Match/Year</span>
-                  <span className="font-medium text-emerald-400">
+                  <span className="font-medium text-emerald-600">
                     +{formatCurrency(employerMatchAmount)}
                   </span>
                 </div>
@@ -590,7 +590,7 @@ export function RetirementProjection() {
                     }}
                   />
                   <div
-                    className="bg-emerald-500 transition-all duration-500"
+                    className="bg-emerald-600 transition-all duration-500"
                     style={{
                       width: `${
                         projection.finalBalance > 0
@@ -610,7 +610,7 @@ export function RetirementProjection() {
                     %
                   </span>
                   <span className="flex items-center gap-1">
-                    <span className="inline-block h-2 w-2 rounded-sm bg-emerald-500" />
+                    <span className="inline-block h-2 w-2 rounded-sm bg-emerald-600" />
                     Growth{' '}
                     {projection.finalBalance > 0
                       ? ((projection.totalGrowthAmount / projection.finalBalance) * 100).toFixed(0)
@@ -625,19 +625,19 @@ export function RetirementProjection() {
       </div>
 
       {/* Summary Text */}
-      <Card className="border-emerald-500/20 bg-emerald-500/5">
+      <Card className="border-emerald-500/20 bg-emerald-600/5">
         <CardContent className="p-4">
           <p className="text-center text-sm text-muted-foreground sm:text-base">
             Your{' '}
-            <span className="font-semibold text-amber-400">
+            <span className="font-semibold text-amber-700">
               {formatCurrency(annual401k)}/year
             </span>{' '}
             401(k) contribution with {returnRate}% annual return grows to{' '}
-            <span className="font-bold text-emerald-400">
+            <span className="font-bold text-emerald-600">
               {formatCurrency(projection.finalBalance)}
             </span>{' '}
             over {projectionYears} years — that&apos;s{' '}
-            <span className="font-semibold text-emerald-400">
+            <span className="font-semibold text-emerald-600">
               {formatCurrency(projection.totalGrowthAmount)}
             </span>{' '}
             in compound growth alone.

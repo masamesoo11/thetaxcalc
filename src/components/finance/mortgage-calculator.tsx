@@ -44,7 +44,7 @@ const MortgageAmortizationTable = dynamic(
       <Card className="border-border/50 bg-card/80">
         <CardHeader>
           <CardTitle className="flex items-center gap-2 text-lg">
-            <BarChart3 className="h-5 w-5 text-emerald-400" />
+            <BarChart3 className="h-5 w-5 text-emerald-600" />
             Amortization Schedule
           </CardTitle>
           <CardDescription>Loading...</CardDescription>
@@ -93,7 +93,7 @@ export function MortgageCalculator() {
     <div className="space-y-6">
       <div className="text-center">
         <h2 className="flex items-center justify-center gap-2 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-          <Home className="h-8 w-8 text-emerald-400" />
+          <Home className="h-8 w-8 text-emerald-600" />
           Mortgage Calculator
         </h2>
         <p className="mt-2 text-muted-foreground">
@@ -101,15 +101,15 @@ export function MortgageCalculator() {
         </p>
       </div>
 
-      <Card className="border-emerald-500/20 bg-emerald-500/5">
+      <Card className="border-emerald-500/20 bg-emerald-600/5">
         <CardContent className="p-4">
           <div className="flex items-start gap-3">
-            <Info className="mt-0.5 h-5 w-5 shrink-0 text-emerald-400" />
+            <Info className="mt-0.5 h-5 w-5 shrink-0 text-emerald-600" />
             <div className="space-y-2 text-sm text-muted-foreground">
               <p className="font-medium text-foreground">How the Mortgage Formula Works</p>
               <p>
                 The standard fixed-rate monthly payment is calculated as:{' '}
-                <strong className="text-emerald-400 font-mono">M = P × [r(1+r)<sup>n</sup>] / [(1+r)<sup>n</sup> - 1]</strong>
+                <strong className="text-emerald-600 font-mono">M = P × [r(1+r)<sup>n</sup>] / [(1+r)<sup>n</sup> - 1]</strong>
               </p>
               <p>
                 Where <strong>P</strong> = loan principal, <strong>r</strong> = monthly interest rate (annual ÷ 12),
@@ -126,7 +126,7 @@ export function MortgageCalculator() {
           <Card className="border-border/50 bg-card/80 backdrop-blur-sm">
             <CardHeader className="pb-4">
               <CardTitle className="flex items-center gap-2 text-lg">
-                <DollarSign className="h-5 w-5 text-emerald-400" />Loan Parameters
+                <DollarSign className="h-5 w-5 text-emerald-600" />Loan Parameters
               </CardTitle>
               <CardDescription>Adjust any value to see instant results</CardDescription>
             </CardHeader>
@@ -152,13 +152,13 @@ export function MortgageCalculator() {
               <div className="grid gap-4 sm:grid-cols-2">
                 <div className="space-y-2">
                   <Label htmlFor="mort-rate" className="text-sm font-medium">
-                    <span className="flex items-center gap-1.5"><Percent className="h-3.5 w-3.5 text-emerald-400" />Interest Rate (Annual)</span>
+                    <span className="flex items-center gap-1.5"><Percent className="h-3.5 w-3.5 text-emerald-600" />Interest Rate (Annual)</span>
                   </Label>
                   <Input id="mort-rate" type="number" min={0} max={30} step={0.125} value={interestRate || ''} onChange={(e) => setInterestRate(Number(e.target.value) || 0)} placeholder="6.5" />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="mort-term" className="text-sm font-medium">
-                    <span className="flex items-center gap-1.5"><Clock className="h-3.5 w-3.5 text-emerald-400" />Loan Term</span>
+                    <span className="flex items-center gap-1.5"><Clock className="h-3.5 w-3.5 text-emerald-600" />Loan Term</span>
                   </Label>
                   <Select value={String(loanTerm)} onValueChange={(v) => setLoanTerm(Number(v))}>
                     <SelectTrigger id="mort-term"><SelectValue /></SelectTrigger>
@@ -178,11 +178,11 @@ export function MortgageCalculator() {
                 <div className="flex items-center justify-between">
                   <Label className="text-sm font-medium">
                     <span className="flex items-center gap-1.5">
-                      <Zap className="h-3.5 w-3.5 text-amber-400" />
+                      <Zap className="h-3.5 w-3.5 text-amber-700" />
                       Extra Monthly Payment
                     </span>
                   </Label>
-                  <Badge variant="secondary" className="text-emerald-400 bg-emerald-500/10">
+                  <Badge variant="secondary" className="text-emerald-600 bg-emerald-600/10">
                     {formatCurrency(extraPayment)}/mo
                   </Badge>
                 </div>
@@ -211,7 +211,7 @@ export function MortgageCalculator() {
             <Card className="border-amber-500/30 bg-amber-500/5">
               <CardHeader className="pb-3">
                 <CardTitle className="flex items-center gap-2 text-lg">
-                  <Zap className="h-5 w-5 text-amber-400" />
+                  <Zap className="h-5 w-5 text-amber-700" />
                   Extra Payment Impact
                 </CardTitle>
                 <CardDescription>See exactly how extra payments transform your mortgage</CardDescription>
@@ -219,15 +219,15 @@ export function MortgageCalculator() {
               <CardContent>
                 <div className="grid gap-4 sm:grid-cols-2">
                   <div className="rounded-xl bg-amber-500/10 p-4 text-center">
-                    <p className="text-xs font-medium uppercase tracking-wider text-amber-400/80">Years Saved</p>
-                    <p className="mt-1 text-4xl font-bold text-amber-400">
+                    <p className="text-xs font-medium uppercase tracking-wider text-amber-700/80">Years Saved</p>
+                    <p className="mt-1 text-4xl font-bold text-amber-700">
                       {result.yearsSaved > 0 ? formatNumber(result.yearsSaved, 1) : '0'}
                     </p>
                     <p className="text-xs text-muted-foreground">years early payoff</p>
                   </div>
-                  <div className="rounded-xl bg-emerald-500/10 p-4 text-center">
-                    <p className="text-xs font-medium uppercase tracking-wider text-emerald-400/80">Interest Saved</p>
-                    <p className="mt-1 text-4xl font-bold text-emerald-400">
+                  <div className="rounded-xl bg-emerald-600/10 p-4 text-center">
+                    <p className="text-xs font-medium uppercase tracking-wider text-emerald-600/80">Interest Saved</p>
+                    <p className="mt-1 text-4xl font-bold text-emerald-600">
                       {formatCurrency(result.interestSaved)}
                     </p>
                     <p className="text-xs text-muted-foreground">in total interest</p>
@@ -241,7 +241,7 @@ export function MortgageCalculator() {
                   </div>
                   <div className="flex items-center justify-between text-sm">
                     <span className="text-muted-foreground">New Payoff</span>
-                    <span className="font-medium text-emerald-400">{formatNumber(result.payoffYears, 1)} years ({result.payoffMonths} payments)</span>
+                    <span className="font-medium text-emerald-600">{formatNumber(result.payoffYears, 1)} years ({result.payoffMonths} payments)</span>
                   </div>
                   <Progress
                     value={result.payoffMonths > 0 ? (result.payoffMonths / (loanTerm * 12)) * 100 : 0}
@@ -257,13 +257,13 @@ export function MortgageCalculator() {
           <Card className="sticky top-20 border-emerald-500/20 bg-card/90 backdrop-blur-sm">
             <CardHeader className="pb-3">
               <CardTitle className="flex items-center gap-2 text-lg">
-                <BarChart3 className="h-5 w-5 text-emerald-400" />Mortgage Summary
+                <BarChart3 className="h-5 w-5 text-emerald-600" />Mortgage Summary
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
-              <div className="rounded-xl bg-emerald-500/10 p-4 text-center">
-                <p className="text-xs font-medium uppercase tracking-wider text-emerald-400/80">Monthly Payment</p>
-                <p className="mt-1 text-3xl font-bold text-emerald-400">{formatCurrency(result.monthlyPayment)}</p>
+              <div className="rounded-xl bg-emerald-600/10 p-4 text-center">
+                <p className="text-xs font-medium uppercase tracking-wider text-emerald-600/80">Monthly Payment</p>
+                <p className="mt-1 text-3xl font-bold text-emerald-600">{formatCurrency(result.monthlyPayment)}</p>
                 <p className="mt-1 text-xs text-muted-foreground">
                   Loan: {formatCurrency(result.loanAmount)} at {interestRate}% for {loanTerm}yrs
                 </p>
@@ -278,7 +278,7 @@ export function MortgageCalculator() {
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="text-sm text-muted-foreground">Total Interest Paid</span>
-                  <span className="text-sm font-semibold text-red-400">{formatCurrency(result.totalInterestPaid)}</span>
+                  <span className="text-sm font-semibold text-red-600">{formatCurrency(result.totalInterestPaid)}</span>
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="text-sm text-muted-foreground">Total Cost of Loan</span>
@@ -289,7 +289,7 @@ export function MortgageCalculator() {
               <div className="space-y-2">
                 <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground">Principal vs Interest</p>
                 <div className="flex h-3 overflow-hidden rounded-full bg-muted">
-                  <div className="bg-emerald-500 transition-all" style={{ width: `${principalVsInterest}%` }} />
+                  <div className="bg-emerald-600 transition-all" style={{ width: `${principalVsInterest}%` }} />
                   <div className="bg-red-400 transition-all" style={{ width: `${100 - principalVsInterest}%` }} />
                 </div>
                 <div className="flex justify-between text-xs text-muted-foreground">
@@ -302,14 +302,14 @@ export function MortgageCalculator() {
                 <>
                   <Separator className="bg-border/40" />
                   <div className="space-y-2.5 rounded-lg bg-amber-500/5 p-3">
-                    <p className="text-xs font-medium uppercase tracking-wider text-amber-400">With Extra {formatCurrency(extraPayment)}/mo</p>
+                    <p className="text-xs font-medium uppercase tracking-wider text-amber-700">With Extra {formatCurrency(extraPayment)}/mo</p>
                     <div className="flex items-center justify-between">
                       <span className="text-sm text-muted-foreground">New Monthly Total</span>
                       <span className="text-sm font-semibold text-foreground">{formatCurrency(result.monthlyPaymentWithExtra)}</span>
                     </div>
                     <div className="flex items-center justify-between">
                       <span className="text-sm text-muted-foreground">New Total Interest</span>
-                      <span className="text-sm font-semibold text-emerald-400">{formatCurrency(result.totalInterestWithExtra)}</span>
+                      <span className="text-sm font-semibold text-emerald-600">{formatCurrency(result.totalInterestWithExtra)}</span>
                     </div>
                     <div className="flex items-center justify-between">
                       <span className="text-sm text-muted-foreground">New Total Cost</span>

@@ -50,7 +50,7 @@ export function MortgageAmortizationTable({ amortizationSchedule }: MortgageAmor
     <Card className="border-border/50 bg-card/80">
       <CardHeader>
         <CardTitle className="flex items-center gap-2 text-lg">
-          <BarChart3 className="h-5 w-5 text-emerald-400" />
+          <BarChart3 className="h-5 w-5 text-emerald-600" />
           Amortization Schedule
         </CardTitle>
         <CardDescription>Yearly breakdown of principal vs interest payments</CardDescription>
@@ -71,8 +71,8 @@ export function MortgageAmortizationTable({ amortizationSchedule }: MortgageAmor
               {yearlySummary.map((yr) => (
                 <TableRow key={yr.year}>
                   <TableCell className="font-medium">{yr.year}</TableCell>
-                  <TableCell className="text-right text-emerald-400">{formatCurrency(yr.principal)}</TableCell>
-                  <TableCell className="text-right text-red-400">{formatCurrency(yr.interest)}</TableCell>
+                  <TableCell className="text-right text-emerald-600">{formatCurrency(yr.principal)}</TableCell>
+                  <TableCell className="text-right text-red-600">{formatCurrency(yr.interest)}</TableCell>
                   <TableCell className="text-right">{formatCurrency(yr.balance)}</TableCell>
                   <TableCell className="text-right text-muted-foreground">{formatCurrency(yr.cumulativeInterest)}</TableCell>
                 </TableRow>

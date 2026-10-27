@@ -110,7 +110,7 @@ export function RelocationCalculator() {
       <Card className="border-border/50 bg-card/80 backdrop-blur-sm">
         <CardHeader>
           <CardTitle className="flex items-center gap-2 text-lg">
-            <MapPin className="h-5 w-5 text-emerald-400" />
+            <MapPin className="h-5 w-5 text-emerald-600" />
             Compare Your Salary Across States
           </CardTitle>
           <CardDescription>
@@ -186,7 +186,7 @@ export function RelocationCalculator() {
                 variant="outline"
                 size="icon"
                 onClick={handleSwapStates}
-                className="rounded-full border-border/50 hover:border-emerald-500/50 hover:bg-emerald-500/10"
+                className="rounded-full border-border/50 hover:border-emerald-500/50 hover:bg-emerald-600/10"
                 aria-label="Swap source and target states"
               >
                 <ArrowRightLeft className="h-4 w-4" />
@@ -259,7 +259,7 @@ export function RelocationCalculator() {
 
           {/* Same State Warning */}
           {isSameState && (
-            <div className="rounded-lg border border-amber-500/30 bg-amber-500/10 p-3 text-sm text-amber-400">
+            <div className="rounded-lg border border-amber-500/30 bg-amber-500/10 p-3 text-sm text-amber-700">
               Source and target states are the same. Please select different states to compare.
             </div>
           )}
@@ -287,7 +287,7 @@ export function RelocationCalculator() {
                 <p className="text-sm font-medium uppercase tracking-wider text-muted-foreground">
                   Equivalent Salary in {result.targetState}
                 </p>
-                <p className="mt-2 text-4xl font-bold text-emerald-400 sm:text-5xl">
+                <p className="mt-2 text-4xl font-bold text-emerald-600 sm:text-5xl">
                   {formatCurrency(result.equivalentSalary)}
                 </p>
                 <p className="mt-2 text-sm text-muted-foreground">
@@ -311,8 +311,8 @@ export function RelocationCalculator() {
                   <p
                     className={`mt-1 text-2xl font-bold ${
                       result.salaryDifference <= 0
-                        ? 'text-emerald-400'
-                        : 'text-red-400'
+                        ? 'text-emerald-600'
+                        : 'text-red-600'
                     }`}
                   >
                     {result.salaryDifference < 0 ? '' : result.salaryDifference > 0 ? '+' : ''}
@@ -324,7 +324,7 @@ export function RelocationCalculator() {
                   </p>
                   <div className="mt-2">
                     {result.salaryDifference <= 0 ? (
-                      <Badge className="bg-emerald-500/20 text-emerald-400 text-xs">
+                      <Badge className="bg-emerald-600/20 text-emerald-600 text-xs">
                         <TrendingDown className="mr-1 h-3 w-3" />
                         Need Less
                       </Badge>
@@ -344,7 +344,7 @@ export function RelocationCalculator() {
                   </p>
                   <p
                     className={`mt-1 text-2xl font-bold ${
-                      result.taxSavings >= 0 ? 'text-emerald-400' : 'text-red-400'
+                      result.taxSavings >= 0 ? 'text-emerald-600' : 'text-red-600'
                     }`}
                   >
                     {result.taxSavings >= 0 ? '+' : ''}
@@ -355,7 +355,7 @@ export function RelocationCalculator() {
                   </p>
                   <div className="mt-2">
                     {result.taxSavings > 0 ? (
-                      <Badge className="bg-emerald-500/20 text-emerald-400 text-xs">
+                      <Badge className="bg-emerald-600/20 text-emerald-600 text-xs">
                         <TrendingUp className="mr-1 h-3 w-3" />
                         Save in {result.targetState}
                       </Badge>
@@ -398,7 +398,7 @@ export function RelocationCalculator() {
           <Card className="border-border/50 bg-card/80 backdrop-blur-sm">
             <CardHeader>
               <CardTitle className="flex items-center gap-2 text-lg">
-                <ArrowRightLeft className="h-5 w-5 text-emerald-400" />
+                <ArrowRightLeft className="h-5 w-5 text-emerald-600" />
                 Side-by-Side Comparison
               </CardTitle>
               <CardDescription>
@@ -428,7 +428,7 @@ export function RelocationCalculator() {
                     </div>
                     <div className="flex justify-between">
                       <span className="text-muted-foreground">State Income Tax</span>
-                      <span className="font-medium text-red-400">
+                      <span className="font-medium text-red-600">
                         -{formatCurrency(result.sourceStateTax)}
                       </span>
                     </div>
@@ -451,13 +451,13 @@ export function RelocationCalculator() {
                 </div>
 
                 {/* Target State Card */}
-                <div className="rounded-xl border border-emerald-500/30 bg-emerald-500/5 p-4 space-y-3">
+                <div className="rounded-xl border border-emerald-500/30 bg-emerald-600/5 p-4 space-y-3">
                   <div className="flex items-center gap-2">
-                    <MapPin className="h-4 w-4 text-emerald-400" />
+                    <MapPin className="h-4 w-4 text-emerald-600" />
                     <span className="text-sm font-semibold text-foreground">
                       {result.targetState}
                     </span>
-                    <Badge className="bg-emerald-500/20 text-emerald-400 text-[10px]">
+                    <Badge className="bg-emerald-600/20 text-emerald-600 text-[10px]">
                       Target
                     </Badge>
                   </div>
@@ -465,13 +465,13 @@ export function RelocationCalculator() {
                   <div className="space-y-2 text-sm">
                     <div className="flex justify-between">
                       <span className="text-muted-foreground">Equivalent Salary</span>
-                      <span className="font-bold text-emerald-400">
+                      <span className="font-bold text-emerald-600">
                         {formatCurrency(result.equivalentSalary)}
                       </span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-muted-foreground">State Income Tax</span>
-                      <span className="font-medium text-red-400">
+                      <span className="font-medium text-red-600">
                         -{formatCurrency(result.targetStateTax)}
                       </span>
                     </div>
@@ -501,7 +501,7 @@ export function RelocationCalculator() {
                     {result.salaryDifference <= 0 ? (
                       <span>
                         You need{' '}
-                        <strong className="text-emerald-400">
+                        <strong className="text-emerald-600">
                           {formatCurrency(Math.abs(result.salaryDifference))} less
                         </strong>{' '}
                         in {result.targetState} to maintain the same lifestyle
@@ -509,7 +509,7 @@ export function RelocationCalculator() {
                     ) : (
                       <span>
                         You need{' '}
-                        <strong className="text-red-400">
+                        <strong className="text-red-600">
                           {formatCurrency(result.salaryDifference)} more
                         </strong>{' '}
                         in {result.targetState} to maintain the same lifestyle
@@ -518,11 +518,11 @@ export function RelocationCalculator() {
                   </div>
                   <div className="text-sm">
                     {result.taxSavings > 0 ? (
-                      <span className="text-emerald-400">
+                      <span className="text-emerald-600">
                         Save {formatCurrency(result.taxSavings)}/yr in state taxes
                       </span>
                     ) : result.taxSavings < 0 ? (
-                      <span className="text-red-400">
+                      <span className="text-red-600">
                         Pay {formatCurrency(Math.abs(result.taxSavings))}/yr more in state taxes
                       </span>
                     ) : (
@@ -540,7 +540,7 @@ export function RelocationCalculator() {
           <Card className="border-border/50 bg-card/80 backdrop-blur-sm">
             <CardHeader>
               <CardTitle className="flex items-center gap-2 text-lg">
-                <TrendingUp className="h-5 w-5 text-emerald-400" />
+                <TrendingUp className="h-5 w-5 text-emerald-600" />
                 Relocation Insight
               </CardTitle>
             </CardHeader>
@@ -550,16 +550,16 @@ export function RelocationCalculator() {
                   <p>
                     Moving from <strong className="text-foreground">{result.sourceState}</strong> to{' '}
                     <strong className="text-foreground">{result.targetState}</strong> saves you{' '}
-                    <strong className="text-emerald-400">{formatCurrency(result.taxSavings)}</strong>{' '}
+                    <strong className="text-emerald-600">{formatCurrency(result.taxSavings)}</strong>{' '}
                     per year in state income taxes alone. This means you can accept a salary that is{' '}
-                    <strong className="text-emerald-400">
+                    <strong className="text-emerald-600">
                       {formatPercent(Math.abs(result.percentDifference))} lower
                     </strong>{' '}
                     and still take home the same pay.
                   </p>
                   <p>
                     Over a 10-year period, those state tax savings compound to approximately{' '}
-                    <strong className="text-emerald-400">
+                    <strong className="text-emerald-600">
                       {formatCurrency(result.taxSavings * 10)}
                     </strong>{' '}
                     — not accounting for salary increases, investment returns, or cost-of-living
@@ -572,19 +572,19 @@ export function RelocationCalculator() {
                     Moving from <strong className="text-foreground">{result.sourceState}</strong> to{' '}
                     <strong className="text-foreground">{result.targetState}</strong> would cost you an
                     additional{' '}
-                    <strong className="text-red-400">
+                    <strong className="text-red-600">
                       {formatCurrency(Math.abs(result.taxSavings))}
                     </strong>{' '}
                     per year in state income taxes. To maintain the same take-home pay, you would need
                     a salary that is{' '}
-                    <strong className="text-red-400">
+                    <strong className="text-red-600">
                       {formatPercent(result.percentDifference)} higher
                     </strong>
                     .
                   </p>
                   <p>
                     Over a 10-year period, the additional state tax burden amounts to approximately{' '}
-                    <strong className="text-red-400">
+                    <strong className="text-red-600">
                       {formatCurrency(Math.abs(result.taxSavings) * 10)}
                     </strong>
                     . Consider negotiating a higher salary or evaluating non-tax benefits of the

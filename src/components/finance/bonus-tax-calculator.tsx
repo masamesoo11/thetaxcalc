@@ -192,7 +192,7 @@ const CHART_COLORS = {
   federalTax: '#ef4444',    // red-500
   fica: '#f59e0b',          // amber-500
   stateTax: '#f97316',      // orange-500
-  takeHome: '#10b981',      // emerald-500
+  takeHome: '#b08d3e',      // emerald-500
 };
 
 // ─── Custom Tooltip ─────────────────────────────────────────────────────────────
@@ -295,18 +295,18 @@ export function BonusTaxCalculator() {
       {/* ─── Page Title ─────────────────────────────────── */}
       <div className="text-center">
         <h2 className="flex items-center justify-center gap-2 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-          <DollarSign className="h-8 w-8 text-emerald-400" />
+          <DollarSign className="h-8 w-8 text-emerald-600" />
           Bonus Tax Calculator
         </h2>
         <p className="mt-2 text-muted-foreground">
           Calculate how much tax is taken from your bonus — compare the flat 22% method vs aggregate method
         </p>
         <div className="mt-3 flex items-center justify-center gap-2">
-          <Badge className="bg-emerald-500/20 text-emerald-400 border-emerald-500/30 text-xs font-semibold px-3 py-1">
+          <Badge className="bg-emerald-600/20 text-emerald-600 border-emerald-500/30 text-xs font-semibold px-3 py-1">
             <CheckCircle2 className="mr-1 h-3 w-3" />
             2026 Tax Rates
           </Badge>
-          <Badge className="bg-cyan-500/20 text-cyan-400 border-cyan-500/30 text-xs px-3 py-1">
+          <Badge className="bg-cyan-500/20 text-cyan-700 border-cyan-500/30 text-xs px-3 py-1">
             <ArrowRightLeft className="mr-1 h-3 w-3" />
             Two Methods Compared
           </Badge>
@@ -314,17 +314,17 @@ export function BonusTaxCalculator() {
       </div>
 
       {/* ─── Method Explanation ──────────────────────────── */}
-      <Card className="border-emerald-500/20 bg-emerald-500/5">
+      <Card className="border-emerald-500/20 bg-emerald-600/5">
         <CardContent className="p-4">
           <div className="flex items-start gap-3">
-            <Info className="mt-0.5 h-5 w-5 shrink-0 text-emerald-400" />
+            <Info className="mt-0.5 h-5 w-5 shrink-0 text-emerald-600" />
             <div className="space-y-2 text-sm text-muted-foreground">
               <p className="font-medium text-foreground">How Bonuses Are Taxed: Two Methods</p>
               <p>
-                <strong className="text-emerald-400">Percentage Method (Flat 22%):</strong> Your employer separates the bonus and withholds federal tax at a flat 22% rate (37% on amounts above $1M). This is the most common method.
+                <strong className="text-emerald-600">Percentage Method (Flat 22%):</strong> Your employer separates the bonus and withholds federal tax at a flat 22% rate (37% on amounts above $1M). This is the most common method.
               </p>
               <p>
-                <strong className="text-cyan-400">Aggregate Method:</strong> Your employer adds the bonus to your regular paycheck and calculates withholding as if it&apos;s all regular wages. This can push you into a higher bracket, resulting in more tax withheld — but you may get the excess back as a refund.
+                <strong className="text-cyan-700">Aggregate Method:</strong> Your employer adds the bonus to your regular paycheck and calculates withholding as if it&apos;s all regular wages. This can push you into a higher bracket, resulting in more tax withheld — but you may get the excess back as a refund.
               </p>
             </div>
           </div>
@@ -338,7 +338,7 @@ export function BonusTaxCalculator() {
           <Card className="border-border/50 bg-card/80 backdrop-blur-sm">
             <CardHeader className="pb-4">
               <CardTitle className="flex items-center gap-2 text-lg">
-                <Calculator className="h-5 w-5 text-emerald-400" />
+                <Calculator className="h-5 w-5 text-emerald-600" />
                 Bonus Details
               </CardTitle>
               <CardDescription>Enter your bonus and salary information</CardDescription>
@@ -349,7 +349,7 @@ export function BonusTaxCalculator() {
                 <div className="space-y-2">
                   <Label htmlFor="bonus-amount" className="text-sm font-medium">
                     <span className="flex items-center gap-1.5">
-                      <DollarSign className="h-3.5 w-3.5 text-emerald-400" />
+                      <DollarSign className="h-3.5 w-3.5 text-emerald-600" />
                       Bonus Amount
                     </span>
                   </Label>
@@ -373,7 +373,7 @@ export function BonusTaxCalculator() {
                 <div className="space-y-2">
                   <Label htmlFor="annual-salary" className="text-sm font-medium">
                     <span className="flex items-center gap-1.5">
-                      <DollarSign className="h-3.5 w-3.5 text-cyan-400" />
+                      <DollarSign className="h-3.5 w-3.5 text-cyan-700" />
                       Annual Salary
                     </span>
                   </Label>
@@ -465,7 +465,7 @@ export function BonusTaxCalculator() {
           <Card className="sticky top-20 border-emerald-500/20 bg-card/90 backdrop-blur-sm">
             <CardHeader className="pb-3">
               <CardTitle className="flex items-center gap-2 text-lg">
-                <TrendingUp className="h-5 w-5 text-emerald-400" />
+                <TrendingUp className="h-5 w-5 text-emerald-600" />
                 Quick Summary
               </CardTitle>
               <CardDescription>
@@ -474,11 +474,11 @@ export function BonusTaxCalculator() {
             </CardHeader>
             <CardContent className="space-y-4">
               {/* Net Bonus */}
-              <div className="rounded-xl bg-emerald-500/10 p-4 text-center">
-                <p className="text-xs font-medium uppercase tracking-wider text-emerald-400/80">
+              <div className="rounded-xl bg-emerald-600/10 p-4 text-center">
+                <p className="text-xs font-medium uppercase tracking-wider text-emerald-600/80">
                   Your Take-Home Bonus
                 </p>
-                <p className="mt-1 text-3xl font-bold text-emerald-400">
+                <p className="mt-1 text-3xl font-bold text-emerald-600">
                   {result ? formatCurrency(currentNetBonus ?? 0) : formatCurrency(0)}
                 </p>
                 <p className="mt-1 text-xs text-muted-foreground">
@@ -495,20 +495,20 @@ export function BonusTaxCalculator() {
                 </p>
                 <div className="flex items-center justify-between">
                   <span className="text-sm text-muted-foreground">Federal Tax</span>
-                  <span className="text-sm font-semibold text-red-400">
+                  <span className="text-sm font-semibold text-red-600">
                     -{result ? formatCurrency(currentFedTax ?? 0) : formatCurrency(0)}
                   </span>
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="text-sm text-muted-foreground">FICA (SS + Medicare)</span>
-                  <span className="text-sm font-semibold text-orange-400">
+                  <span className="text-sm font-semibold text-orange-700">
                     -{result ? formatCurrency(result.ficaOnBonus) : formatCurrency(0)}
                   </span>
                 </div>
                 {result && result.stateTaxOnBonus > 0 && (
                   <div className="flex items-center justify-between">
                     <span className="text-sm text-muted-foreground">State Tax</span>
-                    <span className="text-sm font-semibold text-amber-400">
+                    <span className="text-sm font-semibold text-amber-700">
                       -{formatCurrency(result.stateTaxOnBonus)}
                     </span>
                   </div>
@@ -516,7 +516,7 @@ export function BonusTaxCalculator() {
                 <Separator className="bg-border/20" />
                 <div className="flex items-center justify-between">
                   <span className="text-sm font-medium text-foreground">Total Tax</span>
-                  <span className="text-sm font-bold text-red-400">
+                  <span className="text-sm font-bold text-red-600">
                     -{result ? formatCurrency(currentTotalTax ?? 0) : formatCurrency(0)}
                   </span>
                 </div>
@@ -546,18 +546,18 @@ export function BonusTaxCalculator() {
 
               {/* Best Method Indicator */}
               {result && (
-                <div className={`rounded-lg p-3 ${result.betterMethod === selectedMethod ? 'bg-emerald-500/10' : 'bg-amber-500/10'}`}>
+                <div className={`rounded-lg p-3 ${result.betterMethod === selectedMethod ? 'bg-emerald-600/10' : 'bg-amber-500/10'}`}>
                   <div className="flex items-start gap-2">
                     {result.betterMethod === selectedMethod ? (
-                      <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-emerald-400" />
+                      <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600" />
                     ) : (
-                      <Info className="mt-0.5 h-4 w-4 shrink-0 text-amber-400" />
+                      <Info className="mt-0.5 h-4 w-4 shrink-0 text-amber-700" />
                     )}
                     <div className="text-xs text-muted-foreground">
                       {result.betterMethod === selectedMethod ? (
-                        <p><strong className="text-emerald-400">{selectedMethod === 'percentage' ? 'Flat 22%' : 'Aggregate'}</strong> is the better method for you. You keep {formatCurrency(result.savingsByBetterMethod)} more.</p>
+                        <p><strong className="text-emerald-600">{selectedMethod === 'percentage' ? 'Flat 22%' : 'Aggregate'}</strong> is the better method for you. You keep {formatCurrency(result.savingsByBetterMethod)} more.</p>
                       ) : (
-                        <p><strong className="text-amber-400">Tip:</strong> The {result.betterMethod === 'percentage' ? 'flat 22%' : 'aggregate'} method gives you {formatCurrency(result.savingsByBetterMethod)} more take-home.</p>
+                        <p><strong className="text-amber-700">Tip:</strong> The {result.betterMethod === 'percentage' ? 'flat 22%' : 'aggregate'} method gives you {formatCurrency(result.savingsByBetterMethod)} more take-home.</p>
                       )}
                     </div>
                   </div>
@@ -575,7 +575,7 @@ export function BonusTaxCalculator() {
           <Card className="border-emerald-500/30 bg-card/90 backdrop-blur-sm">
             <CardContent className="p-6">
               <div className="flex items-center justify-center gap-2 mb-6">
-                <Badge className="bg-cyan-500/20 text-cyan-400 border-cyan-500/30 text-xs font-semibold">
+                <Badge className="bg-cyan-500/20 text-cyan-700 border-cyan-500/30 text-xs font-semibold">
                   <ArrowRightLeft className="mr-1 h-3 w-3" />
                   Method Comparison
                 </Badge>
@@ -583,28 +583,28 @@ export function BonusTaxCalculator() {
 
               <div className="grid gap-6 sm:grid-cols-2">
                 {/* Percentage Method */}
-                <div className={`rounded-xl p-5 text-center ${result.betterMethod === 'percentage' ? 'bg-emerald-500/10 border border-emerald-500/20' : 'bg-muted/30 border border-border/30'}`}>
+                <div className={`rounded-xl p-5 text-center ${result.betterMethod === 'percentage' ? 'bg-emerald-600/10 border border-emerald-500/20' : 'bg-muted/30 border border-border/30'}`}>
                   <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground mb-1">
-                    {result.betterMethod === 'percentage' && <CheckCircle2 className="mr-1 inline h-3.5 w-3.5 text-emerald-400" />}
+                    {result.betterMethod === 'percentage' && <CheckCircle2 className="mr-1 inline h-3.5 w-3.5 text-emerald-600" />}
                     Flat 22% Method
                   </p>
-                  <p className={`text-4xl font-bold ${result.betterMethod === 'percentage' ? 'text-emerald-400' : 'text-muted-foreground'}`}>
+                  <p className={`text-4xl font-bold ${result.betterMethod === 'percentage' ? 'text-emerald-600' : 'text-muted-foreground'}`}>
                     {formatCurrency(result.netBonusPercentage)}
                   </p>
                   <p className="mt-1 text-xs text-muted-foreground">Take-Home from Bonus</p>
                   <div className="mt-3 space-y-1 text-xs text-muted-foreground">
                     <div className="flex justify-between">
                       <span>Federal (22%)</span>
-                      <span className="text-red-400">-{formatCurrency(result.fedTaxPercentage)}</span>
+                      <span className="text-red-600">-{formatCurrency(result.fedTaxPercentage)}</span>
                     </div>
                     <div className="flex justify-between">
                       <span>FICA</span>
-                      <span className="text-orange-400">-{formatCurrency(result.ficaOnBonus)}</span>
+                      <span className="text-orange-700">-{formatCurrency(result.ficaOnBonus)}</span>
                     </div>
                     {result.stateTaxOnBonus > 0 && (
                       <div className="flex justify-between">
                         <span>State Tax</span>
-                        <span className="text-amber-400">-{formatCurrency(result.stateTaxOnBonus)}</span>
+                        <span className="text-amber-700">-{formatCurrency(result.stateTaxOnBonus)}</span>
                       </div>
                     )}
                   </div>
@@ -614,28 +614,28 @@ export function BonusTaxCalculator() {
                 </div>
 
                 {/* Aggregate Method */}
-                <div className={`rounded-xl p-5 text-center ${result.betterMethod === 'aggregate' ? 'bg-emerald-500/10 border border-emerald-500/20' : 'bg-muted/30 border border-border/30'}`}>
+                <div className={`rounded-xl p-5 text-center ${result.betterMethod === 'aggregate' ? 'bg-emerald-600/10 border border-emerald-500/20' : 'bg-muted/30 border border-border/30'}`}>
                   <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground mb-1">
-                    {result.betterMethod === 'aggregate' && <CheckCircle2 className="mr-1 inline h-3.5 w-3.5 text-emerald-400" />}
+                    {result.betterMethod === 'aggregate' && <CheckCircle2 className="mr-1 inline h-3.5 w-3.5 text-emerald-600" />}
                     Aggregate Method
                   </p>
-                  <p className={`text-4xl font-bold ${result.betterMethod === 'aggregate' ? 'text-emerald-400' : 'text-muted-foreground'}`}>
+                  <p className={`text-4xl font-bold ${result.betterMethod === 'aggregate' ? 'text-emerald-600' : 'text-muted-foreground'}`}>
                     {formatCurrency(result.netBonusAggregate)}
                   </p>
                   <p className="mt-1 text-xs text-muted-foreground">Take-Home from Bonus</p>
                   <div className="mt-3 space-y-1 text-xs text-muted-foreground">
                     <div className="flex justify-between">
                       <span>Federal (marginal)</span>
-                      <span className="text-red-400">-{formatCurrency(result.fedTaxAggregate)}</span>
+                      <span className="text-red-600">-{formatCurrency(result.fedTaxAggregate)}</span>
                     </div>
                     <div className="flex justify-between">
                       <span>FICA</span>
-                      <span className="text-orange-400">-{formatCurrency(result.ficaOnBonusAggregate)}</span>
+                      <span className="text-orange-700">-{formatCurrency(result.ficaOnBonusAggregate)}</span>
                     </div>
                     {result.stateTaxOnBonusAggregate > 0 && (
                       <div className="flex justify-between">
                         <span>State Tax</span>
-                        <span className="text-amber-400">-{formatCurrency(result.stateTaxOnBonusAggregate)}</span>
+                        <span className="text-amber-700">-{formatCurrency(result.stateTaxOnBonusAggregate)}</span>
                       </div>
                     )}
                   </div>
@@ -649,20 +649,20 @@ export function BonusTaxCalculator() {
 
               {/* Key Savings Metrics */}
               <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-                <div className="rounded-lg bg-emerald-500/10 border border-emerald-500/20 p-4 text-center">
-                  <p className="text-xs font-medium uppercase tracking-wider text-emerald-400/80">
+                <div className="rounded-lg bg-emerald-600/10 border border-emerald-500/20 p-4 text-center">
+                  <p className="text-xs font-medium uppercase tracking-wider text-emerald-600/80">
                     Best Method
                   </p>
-                  <p className="mt-1 text-lg font-bold text-emerald-400">
+                  <p className="mt-1 text-lg font-bold text-emerald-600">
                     {result.betterMethod === 'percentage' ? 'Flat 22%' : 'Aggregate'}
                   </p>
                   <p className="text-xs text-muted-foreground">Keeps more in your pocket</p>
                 </div>
                 <div className="rounded-lg bg-cyan-500/10 border border-cyan-500/20 p-4 text-center">
-                  <p className="text-xs font-medium uppercase tracking-wider text-cyan-400/80">
+                  <p className="text-xs font-medium uppercase tracking-wider text-cyan-700/80">
                     Difference
                   </p>
-                  <p className="mt-1 text-2xl font-bold text-cyan-400">
+                  <p className="mt-1 text-2xl font-bold text-cyan-700">
                     {formatCurrency(result.savingsByBetterMethod)}
                   </p>
                   <p className="text-xs text-muted-foreground">Between the two methods</p>
@@ -693,7 +693,7 @@ export function BonusTaxCalculator() {
           <Card className="border-border/50 bg-card/80 backdrop-blur-sm">
             <CardHeader>
               <CardTitle className="flex items-center gap-2 text-lg">
-                <Calculator className="h-5 w-5 text-emerald-400" />
+                <Calculator className="h-5 w-5 text-emerald-600" />
                 Detailed Tax Breakdown
               </CardTitle>
               <CardDescription>Complete comparison of both bonus taxation methods</CardDescription>
@@ -713,65 +713,65 @@ export function BonusTaxCalculator() {
                   <span className="text-sm font-bold text-foreground">{formatCurrency(annualSalary + bonusAmount)}</span>
                 </div>
 
-                <Separator className="bg-emerald-500/20" />
+                <Separator className="bg-emerald-600/20" />
 
                 {/* Percentage Method */}
-                <p className="text-xs font-medium uppercase tracking-wider text-emerald-400 mt-2">
+                <p className="text-xs font-medium uppercase tracking-wider text-emerald-600 mt-2">
                   Percentage Method (Flat 22%)
                 </p>
                 <div className="flex items-center justify-between py-2">
                   <span className="text-sm text-muted-foreground">Federal Tax (bonus × 22%)</span>
-                  <span className="text-sm font-semibold text-red-400">-{formatCurrency(result.fedTaxPercentage)}</span>
+                  <span className="text-sm font-semibold text-red-600">-{formatCurrency(result.fedTaxPercentage)}</span>
                 </div>
                 <div className="flex items-center justify-between py-2">
                   <span className="text-sm text-muted-foreground">FICA on Bonus</span>
-                  <span className="text-sm font-semibold text-orange-400">-{formatCurrency(result.ficaOnBonus)}</span>
+                  <span className="text-sm font-semibold text-orange-700">-{formatCurrency(result.ficaOnBonus)}</span>
                 </div>
                 {result.stateTaxOnBonus > 0 && (
                   <div className="flex items-center justify-between py-2">
                     <span className="text-sm text-muted-foreground">State Tax on Bonus</span>
-                    <span className="text-sm font-semibold text-amber-400">-{formatCurrency(result.stateTaxOnBonus)}</span>
+                    <span className="text-sm font-semibold text-amber-700">-{formatCurrency(result.stateTaxOnBonus)}</span>
                   </div>
                 )}
                 <div className="flex items-center justify-between py-2">
-                  <span className="text-sm font-bold text-emerald-400">Take-Home (Percentage)</span>
-                  <span className="text-lg font-bold text-emerald-400">{formatCurrency(result.netBonusPercentage)}</span>
+                  <span className="text-sm font-bold text-emerald-600">Take-Home (Percentage)</span>
+                  <span className="text-lg font-bold text-emerald-600">{formatCurrency(result.netBonusPercentage)}</span>
                 </div>
 
                 <Separator className="bg-border/30" />
 
                 {/* Aggregate Method */}
-                <p className="text-xs font-medium uppercase tracking-wider text-cyan-400 mt-2">
+                <p className="text-xs font-medium uppercase tracking-wider text-cyan-700 mt-2">
                   Aggregate Method (Combined with Wages)
                 </p>
                 <div className="flex items-center justify-between py-2">
                   <span className="text-sm text-muted-foreground">Federal Tax (marginal bracket)</span>
-                  <span className="text-sm font-semibold text-red-400">-{formatCurrency(result.fedTaxAggregate)}</span>
+                  <span className="text-sm font-semibold text-red-600">-{formatCurrency(result.fedTaxAggregate)}</span>
                 </div>
                 <div className="flex items-center justify-between py-2">
                   <span className="text-sm text-muted-foreground">FICA on Bonus (same)</span>
-                  <span className="text-sm font-semibold text-orange-400">-{formatCurrency(result.ficaOnBonusAggregate)}</span>
+                  <span className="text-sm font-semibold text-orange-700">-{formatCurrency(result.ficaOnBonusAggregate)}</span>
                 </div>
                 {result.stateTaxOnBonusAggregate > 0 && (
                   <div className="flex items-center justify-between py-2">
                     <span className="text-sm text-muted-foreground">State Tax on Bonus (same)</span>
-                    <span className="text-sm font-semibold text-amber-400">-{formatCurrency(result.stateTaxOnBonusAggregate)}</span>
+                    <span className="text-sm font-semibold text-amber-700">-{formatCurrency(result.stateTaxOnBonusAggregate)}</span>
                   </div>
                 )}
                 <div className="flex items-center justify-between py-2">
-                  <span className="text-sm font-bold text-cyan-400">Take-Home (Aggregate)</span>
-                  <span className="text-lg font-bold text-cyan-400">{formatCurrency(result.netBonusAggregate)}</span>
+                  <span className="text-sm font-bold text-cyan-700">Take-Home (Aggregate)</span>
+                  <span className="text-lg font-bold text-cyan-700">{formatCurrency(result.netBonusAggregate)}</span>
                 </div>
 
-                <Separator className="bg-emerald-500/30" />
+                <Separator className="bg-emerald-600/30" />
 
                 {/* Winner */}
                 <div className="flex items-center justify-between py-2">
-                  <span className="text-sm font-bold text-emerald-400">
+                  <span className="text-sm font-bold text-emerald-600">
                     <Zap className="mr-1 inline h-4 w-4" />
                     Best Method Saves You
                   </span>
-                  <span className="text-xl font-bold text-emerald-400">{formatCurrency(result.savingsByBetterMethod)}</span>
+                  <span className="text-xl font-bold text-emerald-600">{formatCurrency(result.savingsByBetterMethod)}</span>
                 </div>
               </div>
             </CardContent>
@@ -828,7 +828,7 @@ export function BonusTaxCalculator() {
                       <Legend
                         formatter={(value: string) => <span className="text-xs text-muted-foreground">{value === 'percentage' ? 'Flat 22%' : 'Aggregate'}</span>}
                       />
-                      <Bar dataKey="percentage" fill="#10b981" radius={[4, 4, 0, 0]} />
+                      <Bar dataKey="percentage" fill="#b08d3e" radius={[4, 4, 0, 0]} />
                       <Bar dataKey="aggregate" fill="#22d3ee" radius={[4, 4, 0, 0]} />
                     </BarChart>
                   </ResponsiveContainer>

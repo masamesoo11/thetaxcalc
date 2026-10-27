@@ -254,7 +254,7 @@ export default function WidgetsPage() {
 
       {/* Hero Section */}
       <div className="mb-12 text-center">
-        <div className="inline-flex items-center gap-2 rounded-full bg-emerald-500/10 border border-emerald-500/20 px-4 py-1.5 text-sm text-emerald-400 mb-6">
+        <div className="inline-flex items-center gap-2 rounded-full bg-emerald-600/10 border border-emerald-500/20 px-4 py-1.5 text-sm text-emerald-600 mb-6">
           <Code2 className="h-3.5 w-3.5" />
           Free Embeddable Widgets
         </div>
@@ -272,19 +272,19 @@ export default function WidgetsPage() {
         {/* Trust indicators */}
         <div className="flex flex-wrap items-center justify-center gap-6 mt-6 text-sm text-muted-foreground">
           <span className="flex items-center gap-1.5">
-            <CheckCircle2 className="h-4 w-4 text-emerald-400" />
+            <CheckCircle2 className="h-4 w-4 text-emerald-600" />
             21+ free calculators
           </span>
           <span className="flex items-center gap-1.5">
-            <Shield className="h-4 w-4 text-emerald-400" />
+            <Shield className="h-4 w-4 text-emerald-600" />
             No data collected
           </span>
           <span className="flex items-center gap-1.5">
-            <Globe className="h-4 w-4 text-emerald-400" />
+            <Globe className="h-4 w-4 text-emerald-600" />
             All 50 states
           </span>
           <span className="flex items-center gap-1.5">
-            <Clock className="h-4 w-4 text-emerald-400" />
+            <Clock className="h-4 w-4 text-emerald-600" />
             30-second setup
           </span>
         </div>
@@ -292,21 +292,21 @@ export default function WidgetsPage() {
         <div className="flex flex-wrap items-center justify-center gap-3 mt-8">
           <Link
             href="#widgets"
-            className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-600 to-emerald-500 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/30 transition-all hover:scale-[1.02]"
+            className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-700 to-emerald-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/30 transition-all hover:scale-[1.02]"
           >
             <Code2 className="h-4 w-4" />
             Browse Widgets
           </Link>
           <Link
             href="#for-accountants"
-            className="inline-flex items-center gap-2 rounded-xl border border-border/50 bg-card/50 px-6 py-3 text-sm font-medium text-foreground hover:border-emerald-500/30 hover:text-emerald-400 transition-all"
+            className="inline-flex items-center gap-2 rounded-xl border border-border/50 bg-card/50 px-6 py-3 text-sm font-medium text-foreground hover:border-emerald-500/30 hover:text-emerald-600 transition-all"
           >
             <Users className="h-4 w-4" />
             For Accountants
           </Link>
           <Link
             href="#link-to-us"
-            className="inline-flex items-center gap-2 rounded-xl border border-border/50 bg-card/50 px-6 py-3 text-sm font-medium text-foreground hover:border-emerald-500/30 hover:text-emerald-400 transition-all"
+            className="inline-flex items-center gap-2 rounded-xl border border-border/50 bg-card/50 px-6 py-3 text-sm font-medium text-foreground hover:border-emerald-500/30 hover:text-emerald-600 transition-all"
           >
             <ExternalLink className="h-4 w-4" />
             Link to Us
@@ -324,7 +324,7 @@ export default function WidgetsPage() {
                 key={benefit.title}
                 className="rounded-xl border border-border/30 bg-card/50 p-5 text-center"
               >
-                <Icon className="h-5 w-5 text-emerald-400 mx-auto mb-2" />
+                <Icon className="h-5 w-5 text-emerald-600 mx-auto mb-2" />
                 <h3 className="text-sm font-semibold text-foreground mb-1">{benefit.title}</h3>
                 <p className="text-xs text-muted-foreground leading-relaxed">{benefit.desc}</p>
               </div>
@@ -340,7 +340,7 @@ export default function WidgetsPage() {
         </h2>
         <div className="grid gap-6 sm:grid-cols-3">
           <div className="text-center">
-            <div className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-emerald-500/10 text-emerald-400 font-bold text-lg mb-3">
+            <div className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-emerald-600/10 text-emerald-600 font-bold text-lg mb-3">
               1
             </div>
             <h3 className="text-sm font-semibold text-foreground mb-1">Copy the Code</h3>
@@ -349,7 +349,7 @@ export default function WidgetsPage() {
             </p>
           </div>
           <div className="text-center">
-            <div className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-emerald-500/10 text-emerald-400 font-bold text-lg mb-3">
+            <div className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-emerald-600/10 text-emerald-600 font-bold text-lg mb-3">
               2
             </div>
             <h3 className="text-sm font-semibold text-foreground mb-1">Paste into Your Site</h3>
@@ -358,7 +358,7 @@ export default function WidgetsPage() {
             </p>
           </div>
           <div className="text-center">
-            <div className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-emerald-500/10 text-emerald-400 font-bold text-lg mb-3">
+            <div className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-emerald-600/10 text-emerald-600 font-bold text-lg mb-3">
               3
             </div>
             <h3 className="text-sm font-semibold text-foreground mb-1">Done!</h3>
@@ -372,8 +372,8 @@ export default function WidgetsPage() {
       {/* Widget Grid */}
       <div id="widgets" className="scroll-mt-24">
         <div className="flex items-center gap-3 mb-6">
-          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-500/10">
-            <Code2 className="h-5 w-5 text-emerald-400" />
+          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-600/10">
+            <Code2 className="h-5 w-5 text-emerald-600" />
           </div>
           <div>
             <h2 className="text-2xl font-bold text-foreground">
@@ -394,8 +394,8 @@ export default function WidgetsPage() {
       {/* FAQ Section */}
       <section className="mb-12">
         <div className="flex items-center gap-3 mb-6">
-          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-500/10">
-            <BookOpen className="h-5 w-5 text-emerald-400" />
+          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-600/10">
+            <BookOpen className="h-5 w-5 text-emerald-600" />
           </div>
           <h2 className="text-2xl font-bold text-foreground">
             Widget <span className="gradient-text">FAQ</span>
@@ -424,7 +424,7 @@ export default function WidgetsPage() {
         <div className="rounded-xl border border-blue-500/20 bg-gradient-to-br from-blue-500/5 via-blue-500/10 to-blue-500/5 p-8">
           <div className="flex items-center gap-3 mb-6">
             <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-500/10">
-              <Users className="h-5 w-5 text-blue-400" />
+              <Users className="h-5 w-5 text-blue-700" />
             </div>
             <div>
               <h2 className="text-2xl font-bold text-foreground">
@@ -439,7 +439,7 @@ export default function WidgetsPage() {
           <div className="grid gap-6 sm:grid-cols-3 mb-8">
             <div className="rounded-lg bg-card/50 border border-border/20 p-5">
               <div className="flex h-8 w-8 items-center justify-center rounded-md bg-blue-500/10 mb-3">
-                <Star className="h-4 w-4 text-blue-400" />
+                <Star className="h-4 w-4 text-blue-700" />
               </div>
               <h3 className="text-sm font-semibold text-foreground mb-1">Build Client Trust</h3>
               <p className="text-xs text-muted-foreground leading-relaxed">
@@ -448,7 +448,7 @@ export default function WidgetsPage() {
             </div>
             <div className="rounded-lg bg-card/50 border border-border/20 p-5">
               <div className="flex h-8 w-8 items-center justify-center rounded-md bg-blue-500/10 mb-3">
-                <Clock className="h-4 w-4 text-blue-400" />
+                <Clock className="h-4 w-4 text-blue-700" />
               </div>
               <h3 className="text-sm font-semibold text-foreground mb-1">Save Hours per Week</h3>
               <p className="text-xs text-muted-foreground leading-relaxed">
@@ -457,7 +457,7 @@ export default function WidgetsPage() {
             </div>
             <div className="rounded-lg bg-card/50 border border-border/20 p-5">
               <div className="flex h-8 w-8 items-center justify-center rounded-md bg-blue-500/10 mb-3">
-                <Heart className="h-4 w-4 text-blue-400" />
+                <Heart className="h-4 w-4 text-blue-700" />
               </div>
               <h3 className="text-sm font-semibold text-foreground mb-1">Zero Maintenance</h3>
               <p className="text-xs text-muted-foreground leading-relaxed">
@@ -482,7 +482,7 @@ export default function WidgetsPage() {
                 >
                   <span className="mt-1 h-1.5 w-1.5 rounded-full bg-blue-400/60 shrink-0" />
                   <div>
-                    <span className="text-sm font-medium text-foreground group-hover:text-blue-400 transition-colors">{item.label}</span>
+                    <span className="text-sm font-medium text-foreground group-hover:text-blue-700 transition-colors">{item.label}</span>
                     <p className="text-xs text-muted-foreground mt-0.5">{item.reason}</p>
                   </div>
                 </Link>
@@ -497,7 +497,7 @@ export default function WidgetsPage() {
         <div className="rounded-xl border border-amber-500/20 bg-gradient-to-br from-amber-500/5 via-amber-500/10 to-amber-500/5 p-8">
           <div className="flex items-center gap-3 mb-6">
             <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-amber-500/10">
-              <Building2 className="h-5 w-5 text-amber-400" />
+              <Building2 className="h-5 w-5 text-amber-700" />
             </div>
             <div>
               <h2 className="text-2xl font-bold text-foreground">
@@ -512,7 +512,7 @@ export default function WidgetsPage() {
           <div className="grid gap-6 sm:grid-cols-3 mb-8">
             <div className="rounded-lg bg-card/50 border border-border/20 p-5">
               <div className="flex h-8 w-8 items-center justify-center rounded-md bg-amber-500/10 mb-3">
-                <Shield className="h-4 w-4 text-amber-400" />
+                <Shield className="h-4 w-4 text-amber-700" />
               </div>
               <h3 className="text-sm font-semibold text-foreground mb-1">Reduce Support Tickets</h3>
               <p className="text-xs text-muted-foreground leading-relaxed">
@@ -521,7 +521,7 @@ export default function WidgetsPage() {
             </div>
             <div className="rounded-lg bg-card/50 border border-border/20 p-5">
               <div className="flex h-8 w-8 items-center justify-center rounded-md bg-amber-500/10 mb-3">
-                <Globe className="h-4 w-4 text-amber-400" />
+                <Globe className="h-4 w-4 text-amber-700" />
               </div>
               <h3 className="text-sm font-semibold text-foreground mb-1">Multi-State Coverage</h3>
               <p className="text-xs text-muted-foreground leading-relaxed">
@@ -530,7 +530,7 @@ export default function WidgetsPage() {
             </div>
             <div className="rounded-lg bg-card/50 border border-border/20 p-5">
               <div className="flex h-8 w-8 items-center justify-center rounded-md bg-amber-500/10 mb-3">
-                <Zap className="h-4 w-4 text-amber-400" />
+                <Zap className="h-4 w-4 text-amber-700" />
               </div>
               <h3 className="text-sm font-semibold text-foreground mb-1">Onboarding Essential</h3>
               <p className="text-xs text-muted-foreground leading-relaxed">
@@ -555,7 +555,7 @@ export default function WidgetsPage() {
                 >
                   <span className="mt-1 h-1.5 w-1.5 rounded-full bg-amber-400/60 shrink-0" />
                   <div>
-                    <span className="text-sm font-medium text-foreground group-hover:text-amber-400 transition-colors">{item.label}</span>
+                    <span className="text-sm font-medium text-foreground group-hover:text-amber-700 transition-colors">{item.label}</span>
                     <p className="text-xs text-muted-foreground mt-0.5">{item.reason}</p>
                   </div>
                 </Link>
@@ -569,8 +569,8 @@ export default function WidgetsPage() {
       <OutreachEmailTemplate />
 
       {/* Bottom CTA */}
-      <section className="mb-12 rounded-xl border border-emerald-500/20 bg-emerald-500/5 p-8 text-center">
-        <CheckCircle2 className="h-8 w-8 text-emerald-400 mx-auto mb-4" />
+      <section className="mb-12 rounded-xl border border-emerald-500/20 bg-emerald-600/5 p-8 text-center">
+        <CheckCircle2 className="h-8 w-8 text-emerald-600 mx-auto mb-4" />
         <h2 className="text-2xl font-bold text-foreground mb-3">
           Ready to Add a Widget?
         </h2>
@@ -581,14 +581,14 @@ export default function WidgetsPage() {
         <div className="flex flex-wrap items-center justify-center gap-3">
           <Link
             href="#widgets"
-            className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-600 to-emerald-500 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/30 transition-all hover:scale-[1.02]"
+            className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-700 to-emerald-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/30 transition-all hover:scale-[1.02]"
           >
             <Code2 className="h-4 w-4" />
             Browse Widgets
           </Link>
           <Link
             href="/paycheck-calculator"
-            className="inline-flex items-center gap-2 rounded-xl border border-border/50 bg-card/50 px-6 py-3 text-sm font-medium text-foreground hover:border-emerald-500/30 hover:text-emerald-400 transition-all"
+            className="inline-flex items-center gap-2 rounded-xl border border-border/50 bg-card/50 px-6 py-3 text-sm font-medium text-foreground hover:border-emerald-500/30 hover:text-emerald-600 transition-all"
           >
             Try Paycheck Calculator
           </Link>
@@ -614,9 +614,9 @@ export default function WidgetsPage() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-400 transition-colors"
+                  className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-600 transition-colors"
                 >
-                  <span className="h-1 w-1 rounded-full bg-emerald-500/40 shrink-0 group-hover:bg-emerald-400 transition-colors" />
+                  <span className="h-1 w-1 rounded-full bg-emerald-600/40 shrink-0 group-hover:bg-emerald-500 transition-colors" />
                   {item.label}
                 </Link>
               ))}
@@ -638,9 +638,9 @@ export default function WidgetsPage() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-400 transition-colors"
+                  className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-600 transition-colors"
                 >
-                  <span className="h-1 w-1 rounded-full bg-emerald-500/40 shrink-0 group-hover:bg-emerald-400 transition-colors" />
+                  <span className="h-1 w-1 rounded-full bg-emerald-600/40 shrink-0 group-hover:bg-emerald-500 transition-colors" />
                   {item.label}
                 </Link>
               ))}
@@ -662,9 +662,9 @@ export default function WidgetsPage() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-400 transition-colors"
+                  className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-600 transition-colors"
                 >
-                  <span className="h-1 w-1 rounded-full bg-emerald-500/40 shrink-0 group-hover:bg-emerald-400 transition-colors" />
+                  <span className="h-1 w-1 rounded-full bg-emerald-600/40 shrink-0 group-hover:bg-emerald-500 transition-colors" />
                   {item.label}
                 </Link>
               ))}

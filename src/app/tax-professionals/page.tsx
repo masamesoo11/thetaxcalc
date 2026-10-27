@@ -236,7 +236,7 @@ export default function TaxProfessionalsPage() {
       </section>
 
       {/* Why Professionals Use TheTaxCalc */}
-      <section className="mb-10 rounded-xl border border-emerald-500/20 bg-emerald-500/5 p-6">
+      <section className="mb-10 rounded-xl border border-emerald-500/20 bg-emerald-600/5 p-6">
         <h2 className="text-2xl font-bold text-foreground mb-4">
           Why Tax Professionals Use TheTaxCalc
         </h2>
@@ -309,7 +309,7 @@ export default function TaxProfessionalsPage() {
             <Link
               key={item.href}
               href={item.href}
-              className="rounded-lg border border-border/30 bg-card/50 p-4 hover:border-emerald-500/40 hover:bg-emerald-500/5 transition-colors"
+              className="rounded-lg border border-border/30 bg-card/50 p-4 hover:border-emerald-500/40 hover:bg-emerald-600/5 transition-colors"
             >
               <p className="font-medium text-foreground">{item.title}</p>
               <p className="text-sm text-muted-foreground mt-1">{item.desc}</p>
@@ -337,7 +337,7 @@ export default function TaxProfessionalsPage() {
           the conversation around tax literacy. Email{' '}
           <a
             href="mailto:hello@thetaxcalc.com"
-            className="text-emerald-400 hover:text-emerald-300 underline"
+            className="text-emerald-600 hover:text-emerald-700 underline"
           >
             hello@thetaxcalc.com
           </a>{' '}
@@ -365,7 +365,7 @@ export default function TaxProfessionalsPage() {
 
       {/* Contact */}
       <section>
-        <div className="rounded-xl border border-emerald-500/20 bg-emerald-500/5 p-6 text-center">
+        <div className="rounded-xl border border-emerald-500/20 bg-emerald-600/5 p-6 text-center">
           <h2 className="text-2xl font-bold text-foreground mb-3">
             Have a Question or Request?
           </h2>
@@ -375,7 +375,7 @@ export default function TaxProfessionalsPage() {
           </p>
           <a
             href="mailto:hello@thetaxcalc.com"
-            className="inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-emerald-600 to-emerald-500 px-6 py-3 text-sm font-medium text-white hover:from-emerald-500 hover:to-emerald-400 transition-colors"
+            className="inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-emerald-700 to-emerald-600 px-6 py-3 text-sm font-medium text-white hover:from-emerald-500 hover:to-emerald-400 transition-colors"
           >
             Contact Our Team
           </a>
@@ -383,12 +383,12 @@ export default function TaxProfessionalsPage() {
             Or explore our{' '}
             <Link
               href="/methodology"
-              className="text-emerald-400 hover:text-emerald-300 underline"
+              className="text-emerald-600 hover:text-emerald-700 underline"
             >
               methodology page
             </Link>{' '}
             and{' '}
-            <Link href="/about" className="text-emerald-400 hover:text-emerald-300 underline">
+            <Link href="/about" className="text-emerald-600 hover:text-emerald-700 underline">
               about page
             </Link>{' '}
             to learn more.

@@ -186,7 +186,7 @@ export default function SmartAssetAlternativePage() {
             <thead className="bg-muted/30">
               <tr>
                 <th className="px-4 py-3 text-left font-semibold text-foreground">Feature</th>
-                <th className="px-4 py-3 text-center font-semibold text-emerald-400">TheTaxCalc</th>
+                <th className="px-4 py-3 text-center font-semibold text-emerald-600">TheTaxCalc</th>
                 <th className="px-4 py-3 text-center font-semibold text-muted-foreground">SmartAsset</th>
               </tr>
             </thead>
@@ -196,7 +196,7 @@ export default function SmartAssetAlternativePage() {
                   <td className="px-4 py-3 text-foreground">{row.feature}</td>
                   <td className="px-4 py-3 text-center">
                     {row.thetaxcalc ? (
-                      <span className="text-emerald-400 font-bold">✓</span>
+                      <span className="text-emerald-600 font-bold">✓</span>
                     ) : (
                       <span className="text-muted-foreground">—</span>
                     )}
@@ -216,7 +216,7 @@ export default function SmartAssetAlternativePage() {
       </section>
 
       {/* Privacy */}
-      <section className="mb-10 rounded-xl border border-emerald-500/20 bg-emerald-500/5 p-6">
+      <section className="mb-10 rounded-xl border border-emerald-500/20 bg-emerald-600/5 p-6">
         <h2 className="text-2xl font-bold text-foreground mb-4">Privacy Is the Difference</h2>
         <p className="text-muted-foreground leading-relaxed mb-4">
           The single biggest difference between TheTaxCalc and SmartAsset is what happens to
@@ -286,7 +286,7 @@ export default function SmartAssetAlternativePage() {
             <Link
               key={item.href}
               href={item.href}
-              className="rounded-lg border border-border/30 bg-card/50 p-4 hover:border-emerald-500/40 hover:bg-emerald-500/5 transition-colors"
+              className="rounded-lg border border-border/30 bg-card/50 p-4 hover:border-emerald-500/40 hover:bg-emerald-600/5 transition-colors"
             >
               <p className="font-medium text-foreground">{item.title}</p>
               <p className="text-sm text-muted-foreground mt-1">{item.desc}</p>
@@ -307,14 +307,14 @@ export default function SmartAssetAlternativePage() {
           (California at 1%–13.3%, New York at 4%–10.9% plus NYC tax). Use our{' '}
           <Link
             href="/paycheck-calculator"
-            className="text-emerald-400 hover:text-emerald-300 underline"
+            className="text-emerald-600 hover:text-emerald-700 underline"
           >
             paycheck calculator
           </Link>{' '}
           or compare any two states side-by-side on our{' '}
           <Link
             href="/compare"
-            className="text-emerald-400 hover:text-emerald-300 underline"
+            className="text-emerald-600 hover:text-emerald-700 underline"
           >
             state comparison page
           </Link>

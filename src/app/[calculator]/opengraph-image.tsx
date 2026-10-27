@@ -38,7 +38,7 @@ export default async function Image({
 
     <!-- Category badge -->
     <rect x="490" y="80" width="220" height="40" rx="20" fill="rgba(16,185,129,0.1)" stroke="rgba(16,185,129,0.4)" stroke-width="1"/>
-    <text x="600" y="106" text-anchor="middle" fill="#10b981" font-family="sans-serif" font-weight="700" font-size="14" letter-spacing="2">${categoryLabel}</text>
+    <text x="600" y="106" text-anchor="middle" fill="#b08d3e" font-family="sans-serif" font-weight="700" font-size="14" letter-spacing="2">${categoryLabel}</text>
 
     <!-- Main Heading -->
     <text x="600" y="240" text-anchor="middle" fill="#ffffff" font-family="sans-serif" font-weight="900" font-size="56">${escapeXml(displayTitle)}</text>
@@ -48,8 +48,8 @@ export default async function Image({
 
     <!-- Brand -->
     <rect x="536" y="390" width="36" height="36" rx="8" fill="rgba(16,185,129,0.1)" stroke="rgba(16,185,129,0.4)" stroke-width="1"/>
-    <text x="554" y="416" text-anchor="middle" fill="#10b981" font-family="sans-serif" font-weight="900" font-size="20">T</text>
-    <text x="590" y="414" fill="#10b981" font-family="sans-serif" font-weight="700" font-size="20">TheTaxCalc</text>
+    <text x="554" y="416" text-anchor="middle" fill="#b08d3e" font-family="sans-serif" font-weight="900" font-size="20">T</text>
+    <text x="590" y="414" fill="#b08d3e" font-family="sans-serif" font-weight="700" font-size="20">TheTaxCalc</text>
 
     <!-- Bottom tagline -->
     <text x="600" y="480" text-anchor="middle" fill="rgba(255,255,255,0.35)" font-family="sans-serif" font-weight="400" font-size="16">100% Free · Updated for 2026</text>

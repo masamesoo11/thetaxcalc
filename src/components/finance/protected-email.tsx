@@ -36,7 +36,7 @@ export function ProtectedEmail({ code }: { code: string }) {
       <button
         type="button"
         onClick={handleClick}
-        className="text-emerald-400 hover:text-emerald-300 underline cursor-pointer bg-transparent border-none p-0 font-inherit text-inherit"
+        className="text-emerald-600 hover:text-emerald-700 underline cursor-pointer bg-transparent border-none p-0 font-inherit text-inherit"
         aria-label="Click to reveal email address"
       >
         Show email address
@@ -51,7 +51,7 @@ export function ProtectedEmail({ code }: { code: string }) {
     <button
       type="button"
       onClick={handleClick}
-      className="text-emerald-400 hover:text-emerald-300 underline cursor-pointer bg-transparent border-none p-0 font-inherit text-inherit"
+      className="text-emerald-600 hover:text-emerald-700 underline cursor-pointer bg-transparent border-none p-0 font-inherit text-inherit"
       title="Click to copy email address"
       aria-label="Click to copy email address"
     >

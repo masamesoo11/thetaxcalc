@@ -174,7 +174,7 @@ function calculateLotteryTax(
 const CHART_COLORS = {
   federalTax: '#ef4444',    // red-500
   stateTax: '#f97316',      // orange-500
-  takeHome: '#10b981',      // emerald-500
+  takeHome: '#b08d3e',      // emerald-500
   withholding: '#6b7280',   // gray-500
 };
 
@@ -277,22 +277,22 @@ export function LotteryTaxCalculator() {
       {/* ─── Page Title ─────────────────────────────────── */}
       <div className="text-center">
         <h2 className="flex items-center justify-center gap-2 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-          <DollarSign className="h-8 w-8 text-emerald-400" />
+          <DollarSign className="h-8 w-8 text-emerald-600" />
           Lottery Tax Calculator
         </h2>
         <p className="mt-2 text-muted-foreground">
           Calculate how much tax you pay on lottery, gambling &amp; prize winnings — federal + state
         </p>
         <div className="mt-3 flex flex-wrap items-center justify-center gap-2">
-          <Badge className="bg-emerald-500/20 text-emerald-400 border-emerald-500/30 text-xs font-semibold px-3 py-1">
+          <Badge className="bg-emerald-600/20 text-emerald-600 border-emerald-500/30 text-xs font-semibold px-3 py-1">
             <CheckCircle2 className="mr-1 h-3 w-3" />
             2026 Tax Rates
           </Badge>
-          <Badge className="bg-cyan-500/20 text-cyan-400 border-cyan-500/30 text-xs px-3 py-1">
+          <Badge className="bg-cyan-500/20 text-cyan-700 border-cyan-500/30 text-xs px-3 py-1">
             <ArrowRightLeft className="mr-1 h-3 w-3" />
             Lump Sum vs Annuity
           </Badge>
-          <Badge className="bg-amber-500/20 text-amber-400 border-amber-500/30 text-xs px-3 py-1">
+          <Badge className="bg-amber-500/20 text-amber-700 border-amber-500/30 text-xs px-3 py-1">
             <AlertTriangle className="mr-1 h-3 w-3" />
             No FICA on Winnings
           </Badge>
@@ -303,17 +303,17 @@ export function LotteryTaxCalculator() {
       <Card className="border-amber-500/20 bg-amber-500/5">
         <CardContent className="p-4">
           <div className="flex items-start gap-3">
-            <AlertTriangle className="mt-0.5 h-5 w-5 shrink-0 text-amber-400" />
+            <AlertTriangle className="mt-0.5 h-5 w-5 shrink-0 text-amber-700" />
             <div className="space-y-2 text-sm text-muted-foreground">
               <p className="font-medium text-foreground">Key Facts About Lottery Taxes</p>
               <p>
-                <strong className="text-amber-400">No FICA:</strong> Lottery winnings are NOT subject to Social Security or Medicare taxes. Unlike regular wages, you don&apos;t pay the 7.65% FICA on gambling income. This is a major difference from salary income.
+                <strong className="text-amber-700">No FICA:</strong> Lottery winnings are NOT subject to Social Security or Medicare taxes. Unlike regular wages, you don&apos;t pay the 7.65% FICA on gambling income. This is a major difference from salary income.
               </p>
               <p>
-                <strong className="text-red-400">Mandatory Withholding:</strong> The IRS requires 24% federal withholding on winnings over $5,000, but your actual tax bill depends on your bracket. If you&apos;re in the 37% bracket, the 24% withholding won&apos;t cover it — you&apos;ll owe the rest at tax time.
+                <strong className="text-red-600">Mandatory Withholding:</strong> The IRS requires 24% federal withholding on winnings over $5,000, but your actual tax bill depends on your bracket. If you&apos;re in the 37% bracket, the 24% withholding won&apos;t cover it — you&apos;ll owe the rest at tax time.
               </p>
               <p>
-                <strong className="text-emerald-400">State Variations:</strong> Some states (TX, FL, WA, etc.) don&apos;t tax lottery winnings at all. Others have their own progressive rates. This calculator shows the exact state tax for your situation.
+                <strong className="text-emerald-600">State Variations:</strong> Some states (TX, FL, WA, etc.) don&apos;t tax lottery winnings at all. Others have their own progressive rates. This calculator shows the exact state tax for your situation.
               </p>
             </div>
           </div>
@@ -327,7 +327,7 @@ export function LotteryTaxCalculator() {
           <Card className="border-border/50 bg-card/80 backdrop-blur-sm">
             <CardHeader className="pb-4">
               <CardTitle className="flex items-center gap-2 text-lg">
-                <Calculator className="h-5 w-5 text-emerald-400" />
+                <Calculator className="h-5 w-5 text-emerald-600" />
                 Lottery Winnings Details
               </CardTitle>
               <CardDescription>Enter your prize amount and tax situation</CardDescription>
@@ -338,7 +338,7 @@ export function LotteryTaxCalculator() {
                 <div className="space-y-2">
                   <Label htmlFor="prize-amount" className="text-sm font-medium">
                     <span className="flex items-center gap-1.5">
-                      <DollarSign className="h-3.5 w-3.5 text-emerald-400" />
+                      <DollarSign className="h-3.5 w-3.5 text-emerald-600" />
                       Advertised Prize Amount
                     </span>
                   </Label>
@@ -383,7 +383,7 @@ export function LotteryTaxCalculator() {
                 <div className="space-y-2">
                   <Label htmlFor="lump-sum-pct" className="text-sm font-medium">
                     <span className="flex items-center gap-1.5">
-                      <TrendingDown className="h-3.5 w-3.5 text-cyan-400" />
+                      <TrendingDown className="h-3.5 w-3.5 text-cyan-700" />
                       Lump Sum Cash Percentage
                     </span>
                   </Label>
@@ -455,10 +455,10 @@ export function LotteryTaxCalculator() {
               </div>
 
               {/* No FICA Notice */}
-              <div className="rounded-lg bg-emerald-500/10 border border-emerald-500/20 p-3">
+              <div className="rounded-lg bg-emerald-600/10 border border-emerald-500/20 p-3">
                 <div className="flex items-center gap-2">
-                  <CheckCircle2 className="h-4 w-4 text-emerald-400 shrink-0" />
-                  <p className="text-xs font-medium text-emerald-400">
+                  <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0" />
+                  <p className="text-xs font-medium text-emerald-600">
                     Lottery winnings are NOT subject to FICA (Social Security &amp; Medicare taxes)
                   </p>
                 </div>
@@ -487,7 +487,7 @@ export function LotteryTaxCalculator() {
           <Card className="sticky top-20 border-emerald-500/20 bg-card/90 backdrop-blur-sm">
             <CardHeader className="pb-3">
               <CardTitle className="flex items-center gap-2 text-lg">
-                <TrendingUp className="h-5 w-5 text-emerald-400" />
+                <TrendingUp className="h-5 w-5 text-emerald-600" />
                 Quick Summary
               </CardTitle>
               <CardDescription>
@@ -496,11 +496,11 @@ export function LotteryTaxCalculator() {
             </CardHeader>
             <CardContent className="space-y-4">
               {/* Net Take-Home */}
-              <div className="rounded-xl bg-emerald-500/10 p-4 text-center">
-                <p className="text-xs font-medium uppercase tracking-wider text-emerald-400/80">
+              <div className="rounded-xl bg-emerald-600/10 p-4 text-center">
+                <p className="text-xs font-medium uppercase tracking-wider text-emerald-600/80">
                   Your Take-Home
                 </p>
-                <p className="mt-1 text-3xl font-bold text-emerald-400">
+                <p className="mt-1 text-3xl font-bold text-emerald-600">
                   {result ? formatCurrency(payoutType === 'lump-sum' ? result.lumpSumNet : result.annuityNetAnnual) : formatCurrency(0)}
                 </p>
                 <p className="mt-1 text-xs text-muted-foreground">
@@ -519,20 +519,20 @@ export function LotteryTaxCalculator() {
                 </p>
                 <div className="flex items-center justify-between">
                   <span className="text-sm text-muted-foreground">Federal Tax</span>
-                  <span className="text-sm font-semibold text-red-400">
+                  <span className="text-sm font-semibold text-red-600">
                     -{result ? formatCurrency(payoutType === 'lump-sum' ? result.lumpSumFederalTax : result.annuityFederalTax) : formatCurrency(0)}
                   </span>
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="text-sm text-muted-foreground">FICA (SS + Medicare)</span>
-                  <span className="text-sm font-semibold text-emerald-400">
+                  <span className="text-sm font-semibold text-emerald-600">
                     $0.00
                   </span>
                 </div>
                 {result && (payoutType === 'lump-sum' ? result.lumpSumStateTax > 0 : result.annuityStateTax > 0) && (
                   <div className="flex items-center justify-between">
                     <span className="text-sm text-muted-foreground">State Tax ({currentState?.abbreviation})</span>
-                    <span className="text-sm font-semibold text-amber-400">
+                    <span className="text-sm font-semibold text-amber-700">
                       -{formatCurrency(payoutType === 'lump-sum' ? result.lumpSumStateTax : result.annuityStateTax)}
                     </span>
                   </div>
@@ -540,7 +540,7 @@ export function LotteryTaxCalculator() {
                 {result && (payoutType === 'lump-sum' ? result.lumpSumStateTax === 0 : result.annuityStateTax === 0) && (
                   <div className="flex items-center justify-between">
                     <span className="text-sm text-muted-foreground">State Tax ({currentState?.abbreviation})</span>
-                    <span className="text-sm font-semibold text-emerald-400">
+                    <span className="text-sm font-semibold text-emerald-600">
                       $0.00 (No state tax)
                     </span>
                   </div>
@@ -548,7 +548,7 @@ export function LotteryTaxCalculator() {
                 <Separator className="bg-border/20" />
                 <div className="flex items-center justify-between">
                   <span className="text-sm font-medium text-foreground">Total Tax</span>
-                  <span className="text-sm font-bold text-red-400">
+                  <span className="text-sm font-bold text-red-600">
                     -{result ? formatCurrency(payoutType === 'lump-sum' ? result.lumpSumTotalTax : result.annuityTotalTax) : formatCurrency(0)}
                   </span>
                 </div>
@@ -580,19 +580,19 @@ export function LotteryTaxCalculator() {
               {result && prizeAmount > MANDATORY_WITHHOLDING_THRESHOLD && (
                 <div className="rounded-lg bg-amber-500/10 border border-amber-500/20 p-3">
                   <div className="flex items-start gap-2">
-                    <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0 text-amber-400" />
+                    <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0 text-amber-700" />
                     <div className="text-xs text-muted-foreground">
                       <p>
-                        <strong className="text-amber-400">Withholding Gap:</strong> The IRS withholds 24% ({formatCurrency(payoutType === 'lump-sum' ? result.lumpSumWithholding : result.annuityWithholding)}), but your actual federal tax is {formatCurrency(payoutType === 'lump-sum' ? result.lumpSumFederalTax : result.annuityFederalTax)}.
+                        <strong className="text-amber-700">Withholding Gap:</strong> The IRS withholds 24% ({formatCurrency(payoutType === 'lump-sum' ? result.lumpSumWithholding : result.annuityWithholding)}), but your actual federal tax is {formatCurrency(payoutType === 'lump-sum' ? result.lumpSumFederalTax : result.annuityFederalTax)}.
                       </p>
                       {payoutType === 'lump-sum' && result.lumpSumWithholdingGap > 0 && (
                         <p className="mt-1">
-                          You may owe an additional <strong className="text-red-400">{formatCurrency(result.lumpSumWithholdingGap)}</strong> at tax time.
+                          You may owe an additional <strong className="text-red-600">{formatCurrency(result.lumpSumWithholdingGap)}</strong> at tax time.
                         </p>
                       )}
                       {payoutType === 'annuity' && result.annuityWithholdingGap > 0 && (
                         <p className="mt-1">
-                          You may owe an additional <strong className="text-red-400">{formatCurrency(result.annuityWithholdingGap)}</strong> per year at tax time.
+                          You may owe an additional <strong className="text-red-600">{formatCurrency(result.annuityWithholdingGap)}</strong> per year at tax time.
                         </p>
                       )}
                     </div>
@@ -611,7 +611,7 @@ export function LotteryTaxCalculator() {
           <Card className="border-emerald-500/30 bg-card/90 backdrop-blur-sm">
             <CardContent className="p-6">
               <div className="flex items-center justify-center gap-2 mb-6">
-                <Badge className="bg-cyan-500/20 text-cyan-400 border-cyan-500/30 text-xs font-semibold">
+                <Badge className="bg-cyan-500/20 text-cyan-700 border-cyan-500/30 text-xs font-semibold">
                   <ArrowRightLeft className="mr-1 h-3 w-3" />
                   Lump Sum vs Annuity Comparison
                 </Badge>
@@ -619,12 +619,12 @@ export function LotteryTaxCalculator() {
 
               <div className="grid gap-6 sm:grid-cols-2">
                 {/* Lump Sum */}
-                <div className={`rounded-xl p-5 text-center ${result.betterOption === 'lump-sum' ? 'bg-emerald-500/10 border border-emerald-500/20' : 'bg-muted/30 border border-border/30'}`}>
+                <div className={`rounded-xl p-5 text-center ${result.betterOption === 'lump-sum' ? 'bg-emerald-600/10 border border-emerald-500/20' : 'bg-muted/30 border border-border/30'}`}>
                   <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground mb-1">
-                    {result.betterOption === 'lump-sum' && <CheckCircle2 className="mr-1 inline h-3.5 w-3.5 text-emerald-400" />}
+                    {result.betterOption === 'lump-sum' && <CheckCircle2 className="mr-1 inline h-3.5 w-3.5 text-emerald-600" />}
                     Lump Sum (Cash)
                   </p>
-                  <p className={`text-4xl font-bold ${result.betterOption === 'lump-sum' ? 'text-emerald-400' : 'text-muted-foreground'}`}>
+                  <p className={`text-4xl font-bold ${result.betterOption === 'lump-sum' ? 'text-emerald-600' : 'text-muted-foreground'}`}>
                     {formatCurrency(result.lumpSumNet)}
                   </p>
                   <p className="mt-1 text-xs text-muted-foreground">Take-Home (one-time)</p>
@@ -635,17 +635,17 @@ export function LotteryTaxCalculator() {
                     </div>
                     <div className="flex justify-between">
                       <span>Federal Tax</span>
-                      <span className="text-red-400">-{formatCurrency(result.lumpSumFederalTax)}</span>
+                      <span className="text-red-600">-{formatCurrency(result.lumpSumFederalTax)}</span>
                     </div>
                     {result.lumpSumStateTax > 0 && (
                       <div className="flex justify-between">
                         <span>State Tax</span>
-                        <span className="text-amber-400">-{formatCurrency(result.lumpSumStateTax)}</span>
+                        <span className="text-amber-700">-{formatCurrency(result.lumpSumStateTax)}</span>
                       </div>
                     )}
                     <div className="flex justify-between">
                       <span>FICA</span>
-                      <span className="text-emerald-400">$0 (Not applied)</span>
+                      <span className="text-emerald-600">$0 (Not applied)</span>
                     </div>
                   </div>
                   <p className="mt-2 text-xs text-muted-foreground">
@@ -654,12 +654,12 @@ export function LotteryTaxCalculator() {
                 </div>
 
                 {/* Annuity */}
-                <div className={`rounded-xl p-5 text-center ${result.betterOption === 'annuity' ? 'bg-emerald-500/10 border border-emerald-500/20' : 'bg-muted/30 border border-border/30'}`}>
+                <div className={`rounded-xl p-5 text-center ${result.betterOption === 'annuity' ? 'bg-emerald-600/10 border border-emerald-500/20' : 'bg-muted/30 border border-border/30'}`}>
                   <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground mb-1">
-                    {result.betterOption === 'annuity' && <CheckCircle2 className="mr-1 inline h-3.5 w-3.5 text-emerald-400" />}
+                    {result.betterOption === 'annuity' && <CheckCircle2 className="mr-1 inline h-3.5 w-3.5 text-emerald-600" />}
                     Annuity (30 Years)
                   </p>
-                  <p className={`text-4xl font-bold ${result.betterOption === 'annuity' ? 'text-emerald-400' : 'text-muted-foreground'}`}>
+                  <p className={`text-4xl font-bold ${result.betterOption === 'annuity' ? 'text-emerald-600' : 'text-muted-foreground'}`}>
                     {formatCurrency(result.annuityNetAnnual)}
                   </p>
                   <p className="mt-1 text-xs text-muted-foreground">Take-Home per year (×30)</p>
@@ -670,17 +670,17 @@ export function LotteryTaxCalculator() {
                     </div>
                     <div className="flex justify-between">
                       <span>Federal Tax/yr</span>
-                      <span className="text-red-400">-{formatCurrency(result.annuityFederalTax)}</span>
+                      <span className="text-red-600">-{formatCurrency(result.annuityFederalTax)}</span>
                     </div>
                     {result.annuityStateTax > 0 && (
                       <div className="flex justify-between">
                         <span>State Tax/yr</span>
-                        <span className="text-amber-400">-{formatCurrency(result.annuityStateTax)}</span>
+                        <span className="text-amber-700">-{formatCurrency(result.annuityStateTax)}</span>
                       </div>
                     )}
                     <div className="flex justify-between">
                       <span>FICA</span>
-                      <span className="text-emerald-400">$0 (Not applied)</span>
+                      <span className="text-emerald-600">$0 (Not applied)</span>
                     </div>
                   </div>
                   <p className="mt-2 text-xs text-muted-foreground">
@@ -693,20 +693,20 @@ export function LotteryTaxCalculator() {
 
               {/* Key Metrics */}
               <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-                <div className="rounded-lg bg-emerald-500/10 border border-emerald-500/20 p-4 text-center">
-                  <p className="text-xs font-medium uppercase tracking-wider text-emerald-400/80">
+                <div className="rounded-lg bg-emerald-600/10 border border-emerald-500/20 p-4 text-center">
+                  <p className="text-xs font-medium uppercase tracking-wider text-emerald-600/80">
                     Better Option
                   </p>
-                  <p className="mt-1 text-lg font-bold text-emerald-400">
+                  <p className="mt-1 text-lg font-bold text-emerald-600">
                     {result.betterOption === 'lump-sum' ? 'Lump Sum' : 'Annuity'}
                   </p>
                   <p className="text-xs text-muted-foreground">Higher total take-home</p>
                 </div>
                 <div className="rounded-lg bg-cyan-500/10 border border-cyan-500/20 p-4 text-center">
-                  <p className="text-xs font-medium uppercase tracking-wider text-cyan-400/80">
+                  <p className="text-xs font-medium uppercase tracking-wider text-cyan-700/80">
                     Difference
                   </p>
-                  <p className="mt-1 text-2xl font-bold text-cyan-400">
+                  <p className="mt-1 text-2xl font-bold text-cyan-700">
                     {formatCurrency(result.betterOptionSavings)}
                   </p>
                   <p className="text-xs text-muted-foreground">Between options (nominal)</p>
@@ -724,7 +724,7 @@ export function LotteryTaxCalculator() {
                   <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
                     FICA Savings
                   </p>
-                  <p className="mt-1 text-2xl font-bold text-emerald-400">
+                  <p className="mt-1 text-2xl font-bold text-emerald-600">
                     {payoutType === 'lump-sum'
                       ? formatCurrency(result.lumpSumAmount * 0.0765)
                       : formatCurrency(result.annuityAnnualPayment * 0.0765)}
@@ -739,7 +739,7 @@ export function LotteryTaxCalculator() {
           <Card className="border-border/50 bg-card/80 backdrop-blur-sm">
             <CardHeader>
               <CardTitle className="flex items-center gap-2 text-lg">
-                <Calculator className="h-5 w-5 text-emerald-400" />
+                <Calculator className="h-5 w-5 text-emerald-600" />
                 Detailed Tax Breakdown
               </CardTitle>
               <CardDescription>Complete breakdown of taxes on your lottery winnings</CardDescription>
@@ -751,10 +751,10 @@ export function LotteryTaxCalculator() {
                   <span className="text-sm font-medium text-foreground">{formatCurrency(prizeAmount)}</span>
                 </div>
 
-                <Separator className="bg-emerald-500/20" />
+                <Separator className="bg-emerald-600/20" />
 
                 {/* Lump Sum Section */}
-                <p className="text-xs font-medium uppercase tracking-wider text-emerald-400 mt-2">
+                <p className="text-xs font-medium uppercase tracking-wider text-emerald-600 mt-2">
                   Lump Sum (Cash Option)
                 </p>
                 <div className="flex items-center justify-between py-2">
@@ -763,32 +763,32 @@ export function LotteryTaxCalculator() {
                 </div>
                 <div className="flex items-center justify-between py-2">
                   <span className="text-sm text-muted-foreground">Federal Tax (progressive brackets)</span>
-                  <span className="text-sm font-semibold text-red-400">-{formatCurrency(result.lumpSumFederalTax)}</span>
+                  <span className="text-sm font-semibold text-red-600">-{formatCurrency(result.lumpSumFederalTax)}</span>
                 </div>
                 <div className="flex items-center justify-between py-2">
                   <span className="text-sm text-muted-foreground">FICA (Social Security + Medicare)</span>
-                  <span className="text-sm font-semibold text-emerald-400">$0.00 — Not applied</span>
+                  <span className="text-sm font-semibold text-emerald-600">$0.00 — Not applied</span>
                 </div>
                 {result.lumpSumStateTax > 0 ? (
                   <div className="flex items-center justify-between py-2">
                     <span className="text-sm text-muted-foreground">State Tax ({currentState?.name})</span>
-                    <span className="text-sm font-semibold text-amber-400">-{formatCurrency(result.lumpSumStateTax)}</span>
+                    <span className="text-sm font-semibold text-amber-700">-{formatCurrency(result.lumpSumStateTax)}</span>
                   </div>
                 ) : (
                   <div className="flex items-center justify-between py-2">
                     <span className="text-sm text-muted-foreground">State Tax ({currentState?.name})</span>
-                    <span className="text-sm font-semibold text-emerald-400">$0.00 — No state income tax</span>
+                    <span className="text-sm font-semibold text-emerald-600">$0.00 — No state income tax</span>
                   </div>
                 )}
                 <div className="flex items-center justify-between py-2">
-                  <span className="text-sm font-bold text-emerald-400">Take-Home (Lump Sum)</span>
-                  <span className="text-lg font-bold text-emerald-400">{formatCurrency(result.lumpSumNet)}</span>
+                  <span className="text-sm font-bold text-emerald-600">Take-Home (Lump Sum)</span>
+                  <span className="text-lg font-bold text-emerald-600">{formatCurrency(result.lumpSumNet)}</span>
                 </div>
 
                 <Separator className="bg-border/30" />
 
                 {/* Annuity Section */}
-                <p className="text-xs font-medium uppercase tracking-wider text-cyan-400 mt-2">
+                <p className="text-xs font-medium uppercase tracking-wider text-cyan-700 mt-2">
                   Annuity (30-Year Payout)
                 </p>
                 <div className="flex items-center justify-between py-2">
@@ -797,51 +797,51 @@ export function LotteryTaxCalculator() {
                 </div>
                 <div className="flex items-center justify-between py-2">
                   <span className="text-sm text-muted-foreground">Federal Tax/yr (progressive brackets)</span>
-                  <span className="text-sm font-semibold text-red-400">-{formatCurrency(result.annuityFederalTax)}</span>
+                  <span className="text-sm font-semibold text-red-600">-{formatCurrency(result.annuityFederalTax)}</span>
                 </div>
                 <div className="flex items-center justify-between py-2">
                   <span className="text-sm text-muted-foreground">FICA (Social Security + Medicare)</span>
-                  <span className="text-sm font-semibold text-emerald-400">$0.00 — Not applied</span>
+                  <span className="text-sm font-semibold text-emerald-600">$0.00 — Not applied</span>
                 </div>
                 {result.annuityStateTax > 0 ? (
                   <div className="flex items-center justify-between py-2">
                     <span className="text-sm text-muted-foreground">State Tax/yr ({currentState?.name})</span>
-                    <span className="text-sm font-semibold text-amber-400">-{formatCurrency(result.annuityStateTax)}</span>
+                    <span className="text-sm font-semibold text-amber-700">-{formatCurrency(result.annuityStateTax)}</span>
                   </div>
                 ) : (
                   <div className="flex items-center justify-between py-2">
                     <span className="text-sm text-muted-foreground">State Tax/yr ({currentState?.name})</span>
-                    <span className="text-sm font-semibold text-emerald-400">$0.00 — No state income tax</span>
+                    <span className="text-sm font-semibold text-emerald-600">$0.00 — No state income tax</span>
                   </div>
                 )}
                 <div className="flex items-center justify-between py-2">
-                  <span className="text-sm font-bold text-cyan-400">Take-Home/yr (Annuity)</span>
-                  <span className="text-lg font-bold text-cyan-400">{formatCurrency(result.annuityNetAnnual)}</span>
+                  <span className="text-sm font-bold text-cyan-700">Take-Home/yr (Annuity)</span>
+                  <span className="text-lg font-bold text-cyan-700">{formatCurrency(result.annuityNetAnnual)}</span>
                 </div>
                 <div className="flex items-center justify-between py-2">
                   <span className="text-sm text-muted-foreground">Total Over 30 Years</span>
-                  <span className="text-sm font-medium text-cyan-400">{formatCurrency(result.annuityTotalNet)}</span>
+                  <span className="text-sm font-medium text-cyan-700">{formatCurrency(result.annuityTotalNet)}</span>
                 </div>
 
-                <Separator className="bg-emerald-500/30" />
+                <Separator className="bg-emerald-600/30" />
 
                 {/* Withholding Warning */}
                 <div className="rounded-lg bg-amber-500/10 border border-amber-500/20 p-3">
                   <div className="flex items-start gap-2">
-                    <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0 text-amber-400" />
+                    <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0 text-amber-700" />
                     <div className="text-xs text-muted-foreground">
-                      <p className="font-medium text-amber-400 mb-1">Mandatory Withholding Warning</p>
+                      <p className="font-medium text-amber-700 mb-1">Mandatory Withholding Warning</p>
                       <p>
                         The IRS requires 24% federal withholding on lottery winnings over $5,000. For your {payoutType === 'lump-sum' ? 'lump sum' : 'annual annuity payment'} of {formatCurrency(payoutType === 'lump-sum' ? result.lumpSumAmount : result.annuityAnnualPayment)}, that&apos;s {formatCurrency(payoutType === 'lump-sum' ? result.lumpSumWithholding : result.annuityWithholding)} withheld.
                       </p>
                       {payoutType === 'lump-sum' && result.lumpSumWithholdingGap > 0 && (
                         <p className="mt-1">
-                          But your actual federal tax is <strong>{formatCurrency(result.lumpSumFederalTax)}</strong>, so you&apos;ll likely owe an additional <strong className="text-red-400">{formatCurrency(result.lumpSumWithholdingGap)}</strong> when you file your tax return. Plan for this.
+                          But your actual federal tax is <strong>{formatCurrency(result.lumpSumFederalTax)}</strong>, so you&apos;ll likely owe an additional <strong className="text-red-600">{formatCurrency(result.lumpSumWithholdingGap)}</strong> when you file your tax return. Plan for this.
                         </p>
                       )}
                       {payoutType === 'annuity' && result.annuityWithholdingGap > 0 && (
                         <p className="mt-1">
-                          But your actual federal tax per year is <strong>{formatCurrency(result.annuityFederalTax)}</strong>, so you&apos;ll likely owe an additional <strong className="text-red-400">{formatCurrency(result.annuityWithholdingGap)}</strong> each year when you file.
+                          But your actual federal tax per year is <strong>{formatCurrency(result.annuityFederalTax)}</strong>, so you&apos;ll likely owe an additional <strong className="text-red-600">{formatCurrency(result.annuityWithholdingGap)}</strong> each year when you file.
                         </p>
                       )}
                       {(payoutType === 'lump-sum' ? result.lumpSumWithholdingGap <= 0 : result.annuityWithholdingGap <= 0) && (
@@ -909,7 +909,7 @@ export function LotteryTaxCalculator() {
                       <Legend
                         formatter={(value: string) => <span className="text-xs text-muted-foreground">{value}</span>}
                       />
-                      <Bar dataKey="Lump Sum" fill="#10b981" radius={[4, 4, 0, 0]} />
+                      <Bar dataKey="Lump Sum" fill="#b08d3e" radius={[4, 4, 0, 0]} />
                       <Bar dataKey="Annuity (30yr)" fill="#22d3ee" radius={[4, 4, 0, 0]} />
                     </BarChart>
                   </ResponsiveContainer>
@@ -919,11 +919,11 @@ export function LotteryTaxCalculator() {
           </div>
 
           {/* No FICA Highlight Card */}
-          <Card className="border-emerald-500/20 bg-emerald-500/5">
+          <Card className="border-emerald-500/20 bg-emerald-600/5">
             <CardContent className="p-6">
               <div className="flex items-start gap-4">
-                <div className="rounded-full bg-emerald-500/20 p-3">
-                  <CheckCircle2 className="h-6 w-6 text-emerald-400" />
+                <div className="rounded-full bg-emerald-600/20 p-3">
+                  <CheckCircle2 className="h-6 w-6 text-emerald-600" />
                 </div>
                 <div>
                   <p className="text-lg font-bold text-foreground mb-2">
@@ -935,17 +935,17 @@ export function LotteryTaxCalculator() {
                   <div className="grid gap-3 sm:grid-cols-3">
                     <div className="rounded-lg bg-background/50 p-3 text-center">
                       <p className="text-xs text-muted-foreground">FICA on {formatCurrency(payoutType === 'lump-sum' ? result.lumpSumAmount : result.annuityAnnualPayment)} as wages</p>
-                      <p className="text-lg font-bold text-red-400">
+                      <p className="text-lg font-bold text-red-600">
                         {formatCurrency((payoutType === 'lump-sum' ? result.lumpSumAmount : result.annuityAnnualPayment) * 0.0765)}
                       </p>
                     </div>
                     <div className="rounded-lg bg-background/50 p-3 text-center">
                       <p className="text-xs text-muted-foreground">FICA on lottery winnings</p>
-                      <p className="text-lg font-bold text-emerald-400">$0.00</p>
+                      <p className="text-lg font-bold text-emerald-600">$0.00</p>
                     </div>
                     <div className="rounded-lg bg-background/50 p-3 text-center">
                       <p className="text-xs text-muted-foreground">You save</p>
-                      <p className="text-lg font-bold text-emerald-400">
+                      <p className="text-lg font-bold text-emerald-600">
                         {formatCurrency((payoutType === 'lump-sum' ? result.lumpSumAmount : result.annuityAnnualPayment) * 0.0765)}
                       </p>
                     </div>

@@ -123,7 +123,7 @@ export function VirginiaCalculator() {
     <div className="space-y-6">
       <div className="text-center">
         <h2 className="flex items-center justify-center gap-2 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-          <MapPin className="h-8 w-8 text-emerald-400" />
+          <MapPin className="h-8 w-8 text-emerald-600" />
           Virginia Paycheck Calculator
         </h2>
         <p className="mt-2 text-muted-foreground">
@@ -131,19 +131,19 @@ export function VirginiaCalculator() {
         </p>
       </div>
 
-      <Card className="border-emerald-500/20 bg-emerald-500/5">
+      <Card className="border-emerald-500/20 bg-emerald-600/5">
         <CardContent className="p-4">
           <div className="flex items-start gap-3">
-            <Info className="mt-0.5 h-5 w-5 shrink-0 text-emerald-400" />
+            <Info className="mt-0.5 h-5 w-5 shrink-0 text-emerald-600" />
             <div className="space-y-2 text-sm text-muted-foreground">
               <p className="font-medium text-foreground">How Virginia Income Tax Works</p>
               <p>
-                Virginia uses a <strong className="text-emerald-400">progressive income tax</strong> with
-                four brackets: <strong className="text-emerald-400">2%</strong> on the first $3,000,{' '}
-                <strong className="text-emerald-400">3%</strong> on $3,001–$5,000,{' '}
-                <strong className="text-emerald-400">5%</strong> on $5,001–$17,000, and{' '}
-                <strong className="text-emerald-400">5.75%</strong> on income over $17,000.
-                Virginia offers both a <strong className="text-emerald-400">standard deduction</strong> ($8,300 single / $16,600 married / $8,300 head of household) and a <strong className="text-emerald-400">personal exemption</strong> ($930 single / $1,860 married / $930 head of household), both of which reduce your taxable income before the progressive rates are applied.
+                Virginia uses a <strong className="text-emerald-600">progressive income tax</strong> with
+                four brackets: <strong className="text-emerald-600">2%</strong> on the first $3,000,{' '}
+                <strong className="text-emerald-600">3%</strong> on $3,001–$5,000,{' '}
+                <strong className="text-emerald-600">5%</strong> on $5,001–$17,000, and{' '}
+                <strong className="text-emerald-600">5.75%</strong> on income over $17,000.
+                Virginia offers both a <strong className="text-emerald-600">standard deduction</strong> ($8,300 single / $16,600 married / $8,300 head of household) and a <strong className="text-emerald-600">personal exemption</strong> ($930 single / $1,860 married / $930 head of household), both of which reduce your taxable income before the progressive rates are applied.
               </p>
               <p>
                 For a $75,000 salary (single): Taxable income = $75,000 - $8,300 - $930 = $65,770. State tax = ($3,000 × 2%) + ($2,000 × 3%) + ($12,000 × 5%) + ($48,770 × 5.75%) = $3,524.28.
@@ -158,7 +158,7 @@ export function VirginiaCalculator() {
           <Card className="border-border/50 bg-card/80 backdrop-blur-sm">
             <CardHeader className="pb-4">
               <CardTitle className="flex items-center gap-2 text-lg">
-                <DollarSign className="h-5 w-5 text-emerald-400" />Salary Input
+                <DollarSign className="h-5 w-5 text-emerald-600" />Salary Input
               </CardTitle>
               <CardDescription>Enter your Virginia salary for an instant calculation</CardDescription>
             </CardHeader>
@@ -213,7 +213,7 @@ export function VirginiaCalculator() {
                 <CardHeader className="cursor-pointer pb-4 transition-colors hover:bg-muted/30">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
-                      <Shield className="h-5 w-5 text-amber-400" />
+                      <Shield className="h-5 w-5 text-amber-700" />
                       <CardTitle className="text-lg">Advanced Options</CardTitle>
                       <Badge variant="outline" className="text-xs">401(k) &amp; HSA</Badge>
                     </div>
@@ -226,7 +226,7 @@ export function VirginiaCalculator() {
                   <div className="grid gap-4 sm:grid-cols-2">
                     <div className="space-y-2">
                       <Label htmlFor="va-401k" className="text-sm font-medium">
-                        <span className="flex items-center gap-1.5"><PiggyBank className="h-3.5 w-3.5 text-amber-400" />401(k) Annual</span>
+                        <span className="flex items-center gap-1.5"><PiggyBank className="h-3.5 w-3.5 text-amber-700" />401(k) Annual</span>
                       </Label>
                       <div className="relative">
                         <DollarSign className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
@@ -235,7 +235,7 @@ export function VirginiaCalculator() {
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="va-hsa" className="text-sm font-medium">
-                        <span className="flex items-center gap-1.5"><Shield className="h-3.5 w-3.5 text-emerald-400" />HSA Annual</span>
+                        <span className="flex items-center gap-1.5"><Shield className="h-3.5 w-3.5 text-emerald-600" />HSA Annual</span>
                       </Label>
                       <div className="relative">
                         <DollarSign className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
@@ -255,13 +255,13 @@ export function VirginiaCalculator() {
           <Card className="sticky top-20 border-emerald-500/20 bg-card/90 backdrop-blur-sm">
             <CardHeader className="pb-3">
               <CardTitle className="flex items-center gap-2 text-lg">
-                <TrendingUp className="h-5 w-5 text-emerald-400" />Virginia Take-Home
+                <TrendingUp className="h-5 w-5 text-emerald-600" />Virginia Take-Home
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
-              <div className="rounded-xl bg-emerald-500/10 p-4 text-center">
-                <p className="text-xs font-medium uppercase tracking-wider text-emerald-400/80">Net Take-Home ({periodLabel})</p>
-                <p className="mt-1 text-3xl font-bold text-emerald-400">{formatCurrency(result.netPerPeriod)}</p>
+              <div className="rounded-xl bg-emerald-600/10 p-4 text-center">
+                <p className="text-xs font-medium uppercase tracking-wider text-emerald-600/80">Net Take-Home ({periodLabel})</p>
+                <p className="mt-1 text-3xl font-bold text-emerald-600">{formatCurrency(result.netPerPeriod)}</p>
                 <p className="mt-1 text-xs text-muted-foreground">Annual Net: {formatCurrency(result.netAnnual)}</p>
               </div>
 
@@ -270,33 +270,33 @@ export function VirginiaCalculator() {
               <div className="space-y-2.5 rounded-lg bg-muted/30 p-3">
                 <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground">Deductions</p>
                 <div className="flex items-center justify-between">
-                  <span className="flex items-center gap-1.5 text-sm text-muted-foreground"><TrendingDown className="h-3.5 w-3.5 text-red-400" />Federal Tax</span>
-                  <span className="text-sm font-medium text-red-400">-{formatCurrency(result.federalTax)}</span>
+                  <span className="flex items-center gap-1.5 text-sm text-muted-foreground"><TrendingDown className="h-3.5 w-3.5 text-red-600" />Federal Tax</span>
+                  <span className="text-sm font-medium text-red-600">-{formatCurrency(result.federalTax)}</span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="flex items-center gap-1.5 text-sm text-muted-foreground"><TrendingDown className="h-3.5 w-3.5 text-orange-400" />FICA</span>
-                  <span className="text-sm font-medium text-orange-400">-{formatCurrency(result.ficaTotal)}</span>
+                  <span className="flex items-center gap-1.5 text-sm text-muted-foreground"><TrendingDown className="h-3.5 w-3.5 text-orange-700" />FICA</span>
+                  <span className="text-sm font-medium text-orange-700">-{formatCurrency(result.ficaTotal)}</span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="flex items-center gap-1.5 text-sm text-muted-foreground"><TrendingDown className="h-3.5 w-3.5 text-amber-400" />VA State Tax (2%–5.75%)</span>
-                  <span className="text-sm font-medium text-amber-400">-{formatCurrency(result.stateTax)}</span>
+                  <span className="flex items-center gap-1.5 text-sm text-muted-foreground"><TrendingDown className="h-3.5 w-3.5 text-amber-700" />VA State Tax (2%–5.75%)</span>
+                  <span className="text-sm font-medium text-amber-700">-{formatCurrency(result.stateTax)}</span>
                 </div>
                 {result.retirement401k > 0 && (
                   <div className="flex items-center justify-between">
                     <span className="text-sm text-muted-foreground">401(k)</span>
-                    <span className="text-sm font-medium text-amber-400">-{formatCurrency(result.retirement401k)}</span>
+                    <span className="text-sm font-medium text-amber-700">-{formatCurrency(result.retirement401k)}</span>
                   </div>
                 )}
                 {result.hsaContribution > 0 && (
                   <div className="flex items-center justify-between">
                     <span className="text-sm text-muted-foreground">HSA</span>
-                    <span className="text-sm font-medium text-emerald-400">-{formatCurrency(result.hsaContribution)}</span>
+                    <span className="text-sm font-medium text-emerald-600">-{formatCurrency(result.hsaContribution)}</span>
                   </div>
                 )}
               </div>
 
               <div className="rounded-lg bg-amber-500/5 p-3">
-                <p className="text-xs font-medium text-amber-400">Virginia Tax Breakdown</p>
+                <p className="text-xs font-medium text-amber-700">Virginia Tax Breakdown</p>
                 <div className="mt-1.5 space-y-1 text-xs text-muted-foreground">
                   <div className="flex justify-between"><span>Gross Income</span><span>{formatCurrency(result.grossAnnual)}</span></div>
                   <div className="flex justify-between"><span>Less: Standard Deduction</span><span>-{formatCurrency(vaBreakdown.standardDeduction)}</span></div>
@@ -308,7 +308,7 @@ export function VirginiaCalculator() {
                       <span>{formatCurrency(bd.tax)}</span>
                     </div>
                   ))}
-                  <div className="flex justify-between font-medium text-amber-400"><span>VA State Tax</span><span>{formatCurrency(vaBreakdown.vaTax)}</span></div>
+                  <div className="flex justify-between font-medium text-amber-700"><span>VA State Tax</span><span>{formatCurrency(vaBreakdown.vaTax)}</span></div>
                 </div>
               </div>
 
@@ -345,22 +345,22 @@ export function VirginiaCalculator() {
             <TableBody>
               <TableRow>
                 <TableCell>Bracket 1</TableCell>
-                <TableCell className="font-medium text-emerald-400">2% ($0–$3,000)</TableCell>
+                <TableCell className="font-medium text-emerald-600">2% ($0–$3,000)</TableCell>
                 <TableCell>Lowest progressive bracket applies to first $3,000 of taxable income</TableCell>
               </TableRow>
               <TableRow>
                 <TableCell>Bracket 2</TableCell>
-                <TableCell className="font-medium text-emerald-400">3% ($3,001–$5,000)</TableCell>
+                <TableCell className="font-medium text-emerald-600">3% ($3,001–$5,000)</TableCell>
                 <TableCell>Applies to income between $3,001 and $5,000</TableCell>
               </TableRow>
               <TableRow>
                 <TableCell>Bracket 3</TableCell>
-                <TableCell className="font-medium text-emerald-400">5% ($5,001–$17,000)</TableCell>
+                <TableCell className="font-medium text-emerald-600">5% ($5,001–$17,000)</TableCell>
                 <TableCell>Applies to income between $5,001 and $17,000</TableCell>
               </TableRow>
               <TableRow>
                 <TableCell>Bracket 4</TableCell>
-                <TableCell className="font-medium text-emerald-400">5.75% ($17,001+)</TableCell>
+                <TableCell className="font-medium text-emerald-600">5.75% ($17,001+)</TableCell>
                 <TableCell>Highest bracket applies to all income above $17,000</TableCell>
               </TableRow>
               <TableRow>
@@ -400,7 +400,7 @@ export function VirginiaCalculator() {
               </TableRow>
               <TableRow>
                 <TableCell>FICA Total Rate</TableCell>
-                <TableCell className="font-medium text-orange-400">7.65%</TableCell>
+                <TableCell className="font-medium text-orange-700">7.65%</TableCell>
                 <TableCell>6.2% SS + 1.45% Medicare (employee share)</TableCell>
               </TableRow>
             </TableBody>

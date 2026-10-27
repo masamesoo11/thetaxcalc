@@ -197,12 +197,12 @@ function calculateOvertimeTax(
 // ─── Chart Colors ───────────────────────────────────────────────────────────────
 
 const CHART_COLORS = {
-  regularPay: '#10b981',       // emerald-500
-  overtimePay: '#34d399',      // emerald-400
+  regularPay: '#b08d3e',       // emerald-500
+  overtimePay: '#c9a961',      // emerald-400
   federalTax: '#ef4444',       // red-500
   fica: '#f59e0b',             // amber-500
   stateTax: '#f97316',         // orange-500
-  takeHome: '#10b981',         // emerald-500
+  takeHome: '#b08d3e',         // emerald-500
   savings: '#22d3ee',          // cyan-400
 };
 
@@ -356,7 +356,7 @@ export function OvertimeTaxCalculator() {
       <div className="text-center">
         <div className="flex items-center justify-center gap-2">
           <h2 className="flex items-center gap-2 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-            <Zap className="h-8 w-8 text-emerald-400" />
+            <Zap className="h-8 w-8 text-emerald-600" />
             No Tax on Overtime Calculator
           </h2>
         </div>
@@ -364,11 +364,11 @@ export function OvertimeTaxCalculator() {
           Calculate your savings under the 2025–2028 overtime tax exemption — see how much more you take home
         </p>
         <div className="mt-3 flex items-center justify-center gap-2">
-          <Badge className="bg-amber-500/20 text-amber-400 border-amber-500/30 text-xs font-semibold px-3 py-1 animate-pulse">
+          <Badge className="bg-amber-500/20 text-amber-700 border-amber-500/30 text-xs font-semibold px-3 py-1 animate-pulse">
             <AlertTriangle className="mr-1 h-3 w-3" />
             2025–2028 Law — Act Now
           </Badge>
-          <Badge className="bg-emerald-500/20 text-emerald-400 border-emerald-500/30 text-xs px-3 py-1">
+          <Badge className="bg-emerald-600/20 text-emerald-600 border-emerald-500/30 text-xs px-3 py-1">
             <CheckCircle2 className="mr-1 h-3 w-3" />
             In Effect Now
           </Badge>
@@ -379,13 +379,13 @@ export function OvertimeTaxCalculator() {
       <Card className="border-amber-500/30 bg-amber-500/5">
         <CardContent className="p-4">
           <div className="flex items-start gap-3">
-            <AlertTriangle className="mt-0.5 h-5 w-5 shrink-0 text-amber-400" />
+            <AlertTriangle className="mt-0.5 h-5 w-5 shrink-0 text-amber-700" />
             <div className="space-y-2 text-sm text-muted-foreground">
               <p className="font-medium text-foreground">What the No Tax on Overtime Law Does</p>
               <p>
                 Under the <strong className="text-foreground">2025 Trump tax law</strong>, overtime pay is{' '}
-                <strong className="text-emerald-400">exempt from federal income tax</strong> — but{' '}
-                <strong className="text-amber-400">NOT from FICA</strong> (Social Security 6.2% + Medicare 1.45%).
+                <strong className="text-emerald-600">exempt from federal income tax</strong> — but{' '}
+                <strong className="text-amber-700">NOT from FICA</strong> (Social Security 6.2% + Medicare 1.45%).
                 This applies from <strong className="text-foreground">2025 through 2028</strong> and sunsets after December 31, 2028.
                 Only &quot;overtime&quot; pay (hours beyond 40/week at 1.5x rate or higher) qualifies.
               </p>
@@ -401,7 +401,7 @@ export function OvertimeTaxCalculator() {
           <Card className="border-border/50 bg-card/80 backdrop-blur-sm">
             <CardHeader className="pb-4">
               <CardTitle className="flex items-center gap-2 text-lg">
-                <Calculator className="h-5 w-5 text-emerald-400" />
+                <Calculator className="h-5 w-5 text-emerald-600" />
                 Overtime Details
               </CardTitle>
               <CardDescription>Enter your pay and overtime information to calculate your savings</CardDescription>
@@ -412,7 +412,7 @@ export function OvertimeTaxCalculator() {
                 <div className="space-y-2">
                   <Label htmlFor="ot-wage" className="text-sm font-medium">
                     <span className="flex items-center gap-1.5">
-                      <DollarSign className="h-3.5 w-3.5 text-emerald-400" />
+                      <DollarSign className="h-3.5 w-3.5 text-emerald-600" />
                       Hourly Wage
                     </span>
                   </Label>
@@ -436,7 +436,7 @@ export function OvertimeTaxCalculator() {
                 <div className="space-y-2">
                   <Label htmlFor="ot-hours" className="text-sm font-medium">
                     <span className="flex items-center gap-1.5">
-                      <Clock className="h-3.5 w-3.5 text-amber-400" />
+                      <Clock className="h-3.5 w-3.5 text-amber-700" />
                       Overtime Hours / Week
                     </span>
                   </Label>
@@ -565,7 +565,7 @@ export function OvertimeTaxCalculator() {
           <Card className="sticky top-20 border-emerald-500/20 bg-card/90 backdrop-blur-sm">
             <CardHeader className="pb-3">
               <CardTitle className="flex items-center gap-2 text-lg">
-                <TrendingUp className="h-5 w-5 text-emerald-400" />
+                <TrendingUp className="h-5 w-5 text-emerald-600" />
                 Quick Summary
               </CardTitle>
               <CardDescription>
@@ -574,11 +574,11 @@ export function OvertimeTaxCalculator() {
             </CardHeader>
             <CardContent className="space-y-4">
               {/* Overtime Pay */}
-              <div className="rounded-xl bg-emerald-500/10 p-4 text-center">
-                <p className="text-xs font-medium uppercase tracking-wider text-emerald-400/80">
+              <div className="rounded-xl bg-emerald-600/10 p-4 text-center">
+                <p className="text-xs font-medium uppercase tracking-wider text-emerald-600/80">
                   Annual Overtime Pay
                 </p>
-                <p className="mt-1 text-3xl font-bold text-emerald-400">
+                <p className="mt-1 text-3xl font-bold text-emerald-600">
                   {result ? formatCurrency(result.overtimePay) : formatCurrency(0)}
                 </p>
                 <p className="mt-1 text-xs text-muted-foreground">
@@ -601,10 +601,10 @@ export function OvertimeTaxCalculator() {
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="flex items-center gap-1.5 text-sm text-muted-foreground">
-                    <Clock className="h-3.5 w-3.5 text-amber-400" />
+                    <Clock className="h-3.5 w-3.5 text-amber-700" />
                     Overtime Pay
                   </span>
-                  <span className="text-sm font-medium text-emerald-400">
+                  <span className="text-sm font-medium text-emerald-600">
                     {result ? formatCurrency(result.overtimePay) : formatCurrency(0)}
                   </span>
                 </div>
@@ -640,18 +640,18 @@ export function OvertimeTaxCalculator() {
               </div>
 
               {/* State Conformity Notice */}
-              <div className={`rounded-lg p-3 ${stateConformsToOTExemption ? 'bg-emerald-500/10' : 'bg-amber-500/10'}`}>
+              <div className={`rounded-lg p-3 ${stateConformsToOTExemption ? 'bg-emerald-600/10' : 'bg-amber-500/10'}`}>
                 <div className="flex items-start gap-2">
                   {stateConformsToOTExemption ? (
-                    <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-emerald-400" />
+                    <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600" />
                   ) : (
-                    <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0 text-amber-400" />
+                    <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0 text-amber-700" />
                   )}
                   <div className="text-xs text-muted-foreground">
                     {stateConformsToOTExemption ? (
-                      <p><strong className="text-emerald-400">{STATE_PROFILES[stateKey]?.name}:</strong> No state income tax — your overtime is not taxed at the state level.</p>
+                      <p><strong className="text-emerald-600">{STATE_PROFILES[stateKey]?.name}:</strong> No state income tax — your overtime is not taxed at the state level.</p>
                     ) : (
-                      <p><strong className="text-amber-400">{STATE_PROFILES[stateKey]?.name}:</strong> State still taxes overtime income. Only federal income tax is exempt.</p>
+                      <p><strong className="text-amber-700">{STATE_PROFILES[stateKey]?.name}:</strong> State still taxes overtime income. Only federal income tax is exempt.</p>
                     )}
                   </div>
                 </div>
@@ -668,7 +668,7 @@ export function OvertimeTaxCalculator() {
           <Card className="border-emerald-500/30 bg-card/90 backdrop-blur-sm">
             <CardContent className="p-6">
               <div className="flex items-center justify-center gap-2 mb-6">
-                <Badge className="bg-amber-500/20 text-amber-400 border-amber-500/30 text-xs font-semibold">
+                <Badge className="bg-amber-500/20 text-amber-700 border-amber-500/30 text-xs font-semibold">
                   <AlertTriangle className="mr-1 h-3 w-3" />
                   2025–2028 Law — Act Now
                 </Badge>
@@ -677,28 +677,28 @@ export function OvertimeTaxCalculator() {
               {/* Side-by-side Comparison */}
               <div className="grid gap-6 sm:grid-cols-2">
                 {/* WITH the law */}
-                <div className="rounded-xl bg-emerald-500/10 border border-emerald-500/20 p-5 text-center">
-                  <p className="text-xs font-medium uppercase tracking-wider text-emerald-400/80">
+                <div className="rounded-xl bg-emerald-600/10 border border-emerald-500/20 p-5 text-center">
+                  <p className="text-xs font-medium uppercase tracking-wider text-emerald-600/80">
                     <CheckCircle2 className="mr-1 inline h-3.5 w-3.5" />
                     With OT Tax Exemption
                   </p>
-                  <p className="mt-2 text-4xl font-bold text-emerald-400">
+                  <p className="mt-2 text-4xl font-bold text-emerald-600">
                     {formatCurrency(result.takeHomeWithLaw)}
                   </p>
                   <p className="mt-1 text-xs text-muted-foreground">Annual Take-Home</p>
                   <div className="mt-3 space-y-1 text-xs text-muted-foreground">
                     <div className="flex justify-between">
                       <span>Federal Tax</span>
-                      <span className="text-red-400">-{formatCurrency(result.federalTaxWithLaw)}</span>
+                      <span className="text-red-600">-{formatCurrency(result.federalTaxWithLaw)}</span>
                     </div>
                     <div className="flex justify-between">
                       <span>FICA</span>
-                      <span className="text-orange-400">-{formatCurrency(result.ficaTotal)}</span>
+                      <span className="text-orange-700">-{formatCurrency(result.ficaTotal)}</span>
                     </div>
                     {result.stateTaxWithLaw > 0 && (
                       <div className="flex justify-between">
                         <span>State Tax</span>
-                        <span className="text-amber-400">-{formatCurrency(result.stateTaxWithLaw)}</span>
+                        <span className="text-amber-700">-{formatCurrency(result.stateTaxWithLaw)}</span>
                       </div>
                     )}
                   </div>
@@ -717,16 +717,16 @@ export function OvertimeTaxCalculator() {
                   <div className="mt-3 space-y-1 text-xs text-muted-foreground">
                     <div className="flex justify-between">
                       <span>Federal Tax</span>
-                      <span className="text-red-400">-{formatCurrency(result.federalTaxWithoutLaw)}</span>
+                      <span className="text-red-600">-{formatCurrency(result.federalTaxWithoutLaw)}</span>
                     </div>
                     <div className="flex justify-between">
                       <span>FICA</span>
-                      <span className="text-orange-400">-{formatCurrency(result.ficaTotal)}</span>
+                      <span className="text-orange-700">-{formatCurrency(result.ficaTotal)}</span>
                     </div>
                     {result.stateTaxWithoutLaw > 0 && (
                       <div className="flex justify-between">
                         <span>State Tax</span>
-                        <span className="text-amber-400">-{formatCurrency(result.stateTaxWithoutLaw)}</span>
+                        <span className="text-amber-700">-{formatCurrency(result.stateTaxWithoutLaw)}</span>
                       </div>
                     )}
                   </div>
@@ -738,28 +738,28 @@ export function OvertimeTaxCalculator() {
               {/* Key Savings Metrics */}
               <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
                 <div className="rounded-lg bg-cyan-500/10 border border-cyan-500/20 p-4 text-center">
-                  <p className="text-xs font-medium uppercase tracking-wider text-cyan-400/80">
+                  <p className="text-xs font-medium uppercase tracking-wider text-cyan-700/80">
                     Annual Savings
                   </p>
-                  <p className="mt-1 text-2xl font-bold text-cyan-400">
+                  <p className="mt-1 text-2xl font-bold text-cyan-700">
                     {formatCurrency(result.totalSavings)}
                   </p>
                   <p className="text-xs text-muted-foreground">From federal OT exemption</p>
                 </div>
-                <div className="rounded-lg bg-emerald-500/10 border border-emerald-500/20 p-4 text-center">
-                  <p className="text-xs font-medium uppercase tracking-wider text-emerald-400/80">
+                <div className="rounded-lg bg-emerald-600/10 border border-emerald-500/20 p-4 text-center">
+                  <p className="text-xs font-medium uppercase tracking-wider text-emerald-600/80">
                     Per OT Hour Benefit
                   </p>
-                  <p className="mt-1 text-2xl font-bold text-emerald-400">
+                  <p className="mt-1 text-2xl font-bold text-emerald-600">
                     +{formatCurrency(result.savingsPerOvertimeHour)}
                   </p>
                   <p className="text-xs text-muted-foreground">Extra take-home per OT hour</p>
                 </div>
-                <div className="rounded-lg bg-emerald-500/10 border border-emerald-500/20 p-4 text-center">
-                  <p className="text-xs font-medium uppercase tracking-wider text-emerald-400/80">
+                <div className="rounded-lg bg-emerald-600/10 border border-emerald-500/20 p-4 text-center">
+                  <p className="text-xs font-medium uppercase tracking-wider text-emerald-600/80">
                     Per OT Week Benefit
                   </p>
-                  <p className="mt-1 text-2xl font-bold text-emerald-400">
+                  <p className="mt-1 text-2xl font-bold text-emerald-600">
                     +{formatCurrency(result.savingsPerOvertimeWeek)}
                   </p>
                   <p className="text-xs text-muted-foreground">Extra take-home per week</p>
@@ -781,7 +781,7 @@ export function OvertimeTaxCalculator() {
           <Card className="border-border/50 bg-card/80 backdrop-blur-sm">
             <CardHeader>
               <CardTitle className="flex items-center gap-2 text-lg">
-                <Calculator className="h-5 w-5 text-emerald-400" />
+                <Calculator className="h-5 w-5 text-emerald-600" />
                 Detailed Tax Breakdown
               </CardTitle>
               <CardDescription>Complete comparison with and without the overtime tax exemption</CardDescription>
@@ -797,7 +797,7 @@ export function OvertimeTaxCalculator() {
                   <span className="text-sm font-medium text-foreground">
                     Overtime Pay ({overtimeHours} OT hrs × {overtimeMultiplier}x × {weeksPerYear} weeks)
                   </span>
-                  <span className="text-sm font-medium text-emerald-400">{formatCurrency(result.overtimePay)}</span>
+                  <span className="text-sm font-medium text-emerald-600">{formatCurrency(result.overtimePay)}</span>
                 </div>
                 <Separator className="bg-border/30" />
                 <div className="flex items-center justify-between py-2">
@@ -805,28 +805,28 @@ export function OvertimeTaxCalculator() {
                   <span className="text-sm font-bold text-foreground">{formatCurrency(result.totalGross)}</span>
                 </div>
 
-                <Separator className="bg-emerald-500/20" />
+                <Separator className="bg-emerald-600/20" />
 
                 {/* WITH the law */}
-                <p className="text-xs font-medium uppercase tracking-wider text-emerald-400 mt-2">
+                <p className="text-xs font-medium uppercase tracking-wider text-emerald-600 mt-2">
                   With OT Tax Exemption (Current Law)
                 </p>
                 <div className="flex items-center justify-between py-2">
                   <span className="text-sm text-muted-foreground">Federal Tax (on regular pay only)</span>
-                  <span className="text-sm font-semibold text-red-400">-{formatCurrency(result.federalTaxWithLaw)}</span>
+                  <span className="text-sm font-semibold text-red-600">-{formatCurrency(result.federalTaxWithLaw)}</span>
                 </div>
                 <div className="flex items-center justify-between py-2">
                   <span className="text-sm text-muted-foreground">FICA — Social Security (6.2%)</span>
-                  <span className="text-sm font-semibold text-orange-400">-{formatCurrency(Math.min(result.totalGross, FICA_2026.socialSecurityWageCap) * FICA_2026.socialSecurityRate)}</span>
+                  <span className="text-sm font-semibold text-orange-700">-{formatCurrency(Math.min(result.totalGross, FICA_2026.socialSecurityWageCap) * FICA_2026.socialSecurityRate)}</span>
                 </div>
                 <div className="flex items-center justify-between py-2">
                   <span className="text-sm text-muted-foreground">FICA — Medicare (1.45%)</span>
-                  <span className="text-sm font-semibold text-orange-400">-{formatCurrency(result.totalGross * FICA_2026.medicareRate)}</span>
+                  <span className="text-sm font-semibold text-orange-700">-{formatCurrency(result.totalGross * FICA_2026.medicareRate)}</span>
                 </div>
                 {result.totalGross > FICA_2026.additionalMedicareThreshold && (
                   <div className="flex items-center justify-between py-2">
                     <span className="text-sm text-muted-foreground">Additional Medicare (0.9%)</span>
-                    <span className="text-sm font-semibold text-orange-400">
+                    <span className="text-sm font-semibold text-orange-700">
                       -{formatCurrency((result.totalGross - FICA_2026.additionalMedicareThreshold) * FICA_2026.additionalMedicareRate)}
                     </span>
                   </div>
@@ -834,13 +834,13 @@ export function OvertimeTaxCalculator() {
                 {result.stateTaxWithLaw > 0 && (
                   <div className="flex items-center justify-between py-2">
                     <span className="text-sm text-muted-foreground">State Tax ({STATE_PROFILES[stateKey]?.name})</span>
-                    <span className="text-sm font-semibold text-amber-400">-{formatCurrency(result.stateTaxWithLaw)}</span>
+                    <span className="text-sm font-semibold text-amber-700">-{formatCurrency(result.stateTaxWithLaw)}</span>
                   </div>
                 )}
-                <Separator className="bg-emerald-500/20" />
+                <Separator className="bg-emerald-600/20" />
                 <div className="flex items-center justify-between py-2">
-                  <span className="text-sm font-bold text-emerald-400">Take-Home WITH Exemption</span>
-                  <span className="text-lg font-bold text-emerald-400">{formatCurrency(result.takeHomeWithLaw)}</span>
+                  <span className="text-sm font-bold text-emerald-600">Take-Home WITH Exemption</span>
+                  <span className="text-lg font-bold text-emerald-600">{formatCurrency(result.takeHomeWithLaw)}</span>
                 </div>
 
                 <Separator className="bg-border/30" />
@@ -851,16 +851,16 @@ export function OvertimeTaxCalculator() {
                 </p>
                 <div className="flex items-center justify-between py-2">
                   <span className="text-sm text-muted-foreground">Federal Tax (on all income)</span>
-                  <span className="text-sm font-semibold text-red-400">-{formatCurrency(result.federalTaxWithoutLaw)}</span>
+                  <span className="text-sm font-semibold text-red-600">-{formatCurrency(result.federalTaxWithoutLaw)}</span>
                 </div>
                 <div className="flex items-center justify-between py-2">
                   <span className="text-sm text-muted-foreground">FICA (same)</span>
-                  <span className="text-sm font-semibold text-orange-400">-{formatCurrency(result.ficaTotal)}</span>
+                  <span className="text-sm font-semibold text-orange-700">-{formatCurrency(result.ficaTotal)}</span>
                 </div>
                 {result.stateTaxWithoutLaw > 0 && (
                   <div className="flex items-center justify-between py-2">
                     <span className="text-sm text-muted-foreground">State Tax (same)</span>
-                    <span className="text-sm font-semibold text-amber-400">-{formatCurrency(result.stateTaxWithoutLaw)}</span>
+                    <span className="text-sm font-semibold text-amber-700">-{formatCurrency(result.stateTaxWithoutLaw)}</span>
                   </div>
                 )}
                 <Separator className="bg-border/30" />
@@ -873,11 +873,11 @@ export function OvertimeTaxCalculator() {
 
                 {/* Savings */}
                 <div className="flex items-center justify-between py-2">
-                  <span className="text-sm font-bold text-cyan-400">
+                  <span className="text-sm font-bold text-cyan-700">
                     <Zap className="mr-1 inline h-4 w-4" />
                     Your Annual Savings from OT Exemption
                   </span>
-                  <span className="text-xl font-bold text-cyan-400">{formatCurrency(result.totalSavings)}</span>
+                  <span className="text-xl font-bold text-cyan-700">{formatCurrency(result.totalSavings)}</span>
                 </div>
               </div>
             </CardContent>
@@ -979,7 +979,7 @@ export function OvertimeTaxCalculator() {
                           );
                         }}
                       />
-                      <Bar dataKey="withLaw" name="With Exemption" fill="#10b981" radius={[4, 4, 0, 0]} barSize={24} />
+                      <Bar dataKey="withLaw" name="With Exemption" fill="#b08d3e" radius={[4, 4, 0, 0]} barSize={24} />
                       <Bar dataKey="withoutLaw" name="Without Exemption" fill="#6b7280" radius={[4, 4, 0, 0]} barSize={24} />
                     </BarChart>
                   </ResponsiveContainer>
@@ -996,84 +996,84 @@ export function OvertimeTaxCalculator() {
       <Card className="border-emerald-500/20 bg-card/80">
         <CardHeader>
           <CardTitle className="flex items-center gap-2 text-lg">
-            <CheckCircle2 className="h-5 w-5 text-emerald-400" />
+            <CheckCircle2 className="h-5 w-5 text-emerald-600" />
             Key Information About the Overtime Tax Exemption
           </CardTitle>
         </CardHeader>
         <CardContent>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            <div className="rounded-lg bg-emerald-500/10 border border-emerald-500/20 p-4">
-              <p className="text-xs font-medium uppercase tracking-wider text-emerald-400 mb-2">
+            <div className="rounded-lg bg-emerald-600/10 border border-emerald-500/20 p-4">
+              <p className="text-xs font-medium uppercase tracking-wider text-emerald-600 mb-2">
                 What Qualifies as Overtime
               </p>
               <ul className="space-y-1.5 text-sm text-muted-foreground">
                 <li className="flex items-start gap-1.5">
-                  <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-emerald-400" />
+                  <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-emerald-600" />
                   Hours worked beyond 40 per week
                 </li>
                 <li className="flex items-start gap-1.5">
-                  <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-emerald-400" />
+                  <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-emerald-600" />
                   Must be paid at 1.5x minimum rate
                 </li>
                 <li className="flex items-start gap-1.5">
-                  <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-emerald-400" />
+                  <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-emerald-600" />
                   FLSA-covered non-exempt employees
                 </li>
               </ul>
             </div>
             <div className="rounded-lg bg-amber-500/10 border border-amber-500/20 p-4">
-              <p className="text-xs font-medium uppercase tracking-wider text-amber-400 mb-2">
+              <p className="text-xs font-medium uppercase tracking-wider text-amber-700 mb-2">
                 What&apos;s Still Taxed
               </p>
               <ul className="space-y-1.5 text-sm text-muted-foreground">
                 <li className="flex items-start gap-1.5">
-                  <AlertTriangle className="mt-0.5 h-3.5 w-3.5 shrink-0 text-amber-400" />
+                  <AlertTriangle className="mt-0.5 h-3.5 w-3.5 shrink-0 text-amber-700" />
                   Social Security (6.2% on all wages)
                 </li>
                 <li className="flex items-start gap-1.5">
-                  <AlertTriangle className="mt-0.5 h-3.5 w-3.5 shrink-0 text-amber-400" />
+                  <AlertTriangle className="mt-0.5 h-3.5 w-3.5 shrink-0 text-amber-700" />
                   Medicare (1.45% on all wages)
                 </li>
                 <li className="flex items-start gap-1.5">
-                  <AlertTriangle className="mt-0.5 h-3.5 w-3.5 shrink-0 text-amber-400" />
+                  <AlertTriangle className="mt-0.5 h-3.5 w-3.5 shrink-0 text-amber-700" />
                   State income tax in most states
                 </li>
               </ul>
             </div>
             <div className="rounded-lg bg-cyan-500/10 border border-cyan-500/20 p-4">
-              <p className="text-xs font-medium uppercase tracking-wider text-cyan-400 mb-2">
+              <p className="text-xs font-medium uppercase tracking-wider text-cyan-700 mb-2">
                 State Conformity
               </p>
               <ul className="space-y-1.5 text-sm text-muted-foreground">
                 <li className="flex items-start gap-1.5">
-                  <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-cyan-400" />
+                  <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-cyan-700" />
                   Texas, Florida: No state tax on OT
                 </li>
                 <li className="flex items-start gap-1.5">
-                  <AlertTriangle className="mt-0.5 h-3.5 w-3.5 shrink-0 text-amber-400" />
+                  <AlertTriangle className="mt-0.5 h-3.5 w-3.5 shrink-0 text-amber-700" />
                   Most states still tax OT income
                 </li>
                 <li className="flex items-start gap-1.5">
-                  <AlertTriangle className="mt-0.5 h-3.5 w-3.5 shrink-0 text-amber-400" />
+                  <AlertTriangle className="mt-0.5 h-3.5 w-3.5 shrink-0 text-amber-700" />
                   Check your state&apos;s conformity rules
                 </li>
               </ul>
             </div>
             <div className="rounded-lg bg-red-500/10 border border-red-500/20 p-4">
-              <p className="text-xs font-medium uppercase tracking-wider text-red-400 mb-2">
+              <p className="text-xs font-medium uppercase tracking-wider text-red-600 mb-2">
                 Sunset Date
               </p>
               <ul className="space-y-1.5 text-sm text-muted-foreground">
                 <li className="flex items-start gap-1.5">
-                  <AlertTriangle className="mt-0.5 h-3.5 w-3.5 shrink-0 text-red-400" />
+                  <AlertTriangle className="mt-0.5 h-3.5 w-3.5 shrink-0 text-red-600" />
                   Expires December 31, 2028
                 </li>
                 <li className="flex items-start gap-1.5">
-                  <AlertTriangle className="mt-0.5 h-3.5 w-3.5 shrink-0 text-red-400" />
+                  <AlertTriangle className="mt-0.5 h-3.5 w-3.5 shrink-0 text-red-600" />
                   Part of the 2025 reconciliation bill
                 </li>
                 <li className="flex items-start gap-1.5">
-                  <AlertTriangle className="mt-0.5 h-3.5 w-3.5 shrink-0 text-red-400" />
+                  <AlertTriangle className="mt-0.5 h-3.5 w-3.5 shrink-0 text-red-600" />
                   Congress must act to extend
                 </li>
               </ul>
@@ -1086,7 +1086,7 @@ export function OvertimeTaxCalculator() {
       <Card className="border-border/50 bg-card/80">
         <CardHeader>
           <CardTitle className="flex items-center gap-2 text-lg">
-            <DollarSign className="h-5 w-5 text-emerald-400" />
+            <DollarSign className="h-5 w-5 text-emerald-600" />
             Real-World Savings Examples
           </CardTitle>
           <CardDescription>How much workers save under the No Tax on Overtime provision (Single filer, Illinois)</CardDescription>
@@ -1096,7 +1096,7 @@ export function OvertimeTaxCalculator() {
             {examples.map((example, index) => (
               <div
                 key={index}
-                className="rounded-xl border border-emerald-500/20 bg-emerald-500/5 p-5 text-center"
+                className="rounded-xl border border-emerald-500/20 bg-emerald-600/5 p-5 text-center"
               >
                 <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
                   {example.label}
@@ -1109,12 +1109,12 @@ export function OvertimeTaxCalculator() {
                   <p className="text-xs text-muted-foreground">Total Gross</p>
                   <p className="text-sm font-medium text-foreground">{formatCurrency(example.totalGross)}</p>
                 </div>
-                <Separator className="my-3 bg-emerald-500/20" />
+                <Separator className="my-3 bg-emerald-600/20" />
                 <div>
-                  <p className="text-xs font-medium uppercase tracking-wider text-cyan-400/80">
+                  <p className="text-xs font-medium uppercase tracking-wider text-cyan-700/80">
                     Annual Savings
                   </p>
-                  <p className="text-2xl font-bold text-cyan-400">{formatCurrency(example.savings)}</p>
+                  <p className="text-2xl font-bold text-cyan-700">{formatCurrency(example.savings)}</p>
                 </div>
               </div>
             ))}
@@ -1126,9 +1126,9 @@ export function OvertimeTaxCalculator() {
       <Card className="border-amber-500/30 bg-amber-500/5">
         <CardContent className="p-4">
           <div className="flex items-start gap-3">
-            <AlertTriangle className="mt-0.5 h-5 w-5 shrink-0 text-amber-400" />
+            <AlertTriangle className="mt-0.5 h-5 w-5 shrink-0 text-amber-700" />
             <div className="space-y-1 text-sm text-muted-foreground">
-              <p className="font-medium text-amber-400">This exemption expires after 2028</p>
+              <p className="font-medium text-amber-700">This exemption expires after 2028</p>
               <p>
                 The No Tax on Overtime provision is part of the 2025 reconciliation bill and is currently set to sunset on
                 December 31, 2028. Unless Congress extends or makes it permanent, overtime pay will once again be subject

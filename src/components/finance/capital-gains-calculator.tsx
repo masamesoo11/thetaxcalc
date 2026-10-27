@@ -182,7 +182,7 @@ const CHART_COLORS = {
   shortTermTax: '#ef4444', // red-500
   longTermTax: '#f59e0b', // amber-500
   niit: '#f97316', // orange-500
-  netProceeds: '#10b981', // emerald-500
+  netProceeds: '#b08d3e', // emerald-500
 };
 
 // ─── Custom Tooltip ─────────────────────────────────────────────────────────────
@@ -294,7 +294,7 @@ export function CapitalGainsCalculator() {
       {/* ─── Page Title ─────────────────────────────────── */}
       <div className="text-center">
         <h2 className="flex items-center justify-center gap-2 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-          <TrendingUp className="h-8 w-8 text-emerald-400" />
+          <TrendingUp className="h-8 w-8 text-emerald-600" />
           Capital Gains Tax Calculator
         </h2>
         <p className="mt-2 text-muted-foreground">
@@ -303,10 +303,10 @@ export function CapitalGainsCalculator() {
       </div>
 
       {/* ─── Info Card ──────────────────────────────────── */}
-      <Card className="border-emerald-500/20 bg-emerald-500/5">
+      <Card className="border-emerald-500/20 bg-emerald-600/5">
         <CardContent className="p-4">
           <div className="flex items-start gap-3">
-            <Info className="mt-0.5 h-5 w-5 shrink-0 text-emerald-400" />
+            <Info className="mt-0.5 h-5 w-5 shrink-0 text-emerald-600" />
             <div className="space-y-2 text-sm text-muted-foreground">
               <p className="font-medium text-foreground">How Capital Gains Tax Works</p>
               <p>
@@ -341,7 +341,7 @@ export function CapitalGainsCalculator() {
           <Card className="border-border/50 bg-card/80 backdrop-blur-sm">
             <CardHeader className="pb-4">
               <CardTitle className="flex items-center gap-2 text-lg">
-                <DollarSign className="h-5 w-5 text-emerald-400" />
+                <DollarSign className="h-5 w-5 text-emerald-600" />
                 Investment Details
               </CardTitle>
               <CardDescription>Enter your gains and income to calculate your tax liability</CardDescription>
@@ -367,7 +367,7 @@ export function CapitalGainsCalculator() {
                 <div className="space-y-2">
                   <Label htmlFor="cg-short" className="text-sm font-medium">
                     <span className="flex items-center gap-1.5">
-                      <TrendingUp className="h-3.5 w-3.5 text-red-400" />
+                      <TrendingUp className="h-3.5 w-3.5 text-red-600" />
                       Short-Term Gains (≤ 1 yr)
                     </span>
                   </Label>
@@ -390,7 +390,7 @@ export function CapitalGainsCalculator() {
                 <div className="space-y-2">
                   <Label htmlFor="cg-long" className="text-sm font-medium">
                     <span className="flex items-center gap-1.5">
-                      <TrendingUp className="h-3.5 w-3.5 text-emerald-400" />
+                      <TrendingUp className="h-3.5 w-3.5 text-emerald-600" />
                       Long-Term Gains (&gt; 1 yr)
                     </span>
                   </Label>
@@ -491,7 +491,7 @@ export function CapitalGainsCalculator() {
           <Card className="sticky top-20 border-emerald-500/20 bg-card/90 backdrop-blur-sm">
             <CardHeader className="pb-3">
               <CardTitle className="flex items-center gap-2 text-lg">
-                <Percent className="h-5 w-5 text-emerald-400" />
+                <Percent className="h-5 w-5 text-emerald-600" />
                 2026 Long-Term Rates
               </CardTitle>
               <CardDescription>Long-term capital gains brackets by filing status</CardDescription>
@@ -507,15 +507,15 @@ export function CapitalGainsCalculator() {
                       </p>
                       <div className="space-y-1 text-xs">
                         <div className="flex justify-between">
-                          <span className="text-emerald-400 font-medium">0% rate</span>
+                          <span className="text-emerald-600 font-medium">0% rate</span>
                           <span className="text-foreground">≤ {formatCurrency(b.zeroMax)}</span>
                         </div>
                         <div className="flex justify-between">
-                          <span className="text-amber-400 font-medium">15% rate</span>
+                          <span className="text-amber-700 font-medium">15% rate</span>
                           <span className="text-foreground">≤ {formatCurrency(b.fifteenMax)}</span>
                         </div>
                         <div className="flex justify-between">
-                          <span className="text-red-400 font-medium">20% rate</span>
+                          <span className="text-red-600 font-medium">20% rate</span>
                           <span className="text-foreground">&gt; {formatCurrency(b.fifteenMax)}</span>
                         </div>
                       </div>
@@ -532,11 +532,11 @@ export function CapitalGainsCalculator() {
                 </p>
                 <div className="space-y-1 text-xs">
                   <div className="flex justify-between">
-                    <span className="text-orange-400 font-medium">3.8% NIIT</span>
+                    <span className="text-orange-700 font-medium">3.8% NIIT</span>
                     <span className="text-foreground">MAGI &gt; {formatCurrency(NIIT_THRESHOLD.single)} (Single)</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-orange-400 font-medium">3.8% NIIT</span>
+                    <span className="text-orange-700 font-medium">3.8% NIIT</span>
                     <span className="text-foreground">MAGI &gt; {formatCurrency(NIIT_THRESHOLD.married)} (Married)</span>
                   </div>
                 </div>
@@ -556,7 +556,7 @@ export function CapitalGainsCalculator() {
                 <p className="text-sm font-medium uppercase tracking-wider text-muted-foreground">
                   Total Capital Gains Tax
                 </p>
-                <p className="mt-2 text-4xl font-bold text-red-400 sm:text-5xl">
+                <p className="mt-2 text-4xl font-bold text-red-600 sm:text-5xl">
                   {formatCurrency(result.totalTax)}
                 </p>
                 <p className="mt-2 text-sm text-muted-foreground">
@@ -572,7 +572,7 @@ export function CapitalGainsCalculator() {
                   <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
                     Short-Term Tax
                   </p>
-                  <p className="mt-1 text-2xl font-bold text-red-400">
+                  <p className="mt-1 text-2xl font-bold text-red-600">
                     {formatCurrency(result.shortTermTax)}
                   </p>
                   <p className="text-xs text-muted-foreground">Ordinary income rates</p>
@@ -581,11 +581,11 @@ export function CapitalGainsCalculator() {
                   <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
                     Long-Term Tax
                   </p>
-                  <p className="mt-1 text-2xl font-bold text-amber-400">
+                  <p className="mt-1 text-2xl font-bold text-amber-700">
                     {formatCurrency(result.longTermTax)}
                   </p>
                   <div className="mt-1">
-                    <Badge className="bg-amber-500/20 text-amber-400 text-xs">
+                    <Badge className="bg-amber-500/20 text-amber-700 text-xs">
                       {result.longTermBracket} bracket
                     </Badge>
                   </div>
@@ -594,18 +594,18 @@ export function CapitalGainsCalculator() {
                   <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
                     NIIT (3.8%)
                   </p>
-                  <p className="mt-1 text-2xl font-bold text-orange-400">
+                  <p className="mt-1 text-2xl font-bold text-orange-700">
                     {formatCurrency(result.niit)}
                   </p>
                   <p className="text-xs text-muted-foreground">
                     {result.niit > 0 ? 'Above threshold' : 'Below threshold'}
                   </p>
                 </div>
-                <div className="rounded-lg bg-emerald-500/10 p-4 text-center">
-                  <p className="text-xs font-medium uppercase tracking-wider text-emerald-400/80">
+                <div className="rounded-lg bg-emerald-600/10 p-4 text-center">
+                  <p className="text-xs font-medium uppercase tracking-wider text-emerald-600/80">
                     Net Proceeds
                   </p>
-                  <p className="mt-1 text-2xl font-bold text-emerald-400">
+                  <p className="mt-1 text-2xl font-bold text-emerald-600">
                     {formatCurrency(result.netProceeds)}
                   </p>
                   <p className="text-xs text-muted-foreground">After all taxes</p>
@@ -618,7 +618,7 @@ export function CapitalGainsCalculator() {
           <Card className="border-border/50 bg-card/80 backdrop-blur-sm">
             <CardHeader>
               <CardTitle className="flex items-center gap-2 text-lg">
-                <BarChart3 className="h-5 w-5 text-emerald-400" />
+                <BarChart3 className="h-5 w-5 text-emerald-600" />
                 Tax Breakdown
               </CardTitle>
               <CardDescription>Complete analysis of your capital gains tax liability</CardDescription>
@@ -631,7 +631,7 @@ export function CapitalGainsCalculator() {
                 </div>
                 <div className="flex items-center justify-between py-2">
                   <span className="text-sm text-muted-foreground pl-4">Tax at ordinary rates</span>
-                  <span className="text-sm font-semibold text-red-400">{formatCurrency(result.shortTermTax)}</span>
+                  <span className="text-sm font-semibold text-red-600">{formatCurrency(result.shortTermTax)}</span>
                 </div>
                 <Separator className="bg-border/30" />
                 <div className="flex items-center justify-between py-2">
@@ -640,21 +640,21 @@ export function CapitalGainsCalculator() {
                 </div>
                 <div className="flex items-center justify-between py-2">
                   <span className="text-sm text-muted-foreground pl-4">Tax at {result.longTermBracket}</span>
-                  <span className="text-sm font-semibold text-amber-400">{formatCurrency(result.longTermTax)}</span>
+                  <span className="text-sm font-semibold text-amber-700">{formatCurrency(result.longTermTax)}</span>
                 </div>
                 {result.niit > 0 && (
                   <>
                     <Separator className="bg-border/30" />
                     <div className="flex items-center justify-between py-2">
                       <span className="text-sm text-muted-foreground">Net Investment Income Tax (3.8%)</span>
-                      <span className="text-sm font-semibold text-orange-400">{formatCurrency(result.niit)}</span>
+                      <span className="text-sm font-semibold text-orange-700">{formatCurrency(result.niit)}</span>
                     </div>
                   </>
                 )}
                 <Separator className="bg-border/30" />
                 <div className="flex items-center justify-between py-2">
                   <span className="text-sm font-semibold text-foreground">Total Capital Gains Tax</span>
-                  <span className="text-lg font-bold text-red-400">{formatCurrency(result.totalTax)}</span>
+                  <span className="text-lg font-bold text-red-600">{formatCurrency(result.totalTax)}</span>
                 </div>
                 <div className="flex items-center justify-between py-2">
                   <span className="text-sm font-semibold text-foreground">Effective Tax Rate on Gains</span>
@@ -673,10 +673,10 @@ export function CapitalGainsCalculator() {
                   <span className="text-sm text-muted-foreground">Total Gains</span>
                   <span className="text-sm font-medium text-foreground">{formatCurrency(result.totalGains)}</span>
                 </div>
-                <Separator className="bg-emerald-500/30" />
+                <Separator className="bg-emerald-600/30" />
                 <div className="flex items-center justify-between py-2">
-                  <span className="text-sm font-bold text-emerald-400">Net Proceeds After Tax</span>
-                  <span className="text-lg font-bold text-emerald-400">{formatCurrency(result.netProceeds)}</span>
+                  <span className="text-sm font-bold text-emerald-600">Net Proceeds After Tax</span>
+                  <span className="text-lg font-bold text-emerald-600">{formatCurrency(result.netProceeds)}</span>
                 </div>
               </div>
             </CardContent>
@@ -846,9 +846,9 @@ export function CapitalGainsCalculator() {
               <button
                 key={link.page}
                 onClick={() => { window.location.hash = link.page; window.scrollTo({ top: 0, behavior: 'smooth' }); }}
-                className="flex items-start gap-2 rounded-lg border border-border/50 bg-muted/20 p-3 text-left transition-colors hover:border-emerald-500/30 hover:bg-emerald-500/5"
+                className="flex items-start gap-2 rounded-lg border border-border/50 bg-muted/20 p-3 text-left transition-colors hover:border-emerald-500/30 hover:bg-emerald-600/5"
               >
-                <ArrowRight className="mt-0.5 h-4 w-4 shrink-0 text-emerald-400" />
+                <ArrowRight className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600" />
                 <div>
                   <p className="text-sm font-medium text-foreground">{link.label}</p>
                   <p className="text-xs text-muted-foreground">{link.desc}</p>

@@ -41,7 +41,7 @@ export function LinkToUs({ url, title, slug }: LinkToUsProps) {
   return (
     <div className="rounded-xl border border-border/30 bg-card/50 p-5">
       <div className="flex items-center gap-2 mb-3">
-        <Link2 className="h-4 w-4 text-emerald-400" />
+        <Link2 className="h-4 w-4 text-emerald-600" />
         <h3 className="text-sm font-semibold text-foreground">Link to This Calculator</h3>
       </div>
       <p className="text-xs text-muted-foreground mb-3">
@@ -60,7 +60,7 @@ export function LinkToUs({ url, title, slug }: LinkToUsProps) {
             size="sm"
             onClick={() => handleCopy(htmlLink, 'link')}
             className={`absolute top-1.5 right-1.5 h-7 px-2 text-xs ${
-              copiedLink ? 'text-emerald-400' : ''
+              copiedLink ? 'text-emerald-600' : ''
             }`}
             aria-label="Copy link code"
           >
@@ -72,7 +72,7 @@ export function LinkToUs({ url, title, slug }: LinkToUsProps) {
       {/* Embed Widget Toggle */}
       <button
         onClick={() => setShowEmbed(!showEmbed)}
-        className="mt-3 flex items-center gap-1.5 text-xs text-emerald-400 hover:text-emerald-300 transition-colors"
+        className="mt-3 flex items-center gap-1.5 text-xs text-emerald-600 hover:text-emerald-700 transition-colors"
       >
         <Code2 className="h-3 w-3" />
         {showEmbed ? 'Hide' : 'Show'} embed code for your website
@@ -91,7 +91,7 @@ export function LinkToUs({ url, title, slug }: LinkToUsProps) {
               size="sm"
               onClick={() => handleCopy(embedCode, 'embed')}
               className={`absolute top-1.5 right-1.5 h-7 px-2 text-xs ${
-                copiedEmbed ? 'text-emerald-400' : ''
+                copiedEmbed ? 'text-emerald-600' : ''
               }`}
               aria-label="Copy embed code"
             >

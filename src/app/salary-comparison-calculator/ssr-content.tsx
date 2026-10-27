@@ -83,12 +83,12 @@ export function SalaryComparisonSSRContent() {
                   <td className="p-3 text-right text-muted-foreground">
                     {row.state1.stateName} ({row.state1.stateAbbr})
                   </td>
-                  <td className="p-3 text-right text-emerald-400 font-medium">{fmt(row.state1.netAnnual)}</td>
+                  <td className="p-3 text-right text-emerald-600 font-medium">{fmt(row.state1.netAnnual)}</td>
                   <td className="p-3 text-right text-muted-foreground">
                     {row.state2.stateName} ({row.state2.stateAbbr})
                   </td>
                   <td className="p-3 text-right text-foreground">{fmt(row.state2.netAnnual)}</td>
-                  <td className="p-3 text-right text-emerald-400 font-bold">
+                  <td className="p-3 text-right text-emerald-600 font-bold">
                     +{fmt(row.diff)}
                   </td>
                 </tr>
@@ -113,7 +113,7 @@ export function SalaryComparisonSSRContent() {
         </p>
         <ul className="space-y-3 text-muted-foreground">
           <li className="flex gap-3">
-            <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-500/10 text-xs font-bold text-emerald-400">1</span>
+            <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-600/10 text-xs font-bold text-emerald-600">1</span>
             <span>
               <strong className="text-foreground">Filing status</strong> — Married filing jointly
               doubles the standard deduction to $32,200 and uses wider tax brackets, reducing federal
@@ -121,7 +121,7 @@ export function SalaryComparisonSSRContent() {
             </span>
           </li>
           <li className="flex gap-3">
-            <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-500/10 text-xs font-bold text-emerald-400">2</span>
+            <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-600/10 text-xs font-bold text-emerald-600">2</span>
             <span>
               <strong className="text-foreground">401(k) contributions</strong> — Pre-tax contributions
               reduce your federal and state taxable income. A $10,000 401(k) contribution at the 22%
@@ -129,14 +129,14 @@ export function SalaryComparisonSSRContent() {
             </span>
           </li>
           <li className="flex gap-3">
-            <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-500/10 text-xs font-bold text-emerald-400">3</span>
+            <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-600/10 text-xs font-bold text-emerald-600">3</span>
             <span>
               <strong className="text-foreground">HSA contributions</strong> — Triple-tax-advantaged.
               Reduces FICA, federal, and state taxable income. The 2026 limit is $4,400 (self) or $8,300 (family).
             </span>
           </li>
           <li className="flex gap-3">
-            <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-500/10 text-xs font-bold text-emerald-400">4</span>
+            <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-600/10 text-xs font-bold text-emerald-600">4</span>
             <span>
               <strong className="text-foreground">NYC residency</strong> — If you live in NYC, add
               3.078%–3.876% city tax on top of New York state tax. This can reduce a $100K salary's
@@ -144,7 +144,7 @@ export function SalaryComparisonSSRContent() {
             </span>
           </li>
           <li className="flex gap-3">
-            <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-500/10 text-xs font-bold text-emerald-400">5</span>
+            <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-600/10 text-xs font-bold text-emerald-600">5</span>
             <span>
               <strong className="text-foreground">Additional Medicare Tax</strong> — Above $200,000
               (single), add 0.9% Medicare surtax. This affects high earners and isn't matched by
@@ -198,13 +198,13 @@ export function SalaryComparisonSSRContent() {
         <p className="text-muted-foreground leading-relaxed">
           Once you've compared after-tax salaries, the next step is to factor in cost-of-living
           differences. A $5,000/year take-home advantage in Texas could be erased if housing costs $500
-          more per month. Use our <Link href="/relocation-calculator" className="text-emerald-400 hover:underline">Relocation Calculator</Link>{' '}
+          more per month. Use our <Link href="/relocation-calculator" className="text-emerald-600 hover:underline">Relocation Calculator</Link>{' '}
           to factor in housing, utilities, transportation, and groceries for a complete picture.
         </p>
         <p className="text-muted-foreground leading-relaxed">
           For job offer comparisons, don't forget to include equity, bonuses, and benefits. A lower base
           salary with a 20% bonus target and stock options may outperform a higher base salary with no
-          upside. Our <Link href="/job-offer-comparison-calculator" className="text-emerald-400 hover:underline">Job Offer Comparison Calculator</Link>{' '}
+          upside. Our <Link href="/job-offer-comparison-calculator" className="text-emerald-600 hover:underline">Job Offer Comparison Calculator</Link>{' '}
           handles these more complex scenarios.
         </p>
         <p className="text-muted-foreground leading-relaxed">

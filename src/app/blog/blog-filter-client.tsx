@@ -27,11 +27,11 @@ const CATEGORY_LABELS: Record<string, string> = {
 };
 
 const CATEGORY_COLORS: Record<string, string> = {
-  'tax-guide': 'bg-emerald-100 text-emerald-800 dark:bg-emerald-500/20 dark:text-emerald-400 border-emerald-300 dark:border-emerald-500/30',
-  comparison: 'bg-cyan-100 text-cyan-800 dark:bg-cyan-500/20 dark:text-cyan-400 border-cyan-300 dark:border-cyan-500/30',
-  'state-tax': 'bg-violet-100 text-violet-800 dark:bg-violet-500/20 dark:text-violet-400 border-violet-300 dark:border-violet-500/30',
-  tips: 'bg-amber-100 text-amber-800 dark:bg-amber-500/20 dark:text-amber-400 border-amber-300 dark:border-amber-500/30',
-  news: 'bg-rose-100 text-rose-800 dark:bg-rose-500/20 dark:text-rose-400 border-rose-300 dark:border-rose-500/30',
+  'tax-guide': 'bg-emerald-100 text-emerald-800 dark:bg-emerald-600/20 dark:text-emerald-600 border-emerald-300 dark:border-emerald-500/30',
+  comparison: 'bg-cyan-100 text-cyan-800 dark:bg-cyan-500/20 dark:text-cyan-700 border-cyan-300 dark:border-cyan-500/30',
+  'state-tax': 'bg-violet-100 text-violet-800 dark:bg-violet-500/20 dark:text-violet-700 border-violet-300 dark:border-violet-500/30',
+  tips: 'bg-amber-100 text-amber-800 dark:bg-amber-500/20 dark:text-amber-700 border-amber-300 dark:border-amber-500/30',
+  news: 'bg-rose-100 text-rose-800 dark:bg-rose-500/20 dark:text-rose-700 border-rose-300 dark:border-rose-500/30',
 };
 
 function formatDate(dateStr: string): string {
@@ -135,14 +135,14 @@ export function BlogFilterClient({ posts }: { posts: BlogPostMeta[] }) {
                         <span className={`inline-flex items-center rounded-full border px-2.5 py-0.5 text-[10px] font-medium ${CATEGORY_COLORS[post.category] || 'bg-muted text-muted-foreground border-border'}`}>
                           {CATEGORY_LABELS[post.category] || post.category}
                         </span>
-                        <span className="inline-flex items-center rounded-full border border-amber-300 bg-amber-100 px-2.5 py-0.5 text-[10px] font-medium text-amber-800 dark:border-amber-500/30 dark:bg-amber-500/20 dark:text-amber-400">Featured</span>
+                        <span className="inline-flex items-center rounded-full border border-amber-300 bg-amber-100 px-2.5 py-0.5 text-[10px] font-medium text-amber-800 dark:border-amber-500/30 dark:bg-amber-500/20 dark:text-amber-700">Featured</span>
                       </div>
-                      <h3 className="text-xl font-bold leading-tight text-foreground group-hover:text-emerald-400 transition-colors">{post.title}</h3>
+                      <h3 className="text-xl font-bold leading-tight text-foreground group-hover:text-emerald-600 transition-colors">{post.title}</h3>
                       {post.excerpt && <p className="text-sm leading-relaxed text-muted-foreground">{post.excerpt}</p>}
                       <div className="flex items-center gap-3 pt-1 text-xs text-muted-foreground">
                         <time dateTime={post.createdAt}>{formatDate(post.createdAt)}</time>
                       </div>
-                      <span className="inline-flex items-center gap-1 text-xs font-medium text-emerald-400 group-hover:gap-2 transition-all">Read more →</span>
+                      <span className="inline-flex items-center gap-1 text-xs font-medium text-emerald-600 group-hover:gap-2 transition-all">Read more →</span>
                     </article>
                   </Link>
                 ))}
@@ -165,12 +165,12 @@ export function BlogFilterClient({ posts }: { posts: BlogPostMeta[] }) {
                     <span className={`inline-flex items-center rounded-full border px-2.5 py-0.5 text-[10px] font-medium ${CATEGORY_COLORS[post.category] || 'bg-muted text-muted-foreground border-border'}`}>
                       {CATEGORY_LABELS[post.category] || post.category}
                     </span>
-                    <h3 className="text-base font-bold leading-tight text-foreground group-hover:text-emerald-400 transition-colors">{post.title}</h3>
+                    <h3 className="text-base font-bold leading-tight text-foreground group-hover:text-emerald-600 transition-colors">{post.title}</h3>
                     {post.excerpt && <p className="text-xs leading-relaxed text-muted-foreground line-clamp-2">{post.excerpt}</p>}
                     <div className="flex items-center gap-3 pt-1 text-xs text-muted-foreground">
                       <time dateTime={post.createdAt}>{formatDate(post.createdAt)}</time>
                     </div>
-                    <span className="inline-flex items-center gap-1 text-xs font-medium text-emerald-400 group-hover:gap-2 transition-all">Read more →</span>
+                    <span className="inline-flex items-center gap-1 text-xs font-medium text-emerald-600 group-hover:gap-2 transition-all">Read more →</span>
                   </article>
                 </Link>
               ))}

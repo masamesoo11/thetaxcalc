@@ -146,7 +146,7 @@ export function NewYorkCalculator() {
     <div className="space-y-6">
       <div className="text-center">
         <h2 className="flex items-center justify-center gap-2 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-          <MapPin className="h-8 w-8 text-emerald-400" />
+          <MapPin className="h-8 w-8 text-emerald-600" />
           New York Paycheck Calculator
         </h2>
         <p className="mt-2 text-muted-foreground">
@@ -154,26 +154,26 @@ export function NewYorkCalculator() {
         </p>
       </div>
 
-      <Card className="border-emerald-500/20 bg-emerald-500/5">
+      <Card className="border-emerald-500/20 bg-emerald-600/5">
         <CardContent className="p-4">
           <div className="flex items-start gap-3">
-            <Info className="mt-0.5 h-5 w-5 shrink-0 text-emerald-400" />
+            <Info className="mt-0.5 h-5 w-5 shrink-0 text-emerald-600" />
             <div className="space-y-2 text-sm text-muted-foreground">
               <p className="font-medium text-foreground">How New York Progressive Income Tax Works</p>
               <p>
-                New York uses a <strong className="text-emerald-400">progressive tax system</strong> with
-                9 brackets ranging from <strong className="text-emerald-400">4% to 10.9%</strong>.
+                New York uses a <strong className="text-emerald-600">progressive tax system</strong> with
+                9 brackets ranging from <strong className="text-emerald-600">4% to 10.9%</strong>.
                 Your income is taxed in layers — the first dollars are taxed at 4%, with higher rates applied
-                as income increases. A <strong className="text-emerald-400">standard deduction</strong> of
+                as income increases. A <strong className="text-emerald-600">standard deduction</strong> of
                 $8,100 (single), $16,200 (married), or $11,200 (head of household) is subtracted first.
               </p>
               <p>
                 For a $100,000 salary (single): Taxable income = $100,000 − $8,100 = $91,900.
                 NY state tax ≈ $4,941 across 5 brackets — effective rate ~4.9%.
-                <strong className="text-red-400"> NYC residents</strong> pay an additional city tax of
+                <strong className="text-red-600"> NYC residents</strong> pay an additional city tax of
                 3.078%–3.876%, making the combined state + city rate up to 14.8% for high earners.
-                Combined with <strong className="text-amber-400">8.52% avg sales tax</strong> and
-                <strong className="text-amber-400"> 1.62% property tax</strong>, NY has one of the
+                Combined with <strong className="text-amber-700">8.52% avg sales tax</strong> and
+                <strong className="text-amber-700"> 1.62% property tax</strong>, NY has one of the
                 highest total tax burdens in the US.
               </p>
             </div>
@@ -186,7 +186,7 @@ export function NewYorkCalculator() {
           <Card className="border-border/50 bg-card/80 backdrop-blur-sm">
             <CardHeader className="pb-4">
               <CardTitle className="flex items-center gap-2 text-lg">
-                <DollarSign className="h-5 w-5 text-emerald-400" />Salary Input
+                <DollarSign className="h-5 w-5 text-emerald-600" />Salary Input
               </CardTitle>
               <CardDescription>Enter your New York salary for an instant calculation</CardDescription>
             </CardHeader>
@@ -254,7 +254,7 @@ export function NewYorkCalculator() {
                 <CardHeader className="cursor-pointer pb-4 transition-colors hover:bg-muted/30">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
-                      <Shield className="h-5 w-5 text-amber-400" />
+                      <Shield className="h-5 w-5 text-amber-700" />
                       <CardTitle className="text-lg">Advanced Options</CardTitle>
                       <Badge variant="outline" className="text-xs">401(k) &amp; HSA</Badge>
                     </div>
@@ -267,7 +267,7 @@ export function NewYorkCalculator() {
                   <div className="grid gap-4 sm:grid-cols-2">
                     <div className="space-y-2">
                       <Label htmlFor="ny-401k" className="text-sm font-medium">
-                        <span className="flex items-center gap-1.5"><PiggyBank className="h-3.5 w-3.5 text-amber-400" />401(k) Annual</span>
+                        <span className="flex items-center gap-1.5"><PiggyBank className="h-3.5 w-3.5 text-amber-700" />401(k) Annual</span>
                       </Label>
                       <div className="relative">
                         <DollarSign className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
@@ -276,7 +276,7 @@ export function NewYorkCalculator() {
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="ny-hsa" className="text-sm font-medium">
-                        <span className="flex items-center gap-1.5"><Shield className="h-3.5 w-3.5 text-emerald-400" />HSA Annual</span>
+                        <span className="flex items-center gap-1.5"><Shield className="h-3.5 w-3.5 text-emerald-600" />HSA Annual</span>
                       </Label>
                       <div className="relative">
                         <DollarSign className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
@@ -294,7 +294,7 @@ export function NewYorkCalculator() {
           <Card className="border-amber-500/20 bg-card/80 backdrop-blur-sm">
             <CardHeader className="pb-4">
               <CardTitle className="flex items-center gap-2 text-lg">
-                <Home className="h-5 w-5 text-amber-400" />
+                <Home className="h-5 w-5 text-amber-700" />
                 New York Cost of Living Impact
               </CardTitle>
               <CardDescription>High property taxes &amp; sales tax add to the total NY burden beyond income tax</CardDescription>
@@ -303,7 +303,7 @@ export function NewYorkCalculator() {
               <div className="grid gap-4 sm:grid-cols-2">
                 <div className="space-y-2">
                   <Label htmlFor="ny-home" className="text-sm font-medium">
-                    <span className="flex items-center gap-1.5"><Home className="h-3.5 w-3.5 text-amber-400" />Home Value</span>
+                    <span className="flex items-center gap-1.5"><Home className="h-3.5 w-3.5 text-amber-700" />Home Value</span>
                   </Label>
                   <div className="relative">
                     <DollarSign className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
@@ -313,7 +313,7 @@ export function NewYorkCalculator() {
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="ny-spending" className="text-sm font-medium">
-                    <span className="flex items-center gap-1.5"><ShoppingCart className="h-3.5 w-3.5 text-amber-400" />Annual Consumer Spending</span>
+                    <span className="flex items-center gap-1.5"><ShoppingCart className="h-3.5 w-3.5 text-amber-700" />Annual Consumer Spending</span>
                   </Label>
                   <div className="relative">
                     <DollarSign className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
@@ -326,25 +326,25 @@ export function NewYorkCalculator() {
               <div className="rounded-lg bg-amber-500/5 p-4 space-y-3">
                 <div className="flex items-center justify-between">
                   <span className="text-sm text-muted-foreground">Annual Property Tax</span>
-                  <span className="text-sm font-medium text-amber-400">{formatCurrency(colResult.annualPropertyTax)}</span>
+                  <span className="text-sm font-medium text-amber-700">{formatCurrency(colResult.annualPropertyTax)}</span>
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="text-sm text-muted-foreground">Estimated Sales Tax Burden</span>
-                  <span className="text-sm font-medium text-amber-400">{formatCurrency(colResult.estimatedSalesTaxBurden)}</span>
+                  <span className="text-sm font-medium text-amber-700">{formatCurrency(colResult.estimatedSalesTaxBurden)}</span>
                 </div>
                 <Separator className="bg-border/40" />
                 <div className="flex items-center justify-between">
                   <span className="text-sm font-medium text-foreground">Total Annual COL Burden</span>
-                  <span className="text-sm font-bold text-amber-400">{formatCurrency(colResult.totalAnnualBurden)}</span>
+                  <span className="text-sm font-bold text-amber-700">{formatCurrency(colResult.totalAnnualBurden)}</span>
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="text-sm font-medium text-foreground">Total Monthly COL Burden</span>
-                  <span className="text-sm font-bold text-amber-400">{formatCurrency(colResult.totalMonthlyBurden)}</span>
+                  <span className="text-sm font-bold text-amber-700">{formatCurrency(colResult.totalMonthlyBurden)}</span>
                 </div>
                 <Separator className="bg-border/40" />
                 <div className="flex items-center justify-between">
                   <span className="text-sm font-medium text-foreground">Net After COL Burden</span>
-                  <span className={`text-sm font-bold ${netAfterCOL > 0 ? 'text-emerald-400' : 'text-red-400'}`}>
+                  <span className={`text-sm font-bold ${netAfterCOL > 0 ? 'text-emerald-600' : 'text-red-600'}`}>
                     {formatCurrency(netAfterCOL)}/yr
                   </span>
                 </div>
@@ -357,13 +357,13 @@ export function NewYorkCalculator() {
           <Card className="sticky top-20 border-emerald-500/20 bg-card/90 backdrop-blur-sm">
             <CardHeader className="pb-3">
               <CardTitle className="flex items-center gap-2 text-lg">
-                <TrendingUp className="h-5 w-5 text-emerald-400" />New York Take-Home
+                <TrendingUp className="h-5 w-5 text-emerald-600" />New York Take-Home
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
-              <div className="rounded-xl bg-emerald-500/10 p-4 text-center">
-                <p className="text-xs font-medium uppercase tracking-wider text-emerald-400/80">Net Take-Home ({periodLabel})</p>
-                <p className="mt-1 text-3xl font-bold text-emerald-400">{formatCurrency(result.netPerPeriod)}</p>
+              <div className="rounded-xl bg-emerald-600/10 p-4 text-center">
+                <p className="text-xs font-medium uppercase tracking-wider text-emerald-600/80">Net Take-Home ({periodLabel})</p>
+                <p className="mt-1 text-3xl font-bold text-emerald-600">{formatCurrency(result.netPerPeriod)}</p>
                 <p className="mt-1 text-xs text-muted-foreground">Annual Net: {formatCurrency(result.netAnnual)}</p>
               </div>
 
@@ -372,24 +372,24 @@ export function NewYorkCalculator() {
               <div className="space-y-2.5 rounded-lg bg-muted/30 p-3">
                 <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground">Deductions</p>
                 <div className="flex items-center justify-between">
-                  <span className="flex items-center gap-1.5 text-sm text-muted-foreground"><TrendingDown className="h-3.5 w-3.5 text-red-400" />Federal Tax</span>
-                  <span className="text-sm font-medium text-red-400">-{formatCurrency(result.federalTax)}</span>
+                  <span className="flex items-center gap-1.5 text-sm text-muted-foreground"><TrendingDown className="h-3.5 w-3.5 text-red-600" />Federal Tax</span>
+                  <span className="text-sm font-medium text-red-600">-{formatCurrency(result.federalTax)}</span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="flex items-center gap-1.5 text-sm text-muted-foreground"><TrendingDown className="h-3.5 w-3.5 text-orange-400" />FICA</span>
-                  <span className="text-sm font-medium text-orange-400">-{formatCurrency(result.ficaTotal)}</span>
+                  <span className="flex items-center gap-1.5 text-sm text-muted-foreground"><TrendingDown className="h-3.5 w-3.5 text-orange-700" />FICA</span>
+                  <span className="text-sm font-medium text-orange-700">-{formatCurrency(result.ficaTotal)}</span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="flex items-center gap-1.5 text-sm text-muted-foreground"><TrendingDown className="h-3.5 w-3.5 text-amber-400" />NY State Tax (4%–10.9%)</span>
-                  <span className="text-sm font-medium text-amber-400">-{formatCurrency(result.stateTax)}</span>
+                  <span className="flex items-center gap-1.5 text-sm text-muted-foreground"><TrendingDown className="h-3.5 w-3.5 text-amber-700" />NY State Tax (4%–10.9%)</span>
+                  <span className="text-sm font-medium text-amber-700">-{formatCurrency(result.stateTax)}</span>
                 </div>
                 {nycResident && result.nycTax > 0 && (
                   <div className="flex items-center justify-between">
                     <span className="flex items-center gap-1.5 text-sm text-muted-foreground">
-                      <TrendingDown className="h-3.5 w-3.5 text-red-400" />
+                      <TrendingDown className="h-3.5 w-3.5 text-red-600" />
                       NYC City Tax (3.078%–3.876%)
                     </span>
-                    <span className="text-sm font-medium text-red-400">
+                    <span className="text-sm font-medium text-red-600">
                       -{formatCurrency(result.nycTax)}
                     </span>
                   </div>
@@ -397,19 +397,19 @@ export function NewYorkCalculator() {
                 {result.retirement401k > 0 && (
                   <div className="flex items-center justify-between">
                     <span className="text-sm text-muted-foreground">401(k)</span>
-                    <span className="text-sm font-medium text-amber-400">-{formatCurrency(result.retirement401k)}</span>
+                    <span className="text-sm font-medium text-amber-700">-{formatCurrency(result.retirement401k)}</span>
                   </div>
                 )}
                 {result.hsaContribution > 0 && (
                   <div className="flex items-center justify-between">
                     <span className="text-sm text-muted-foreground">HSA</span>
-                    <span className="text-sm font-medium text-emerald-400">-{formatCurrency(result.hsaContribution)}</span>
+                    <span className="text-sm font-medium text-emerald-600">-{formatCurrency(result.hsaContribution)}</span>
                   </div>
                 )}
               </div>
 
               <div className="rounded-lg bg-amber-500/5 p-3">
-                <p className="text-xs font-medium text-amber-400">New York Tax Breakdown</p>
+                <p className="text-xs font-medium text-amber-700">New York Tax Breakdown</p>
                 <div className="mt-1.5 space-y-1 text-xs text-muted-foreground">
                   <div className="flex justify-between"><span>Gross Income</span><span>{formatCurrency(result.grossAnnual)}</span></div>
                   <div className="flex justify-between"><span>Less: Pre-Tax Deductions</span><span>-{formatCurrency(retirement401k + hsaContribution)}</span></div>
@@ -429,11 +429,11 @@ export function NewYorkCalculator() {
                     </div>
                   )}
                   <Separator className="my-1.5 bg-border/30" />
-                  <div className="flex justify-between font-medium text-amber-400"><span>NY State Tax</span><span>{formatCurrency(nyBreakdown.nyTax)}</span></div>
+                  <div className="flex justify-between font-medium text-amber-700"><span>NY State Tax</span><span>{formatCurrency(nyBreakdown.nyTax)}</span></div>
                   {nycResident && result.nycTax > 0 && (
                     <>
                       <Separator className="my-1.5 bg-border/30" />
-                      <p className="text-xs font-medium text-red-400 mt-1">NYC City Tax Breakdown</p>
+                      <p className="text-xs font-medium text-red-600 mt-1">NYC City Tax Breakdown</p>
                       <div className="mt-1 space-y-1 text-xs text-muted-foreground">
                         {(() => {
                           const nycBrackets = NYC_TAX_2026.brackets[filingStatus] ?? NYC_TAX_2026.brackets.single;
@@ -457,7 +457,7 @@ export function NewYorkCalculator() {
                             </div>
                           ));
                         })()}
-                        <div className="flex justify-between font-medium text-red-400"><span>NYC City Tax</span><span>{formatCurrency(result.nycTax)}</span></div>
+                        <div className="flex justify-between font-medium text-red-600"><span>NYC City Tax</span><span>{formatCurrency(result.nycTax)}</span></div>
                       </div>
                     </>
                   )}
@@ -497,7 +497,7 @@ export function NewYorkCalculator() {
             <TableBody>
               <TableRow>
                 <TableCell>State Income Tax Rate</TableCell>
-                <TableCell className="font-medium text-emerald-400">4% – 10.9% (Progressive)</TableCell>
+                <TableCell className="font-medium text-emerald-600">4% – 10.9% (Progressive)</TableCell>
                 <TableCell>9 brackets; highest rate applies above $25M</TableCell>
               </TableRow>
               <TableRow>
@@ -517,12 +517,12 @@ export function NewYorkCalculator() {
               </TableRow>
               <TableRow>
                 <TableCell>NYC Income Tax (if applicable)</TableCell>
-                <TableCell className="font-medium text-red-400">3.078% – 3.876%</TableCell>
+                <TableCell className="font-medium text-red-600">3.078% – 3.876%</TableCell>
                 <TableCell>Additional city tax for NYC residents only</TableCell>
               </TableRow>
               <TableRow>
                 <TableCell>Average Combined Sales Tax</TableCell>
-                <TableCell className="font-medium text-amber-400">8.52%</TableCell>
+                <TableCell className="font-medium text-amber-700">8.52%</TableCell>
                 <TableCell>4% state + avg local surtaxes</TableCell>
               </TableRow>
               <TableRow>
@@ -537,7 +537,7 @@ export function NewYorkCalculator() {
               </TableRow>
               <TableRow>
                 <TableCell>FICA Total Rate</TableCell>
-                <TableCell className="font-medium text-orange-400">7.65%</TableCell>
+                <TableCell className="font-medium text-orange-700">7.65%</TableCell>
                 <TableCell>6.2% SS (up to $184,500) + 1.45% Medicare</TableCell>
               </TableRow>
             </TableBody>

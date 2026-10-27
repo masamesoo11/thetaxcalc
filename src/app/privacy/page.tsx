@@ -68,8 +68,8 @@ export default function PrivacyPage() {
       {/* Header */}
       <div className="mb-10">
         <div className="flex items-center gap-3 mb-4">
-          <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-500/10 border border-emerald-500/20">
-            <Shield className="h-6 w-6 text-emerald-400" />
+          <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-600/10 border border-emerald-500/20">
+            <Shield className="h-6 w-6 text-emerald-600" />
           </div>
           <div>
             <h1 className="text-3xl font-bold text-foreground">Privacy Policy — TheTaxCalc Tax Calculator Data Protection</h1>
@@ -89,7 +89,7 @@ export default function PrivacyPage() {
         {/* 1. Information We Collect */}
         <section className="rounded-xl border border-border/30 bg-card/50 p-6">
           <div className="flex items-center gap-2 mb-4">
-            <Eye className="h-5 w-5 text-emerald-400" />
+            <Eye className="h-5 w-5 text-emerald-600" />
             <h2 className="text-xl font-semibold text-foreground">1. Information We Collect</h2>
           </div>
           <div className="space-y-4 text-sm text-muted-foreground leading-relaxed">
@@ -129,7 +129,7 @@ export default function PrivacyPage() {
         {/* 2. How We Use Your Information */}
         <section className="rounded-xl border border-border/30 bg-card/50 p-6">
           <div className="flex items-center gap-2 mb-4">
-            <UserCheck className="h-5 w-5 text-emerald-400" />
+            <UserCheck className="h-5 w-5 text-emerald-600" />
             <h2 className="text-xl font-semibold text-foreground">2. How We Use Your Information</h2>
           </div>
           <div className="text-sm text-muted-foreground leading-relaxed">
@@ -148,7 +148,7 @@ export default function PrivacyPage() {
         {/* 3. Data Storage & Security */}
         <section className="rounded-xl border border-border/30 bg-card/50 p-6">
           <div className="flex items-center gap-2 mb-4">
-            <Server className="h-5 w-5 text-emerald-400" />
+            <Server className="h-5 w-5 text-emerald-600" />
             <h2 className="text-xl font-semibold text-foreground">3. Data Storage & Security</h2>
           </div>
           <div className="text-sm text-muted-foreground leading-relaxed space-y-3">
@@ -169,7 +169,7 @@ export default function PrivacyPage() {
         {/* 4. Third-Party Services */}
         <section className="rounded-xl border border-border/30 bg-card/50 p-6">
           <div className="flex items-center gap-2 mb-4">
-            <Lock className="h-5 w-5 text-emerald-400" />
+            <Lock className="h-5 w-5 text-emerald-600" />
             <h2 className="text-xl font-semibold text-foreground">4. Third-Party Services</h2>
           </div>
           <div className="text-sm text-muted-foreground leading-relaxed space-y-3">
@@ -183,7 +183,7 @@ export default function PrivacyPage() {
                   href="https://policies.google.com/privacy"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-emerald-400 hover:text-emerald-300 underline"
+                  className="text-emerald-600 hover:text-emerald-700 underline"
                 >
                   Google&apos;s Privacy Policy — TheTaxCalc Tax Calculator Data Protection
                 </a>.
@@ -200,7 +200,7 @@ export default function PrivacyPage() {
         {/* 5. Cookies */}
         <section className="rounded-xl border border-border/30 bg-card/50 p-6">
           <div className="flex items-center gap-2 mb-4">
-            <Bell className="h-5 w-5 text-emerald-400" />
+            <Bell className="h-5 w-5 text-emerald-600" />
             <h2 className="text-xl font-semibold text-foreground">5. Cookies & Tracking</h2>
           </div>
           <div className="text-sm text-muted-foreground leading-relaxed space-y-3">
@@ -222,7 +222,7 @@ export default function PrivacyPage() {
         {/* 6. Your Rights */}
         <section className="rounded-xl border border-border/30 bg-card/50 p-6">
           <div className="flex items-center gap-2 mb-4">
-            <FileText className="h-5 w-5 text-emerald-400" />
+            <FileText className="h-5 w-5 text-emerald-600" />
             <h2 className="text-xl font-semibold text-foreground">6. Your Rights</h2>
           </div>
           <div className="text-sm text-muted-foreground leading-relaxed space-y-3">
@@ -240,7 +240,7 @@ export default function PrivacyPage() {
         {/* 7. Children's Privacy */}
         <section className="rounded-xl border border-border/30 bg-card/50 p-6">
           <div className="flex items-center gap-2 mb-4">
-            <Shield className="h-5 w-5 text-emerald-400" />
+            <Shield className="h-5 w-5 text-emerald-600" />
             <h2 className="text-xl font-semibold text-foreground">7. Children&apos;s Privacy</h2>
           </div>
           <div className="text-sm text-muted-foreground leading-relaxed">
@@ -255,7 +255,7 @@ export default function PrivacyPage() {
         {/* 8. Changes to This Policy */}
         <section className="rounded-xl border border-border/30 bg-card/50 p-6">
           <div className="flex items-center gap-2 mb-4">
-            <FileText className="h-5 w-5 text-emerald-400" />
+            <FileText className="h-5 w-5 text-emerald-600" />
             <h2 className="text-xl font-semibold text-foreground">8. Changes to This Policy</h2>
           </div>
           <div className="text-sm text-muted-foreground leading-relaxed">
@@ -271,7 +271,7 @@ export default function PrivacyPage() {
         {/* 9. Contact Us */}
         <section className="rounded-xl border border-border/30 bg-card/50 p-6">
           <div className="flex items-center gap-2 mb-4">
-            <Mail className="h-5 w-5 text-emerald-400" />
+            <Mail className="h-5 w-5 text-emerald-600" />
             <h2 className="text-xl font-semibold text-foreground">9. Contact Us</h2>
           </div>
           <div className="text-sm text-muted-foreground leading-relaxed">
@@ -306,9 +306,9 @@ export default function PrivacyPage() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-400 transition-colors"
+                  className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-600 transition-colors"
                 >
-                  <span className="h-1 w-1 rounded-full bg-emerald-500/40 shrink-0 group-hover:bg-emerald-400 transition-colors" />
+                  <span className="h-1 w-1 rounded-full bg-emerald-600/40 shrink-0 group-hover:bg-emerald-500 transition-colors" />
                   {item.label}
                 </Link>
               ))}
@@ -328,19 +328,19 @@ export default function PrivacyPage() {
                 <Link
                   key={s.href}
                   href={s.href}
-                  className="inline-flex items-center rounded-lg border border-border/50 bg-muted/20 px-3 py-1.5 text-xs font-medium text-foreground hover:border-emerald-500/30 hover:text-emerald-400 transition-all"
+                  className="inline-flex items-center rounded-lg border border-border/50 bg-muted/20 px-3 py-1.5 text-xs font-medium text-foreground hover:border-emerald-500/30 hover:text-emerald-600 transition-all"
                 >
                   {s.label}
                 </Link>
               ))}
             </div>
             <div className="mt-3 space-y-2">
-              <Link href="/salary" className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-400 transition-colors">
-                <span className="h-1 w-1 rounded-full bg-emerald-500/40 shrink-0 group-hover:bg-emerald-400 transition-colors" />
+              <Link href="/salary" className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-600 transition-colors">
+                <span className="h-1 w-1 rounded-full bg-emerald-600/40 shrink-0 group-hover:bg-emerald-500 transition-colors" />
                 All Salary Levels
               </Link>
-              <Link href="/compare" className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-400 transition-colors">
-                <span className="h-1 w-1 rounded-full bg-emerald-500/40 shrink-0 group-hover:bg-emerald-400 transition-colors" />
+              <Link href="/compare" className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-600 transition-colors">
+                <span className="h-1 w-1 rounded-full bg-emerald-600/40 shrink-0 group-hover:bg-emerald-500 transition-colors" />
                 Compare State Taxes
               </Link>
             </div>
@@ -362,9 +362,9 @@ export default function PrivacyPage() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-400 transition-colors"
+                  className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-600 transition-colors"
                 >
-                  <span className="h-1 w-1 rounded-full bg-emerald-500/40 shrink-0 group-hover:bg-emerald-400 transition-colors" />
+                  <span className="h-1 w-1 rounded-full bg-emerald-600/40 shrink-0 group-hover:bg-emerald-500 transition-colors" />
                   {item.label}
                 </Link>
               ))}
@@ -377,7 +377,7 @@ export default function PrivacyPage() {
       <div className="mt-10 text-center">
         <Link
           href="/"
-          className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-600 to-emerald-500 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/30 transition-all hover:scale-[1.02]"
+          className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-700 to-emerald-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/30 transition-all hover:scale-[1.02]"
         >
           Back to Home
         </Link>

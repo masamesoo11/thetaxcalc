@@ -37,13 +37,13 @@ const BRACKETS: BracketRow[] = [
 ];
 
 function getRateColor(rateNum: number): string {
-  if (rateNum <= 10) return 'bg-emerald-500/15 text-emerald-400 border-emerald-500/20';
+  if (rateNum <= 10) return 'bg-emerald-600/15 text-emerald-600 border-emerald-500/20';
   if (rateNum <= 12) return 'bg-teal-500/15 text-teal-400 border-teal-500/20';
-  if (rateNum <= 22) return 'bg-amber-500/15 text-amber-400 border-amber-500/20';
-  if (rateNum <= 24) return 'bg-orange-500/15 text-orange-400 border-orange-500/20';
-  if (rateNum <= 32) return 'bg-rose-500/15 text-rose-400 border-rose-500/20';
-  if (rateNum <= 35) return 'bg-red-500/15 text-red-400 border-red-500/20';
-  return 'bg-red-600/20 text-red-300 border-red-500/30';
+  if (rateNum <= 22) return 'bg-amber-500/15 text-amber-700 border-amber-500/20';
+  if (rateNum <= 24) return 'bg-orange-500/15 text-orange-700 border-orange-500/20';
+  if (rateNum <= 32) return 'bg-rose-500/15 text-rose-700 border-rose-500/20';
+  if (rateNum <= 35) return 'bg-red-500/15 text-red-600 border-red-500/20';
+  return 'bg-red-600/20 text-red-600 border-red-500/30';
 }
 
 // Cumulative tax owed at the top of each bracket (Single filing status)
@@ -118,19 +118,19 @@ export function BracketsTabs() {
       <TabsList className="w-full sm:w-auto grid grid-cols-3 sm:inline-flex bg-muted/50 border border-border/20 rounded-xl p-1 h-auto">
         <TabsTrigger
           value="single"
-          className="rounded-lg data-[state=active]:bg-emerald-500/15 data-[state=active]:text-emerald-400 data-[state=active]:border-emerald-500/30 data-[state=active]:border px-4 py-2 text-xs sm:text-sm"
+          className="rounded-lg data-[state=active]:bg-emerald-600/15 data-[state=active]:text-emerald-600 data-[state=active]:border-emerald-500/30 data-[state=active]:border px-4 py-2 text-xs sm:text-sm"
         >
           Single
         </TabsTrigger>
         <TabsTrigger
           value="mfj"
-          className="rounded-lg data-[state=active]:bg-emerald-500/15 data-[state=active]:text-emerald-400 data-[state=active]:border-emerald-500/30 data-[state=active]:border px-4 py-2 text-xs sm:text-sm"
+          className="rounded-lg data-[state=active]:bg-emerald-600/15 data-[state=active]:text-emerald-600 data-[state=active]:border-emerald-500/30 data-[state=active]:border px-4 py-2 text-xs sm:text-sm"
         >
           Married Filing Jointly
         </TabsTrigger>
         <TabsTrigger
           value="hoh"
-          className="rounded-lg data-[state=active]:bg-emerald-500/15 data-[state=active]:text-emerald-400 data-[state=active]:border-emerald-500/30 data-[state=active]:border px-4 py-2 text-xs sm:text-sm"
+          className="rounded-lg data-[state=active]:bg-emerald-600/15 data-[state=active]:text-emerald-600 data-[state=active]:border-emerald-500/30 data-[state=active]:border px-4 py-2 text-xs sm:text-sm"
         >
           Head of Household
         </TabsTrigger>

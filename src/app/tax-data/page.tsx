@@ -252,8 +252,8 @@ function SectionHeader({
     <div id={id} className="scroll-mt-24 mb-6">
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
         <div className="flex items-center gap-3">
-          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-emerald-500/10">
-            <Icon className="h-5 w-5 text-emerald-400" />
+          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-emerald-600/10">
+            <Icon className="h-5 w-5 text-emerald-600" />
           </div>
           <h2 className="text-2xl font-bold text-foreground">
             {title} <span className="gradient-text">{highlight}</span>
@@ -261,7 +261,7 @@ function SectionHeader({
         </div>
         <a
           href={`#${id}`}
-          className="inline-flex items-center gap-1 rounded-lg border border-border/40 bg-muted/20 px-2.5 py-1 text-xs font-medium text-muted-foreground hover:border-emerald-500/30 hover:text-emerald-400 transition-all"
+          className="inline-flex items-center gap-1 rounded-lg border border-border/40 bg-muted/20 px-2.5 py-1 text-xs font-medium text-muted-foreground hover:border-emerald-500/30 hover:text-emerald-600 transition-all"
         >
           <Code2 className="h-3 w-3" />
           Link here
@@ -274,7 +274,7 @@ function SectionHeader({
 // ─── Table Styles ─────────────────────────────────────────────────────────────
 
 const thClass =
-  'px-4 py-3 text-left text-xs font-semibold text-emerald-400 uppercase tracking-wider bg-emerald-500/5';
+  'px-4 py-3 text-left text-xs font-semibold text-emerald-600 uppercase tracking-wider bg-emerald-600/5';
 const tdClass = 'px-4 py-3 text-sm text-foreground';
 const tdAltClass = 'px-4 py-3 text-sm text-muted-foreground';
 
@@ -294,7 +294,7 @@ export default function TaxDataPage() {
 
       {/* ─── Hero Section ─────────────────────────────────────────────────── */}
       <section className="mb-12 text-center">
-        <div className="inline-flex items-center gap-2 rounded-full bg-emerald-500/10 border border-emerald-500/20 px-4 py-1.5 text-sm text-emerald-400 mb-6">
+        <div className="inline-flex items-center gap-2 rounded-full bg-emerald-600/10 border border-emerald-500/20 px-4 py-1.5 text-sm text-emerald-600 mb-6">
           <Database className="h-3.5 w-3.5" />
           Free Reference Data — All 50 States — Cite &amp; Embed Freely
         </div>
@@ -310,28 +310,28 @@ export default function TaxDataPage() {
         <div className="flex flex-wrap items-center justify-center gap-3 mt-8">
           <Link
             href="#sales-tax-all-states"
-            className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-600 to-emerald-500 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/30 transition-all hover:scale-[1.02]"
+            className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-700 to-emerald-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/30 transition-all hover:scale-[1.02]"
           >
             <Receipt className="h-4 w-4" />
             Sales Tax — 50 States
           </Link>
           <Link
             href="#federal-brackets"
-            className="inline-flex items-center gap-2 rounded-xl border border-border/50 bg-card/50 px-6 py-3 text-sm font-medium text-foreground hover:border-emerald-500/30 hover:text-emerald-400 transition-all"
+            className="inline-flex items-center gap-2 rounded-xl border border-border/50 bg-card/50 px-6 py-3 text-sm font-medium text-foreground hover:border-emerald-500/30 hover:text-emerald-600 transition-all"
           >
             <TrendingUp className="h-4 w-4" />
             Federal Brackets
           </Link>
           <Link
             href="#no-income-tax"
-            className="inline-flex items-center gap-2 rounded-xl border border-border/50 bg-card/50 px-6 py-3 text-sm font-medium text-foreground hover:border-emerald-500/30 hover:text-emerald-400 transition-all"
+            className="inline-flex items-center gap-2 rounded-xl border border-border/50 bg-card/50 px-6 py-3 text-sm font-medium text-foreground hover:border-emerald-500/30 hover:text-emerald-600 transition-all"
           >
             <MapPin className="h-4 w-4" />
             No-Tax States
           </Link>
           <Link
             href="/widgets"
-            className="inline-flex items-center gap-2 rounded-xl border border-border/50 bg-card/50 px-6 py-3 text-sm font-medium text-foreground hover:border-emerald-500/30 hover:text-emerald-400 transition-all"
+            className="inline-flex items-center gap-2 rounded-xl border border-border/50 bg-card/50 px-6 py-3 text-sm font-medium text-foreground hover:border-emerald-500/30 hover:text-emerald-600 transition-all"
           >
             <Code2 className="h-4 w-4" />
             Embed Widgets
@@ -353,7 +353,7 @@ export default function TaxDataPage() {
               key={stat.label}
               className="rounded-xl border border-border/30 bg-card/50 p-5 text-center"
             >
-              <p className="text-2xl font-bold text-emerald-400">{stat.value}</p>
+              <p className="text-2xl font-bold text-emerald-600">{stat.value}</p>
               <p className="text-sm font-semibold text-foreground mt-1">{stat.label}</p>
               <p className="text-xs text-muted-foreground mt-0.5">{stat.detail}</p>
             </div>
@@ -405,7 +405,7 @@ export default function TaxDataPage() {
               key={filingStatus}
               className="rounded-xl border border-border/30 bg-card/50 overflow-hidden"
             >
-              <div className="px-5 py-3 border-b border-border/20 bg-emerald-500/5">
+              <div className="px-5 py-3 border-b border-border/20 bg-emerald-600/5">
                 <h3 className="text-base font-semibold text-foreground">{filingStatus}</h3>
               </div>
               <div className="overflow-x-auto">
@@ -422,7 +422,7 @@ export default function TaxDataPage() {
                       <tr key={i} className="border-b border-border/10 last:border-0 hover:bg-muted/5 transition-colors">
                         <td className={tdClass}>{bracket.range}</td>
                         <td className="px-4 py-3 text-sm">
-                          <span className="inline-flex items-center rounded-md bg-emerald-500/10 px-2.5 py-0.5 text-sm font-semibold text-emerald-400">
+                          <span className="inline-flex items-center rounded-md bg-emerald-600/10 px-2.5 py-0.5 text-sm font-semibold text-emerald-600">
                             {bracket.rate}
                           </span>
                         </td>
@@ -440,7 +440,7 @@ export default function TaxDataPage() {
         <p className="mt-4 text-xs text-muted-foreground leading-relaxed">
           Tax brackets are marginal — only the income within each bracket is taxed at that rate.
           Use our{' '}
-          <Link href="/paycheck-calculator" className="text-emerald-400 hover:text-emerald-300 underline underline-offset-2">
+          <Link href="/paycheck-calculator" className="text-emerald-600 hover:text-emerald-700 underline underline-offset-2">
             paycheck calculator
           </Link>{' '}
           to compute your actual tax liability.
@@ -456,13 +456,13 @@ export default function TaxDataPage() {
           highlight="States"
         />
         <NoIncomeTaxTable />
-        <div className="mt-4 flex items-start gap-2 rounded-lg border border-emerald-500/20 bg-emerald-500/5 p-4 text-xs text-muted-foreground leading-relaxed">
-          <Info className="h-4 w-4 text-emerald-400 shrink-0 mt-0.5" />
+        <div className="mt-4 flex items-start gap-2 rounded-lg border border-emerald-500/20 bg-emerald-600/5 p-4 text-xs text-muted-foreground leading-relaxed">
+          <Info className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
           <p>
             States with no income tax often compensate with higher sales or property taxes.
             Texas, for example, has <strong>no income tax</strong> but property taxes averaging 1.69% — among the
             highest in the nation. Compare total tax burden using our{' '}
-            <Link href="/compare" className="text-emerald-400 hover:text-emerald-300 underline underline-offset-2">
+            <Link href="/compare" className="text-emerald-600 hover:text-emerald-700 underline underline-offset-2">
               state comparison tool
             </Link>.
           </p>
@@ -496,7 +496,7 @@ export default function TaxDataPage() {
                       <span className="font-semibold">{row.component}</span>
                     </td>
                     <td className="px-4 py-3 text-sm">
-                      <span className="inline-flex items-center rounded-md bg-emerald-500/10 px-2.5 py-0.5 text-sm font-semibold text-emerald-400">
+                      <span className="inline-flex items-center rounded-md bg-emerald-600/10 px-2.5 py-0.5 text-sm font-semibold text-emerald-600">
                         {row.rate}
                       </span>
                     </td>
@@ -512,17 +512,17 @@ export default function TaxDataPage() {
         <div className="mt-4 grid gap-3 sm:grid-cols-3">
           <div className="rounded-lg border border-border/30 bg-card/50 p-4">
             <p className="text-xs font-semibold text-foreground mb-1">Combined Employee FICA</p>
-            <p className="text-lg font-bold text-emerald-400">7.65%</p>
+            <p className="text-lg font-bold text-emerald-600">7.65%</p>
             <p className="text-xs text-muted-foreground">6.2% SS + 1.45% Medicare</p>
           </div>
           <div className="rounded-lg border border-border/30 bg-card/50 p-4">
             <p className="text-xs font-semibold text-foreground mb-1">Self-Employment Tax</p>
-            <p className="text-lg font-bold text-emerald-400">15.3%</p>
+            <p className="text-lg font-bold text-emerald-600">15.3%</p>
             <p className="text-xs text-muted-foreground">On 92.35% of net SE income</p>
           </div>
           <div className="rounded-lg border border-border/30 bg-card/50 p-4">
             <p className="text-xs font-semibold text-foreground mb-1">Max SS Tax (Employee)</p>
-            <p className="text-lg font-bold text-emerald-400">$11,439</p>
+            <p className="text-lg font-bold text-emerald-600">$11,439</p>
             <p className="text-xs text-muted-foreground">6.2% × $184,500</p>
           </div>
         </div>
@@ -552,7 +552,7 @@ export default function TaxDataPage() {
                       <span className={i === 4 ? 'text-muted-foreground' : 'font-semibold'}>{row.filingStatus}</span>
                     </td>
                     <td className="px-4 py-3 text-sm">
-                      <span className="inline-flex items-center rounded-md bg-emerald-500/10 px-2.5 py-0.5 text-sm font-semibold text-emerald-400">
+                      <span className="inline-flex items-center rounded-md bg-emerald-600/10 px-2.5 py-0.5 text-sm font-semibold text-emerald-600">
                         {row.amount}
                       </span>
                     </td>
@@ -593,14 +593,14 @@ export default function TaxDataPage() {
                       {row.limit === '—' ? (
                         <span className="text-muted-foreground">—</span>
                       ) : (
-                        <span className="inline-flex items-center rounded-md bg-emerald-500/10 px-2.5 py-0.5 text-sm font-semibold text-emerald-400">
+                        <span className="inline-flex items-center rounded-md bg-emerald-600/10 px-2.5 py-0.5 text-sm font-semibold text-emerald-600">
                           {row.limit}
                         </span>
                       )}
                     </td>
                     <td className={`${tdAltClass} hidden sm:table-cell text-xs`}>{row.catchUp}</td>
                     <td className="px-4 py-3 text-sm hidden md:table-cell">
-                      <span className="font-semibold text-emerald-400">{row.total50}</span>
+                      <span className="font-semibold text-emerald-600">{row.total50}</span>
                     </td>
                   </tr>
                 ))}
@@ -610,7 +610,7 @@ export default function TaxDataPage() {
         </div>
         <p className="mt-4 text-xs text-muted-foreground leading-relaxed">
           Use our{' '}
-          <Link href="/401k-retirement-calculator" className="text-emerald-400 hover:text-emerald-300 underline underline-offset-2">
+          <Link href="/401k-retirement-calculator" className="text-emerald-600 hover:text-emerald-700 underline underline-offset-2">
             401(k) calculator
           </Link>{' '}
           to project your retirement savings with these limits.
@@ -658,10 +658,10 @@ export default function TaxDataPage() {
 
       {/* ─── Source & Methodology ─────────────────────────────────────────── */}
       <section className="mb-12">
-        <div className="rounded-xl border border-emerald-500/20 bg-emerald-500/5 p-6 sm:p-8">
+        <div className="rounded-xl border border-emerald-500/20 bg-emerald-600/5 p-6 sm:p-8">
           <div className="flex items-center gap-3 mb-4">
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-emerald-500/10">
-              <ShieldCheck className="h-5 w-5 text-emerald-400" />
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-emerald-600/10">
+              <ShieldCheck className="h-5 w-5 text-emerald-600" />
             </div>
             <h2 className="text-2xl font-bold text-foreground">
               Source &amp; <span className="gradient-text">Methodology</span>
@@ -674,23 +674,23 @@ export default function TaxDataPage() {
             </p>
             <ul className="space-y-2 ml-4">
               <li className="flex items-start gap-2">
-                <span className="h-1.5 w-1.5 rounded-full bg-emerald-500/60 shrink-0 mt-2" />
+                <span className="h-1.5 w-1.5 rounded-full bg-emerald-600/60 shrink-0 mt-2" />
                 <span><strong className="text-foreground">Federal tax brackets</strong> — IRS Revenue Procedure for annual inflation adjustments</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="h-1.5 w-1.5 rounded-full bg-emerald-500/60 shrink-0 mt-2" />
+                <span className="h-1.5 w-1.5 rounded-full bg-emerald-600/60 shrink-0 mt-2" />
                 <span><strong className="text-foreground">State sales tax rates</strong> — Each state&apos;s Department of Revenue + Tax Foundation</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="h-1.5 w-1.5 rounded-full bg-emerald-500/60 shrink-0 mt-2" />
+                <span className="h-1.5 w-1.5 rounded-full bg-emerald-600/60 shrink-0 mt-2" />
                 <span><strong className="text-foreground">FICA rates &amp; wage base</strong> — Social Security Administration and CMS</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="h-1.5 w-1.5 rounded-full bg-emerald-500/60 shrink-0 mt-2" />
+                <span className="h-1.5 w-1.5 rounded-full bg-emerald-600/60 shrink-0 mt-2" />
                 <span><strong className="text-foreground">Retirement limits</strong> — IRS cost-of-living adjustments + SECURE 2.0</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="h-1.5 w-1.5 rounded-full bg-emerald-500/60 shrink-0 mt-2" />
+                <span className="h-1.5 w-1.5 rounded-full bg-emerald-600/60 shrink-0 mt-2" />
                 <span><strong className="text-foreground">Property tax rates</strong> — Tax Foundation and state assessor data</span>
               </li>
             </ul>
@@ -705,8 +705,8 @@ export default function TaxDataPage() {
       {/* ─── FAQ Section ──────────────────────────────────────────────────── */}
       <section className="mb-12">
         <div className="flex items-center gap-3 mb-6">
-          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-500/10">
-            <BookOpen className="h-5 w-5 text-emerald-400" />
+          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-600/10">
+            <BookOpen className="h-5 w-5 text-emerald-600" />
           </div>
           <h2 className="text-2xl font-bold text-foreground">
             Tax Data <span className="gradient-text">FAQ</span>
@@ -746,9 +746,9 @@ export default function TaxDataPage() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-400 transition-colors"
+                  className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-600 transition-colors"
                 >
-                  <span className="h-1 w-1 rounded-full bg-emerald-500/40 shrink-0 group-hover:bg-emerald-400 transition-colors" />
+                  <span className="h-1 w-1 rounded-full bg-emerald-600/40 shrink-0 group-hover:bg-emerald-500 transition-colors" />
                   {item.label}
                 </Link>
               ))}
@@ -768,9 +768,9 @@ export default function TaxDataPage() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-400 transition-colors"
+                  className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-600 transition-colors"
                 >
-                  <span className="h-1 w-1 rounded-full bg-emerald-500/40 shrink-0 group-hover:bg-emerald-400 transition-colors" />
+                  <span className="h-1 w-1 rounded-full bg-emerald-600/40 shrink-0 group-hover:bg-emerald-500 transition-colors" />
                   {item.label}
                 </Link>
               ))}
@@ -790,9 +790,9 @@ export default function TaxDataPage() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-400 transition-colors"
+                  className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-600 transition-colors"
                 >
-                  <span className="h-1 w-1 rounded-full bg-emerald-500/40 shrink-0 group-hover:bg-emerald-400 transition-colors" />
+                  <span className="h-1 w-1 rounded-full bg-emerald-600/40 shrink-0 group-hover:bg-emerald-500 transition-colors" />
                   {item.label}
                 </Link>
               ))}
@@ -811,9 +811,9 @@ export default function TaxDataPage() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-400 transition-colors"
+                  className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-600 transition-colors"
                 >
-                  <span className="h-1 w-1 rounded-full bg-emerald-500/40 shrink-0 group-hover:bg-emerald-400 transition-colors" />
+                  <span className="h-1 w-1 rounded-full bg-emerald-600/40 shrink-0 group-hover:bg-emerald-500 transition-colors" />
                   {item.label}
                 </Link>
               ))}

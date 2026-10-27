@@ -204,7 +204,7 @@ export default function StateTaxBurdenStudy() {
 
         {/* Header */}
         <header className="mb-10">
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-4 py-1.5 text-sm font-medium text-emerald-400">
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-600/10 px-4 py-1.5 text-sm font-medium text-emerald-600">
             <FileText className="h-4 w-4" />
             Original Research Study
           </div>
@@ -241,19 +241,19 @@ export default function StateTaxBurdenStudy() {
         <section className="mb-10">
           <h2 className="text-2xl font-bold text-foreground mb-4">Key Findings</h2>
           <div className="space-y-4">
-            <div className="flex items-start gap-3 rounded-lg border border-emerald-500/30 bg-emerald-500/5 p-4">
-              <BarChart3 className="mt-0.5 h-5 w-5 flex-shrink-0 text-emerald-400" />
+            <div className="flex items-start gap-3 rounded-lg border border-emerald-500/30 bg-emerald-600/5 p-4">
+              <BarChart3 className="mt-0.5 h-5 w-5 flex-shrink-0 text-emerald-600" />
               <div>
                 <p className="font-semibold text-foreground">Wide variation in effective burdens</p>
                 <p className="text-sm text-muted-foreground">
-                  Total effective state tax burdens range from <strong className="text-emerald-400">0.0% in Alaska</strong> to{' '}
-                  <strong className="text-rose-400">13.3% in California</strong> for the $150,000
+                  Total effective state tax burdens range from <strong className="text-emerald-600">0.0% in Alaska</strong> to{' '}
+                  <strong className="text-rose-700">13.3% in California</strong> for the $150,000
                   married household profile — a gap of over 13 percentage points.
                 </p>
               </div>
             </div>
             <div className="flex items-start gap-3 rounded-lg border border-border/30 bg-card/30 p-4">
-              <TrendingDown className="mt-0.5 h-5 w-5 flex-shrink-0 text-emerald-400" />
+              <TrendingDown className="mt-0.5 h-5 w-5 flex-shrink-0 text-emerald-600" />
               <div>
                 <p className="font-semibold text-foreground">Tax burden correlates with outmigration</p>
                 <p className="text-sm text-muted-foreground">
@@ -264,7 +264,7 @@ export default function StateTaxBurdenStudy() {
               </div>
             </div>
             <div className="flex items-start gap-3 rounded-lg border border-border/30 bg-card/30 p-4">
-              <FileText className="mt-0.5 h-5 w-5 flex-shrink-0 text-emerald-400" />
+              <FileText className="mt-0.5 h-5 w-5 flex-shrink-0 text-emerald-600" />
               <div>
                 <p className="font-semibold text-foreground">Seven states have no income tax</p>
                 <p className="text-sm text-muted-foreground">
@@ -312,18 +312,18 @@ export default function StateTaxBurdenStudy() {
                   <th className="px-3 py-2 text-right font-semibold text-foreground">Income Tax</th>
                   <th className="px-3 py-2 text-right font-semibold text-foreground">Sales Tax</th>
                   <th className="px-3 py-2 text-right font-semibold text-foreground">Property Tax</th>
-                  <th className="px-3 py-2 text-right font-semibold text-emerald-400">Total</th>
+                  <th className="px-3 py-2 text-right font-semibold text-emerald-600">Total</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-border/20">
                 {STATE_DATA.map((row) => (
-                  <tr key={row.state} className={row.rank <= 7 ? 'bg-emerald-500/5' : row.rank >= 45 ? 'bg-rose-500/5' : ''}>
+                  <tr key={row.state} className={row.rank <= 7 ? 'bg-emerald-600/5' : row.rank >= 45 ? 'bg-rose-500/5' : ''}>
                     <td className="px-3 py-2 text-muted-foreground">{row.rank}</td>
                     <td className="px-3 py-2 font-medium text-foreground">{row.state}</td>
                     <td className="px-3 py-2 text-right text-muted-foreground">{row.income.toFixed(1)}%</td>
                     <td className="px-3 py-2 text-right text-muted-foreground">{row.sales.toFixed(2)}%</td>
                     <td className="px-3 py-2 text-right text-muted-foreground">{row.property.toFixed(2)}%</td>
-                    <td className={`px-3 py-2 text-right font-bold ${row.rank <= 7 ? 'text-emerald-400' : row.rank >= 45 ? 'text-rose-400' : 'text-foreground'}`}>
+                    <td className={`px-3 py-2 text-right font-bold ${row.rank <= 7 ? 'text-emerald-600' : row.rank >= 45 ? 'text-rose-700' : 'text-foreground'}`}>
                       {row.total.toFixed(1)}%
                     </td>
                   </tr>
@@ -404,14 +404,14 @@ export default function StateTaxBurdenStudy() {
           <div className="flex flex-wrap items-center gap-3">
             <Link
               href="/paycheck-calculator"
-              className="inline-flex items-center gap-2 rounded-xl bg-emerald-500 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-emerald-500/20 transition-colors hover:bg-emerald-600"
+              className="inline-flex items-center gap-2 rounded-xl bg-emerald-600 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-emerald-500/20 transition-colors hover:bg-emerald-700"
             >
               Paycheck Calculator
               <ArrowRight className="h-4 w-4" />
             </Link>
             <Link
               href="/research"
-              className="inline-flex items-center gap-2 rounded-xl border border-emerald-500/30 bg-card/50 px-5 py-2.5 text-sm font-semibold text-emerald-400 transition-colors hover:bg-emerald-500/10"
+              className="inline-flex items-center gap-2 rounded-xl border border-emerald-500/30 bg-card/50 px-5 py-2.5 text-sm font-semibold text-emerald-600 transition-colors hover:bg-emerald-600/10"
             >
               More Research
               <ArrowRight className="h-4 w-4" />

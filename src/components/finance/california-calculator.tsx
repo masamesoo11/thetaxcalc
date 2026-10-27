@@ -142,7 +142,7 @@ export function CaliforniaCalculator() {
     <div className="space-y-6">
       <div className="text-center">
         <h2 className="flex items-center justify-center gap-2 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-          <MapPin className="h-8 w-8 text-emerald-400" />
+          <MapPin className="h-8 w-8 text-emerald-600" />
           California Paycheck Calculator
         </h2>
         <p className="mt-2 text-muted-foreground">
@@ -150,24 +150,24 @@ export function CaliforniaCalculator() {
         </p>
       </div>
 
-      <Card className="border-emerald-500/20 bg-emerald-500/5">
+      <Card className="border-emerald-500/20 bg-emerald-600/5">
         <CardContent className="p-4">
           <div className="flex items-start gap-3">
-            <Info className="mt-0.5 h-5 w-5 shrink-0 text-emerald-400" />
+            <Info className="mt-0.5 h-5 w-5 shrink-0 text-emerald-600" />
             <div className="space-y-2 text-sm text-muted-foreground">
               <p className="font-medium text-foreground">How California Progressive Income Tax Works</p>
               <p>
-                California uses a <strong className="text-emerald-400">progressive tax system</strong> with
-                9 brackets ranging from <strong className="text-emerald-400">1% to 13.3%</strong>.
+                California uses a <strong className="text-emerald-600">progressive tax system</strong> with
+                9 brackets ranging from <strong className="text-emerald-600">1% to 13.3%</strong>.
                 Your income is taxed in layers — the first dollars are taxed at 1%, the next layer at 2%,
-                and so on. A <strong className="text-emerald-400">standard deduction</strong> of $6,083 (single),
+                and so on. A <strong className="text-emerald-600">standard deduction</strong> of $6,083 (single),
                 $12,166 (married), or $12,293 (head of household) is subtracted before brackets are applied.
               </p>
               <p>
                 For a $100,000 salary (single): Taxable income = $100,000 − $6,083 = $93,917.
                 CA state tax ≈ $5,381 across 6 brackets — effective rate ~5.4%.
-                Combined with <strong className="text-amber-400">8.82% avg sales tax</strong> and
-                <strong className="text-amber-400"> 0.71% property tax</strong>, the total CA burden is significant.
+                Combined with <strong className="text-amber-700">8.82% avg sales tax</strong> and
+                <strong className="text-amber-700"> 0.71% property tax</strong>, the total CA burden is significant.
               </p>
             </div>
           </div>
@@ -179,7 +179,7 @@ export function CaliforniaCalculator() {
           <Card className="border-border/50 bg-card/80 backdrop-blur-sm">
             <CardHeader className="pb-4">
               <CardTitle className="flex items-center gap-2 text-lg">
-                <DollarSign className="h-5 w-5 text-emerald-400" />Salary Input
+                <DollarSign className="h-5 w-5 text-emerald-600" />Salary Input
               </CardTitle>
               <CardDescription>Enter your California salary for an instant calculation</CardDescription>
             </CardHeader>
@@ -234,7 +234,7 @@ export function CaliforniaCalculator() {
                 <CardHeader className="cursor-pointer pb-4 transition-colors hover:bg-muted/30">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
-                      <Shield className="h-5 w-5 text-amber-400" />
+                      <Shield className="h-5 w-5 text-amber-700" />
                       <CardTitle className="text-lg">Advanced Options</CardTitle>
                       <Badge variant="outline" className="text-xs">401(k) &amp; HSA</Badge>
                     </div>
@@ -247,7 +247,7 @@ export function CaliforniaCalculator() {
                   <div className="grid gap-4 sm:grid-cols-2">
                     <div className="space-y-2">
                       <Label htmlFor="ca-401k" className="text-sm font-medium">
-                        <span className="flex items-center gap-1.5"><PiggyBank className="h-3.5 w-3.5 text-amber-400" />401(k) Annual</span>
+                        <span className="flex items-center gap-1.5"><PiggyBank className="h-3.5 w-3.5 text-amber-700" />401(k) Annual</span>
                       </Label>
                       <div className="relative">
                         <DollarSign className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
@@ -256,7 +256,7 @@ export function CaliforniaCalculator() {
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="ca-hsa" className="text-sm font-medium">
-                        <span className="flex items-center gap-1.5"><Shield className="h-3.5 w-3.5 text-emerald-400" />HSA Annual</span>
+                        <span className="flex items-center gap-1.5"><Shield className="h-3.5 w-3.5 text-emerald-600" />HSA Annual</span>
                       </Label>
                       <div className="relative">
                         <DollarSign className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
@@ -274,7 +274,7 @@ export function CaliforniaCalculator() {
           <Card className="border-amber-500/20 bg-card/80 backdrop-blur-sm">
             <CardHeader className="pb-4">
               <CardTitle className="flex items-center gap-2 text-lg">
-                <Home className="h-5 w-5 text-amber-400" />
+                <Home className="h-5 w-5 text-amber-700" />
                 California Cost of Living Impact
               </CardTitle>
               <CardDescription>High sales tax &amp; property costs add to the total CA burden beyond income tax</CardDescription>
@@ -283,7 +283,7 @@ export function CaliforniaCalculator() {
               <div className="grid gap-4 sm:grid-cols-2">
                 <div className="space-y-2">
                   <Label htmlFor="ca-home" className="text-sm font-medium">
-                    <span className="flex items-center gap-1.5"><Home className="h-3.5 w-3.5 text-amber-400" />Home Value</span>
+                    <span className="flex items-center gap-1.5"><Home className="h-3.5 w-3.5 text-amber-700" />Home Value</span>
                   </Label>
                   <div className="relative">
                     <DollarSign className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
@@ -293,7 +293,7 @@ export function CaliforniaCalculator() {
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="ca-spending" className="text-sm font-medium">
-                    <span className="flex items-center gap-1.5"><ShoppingCart className="h-3.5 w-3.5 text-amber-400" />Annual Consumer Spending</span>
+                    <span className="flex items-center gap-1.5"><ShoppingCart className="h-3.5 w-3.5 text-amber-700" />Annual Consumer Spending</span>
                   </Label>
                   <div className="relative">
                     <DollarSign className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
@@ -306,25 +306,25 @@ export function CaliforniaCalculator() {
               <div className="rounded-lg bg-amber-500/5 p-4 space-y-3">
                 <div className="flex items-center justify-between">
                   <span className="text-sm text-muted-foreground">Annual Property Tax</span>
-                  <span className="text-sm font-medium text-amber-400">{formatCurrency(colResult.annualPropertyTax)}</span>
+                  <span className="text-sm font-medium text-amber-700">{formatCurrency(colResult.annualPropertyTax)}</span>
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="text-sm text-muted-foreground">Estimated Sales Tax Burden</span>
-                  <span className="text-sm font-medium text-amber-400">{formatCurrency(colResult.estimatedSalesTaxBurden)}</span>
+                  <span className="text-sm font-medium text-amber-700">{formatCurrency(colResult.estimatedSalesTaxBurden)}</span>
                 </div>
                 <Separator className="bg-border/40" />
                 <div className="flex items-center justify-between">
                   <span className="text-sm font-medium text-foreground">Total Annual COL Burden</span>
-                  <span className="text-sm font-bold text-amber-400">{formatCurrency(colResult.totalAnnualBurden)}</span>
+                  <span className="text-sm font-bold text-amber-700">{formatCurrency(colResult.totalAnnualBurden)}</span>
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="text-sm font-medium text-foreground">Total Monthly COL Burden</span>
-                  <span className="text-sm font-bold text-amber-400">{formatCurrency(colResult.totalMonthlyBurden)}</span>
+                  <span className="text-sm font-bold text-amber-700">{formatCurrency(colResult.totalMonthlyBurden)}</span>
                 </div>
                 <Separator className="bg-border/40" />
                 <div className="flex items-center justify-between">
                   <span className="text-sm font-medium text-foreground">Net After COL Burden</span>
-                  <span className={`text-sm font-bold ${netAfterCOL > 0 ? 'text-emerald-400' : 'text-red-400'}`}>
+                  <span className={`text-sm font-bold ${netAfterCOL > 0 ? 'text-emerald-600' : 'text-red-600'}`}>
                     {formatCurrency(netAfterCOL)}/yr
                   </span>
                 </div>
@@ -337,13 +337,13 @@ export function CaliforniaCalculator() {
           <Card className="sticky top-20 border-emerald-500/20 bg-card/90 backdrop-blur-sm">
             <CardHeader className="pb-3">
               <CardTitle className="flex items-center gap-2 text-lg">
-                <TrendingUp className="h-5 w-5 text-emerald-400" />California Take-Home
+                <TrendingUp className="h-5 w-5 text-emerald-600" />California Take-Home
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
-              <div className="rounded-xl bg-emerald-500/10 p-4 text-center">
-                <p className="text-xs font-medium uppercase tracking-wider text-emerald-400/80">Net Take-Home ({periodLabel})</p>
-                <p className="mt-1 text-3xl font-bold text-emerald-400">{formatCurrency(result.netPerPeriod)}</p>
+              <div className="rounded-xl bg-emerald-600/10 p-4 text-center">
+                <p className="text-xs font-medium uppercase tracking-wider text-emerald-600/80">Net Take-Home ({periodLabel})</p>
+                <p className="mt-1 text-3xl font-bold text-emerald-600">{formatCurrency(result.netPerPeriod)}</p>
                 <p className="mt-1 text-xs text-muted-foreground">Annual Net: {formatCurrency(result.netAnnual)}</p>
               </div>
 
@@ -352,33 +352,33 @@ export function CaliforniaCalculator() {
               <div className="space-y-2.5 rounded-lg bg-muted/30 p-3">
                 <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground">Deductions</p>
                 <div className="flex items-center justify-between">
-                  <span className="flex items-center gap-1.5 text-sm text-muted-foreground"><TrendingDown className="h-3.5 w-3.5 text-red-400" />Federal Tax</span>
-                  <span className="text-sm font-medium text-red-400">-{formatCurrency(result.federalTax)}</span>
+                  <span className="flex items-center gap-1.5 text-sm text-muted-foreground"><TrendingDown className="h-3.5 w-3.5 text-red-600" />Federal Tax</span>
+                  <span className="text-sm font-medium text-red-600">-{formatCurrency(result.federalTax)}</span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="flex items-center gap-1.5 text-sm text-muted-foreground"><TrendingDown className="h-3.5 w-3.5 text-orange-400" />FICA</span>
-                  <span className="text-sm font-medium text-orange-400">-{formatCurrency(result.ficaTotal)}</span>
+                  <span className="flex items-center gap-1.5 text-sm text-muted-foreground"><TrendingDown className="h-3.5 w-3.5 text-orange-700" />FICA</span>
+                  <span className="text-sm font-medium text-orange-700">-{formatCurrency(result.ficaTotal)}</span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="flex items-center gap-1.5 text-sm text-muted-foreground"><TrendingDown className="h-3.5 w-3.5 text-amber-400" />CA State Tax (1%–13.3%)</span>
-                  <span className="text-sm font-medium text-amber-400">-{formatCurrency(result.stateTax)}</span>
+                  <span className="flex items-center gap-1.5 text-sm text-muted-foreground"><TrendingDown className="h-3.5 w-3.5 text-amber-700" />CA State Tax (1%–13.3%)</span>
+                  <span className="text-sm font-medium text-amber-700">-{formatCurrency(result.stateTax)}</span>
                 </div>
                 {result.retirement401k > 0 && (
                   <div className="flex items-center justify-between">
                     <span className="text-sm text-muted-foreground">401(k)</span>
-                    <span className="text-sm font-medium text-amber-400">-{formatCurrency(result.retirement401k)}</span>
+                    <span className="text-sm font-medium text-amber-700">-{formatCurrency(result.retirement401k)}</span>
                   </div>
                 )}
                 {result.hsaContribution > 0 && (
                   <div className="flex items-center justify-between">
                     <span className="text-sm text-muted-foreground">HSA</span>
-                    <span className="text-sm font-medium text-emerald-400">-{formatCurrency(result.hsaContribution)}</span>
+                    <span className="text-sm font-medium text-emerald-600">-{formatCurrency(result.hsaContribution)}</span>
                   </div>
                 )}
               </div>
 
               <div className="rounded-lg bg-amber-500/5 p-3">
-                <p className="text-xs font-medium text-amber-400">California Tax Breakdown</p>
+                <p className="text-xs font-medium text-amber-700">California Tax Breakdown</p>
                 <div className="mt-1.5 space-y-1 text-xs text-muted-foreground">
                   <div className="flex justify-between"><span>Gross Income</span><span>{formatCurrency(result.grossAnnual)}</span></div>
                   <div className="flex justify-between"><span>Less: Pre-Tax Deductions</span><span>-{formatCurrency(retirement401k + hsaContribution)}</span></div>
@@ -392,7 +392,7 @@ export function CaliforniaCalculator() {
                     </div>
                   ))}
                   <Separator className="my-1.5 bg-border/30" />
-                  <div className="flex justify-between font-medium text-amber-400"><span>CA State Tax</span><span>{formatCurrency(caBreakdown.caTax)}</span></div>
+                  <div className="flex justify-between font-medium text-amber-700"><span>CA State Tax</span><span>{formatCurrency(caBreakdown.caTax)}</span></div>
                 </div>
               </div>
 
@@ -429,7 +429,7 @@ export function CaliforniaCalculator() {
             <TableBody>
               <TableRow>
                 <TableCell>State Income Tax Rate</TableCell>
-                <TableCell className="font-medium text-emerald-400">1% – 13.3% (Progressive)</TableCell>
+                <TableCell className="font-medium text-emerald-600">1% – 13.3% (Progressive)</TableCell>
                 <TableCell>9 brackets; highest rate applies above $698,271 (single)</TableCell>
               </TableRow>
               <TableRow>
@@ -449,7 +449,7 @@ export function CaliforniaCalculator() {
               </TableRow>
               <TableRow>
                 <TableCell>Average Combined Sales Tax</TableCell>
-                <TableCell className="font-medium text-amber-400">8.82%</TableCell>
+                <TableCell className="font-medium text-amber-700">8.82%</TableCell>
                 <TableCell>7.25% state base + avg local surtaxes (highest in US)</TableCell>
               </TableRow>
               <TableRow>
@@ -469,7 +469,7 @@ export function CaliforniaCalculator() {
               </TableRow>
               <TableRow>
                 <TableCell>FICA Total Rate</TableCell>
-                <TableCell className="font-medium text-orange-400">7.65%</TableCell>
+                <TableCell className="font-medium text-orange-700">7.65%</TableCell>
                 <TableCell>6.2% SS + 1.45% Medicare (employee share)</TableCell>
               </TableRow>
             </TableBody>

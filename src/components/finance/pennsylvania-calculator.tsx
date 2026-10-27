@@ -106,7 +106,7 @@ export function PennsylvaniaCalculator() {
     <div className="space-y-6">
       <div className="text-center">
         <h2 className="flex items-center justify-center gap-2 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-          <MapPin className="h-8 w-8 text-emerald-400" />
+          <MapPin className="h-8 w-8 text-emerald-600" />
           Pennsylvania Paycheck Calculator
         </h2>
         <p className="mt-2 text-muted-foreground">
@@ -114,21 +114,21 @@ export function PennsylvaniaCalculator() {
         </p>
       </div>
 
-      <Card className="border-emerald-500/20 bg-emerald-500/5">
+      <Card className="border-emerald-500/20 bg-emerald-600/5">
         <CardContent className="p-4">
           <div className="flex items-start gap-3">
-            <Info className="mt-0.5 h-5 w-5 shrink-0 text-emerald-400" />
+            <Info className="mt-0.5 h-5 w-5 shrink-0 text-emerald-600" />
             <div className="space-y-2 text-sm text-muted-foreground">
               <p className="font-medium text-foreground">How Pennsylvania Income Tax Works</p>
               <p>
-                Pennsylvania uses a <strong className="text-emerald-400">flat tax rate of 3.07%</strong> on
+                Pennsylvania uses a <strong className="text-emerald-600">flat tax rate of 3.07%</strong> on
                 all taxable income — one of the lowest flat rates in the US. Unlike most states, Pennsylvania offers
-                <strong className="text-emerald-400"> no standard deduction</strong> and
-                <strong className="text-emerald-400"> no personal exemptions</strong> at the state level, meaning
+                <strong className="text-emerald-600"> no standard deduction</strong> and
+                <strong className="text-emerald-600"> no personal exemptions</strong> at the state level, meaning
                 your gross income (minus pre-tax deductions like 401(k) and HSA) is fully subject to the 3.07% rate.
               </p>
               <p>
-                Some municipalities also levy <strong className="text-emerald-400">local earned income taxes</strong> (typically 1–2%)
+                Some municipalities also levy <strong className="text-emerald-600">local earned income taxes</strong> (typically 1–2%)
                 which may apply depending on where you live. Philadelphia residents pay nearly 4%, while most other areas are 1–1.5%.
               </p>
               <p>
@@ -144,7 +144,7 @@ export function PennsylvaniaCalculator() {
           <Card className="border-border/50 bg-card/80 backdrop-blur-sm">
             <CardHeader className="pb-4">
               <CardTitle className="flex items-center gap-2 text-lg">
-                <DollarSign className="h-5 w-5 text-emerald-400" />Salary Input
+                <DollarSign className="h-5 w-5 text-emerald-600" />Salary Input
               </CardTitle>
               <CardDescription>Enter your Pennsylvania salary for an instant calculation</CardDescription>
             </CardHeader>
@@ -199,7 +199,7 @@ export function PennsylvaniaCalculator() {
                 <CardHeader className="cursor-pointer pb-4 transition-colors hover:bg-muted/30">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
-                      <Shield className="h-5 w-5 text-amber-400" />
+                      <Shield className="h-5 w-5 text-amber-700" />
                       <CardTitle className="text-lg">Advanced Options</CardTitle>
                       <Badge variant="outline" className="text-xs">401(k) &amp; HSA</Badge>
                     </div>
@@ -212,7 +212,7 @@ export function PennsylvaniaCalculator() {
                   <div className="grid gap-4 sm:grid-cols-2">
                     <div className="space-y-2">
                       <Label htmlFor="pa-401k" className="text-sm font-medium">
-                        <span className="flex items-center gap-1.5"><PiggyBank className="h-3.5 w-3.5 text-amber-400" />401(k) Annual</span>
+                        <span className="flex items-center gap-1.5"><PiggyBank className="h-3.5 w-3.5 text-amber-700" />401(k) Annual</span>
                       </Label>
                       <div className="relative">
                         <DollarSign className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
@@ -221,7 +221,7 @@ export function PennsylvaniaCalculator() {
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="pa-hsa" className="text-sm font-medium">
-                        <span className="flex items-center gap-1.5"><Shield className="h-3.5 w-3.5 text-emerald-400" />HSA Annual</span>
+                        <span className="flex items-center gap-1.5"><Shield className="h-3.5 w-3.5 text-emerald-600" />HSA Annual</span>
                       </Label>
                       <div className="relative">
                         <DollarSign className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
@@ -241,13 +241,13 @@ export function PennsylvaniaCalculator() {
           <Card className="sticky top-20 border-emerald-500/20 bg-card/90 backdrop-blur-sm">
             <CardHeader className="pb-3">
               <CardTitle className="flex items-center gap-2 text-lg">
-                <TrendingUp className="h-5 w-5 text-emerald-400" />Pennsylvania Take-Home
+                <TrendingUp className="h-5 w-5 text-emerald-600" />Pennsylvania Take-Home
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
-              <div className="rounded-xl bg-emerald-500/10 p-4 text-center">
-                <p className="text-xs font-medium uppercase tracking-wider text-emerald-400/80">Net Take-Home ({periodLabel})</p>
-                <p className="mt-1 text-3xl font-bold text-emerald-400">{formatCurrency(result.netPerPeriod)}</p>
+              <div className="rounded-xl bg-emerald-600/10 p-4 text-center">
+                <p className="text-xs font-medium uppercase tracking-wider text-emerald-600/80">Net Take-Home ({periodLabel})</p>
+                <p className="mt-1 text-3xl font-bold text-emerald-600">{formatCurrency(result.netPerPeriod)}</p>
                 <p className="mt-1 text-xs text-muted-foreground">Annual Net: {formatCurrency(result.netAnnual)}</p>
               </div>
 
@@ -256,33 +256,33 @@ export function PennsylvaniaCalculator() {
               <div className="space-y-2.5 rounded-lg bg-muted/30 p-3">
                 <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground">Deductions</p>
                 <div className="flex items-center justify-between">
-                  <span className="flex items-center gap-1.5 text-sm text-muted-foreground"><TrendingDown className="h-3.5 w-3.5 text-red-400" />Federal Tax</span>
-                  <span className="text-sm font-medium text-red-400">-{formatCurrency(result.federalTax)}</span>
+                  <span className="flex items-center gap-1.5 text-sm text-muted-foreground"><TrendingDown className="h-3.5 w-3.5 text-red-600" />Federal Tax</span>
+                  <span className="text-sm font-medium text-red-600">-{formatCurrency(result.federalTax)}</span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="flex items-center gap-1.5 text-sm text-muted-foreground"><TrendingDown className="h-3.5 w-3.5 text-orange-400" />FICA</span>
-                  <span className="text-sm font-medium text-orange-400">-{formatCurrency(result.ficaTotal)}</span>
+                  <span className="flex items-center gap-1.5 text-sm text-muted-foreground"><TrendingDown className="h-3.5 w-3.5 text-orange-700" />FICA</span>
+                  <span className="text-sm font-medium text-orange-700">-{formatCurrency(result.ficaTotal)}</span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="flex items-center gap-1.5 text-sm text-muted-foreground"><TrendingDown className="h-3.5 w-3.5 text-amber-400" />PA State Tax (3.07%)</span>
-                  <span className="text-sm font-medium text-amber-400">-{formatCurrency(result.stateTax)}</span>
+                  <span className="flex items-center gap-1.5 text-sm text-muted-foreground"><TrendingDown className="h-3.5 w-3.5 text-amber-700" />PA State Tax (3.07%)</span>
+                  <span className="text-sm font-medium text-amber-700">-{formatCurrency(result.stateTax)}</span>
                 </div>
                 {result.retirement401k > 0 && (
                   <div className="flex items-center justify-between">
                     <span className="text-sm text-muted-foreground">401(k)</span>
-                    <span className="text-sm font-medium text-amber-400">-{formatCurrency(result.retirement401k)}</span>
+                    <span className="text-sm font-medium text-amber-700">-{formatCurrency(result.retirement401k)}</span>
                   </div>
                 )}
                 {result.hsaContribution > 0 && (
                   <div className="flex items-center justify-between">
                     <span className="text-sm text-muted-foreground">HSA</span>
-                    <span className="text-sm font-medium text-emerald-400">-{formatCurrency(result.hsaContribution)}</span>
+                    <span className="text-sm font-medium text-emerald-600">-{formatCurrency(result.hsaContribution)}</span>
                   </div>
                 )}
               </div>
 
               <div className="rounded-lg bg-amber-500/5 p-3">
-                <p className="text-xs font-medium text-amber-400">Pennsylvania Tax Breakdown</p>
+                <p className="text-xs font-medium text-amber-700">Pennsylvania Tax Breakdown</p>
                 <div className="mt-1.5 space-y-1 text-xs text-muted-foreground">
                   <div className="flex justify-between"><span>Gross Income</span><span>{formatCurrency(result.grossAnnual)}</span></div>
                   <div className="flex justify-between"><span>Less: Pre-tax Deductions</span><span>-{formatCurrency(retirement401k + hsaContribution)}</span></div>
@@ -290,7 +290,7 @@ export function PennsylvaniaCalculator() {
                   <div className="flex justify-between"><span>Less: Personal Exemption</span><span>None</span></div>
                   <div className="flex justify-between"><span>PA Taxable Income</span><span>{formatCurrency(paBreakdown.paTaxableIncome)}</span></div>
                   <div className="flex justify-between"><span>PA Tax Rate</span><span>3.07%</span></div>
-                  <div className="flex justify-between font-medium text-amber-400"><span>PA State Tax</span><span>{formatCurrency(paBreakdown.paTax)}</span></div>
+                  <div className="flex justify-between font-medium text-amber-700"><span>PA State Tax</span><span>{formatCurrency(paBreakdown.paTax)}</span></div>
                 </div>
                 <p className="mt-2 text-[10px] text-muted-foreground/70">
                   * Local earned income taxes (1–2% typically) may apply depending on your municipality
@@ -330,7 +330,7 @@ export function PennsylvaniaCalculator() {
             <TableBody>
               <TableRow>
                 <TableCell>State Income Tax Rate</TableCell>
-                <TableCell className="font-medium text-emerald-400">3.07% (Flat)</TableCell>
+                <TableCell className="font-medium text-emerald-600">3.07% (Flat)</TableCell>
                 <TableCell>One of the lowest flat rates in the US; applies to all taxable income</TableCell>
               </TableRow>
               <TableRow>
@@ -345,7 +345,7 @@ export function PennsylvaniaCalculator() {
               </TableRow>
               <TableRow>
                 <TableCell>Local Earned Income Tax</TableCell>
-                <TableCell className="font-medium text-amber-400">1–2%</TableCell>
+                <TableCell className="font-medium text-amber-700">1–2%</TableCell>
                 <TableCell>Varies by municipality; Philadelphia ~4%, Pittsburgh ~3%, most others 1–1.5%</TableCell>
               </TableRow>
               <TableRow>
@@ -360,7 +360,7 @@ export function PennsylvaniaCalculator() {
               </TableRow>
               <TableRow>
                 <TableCell>FICA Total Rate</TableCell>
-                <TableCell className="font-medium text-orange-400">7.65%</TableCell>
+                <TableCell className="font-medium text-orange-700">7.65%</TableCell>
                 <TableCell>6.2% SS + 1.45% Medicare (employee share)</TableCell>
               </TableRow>
             </TableBody>

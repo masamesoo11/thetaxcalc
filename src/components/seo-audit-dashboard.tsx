@@ -377,19 +377,19 @@ function getScoreLabel(score: number): string {
 function getSeverityIcon(severity: 'high' | 'medium' | 'low') {
   switch (severity) {
     case 'high':
-      return <XCircle className="h-4 w-4 text-red-400" />;
+      return <XCircle className="h-4 w-4 text-red-600" />;
     case 'medium':
-      return <AlertTriangle className="h-4 w-4 text-amber-400" />;
+      return <AlertTriangle className="h-4 w-4 text-amber-700" />;
     case 'low':
-      return <Info className="h-4 w-4 text-blue-400" />;
+      return <Info className="h-4 w-4 text-blue-700" />;
   }
 }
 
 function getSeverityBadge(severity: 'high' | 'medium' | 'low') {
   const styles = {
-    high: 'bg-red-500/15 text-red-400 border-red-500/30',
-    medium: 'bg-amber-500/15 text-amber-400 border-amber-500/30',
-    low: 'bg-blue-500/15 text-blue-400 border-blue-500/30',
+    high: 'bg-red-500/15 text-red-600 border-red-500/30',
+    medium: 'bg-amber-500/15 text-amber-700 border-amber-500/30',
+    low: 'bg-blue-500/15 text-blue-700 border-blue-500/30',
   };
   return (
     <span className={`text-[10px] font-semibold uppercase tracking-wider rounded-full px-2 py-0.5 border ${styles[severity]}`}>
@@ -400,9 +400,9 @@ function getSeverityBadge(severity: 'high' | 'medium' | 'low') {
 
 function getImpactBadge(impact: string) {
   const styles: Record<string, string> = {
-    HIGH: 'bg-red-500/15 text-red-400',
-    MEDIUM: 'bg-amber-500/15 text-amber-400',
-    LOW: 'bg-blue-500/15 text-blue-400',
+    HIGH: 'bg-red-500/15 text-red-600',
+    MEDIUM: 'bg-amber-500/15 text-amber-700',
+    LOW: 'bg-blue-500/15 text-blue-700',
   };
   return (
     <span className={`text-[10px] font-semibold uppercase tracking-wider rounded-full px-2 py-0.5 ${styles[impact] || styles.LOW}`}>
@@ -432,8 +432,8 @@ function CustomTooltip({ active, payload, label }: { active?: boolean; payload?:
 function SectionTitle({ icon: Icon, title, subtitle }: { icon: React.ElementType; title: string; subtitle?: string }) {
   return (
     <div className="flex items-center gap-3 mb-6">
-      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-500/10 border border-emerald-500/20">
-        <Icon className="h-5 w-5 text-emerald-400" />
+      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-600/10 border border-emerald-500/20">
+        <Icon className="h-5 w-5 text-emerald-600" />
       </div>
       <div>
         <h2 className="text-xl font-bold text-foreground">{title}</h2>
@@ -454,7 +454,7 @@ export default function SEOAuditDashboard() {
       <section className="relative overflow-hidden py-12 sm:py-16 bg-mesh-hero border-b border-border/20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center space-y-4">
-            <div className="inline-flex items-center gap-2 rounded-full bg-red-500/10 border border-red-500/20 px-4 py-1.5 text-sm text-red-400">
+            <div className="inline-flex items-center gap-2 rounded-full bg-red-500/10 border border-red-500/20 px-4 py-1.5 text-sm text-red-600">
               <AlertTriangle className="h-3.5 w-3.5" />
               SEO Audit Report — Critical Issues Found
             </div>
@@ -467,15 +467,15 @@ export default function SEOAuditDashboard() {
             </p>
             <div className="flex flex-wrap items-center justify-center gap-4 text-sm text-muted-foreground">
               <span className="flex items-center gap-1.5">
-                <Clock className="h-4 w-4 text-emerald-400" />
+                <Clock className="h-4 w-4 text-emerald-600" />
                 Audit Date: June 6, 2026
               </span>
               <span className="flex items-center gap-1.5">
-                <Globe className="h-4 w-4 text-emerald-400" />
+                <Globe className="h-4 w-4 text-emerald-600" />
                 thetaxcalc.com
               </span>
               <span className="flex items-center gap-1.5">
-                <FileText className="h-4 w-4 text-emerald-400" />
+                <FileText className="h-4 w-4 text-emerald-600" />
                 64 Pages Crawled
               </span>
             </div>
@@ -529,19 +529,19 @@ export default function SEOAuditDashboard() {
                 <p className="text-sm font-medium text-muted-foreground">Google Search Console (24h)</p>
                 <div className="grid grid-cols-2 gap-3">
                   <div className="rounded-lg bg-background/50 p-3">
-                    <p className="text-2xl font-bold text-red-400">2</p>
+                    <p className="text-2xl font-bold text-red-600">2</p>
                     <p className="text-[11px] text-muted-foreground">Total Clicks</p>
                   </div>
                   <div className="rounded-lg bg-background/50 p-3">
-                    <p className="text-2xl font-bold text-amber-400">61</p>
+                    <p className="text-2xl font-bold text-amber-700">61</p>
                     <p className="text-[11px] text-muted-foreground">Impressions</p>
                   </div>
                   <div className="rounded-lg bg-background/50 p-3">
-                    <p className="text-2xl font-bold text-red-400">3.3%</p>
+                    <p className="text-2xl font-bold text-red-600">3.3%</p>
                     <p className="text-[11px] text-muted-foreground">Avg CTR</p>
                   </div>
                   <div className="rounded-lg bg-background/50 p-3">
-                    <p className="text-2xl font-bold text-red-400">48+</p>
+                    <p className="text-2xl font-bold text-red-600">48+</p>
                     <p className="text-[11px] text-muted-foreground">Avg Position</p>
                   </div>
                 </div>
@@ -555,22 +555,22 @@ export default function SEOAuditDashboard() {
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
-                      <XCircle className="h-4 w-4 text-red-400" />
+                      <XCircle className="h-4 w-4 text-red-600" />
                       <span className="text-sm text-foreground">High Priority</span>
                     </div>
-                    <span className="text-lg font-bold text-red-400">1</span>
+                    <span className="text-lg font-bold text-red-600">1</span>
                   </div>
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
-                      <AlertTriangle className="h-4 w-4 text-amber-400" />
+                      <AlertTriangle className="h-4 w-4 text-amber-700" />
                       <span className="text-sm text-foreground">Medium Priority</span>
                     </div>
-                    <span className="text-lg font-bold text-amber-400">3</span>
+                    <span className="text-lg font-bold text-amber-700">3</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <Info className="h-4 w-4 text-blue-400" />
+                    <Info className="h-4 w-4 text-blue-700" />
                     <span className="text-sm text-foreground">Low Priority</span>
-                    <span className="ml-auto text-lg font-bold text-blue-400">8</span>
+                    <span className="ml-auto text-lg font-bold text-blue-700">8</span>
                   </div>
                 </div>
                 <div className="pt-2 border-t border-border/20">
@@ -755,7 +755,7 @@ export default function SEOAuditDashboard() {
                   );
                 })}
                 <div className="rounded-lg bg-red-500/5 border border-red-500/20 p-3">
-                  <p className="text-xs text-red-400 font-medium">⚠ Mobile has 0 clicks from 8 impressions</p>
+                  <p className="text-xs text-red-600 font-medium">⚠ Mobile has 0 clicks from 8 impressions</p>
                   <p className="text-[11px] text-muted-foreground mt-1">Mobile-friendliness and mobile speed may be impacting CTR.</p>
                 </div>
               </CardContent>
@@ -787,12 +787,12 @@ export default function SEOAuditDashboard() {
                           <td className="py-2.5 px-4 text-right font-semibold text-foreground">{page.clicks}</td>
                           <td className="py-2.5 px-4 text-right text-muted-foreground">{page.impressions}</td>
                           <td className="py-2.5 px-4 text-right">
-                            <span className={page.ctr > 0 ? 'text-emerald-400' : 'text-muted-foreground'}>
+                            <span className={page.ctr > 0 ? 'text-emerald-600' : 'text-muted-foreground'}>
                               {page.ctr}%
                             </span>
                           </td>
                           <td className="py-2.5 px-4 text-right">
-                            <span className={page.position <= 10 ? 'text-emerald-400' : page.position <= 30 ? 'text-amber-400' : 'text-red-400'}>
+                            <span className={page.position <= 10 ? 'text-emerald-600' : page.position <= 30 ? 'text-amber-700' : 'text-red-600'}>
                               #{Math.round(page.position * 10) / 10}
                             </span>
                           </td>
@@ -825,8 +825,8 @@ export default function SEOAuditDashboard() {
               { title: 'Content Freshness', desc: 'Updated for 2026 tax year, references IRS publications and state revenue departments' },
               { title: 'Next.js Architecture', desc: 'SSR/SSG capabilities, good foundation for Core Web Vitals optimization' },
             ].map((item, i) => (
-              <div key={i} className="flex items-start gap-3 rounded-lg border border-emerald-500/10 bg-emerald-500/5 p-4">
-                <CheckCircle2 className="h-4 w-4 text-emerald-400 shrink-0 mt-0.5" />
+              <div key={i} className="flex items-start gap-3 rounded-lg border border-emerald-500/10 bg-emerald-600/5 p-4">
+                <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
                 <div>
                   <p className="text-sm font-medium text-foreground">{item.title}</p>
                   <p className="text-xs text-muted-foreground mt-0.5">{item.desc}</p>
@@ -866,8 +866,8 @@ export default function SEOAuditDashboard() {
                     <div className="pt-3">
                       <p className="text-sm text-muted-foreground leading-relaxed">{issue.description}</p>
                     </div>
-                    <div className="rounded-lg bg-emerald-500/5 border border-emerald-500/10 p-3">
-                      <p className="text-xs font-semibold text-emerald-400 mb-1">How to Fix:</p>
+                    <div className="rounded-lg bg-emerald-600/5 border border-emerald-500/10 p-3">
+                      <p className="text-xs font-semibold text-emerald-600 mb-1">How to Fix:</p>
                       <p className="text-xs text-muted-foreground">{issue.fix}</p>
                     </div>
                   </div>
@@ -899,7 +899,7 @@ export default function SEOAuditDashboard() {
                       {TARGET_KEYWORDS.map((kw, i) => {
                         const difficultyNum = kw.difficulty;
                         const opportunity = difficultyNum < 30 ? 'Easy Win' : difficultyNum < 50 ? 'Achievable' : difficultyNum < 70 ? 'Competitive' : 'Hard';
-                        const oppColor = difficultyNum < 30 ? 'text-emerald-400' : difficultyNum < 50 ? 'text-amber-400' : difficultyNum < 70 ? 'text-orange-400' : 'text-red-400';
+                        const oppColor = difficultyNum < 30 ? 'text-emerald-600' : difficultyNum < 50 ? 'text-amber-700' : difficultyNum < 70 ? 'text-orange-700' : 'text-red-600';
                         return (
                           <tr key={i} className="border-b border-border/10 hover:bg-muted/5">
                             <td className="py-2.5 px-4 font-medium text-foreground">{kw.keyword}</td>
@@ -911,7 +911,7 @@ export default function SEOAuditDashboard() {
                               </div>
                             </td>
                             <td className="py-2.5 px-4 text-center">
-                              <span className="text-red-400 font-medium">{kw.currentPosition}</span>
+                              <span className="text-red-600 font-medium">{kw.currentPosition}</span>
                             </td>
                             <td className="py-2.5 px-4 text-center">
                               <span className={`text-xs font-semibold ${oppColor}`}>{opportunity}</span>
@@ -927,18 +927,18 @@ export default function SEOAuditDashboard() {
           </Card>
 
           <div className="mt-4 grid gap-4 sm:grid-cols-3">
-            <div className="rounded-lg border border-emerald-500/20 bg-emerald-500/5 p-4 text-center">
-              <p className="text-2xl font-bold text-emerald-400">3</p>
+            <div className="rounded-lg border border-emerald-500/20 bg-emerald-600/5 p-4 text-center">
+              <p className="text-2xl font-bold text-emerald-600">3</p>
               <p className="text-xs text-muted-foreground mt-1">Easy Win Keywords</p>
               <p className="text-[11px] text-muted-foreground">Bonus, lottery, DoorDash calculators</p>
             </div>
             <div className="rounded-lg border border-amber-500/20 bg-amber-500/5 p-4 text-center">
-              <p className="text-2xl font-bold text-amber-400">3</p>
+              <p className="text-2xl font-bold text-amber-700">3</p>
               <p className="text-xs text-muted-foreground mt-1">Achievable Keywords</p>
               <p className="text-[11px] text-muted-foreground">Self-employment, withholding, overtime</p>
             </div>
             <div className="rounded-lg border border-red-500/20 bg-red-500/5 p-4 text-center">
-              <p className="text-2xl font-bold text-red-400">9</p>
+              <p className="text-2xl font-bold text-red-600">9</p>
               <p className="text-xs text-muted-foreground mt-1">Competitive/Hard Keywords</p>
               <p className="text-[11px] text-muted-foreground">Paycheck, tax, payroll, income tax calculators</p>
             </div>
@@ -967,17 +967,17 @@ export default function SEOAuditDashboard() {
                       {COMPETITORS.map((comp, i) => (
                         <tr
                           key={i}
-                          className={`border-b border-border/10 ${comp.isUs ? 'bg-emerald-500/5' : 'hover:bg-muted/5'}`}
+                          className={`border-b border-border/10 ${comp.isUs ? 'bg-emerald-600/5' : 'hover:bg-muted/5'}`}
                         >
                           <td className="py-2.5 px-4">
                             <div className="flex items-center gap-2">
-                              {comp.isUs && <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 rounded-full px-2 py-0.5">YOU</span>}
-                              <span className={`font-medium ${comp.isUs ? 'text-emerald-400' : 'text-foreground'}`}>{comp.name}</span>
+                              {comp.isUs && <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-600 bg-emerald-600/10 rounded-full px-2 py-0.5">YOU</span>}
+                              <span className={`font-medium ${comp.isUs ? 'text-emerald-600' : 'text-foreground'}`}>{comp.name}</span>
                             </div>
                             <p className="text-[11px] text-muted-foreground">{comp.domain}</p>
                           </td>
                           <td className="py-2.5 px-4 text-center">
-                            <span className={comp.domainAuth >= 70 ? 'text-red-400' : comp.domainAuth >= 40 ? 'text-amber-400' : 'text-emerald-400'}>
+                            <span className={comp.domainAuth >= 70 ? 'text-red-600' : comp.domainAuth >= 40 ? 'text-amber-700' : 'text-emerald-600'}>
                               {comp.domainAuth}
                             </span>
                           </td>
@@ -995,7 +995,7 @@ export default function SEOAuditDashboard() {
 
           <div className="mt-4 rounded-lg border border-amber-500/20 bg-amber-500/5 p-4">
             <div className="flex items-start gap-3">
-              <AlertTriangle className="h-5 w-5 text-amber-400 shrink-0 mt-0.5" />
+              <AlertTriangle className="h-5 w-5 text-amber-700 shrink-0 mt-0.5" />
               <div>
                 <p className="text-sm font-medium text-foreground">Key Insight: Closest Competitor Gap</p>
                 <p className="text-sm text-muted-foreground mt-1">
@@ -1025,9 +1025,9 @@ export default function SEOAuditDashboard() {
                   ].map((schema, i) => (
                     <div key={i} className="flex items-center gap-2 text-sm">
                       {schema.status === 'present' ? (
-                        <CheckCircle2 className="h-4 w-4 text-emerald-400 shrink-0" />
+                        <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0" />
                       ) : (
-                        <AlertTriangle className="h-4 w-4 text-amber-400 shrink-0" />
+                        <AlertTriangle className="h-4 w-4 text-amber-700 shrink-0" />
                       )}
                       <span className="text-foreground font-medium">{schema.type}</span>
                       <span className="text-xs text-muted-foreground ml-auto">{schema.note}</span>
@@ -1050,7 +1050,7 @@ export default function SEOAuditDashboard() {
                     { type: 'FinancialProduct', note: 'Tax calculation tools — finance-specific schema' },
                   ].map((schema, i) => (
                     <div key={i} className="flex items-center gap-2 text-sm">
-                      <XCircle className="h-4 w-4 text-red-400 shrink-0" />
+                      <XCircle className="h-4 w-4 text-red-600 shrink-0" />
                       <span className="text-foreground font-medium">{schema.type}</span>
                       <span className="text-xs text-muted-foreground ml-auto">{schema.note}</span>
                     </div>
@@ -1070,7 +1070,7 @@ export default function SEOAuditDashboard() {
               <Card key={action.priority} className="border-border/30 bg-card/50 overflow-hidden">
                 <CardContent className="p-6">
                   <div className="flex items-start gap-4">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 font-bold text-lg shrink-0">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-600/10 border border-emerald-500/20 text-emerald-600 font-bold text-lg shrink-0">
                       {action.priority}
                     </div>
                     <div className="flex-1 min-w-0 space-y-3">
@@ -1090,7 +1090,7 @@ export default function SEOAuditDashboard() {
                         <p className="text-xs font-semibold text-foreground">Steps:</p>
                         {action.steps.map((step, i) => (
                           <div key={i} className="flex items-start gap-2 text-xs text-muted-foreground">
-                            <span className="flex h-5 w-5 items-center justify-center rounded-full bg-emerald-500/10 text-emerald-400 font-semibold shrink-0 text-[10px]">
+                            <span className="flex h-5 w-5 items-center justify-center rounded-full bg-emerald-600/10 text-emerald-600 font-semibold shrink-0 text-[10px]">
                               {i + 1}
                             </span>
                             {step}
@@ -1167,18 +1167,18 @@ export default function SEOAuditDashboard() {
 
         {/* ─── Summary ────────────────────────────────────────────── */}
         <section className="pb-8">
-          <Card className="border-emerald-500/20 bg-emerald-500/5">
+          <Card className="border-emerald-500/20 bg-emerald-600/5">
             <CardContent className="p-6">
               <div className="flex items-start gap-3">
-                <Shield className="h-6 w-6 text-emerald-400 shrink-0 mt-0.5" />
+                <Shield className="h-6 w-6 text-emerald-600 shrink-0 mt-0.5" />
                 <div className="space-y-3">
                   <h3 className="text-lg font-bold text-foreground">Bottom Line</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">
                     TheTaxCalc has a <strong className="text-foreground">solid technical foundation</strong> and
                     <strong className="text-foreground"> quality content</strong>, but is invisible in search because of three critical gaps:
-                    <strong className="text-red-400"> zero backlinks</strong>,
-                    <strong className="text-red-400"> no search visibility</strong>, and
-                    <strong className="text-amber-400"> limited state coverage</strong>.
+                    <strong className="text-red-600"> zero backlinks</strong>,
+                    <strong className="text-red-600"> no search visibility</strong>, and
+                    <strong className="text-amber-700"> limited state coverage</strong>.
                   </p>
                   <p className="text-sm text-muted-foreground leading-relaxed">
                     The good news: these are all fixable. Your direct competitor paychecktaxcalculator.net (DA 22) proves
@@ -1187,8 +1187,8 @@ export default function SEOAuditDashboard() {
                     6-12 months. The content is already there — you just need to make it findable.
                   </p>
                   <div className="flex items-center gap-2 pt-2">
-                    <ArrowRight className="h-4 w-4 text-emerald-400" />
-                    <span className="text-sm font-medium text-emerald-400">Start with Action #1: Schema Markup — highest impact, medium effort</span>
+                    <ArrowRight className="h-4 w-4 text-emerald-600" />
+                    <span className="text-sm font-medium text-emerald-600">Start with Action #1: Schema Markup — highest impact, medium effort</span>
                   </div>
                 </div>
               </div>

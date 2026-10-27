@@ -1,13 +1,16 @@
 {
   "name": "TheTaxCalc",
   "short_name": "TheTaxCalc",
-  "description": "Free 2026 tax calculators — paycheck, mortgage, 401(k), capital gains, and self-employment.",
+  "description": "Free 2026 tax calculators \u2014 paycheck, mortgage, 401(k), capital gains, and self-employment.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#0a0f1e",
-  "theme_color": "#0a0f1e",
+  "background_color": "#fafaf9",
+  "theme_color": "#fafaf9",
   "orientation": "portrait-primary",
-  "categories": ["finance", "utilities"],
+  "categories": [
+    "finance",
+    "utilities"
+  ],
   "icons": [
     {
       "src": "/icon?s=48",

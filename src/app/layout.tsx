@@ -161,8 +161,11 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // A+ theme: light warm-white site-wide (Task 33). The legacy .dark class was
+  // removed — inner pages, header and footer now render the A+ light +
+  // champagne-gold token set from :root in globals.css.
   return (
-    <html lang="en-US" className="dark" suppressHydrationWarning>
+    <html lang="en-US" suppressHydrationWarning>
       <head>
         {/* Resource hints — preconnect to critical third-party origins */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -178,7 +181,7 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://www.irs.gov" />
         <link rel="dns-prefetch" href="https://taxfoundation.org" />
         <link rel="manifest" href="/manifest.json" />
-        <meta name="theme-color" content="#0a0f1e" />
+        <meta name="theme-color" content="#fafaf9" />
 
         {/* Google AdSense — site verification + loader (static so crawlers
             see it in the raw HTML; data-adsense-client also lets

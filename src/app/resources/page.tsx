@@ -319,8 +319,8 @@ function SectionHeader({
     <div id={id} className="scroll-mt-24 mb-6">
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
         <div className="flex items-center gap-3">
-          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-emerald-500/10">
-            <Icon className="h-5 w-5 text-emerald-400" />
+          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-emerald-600/10">
+            <Icon className="h-5 w-5 text-emerald-600" />
           </div>
           <h2 className="text-2xl font-bold text-foreground">
             {title} <span className="gradient-text">{highlight}</span>
@@ -335,7 +335,7 @@ function SectionHeader({
 // ─── Table Styles ─────────────────────────────────────────────────────────────
 
 const tableHeaderClass =
-  'px-4 py-3 text-left text-xs font-semibold text-emerald-400 uppercase tracking-wider bg-emerald-500/5';
+  'px-4 py-3 text-left text-xs font-semibold text-emerald-600 uppercase tracking-wider bg-emerald-600/5';
 const tableCellClass = 'px-4 py-3 text-sm text-foreground';
 const tableAltCellClass = 'px-4 py-3 text-sm text-muted-foreground';
 
@@ -357,7 +357,7 @@ export default function ResourcesPage() {
 
       {/* ─── Hero Section ─────────────────────────────────────────────────── */}
       <section className="mb-12 text-center">
-        <div className="inline-flex items-center gap-2 rounded-full bg-emerald-500/10 border border-emerald-500/20 px-4 py-1.5 text-sm text-emerald-400 mb-6">
+        <div className="inline-flex items-center gap-2 rounded-full bg-emerald-600/10 border border-emerald-500/20 px-4 py-1.5 text-sm text-emerald-600 mb-6">
           <Database className="h-3.5 w-3.5" />
           Free Reference Data — Cite & Link Freely
         </div>
@@ -373,21 +373,21 @@ export default function ResourcesPage() {
         <div className="flex flex-wrap items-center justify-center gap-3 mt-8">
           <Link
             href="#federal-tax-brackets"
-            className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-600 to-emerald-500 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/30 transition-all hover:scale-[1.02]"
+            className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-700 to-emerald-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/30 transition-all hover:scale-[1.02]"
           >
             <TrendingUp className="h-4 w-4" />
             Tax Brackets
           </Link>
           <Link
             href="#state-tax-rates"
-            className="inline-flex items-center gap-2 rounded-xl border border-border/50 bg-card/50 px-6 py-3 text-sm font-medium text-foreground hover:border-emerald-500/30 hover:text-emerald-400 transition-all"
+            className="inline-flex items-center gap-2 rounded-xl border border-border/50 bg-card/50 px-6 py-3 text-sm font-medium text-foreground hover:border-emerald-500/30 hover:text-emerald-600 transition-all"
           >
             <Landmark className="h-4 w-4" />
             State Rates
           </Link>
           <Link
             href="#fica-rates"
-            className="inline-flex items-center gap-2 rounded-xl border border-border/50 bg-card/50 px-6 py-3 text-sm font-medium text-foreground hover:border-emerald-500/30 hover:text-emerald-400 transition-all"
+            className="inline-flex items-center gap-2 rounded-xl border border-border/50 bg-card/50 px-6 py-3 text-sm font-medium text-foreground hover:border-emerald-500/30 hover:text-emerald-600 transition-all"
           >
             <DollarSign className="h-4 w-4" />
             FICA Rates
@@ -408,7 +408,7 @@ export default function ResourcesPage() {
               key={stat.label}
               className="rounded-xl border border-border/30 bg-card/50 p-5 text-center"
             >
-              <p className="text-2xl font-bold text-emerald-400">{stat.value}</p>
+              <p className="text-2xl font-bold text-emerald-600">{stat.value}</p>
               <p className="text-sm font-semibold text-foreground mt-1">{stat.label}</p>
               <p className="text-xs text-muted-foreground mt-0.5">{stat.detail}</p>
             </div>
@@ -431,7 +431,7 @@ export default function ResourcesPage() {
               key={filingStatus}
               className="rounded-xl border border-border/30 bg-card/50 overflow-hidden"
             >
-              <div className="px-5 py-3 border-b border-border/20 bg-emerald-500/5">
+              <div className="px-5 py-3 border-b border-border/20 bg-emerald-600/5">
                 <h3 className="text-base font-semibold text-foreground">{filingStatus}</h3>
               </div>
               <div className="overflow-x-auto">
@@ -447,7 +447,7 @@ export default function ResourcesPage() {
                       <tr key={i} className="border-b border-border/10 last:border-0 hover:bg-muted/5 transition-colors">
                         <td className={tableCellClass}>{bracket.range}</td>
                         <td className="px-4 py-3 text-sm">
-                          <span className="inline-flex items-center rounded-md bg-emerald-500/10 px-2.5 py-0.5 text-sm font-semibold text-emerald-400">
+                          <span className="inline-flex items-center rounded-md bg-emerald-600/10 px-2.5 py-0.5 text-sm font-semibold text-emerald-600">
                             {bracket.rate}
                           </span>
                         </td>
@@ -463,7 +463,7 @@ export default function ResourcesPage() {
           Tax brackets are marginal — only the income within each bracket is taxed at that rate.
           For example, a single filer earning $50,000 pays 10% on the first $11,925, 12% on the
           next $36,550, and so on. Use our{' '}
-          <Link href="/paycheck-calculator" className="text-emerald-400 hover:text-emerald-300 underline underline-offset-2">
+          <Link href="/paycheck-calculator" className="text-emerald-600 hover:text-emerald-700 underline underline-offset-2">
             paycheck calculator
           </Link>{' '}
           to compute your actual tax.
@@ -501,8 +501,8 @@ export default function ResourcesPage() {
                     <td className={tableCellClass}>
                       <span className={`inline-flex items-center rounded-md px-2.5 py-0.5 text-sm font-semibold ${
                         state.rate === '0%'
-                          ? 'bg-emerald-500/10 text-emerald-400'
-                          : 'bg-amber-500/10 text-amber-400'
+                          ? 'bg-emerald-600/10 text-emerald-600'
+                          : 'bg-amber-500/10 text-amber-700'
                       }`}>
                         {state.rate}
                       </span>
@@ -510,10 +510,10 @@ export default function ResourcesPage() {
                     <td className={tableAltCellClass}>
                       <span className={`inline-flex items-center rounded-md px-2 py-0.5 text-xs font-medium ${
                         state.type === 'None'
-                          ? 'bg-emerald-500/10 text-emerald-400'
+                          ? 'bg-emerald-600/10 text-emerald-600'
                           : state.type === 'Flat'
-                          ? 'bg-blue-500/10 text-blue-400'
-                          : 'bg-purple-500/10 text-purple-400'
+                          ? 'bg-blue-500/10 text-blue-700'
+                          : 'bg-purple-500/10 text-purple-700'
                       }`}>
                         {state.type}
                       </span>
@@ -524,7 +524,7 @@ export default function ResourcesPage() {
                     <td className={tableCellClass}>
                       <Link
                         href={state.calculator}
-                        className="inline-flex items-center gap-1 text-xs font-medium text-emerald-400 hover:text-emerald-300 transition-colors"
+                        className="inline-flex items-center gap-1 text-xs font-medium text-emerald-600 hover:text-emerald-700 transition-colors"
                       >
                         <Calculator className="h-3 w-3" />
                         Open
@@ -536,16 +536,16 @@ export default function ResourcesPage() {
             </table>
           </div>
         </div>
-        <div className="mt-4 flex items-start gap-2 rounded-lg border border-emerald-500/20 bg-emerald-500/5 p-4 text-xs text-muted-foreground leading-relaxed">
-          <Info className="h-4 w-4 text-emerald-400 shrink-0 mt-0.5" />
+        <div className="mt-4 flex items-start gap-2 rounded-lg border border-emerald-500/20 bg-emerald-600/5 p-4 text-xs text-muted-foreground leading-relaxed">
+          <Info className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
           <p>
             We cover all 50 states in detail with full paycheck calculators. For sales tax rates
             across all 50 states, visit our{' '}
-            <Link href="/sales-tax-calculator" className="text-emerald-400 hover:text-emerald-300 underline underline-offset-2">
+            <Link href="/sales-tax-calculator" className="text-emerald-600 hover:text-emerald-700 underline underline-offset-2">
               sales tax calculator
             </Link>{' '}
             or individual state pages (e.g.,{' '}
-            <Link href="/sales-tax-calculator/california" className="text-emerald-400 hover:text-emerald-300 underline underline-offset-2">
+            <Link href="/sales-tax-calculator/california" className="text-emerald-600 hover:text-emerald-700 underline underline-offset-2">
               California sales tax
             </Link>).
           </p>
@@ -579,7 +579,7 @@ export default function ResourcesPage() {
                       <span className="font-semibold">{row.component}</span>
                     </td>
                     <td className="px-4 py-3 text-sm">
-                      <span className="inline-flex items-center rounded-md bg-emerald-500/10 px-2.5 py-0.5 text-sm font-semibold text-emerald-400">
+                      <span className="inline-flex items-center rounded-md bg-emerald-600/10 px-2.5 py-0.5 text-sm font-semibold text-emerald-600">
                         {row.rate}
                       </span>
                     </td>
@@ -598,12 +598,12 @@ export default function ResourcesPage() {
         <div className="mt-4 grid gap-3 sm:grid-cols-2">
           <div className="rounded-lg border border-border/30 bg-card/50 p-4">
             <p className="text-xs font-semibold text-foreground mb-1">Combined Employee FICA</p>
-            <p className="text-lg font-bold text-emerald-400">7.65%</p>
+            <p className="text-lg font-bold text-emerald-600">7.65%</p>
             <p className="text-xs text-muted-foreground">6.2% SS + 1.45% Medicare</p>
           </div>
           <div className="rounded-lg border border-border/30 bg-card/50 p-4">
             <p className="text-xs font-semibold text-foreground mb-1">Self-Employment Tax</p>
-            <p className="text-lg font-bold text-emerald-400">15.3%</p>
+            <p className="text-lg font-bold text-emerald-600">15.3%</p>
             <p className="text-xs text-muted-foreground">On 92.35% of net SE income</p>
           </div>
         </div>
@@ -634,7 +634,7 @@ export default function ResourcesPage() {
                       <span className={i === 4 ? 'text-muted-foreground' : 'font-semibold'}>{row.filingStatus}</span>
                     </td>
                     <td className="px-4 py-3 text-sm">
-                      <span className="inline-flex items-center rounded-md bg-emerald-500/10 px-2.5 py-0.5 text-sm font-semibold text-emerald-400">
+                      <span className="inline-flex items-center rounded-md bg-emerald-600/10 px-2.5 py-0.5 text-sm font-semibold text-emerald-600">
                         {row.amount}
                       </span>
                     </td>
@@ -681,7 +681,7 @@ export default function ResourcesPage() {
                       {row.limit === '—' ? (
                         <span className="text-muted-foreground">—</span>
                       ) : (
-                        <span className="inline-flex items-center rounded-md bg-emerald-500/10 px-2.5 py-0.5 text-sm font-semibold text-emerald-400">
+                        <span className="inline-flex items-center rounded-md bg-emerald-600/10 px-2.5 py-0.5 text-sm font-semibold text-emerald-600">
                           {row.limit}
                         </span>
                       )}
@@ -701,7 +701,7 @@ export default function ResourcesPage() {
         <p className="mt-4 text-xs text-muted-foreground leading-relaxed">
           Contribution limits are per-person. Employer matches do not count toward the employee
           limit but are subject to the total annual addition limit ($69,000 for 2026). Use our{' '}
-          <Link href="/401k-retirement-calculator" className="text-emerald-400 hover:text-emerald-300 underline underline-offset-2">
+          <Link href="/401k-retirement-calculator" className="text-emerald-600 hover:text-emerald-700 underline underline-offset-2">
             401(k) calculator
           </Link>{' '}
           to project your retirement savings.
@@ -731,7 +731,7 @@ export default function ResourcesPage() {
                   <tr key={i} className={`border-b border-border/10 last:border-0 hover:bg-muted/5 transition-colors ${i % 2 === 1 ? 'bg-muted/[0.02]' : ''}`}>
                     <td className="px-4 py-3 text-sm whitespace-nowrap">
                       <span className="inline-flex items-center gap-1.5 font-semibold text-foreground">
-                        <Calendar className="h-3.5 w-3.5 text-emerald-400 shrink-0" />
+                        <Calendar className="h-3.5 w-3.5 text-emerald-600 shrink-0" />
                         {row.date}
                       </span>
                     </td>
@@ -753,10 +753,10 @@ export default function ResourcesPage() {
 
       {/* ─── Source & Methodology ─────────────────────────────────────────── */}
       <section className="mb-12">
-        <div className="rounded-xl border border-emerald-500/20 bg-emerald-500/5 p-6 sm:p-8">
+        <div className="rounded-xl border border-emerald-500/20 bg-emerald-600/5 p-6 sm:p-8">
           <div className="flex items-center gap-3 mb-4">
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-emerald-500/10">
-              <ShieldCheck className="h-5 w-5 text-emerald-400" />
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-emerald-600/10">
+              <ShieldCheck className="h-5 w-5 text-emerald-600" />
             </div>
             <h2 className="text-2xl font-bold text-foreground">
               Source &amp; <span className="gradient-text">Methodology</span>
@@ -770,42 +770,42 @@ export default function ResourcesPage() {
             </p>
             <ul className="space-y-2 ml-4">
               <li className="flex items-start gap-2">
-                <span className="h-1.5 w-1.5 rounded-full bg-emerald-500/60 shrink-0 mt-2" />
+                <span className="h-1.5 w-1.5 rounded-full bg-emerald-600/60 shrink-0 mt-2" />
                 <span>
                   <strong className="text-foreground">Federal tax brackets</strong> — IRS Revenue
                   Procedure for annual inflation adjustments (Rev. Proc. 2025-32)
                 </span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="h-1.5 w-1.5 rounded-full bg-emerald-500/60 shrink-0 mt-2" />
+                <span className="h-1.5 w-1.5 rounded-full bg-emerald-600/60 shrink-0 mt-2" />
                 <span>
                   <strong className="text-foreground">FICA rates &amp; wage base</strong> — Social
                   Security Administration and CMS publications
                 </span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="h-1.5 w-1.5 rounded-full bg-emerald-500/60 shrink-0 mt-2" />
+                <span className="h-1.5 w-1.5 rounded-full bg-emerald-600/60 shrink-0 mt-2" />
                 <span>
                   <strong className="text-foreground">State income tax rates</strong> — Each
                   state&apos;s Department of Revenue official publications
                 </span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="h-1.5 w-1.5 rounded-full bg-emerald-500/60 shrink-0 mt-2" />
+                <span className="h-1.5 w-1.5 rounded-full bg-emerald-600/60 shrink-0 mt-2" />
                 <span>
                   <strong className="text-foreground">Standard deductions</strong> — IRS annual
                   inflation adjustments
                 </span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="h-1.5 w-1.5 rounded-full bg-emerald-500/60 shrink-0 mt-2" />
+                <span className="h-1.5 w-1.5 rounded-full bg-emerald-600/60 shrink-0 mt-2" />
                 <span>
                   <strong className="text-foreground">Retirement contribution limits</strong> — IRS
                   cost-of-living adjustments and SECURE 2.0 provisions
                 </span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="h-1.5 w-1.5 rounded-full bg-emerald-500/60 shrink-0 mt-2" />
+                <span className="h-1.5 w-1.5 rounded-full bg-emerald-600/60 shrink-0 mt-2" />
                 <span>
                   <strong className="text-foreground">Tax deadlines</strong> — IRS published tax
                   calendar
@@ -824,8 +824,8 @@ export default function ResourcesPage() {
       {/* ─── FAQ Section ──────────────────────────────────────────────────── */}
       <section className="mb-12">
         <div className="flex items-center gap-3 mb-6">
-          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-500/10">
-            <BookOpen className="h-5 w-5 text-emerald-400" />
+          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-600/10">
+            <BookOpen className="h-5 w-5 text-emerald-600" />
           </div>
           <h2 className="text-2xl font-bold text-foreground">
             Tax Data <span className="gradient-text">FAQ</span>
@@ -858,7 +858,7 @@ export default function ResourcesPage() {
           highlight="States 2026"
           citeTitle="States With No Income Tax in 2026"
         />
-        <div className="rounded-xl border border-emerald-500/20 bg-emerald-500/5 p-6">
+        <div className="rounded-xl border border-emerald-500/20 bg-emerald-600/5 p-6">
           <p className="text-sm text-muted-foreground leading-relaxed mb-4">
             As of 2026, <strong className="text-foreground">nine U.S. states</strong> levy no state
             income tax on wages. Two of these states (New Hampshire) tax dividends and interest but
@@ -881,7 +881,7 @@ export default function ResourcesPage() {
                 key={item.abbr}
                 className="flex items-start gap-3 rounded-lg border border-emerald-500/15 bg-background/40 p-3"
               >
-                <span className="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-emerald-500/10 text-xs font-bold text-emerald-400">
+                <span className="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-emerald-600/10 text-xs font-bold text-emerald-600">
                   {item.abbr}
                 </span>
                 <div className="min-w-0">
@@ -890,7 +890,7 @@ export default function ResourcesPage() {
                   {item.calculator && (
                     <Link
                       href={item.calculator}
-                      className="text-xs text-emerald-400 hover:text-emerald-300 underline underline-offset-2 mt-0.5 inline-block"
+                      className="text-xs text-emerald-600 hover:text-emerald-700 underline underline-offset-2 mt-0.5 inline-block"
                     >
                       Calculator →
                     </Link>
@@ -902,7 +902,7 @@ export default function ResourcesPage() {
           <p className="text-xs text-muted-foreground leading-relaxed mt-4">
             Note: Even in states with no income tax, you still pay federal income tax and FICA (7.65% employee).
             Some states compensate with higher sales or property taxes. Use our{' '}
-            <Link href="/compare" className="text-emerald-400 hover:text-emerald-300 underline underline-offset-2">
+            <Link href="/compare" className="text-emerald-600 hover:text-emerald-700 underline underline-offset-2">
               state comparison tool
             </Link>{' '}
             to see the full picture.
@@ -911,8 +911,8 @@ export default function ResourcesPage() {
       </section>
 
       {/* ─── Bottom CTA ───────────────────────────────────────────────────── */}
-      <section className="mb-12 rounded-xl border border-emerald-500/20 bg-emerald-500/5 p-8 text-center">
-        <Database className="h-8 w-8 text-emerald-400 mx-auto mb-4" />
+      <section className="mb-12 rounded-xl border border-emerald-500/20 bg-emerald-600/5 p-8 text-center">
+        <Database className="h-8 w-8 text-emerald-600 mx-auto mb-4" />
         <h2 className="text-2xl font-bold text-foreground mb-3">
           Use This Data Freely
         </h2>
@@ -924,14 +924,14 @@ export default function ResourcesPage() {
         <div className="flex flex-wrap items-center justify-center gap-3">
           <Link
             href="/widgets"
-            className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-600 to-emerald-500 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/30 transition-all hover:scale-[1.02]"
+            className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-700 to-emerald-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/30 transition-all hover:scale-[1.02]"
           >
             <Calculator className="h-4 w-4" />
             Embed Calculators & Data
           </Link>
           <Link
             href="/federal-tax-brackets"
-            className="inline-flex items-center gap-2 rounded-xl border border-border/50 bg-card/50 px-6 py-3 text-sm font-medium text-foreground hover:border-emerald-500/30 hover:text-emerald-400 transition-all"
+            className="inline-flex items-center gap-2 rounded-xl border border-border/50 bg-card/50 px-6 py-3 text-sm font-medium text-foreground hover:border-emerald-500/30 hover:text-emerald-600 transition-all"
           >
             <ExternalLink className="h-4 w-4" />
             Full Bracket Details
@@ -942,7 +942,7 @@ export default function ResourcesPage() {
       {/* ─── Related Tools ────────────────────────────────────────────────── */}
       <section className="border-t border-border/20 pt-10">
         <h2 className="text-lg font-bold text-foreground mb-6">
-          Related <span className="text-emerald-400">Tools &amp; Resources</span>
+          Related <span className="text-emerald-600">Tools &amp; Resources</span>
         </h2>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {/* Featured Calculators */}
@@ -960,9 +960,9 @@ export default function ResourcesPage() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-400 transition-colors"
+                  className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-600 transition-colors"
                 >
-                  <span className="h-1 w-1 rounded-full bg-emerald-500/40 shrink-0 group-hover:bg-emerald-400 transition-colors" />
+                  <span className="h-1 w-1 rounded-full bg-emerald-600/40 shrink-0 group-hover:bg-emerald-500 transition-colors" />
                   {item.label}
                 </Link>
               ))}
@@ -984,9 +984,9 @@ export default function ResourcesPage() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-400 transition-colors"
+                  className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-600 transition-colors"
                 >
-                  <span className="h-1 w-1 rounded-full bg-emerald-500/40 shrink-0 group-hover:bg-emerald-400 transition-colors" />
+                  <span className="h-1 w-1 rounded-full bg-emerald-600/40 shrink-0 group-hover:bg-emerald-500 transition-colors" />
                   {item.label}
                 </Link>
               ))}
@@ -1008,9 +1008,9 @@ export default function ResourcesPage() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-400 transition-colors"
+                  className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-600 transition-colors"
                 >
-                  <span className="h-1 w-1 rounded-full bg-emerald-500/40 shrink-0 group-hover:bg-emerald-400 transition-colors" />
+                  <span className="h-1 w-1 rounded-full bg-emerald-600/40 shrink-0 group-hover:bg-emerald-500 transition-colors" />
                   {item.label}
                 </Link>
               ))}

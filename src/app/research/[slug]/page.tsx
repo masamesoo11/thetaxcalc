@@ -762,7 +762,7 @@ export default async function ResearchStudyPage({ params }: PageProps) {
       {/* Header */}
       <header className="mb-10">
         <div className="flex flex-wrap items-center gap-2 mb-4">
-          <span className="rounded-full bg-emerald-500/10 border border-emerald-500/20 px-3 py-1 text-xs text-emerald-400">
+          <span className="rounded-full bg-emerald-600/10 border border-emerald-500/20 px-3 py-1 text-xs text-emerald-600">
             {study.category}
           </span>
           <span className="text-xs text-muted-foreground">Published {study.date}</span>
@@ -836,7 +836,7 @@ export default async function ResearchStudyPage({ params }: PageProps) {
           Act (P.L. 119-1) are incorporated throughout. For full calculation details, see our{' '}
           <Link
             href="/methodology"
-            className="text-emerald-400 hover:text-emerald-300 underline"
+            className="text-emerald-600 hover:text-emerald-700 underline"
           >
             methodology page
           </Link>
@@ -877,7 +877,7 @@ export default async function ResearchStudyPage({ params }: PageProps) {
             <Link
               key={item.href}
               href={item.href}
-              className="rounded-lg border border-border/30 bg-card/50 p-4 hover:border-emerald-500/40 hover:bg-emerald-500/5 transition-colors"
+              className="rounded-lg border border-border/30 bg-card/50 p-4 hover:border-emerald-500/40 hover:bg-emerald-600/5 transition-colors"
             >
               <p className="font-medium text-foreground">{item.title}</p>
               <p className="text-sm text-muted-foreground mt-1">{item.desc}</p>
@@ -887,7 +887,7 @@ export default async function ResearchStudyPage({ params }: PageProps) {
         <p className="mt-4 text-sm text-muted-foreground">
           <Link
             href="/research"
-            className="text-emerald-400 hover:text-emerald-300 underline"
+            className="text-emerald-600 hover:text-emerald-700 underline"
           >
             ← Back to all research studies
           </Link>

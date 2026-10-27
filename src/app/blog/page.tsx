@@ -84,7 +84,7 @@ export default async function BlogPage() {
 
       <div className="mb-8 text-center">
         <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-          Let&apos;s Talk <span className="text-emerald-400">Taxes</span>
+          Let&apos;s Talk <span className="text-emerald-600">Taxes</span>
         </h1>
         <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground">
           Look, taxes are confusing. We&apos;ve stared at our own pay stubs and thought &ldquo;wait, they
@@ -110,7 +110,7 @@ export default async function BlogPage() {
       <AuthorBioCard authorId="rachel-mitchell" />
 
       {/* Internal Links: Calculator CTA */}
-      <section className="mt-12 rounded-xl border border-emerald-500/20 bg-emerald-500/5 p-6">
+      <section className="mt-12 rounded-xl border border-emerald-500/20 bg-emerald-600/5 p-6">
         <h2 className="text-xl font-bold text-foreground mb-2">Use Our Free Tax Calculators</h2>
         <p className="text-sm text-muted-foreground mb-4">Our blog explains the rules. Our calculators show you the numbers.</p>
         <div className="flex flex-wrap gap-3">
@@ -144,9 +144,9 @@ export default async function BlogPage() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-400 transition-colors"
+                  className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-600 transition-colors"
                 >
-                  <span className="h-1 w-1 rounded-full bg-emerald-500/40 shrink-0 group-hover:bg-emerald-400 transition-colors" />
+                  <span className="h-1 w-1 rounded-full bg-emerald-600/40 shrink-0 group-hover:bg-emerald-500 transition-colors" />
                   {item.label}
                 </Link>
               ))}
@@ -167,9 +167,9 @@ export default async function BlogPage() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-400 transition-colors"
+                  className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-600 transition-colors"
                 >
-                  <span className="h-1 w-1 rounded-full bg-emerald-500/40 shrink-0 group-hover:bg-emerald-400 transition-colors" />
+                  <span className="h-1 w-1 rounded-full bg-emerald-600/40 shrink-0 group-hover:bg-emerald-500 transition-colors" />
                   {item.label}
                 </Link>
               ))}
@@ -189,27 +189,27 @@ export default async function BlogPage() {
                 <Link
                   key={s.href}
                   href={s.href}
-                  className="inline-flex items-center rounded-lg border border-border/50 bg-muted/20 px-3 py-1.5 text-xs font-medium text-foreground hover:border-emerald-500/30 hover:text-emerald-400 transition-all"
+                  className="inline-flex items-center rounded-lg border border-border/50 bg-muted/20 px-3 py-1.5 text-xs font-medium text-foreground hover:border-emerald-500/30 hover:text-emerald-600 transition-all"
                 >
                   {s.label}
                 </Link>
               ))}
             </div>
             <div className="mt-3 space-y-2">
-              <Link href="/salary" className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-400 transition-colors">
-                <span className="h-1 w-1 rounded-full bg-emerald-500/40 shrink-0 group-hover:bg-emerald-400 transition-colors" />
+              <Link href="/salary" className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-600 transition-colors">
+                <span className="h-1 w-1 rounded-full bg-emerald-600/40 shrink-0 group-hover:bg-emerald-500 transition-colors" />
                 All Salary Levels
               </Link>
-              <Link href="/federal-tax-brackets" className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-400 transition-colors">
-                <span className="h-1 w-1 rounded-full bg-emerald-500/40 shrink-0 group-hover:bg-emerald-400 transition-colors" />
+              <Link href="/federal-tax-brackets" className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-600 transition-colors">
+                <span className="h-1 w-1 rounded-full bg-emerald-600/40 shrink-0 group-hover:bg-emerald-500 transition-colors" />
                 2026 Federal Tax Brackets
               </Link>
-              <Link href="/compare" className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-400 transition-colors">
-                <span className="h-1 w-1 rounded-full bg-emerald-500/40 shrink-0 group-hover:bg-emerald-400 transition-colors" />
+              <Link href="/compare" className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-600 transition-colors">
+                <span className="h-1 w-1 rounded-full bg-emerald-600/40 shrink-0 group-hover:bg-emerald-500 transition-colors" />
                 Compare State Taxes
               </Link>
-              <Link href="/glossary" className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-400 transition-colors">
-                <span className="h-1 w-1 rounded-full bg-emerald-500/40 shrink-0 group-hover:bg-emerald-400 transition-colors" />
+              <Link href="/glossary" className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-600 transition-colors">
+                <span className="h-1 w-1 rounded-full bg-emerald-600/40 shrink-0 group-hover:bg-emerald-500 transition-colors" />
                 Tax Glossary
               </Link>
             </div>

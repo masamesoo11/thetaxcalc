@@ -56,7 +56,7 @@ export function CompareChart({ config }: Props) {
   const yTickValues = Array.from({ length: yTicks + 1 }, (_, i) => (yMax / yTicks) * i);
   
   // Color palette
-  const color1 = '#10b981'; // emerald for state 1
+  const color1 = '#b08d3e'; // emerald for state 1
   const color2 = '#3b82f6'; // blue for state 2
   
   return (
@@ -251,35 +251,35 @@ export function CompareChart({ config }: Props) {
       
       {/* Insights from the chart */}
       <div className="mt-6 grid gap-4 md:grid-cols-3">
-        <div className="rounded-lg border border-emerald-500/20 bg-emerald-500/5 p-4">
+        <div className="rounded-lg border border-emerald-500/20 bg-emerald-600/5 p-4">
           <h4 className="text-sm font-semibold text-foreground mb-2">At $75K Salary</h4>
           <p className="text-xs text-muted-foreground">
             {s1.name}: <span className="font-bold text-foreground">{fmt(calc1[1].data.netAnnual)}</span>
             <br />
             {s2.name}: <span className="font-bold text-foreground">{fmt(calc2[1].data.netAnnual)}</span>
             <br />
-            <span className="text-emerald-400">
+            <span className="text-emerald-600">
               {calc1[1].data.netAnnual > calc2[1].data.netAnnual ? s1.name : s2.name} wins by {fmt(Math.abs(calc1[1].data.netAnnual - calc2[1].data.netAnnual))}/yr
             </span>
           </p>
         </div>
-        <div className="rounded-lg border border-emerald-500/20 bg-emerald-500/5 p-4">
+        <div className="rounded-lg border border-emerald-500/20 bg-emerald-600/5 p-4">
           <h4 className="text-sm font-semibold text-foreground mb-2">At $150K Salary</h4>
           <p className="text-xs text-muted-foreground">
             {s1.name}: <span className="font-bold text-foreground">{fmt(calc1[3].data.netAnnual)}</span>
             <br />
             {s2.name}: <span className="font-bold text-foreground">{fmt(calc2[3].data.netAnnual)}</span>
             <br />
-            <span className="text-emerald-400">
+            <span className="text-emerald-600">
               {calc1[3].data.netAnnual > calc2[3].data.netAnnual ? s1.name : s2.name} wins by {fmt(Math.abs(calc1[3].data.netAnnual - calc2[3].data.netAnnual))}/yr
             </span>
           </p>
         </div>
-        <div className="rounded-lg border border-emerald-500/20 bg-emerald-500/5 p-4">
+        <div className="rounded-lg border border-emerald-500/20 bg-emerald-600/5 p-4">
           <h4 className="text-sm font-semibold text-foreground mb-2">10-Year Cumulative</h4>
           <p className="text-xs text-muted-foreground">
             At $100K salary, the difference compounds to{' '}
-            <span className="font-bold text-emerald-400">
+            <span className="font-bold text-emerald-600">
               {fmt(Math.abs(calc1[2].data.netAnnual - calc2[2].data.netAnnual) * 10)}
             </span>{' '}
             over 10 years — before investment returns.

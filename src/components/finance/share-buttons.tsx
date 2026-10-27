@@ -22,13 +22,13 @@ export function ShareButtons({ url, title, description }: ShareButtonsProps) {
       name: 'Twitter / X',
       icon: Twitter,
       href: `https://twitter.com/intent/tweet?text=${encodedTitle}&url=${encodedUrl}&via=TheTaxCalc`,
-      color: 'hover:bg-sky-500/10 hover:text-sky-400 hover:border-sky-500/30',
+      color: 'hover:bg-sky-500/10 hover:text-sky-700 hover:border-sky-500/30',
     },
     {
       name: 'LinkedIn',
       icon: Linkedin,
       href: `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`,
-      color: 'hover:bg-blue-500/10 hover:text-blue-400 hover:border-blue-500/30',
+      color: 'hover:bg-blue-500/10 hover:text-blue-700 hover:border-blue-500/30',
     },
   ];
 
@@ -77,7 +77,7 @@ export function ShareButtons({ url, title, description }: ShareButtonsProps) {
         onClick={handleCopyLink}
         className={`inline-flex items-center gap-1.5 rounded-lg border border-border/30 px-3 py-2 text-xs transition-all ${
           copied
-            ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/30'
+            ? 'bg-emerald-600/10 text-emerald-600 border-emerald-500/30'
             : 'hover:bg-muted/50'
         }`}
         aria-label="Copy link"

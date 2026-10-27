@@ -961,7 +961,7 @@ export default function HomePage() {
             </div>
 
             <div className="mx-auto mt-12 max-w-4xl border-t border-white/10 pt-10">
-              <AuthorBioCard authorId="rachel-mitchell" />
+              <AuthorBioCard authorId="rachel-mitchell" variant="ink" />
             </div>
           </div>
         </section>

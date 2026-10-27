@@ -20,7 +20,7 @@ import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
 // ─── Color Palette ───────────────────────────────────────────────────────────
 
 const COLORS = {
-  netTakeHome: '#10b981', // emerald-500
+  netTakeHome: '#b08d3e', // emerald-500
   federalTax: '#ef4444', // red-500
   fica: '#f97316', // orange-500
   stateTax: '#f59e0b', // amber-500

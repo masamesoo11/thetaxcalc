@@ -266,17 +266,17 @@ export default async function HomeSaleTaxCalculatorPage() {
         </h2>
         <div className="grid gap-4 sm:grid-cols-3">
           <div className="rounded-lg border border-border/30 bg-card/60 p-4">
-            <p className="text-xs font-semibold uppercase tracking-wider text-emerald-400 mb-1">Primary Residence Exclusion</p>
+            <p className="text-xs font-semibold uppercase tracking-wider text-emerald-600 mb-1">Primary Residence Exclusion</p>
             <p className="text-2xl font-bold text-foreground">$250K / $500K</p>
             <p className="text-sm text-muted-foreground mt-1">$250,000 for single filers, $500,000 for married filing jointly. Must live in home 2 of last 5 years.</p>
           </div>
           <div className="rounded-lg border border-border/30 bg-card/60 p-4">
-            <p className="text-xs font-semibold uppercase tracking-wider text-sky-400 mb-1">Long-Term Capital Gains Rate</p>
+            <p className="text-xs font-semibold uppercase tracking-wider text-sky-700 mb-1">Long-Term Capital Gains Rate</p>
             <p className="text-2xl font-bold text-foreground">0% / 15% / 20%</p>
             <p className="text-sm text-muted-foreground mt-1">Plus 3.8% NIIT for high earners. Rate depends on your taxable income level.</p>
           </div>
           <div className="rounded-lg border border-border/30 bg-card/60 p-4">
-            <p className="text-xs font-semibold uppercase tracking-wider text-amber-400 mb-1">Depreciation Recapture</p>
+            <p className="text-xs font-semibold uppercase tracking-wider text-amber-700 mb-1">Depreciation Recapture</p>
             <p className="text-2xl font-bold text-foreground">25%</p>
             <p className="text-sm text-muted-foreground mt-1">On accumulated depreciation for rental properties. Taxed regardless of your income bracket.</p>
           </div>
@@ -329,7 +329,7 @@ export default async function HomeSaleTaxCalculatorPage() {
               { step: 5, title: 'Add depreciation recapture tax', desc: 'If the property was ever rented out and you claimed depreciation, multiply the accumulated depreciation by 25%. Add this to your capital gains tax. The total is your overall tax on the sale.' },
             ].map((item) => (
               <div key={item.step} className="flex gap-4">
-                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-emerald-500/15 text-sm font-bold text-emerald-400">
+                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-emerald-600/15 text-sm font-bold text-emerald-600">
                   {item.step}
                 </div>
                 <div>
@@ -352,7 +352,7 @@ export default async function HomeSaleTaxCalculatorPage() {
             </p>
             <div className="grid gap-3 sm:grid-cols-2 my-4">
               <div className="rounded-lg border border-border/30 bg-card/60 p-4">
-                <p className="text-sm font-semibold text-emerald-400 mb-1">Exclusion Amounts</p>
+                <p className="text-sm font-semibold text-emerald-600 mb-1">Exclusion Amounts</p>
                 <ul className="space-y-1.5 text-xs text-muted-foreground">
                   <li>&#8226; <strong className="text-foreground">$250,000</strong> for single filers</li>
                   <li>&#8226; <strong className="text-foreground">$500,000</strong> for married filing jointly</li>
@@ -361,7 +361,7 @@ export default async function HomeSaleTaxCalculatorPage() {
                 </ul>
               </div>
               <div className="rounded-lg border border-border/30 bg-card/60 p-4">
-                <p className="text-sm font-semibold text-sky-400 mb-1">Qualification Requirements</p>
+                <p className="text-sm font-semibold text-sky-700 mb-1">Qualification Requirements</p>
                 <ul className="space-y-1.5 text-xs text-muted-foreground">
                   <li>&#8226; Own and use as primary residence for <strong className="text-foreground">2 of 5 years</strong></li>
                   <li>&#8226; The 2 years don&apos;t need to be consecutive</li>
@@ -370,7 +370,7 @@ export default async function HomeSaleTaxCalculatorPage() {
                 </ul>
               </div>
               <div className="rounded-lg border border-border/30 bg-card/60 p-4">
-                <p className="text-sm font-semibold text-amber-400 mb-1">Partial Exclusion</p>
+                <p className="text-sm font-semibold text-amber-700 mb-1">Partial Exclusion</p>
                 <ul className="space-y-1.5 text-xs text-muted-foreground">
                   <li>&#8226; Available if move due to health, job, or unforeseen events</li>
                   <li>&#8226; Prorated: (months lived / 24) &times; full exclusion</li>
@@ -379,7 +379,7 @@ export default async function HomeSaleTaxCalculatorPage() {
                 </ul>
               </div>
               <div className="rounded-lg border border-border/30 bg-card/60 p-4">
-                <p className="text-sm font-semibold text-red-400 mb-1">Does NOT Apply To</p>
+                <p className="text-sm font-semibold text-red-600 mb-1">Does NOT Apply To</p>
                 <ul className="space-y-1.5 text-xs text-muted-foreground">
                   <li>&#8226; Rental properties (never your primary residence)</li>
                   <li>&#8226; Vacation / second homes</li>
@@ -416,7 +416,7 @@ export default async function HomeSaleTaxCalculatorPage() {
         </section>
 
         {/* Capital Gains Tax Rates for 2026 */}
-        <section className="rounded-xl border border-emerald-500/20 bg-emerald-500/5 p-6 sm:p-8">
+        <section className="rounded-xl border border-emerald-500/20 bg-emerald-600/5 p-6 sm:p-8">
           <h2 className="text-2xl font-bold text-foreground mb-4">
             Capital Gains Tax Rates for 2026
           </h2>
@@ -429,23 +429,23 @@ export default async function HomeSaleTaxCalculatorPage() {
                 <thead>
                   <tr className="border-b border-border/30">
                     <th className="text-left py-3 px-3 font-semibold text-foreground">Rate</th>
-                    <th className="text-center py-3 px-3 font-semibold text-emerald-400">Single</th>
-                    <th className="text-center py-3 px-3 font-semibold text-sky-400">Married Filing Jointly</th>
+                    <th className="text-center py-3 px-3 font-semibold text-emerald-600">Single</th>
+                    <th className="text-center py-3 px-3 font-semibold text-sky-700">Married Filing Jointly</th>
                   </tr>
                 </thead>
                 <tbody className="text-muted-foreground">
                   <tr className="border-b border-border/20">
-                    <td className="py-2.5 px-3 font-semibold text-emerald-400">0%</td>
+                    <td className="py-2.5 px-3 font-semibold text-emerald-600">0%</td>
                     <td className="py-2.5 px-3 text-center">Up to ~$47,000</td>
                     <td className="py-2.5 px-3 text-center">Up to ~$94,000</td>
                   </tr>
                   <tr className="border-b border-border/20">
-                    <td className="py-2.5 px-3 font-semibold text-sky-400">15%</td>
+                    <td className="py-2.5 px-3 font-semibold text-sky-700">15%</td>
                     <td className="py-2.5 px-3 text-center">~$47,000 to ~$518,000</td>
                     <td className="py-2.5 px-3 text-center">~$94,000 to ~$583,000</td>
                   </tr>
                   <tr>
-                    <td className="py-2.5 px-3 font-semibold text-amber-400">20%</td>
+                    <td className="py-2.5 px-3 font-semibold text-amber-700">20%</td>
                     <td className="py-2.5 px-3 text-center">Over ~$518,000</td>
                     <td className="py-2.5 px-3 text-center">Over ~$583,000</td>
                   </tr>
@@ -463,7 +463,7 @@ export default async function HomeSaleTaxCalculatorPage() {
 
         {/* Key Data Box */}
         {PAGE_CONTENT.keyRates.length > 0 && (
-          <section className="rounded-xl border border-emerald-500/20 bg-emerald-500/5 p-6 sm:p-8">
+          <section className="rounded-xl border border-emerald-500/20 bg-emerald-600/5 p-6 sm:p-8">
             <h2 className="text-2xl font-bold text-foreground mb-4">
               Home Sale Tax — Key Data for 2026
             </h2>
@@ -529,7 +529,7 @@ export default async function HomeSaleTaxCalculatorPage() {
                 <Link
                   key={calc.slug}
                   href={`/${calc.slug}`}
-                  className="inline-flex items-center gap-1.5 rounded-lg border border-emerald-500/30 bg-emerald-500/5 px-4 py-2 text-sm font-medium text-emerald-400 hover:bg-emerald-500/10 hover:border-emerald-500/50 transition-all"
+                  className="inline-flex items-center gap-1.5 rounded-lg border border-emerald-500/30 bg-emerald-600/5 px-4 py-2 text-sm font-medium text-emerald-600 hover:bg-emerald-600/10 hover:border-emerald-500/50 transition-all"
                 >
                   <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />

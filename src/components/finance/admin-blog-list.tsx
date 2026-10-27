@@ -145,12 +145,12 @@ export function AdminBlogList({ onEdit, onNew }: AdminBlogListProps) {
 
   const getCategoryBadgeVariant = (category: string) => {
     const map: Record<string, string> = {
-      'tax-guide': 'bg-emerald-500/15 text-emerald-400 border-emerald-500/30',
-      paycheck: 'bg-blue-500/15 text-blue-400 border-blue-500/30',
-      'state-tax': 'bg-amber-500/15 text-amber-400 border-amber-500/30',
-      mortgage: 'bg-rose-500/15 text-rose-400 border-rose-500/30',
-      retirement: 'bg-purple-500/15 text-purple-400 border-purple-500/30',
-      news: 'bg-cyan-500/15 text-cyan-400 border-cyan-500/30',
+      'tax-guide': 'bg-emerald-600/15 text-emerald-600 border-emerald-500/30',
+      paycheck: 'bg-blue-500/15 text-blue-700 border-blue-500/30',
+      'state-tax': 'bg-amber-500/15 text-amber-700 border-amber-500/30',
+      mortgage: 'bg-rose-500/15 text-rose-700 border-rose-500/30',
+      retirement: 'bg-purple-500/15 text-purple-700 border-purple-500/30',
+      news: 'bg-cyan-500/15 text-cyan-700 border-cyan-500/30',
     };
     return map[category] || 'bg-muted text-muted-foreground border-border';
   };
@@ -276,7 +276,7 @@ export function AdminBlogList({ onEdit, onNew }: AdminBlogListProps) {
                         variant="ghost"
                         size="sm"
                         onClick={() => setDeleteTarget(post)}
-                        className="gap-1 text-xs text-red-400 hover:text-red-300 hover:bg-red-500/10"
+                        className="gap-1 text-xs text-red-600 hover:text-red-600 hover:bg-red-500/10"
                         aria-label="Delete post"
                       >
                         <Trash2 className="h-3.5 w-3.5" />

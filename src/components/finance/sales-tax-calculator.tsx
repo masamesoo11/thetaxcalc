@@ -150,7 +150,7 @@ interface ReverseTaxResult {
 // ─── Chart Colors ────────────────────────────────────────────────────────────
 
 const CHART_COLORS = {
-  purchasePrice: '#10b981', // emerald-500
+  purchasePrice: '#b08d3e', // emerald-500
   stateTax: '#f59e0b',     // amber-500
   localTax: '#f97316',     // orange-500
   totalTax: '#ef4444',     // red-500
@@ -158,7 +158,7 @@ const CHART_COLORS = {
 
 const BAR_COLORS = {
   highest: '#ef4444',
-  lowest: '#10b981',
+  lowest: '#b08d3e',
 };
 
 // ─── Custom Tooltips ─────────────────────────────────────────────────────────
@@ -395,7 +395,7 @@ export function SalesTaxCalculator({ defaultState }: { defaultState?: string } =
       {/* ─── Page Title ─────────────────────────────────── */}
       <div className="text-center">
         <h2 className="flex items-center justify-center gap-2 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-          <Receipt className="h-8 w-8 text-emerald-400" />
+          <Receipt className="h-8 w-8 text-emerald-600" />
           Sales Tax Calculator
         </h2>
         <p className="mt-2 text-muted-foreground">
@@ -432,7 +432,7 @@ export function SalesTaxCalculator({ defaultState }: { defaultState?: string } =
           <Card className="border-border/50 bg-card/80 backdrop-blur-sm">
             <CardHeader className="pb-4">
               <CardTitle className="flex items-center gap-2 text-lg">
-                <Calculator className="h-5 w-5 text-emerald-400" />
+                <Calculator className="h-5 w-5 text-emerald-600" />
                 Sales Tax Calculator
               </CardTitle>
               <CardDescription>Enter the purchase amount and select a state to calculate sales tax</CardDescription>
@@ -442,7 +442,7 @@ export function SalesTaxCalculator({ defaultState }: { defaultState?: string } =
               <div className="space-y-2">
                 <Label htmlFor="st-price" className="text-sm font-medium">
                   <span className="flex items-center gap-1.5">
-                    <DollarSign className="h-3.5 w-3.5 text-emerald-400" />
+                    <DollarSign className="h-3.5 w-3.5 text-emerald-600" />
                     Purchase Amount
                   </span>
                 </Label>
@@ -466,7 +466,7 @@ export function SalesTaxCalculator({ defaultState }: { defaultState?: string } =
                 <div className="space-y-2">
                   <Label htmlFor="st-state" className="text-sm font-medium">
                     <span className="flex items-center gap-1.5">
-                      <MapPin className="h-3.5 w-3.5 text-emerald-400" />
+                      <MapPin className="h-3.5 w-3.5 text-emerald-600" />
                       State
                     </span>
                   </Label>
@@ -498,7 +498,7 @@ export function SalesTaxCalculator({ defaultState }: { defaultState?: string } =
                 <div className="space-y-2">
                   <Label htmlFor="st-local" className="text-sm font-medium">
                     <span className="flex items-center gap-1.5">
-                      <MapPin className="h-3.5 w-3.5 text-amber-400" />
+                      <MapPin className="h-3.5 w-3.5 text-amber-700" />
                       City/Local Tax Rate (%)
                     </span>
                   </Label>
@@ -544,7 +544,7 @@ export function SalesTaxCalculator({ defaultState }: { defaultState?: string } =
               <div className="space-y-3">
                 <Label className="text-sm font-medium">
                   <span className="flex items-center gap-1.5">
-                    <Shield className="h-3.5 w-3.5 text-emerald-400" />
+                    <Shield className="h-3.5 w-3.5 text-emerald-600" />
                     Tax-Exempt Item?
                   </span>
                 </Label>
@@ -589,11 +589,11 @@ export function SalesTaxCalculator({ defaultState }: { defaultState?: string } =
                       </SelectContent>
                     </Select>
                     {isCategoryExempt ? (
-                      <Badge className="bg-emerald-500/20 text-emerald-400 text-[10px]">
+                      <Badge className="bg-emerald-600/20 text-emerald-600 text-[10px]">
                         {exemptCategory === 'groceries' ? 'Groceries' : exemptCategory === 'prescription' ? 'Prescription drugs' : 'Clothing'} are tax-exempt in {currentState?.name}
                       </Badge>
                     ) : (
-                      <Badge className="bg-red-500/20 text-red-400 text-[10px]">
+                      <Badge className="bg-red-500/20 text-red-600 text-[10px]">
                         {exemptCategory === 'groceries' ? 'Groceries' : exemptCategory === 'prescription' ? 'Prescription drugs' : 'Clothing'} are NOT exempt in {currentState?.name} — tax will apply
                       </Badge>
                     )}
@@ -609,15 +609,15 @@ export function SalesTaxCalculator({ defaultState }: { defaultState?: string } =
                 <div className="grid grid-cols-3 gap-2 text-center">
                   <div>
                     <p className="text-[10px] uppercase tracking-wider text-muted-foreground">State</p>
-                    <p className="text-sm font-bold text-amber-400">{(currentState?.stateRate ?? 0) > 0 ? formatPercent(currentState?.stateRate ?? 0) : '0%'}</p>
+                    <p className="text-sm font-bold text-amber-700">{(currentState?.stateRate ?? 0) > 0 ? formatPercent(currentState?.stateRate ?? 0) : '0%'}</p>
                   </div>
                   <div>
                     <p className="text-[10px] uppercase tracking-wider text-muted-foreground">Local</p>
-                    <p className="text-sm font-bold text-orange-400">{formatPercent(effectiveLocalRate)}</p>
+                    <p className="text-sm font-bold text-orange-700">{formatPercent(effectiveLocalRate)}</p>
                   </div>
                   <div>
                     <p className="text-[10px] uppercase tracking-wider text-muted-foreground">Combined</p>
-                    <p className="text-sm font-bold text-emerald-400">{isTaxExempt && isCategoryExempt ? '0% (exempt)' : formatPercent(effectiveCombinedRate)}</p>
+                    <p className="text-sm font-bold text-emerald-600">{isTaxExempt && isCategoryExempt ? '0% (exempt)' : formatPercent(effectiveCombinedRate)}</p>
                   </div>
                 </div>
               </div>
@@ -639,7 +639,7 @@ export function SalesTaxCalculator({ defaultState }: { defaultState?: string } =
           <Card className="border-border/50 bg-card/80 backdrop-blur-sm">
             <CardHeader className="pb-4">
               <CardTitle className="flex items-center gap-2 text-lg">
-                <ShoppingCart className="h-5 w-5 text-amber-400" />
+                <ShoppingCart className="h-5 w-5 text-amber-700" />
                 Reverse Sales Tax Calculator
               </CardTitle>
               <CardDescription>I have a budget — how much can I spend before tax?</CardDescription>
@@ -649,7 +649,7 @@ export function SalesTaxCalculator({ defaultState }: { defaultState?: string } =
                 <div className="space-y-2">
                   <Label htmlFor="st-reverse-budget" className="text-sm font-medium">
                     <span className="flex items-center gap-1.5">
-                      <DollarSign className="h-3.5 w-3.5 text-amber-400" />
+                      <DollarSign className="h-3.5 w-3.5 text-amber-700" />
                       My Total Budget
                     </span>
                   </Label>
@@ -671,7 +671,7 @@ export function SalesTaxCalculator({ defaultState }: { defaultState?: string } =
                 <div className="space-y-2">
                   <Label htmlFor="st-reverse-state" className="text-sm font-medium">
                     <span className="flex items-center gap-1.5">
-                      <MapPin className="h-3.5 w-3.5 text-amber-400" />
+                      <MapPin className="h-3.5 w-3.5 text-amber-700" />
                       State
                     </span>
                   </Label>
@@ -701,7 +701,7 @@ export function SalesTaxCalculator({ defaultState }: { defaultState?: string } =
                 disabled={budgetAmount <= 0}
                 variant="outline"
                 size="sm"
-                className="border-amber-500/30 text-amber-400 hover:bg-amber-500/10"
+                className="border-amber-500/30 text-amber-700 hover:bg-amber-500/10"
               >
                 <ShoppingCart className="mr-2 h-4 w-4" />
                 Calculate Max Purchase
@@ -715,7 +715,7 @@ export function SalesTaxCalculator({ defaultState }: { defaultState?: string } =
                       <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
                         Max Purchase Price
                       </p>
-                      <p className="mt-1 text-xl font-bold text-emerald-400">
+                      <p className="mt-1 text-xl font-bold text-emerald-600">
                         {formatCurrency(reverseResult.maxPurchase)}
                       </p>
                     </div>
@@ -723,7 +723,7 @@ export function SalesTaxCalculator({ defaultState }: { defaultState?: string } =
                       <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
                         Sales Tax
                       </p>
-                      <p className="mt-1 text-xl font-bold text-amber-400">
+                      <p className="mt-1 text-xl font-bold text-amber-700">
                         {formatCurrency(reverseResult.taxAmount)}
                       </p>
                     </div>
@@ -752,22 +752,22 @@ export function SalesTaxCalculator({ defaultState }: { defaultState?: string } =
           <Card className="sticky top-20 border-emerald-500/20 bg-card/90 backdrop-blur-sm">
             <CardHeader className="pb-3">
               <CardTitle className="flex items-center gap-2 text-lg">
-                <MapPin className="h-5 w-5 text-emerald-400" />
+                <MapPin className="h-5 w-5 text-emerald-600" />
                 State Sales Tax Rates
               </CardTitle>
               <CardDescription>2026 state + average local combined rates</CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
               {/* No Tax States */}
-              <div className="rounded-lg bg-emerald-500/10 p-3">
-                <p className="text-xs font-medium uppercase tracking-wider text-emerald-400/80 mb-2">
+              <div className="rounded-lg bg-emerald-600/10 p-3">
+                <p className="text-xs font-medium uppercase tracking-wider text-emerald-600/80 mb-2">
                   No Sales Tax States
                 </p>
                 <div className="flex flex-wrap gap-1.5">
                   {STATE_KEYS
                     .filter((key) => STATE_SALES_TAX[key].noStateTax)
                     .map((key) => (
-                      <Badge key={key} className="bg-emerald-500/20 text-emerald-400 text-[10px]">
+                      <Badge key={key} className="bg-emerald-600/20 text-emerald-600 text-[10px]">
                         {STATE_SALES_TAX[key].abbreviation}
                       </Badge>
                     ))}
@@ -785,10 +785,10 @@ export function SalesTaxCalculator({ defaultState }: { defaultState?: string } =
                   {top10Highest.slice(0, 5).map((state, idx) => (
                     <div key={state.name} className="flex items-center justify-between text-xs">
                       <span className="text-foreground">
-                        <span className="text-red-400 font-medium mr-1">{idx + 1}.</span>
+                        <span className="text-red-600 font-medium mr-1">{idx + 1}.</span>
                         {state.fullName}
                       </span>
-                      <span className="font-medium text-red-400">{state.rate}%</span>
+                      <span className="font-medium text-red-600">{state.rate}%</span>
                     </div>
                   ))}
                 </div>
@@ -805,10 +805,10 @@ export function SalesTaxCalculator({ defaultState }: { defaultState?: string } =
                   {top10Lowest.slice(0, 5).map((state, idx) => (
                     <div key={state.name} className="flex items-center justify-between text-xs">
                       <span className="text-foreground">
-                        <span className="text-emerald-400 font-medium mr-1">{idx + 1}.</span>
+                        <span className="text-emerald-600 font-medium mr-1">{idx + 1}.</span>
                         {state.fullName}
                       </span>
-                      <span className="font-medium text-emerald-400">{state.rate}%</span>
+                      <span className="font-medium text-emerald-600">{state.rate}%</span>
                     </div>
                   ))}
                 </div>
@@ -825,7 +825,7 @@ export function SalesTaxCalculator({ defaultState }: { defaultState?: string } =
                   {STATE_KEYS
                     .filter((key) => STATE_SALES_TAX[key].clothingExempt && !STATE_SALES_TAX[key].noStateTax)
                     .map((key) => (
-                      <Badge key={key} className="bg-cyan-500/20 text-cyan-400 text-[10px]">
+                      <Badge key={key} className="bg-cyan-500/20 text-cyan-700 text-[10px]">
                         {STATE_SALES_TAX[key].abbreviation}
                       </Badge>
                     ))}
@@ -852,17 +852,17 @@ export function SalesTaxCalculator({ defaultState }: { defaultState?: string } =
         <div className="space-y-6">
           {/* Hero Results Cards */}
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            <Card className="border-emerald-500/20 bg-emerald-500/5">
+            <Card className="border-emerald-500/20 bg-emerald-600/5">
               <CardContent className="p-4 text-center">
-                <p className="text-xs font-medium uppercase tracking-wider text-emerald-400/80">Purchase Amount</p>
-                <p className="mt-1 text-2xl font-bold text-emerald-400">{formatCurrency(result.purchasePrice)}</p>
+                <p className="text-xs font-medium uppercase tracking-wider text-emerald-600/80">Purchase Amount</p>
+                <p className="mt-1 text-2xl font-bold text-emerald-600">{formatCurrency(result.purchasePrice)}</p>
                 <p className="text-xs text-muted-foreground">Before tax</p>
               </CardContent>
             </Card>
             <Card className="border-amber-500/20 bg-amber-500/5">
               <CardContent className="p-4 text-center">
-                <p className="text-xs font-medium uppercase tracking-wider text-amber-400/80">Total Sales Tax</p>
-                <p className="mt-1 text-2xl font-bold text-amber-400">{formatCurrency(result.totalTax)}</p>
+                <p className="text-xs font-medium uppercase tracking-wider text-amber-700/80">Total Sales Tax</p>
+                <p className="mt-1 text-2xl font-bold text-amber-700">{formatCurrency(result.totalTax)}</p>
                 <p className="text-xs text-muted-foreground">
                   {result.isExempt ? 'Tax-exempt item' : formatPercent(result.combinedRate) + ' rate'}
                 </p>
@@ -875,10 +875,10 @@ export function SalesTaxCalculator({ defaultState }: { defaultState?: string } =
                 <p className="text-xs text-muted-foreground">Price + Tax</p>
               </CardContent>
             </Card>
-            <Card className="border-emerald-500/20 bg-emerald-500/5">
+            <Card className="border-emerald-500/20 bg-emerald-600/5">
               <CardContent className="p-4 text-center">
-                <p className="text-xs font-medium uppercase tracking-wider text-emerald-400/80">Effective Rate</p>
-                <p className="mt-1 text-2xl font-bold text-emerald-400">
+                <p className="text-xs font-medium uppercase tracking-wider text-emerald-600/80">Effective Rate</p>
+                <p className="mt-1 text-2xl font-bold text-emerald-600">
                   {result.isExempt ? '0%' : formatPercent(result.combinedRate)}
                 </p>
                 <p className="text-xs text-muted-foreground">{result.stateName}</p>
@@ -892,7 +892,7 @@ export function SalesTaxCalculator({ defaultState }: { defaultState?: string } =
             <Card className="border-border/50 bg-card/80 backdrop-blur-sm">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2 text-lg">
-                  <Receipt className="h-5 w-5 text-emerald-400" />
+                  <Receipt className="h-5 w-5 text-emerald-600" />
                   Tax Breakdown
                 </CardTitle>
                 <CardDescription>
@@ -912,13 +912,13 @@ export function SalesTaxCalculator({ defaultState }: { defaultState?: string } =
                         <span className="text-sm text-muted-foreground pl-4">
                           State Tax Rate ({result.stateName})
                         </span>
-                        <span className="text-sm font-semibold text-amber-400">{formatPercent(result.stateRate)}</span>
+                        <span className="text-sm font-semibold text-amber-700">{formatPercent(result.stateRate)}</span>
                       </div>
                       <div className="flex items-center justify-between py-2">
                         <span className="text-sm text-muted-foreground pl-4">
                           State Tax Amount
                         </span>
-                        <span className="text-sm font-semibold text-amber-400">{formatCurrency(result.stateTax)}</span>
+                        <span className="text-sm font-semibold text-amber-700">{formatCurrency(result.stateTax)}</span>
                       </div>
 
                       {result.localRate > 0 && (
@@ -927,13 +927,13 @@ export function SalesTaxCalculator({ defaultState }: { defaultState?: string } =
                             <span className="text-sm text-muted-foreground pl-4">
                               Local/City Tax Rate
                             </span>
-                            <span className="text-sm font-semibold text-orange-400">{formatPercent(result.localRate)}</span>
+                            <span className="text-sm font-semibold text-orange-700">{formatPercent(result.localRate)}</span>
                           </div>
                           <div className="flex items-center justify-between py-2">
                             <span className="text-sm text-muted-foreground pl-4">
                               Local Tax Amount
                             </span>
-                            <span className="text-sm font-semibold text-orange-400">{formatCurrency(result.localTax)}</span>
+                            <span className="text-sm font-semibold text-orange-700">{formatCurrency(result.localTax)}</span>
                           </div>
                         </>
                       )}
@@ -941,8 +941,8 @@ export function SalesTaxCalculator({ defaultState }: { defaultState?: string } =
                   )}
 
                   {result.isExempt && (
-                    <div className="rounded-lg bg-emerald-500/10 p-3">
-                      <p className="text-sm font-medium text-emerald-400">
+                    <div className="rounded-lg bg-emerald-600/10 p-3">
+                      <p className="text-sm font-medium text-emerald-600">
                         Tax-Exempt: {result.exemptCategory === 'groceries' ? 'Groceries' : result.exemptCategory === 'prescription' ? 'Prescription Drugs' : 'Clothing'}
                       </p>
                       <p className="text-xs text-muted-foreground mt-1">
@@ -956,17 +956,17 @@ export function SalesTaxCalculator({ defaultState }: { defaultState?: string } =
                   {!result.isExempt && (
                     <div className="flex items-center justify-between py-2">
                       <span className="text-sm font-medium text-muted-foreground">Total Sales Tax</span>
-                      <span className="text-sm font-bold text-red-400">{formatCurrency(result.totalTax)}</span>
+                      <span className="text-sm font-bold text-red-600">{formatCurrency(result.totalTax)}</span>
                     </div>
                   )}
 
                   <div className="flex items-center justify-between py-2">
-                    <span className="text-sm font-bold text-emerald-400">Total Cost</span>
-                    <span className="text-lg font-bold text-emerald-400">{formatCurrency(result.totalPrice)}</span>
+                    <span className="text-sm font-bold text-emerald-600">Total Cost</span>
+                    <span className="text-lg font-bold text-emerald-600">{formatCurrency(result.totalPrice)}</span>
                   </div>
                 </div>
 
-                <Separator className="my-4 bg-emerald-500/30" />
+                <Separator className="my-4 bg-emerald-600/30" />
 
                 {/* Formula */}
                 <div className="rounded-lg bg-muted/20 p-3 space-y-2">
@@ -1057,7 +1057,7 @@ export function SalesTaxCalculator({ defaultState }: { defaultState?: string } =
             <Card className="border-border/50 bg-card/80">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2 text-lg">
-                  <TrendingUp className="h-5 w-5 text-red-400" />
+                  <TrendingUp className="h-5 w-5 text-red-600" />
                   Top 10 Highest Sales Tax States
                 </CardTitle>
                 <CardDescription>Combined state + average local rates</CardDescription>
@@ -1093,7 +1093,7 @@ export function SalesTaxCalculator({ defaultState }: { defaultState?: string } =
             <Card className="border-border/50 bg-card/80">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2 text-lg">
-                  <TrendingDown className="h-5 w-5 text-emerald-400" />
+                  <TrendingDown className="h-5 w-5 text-emerald-600" />
                   Top 10 Lowest Sales Tax States
                 </CardTitle>
                 <CardDescription>Combined state + average local rates (excl. 0%)</CardDescription>
@@ -1114,7 +1114,7 @@ export function SalesTaxCalculator({ defaultState }: { defaultState?: string } =
                         width={35}
                       />
                       <RechartsTooltip content={<BarCustomTooltip />} />
-                      <Bar dataKey="rate" radius={[0, 4, 4, 0]} fill="#10b981">
+                      <Bar dataKey="rate" radius={[0, 4, 4, 0]} fill="#b08d3e">
                         {top10Lowest.map((entry, index) => (
                           <Cell key={`bar-low-${index}`} fill={entry.fill} fillOpacity={0.8} />
                         ))}
@@ -1201,7 +1201,7 @@ export function SalesTaxCalculator({ defaultState }: { defaultState?: string } =
                 href={link.href}
                 className="flex items-center gap-2 rounded-lg border border-border/30 bg-muted/20 p-3 text-sm text-muted-foreground transition-colors hover:bg-muted/40 hover:text-foreground"
               >
-                <Receipt className="h-4 w-4 text-emerald-400" />
+                <Receipt className="h-4 w-4 text-emerald-600" />
                 {link.label}
               </a>
             ))}

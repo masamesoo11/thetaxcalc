@@ -403,7 +403,7 @@ function QuickAnswerSection({ d }: { d: SalaryPageData }) {
   }
 
   return (
-    <section className="rounded-xl border border-emerald-500/30 bg-emerald-500/5 p-6 sm:p-8">
+    <section className="rounded-xl border border-emerald-500/30 bg-emerald-600/5 p-6 sm:p-8">
       <h2 className="text-xl font-bold text-foreground mb-3">{heading}</h2>
       <div className="text-muted-foreground leading-relaxed">{body}</div>
       <p className="mt-4 text-xs text-muted-foreground">{note}</p>
@@ -512,7 +512,7 @@ function MidOverview({ d }: { d: SalaryPageData }) {
         {rungs.map((r) => (
           <div key={r.label} className="flex items-center justify-between gap-3 px-4 py-3 text-sm">
             <span className="text-muted-foreground">{r.label}</span>
-            <span className={r.strong ? 'font-semibold text-emerald-400' : 'font-medium text-foreground'}>
+            <span className={r.strong ? 'font-semibold text-emerald-600' : 'font-medium text-foreground'}>
               {r.value}
             </span>
           </div>
@@ -628,7 +628,7 @@ function HighOverview({ d }: { d: SalaryPageData }) {
   const items: ReactNode[] = [];
   items.push(
     <li key="bracket" className="flex gap-3">
-      <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-500/10 text-xs font-bold text-emerald-400">1</span>
+      <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-600/10 text-xs font-bold text-emerald-600">1</span>
       <span>
         <strong className="text-foreground">The {marginal.rateLabel} bracket.</strong> Every dollar of
         wages between {fmt(marginal.bracketStartSalary)}
@@ -641,7 +641,7 @@ function HighOverview({ d }: { d: SalaryPageData }) {
   );
   items.push(
     <li key="medicare" className="flex gap-3">
-      <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-500/10 text-xs font-bold text-emerald-400">2</span>
+      <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-600/10 text-xs font-bold text-emerald-600">2</span>
       <span>
         <strong className="text-foreground">The Additional Medicare Tax.</strong> Wages above{' '}
         {fmt(FICA_2026.additionalMedicareThreshold)} (single) carry an extra{' '}
@@ -654,7 +654,7 @@ function HighOverview({ d }: { d: SalaryPageData }) {
   );
   items.push(
     <li key="ss" className="flex gap-3">
-      <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-500/10 text-xs font-bold text-emerald-400">3</span>
+      <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-600/10 text-xs font-bold text-emerald-600">3</span>
       <span>
         <strong className="text-foreground">Social Security caps out.</strong> The{' '}
         {pctLabel(FICA_2026.socialSecurityRate)} Social Security line stops at the{' '}
@@ -793,12 +793,12 @@ function BracketPositionSection({ d }: { d: SalaryPageData }) {
             {bracketRows.map((r) => (
               <tr
                 key={r.rateLabel}
-                className={`border-t border-border/20 ${r.isMarginal ? 'bg-emerald-500/5' : ''}`}
+                className={`border-t border-border/20 ${r.isMarginal ? 'bg-emerald-600/5' : ''}`}
               >
                 <td className="p-3 text-muted-foreground">
                   {fmt(r.from)} – {r.to === null ? 'and up' : fmt(r.to)}
                   {r.isMarginal && (
-                    <span className="ml-2 rounded bg-emerald-500/10 px-1.5 py-0.5 text-xs font-medium text-emerald-400">
+                    <span className="ml-2 rounded bg-emerald-600/10 px-1.5 py-0.5 text-xs font-medium text-emerald-600">
                       your bracket
                     </span>
                   )}
@@ -927,11 +927,11 @@ function SalaryStepCard({
   return (
     <div
       className={`rounded-xl border p-5 ${
-        current ? 'border-emerald-500/40 bg-emerald-500/5' : 'border-border/30 bg-card/50'
+        current ? 'border-emerald-500/40 bg-emerald-600/5' : 'border-border/30 bg-card/50'
       }`}
     >
       <div className="flex flex-wrap items-baseline justify-between gap-2">
-        <p className={`text-lg font-bold ${current ? 'text-emerald-400' : 'text-foreground'}`}>
+        <p className={`text-lg font-bold ${current ? 'text-emerald-600' : 'text-foreground'}`}>
           {formatSalary(amount)}
           {current && <span className="ml-2 text-xs font-medium text-muted-foreground">you are here</span>}
         </p>
@@ -956,10 +956,10 @@ function SalaryStepCard({
 function RaiseChip({ gross, netTx, netCa }: { gross: number; netTx: number; netCa: number }) {
   return (
     <div className="flex items-center gap-3 px-2 sm:px-6">
-      <span className="text-emerald-400" aria-hidden>↗</span>
+      <span className="text-emerald-600" aria-hidden>↗</span>
       <p className="text-sm text-muted-foreground">
         <span className="font-medium text-foreground">+{fmt(gross)} gross</span> →{' '}
-        <span className="font-medium text-emerald-400">+{fmt(netTx)} take-home</span> in Texas ·{' '}
+        <span className="font-medium text-emerald-600">+{fmt(netTx)} take-home</span> in Texas ·{' '}
         +{fmt(netCa)} in California
       </p>
     </div>
@@ -1260,7 +1260,7 @@ function BottomStatesSection({ d }: { d: SalaryPageData }) {
         {bottom5.map((s) => (
           <div key={s.stateKey} className="rounded-lg border border-border/30 bg-card/50 p-3 text-center">
             <p className="font-semibold text-foreground">{s.stateName}</p>
-            <p className="text-sm text-emerald-400 mt-1">{fmt(s.netAnnual)}</p>
+            <p className="text-sm text-emerald-600 mt-1">{fmt(s.netAnnual)}</p>
             <p className="text-xs text-muted-foreground mt-0.5">{s.effectiveTaxRate.toFixed(1)}% effective</p>
           </div>
         ))}
@@ -1306,7 +1306,7 @@ function RelatedLinksSection({ d }: { d: SalaryPageData }) {
               <Link
                 key={amount}
                 href={`/salary/${amount}-after-taxes`}
-                className="inline-flex items-center rounded-lg border border-border/50 bg-muted/20 px-3 py-1.5 text-xs font-medium text-foreground hover:border-emerald-500/30 hover:text-emerald-400 transition-all"
+                className="inline-flex items-center rounded-lg border border-border/50 bg-muted/20 px-3 py-1.5 text-xs font-medium text-foreground hover:border-emerald-500/30 hover:text-emerald-600 transition-all"
               >
                 {formatSalaryCompact(amount)}
               </Link>
@@ -1316,21 +1316,21 @@ function RelatedLinksSection({ d }: { d: SalaryPageData }) {
         <div className="rounded-xl border border-border/30 bg-card/50 p-5">
           <h3 className="font-semibold text-foreground mb-3">State Calculators</h3>
           <div className="space-y-1.5">
-            <Link href="/texas-tax-calculator" className="block text-sm text-muted-foreground hover:text-emerald-400">Texas Tax Calculator</Link>
-            <Link href="/california-tax-calculator" className="block text-sm text-muted-foreground hover:text-emerald-400">California Tax Calculator</Link>
-            <Link href="/new-york-tax-calculator" className="block text-sm text-muted-foreground hover:text-emerald-400">New York Tax Calculator</Link>
-            <Link href="/florida-tax-calculator" className="block text-sm text-muted-foreground hover:text-emerald-400">Florida Tax Calculator</Link>
-            <Link href="/illinois-tax-calculator" className="block text-sm text-muted-foreground hover:text-emerald-400">Illinois Tax Calculator</Link>
+            <Link href="/texas-tax-calculator" className="block text-sm text-muted-foreground hover:text-emerald-600">Texas Tax Calculator</Link>
+            <Link href="/california-tax-calculator" className="block text-sm text-muted-foreground hover:text-emerald-600">California Tax Calculator</Link>
+            <Link href="/new-york-tax-calculator" className="block text-sm text-muted-foreground hover:text-emerald-600">New York Tax Calculator</Link>
+            <Link href="/florida-tax-calculator" className="block text-sm text-muted-foreground hover:text-emerald-600">Florida Tax Calculator</Link>
+            <Link href="/illinois-tax-calculator" className="block text-sm text-muted-foreground hover:text-emerald-600">Illinois Tax Calculator</Link>
           </div>
         </div>
         <div className="rounded-xl border border-border/30 bg-card/50 p-5">
           <h3 className="font-semibold text-foreground mb-3">Useful Tools</h3>
           <div className="space-y-1.5">
-            <Link href="/paycheck-calculator" className="block text-sm text-muted-foreground hover:text-emerald-400">Paycheck Calculator</Link>
-            <Link href="/compare" className="block text-sm text-muted-foreground hover:text-emerald-400">Compare State Taxes</Link>
-            <Link href="/federal-tax-brackets" className="block text-sm text-muted-foreground hover:text-emerald-400">2026 Federal Tax Brackets</Link>
-            <Link href="/401k-retirement-calculator" className="block text-sm text-muted-foreground hover:text-emerald-400">401(k) Retirement Calculator</Link>
-            <Link href="/relocation-calculator" className="block text-sm text-muted-foreground hover:text-emerald-400">Relocation Calculator</Link>
+            <Link href="/paycheck-calculator" className="block text-sm text-muted-foreground hover:text-emerald-600">Paycheck Calculator</Link>
+            <Link href="/compare" className="block text-sm text-muted-foreground hover:text-emerald-600">Compare State Taxes</Link>
+            <Link href="/federal-tax-brackets" className="block text-sm text-muted-foreground hover:text-emerald-600">2026 Federal Tax Brackets</Link>
+            <Link href="/401k-retirement-calculator" className="block text-sm text-muted-foreground hover:text-emerald-600">401(k) Retirement Calculator</Link>
+            <Link href="/relocation-calculator" className="block text-sm text-muted-foreground hover:text-emerald-600">Relocation Calculator</Link>
           </div>
         </div>
       </div>
@@ -1386,7 +1386,7 @@ function StateLookupSection({ d }: { d: SalaryPageData }) {
     top: `All 50 states ranked by ${formatted} take-home. Open your state for the full breakdown behind its figure.`,
   };
   return (
-    <section className="mt-12 rounded-xl border border-emerald-500/30 bg-emerald-500/5 p-6 sm:p-8">
+    <section className="mt-12 rounded-xl border border-emerald-500/30 bg-emerald-600/5 p-6 sm:p-8">
       <h2 className="text-2xl font-bold text-foreground mb-3">{headings[d.tier]}</h2>
       <p className="text-muted-foreground mb-5 leading-relaxed">{intros[d.tier]}</p>
       <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
@@ -1396,9 +1396,9 @@ function StateLookupSection({ d }: { d: SalaryPageData }) {
             <Link
               key={s.stateKey}
               href={`/${stateSlug}-tax-calculator`}
-              className="group rounded-lg border border-border/30 bg-background/40 px-3 py-2 text-sm hover:border-emerald-500/40 hover:bg-emerald-500/5 transition-all"
+              className="group rounded-lg border border-border/30 bg-background/40 px-3 py-2 text-sm hover:border-emerald-500/40 hover:bg-emerald-600/5 transition-all"
             >
-              <div className="font-medium text-foreground group-hover:text-emerald-400 transition-colors">
+              <div className="font-medium text-foreground group-hover:text-emerald-600 transition-colors">
                 {s.stateName}
               </div>
               <div className="text-xs text-muted-foreground">{fmt(s.netAnnual)}/yr</div>
@@ -1431,8 +1431,8 @@ function StateCard({
       <h3 className="font-semibold text-foreground mb-2">{title}</h3>
       <p className="text-sm text-muted-foreground leading-relaxed mb-3">{description}</p>
       <div className="flex items-center justify-between text-xs">
-        <span className="text-emerald-400 font-medium">{fmt(state.netAnnual)}/yr</span>
-        <Link href={calculatorHref} className="text-muted-foreground hover:text-emerald-400">
+        <span className="text-emerald-600 font-medium">{fmt(state.netAnnual)}/yr</span>
+        <Link href={calculatorHref} className="text-muted-foreground hover:text-emerald-600">
           Open Calculator →
         </Link>
       </div>

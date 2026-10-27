@@ -17,7 +17,7 @@ export default function AdminPage() {
   if (!mounted) {
     return (
       <div className="flex items-center justify-center min-h-[70vh]">
-        <Loader2 className="h-8 w-8 animate-spin text-emerald-500" />
+        <Loader2 className="h-8 w-8 animate-spin text-emerald-700" />
       </div>
     );
   }

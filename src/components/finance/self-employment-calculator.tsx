@@ -189,7 +189,7 @@ const CHART_COLORS = {
   seTax: '#f97316', // orange-500
   federalTax: '#ef4444', // red-500
   stateTax: '#f59e0b', // amber-500
-  netIncome: '#10b981', // emerald-500
+  netIncome: '#b08d3e', // emerald-500
   employee: '#6366f1', // indigo-500 (for comparison)
   selfEmployed: '#f97316', // orange-500
 };
@@ -308,7 +308,7 @@ export function SelfEmploymentCalculator() {
       {/* ─── Page Title ─────────────────────────────────── */}
       <div className="text-center">
         <h2 className="flex items-center justify-center gap-2 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-          <Briefcase className="h-8 w-8 text-emerald-400" />
+          <Briefcase className="h-8 w-8 text-emerald-600" />
           Self-Employment Tax Calculator
         </h2>
         <p className="mt-2 text-muted-foreground">
@@ -317,10 +317,10 @@ export function SelfEmploymentCalculator() {
       </div>
 
       {/* ─── Info Card ──────────────────────────────────── */}
-      <Card className="border-emerald-500/20 bg-emerald-500/5">
+      <Card className="border-emerald-500/20 bg-emerald-600/5">
         <CardContent className="p-4">
           <div className="flex items-start gap-3">
-            <Info className="mt-0.5 h-5 w-5 shrink-0 text-emerald-400" />
+            <Info className="mt-0.5 h-5 w-5 shrink-0 text-emerald-600" />
             <div className="space-y-2 text-sm text-muted-foreground">
               <p className="font-medium text-foreground">How Self-Employment Tax Works</p>
               <p>
@@ -357,7 +357,7 @@ export function SelfEmploymentCalculator() {
       <Card className="border-border/50 bg-card/80 backdrop-blur-sm">
         <CardHeader className="pb-4">
           <CardTitle className="flex items-center gap-2 text-lg">
-            <DollarSign className="h-5 w-5 text-emerald-400" />
+            <DollarSign className="h-5 w-5 text-emerald-600" />
             Self-Employment Details
           </CardTitle>
           <CardDescription>Enter your business income and deductions</CardDescription>
@@ -368,7 +368,7 @@ export function SelfEmploymentCalculator() {
             <div className="space-y-2">
               <Label htmlFor="se-income" className="text-sm font-medium">
                 <span className="flex items-center gap-1.5">
-                  <Briefcase className="h-3.5 w-3.5 text-emerald-400" />
+                  <Briefcase className="h-3.5 w-3.5 text-emerald-600" />
                   Net Self-Employment Income
                 </span>
               </Label>
@@ -433,7 +433,7 @@ export function SelfEmploymentCalculator() {
             <div className="space-y-2">
               <Label htmlFor="se-401k" className="text-sm font-medium">
                 <span className="flex items-center gap-1.5">
-                  <DollarSign className="h-3.5 w-3.5 text-emerald-400" />
+                  <DollarSign className="h-3.5 w-3.5 text-emerald-600" />
                   401(k) Contribution (Annual)
                 </span>
               </Label>
@@ -494,29 +494,29 @@ export function SelfEmploymentCalculator() {
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             <Card className="border-red-500/20 bg-red-500/5">
               <CardContent className="p-4 text-center">
-                <p className="text-xs font-medium uppercase tracking-wider text-red-400/80">SE Tax</p>
-                <p className="mt-1 text-2xl font-bold text-red-400">{formatCurrency(result.seTax)}</p>
+                <p className="text-xs font-medium uppercase tracking-wider text-red-600/80">SE Tax</p>
+                <p className="mt-1 text-2xl font-bold text-red-600">{formatCurrency(result.seTax)}</p>
                 <p className="text-xs text-muted-foreground">SS + Medicare</p>
               </CardContent>
             </Card>
             <Card className="border-amber-500/20 bg-amber-500/5">
               <CardContent className="p-4 text-center">
-                <p className="text-xs font-medium uppercase tracking-wider text-amber-400/80">Federal Tax</p>
-                <p className="mt-1 text-2xl font-bold text-amber-400">{formatCurrency(result.federalTax)}</p>
+                <p className="text-xs font-medium uppercase tracking-wider text-amber-700/80">Federal Tax</p>
+                <p className="mt-1 text-2xl font-bold text-amber-700">{formatCurrency(result.federalTax)}</p>
                 <p className="text-xs text-muted-foreground">Income tax on AGI</p>
               </CardContent>
             </Card>
             <Card className="border-orange-500/20 bg-orange-500/5">
               <CardContent className="p-4 text-center">
-                <p className="text-xs font-medium uppercase tracking-wider text-orange-400/80">Total Tax</p>
-                <p className="mt-1 text-2xl font-bold text-orange-400">{formatCurrency(result.totalTax)}</p>
+                <p className="text-xs font-medium uppercase tracking-wider text-orange-700/80">Total Tax</p>
+                <p className="mt-1 text-2xl font-bold text-orange-700">{formatCurrency(result.totalTax)}</p>
                 <p className="text-xs text-muted-foreground">{formatPercent(result.effectiveTaxRate)} effective rate</p>
               </CardContent>
             </Card>
-            <Card className="border-emerald-500/20 bg-emerald-500/5">
+            <Card className="border-emerald-500/20 bg-emerald-600/5">
               <CardContent className="p-4 text-center">
-                <p className="text-xs font-medium uppercase tracking-wider text-emerald-400/80">Net Income</p>
-                <p className="mt-1 text-2xl font-bold text-emerald-400">{formatCurrency(result.netIncomeAfterTax)}</p>
+                <p className="text-xs font-medium uppercase tracking-wider text-emerald-600/80">Net Income</p>
+                <p className="mt-1 text-2xl font-bold text-emerald-600">{formatCurrency(result.netIncomeAfterTax)}</p>
                 <p className="text-xs text-muted-foreground">After all taxes</p>
               </CardContent>
             </Card>
@@ -526,7 +526,7 @@ export function SelfEmploymentCalculator() {
           <Card className="border-border/50 bg-card/80 backdrop-blur-sm">
             <CardHeader>
               <CardTitle className="flex items-center gap-2 text-lg">
-                <BarChart3 className="h-5 w-5 text-emerald-400" />
+                <BarChart3 className="h-5 w-5 text-emerald-600" />
                 Tax Breakdown
               </CardTitle>
               <CardDescription>Complete analysis of your self-employment tax liability</CardDescription>
@@ -556,11 +556,11 @@ export function SelfEmploymentCalculator() {
                     <Separator className="bg-border/30" />
                     <div className="flex justify-between">
                       <span className="text-sm font-semibold text-foreground">Total SE Tax</span>
-                      <span className="text-sm font-bold text-orange-400">{formatCurrency(result.seTax)}</span>
+                      <span className="text-sm font-bold text-orange-700">{formatCurrency(result.seTax)}</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-sm text-muted-foreground">Deductible Half of SE Tax</span>
-                      <span className="text-sm font-medium text-emerald-400">-{formatCurrency(result.deductibleHalfSE)}</span>
+                      <span className="text-sm font-medium text-emerald-600">-{formatCurrency(result.deductibleHalfSE)}</span>
                     </div>
                   </div>
                 </div>
@@ -577,16 +577,16 @@ export function SelfEmploymentCalculator() {
                     </div>
                     <div className="flex justify-between">
                       <span className="text-sm text-muted-foreground">Federal Income Tax</span>
-                      <span className="text-sm font-medium text-red-400">{formatCurrency(result.federalTax)}</span>
+                      <span className="text-sm font-medium text-red-600">{formatCurrency(result.federalTax)}</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-sm text-muted-foreground">State Income Tax ({STATE_PROFILES[stateKey]?.name})</span>
-                      <span className="text-sm font-medium text-amber-400">{formatCurrency(result.stateTax)}</span>
+                      <span className="text-sm font-medium text-amber-700">{formatCurrency(result.stateTax)}</span>
                     </div>
                     <Separator className="bg-border/30" />
                     <div className="flex justify-between">
                       <span className="text-sm font-semibold text-foreground">Total Tax Burden</span>
-                      <span className="text-sm font-bold text-red-400">{formatCurrency(result.totalTax)}</span>
+                      <span className="text-sm font-bold text-red-600">{formatCurrency(result.totalTax)}</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-sm font-semibold text-foreground">Effective Tax Rate</span>
@@ -596,17 +596,17 @@ export function SelfEmploymentCalculator() {
                 </div>
               </div>
 
-              <Separator className="my-4 bg-emerald-500/30" />
+              <Separator className="my-4 bg-emerald-600/30" />
 
               {/* Quarterly Payments */}
-              <div className="rounded-lg bg-emerald-500/10 p-4">
+              <div className="rounded-lg bg-emerald-600/10 p-4">
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-sm font-semibold text-emerald-400">Quarterly Estimated Tax Payment</p>
+                    <p className="text-sm font-semibold text-emerald-600">Quarterly Estimated Tax Payment</p>
                     <p className="text-xs text-muted-foreground">Due: Apr 15, Jun 15, Sep 15, Jan 15</p>
                   </div>
                   <div className="text-right">
-                    <p className="text-2xl font-bold text-emerald-400">{formatCurrency(result.quarterlyPayment)}</p>
+                    <p className="text-2xl font-bold text-emerald-600">{formatCurrency(result.quarterlyPayment)}</p>
                     <p className="text-xs text-muted-foreground">per quarter</p>
                   </div>
                 </div>
@@ -618,7 +618,7 @@ export function SelfEmploymentCalculator() {
           <Card className="border-border/50 bg-card/80 backdrop-blur-sm">
             <CardHeader>
               <CardTitle className="flex items-center gap-2 text-lg">
-                <Building2 className="h-5 w-5 text-emerald-400" />
+                <Building2 className="h-5 w-5 text-emerald-600" />
                 Employee vs Self-Employed Comparison
               </CardTitle>
               <CardDescription>See how much more self-employed individuals pay in taxes</CardDescription>
@@ -640,11 +640,11 @@ export function SelfEmploymentCalculator() {
                     </div>
                     <div className="flex justify-between">
                       <span className="text-muted-foreground">Federal Income Tax</span>
-                      <span className="font-medium text-red-400">{formatCurrency(result.employeeFederalTax)}</span>
+                      <span className="font-medium text-red-600">{formatCurrency(result.employeeFederalTax)}</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-muted-foreground">State Income Tax</span>
-                      <span className="font-medium text-amber-400">{formatCurrency(result.employeeStateTax)}</span>
+                      <span className="font-medium text-amber-700">{formatCurrency(result.employeeStateTax)}</span>
                     </div>
                     <Separator className="bg-border/20" />
                     <div className="flex justify-between">
@@ -657,7 +657,7 @@ export function SelfEmploymentCalculator() {
                     </div>
                     <div className="flex justify-between">
                       <span className="text-muted-foreground">Net Take-Home</span>
-                      <span className="font-bold text-emerald-400">{formatCurrency(result.employeeNetIncome)}</span>
+                      <span className="font-bold text-emerald-600">{formatCurrency(result.employeeNetIncome)}</span>
                     </div>
                   </div>
                 </div>
@@ -665,28 +665,28 @@ export function SelfEmploymentCalculator() {
                 {/* Self-Employed */}
                 <div className="rounded-xl border border-orange-500/30 bg-orange-500/5 p-4 space-y-3">
                   <div className="flex items-center gap-2">
-                    <Briefcase className="h-4 w-4 text-orange-400" />
+                    <Briefcase className="h-4 w-4 text-orange-700" />
                     <span className="text-sm font-semibold text-foreground">Self-Employed</span>
-                    <Badge className="bg-orange-500/20 text-orange-400 text-[10px]">You pay full FICA</Badge>
+                    <Badge className="bg-orange-500/20 text-orange-700 text-[10px]">You pay full FICA</Badge>
                   </div>
                   <Separator className="bg-border/30" />
                   <div className="space-y-2 text-sm">
                     <div className="flex justify-between">
                       <span className="text-muted-foreground">SE Tax (15.3%)</span>
-                      <span className="font-medium text-orange-400">{formatCurrency(result.seTax)}</span>
+                      <span className="font-medium text-orange-700">{formatCurrency(result.seTax)}</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-muted-foreground">Federal Income Tax</span>
-                      <span className="font-medium text-red-400">{formatCurrency(result.federalTax)}</span>
+                      <span className="font-medium text-red-600">{formatCurrency(result.federalTax)}</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-muted-foreground">State Income Tax</span>
-                      <span className="font-medium text-amber-400">{formatCurrency(result.stateTax)}</span>
+                      <span className="font-medium text-amber-700">{formatCurrency(result.stateTax)}</span>
                     </div>
                     <Separator className="bg-border/20" />
                     <div className="flex justify-between">
                       <span className="font-semibold text-foreground">Total Tax</span>
-                      <span className="font-bold text-orange-400">{formatCurrency(result.totalTax)}</span>
+                      <span className="font-bold text-orange-700">{formatCurrency(result.totalTax)}</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-muted-foreground">Effective Rate</span>
@@ -694,7 +694,7 @@ export function SelfEmploymentCalculator() {
                     </div>
                     <div className="flex justify-between">
                       <span className="text-muted-foreground">Net Income</span>
-                      <span className="font-bold text-emerald-400">{formatCurrency(result.netIncomeAfterTax)}</span>
+                      <span className="font-bold text-emerald-600">{formatCurrency(result.netIncomeAfterTax)}</span>
                     </div>
                   </div>
                 </div>
@@ -705,10 +705,10 @@ export function SelfEmploymentCalculator() {
                 <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
                   <div className="text-sm text-muted-foreground">
                     Self-employed individuals pay{' '}
-                    <strong className="text-orange-400">{formatCurrency(result.taxDifference)}</strong> more in taxes
+                    <strong className="text-orange-700">{formatCurrency(result.taxDifference)}</strong> more in taxes
                     than W-2 employees earning the same income
                   </div>
-                  <Badge className="bg-orange-500/20 text-orange-400 text-xs">
+                  <Badge className="bg-orange-500/20 text-orange-700 text-xs">
                     +{formatPercent(result.effectiveTaxRate - result.employeeEffectiveRate)} higher rate
                   </Badge>
                 </div>
@@ -902,9 +902,9 @@ export function SelfEmploymentCalculator() {
               <button
                 key={link.page}
                 onClick={() => { window.location.hash = link.page; window.scrollTo({ top: 0, behavior: 'smooth' }); }}
-                className="flex items-start gap-2 rounded-lg border border-border/50 bg-muted/20 p-3 text-left transition-colors hover:border-emerald-500/30 hover:bg-emerald-500/5"
+                className="flex items-start gap-2 rounded-lg border border-border/50 bg-muted/20 p-3 text-left transition-colors hover:border-emerald-500/30 hover:bg-emerald-600/5"
               >
-                <ArrowRight className="mt-0.5 h-4 w-4 shrink-0 text-emerald-400" />
+                <ArrowRight className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600" />
                 <div>
                   <p className="text-sm font-medium text-foreground">{link.label}</p>
                   <p className="text-xs text-muted-foreground">{link.desc}</p>

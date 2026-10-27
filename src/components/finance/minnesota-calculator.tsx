@@ -51,7 +51,7 @@ export function MinnesotaCalculator() {
     <div className="space-y-6">
       <div className="text-center">
         <h2 className="flex items-center justify-center gap-2 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-          <MapPin className="h-8 w-8 text-sky-400" />
+          <MapPin className="h-8 w-8 text-sky-700" />
           Minnesota Paycheck Calculator
         </h2>
         <p className="mt-2 text-muted-foreground">
@@ -62,12 +62,12 @@ export function MinnesotaCalculator() {
       <Card className="border-sky-500/20 bg-sky-500/5">
         <CardContent className="p-4">
           <div className="flex items-start gap-3">
-            <Info className="mt-0.5 h-5 w-5 shrink-0 text-sky-400" />
+            <Info className="mt-0.5 h-5 w-5 shrink-0 text-sky-700" />
             <div className="space-y-2 text-sm text-muted-foreground">
               <p className="font-medium text-foreground">How Minnesota Income Tax Works</p>
               <p>
-                Minnesota uses a <strong className="text-sky-400">progressive tax system with brackets from 5.35% to 9.85%</strong>,
-                making it one of the highest top rates in the nation. Minnesota offers a <strong className="text-sky-400">standard deduction</strong>
+                Minnesota uses a <strong className="text-sky-700">progressive tax system with brackets from 5.35% to 9.85%</strong>,
+                making it one of the highest top rates in the nation. Minnesota offers a <strong className="text-sky-700">standard deduction</strong>
                 ($14,575 single / $29,150 married / $21,850 head of household). The state also provides a working family credit
                 and various other credits for lower-income residents.
               </p>
@@ -84,7 +84,7 @@ export function MinnesotaCalculator() {
           <Card className="border-border/50 bg-card/80 backdrop-blur-sm">
             <CardHeader className="pb-4">
               <CardTitle className="flex items-center gap-2 text-lg">
-                <DollarSign className="h-5 w-5 text-sky-400" />Salary Input
+                <DollarSign className="h-5 w-5 text-sky-700" />Salary Input
               </CardTitle>
               <CardDescription>Enter your Minnesota salary for an instant calculation</CardDescription>
             </CardHeader>
@@ -139,7 +139,7 @@ export function MinnesotaCalculator() {
                 <CardHeader className="cursor-pointer pb-4 transition-colors hover:bg-muted/30">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
-                      <Shield className="h-5 w-5 text-amber-400" />
+                      <Shield className="h-5 w-5 text-amber-700" />
                       <CardTitle className="text-lg">Advanced Options</CardTitle>
                       <Badge variant="outline" className="text-xs">401(k) &amp; HSA</Badge>
                     </div>
@@ -152,7 +152,7 @@ export function MinnesotaCalculator() {
                   <div className="grid gap-4 sm:grid-cols-2">
                     <div className="space-y-2">
                       <Label htmlFor="mn-401k" className="text-sm font-medium">
-                        <span className="flex items-center gap-1.5"><PiggyBank className="h-3.5 w-3.5 text-amber-400" />401(k) Annual</span>
+                        <span className="flex items-center gap-1.5"><PiggyBank className="h-3.5 w-3.5 text-amber-700" />401(k) Annual</span>
                       </Label>
                       <div className="relative">
                         <DollarSign className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
@@ -161,7 +161,7 @@ export function MinnesotaCalculator() {
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="mn-hsa" className="text-sm font-medium">
-                        <span className="flex items-center gap-1.5"><Shield className="h-3.5 w-3.5 text-sky-400" />HSA Annual</span>
+                        <span className="flex items-center gap-1.5"><Shield className="h-3.5 w-3.5 text-sky-700" />HSA Annual</span>
                       </Label>
                       <div className="relative">
                         <DollarSign className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
@@ -181,13 +181,13 @@ export function MinnesotaCalculator() {
           <Card className="sticky top-20 border-sky-500/20 bg-card/90 backdrop-blur-sm">
             <CardHeader className="pb-3">
               <CardTitle className="flex items-center gap-2 text-lg">
-                <TrendingUp className="h-5 w-5 text-sky-400" />Minnesota Take-Home
+                <TrendingUp className="h-5 w-5 text-sky-700" />Minnesota Take-Home
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="rounded-xl bg-sky-500/10 p-4 text-center">
-                <p className="text-xs font-medium uppercase tracking-wider text-sky-400/80">Net Take-Home ({periodLabel})</p>
-                <p className="mt-1 text-3xl font-bold text-sky-400">{formatCurrency(result.netPerPeriod)}</p>
+                <p className="text-xs font-medium uppercase tracking-wider text-sky-700/80">Net Take-Home ({periodLabel})</p>
+                <p className="mt-1 text-3xl font-bold text-sky-700">{formatCurrency(result.netPerPeriod)}</p>
                 <p className="mt-1 text-xs text-muted-foreground">Annual Net: {formatCurrency(result.netAnnual)}</p>
               </div>
 
@@ -196,27 +196,27 @@ export function MinnesotaCalculator() {
               <div className="space-y-2.5 rounded-lg bg-muted/30 p-3">
                 <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground">Deductions</p>
                 <div className="flex items-center justify-between">
-                  <span className="flex items-center gap-1.5 text-sm text-muted-foreground"><TrendingDown className="h-3.5 w-3.5 text-red-400" />Federal Tax</span>
-                  <span className="text-sm font-medium text-red-400">-{formatCurrency(result.federalTax)}</span>
+                  <span className="flex items-center gap-1.5 text-sm text-muted-foreground"><TrendingDown className="h-3.5 w-3.5 text-red-600" />Federal Tax</span>
+                  <span className="text-sm font-medium text-red-600">-{formatCurrency(result.federalTax)}</span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="flex items-center gap-1.5 text-sm text-muted-foreground"><TrendingDown className="h-3.5 w-3.5 text-orange-400" />FICA</span>
-                  <span className="text-sm font-medium text-orange-400">-{formatCurrency(result.ficaTotal)}</span>
+                  <span className="flex items-center gap-1.5 text-sm text-muted-foreground"><TrendingDown className="h-3.5 w-3.5 text-orange-700" />FICA</span>
+                  <span className="text-sm font-medium text-orange-700">-{formatCurrency(result.ficaTotal)}</span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="flex items-center gap-1.5 text-sm text-muted-foreground"><TrendingDown className="h-3.5 w-3.5 text-amber-400" />MN State Tax</span>
-                  <span className="text-sm font-medium text-amber-400">-{formatCurrency(result.stateTax)}</span>
+                  <span className="flex items-center gap-1.5 text-sm text-muted-foreground"><TrendingDown className="h-3.5 w-3.5 text-amber-700" />MN State Tax</span>
+                  <span className="text-sm font-medium text-amber-700">-{formatCurrency(result.stateTax)}</span>
                 </div>
                 {result.retirement401k > 0 && (
                   <div className="flex items-center justify-between">
                     <span className="text-sm text-muted-foreground">401(k)</span>
-                    <span className="text-sm font-medium text-amber-400">-{formatCurrency(result.retirement401k)}</span>
+                    <span className="text-sm font-medium text-amber-700">-{formatCurrency(result.retirement401k)}</span>
                   </div>
                 )}
                 {result.hsaContribution > 0 && (
                   <div className="flex items-center justify-between">
                     <span className="text-sm text-muted-foreground">HSA</span>
-                    <span className="text-sm font-medium text-sky-400">-{formatCurrency(result.hsaContribution)}</span>
+                    <span className="text-sm font-medium text-sky-700">-{formatCurrency(result.hsaContribution)}</span>
                   </div>
                 )}
               </div>
@@ -248,12 +248,12 @@ export function MinnesotaCalculator() {
               <TableRow><TableHead>Parameter</TableHead><TableHead>Value</TableHead><TableHead>Notes</TableHead></TableRow>
             </TableHeader>
             <TableBody>
-              <TableRow><TableCell>State Income Tax</TableCell><TableCell className="font-medium text-sky-400">5.35%–9.85% (Progressive)</TableCell><TableCell>4 brackets; top rate above $210,260</TableCell></TableRow>
+              <TableRow><TableCell>State Income Tax</TableCell><TableCell className="font-medium text-sky-700">5.35%–9.85% (Progressive)</TableCell><TableCell>4 brackets; top rate above $210,260</TableCell></TableRow>
               <TableRow><TableCell>Standard Deduction (Single)</TableCell><TableCell className="font-medium">$14,575</TableCell><TableCell>Subtracted from gross before tax computation</TableCell></TableRow>
               <TableRow><TableCell>Standard Deduction (Married)</TableCell><TableCell className="font-medium">$29,150</TableCell><TableCell>Married filing jointly</TableCell></TableRow>
               <TableRow><TableCell>Standard Deduction (HOH)</TableCell><TableCell className="font-medium">$21,850</TableCell><TableCell>Head of household</TableCell></TableRow>
               <TableRow><TableCell>Federal Standard Deduction</TableCell><TableCell className="font-medium">$16,100</TableCell><TableCell>Applied to federal tax calculation only</TableCell></TableRow>
-              <TableRow><TableCell>FICA Total Rate</TableCell><TableCell className="font-medium text-orange-400">7.65%</TableCell><TableCell>6.2% SS + 1.45% Medicare (employee share)</TableCell></TableRow>
+              <TableRow><TableCell>FICA Total Rate</TableCell><TableCell className="font-medium text-orange-700">7.65%</TableCell><TableCell>6.2% SS + 1.45% Medicare (employee share)</TableCell></TableRow>
             </TableBody>
           </Table>
         </CardContent>

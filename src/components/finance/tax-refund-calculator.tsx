@@ -416,7 +416,7 @@ export function TaxRefundCalculator() {
       entries.push({
         name: 'Net Take-Home',
         value: netKeep,
-        fill: '#10b981',
+        fill: '#b08d3e',
         percent: result.grossIncome > 0 ? netKeep / result.grossIncome : 0,
       });
     }
@@ -431,7 +431,7 @@ export function TaxRefundCalculator() {
     entries.push({
       name: 'Federal Refund',
       value: result.federalRefund,
-      fill: result.federalRefund >= 0 ? '#10b981' : '#ef4444',
+      fill: result.federalRefund >= 0 ? '#b08d3e' : '#ef4444',
     });
     if (!isNoTaxState) {
       entries.push({
@@ -443,7 +443,7 @@ export function TaxRefundCalculator() {
     entries.push({
       name: 'Total',
       value: result.totalRefund,
-      fill: result.totalRefund >= 0 ? '#10b981' : '#ef4444',
+      fill: result.totalRefund >= 0 ? '#b08d3e' : '#ef4444',
     });
 
     return entries;
@@ -469,7 +469,7 @@ export function TaxRefundCalculator() {
           <Card className="border-border/50 bg-card/80 backdrop-blur-sm">
             <CardHeader className="pb-4">
               <CardTitle className="flex items-center gap-2 text-lg">
-                <DollarSign className="h-5 w-5 text-emerald-400" />
+                <DollarSign className="h-5 w-5 text-emerald-600" />
                 Income &amp; Withholding
               </CardTitle>
               <CardDescription>Enter your total income and taxes already withheld</CardDescription>
@@ -577,7 +577,7 @@ export function TaxRefundCalculator() {
           <Card className="border-border/50 bg-card/80 backdrop-blur-sm">
             <CardHeader className="pb-4">
               <CardTitle className="flex items-center gap-2 text-lg">
-                <Receipt className="h-5 w-5 text-amber-400" />
+                <Receipt className="h-5 w-5 text-amber-700" />
                 Deductions
               </CardTitle>
               <CardDescription>
@@ -604,7 +604,7 @@ export function TaxRefundCalculator() {
                 <div className="space-y-2">
                   <Label htmlFor="dependents" className="text-sm font-medium">
                     <span className="flex items-center gap-1.5">
-                      <Users className="h-3.5 w-3.5 text-emerald-400" />
+                      <Users className="h-3.5 w-3.5 text-emerald-600" />
                       Dependents (under 17)
                     </span>
                   </Label>
@@ -745,9 +745,9 @@ export function TaxRefundCalculator() {
               <CardTitle className="flex items-center gap-2 text-lg">
                 {result ? (
                   result.totalRefund >= 0 ? (
-                    <TrendingUp className="h-5 w-5 text-emerald-400" />
+                    <TrendingUp className="h-5 w-5 text-emerald-600" />
                   ) : (
-                    <TrendingDown className="h-5 w-5 text-red-400" />
+                    <TrendingDown className="h-5 w-5 text-red-600" />
                   )
                 ) : (
                   <Shield className="h-5 w-5 text-muted-foreground" />
@@ -762,11 +762,11 @@ export function TaxRefundCalculator() {
               {result ? (
                 <>
                   {/* Total Refund/Owed - Hero Number */}
-                  <div className={`rounded-xl p-4 text-center ${result.totalRefund >= 0 ? 'bg-emerald-500/10' : 'bg-red-500/10'}`}>
-                    <p className={`text-xs font-medium uppercase tracking-wider ${result.totalRefund >= 0 ? 'text-emerald-400/80' : 'text-red-400/80'}`}>
+                  <div className={`rounded-xl p-4 text-center ${result.totalRefund >= 0 ? 'bg-emerald-600/10' : 'bg-red-500/10'}`}>
+                    <p className={`text-xs font-medium uppercase tracking-wider ${result.totalRefund >= 0 ? 'text-emerald-600/80' : 'text-red-600/80'}`}>
                       {result.totalRefund >= 0 ? 'Estimated Tax Refund' : 'Estimated Tax Owed'}
                     </p>
-                    <p className={`mt-1 text-3xl font-bold ${result.totalRefund >= 0 ? 'text-emerald-400' : 'text-red-400'}`}>
+                    <p className={`mt-1 text-3xl font-bold ${result.totalRefund >= 0 ? 'text-emerald-600' : 'text-red-600'}`}>
                       {formatCurrency(Math.abs(result.totalRefund))}
                     </p>
                     <p className="mt-1 text-xs text-muted-foreground">
@@ -787,11 +787,11 @@ export function TaxRefundCalculator() {
                     </div>
                     <div className="flex items-center justify-between">
                       <span className="text-sm text-muted-foreground">Tax Owed (after credits)</span>
-                      <span className="text-sm font-medium text-red-400">-{formatCurrency(result.federalTaxOwed)}</span>
+                      <span className="text-sm font-medium text-red-600">-{formatCurrency(result.federalTaxOwed)}</span>
                     </div>
                     <div className="flex items-center justify-between border-t border-border/30 pt-2">
                       <span className="text-sm font-medium text-foreground">Federal Refund</span>
-                      <span className={`text-sm font-bold ${result.federalRefund >= 0 ? 'text-emerald-400' : 'text-red-400'}`}>
+                      <span className={`text-sm font-bold ${result.federalRefund >= 0 ? 'text-emerald-600' : 'text-red-600'}`}>
                         {result.federalRefund >= 0 ? '+' : ''}{formatCurrency(result.federalRefund)}
                       </span>
                     </div>
@@ -809,11 +809,11 @@ export function TaxRefundCalculator() {
                       </div>
                       <div className="flex items-center justify-between">
                         <span className="text-sm text-muted-foreground">Tax Owed</span>
-                        <span className="text-sm font-medium text-red-400">-{formatCurrency(result.stateTaxOwed)}</span>
+                        <span className="text-sm font-medium text-red-600">-{formatCurrency(result.stateTaxOwed)}</span>
                       </div>
                       <div className="flex items-center justify-between border-t border-border/30 pt-2">
                         <span className="text-sm font-medium text-foreground">State Refund</span>
-                        <span className={`text-sm font-bold ${result.stateRefund >= 0 ? 'text-emerald-400' : 'text-red-400'}`}>
+                        <span className={`text-sm font-bold ${result.stateRefund >= 0 ? 'text-emerald-600' : 'text-red-600'}`}>
                           {result.stateRefund >= 0 ? '+' : ''}{formatCurrency(result.stateRefund)}
                         </span>
                       </div>
@@ -839,10 +839,10 @@ export function TaxRefundCalculator() {
                     {result.childTaxCredit > 0 && (
                       <div className="flex items-center justify-between">
                         <span className="flex items-center gap-1.5 text-sm text-muted-foreground">
-                          <Users className="h-3.5 w-3.5 text-emerald-400" />
+                          <Users className="h-3.5 w-3.5 text-emerald-600" />
                           Tax Credits
                         </span>
-                        <span className="text-sm font-medium text-emerald-400">-{formatCurrency(result.childTaxCredit)}</span>
+                        <span className="text-sm font-medium text-emerald-600">-{formatCurrency(result.childTaxCredit)}</span>
                       </div>
                     )}
                   </div>
@@ -860,7 +860,7 @@ export function TaxRefundCalculator() {
                         <span>{formatCurrency(result.ficaMedicare)}</span>
                       </div>
                       {result.ficaAdditionalMedicare > 0 && (
-                        <div className="flex justify-between text-red-400">
+                        <div className="flex justify-between text-red-600">
                           <span>Additional Medicare (0.9%)</span>
                           <span>{formatCurrency(result.ficaAdditionalMedicare)}</span>
                         </div>
@@ -987,7 +987,7 @@ export function TaxRefundCalculator() {
 
                 {/* Summary below bar chart */}
                 <div className="mt-2 text-center">
-                  <p className={`text-2xl font-bold ${result.totalRefund >= 0 ? 'text-emerald-400' : 'text-red-400'}`}>
+                  <p className={`text-2xl font-bold ${result.totalRefund >= 0 ? 'text-emerald-600' : 'text-red-600'}`}>
                     {result.totalRefund >= 0 ? '+' : ''}{formatCurrency(result.totalRefund)}
                   </p>
                   <p className="text-sm text-muted-foreground">
@@ -1018,7 +1018,7 @@ export function TaxRefundCalculator() {
                 <ArrowRight className="h-4 w-4 text-muted-foreground" />
               </div>
               <div className="text-center">
-                <p className={`text-lg font-semibold ${result.totalRefund >= 0 ? 'text-emerald-400' : 'text-red-400'}`}>
+                <p className={`text-lg font-semibold ${result.totalRefund >= 0 ? 'text-emerald-600' : 'text-red-600'}`}>
                   {result.totalRefund >= 0 ? '+' : ''}{formatCurrency(result.totalRefund)}
                 </p>
                 <p className="text-xs text-muted-foreground">Total Refund</p>

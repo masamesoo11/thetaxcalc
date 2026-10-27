@@ -13,8 +13,8 @@ export default function NotFound() {
     <div className="flex items-center justify-center px-4 py-16">
       <div className="text-center max-w-lg">
         {/* Icon */}
-        <div className="mx-auto mb-8 flex h-20 w-20 items-center justify-center rounded-2xl bg-emerald-500/10 border border-emerald-500/20">
-          <FileQuestion className="h-10 w-10 text-emerald-400" />
+        <div className="mx-auto mb-8 flex h-20 w-20 items-center justify-center rounded-2xl bg-emerald-600/10 border border-emerald-500/20">
+          <FileQuestion className="h-10 w-10 text-emerald-600" />
         </div>
 
         {/* 404 */}
@@ -31,7 +31,7 @@ export default function NotFound() {
         <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
           <Link
             href="/"
-            className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-600 to-emerald-500 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/30 transition-all hover:scale-[1.02]"
+            className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-700 to-emerald-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/30 transition-all hover:scale-[1.02]"
           >
             <Home className="h-4 w-4" />
             Go Home
@@ -67,7 +67,7 @@ export default function NotFound() {
             <Link
               key={link.href}
               href={link.href}
-              className="rounded-full border border-border/30 bg-card/30 px-3 py-1 text-muted-foreground hover:text-emerald-400 hover:border-emerald-500/30 transition-colors"
+              className="rounded-full border border-border/30 bg-card/30 px-3 py-1 text-muted-foreground hover:text-emerald-600 hover:border-emerald-500/30 transition-colors"
             >
               {link.label}
             </Link>

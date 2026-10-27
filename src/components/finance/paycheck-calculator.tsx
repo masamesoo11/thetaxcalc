@@ -129,7 +129,7 @@ export function PaycheckCalculator({ defaultState = 'illinois', onStateChange }:
           <Card className="border-border/50 bg-card/80 backdrop-blur-sm">
             <CardHeader className="pb-4">
               <CardTitle className="flex items-center gap-2 text-lg">
-                <Calculator className="h-5 w-5 text-emerald-400" />
+                <Calculator className="h-5 w-5 text-emerald-600" />
                 Quick Start
               </CardTitle>
               <CardDescription>Enter your salary details for an instant calculation</CardDescription>
@@ -233,7 +233,7 @@ export function PaycheckCalculator({ defaultState = 'illinois', onStateChange }:
                     className="h-4 w-4 rounded border-border accent-red-500"
                   />
                   <Label htmlFor="nyc-resident" className="text-sm font-medium cursor-pointer flex items-center gap-1.5">
-                    <Building2 className="h-3.5 w-3.5 text-red-400" />
+                    <Building2 className="h-3.5 w-3.5 text-red-600" />
                     NYC Resident
                     <span className="text-xs text-muted-foreground font-normal">(adds 3.078%–3.876% city tax)</span>
                   </Label>
@@ -249,7 +249,7 @@ export function PaycheckCalculator({ defaultState = 'illinois', onStateChange }:
                 <CardHeader className="cursor-pointer pb-4 transition-colors hover:bg-muted/30">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
-                      <Shield className="h-5 w-5 text-amber-400" />
+                      <Shield className="h-5 w-5 text-amber-700" />
                       <CardTitle className="text-lg">Advanced Options</CardTitle>
                       <Badge variant="outline" className="text-xs">
                         401(k) &amp; HSA
@@ -272,7 +272,7 @@ export function PaycheckCalculator({ defaultState = 'illinois', onStateChange }:
                     <div className="space-y-2">
                       <Label htmlFor="401k" className="text-sm font-medium">
                         <span className="flex items-center gap-1.5">
-                          <PiggyBank className="h-3.5 w-3.5 text-amber-400" />
+                          <PiggyBank className="h-3.5 w-3.5 text-amber-700" />
                           401(k) Annual Contribution
                         </span>
                       </Label>
@@ -294,7 +294,7 @@ export function PaycheckCalculator({ defaultState = 'illinois', onStateChange }:
                     <div className="space-y-2">
                       <Label htmlFor="hsa" className="text-sm font-medium">
                         <span className="flex items-center gap-1.5">
-                          <Shield className="h-3.5 w-3.5 text-emerald-400" />
+                          <Shield className="h-3.5 w-3.5 text-emerald-600" />
                           HSA Annual Contribution
                         </span>
                       </Label>
@@ -328,7 +328,7 @@ export function PaycheckCalculator({ defaultState = 'illinois', onStateChange }:
           <Card className="sticky top-20 border-emerald-500/20 bg-card/90 backdrop-blur-sm">
             <CardHeader className="pb-3">
               <CardTitle className="flex items-center gap-2 text-lg">
-                <TrendingUp className="h-5 w-5 text-emerald-400" />
+                <TrendingUp className="h-5 w-5 text-emerald-600" />
                 Live Results
               </CardTitle>
               <CardDescription>
@@ -337,11 +337,11 @@ export function PaycheckCalculator({ defaultState = 'illinois', onStateChange }:
             </CardHeader>
             <CardContent className="space-y-4">
               {/* Net Take-Home - Hero Number */}
-              <div className="rounded-xl bg-emerald-500/10 p-4 text-center">
-                <p className="text-xs font-medium uppercase tracking-wider text-emerald-400/80">
+              <div className="rounded-xl bg-emerald-600/10 p-4 text-center">
+                <p className="text-xs font-medium uppercase tracking-wider text-emerald-600/80">
                   Net Take-Home ({periodLabel})
                 </p>
-                <p className="mt-1 text-3xl font-bold text-emerald-400">
+                <p className="mt-1 text-3xl font-bold text-emerald-600">
                   {formatCurrency(result.netPerPeriod)}
                 </p>
                 <p className="mt-1 text-xs text-muted-foreground">
@@ -364,29 +364,29 @@ export function PaycheckCalculator({ defaultState = 'illinois', onStateChange }:
                 </p>
                 <div className="flex items-center justify-between">
                   <span className="flex items-center gap-1.5 text-sm text-muted-foreground">
-                    <TrendingDown className="h-3.5 w-3.5 text-red-400" />
+                    <TrendingDown className="h-3.5 w-3.5 text-red-600" />
                     Federal Tax
                   </span>
-                  <span className="text-sm font-medium text-red-400">
+                  <span className="text-sm font-medium text-red-600">
                     -{formatCurrency(result.federalTax)}
                   </span>
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="flex items-center gap-1.5 text-sm text-muted-foreground">
-                    <TrendingDown className="h-3.5 w-3.5 text-orange-400" />
+                    <TrendingDown className="h-3.5 w-3.5 text-orange-700" />
                     FICA (SS + Medicare)
                   </span>
-                  <span className="text-sm font-medium text-orange-400">
+                  <span className="text-sm font-medium text-orange-700">
                     -{formatCurrency(result.ficaTotal)}
                   </span>
                 </div>
                 {result.stateTax > 0 && (
                   <div className="flex items-center justify-between">
                     <span className="flex items-center gap-1.5 text-sm text-muted-foreground">
-                      <TrendingDown className="h-3.5 w-3.5 text-amber-400" />
+                      <TrendingDown className="h-3.5 w-3.5 text-amber-700" />
                       State Tax ({result.stateProfile?.name})
                     </span>
-                    <span className="text-sm font-medium text-amber-400">
+                    <span className="text-sm font-medium text-amber-700">
                       -{formatCurrency(result.stateTax)}
                   </span>
                   </div>
@@ -394,10 +394,10 @@ export function PaycheckCalculator({ defaultState = 'illinois', onStateChange }:
                 {result.nycTax > 0 && (
                   <div className="flex items-center justify-between">
                     <span className="flex items-center gap-1.5 text-sm text-muted-foreground">
-                      <Building2 className="h-3.5 w-3.5 text-red-400" />
+                      <Building2 className="h-3.5 w-3.5 text-red-600" />
                       NYC City Tax
                     </span>
-                    <span className="text-sm font-medium text-red-400">
+                    <span className="text-sm font-medium text-red-600">
                       -{formatCurrency(result.nycTax)}
                     </span>
                   </div>
@@ -405,10 +405,10 @@ export function PaycheckCalculator({ defaultState = 'illinois', onStateChange }:
                 {result.retirement401k > 0 && (
                   <div className="flex items-center justify-between">
                     <span className="flex items-center gap-1.5 text-sm text-muted-foreground">
-                      <PiggyBank className="h-3.5 w-3.5 text-amber-400" />
+                      <PiggyBank className="h-3.5 w-3.5 text-amber-700" />
                       401(k)
                     </span>
-                    <span className="text-sm font-medium text-amber-400">
+                    <span className="text-sm font-medium text-amber-700">
                       -{formatCurrency(result.retirement401k)}
                     </span>
                   </div>
@@ -416,10 +416,10 @@ export function PaycheckCalculator({ defaultState = 'illinois', onStateChange }:
                 {result.hsaContribution > 0 && (
                   <div className="flex items-center justify-between">
                     <span className="flex items-center gap-1.5 text-sm text-muted-foreground">
-                      <Shield className="h-3.5 w-3.5 text-emerald-400" />
+                      <Shield className="h-3.5 w-3.5 text-emerald-600" />
                       HSA
                     </span>
-                    <span className="text-sm font-medium text-emerald-400">
+                    <span className="text-sm font-medium text-emerald-600">
                       -{formatCurrency(result.hsaContribution)}
                     </span>
                   </div>
@@ -461,7 +461,7 @@ export function PaycheckCalculator({ defaultState = 'illinois', onStateChange }:
                     <span>{formatCurrency(result.ficaMedicare)}</span>
                   </div>
                   {result.ficaAdditionalMedicare > 0 && (
-                    <div className="flex justify-between text-red-400">
+                    <div className="flex justify-between text-red-600">
                       <span>Additional Medicare (0.9%)</span>
                       <span>{formatCurrency(result.ficaAdditionalMedicare)}</span>
                     </div>
@@ -527,7 +527,7 @@ export function PaycheckCalculator({ defaultState = 'illinois', onStateChange }:
         <CardContent className="flex flex-col sm:flex-row items-center justify-between gap-4 p-6">
           <div className="flex items-center gap-3">
             <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-500/10">
-              <Building2 className="h-5 w-5 text-blue-400" />
+              <Building2 className="h-5 w-5 text-blue-700" />
             </div>
             <div>
               <p className="font-semibold text-foreground">Business Owner or HR?</p>

@@ -19,8 +19,8 @@ export default function GlobalError({
         margin: 0,
         padding: 0,
         fontFamily: 'system-ui, -apple-system, sans-serif',
-        backgroundColor: '#0a0f1e',
-        color: '#e2e8f0',
+        backgroundColor: '#fafaf9',
+        color: '#1c1917',
         minHeight: '100vh',
         display: 'flex',
         alignItems: 'center',
@@ -30,13 +30,13 @@ export default function GlobalError({
           <h1 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '1rem' }}>
             Something went wrong
           </h1>
-          <p style={{ color: '#94a3b8', marginBottom: '1.5rem', lineHeight: 1.6 }}>
+          <p style={{ color: '#57534e', marginBottom: '1.5rem', lineHeight: 1.6 }}>
             We encountered an unexpected error. This has been logged and we&apos;ll look into it.
           </p>
           <button
             onClick={reset}
             style={{
-              backgroundColor: '#10b981',
+              backgroundColor: '#8a6a24',
               color: 'white',
               border: 'none',
               borderRadius: '0.75rem',
@@ -48,7 +48,7 @@ export default function GlobalError({
           >
             Try Again
           </button>
-          <p style={{ marginTop: '1.5rem', fontSize: '0.75rem', color: '#64748b' }}>
+          <p style={{ marginTop: '1.5rem', fontSize: '0.75rem', color: '#78716c' }}>
             Error digest: {error.digest || 'N/A'}
           </p>
         </div>

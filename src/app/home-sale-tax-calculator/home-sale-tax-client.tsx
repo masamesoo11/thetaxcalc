@@ -158,7 +158,7 @@ export function HomeSaleTaxClient() {
     <Card className="border-emerald-500/20 bg-card/50">
       <CardHeader>
         <CardTitle className="flex items-center gap-2 text-lg">
-          <Calculator className="h-5 w-5 text-emerald-400" />
+          <Calculator className="h-5 w-5 text-emerald-600" />
           Home Sale Capital Gains Tax Calculator
         </CardTitle>
         <p className="text-sm text-muted-foreground">
@@ -281,7 +281,7 @@ export function HomeSaleTaxClient() {
               type="checkbox"
               checked={isRental}
               onChange={(e) => setIsRental(e.target.checked)}
-              className="mt-1 h-4 w-4 rounded border-border/50 text-emerald-500 focus:ring-emerald-500/20"
+              className="mt-1 h-4 w-4 rounded border-border/50 text-emerald-700 focus:ring-emerald-500/20"
             />
             <div>
               <span className="text-sm font-medium text-foreground">This is a rental or second home</span>
@@ -292,7 +292,7 @@ export function HomeSaleTaxClient() {
           {/* Advanced Section Toggle */}
           <button
             onClick={() => setShowAdvanced(!showAdvanced)}
-            className="flex items-center gap-1.5 text-sm text-emerald-400 hover:text-emerald-300 transition-colors"
+            className="flex items-center gap-1.5 text-sm text-emerald-600 hover:text-emerald-700 transition-colors"
           >
             {showAdvanced ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
             {showAdvanced ? 'Hide' : 'Show'} advanced inputs (depreciation &amp; taxable income)
@@ -345,7 +345,7 @@ export function HomeSaleTaxClient() {
             <Button
               onClick={calculate}
               disabled={!salePrice || !purchasePrice}
-              className="flex-1 bg-gradient-to-r from-emerald-600 to-emerald-500 text-white hover:from-emerald-500 hover:to-emerald-400"
+              className="flex-1 bg-gradient-to-r from-emerald-700 to-emerald-600 text-white hover:from-emerald-500 hover:to-emerald-400"
             >
               <Calculator className="h-4 w-4 mr-1.5" />
               Calculate Tax
@@ -395,7 +395,7 @@ export function HomeSaleTaxClient() {
                   </div>
                   <div className="border-t border-border/30 pt-2 flex justify-between text-sm">
                     <span className="font-medium text-foreground">Capital Gain</span>
-                    <span className={`font-bold ${result.capitalGain >= 0 ? 'text-foreground' : 'text-emerald-400'}`}>
+                    <span className={`font-bold ${result.capitalGain >= 0 ? 'text-foreground' : 'text-emerald-600'}`}>
                       {formatCurrency(result.capitalGain)}
                     </span>
                   </div>
@@ -403,7 +403,7 @@ export function HomeSaleTaxClient() {
                     <>
                       <div className="flex justify-between text-sm">
                         <span className="text-muted-foreground">Section 121 Exclusion ({result.exclusionType})</span>
-                        <span className="font-medium text-emerald-400">-{formatCurrency(result.exclusionAmount)}</span>
+                        <span className="font-medium text-emerald-600">-{formatCurrency(result.exclusionAmount)}</span>
                       </div>
                       <div className="border-t border-border/30 pt-2 flex justify-between text-sm">
                         <span className="font-medium text-foreground">Taxable Gain</span>
@@ -433,13 +433,13 @@ export function HomeSaleTaxClient() {
                   {result.niitAmount > 0 && (
                     <div className="flex justify-between text-sm">
                       <span className="text-muted-foreground">NIIT (3.8%)</span>
-                      <span className="font-medium text-amber-400">{formatCurrency(result.niitAmount)}</span>
+                      <span className="font-medium text-amber-700">{formatCurrency(result.niitAmount)}</span>
                     </div>
                   )}
                   {result.depreciationRecapture > 0 && (
                     <div className="flex justify-between text-sm">
                       <span className="text-muted-foreground">Depreciation Recapture (25%)</span>
-                      <span className="font-medium text-amber-400">{formatCurrency(result.depreciationRecapture)}</span>
+                      <span className="font-medium text-amber-700">{formatCurrency(result.depreciationRecapture)}</span>
                     </div>
                   )}
                   <div className="border-t border-border/30 pt-2 flex justify-between text-sm">
@@ -449,7 +449,7 @@ export function HomeSaleTaxClient() {
                   {result.capitalGain > 0 && (
                     <div className="flex justify-between text-sm">
                       <span className="text-muted-foreground">Effective Tax Rate on Gain</span>
-                      <span className="font-medium text-sky-400">{result.effectiveRate.toFixed(1)}%</span>
+                      <span className="font-medium text-sky-700">{result.effectiveRate.toFixed(1)}%</span>
                     </div>
                   )}
                 </div>
@@ -458,17 +458,17 @@ export function HomeSaleTaxClient() {
               {/* Summary Cards */}
               <div className="grid gap-3 sm:grid-cols-3">
                 <div className="rounded-lg border border-border/30 bg-card/60 p-4 text-center">
-                  <p className="text-xs font-semibold uppercase tracking-wider text-emerald-400 mb-1">Net Proceeds</p>
+                  <p className="text-xs font-semibold uppercase tracking-wider text-emerald-600 mb-1">Net Proceeds</p>
                   <p className="text-lg font-bold text-foreground">
                     {formatCurrency(parseNumericInput(salePrice) - parseNumericInput(sellingCosts) - result.totalTax)}
                   </p>
                 </div>
                 <div className="rounded-lg border border-border/30 bg-card/60 p-4 text-center">
-                  <p className="text-xs font-semibold uppercase tracking-wider text-sky-400 mb-1">Total Tax</p>
+                  <p className="text-xs font-semibold uppercase tracking-wider text-sky-700 mb-1">Total Tax</p>
                   <p className="text-lg font-bold text-foreground">{formatCurrency(result.totalTax)}</p>
                 </div>
                 <div className="rounded-lg border border-border/30 bg-card/60 p-4 text-center">
-                  <p className="text-xs font-semibold uppercase tracking-wider text-amber-400 mb-1">Eff. Rate</p>
+                  <p className="text-xs font-semibold uppercase tracking-wider text-amber-700 mb-1">Eff. Rate</p>
                   <p className="text-lg font-bold text-foreground">{result.capitalGain > 0 ? `${result.effectiveRate.toFixed(1)}%` : 'N/A'}</p>
                 </div>
               </div>

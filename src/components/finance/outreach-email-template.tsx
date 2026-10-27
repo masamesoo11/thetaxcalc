@@ -52,10 +52,10 @@ export function OutreachEmailTemplate() {
 
   return (
     <section id="outreach-template" className="mb-12 scroll-mt-24">
-      <div className="rounded-xl border border-emerald-500/20 bg-emerald-500/5 p-8">
+      <div className="rounded-xl border border-emerald-500/20 bg-emerald-600/5 p-8">
         <div className="flex items-center gap-3 mb-6">
-          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-500/10">
-            <Mail className="h-5 w-5 text-emerald-400" />
+          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-600/10">
+            <Mail className="h-5 w-5 text-emerald-600" />
           </div>
           <div>
             <h2 className="text-2xl font-bold text-foreground">
@@ -71,7 +71,7 @@ export function OutreachEmailTemplate() {
           <div className="absolute top-4 right-4">
             <button
               onClick={handleCopy}
-              className="inline-flex items-center gap-1.5 rounded-md bg-emerald-600 px-3 py-1.5 text-xs font-medium text-white hover:bg-emerald-500 transition-colors"
+              className="inline-flex items-center gap-1.5 rounded-md bg-emerald-600 px-3 py-1.5 text-xs font-medium text-white hover:bg-emerald-600 transition-colors"
             >
               {copied ? 'Copied!' : 'Copy Email Template'}
             </button>
@@ -85,21 +85,21 @@ export function OutreachEmailTemplate() {
           <h3 className="text-sm font-semibold text-foreground mb-3">Who to Target</h3>
           <div className="grid gap-3 sm:grid-cols-3">
             <div className="text-center">
-              <Users className="h-5 w-5 text-emerald-400 mx-auto mb-2" />
+              <Users className="h-5 w-5 text-emerald-600 mx-auto mb-2" />
               <h4 className="text-xs font-semibold text-foreground mb-1">Personal Finance Blogs</h4>
               <p className="text-[11px] text-muted-foreground leading-relaxed">
                 Sites covering budgeting, saving, and taxes. They need interactive tools to boost engagement and dwell time.
               </p>
             </div>
             <div className="text-center">
-              <Building2 className="h-5 w-5 text-emerald-400 mx-auto mb-2" />
+              <Building2 className="h-5 w-5 text-emerald-600 mx-auto mb-2" />
               <h4 className="text-xs font-semibold text-foreground mb-1">CPA &amp; Accounting Firms</h4>
               <p className="text-[11px] text-muted-foreground leading-relaxed">
                 Small to mid-size firms with websites. A calculator widget makes their site more useful and professional.
               </p>
             </div>
             <div className="text-center">
-              <Heart className="h-5 w-5 text-emerald-400 mx-auto mb-2" />
+              <Heart className="h-5 w-5 text-emerald-600 mx-auto mb-2" />
               <h4 className="text-xs font-semibold text-foreground mb-1">Financial Coaches</h4>
               <p className="text-[11px] text-muted-foreground leading-relaxed">
                 Independent advisors who blog about tax strategy. Embedding a calculator gives them a lead-generation tool.

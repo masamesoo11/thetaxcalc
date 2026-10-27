@@ -3,6 +3,9 @@ import { getAuthor } from '@/lib/authors';
 
 interface AuthorBioCardProps {
   authorId: string;
+  /** 'ink' renders a dark-glass version for dark sections (e.g. the
+   * homepage's dark closing band); default 'light' suits the A+ light theme. */
+  variant?: 'light' | 'ink';
 }
 
 /**
@@ -13,17 +16,23 @@ interface AuthorBioCardProps {
  * notice. Rendered on calculator and blog pages so that YMYL content is
  * clearly attributed to identifiable, credentialed professionals.
  */
-export function AuthorBioCard({ authorId }: AuthorBioCardProps) {
+export function AuthorBioCard({ authorId, variant = 'light' }: AuthorBioCardProps) {
   const author = getAuthor(authorId);
 
   if (!author) {
     return null;
   }
 
+  const ink = variant === 'ink';
+
   return (
     <section
       aria-label={`Author: ${author.name}`}
-      className="rounded-xl border border-emerald-500/20 bg-gradient-to-br from-emerald-500/5 to-card/80 p-5 sm:p-6"
+      className={`rounded-xl border p-5 sm:p-6 ${
+        ink
+          ? 'border-[#c9a961]/25 bg-white/[0.04]'
+          : 'border-emerald-500/20 bg-gradient-to-br from-emerald-500/5 to-card/80'
+      }`}
     >
       <div className="flex items-start gap-4">
         {/* Author photo or initials fallback */}
@@ -33,11 +42,11 @@ export function AuthorBioCard({ authorId }: AuthorBioCardProps) {
             alt={`${author.name}, ${author.credentials}`}
             width={48}
             height={48}
-            className="h-12 w-12 shrink-0 rounded-full object-cover ring-1 ring-emerald-500/30"
+            className={`h-12 w-12 shrink-0 rounded-full object-cover ring-1 ${ink ? 'ring-[#c9a961]/40' : 'ring-emerald-500/30'}`}
             loading="lazy"
           />
         ) : (
-          <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-emerald-500/15 text-sm font-bold text-emerald-400 ring-1 ring-emerald-500/30">
+          <div className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-full text-sm font-bold ring-1 ${ink ? 'bg-[#c9a961]/15 text-[#c9a961] ring-[#c9a961]/30' : 'bg-emerald-600/15 text-emerald-600 ring-emerald-500/30'}`}>
             {author.name
               .split(' ')
               .map((n) => n[0])
@@ -50,30 +59,30 @@ export function AuthorBioCard({ authorId }: AuthorBioCardProps) {
           <div className="flex flex-wrap items-center gap-2">
             <Link
               href={`/about#${author.id}`}
-              className="text-base font-semibold text-foreground hover:text-emerald-400 transition-colors"
+              className={`text-base font-semibold transition-colors ${ink ? 'text-stone-100 hover:text-[#c9a961]' : 'text-foreground hover:text-emerald-600'}`}
             >
               {author.name}
             </Link>
-            <span className="inline-flex items-center rounded-md bg-emerald-500/15 px-2 py-0.5 text-xs font-semibold text-emerald-400 ring-1 ring-emerald-500/25">
+            <span className={`inline-flex items-center rounded-md px-2 py-0.5 text-xs font-semibold ring-1 ${ink ? 'bg-[#c9a961]/15 text-[#c9a961] ring-[#c9a961]/25' : 'bg-emerald-600/15 text-emerald-600 ring-emerald-500/25'}`}>
               {author.credentials}
             </span>
           </div>
 
           {/* Title */}
-          <p className="mt-0.5 text-sm text-muted-foreground">
+          <p className={`mt-0.5 text-sm ${ink ? 'text-stone-400' : 'text-muted-foreground'}`}>
             {author.title}, TheTaxCalc
           </p>
 
           {/* Bio — truncated to 2 lines */}
-          <p className="mt-2 text-sm leading-relaxed text-muted-foreground line-clamp-2">
+          <p className={`mt-2 text-sm leading-relaxed line-clamp-2 ${ink ? 'text-stone-400' : 'text-muted-foreground'}`}>
             {author.bio}
           </p>
 
           {/* Review date + data verification notice */}
-          <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-muted-foreground">
+          <div className={`mt-3 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs ${ink ? 'text-stone-400' : 'text-muted-foreground'}`}>
             <span className="inline-flex items-center gap-1">
               <svg
-                className="h-3 w-3 text-emerald-500/60"
+                className={`h-3 w-3 ${ink ? 'text-[#c9a961]/70' : 'text-emerald-700/60'}`}
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"

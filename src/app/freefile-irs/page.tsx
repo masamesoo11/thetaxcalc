@@ -258,17 +258,17 @@ export default async function FreefileIrsPage() {
         </h2>
         <div className="grid gap-4 sm:grid-cols-3">
           <div className="rounded-lg border border-border/30 bg-card/60 p-4">
-            <p className="text-xs font-semibold uppercase tracking-wider text-emerald-400 mb-1">Guided Preparation</p>
+            <p className="text-xs font-semibold uppercase tracking-wider text-emerald-600 mb-1">Guided Preparation</p>
             <p className="text-2xl font-bold text-foreground">AGI ≤ $84K</p>
             <p className="text-sm text-muted-foreground mt-1">Brand-name tax software. Interview-style Q&amp;A. Free federal e-file.</p>
           </div>
           <div className="rounded-lg border border-border/30 bg-card/60 p-4">
-            <p className="text-xs font-semibold uppercase tracking-wider text-sky-400 mb-1">Fillable Forms</p>
+            <p className="text-xs font-semibold uppercase tracking-wider text-sky-700 mb-1">Fillable Forms</p>
             <p className="text-2xl font-bold text-foreground">No Income Limit</p>
             <p className="text-sm text-muted-foreground mt-1">Electronic IRS forms. Do the math yourself. Free federal e-file.</p>
           </div>
           <div className="rounded-lg border border-border/30 bg-card/60 p-4">
-            <p className="text-xs font-semibold uppercase tracking-wider text-amber-400 mb-1">Free Extension</p>
+            <p className="text-xs font-semibold uppercase tracking-wider text-amber-700 mb-1">Free Extension</p>
             <p className="text-2xl font-bold text-foreground">Form 4868</p>
             <p className="text-sm text-muted-foreground mt-1">File for an Oct 15 extension for free through IRS Free File.</p>
           </div>
@@ -278,7 +278,7 @@ export default async function FreefileIrsPage() {
             href="https://apps.irs.gov/app/freeFile"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 rounded-lg bg-gradient-to-r from-emerald-600 to-emerald-500 px-4 py-2 text-sm font-medium text-white hover:from-emerald-500 hover:to-emerald-400 transition-all"
+            className="inline-flex items-center gap-1.5 rounded-lg bg-gradient-to-r from-emerald-700 to-emerald-600 px-4 py-2 text-sm font-medium text-white hover:from-emerald-500 hover:to-emerald-400 transition-all"
           >
             Go to IRS Free File →
           </a>
@@ -286,7 +286,7 @@ export default async function FreefileIrsPage() {
             href="https://www.freefilefillableforms.com/"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 rounded-lg border border-sky-500/30 bg-sky-500/5 px-4 py-2 text-sm font-medium text-sky-400 hover:bg-sky-500/10 transition-all"
+            className="inline-flex items-center gap-1.5 rounded-lg border border-sky-500/30 bg-sky-500/5 px-4 py-2 text-sm font-medium text-sky-700 hover:bg-sky-500/10 transition-all"
           >
             Open Fillable Forms →
           </a>
@@ -297,7 +297,7 @@ export default async function FreefileIrsPage() {
       <FreefileIrsClient />
 
       {/* Next Steps */}
-      <section className="mt-8 rounded-xl border border-emerald-500/20 bg-emerald-500/5 p-6 sm:p-8">
+      <section className="mt-8 rounded-xl border border-emerald-500/20 bg-emerald-600/5 p-6 sm:p-8">
         <h3 className="text-lg font-semibold text-foreground mb-3">
           Related Tax Calculators &amp; Tools
         </h3>
@@ -306,7 +306,7 @@ export default async function FreefileIrsPage() {
             <Link
               key={step.href}
               href={step.href}
-              className="flex items-start gap-2 rounded-lg p-2 hover:bg-emerald-500/10 transition-colors"
+              className="flex items-start gap-2 rounded-lg p-2 hover:bg-emerald-600/10 transition-colors"
             >
               <span>{step.icon}</span>
               <div>
@@ -347,7 +347,7 @@ export default async function FreefileIrsPage() {
               { step: 6, title: 'E-File & Confirm', desc: 'Submit electronically. You\'ll get an acknowledgment within 24–48 hours confirming the IRS accepted your return. If rejected, the error message tells you what to fix — resubmit for free.' },
             ].map((item) => (
               <div key={item.step} className="flex gap-4">
-                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-emerald-500/15 text-sm font-bold text-emerald-400">
+                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-emerald-600/15 text-sm font-bold text-emerald-600">
                   {item.step}
                 </div>
                 <div>
@@ -391,11 +391,11 @@ export default async function FreefileIrsPage() {
             </p>
             <div className="grid gap-3 sm:grid-cols-2 my-4">
               <div className="rounded-lg border border-border/30 bg-card/60 p-4">
-                <p className="text-sm font-semibold text-emerald-400 mb-1">Extension = More Time to File</p>
+                <p className="text-sm font-semibold text-emerald-600 mb-1">Extension = More Time to File</p>
                 <p className="text-xs text-muted-foreground">You get until October 15 to submit your completed return. No penalty for late filing.</p>
               </div>
               <div className="rounded-lg border border-border/30 bg-card/60 p-4">
-                <p className="text-sm font-semibold text-red-400 mb-1">NOT More Time to Pay</p>
+                <p className="text-sm font-semibold text-red-600 mb-1">NOT More Time to Pay</p>
                 <p className="text-xs text-muted-foreground">You still owe taxes by April 15. Late payment = 0.5% per month penalty + interest.</p>
               </div>
             </div>
@@ -415,7 +415,7 @@ export default async function FreefileIrsPage() {
               Beyond IRS Free File, there are dedicated programs for <strong className="text-foreground">seniors</strong> and <strong className="text-foreground">low-income taxpayers</strong>:
             </p>
             <div className="grid gap-4 sm:grid-cols-2 my-4">
-              <div className="rounded-lg border border-emerald-500/20 bg-emerald-500/5 p-4">
+              <div className="rounded-lg border border-emerald-500/20 bg-emerald-600/5 p-4">
                 <h3 className="text-sm font-semibold text-foreground mb-2">VITA — Volunteer Income Tax Assistance</h3>
                 <ul className="space-y-1.5 text-xs text-muted-foreground">
                   <li>&#8226; Free for taxpayers earning ≤ $64,000</li>
@@ -466,7 +466,7 @@ export default async function FreefileIrsPage() {
 
         {/* Key Rates & Data */}
         {FREEFILE_CONTENT.keyRates.length > 0 && (
-          <section className="rounded-xl border border-emerald-500/20 bg-emerald-500/5 p-6 sm:p-8">
+          <section className="rounded-xl border border-emerald-500/20 bg-emerald-600/5 p-6 sm:p-8">
             <h2 className="text-2xl font-bold text-foreground mb-4">
               IRS Free File — Key Data for 2026 Filing Season
             </h2>
@@ -507,7 +507,7 @@ export default async function FreefileIrsPage() {
                 <div key={partner.name} className="rounded-lg border border-border/30 bg-background/30 p-4">
                   <div className="flex items-center justify-between mb-2">
                     <p className="text-sm font-semibold text-foreground">{partner.name}</p>
-                    <span className="text-[10px] font-semibold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 rounded-full px-2 py-0.5">AGI {partner.agi}</span>
+                    <span className="text-[10px] font-semibold uppercase tracking-wider text-emerald-600 bg-emerald-600/10 rounded-full px-2 py-0.5">AGI {partner.agi}</span>
                   </div>
                   <p className="text-xs text-muted-foreground">{partner.features}</p>
                 </div>
@@ -563,7 +563,7 @@ export default async function FreefileIrsPage() {
                 <Link
                   key={calc.slug}
                   href={`/${calc.slug}`}
-                  className="inline-flex items-center gap-1.5 rounded-lg border border-emerald-500/30 bg-emerald-500/5 px-4 py-2 text-sm font-medium text-emerald-400 hover:bg-emerald-500/10 hover:border-emerald-500/50 transition-all"
+                  className="inline-flex items-center gap-1.5 rounded-lg border border-emerald-500/30 bg-emerald-600/5 px-4 py-2 text-sm font-medium text-emerald-600 hover:bg-emerald-600/10 hover:border-emerald-500/50 transition-all"
                 >
                   <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
@@ -590,45 +590,45 @@ export default async function FreefileIrsPage() {
             Next Steps
           </p>
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            <Link href="/paycheck-calculator" className="group flex items-start gap-3 rounded-lg border border-border/50 p-4 hover:border-emerald-500/30 hover:bg-emerald-500/5 transition-all">
+            <Link href="/paycheck-calculator" className="group flex items-start gap-3 rounded-lg border border-border/50 p-4 hover:border-emerald-500/30 hover:bg-emerald-600/5 transition-all">
               <span className="text-lg">💰</span>
               <div>
-                <span className="text-sm font-medium text-foreground group-hover:text-emerald-400 transition-colors">Paycheck Calculator</span>
+                <span className="text-sm font-medium text-foreground group-hover:text-emerald-600 transition-colors">Paycheck Calculator</span>
                 <p className="text-xs text-muted-foreground mt-0.5">See your take-home pay after all taxes</p>
               </div>
             </Link>
-            <Link href="/irs-withholding-calculator" className="group flex items-start gap-3 rounded-lg border border-border/50 p-4 hover:border-emerald-500/30 hover:bg-emerald-500/5 transition-all">
+            <Link href="/irs-withholding-calculator" className="group flex items-start gap-3 rounded-lg border border-border/50 p-4 hover:border-emerald-500/30 hover:bg-emerald-600/5 transition-all">
               <span className="text-lg">📋</span>
               <div>
-                <span className="text-sm font-medium text-foreground group-hover:text-emerald-400 transition-colors">IRS Withholding</span>
+                <span className="text-sm font-medium text-foreground group-hover:text-emerald-600 transition-colors">IRS Withholding</span>
                 <p className="text-xs text-muted-foreground mt-0.5">Optimize your W-4 for 2026</p>
               </div>
             </Link>
-            <Link href="/self-employment-tax-calculator" className="group flex items-start gap-3 rounded-lg border border-border/50 p-4 hover:border-emerald-500/30 hover:bg-emerald-500/5 transition-all">
+            <Link href="/self-employment-tax-calculator" className="group flex items-start gap-3 rounded-lg border border-border/50 p-4 hover:border-emerald-500/30 hover:bg-emerald-600/5 transition-all">
               <span className="text-lg">🛡️</span>
               <div>
-                <span className="text-sm font-medium text-foreground group-hover:text-emerald-400 transition-colors">Self-Employment Tax</span>
+                <span className="text-sm font-medium text-foreground group-hover:text-emerald-600 transition-colors">Self-Employment Tax</span>
                 <p className="text-xs text-muted-foreground mt-0.5">15.3% SE tax + quarterly estimates</p>
               </div>
             </Link>
-            <Link href="/tax-refund-calculator" className="group flex items-start gap-3 rounded-lg border border-border/50 p-4 hover:border-emerald-500/30 hover:bg-emerald-500/5 transition-all">
+            <Link href="/tax-refund-calculator" className="group flex items-start gap-3 rounded-lg border border-border/50 p-4 hover:border-emerald-500/30 hover:bg-emerald-600/5 transition-all">
               <span className="text-lg">💵</span>
               <div>
-                <span className="text-sm font-medium text-foreground group-hover:text-emerald-400 transition-colors">Tax Refund Calculator</span>
+                <span className="text-sm font-medium text-foreground group-hover:text-emerald-600 transition-colors">Tax Refund Calculator</span>
                 <p className="text-xs text-muted-foreground mt-0.5">Estimate your 2025 refund</p>
               </div>
             </Link>
-            <Link href="/salary" className="group flex items-start gap-3 rounded-lg border border-border/50 p-4 hover:border-emerald-500/30 hover:bg-emerald-500/5 transition-all">
+            <Link href="/salary" className="group flex items-start gap-3 rounded-lg border border-border/50 p-4 hover:border-emerald-500/30 hover:bg-emerald-600/5 transition-all">
               <span className="text-lg">📈</span>
               <div>
-                <span className="text-sm font-medium text-foreground group-hover:text-emerald-400 transition-colors">Salary After Tax</span>
+                <span className="text-sm font-medium text-foreground group-hover:text-emerald-600 transition-colors">Salary After Tax</span>
                 <p className="text-xs text-muted-foreground mt-0.5">Take-home pay for all 50 states</p>
               </div>
             </Link>
-            <Link href="/federal-tax-brackets" className="group flex items-start gap-3 rounded-lg border border-border/50 p-4 hover:border-emerald-500/30 hover:bg-emerald-500/5 transition-all">
+            <Link href="/federal-tax-brackets" className="group flex items-start gap-3 rounded-lg border border-border/50 p-4 hover:border-emerald-500/30 hover:bg-emerald-600/5 transition-all">
               <span className="text-lg">📋</span>
               <div>
-                <span className="text-sm font-medium text-foreground group-hover:text-emerald-400 transition-colors">Tax Brackets 2026</span>
+                <span className="text-sm font-medium text-foreground group-hover:text-emerald-600 transition-colors">Tax Brackets 2026</span>
                 <p className="text-xs text-muted-foreground mt-0.5">Full federal bracket breakdown</p>
               </div>
             </Link>

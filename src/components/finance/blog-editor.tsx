@@ -243,8 +243,8 @@ export function BlogEditor({ editSlug, onNavigate }: BlogEditorProps) {
         <div
           className={`fixed right-4 top-20 z-50 flex items-center gap-2 rounded-lg border px-4 py-3 text-sm font-medium shadow-lg transition-all ${
             toast.type === 'success'
-              ? 'border-emerald-500/30 bg-emerald-500/10 text-emerald-400'
-              : 'border-red-500/30 bg-red-500/10 text-red-400'
+              ? 'border-emerald-500/30 bg-emerald-600/10 text-emerald-600'
+              : 'border-red-500/30 bg-red-500/10 text-red-600'
           }`}
         >
           {toast.type === 'success' ? (
@@ -322,7 +322,7 @@ export function BlogEditor({ editSlug, onNavigate }: BlogEditorProps) {
                 <CardContent className="p-6 space-y-4">
                   <div className="space-y-2">
                     <Label htmlFor="post-title" className="text-sm font-medium flex items-center gap-1.5">
-                      <Type className="h-3.5 w-3.5 text-emerald-400" />
+                      <Type className="h-3.5 w-3.5 text-emerald-600" />
                       Title
                     </Label>
                     <Input
@@ -338,7 +338,7 @@ export function BlogEditor({ editSlug, onNavigate }: BlogEditorProps) {
                   <div className="space-y-2">
                     <div className="flex items-center justify-between">
                       <Label htmlFor="post-slug" className="text-sm font-medium flex items-center gap-1.5">
-                        <Hash className="h-3.5 w-3.5 text-emerald-400" />
+                        <Hash className="h-3.5 w-3.5 text-emerald-600" />
                         URL Slug
                       </Label>
                       <label className="flex items-center gap-2 text-xs text-muted-foreground cursor-pointer">
@@ -369,7 +369,7 @@ export function BlogEditor({ editSlug, onNavigate }: BlogEditorProps) {
                   {/* Excerpt */}
                   <div className="space-y-2">
                     <Label htmlFor="post-excerpt" className="text-sm font-medium flex items-center gap-1.5">
-                      <FileText className="h-3.5 w-3.5 text-emerald-400" />
+                      <FileText className="h-3.5 w-3.5 text-emerald-600" />
                       Excerpt
                     </Label>
                     <Textarea
@@ -387,7 +387,7 @@ export function BlogEditor({ editSlug, onNavigate }: BlogEditorProps) {
               <Card className="border-border/50 bg-card/80">
                 <CardHeader className="pb-3">
                   <CardTitle className="flex items-center gap-2 text-base">
-                    <FileText className="h-4 w-4 text-emerald-400" />
+                    <FileText className="h-4 w-4 text-emerald-600" />
                     Content (Markdown)
                   </CardTitle>
                   <CardDescription>
@@ -408,7 +408,7 @@ export function BlogEditor({ editSlug, onNavigate }: BlogEditorProps) {
               <Card className="border-border/50 bg-card/80">
                 <CardHeader className="pb-3">
                   <CardTitle className="flex items-center gap-2 text-base">
-                    <Search className="h-4 w-4 text-emerald-400" />
+                    <Search className="h-4 w-4 text-emerald-600" />
                     SEO Settings
                   </CardTitle>
                 </CardHeader>
@@ -461,7 +461,7 @@ export function BlogEditor({ editSlug, onNavigate }: BlogEditorProps) {
                   <div className="flex items-center justify-between">
                     <Label className="text-sm font-medium flex items-center gap-1.5">
                       {form.published ? (
-                        <ToggleRight className="h-4 w-4 text-emerald-400" />
+                        <ToggleRight className="h-4 w-4 text-emerald-600" />
                       ) : (
                         <ToggleLeft className="h-4 w-4 text-muted-foreground" />
                       )}
@@ -476,7 +476,7 @@ export function BlogEditor({ editSlug, onNavigate }: BlogEditorProps) {
                   {/* Featured Toggle */}
                   <div className="flex items-center justify-between">
                     <Label className="text-sm font-medium flex items-center gap-1.5">
-                      <Star className="h-4 w-4 text-amber-400" />
+                      <Star className="h-4 w-4 text-amber-700" />
                       Featured
                     </Label>
                     <Switch
@@ -492,14 +492,14 @@ export function BlogEditor({ editSlug, onNavigate }: BlogEditorProps) {
                     <Badge
                       className={
                         form.published
-                          ? 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30'
-                          : 'bg-amber-500/20 text-amber-400 border-amber-500/30'
+                          ? 'bg-emerald-600/20 text-emerald-600 border-emerald-500/30'
+                          : 'bg-amber-500/20 text-amber-700 border-amber-500/30'
                       }
                     >
                       {form.published ? 'Published' : 'Draft'}
                     </Badge>
                     {form.featured && (
-                      <Badge className="bg-amber-500/20 text-amber-400 border-amber-500/30">
+                      <Badge className="bg-amber-500/20 text-amber-700 border-amber-500/30">
                         Featured
                       </Badge>
                     )}
@@ -511,7 +511,7 @@ export function BlogEditor({ editSlug, onNavigate }: BlogEditorProps) {
               <Card className="border-border/50 bg-card/80">
                 <CardHeader className="pb-3">
                   <CardTitle className="text-sm font-semibold text-foreground flex items-center gap-1.5">
-                    <Globe className="h-4 w-4 text-emerald-400" />
+                    <Globe className="h-4 w-4 text-emerald-600" />
                     Category
                   </CardTitle>
                 </CardHeader>
@@ -538,7 +538,7 @@ export function BlogEditor({ editSlug, onNavigate }: BlogEditorProps) {
               <Card className="border-border/50 bg-card/80">
                 <CardHeader className="pb-3">
                   <CardTitle className="text-sm font-semibold text-foreground flex items-center gap-1.5">
-                    <Tag className="h-4 w-4 text-emerald-400" />
+                    <Tag className="h-4 w-4 text-emerald-600" />
                     Tags
                   </CardTitle>
                 </CardHeader>
@@ -573,7 +573,7 @@ export function BlogEditor({ editSlug, onNavigate }: BlogEditorProps) {
               <Card className="border-border/50 bg-card/80">
                 <CardHeader className="pb-3">
                   <CardTitle className="text-sm font-semibold text-foreground flex items-center gap-1.5">
-                    <ImageIcon className="h-4 w-4 text-emerald-400" />
+                    <ImageIcon className="h-4 w-4 text-emerald-600" />
                     Cover Image
                   </CardTitle>
                 </CardHeader>
@@ -644,10 +644,10 @@ export function BlogEditor({ editSlug, onNavigate }: BlogEditorProps) {
                     {CATEGORIES.find((c) => c.value === form.category)?.label || form.category}
                   </Badge>
                   {form.published && (
-                    <Badge className="bg-emerald-500/20 text-emerald-400 text-xs">Published</Badge>
+                    <Badge className="bg-emerald-600/20 text-emerald-600 text-xs">Published</Badge>
                   )}
                   {form.featured && (
-                    <Badge className="bg-amber-500/20 text-amber-400 text-xs">Featured</Badge>
+                    <Badge className="bg-amber-500/20 text-amber-700 text-xs">Featured</Badge>
                   )}
                 </div>
                 <h1 className="text-3xl font-bold text-foreground">
@@ -706,13 +706,13 @@ export function BlogEditor({ editSlug, onNavigate }: BlogEditorProps) {
                         </strong>
                       ),
                       a: ({ children, href, ...props }) => (
-                        <a href={href} className="text-emerald-400 underline" {...props}>
+                        <a href={href} className="text-emerald-600 underline" {...props}>
                           {children}
                         </a>
                       ),
                       blockquote: ({ children, ...props }) => (
                         <blockquote
-                          className="my-4 border-l-4 border-emerald-500/50 bg-emerald-500/5 py-3 pl-4 pr-3 italic text-muted-foreground"
+                          className="my-4 border-l-4 border-emerald-500/50 bg-emerald-600/5 py-3 pl-4 pr-3 italic text-muted-foreground"
                           {...props}
                         >
                           {children}
@@ -721,7 +721,7 @@ export function BlogEditor({ editSlug, onNavigate }: BlogEditorProps) {
                       code: ({ children, className, ...props }) => {
                         const isInline = !className;
                         return isInline ? (
-                          <code className="rounded bg-muted/50 px-1.5 py-0.5 text-sm font-mono text-emerald-400" {...props}>
+                          <code className="rounded bg-muted/50 px-1.5 py-0.5 text-sm font-mono text-emerald-600" {...props}>
                             {children}
                           </code>
                         ) : (

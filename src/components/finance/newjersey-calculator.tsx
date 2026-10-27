@@ -123,7 +123,7 @@ export function NewJerseyCalculator() {
     <div className="space-y-6">
       <div className="text-center">
         <h2 className="flex items-center justify-center gap-2 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-          <MapPin className="h-8 w-8 text-emerald-400" />
+          <MapPin className="h-8 w-8 text-emerald-600" />
           New Jersey Paycheck Calculator
         </h2>
         <p className="mt-2 text-muted-foreground">
@@ -131,24 +131,24 @@ export function NewJerseyCalculator() {
         </p>
       </div>
 
-      <Card className="border-emerald-500/20 bg-emerald-500/5">
+      <Card className="border-emerald-500/20 bg-emerald-600/5">
         <CardContent className="p-4">
           <div className="flex items-start gap-3">
-            <Info className="mt-0.5 h-5 w-5 shrink-0 text-emerald-400" />
+            <Info className="mt-0.5 h-5 w-5 shrink-0 text-emerald-600" />
             <div className="space-y-2 text-sm text-muted-foreground">
               <p className="font-medium text-foreground">How New Jersey Income Tax Works</p>
               <p>
-                New Jersey uses a <strong className="text-emerald-400">progressive income tax</strong> with
-                seven brackets: <strong className="text-emerald-400">1.4%</strong> on the first $20,000,{' '}
-                <strong className="text-emerald-400">1.75%</strong> on $20,001–$35,000,{' '}
-                <strong className="text-emerald-400">2.45%</strong> on $35,001–$40,000,{' '}
-                <strong className="text-emerald-400">3.5%</strong> on $40,001–$75,000,{' '}
-                <strong className="text-emerald-400">5.525%</strong> on $75,001–$500,000,{' '}
-                <strong className="text-emerald-400">6.37%</strong> on $500,001–$5,000,000, and{' '}
-                <strong className="text-emerald-400">10.75%</strong> on income over $5,000,000.
-                New Jersey has <strong className="text-emerald-400">no standard deduction</strong> but offers a{' '}
-                <strong className="text-emerald-400">personal exemption</strong> ($1,000 single / $2,000 married / $1,000 head of household).
-                NJ also has the <strong className="text-emerald-400">highest property taxes in the nation</strong> (avg ~2.49%).
+                New Jersey uses a <strong className="text-emerald-600">progressive income tax</strong> with
+                seven brackets: <strong className="text-emerald-600">1.4%</strong> on the first $20,000,{' '}
+                <strong className="text-emerald-600">1.75%</strong> on $20,001–$35,000,{' '}
+                <strong className="text-emerald-600">2.45%</strong> on $35,001–$40,000,{' '}
+                <strong className="text-emerald-600">3.5%</strong> on $40,001–$75,000,{' '}
+                <strong className="text-emerald-600">5.525%</strong> on $75,001–$500,000,{' '}
+                <strong className="text-emerald-600">6.37%</strong> on $500,001–$5,000,000, and{' '}
+                <strong className="text-emerald-600">10.75%</strong> on income over $5,000,000.
+                New Jersey has <strong className="text-emerald-600">no standard deduction</strong> but offers a{' '}
+                <strong className="text-emerald-600">personal exemption</strong> ($1,000 single / $2,000 married / $1,000 head of household).
+                NJ also has the <strong className="text-emerald-600">highest property taxes in the nation</strong> (avg ~2.49%).
               </p>
               <p>
                 For a $75,000 salary (single): Taxable income = $75,000 - $1,000 = $74,000. State tax = ($20,000 × 1.4%) + ($15,000 × 1.75%) + ($5,000 × 2.45%) + ($34,000 × 3.5%) = $280 + $262.50 + $122.50 + $1,190 = $1,855.
@@ -163,7 +163,7 @@ export function NewJerseyCalculator() {
           <Card className="border-border/50 bg-card/80 backdrop-blur-sm">
             <CardHeader className="pb-4">
               <CardTitle className="flex items-center gap-2 text-lg">
-                <DollarSign className="h-5 w-5 text-emerald-400" />Salary Input
+                <DollarSign className="h-5 w-5 text-emerald-600" />Salary Input
               </CardTitle>
               <CardDescription>Enter your New Jersey salary for an instant calculation</CardDescription>
             </CardHeader>
@@ -218,7 +218,7 @@ export function NewJerseyCalculator() {
                 <CardHeader className="cursor-pointer pb-4 transition-colors hover:bg-muted/30">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
-                      <Shield className="h-5 w-5 text-amber-400" />
+                      <Shield className="h-5 w-5 text-amber-700" />
                       <CardTitle className="text-lg">Advanced Options</CardTitle>
                       <Badge variant="outline" className="text-xs">401(k) &amp; HSA</Badge>
                     </div>
@@ -231,7 +231,7 @@ export function NewJerseyCalculator() {
                   <div className="grid gap-4 sm:grid-cols-2">
                     <div className="space-y-2">
                       <Label htmlFor="nj-401k" className="text-sm font-medium">
-                        <span className="flex items-center gap-1.5"><PiggyBank className="h-3.5 w-3.5 text-amber-400" />401(k) Annual</span>
+                        <span className="flex items-center gap-1.5"><PiggyBank className="h-3.5 w-3.5 text-amber-700" />401(k) Annual</span>
                       </Label>
                       <div className="relative">
                         <DollarSign className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
@@ -240,7 +240,7 @@ export function NewJerseyCalculator() {
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="nj-hsa" className="text-sm font-medium">
-                        <span className="flex items-center gap-1.5"><Shield className="h-3.5 w-3.5 text-emerald-400" />HSA Annual</span>
+                        <span className="flex items-center gap-1.5"><Shield className="h-3.5 w-3.5 text-emerald-600" />HSA Annual</span>
                       </Label>
                       <div className="relative">
                         <DollarSign className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
@@ -260,13 +260,13 @@ export function NewJerseyCalculator() {
           <Card className="sticky top-20 border-emerald-500/20 bg-card/90 backdrop-blur-sm">
             <CardHeader className="pb-3">
               <CardTitle className="flex items-center gap-2 text-lg">
-                <TrendingUp className="h-5 w-5 text-emerald-400" />New Jersey Take-Home
+                <TrendingUp className="h-5 w-5 text-emerald-600" />New Jersey Take-Home
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
-              <div className="rounded-xl bg-emerald-500/10 p-4 text-center">
-                <p className="text-xs font-medium uppercase tracking-wider text-emerald-400/80">Net Take-Home ({periodLabel})</p>
-                <p className="mt-1 text-3xl font-bold text-emerald-400">{formatCurrency(result.netPerPeriod)}</p>
+              <div className="rounded-xl bg-emerald-600/10 p-4 text-center">
+                <p className="text-xs font-medium uppercase tracking-wider text-emerald-600/80">Net Take-Home ({periodLabel})</p>
+                <p className="mt-1 text-3xl font-bold text-emerald-600">{formatCurrency(result.netPerPeriod)}</p>
                 <p className="mt-1 text-xs text-muted-foreground">Annual Net: {formatCurrency(result.netAnnual)}</p>
               </div>
 
@@ -275,33 +275,33 @@ export function NewJerseyCalculator() {
               <div className="space-y-2.5 rounded-lg bg-muted/30 p-3">
                 <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground">Deductions</p>
                 <div className="flex items-center justify-between">
-                  <span className="flex items-center gap-1.5 text-sm text-muted-foreground"><TrendingDown className="h-3.5 w-3.5 text-red-400" />Federal Tax</span>
-                  <span className="text-sm font-medium text-red-400">-{formatCurrency(result.federalTax)}</span>
+                  <span className="flex items-center gap-1.5 text-sm text-muted-foreground"><TrendingDown className="h-3.5 w-3.5 text-red-600" />Federal Tax</span>
+                  <span className="text-sm font-medium text-red-600">-{formatCurrency(result.federalTax)}</span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="flex items-center gap-1.5 text-sm text-muted-foreground"><TrendingDown className="h-3.5 w-3.5 text-orange-400" />FICA</span>
-                  <span className="text-sm font-medium text-orange-400">-{formatCurrency(result.ficaTotal)}</span>
+                  <span className="flex items-center gap-1.5 text-sm text-muted-foreground"><TrendingDown className="h-3.5 w-3.5 text-orange-700" />FICA</span>
+                  <span className="text-sm font-medium text-orange-700">-{formatCurrency(result.ficaTotal)}</span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="flex items-center gap-1.5 text-sm text-muted-foreground"><TrendingDown className="h-3.5 w-3.5 text-amber-400" />NJ State Tax (1.4%–10.75%)</span>
-                  <span className="text-sm font-medium text-amber-400">-{formatCurrency(result.stateTax)}</span>
+                  <span className="flex items-center gap-1.5 text-sm text-muted-foreground"><TrendingDown className="h-3.5 w-3.5 text-amber-700" />NJ State Tax (1.4%–10.75%)</span>
+                  <span className="text-sm font-medium text-amber-700">-{formatCurrency(result.stateTax)}</span>
                 </div>
                 {result.retirement401k > 0 && (
                   <div className="flex items-center justify-between">
                     <span className="text-sm text-muted-foreground">401(k)</span>
-                    <span className="text-sm font-medium text-amber-400">-{formatCurrency(result.retirement401k)}</span>
+                    <span className="text-sm font-medium text-amber-700">-{formatCurrency(result.retirement401k)}</span>
                   </div>
                 )}
                 {result.hsaContribution > 0 && (
                   <div className="flex items-center justify-between">
                     <span className="text-sm text-muted-foreground">HSA</span>
-                    <span className="text-sm font-medium text-emerald-400">-{formatCurrency(result.hsaContribution)}</span>
+                    <span className="text-sm font-medium text-emerald-600">-{formatCurrency(result.hsaContribution)}</span>
                   </div>
                 )}
               </div>
 
               <div className="rounded-lg bg-amber-500/5 p-3">
-                <p className="text-xs font-medium text-amber-400">New Jersey Tax Breakdown</p>
+                <p className="text-xs font-medium text-amber-700">New Jersey Tax Breakdown</p>
                 <div className="mt-1.5 space-y-1 text-xs text-muted-foreground">
                   <div className="flex justify-between"><span>Gross Income</span><span>{formatCurrency(result.grossAnnual)}</span></div>
                   {njBreakdown.standardDeduction > 0 && (
@@ -315,7 +315,7 @@ export function NewJerseyCalculator() {
                       <span>{formatCurrency(bd.tax)}</span>
                     </div>
                   ))}
-                  <div className="flex justify-between font-medium text-amber-400"><span>NJ State Tax</span><span>{formatCurrency(njBreakdown.njTax)}</span></div>
+                  <div className="flex justify-between font-medium text-amber-700"><span>NJ State Tax</span><span>{formatCurrency(njBreakdown.njTax)}</span></div>
                 </div>
               </div>
 
@@ -352,42 +352,42 @@ export function NewJerseyCalculator() {
             <TableBody>
               <TableRow>
                 <TableCell>NJ Tax Brackets</TableCell>
-                <TableCell className="font-medium text-emerald-400">1.4% – 10.75% (7 brackets)</TableCell>
+                <TableCell className="font-medium text-emerald-600">1.4% – 10.75% (7 brackets)</TableCell>
                 <TableCell>Progressive rate structure from low to high income</TableCell>
               </TableRow>
               <TableRow>
                 <TableCell>Bracket 1</TableCell>
-                <TableCell className="font-medium text-emerald-400">1.4% ($0–$20,000)</TableCell>
+                <TableCell className="font-medium text-emerald-600">1.4% ($0–$20,000)</TableCell>
                 <TableCell>Lowest progressive bracket applies to first $20,000 of taxable income</TableCell>
               </TableRow>
               <TableRow>
                 <TableCell>Bracket 2</TableCell>
-                <TableCell className="font-medium text-emerald-400">1.75% ($20,001–$35,000)</TableCell>
+                <TableCell className="font-medium text-emerald-600">1.75% ($20,001–$35,000)</TableCell>
                 <TableCell>Applies to income between $20,001 and $35,000</TableCell>
               </TableRow>
               <TableRow>
                 <TableCell>Bracket 3</TableCell>
-                <TableCell className="font-medium text-emerald-400">2.45% ($35,001–$40,000)</TableCell>
+                <TableCell className="font-medium text-emerald-600">2.45% ($35,001–$40,000)</TableCell>
                 <TableCell>Applies to income between $35,001 and $40,000</TableCell>
               </TableRow>
               <TableRow>
                 <TableCell>Bracket 4</TableCell>
-                <TableCell className="font-medium text-emerald-400">3.5% ($40,001–$75,000)</TableCell>
+                <TableCell className="font-medium text-emerald-600">3.5% ($40,001–$75,000)</TableCell>
                 <TableCell>Applies to income between $40,001 and $75,000</TableCell>
               </TableRow>
               <TableRow>
                 <TableCell>Bracket 5</TableCell>
-                <TableCell className="font-medium text-emerald-400">5.525% ($75,001–$500,000)</TableCell>
+                <TableCell className="font-medium text-emerald-600">5.525% ($75,001–$500,000)</TableCell>
                 <TableCell>Applies to income between $75,001 and $500,000</TableCell>
               </TableRow>
               <TableRow>
                 <TableCell>Bracket 6</TableCell>
-                <TableCell className="font-medium text-emerald-400">6.37% ($500,001–$5,000,000)</TableCell>
+                <TableCell className="font-medium text-emerald-600">6.37% ($500,001–$5,000,000)</TableCell>
                 <TableCell>Applies to income between $500,001 and $5,000,000</TableCell>
               </TableRow>
               <TableRow>
                 <TableCell>Top Bracket</TableCell>
-                <TableCell className="font-medium text-emerald-400">10.75% (Above $5,000,000)</TableCell>
+                <TableCell className="font-medium text-emerald-600">10.75% (Above $5,000,000)</TableCell>
                 <TableCell>Highest bracket applies to all income above $5,000,000</TableCell>
               </TableRow>
               <TableRow>
@@ -407,7 +407,7 @@ export function NewJerseyCalculator() {
               </TableRow>
               <TableRow>
                 <TableCell>NJ Avg Property Tax Rate</TableCell>
-                <TableCell className="font-medium text-red-400">~2.49%</TableCell>
+                <TableCell className="font-medium text-red-600">~2.49%</TableCell>
                 <TableCell>Highest in the nation — often exceeds income tax for homeowners</TableCell>
               </TableRow>
               <TableRow>
@@ -422,7 +422,7 @@ export function NewJerseyCalculator() {
               </TableRow>
               <TableRow>
                 <TableCell>FICA Total Rate</TableCell>
-                <TableCell className="font-medium text-orange-400">7.65%</TableCell>
+                <TableCell className="font-medium text-orange-700">7.65%</TableCell>
                 <TableCell>6.2% SS + 1.45% Medicare (employee share)</TableCell>
               </TableRow>
             </TableBody>

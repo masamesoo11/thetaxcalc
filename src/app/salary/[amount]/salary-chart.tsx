@@ -36,8 +36,8 @@ export function SalaryChart({ salary }: Props) {
   
   // Color palette - emerald gradient based on rank
   const getColor = (index: number, total: number) => {
-    if (index < 3) return '#10b981'; // top 3 - bright emerald
-    if (index < 10) return '#059669'; // top 10 - medium emerald
+    if (index < 3) return '#b08d3e'; // top 3 - bright emerald
+    if (index < 10) return '#8a6a24'; // top 10 - medium emerald
     return '#64748b'; // bottom 3 - gray
   };
 
@@ -163,10 +163,10 @@ export function SalaryChart({ salary }: Props) {
           
           {/* Legend */}
           <g transform={`translate(${startX}, ${height - 25})`}>
-            <rect x={0} y={0} width={12} height={12} fill="#10b981" rx={2} />
+            <rect x={0} y={0} width={12} height={12} fill="#b08d3e" rx={2} />
             <text x={18} y={10} className="fill-muted-foreground" style={{ fontSize: '11px' }}>Top 3 states</text>
             
-            <rect x={110} y={0} width={12} height={12} fill="#059669" rx={2} />
+            <rect x={110} y={0} width={12} height={12} fill="#8a6a24" rx={2} />
             <text x={128} y={10} className="fill-muted-foreground" style={{ fontSize: '11px' }}>Top 10</text>
             
             <rect x={200} y={0} width={12} height={12} fill="#64748b" rx={2} opacity={0.6} />

@@ -16,7 +16,7 @@ export default function AppleIcon() {
       </linearGradient>
     </defs>
     <rect width="180" height="180" rx="36" fill="url(#bg)" stroke="rgba(16,185,129,0.3)" stroke-width="2"/>
-    <text x="90" y="108" text-anchor="middle" fill="#10b981" font-family="sans-serif" font-weight="900" font-size="72">T</text>
+    <text x="90" y="108" text-anchor="middle" fill="#b08d3e" font-family="sans-serif" font-weight="900" font-size="72">T</text>
     <text x="90" y="138" text-anchor="middle" fill="rgba(16,185,129,0.7)" font-family="sans-serif" font-weight="600" font-size="18" letter-spacing="2">YIELD</text>
   </svg>`;
 

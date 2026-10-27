@@ -90,7 +90,7 @@ export function FloridaCalculator() {
     <div className="space-y-6">
       <div className="text-center">
         <h2 className="flex items-center justify-center gap-2 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-          <Sun className="h-8 w-8 text-emerald-400" />
+          <Sun className="h-8 w-8 text-emerald-600" />
           Florida Paycheck Calculator
         </h2>
         <p className="mt-2 text-muted-foreground">
@@ -98,17 +98,17 @@ export function FloridaCalculator() {
         </p>
       </div>
 
-      <Card className="border-emerald-500/20 bg-emerald-500/5">
+      <Card className="border-emerald-500/20 bg-emerald-600/5">
         <CardContent className="p-4">
           <div className="flex items-start gap-3">
-            <Info className="mt-0.5 h-5 w-5 shrink-0 text-emerald-400" />
+            <Info className="mt-0.5 h-5 w-5 shrink-0 text-emerald-600" />
             <div className="space-y-2 text-sm text-muted-foreground">
               <p className="font-medium text-foreground">Florida: No State Income Tax</p>
               <p>
-                Florida is one of nine U.S. states with <strong className="text-emerald-400">0% state income tax</strong>.
+                Florida is one of nine U.S. states with <strong className="text-emerald-600">0% state income tax</strong>.
                 Your paycheck is subject only to federal tax and FICA. Florida funds government through
-                a <strong className="text-amber-400">6% state sales tax</strong> (plus local surtax up to 1.5%)
-                and <strong className="text-amber-400">property taxes</strong> averaging 0.86% effective rate.
+                a <strong className="text-amber-700">6% state sales tax</strong> (plus local surtax up to 1.5%)
+                and <strong className="text-amber-700">property taxes</strong> averaging 0.86% effective rate.
                 Florida also has no tax on retirement income, making it popular for retirees.
               </p>
             </div>
@@ -121,7 +121,7 @@ export function FloridaCalculator() {
           <Card className="border-border/50 bg-card/80 backdrop-blur-sm">
             <CardHeader className="pb-4">
               <CardTitle className="flex items-center gap-2 text-lg">
-                <DollarSign className="h-5 w-5 text-emerald-400" />Salary Input
+                <DollarSign className="h-5 w-5 text-emerald-600" />Salary Input
               </CardTitle>
               <CardDescription>Enter your Florida salary — no state tax deducted!</CardDescription>
             </CardHeader>
@@ -175,7 +175,7 @@ export function FloridaCalculator() {
           <Card className="border-amber-500/20 bg-card/80 backdrop-blur-sm">
             <CardHeader className="pb-4">
               <CardTitle className="flex items-center gap-2 text-lg">
-                <Home className="h-5 w-5 text-amber-400" />
+                <Home className="h-5 w-5 text-amber-700" />
                 Florida Cost of Living Impact
               </CardTitle>
               <CardDescription>Property &amp; sales taxes represent the real tax burden in Florida</CardDescription>
@@ -184,7 +184,7 @@ export function FloridaCalculator() {
               <div className="grid gap-4 sm:grid-cols-2">
                 <div className="space-y-2">
                   <Label htmlFor="fl-home" className="text-sm font-medium">
-                    <span className="flex items-center gap-1.5"><Home className="h-3.5 w-3.5 text-amber-400" />Home Value</span>
+                    <span className="flex items-center gap-1.5"><Home className="h-3.5 w-3.5 text-amber-700" />Home Value</span>
                   </Label>
                   <div className="relative">
                     <DollarSign className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
@@ -194,7 +194,7 @@ export function FloridaCalculator() {
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="fl-spending" className="text-sm font-medium">
-                    <span className="flex items-center gap-1.5"><ShoppingCart className="h-3.5 w-3.5 text-amber-400" />Annual Consumer Spending</span>
+                    <span className="flex items-center gap-1.5"><ShoppingCart className="h-3.5 w-3.5 text-amber-700" />Annual Consumer Spending</span>
                   </Label>
                   <div className="relative">
                     <DollarSign className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
@@ -207,20 +207,20 @@ export function FloridaCalculator() {
               <div className="rounded-lg bg-amber-500/5 p-4 space-y-3">
                 <div className="flex items-center justify-between">
                   <span className="text-sm text-muted-foreground">Annual Property Tax</span>
-                  <span className="text-sm font-medium text-amber-400">{formatCurrency(colResult.annualPropertyTax)}</span>
+                  <span className="text-sm font-medium text-amber-700">{formatCurrency(colResult.annualPropertyTax)}</span>
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="text-sm text-muted-foreground">Estimated Sales Tax Burden</span>
-                  <span className="text-sm font-medium text-amber-400">{formatCurrency(colResult.estimatedSalesTaxBurden)}</span>
+                  <span className="text-sm font-medium text-amber-700">{formatCurrency(colResult.estimatedSalesTaxBurden)}</span>
                 </div>
                 <Separator className="bg-border/40" />
                 <div className="flex items-center justify-between">
                   <span className="text-sm font-medium text-foreground">Total Annual Burden</span>
-                  <span className="text-sm font-bold text-amber-400">{formatCurrency(colResult.totalAnnualBurden)}</span>
+                  <span className="text-sm font-bold text-amber-700">{formatCurrency(colResult.totalAnnualBurden)}</span>
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="text-sm font-medium text-foreground">Net After COL Burden</span>
-                  <span className={`text-sm font-bold ${netAfterCOL > 0 ? 'text-emerald-400' : 'text-red-400'}`}>
+                  <span className={`text-sm font-bold ${netAfterCOL > 0 ? 'text-emerald-600' : 'text-red-600'}`}>
                     {formatCurrency(netAfterCOL)}/yr
                   </span>
                 </div>
@@ -233,20 +233,20 @@ export function FloridaCalculator() {
           <Card className="sticky top-20 border-emerald-500/20 bg-card/90 backdrop-blur-sm">
             <CardHeader className="pb-3">
               <CardTitle className="flex items-center gap-2 text-lg">
-                <TrendingUp className="h-5 w-5 text-emerald-400" />Florida Take-Home
+                <TrendingUp className="h-5 w-5 text-emerald-600" />Florida Take-Home
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
-              <div className="rounded-xl bg-emerald-500/10 p-4 text-center">
-                <p className="text-xs font-medium uppercase tracking-wider text-emerald-400/80">Net Take-Home ({periodLabel})</p>
-                <p className="mt-1 text-3xl font-bold text-emerald-400">{formatCurrency(result.netPerPeriod)}</p>
+              <div className="rounded-xl bg-emerald-600/10 p-4 text-center">
+                <p className="text-xs font-medium uppercase tracking-wider text-emerald-600/80">Net Take-Home ({periodLabel})</p>
+                <p className="mt-1 text-3xl font-bold text-emerald-600">{formatCurrency(result.netPerPeriod)}</p>
                 <p className="mt-1 text-xs text-muted-foreground">Annual Net: {formatCurrency(result.netAnnual)}</p>
               </div>
 
-              <div className="rounded-lg bg-emerald-500/5 p-3 text-center">
+              <div className="rounded-lg bg-emerald-600/5 p-3 text-center">
                 <p className="text-xs text-muted-foreground">State Income Tax</p>
-                <p className="text-xl font-bold text-emerald-400">$0.00</p>
-                <p className="text-xs text-emerald-400/60">Florida has 0% income tax</p>
+                <p className="text-xl font-bold text-emerald-600">$0.00</p>
+                <p className="text-xs text-emerald-600/60">Florida has 0% income tax</p>
               </div>
 
               <Separator className="bg-border/40" />
@@ -254,23 +254,23 @@ export function FloridaCalculator() {
               <div className="space-y-2.5 rounded-lg bg-muted/30 p-3">
                 <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground">Deductions (Federal Only)</p>
                 <div className="flex items-center justify-between">
-                  <span className="flex items-center gap-1.5 text-sm text-muted-foreground"><TrendingDown className="h-3.5 w-3.5 text-red-400" />Federal Tax</span>
-                  <span className="text-sm font-medium text-red-400">-{formatCurrency(result.federalTax)}</span>
+                  <span className="flex items-center gap-1.5 text-sm text-muted-foreground"><TrendingDown className="h-3.5 w-3.5 text-red-600" />Federal Tax</span>
+                  <span className="text-sm font-medium text-red-600">-{formatCurrency(result.federalTax)}</span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="flex items-center gap-1.5 text-sm text-muted-foreground"><TrendingDown className="h-3.5 w-3.5 text-orange-400" />FICA (7.65%)</span>
-                  <span className="text-sm font-medium text-orange-400">-{formatCurrency(result.ficaTotal)}</span>
+                  <span className="flex items-center gap-1.5 text-sm text-muted-foreground"><TrendingDown className="h-3.5 w-3.5 text-orange-700" />FICA (7.65%)</span>
+                  <span className="text-sm font-medium text-orange-700">-{formatCurrency(result.ficaTotal)}</span>
                 </div>
                 {result.retirement401k > 0 && (
                   <div className="flex items-center justify-between">
                     <span className="text-sm text-muted-foreground">401(k)</span>
-                    <span className="text-sm font-medium text-amber-400">-{formatCurrency(result.retirement401k)}</span>
+                    <span className="text-sm font-medium text-amber-700">-{formatCurrency(result.retirement401k)}</span>
                   </div>
                 )}
                 {result.hsaContribution > 0 && (
                   <div className="flex items-center justify-between">
                     <span className="text-sm text-muted-foreground">HSA</span>
-                    <span className="text-sm font-medium text-emerald-400">-{formatCurrency(result.hsaContribution)}</span>
+                    <span className="text-sm font-medium text-emerald-600">-{formatCurrency(result.hsaContribution)}</span>
                   </div>
                 )}
               </div>

@@ -172,10 +172,10 @@ const SALARY_BREAKDOWN = [
   { label: 'Gross Annual Salary', value: '$75,000.00', color: 'text-foreground' },
   { label: 'Standard Deduction (Single)', value: '−$16,100.00', color: 'text-muted-foreground', isDividerAfter: true },
   { label: 'Taxable Income', value: '$58,900.00', color: 'text-foreground font-semibold' },
-  { label: '10% on first $12,400', value: '$1,240.00', color: 'text-emerald-400' },
+  { label: '10% on first $12,400', value: '$1,240.00', color: 'text-emerald-600' },
   { label: '12% on $12,401 – $50,400', value: '$4,560.00', color: 'text-teal-400' },
-  { label: '22% on $50,401 – $58,900', value: '$1,870.00', color: 'text-amber-400' },
-  { label: 'Total Federal Tax', value: '$7,670.00', color: 'text-red-400 font-semibold', isDividerAfter: true },
+  { label: '22% on $50,401 – $58,900', value: '$1,870.00', color: 'text-amber-700' },
+  { label: 'Total Federal Tax', value: '$7,670.00', color: 'text-red-600 font-semibold', isDividerAfter: true },
   { label: 'Effective Federal Rate', value: '10.23%', color: 'text-foreground' },
   { label: 'Marginal Rate', value: '22%', color: 'text-foreground' },
 ];
@@ -202,7 +202,7 @@ export default function FederalTaxBracketsPage() {
           </nav>
 
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 rounded-full bg-emerald-500/10 border border-emerald-500/20 px-4 py-1.5 text-sm text-emerald-400 mb-6">
+          <div className="inline-flex items-center gap-2 rounded-full bg-emerald-600/10 border border-emerald-500/20 px-4 py-1.5 text-sm text-emerald-600 mb-6">
             <Zap className="h-3.5 w-3.5" />
             Updated for 2026 Tax Year
           </div>
@@ -268,7 +268,7 @@ export default function FederalTaxBracketsPage() {
                 detail: 'Also applies to Married Filing Separately',
                 icon: DollarSign,
                 color: 'from-emerald-600/20 to-teal-600/10',
-                accent: 'text-emerald-400',
+                accent: 'text-emerald-600',
               },
               {
                 status: 'Married Filing Jointly',
@@ -284,7 +284,7 @@ export default function FederalTaxBracketsPage() {
                 detail: 'For unmarried taxpayers with dependents',
                 icon: Calculator,
                 color: 'from-amber-600/20 to-yellow-600/10',
-                accent: 'text-amber-400',
+                accent: 'text-amber-700',
               },
               {
                 status: 'Age 65+ Additional',
@@ -292,7 +292,7 @@ export default function FederalTaxBracketsPage() {
                 detail: '$2,000 extra (Single/HOH) · $1,600 each (Married)',
                 icon: Info,
                 color: 'from-rose-600/20 to-pink-600/10',
-                accent: 'text-rose-400',
+                accent: 'text-rose-700',
               },
             ].map((item) => {
               const Icon = item.icon;
@@ -317,11 +317,11 @@ export default function FederalTaxBracketsPage() {
           {/* Additional deduction example */}
           <div className="mt-6 premium-card p-5">
             <div className="flex items-start gap-3">
-              <CheckCircle2 className="h-5 w-5 text-emerald-400 shrink-0 mt-0.5" />
+              <CheckCircle2 className="h-5 w-5 text-emerald-600 shrink-0 mt-0.5" />
               <div className="text-sm text-muted-foreground leading-relaxed">
                 <strong className="text-foreground">Example:</strong> A married couple where both spouses are 65 or older
                 would have a standard deduction of{' '}
-                <span className="text-emerald-400 font-semibold">$35,400</span> ($32,200 base + $1,600 + $1,600).
+                <span className="text-emerald-600 font-semibold">$35,400</span> ($32,200 base + $1,600 + $1,600).
                 This reduces their taxable income before any bracket is applied.
               </div>
             </div>
@@ -357,7 +357,7 @@ export default function FederalTaxBracketsPage() {
                   'Your total tax is the sum of tax from each bracket',
                 ].map((point) => (
                   <li key={point} className="flex items-start gap-3 text-sm text-muted-foreground">
-                    <CheckCircle2 className="h-5 w-5 text-emerald-400 shrink-0 mt-0.5" />
+                    <CheckCircle2 className="h-5 w-5 text-emerald-600 shrink-0 mt-0.5" />
                     {point}
                   </li>
                 ))}
@@ -392,13 +392,13 @@ export default function FederalTaxBracketsPage() {
               <div className="mt-6 space-y-2">
                 <p className="text-xs uppercase tracking-wider text-muted-foreground font-medium">Bracket Fill Visualization</p>
                 <div className="flex rounded-lg overflow-hidden h-8 text-xs font-semibold">
-                  <div className="bg-emerald-500/30 flex items-center justify-center text-emerald-300" style={{ width: '19.9%' }}>
+                  <div className="bg-emerald-600/30 flex items-center justify-center text-emerald-700" style={{ width: '19.9%' }}>
                     10%
                   </div>
                   <div className="bg-teal-500/30 flex items-center justify-center text-teal-300" style={{ width: '60.9%' }}>
                     12%
                   </div>
-                  <div className="bg-amber-500/30 flex items-center justify-center text-amber-300" style={{ width: '19.2%' }}>
+                  <div className="bg-amber-500/30 flex items-center justify-center text-amber-700" style={{ width: '19.2%' }}>
                     22%
                   </div>
                 </div>
@@ -433,7 +433,7 @@ export default function FederalTaxBracketsPage() {
             <div className="premium-card p-6 hover-lift">
               <div className="flex items-center gap-3 mb-4">
                 <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-amber-600/20 to-orange-600/10">
-                  <TrendingUp className="h-5 w-5 text-amber-400" />
+                  <TrendingUp className="h-5 w-5 text-amber-700" />
                 </div>
                 <h3 className="text-lg font-semibold text-foreground">Marginal Tax Rate</h3>
               </div>
@@ -445,7 +445,7 @@ export default function FederalTaxBracketsPage() {
               </p>
               <div className="mt-4 p-3 rounded-lg bg-amber-500/10 border border-amber-500/15">
                 <p className="text-sm">
-                  <span className="text-amber-400 font-semibold">Example:</span>{' '}
+                  <span className="text-amber-700 font-semibold">Example:</span>{' '}
                   <span className="text-muted-foreground">A single filer with $60,000 taxable income has a marginal rate of{' '}
                   <strong className="text-foreground">22%</strong> — the top bracket their income reaches.</span>
                 </p>
@@ -456,7 +456,7 @@ export default function FederalTaxBracketsPage() {
             <div className="premium-card p-6 hover-lift">
               <div className="flex items-center gap-3 mb-4">
                 <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-emerald-600/20 to-teal-600/10">
-                  <Calculator className="h-5 w-5 text-emerald-400" />
+                  <Calculator className="h-5 w-5 text-emerald-600" />
                 </div>
                 <h3 className="text-lg font-semibold text-foreground">Effective Tax Rate</h3>
               </div>
@@ -465,9 +465,9 @@ export default function FederalTaxBracketsPage() {
                 your <em>total (gross)</em> income. This is what you <em>actually</em> pay, on average.
                 It&apos;s always lower than your marginal rate — usually way lower.
               </p>
-              <div className="mt-4 p-3 rounded-lg bg-emerald-500/10 border border-emerald-500/15">
+              <div className="mt-4 p-3 rounded-lg bg-emerald-600/10 border border-emerald-500/15">
                 <p className="text-sm">
-                  <span className="text-emerald-400 font-semibold">Example:</span>{' '}
+                  <span className="text-emerald-600 font-semibold">Example:</span>{' '}
                   <span className="text-muted-foreground">Same filer: $8,113 tax ÷ $75,000 gross ={' '}
                   <strong className="text-foreground">10.82%</strong> effective rate — nearly half the marginal rate.</span>
                 </p>
@@ -478,7 +478,7 @@ export default function FederalTaxBracketsPage() {
           {/* Key Insight */}
           <div className="mt-6 premium-card p-5">
             <div className="flex items-start gap-3">
-              <Info className="h-5 w-5 text-emerald-400 shrink-0 mt-0.5" />
+              <Info className="h-5 w-5 text-emerald-600 shrink-0 mt-0.5" />
               <div className="text-sm text-muted-foreground leading-relaxed">
                 <strong className="text-foreground">Key Insight:</strong> Getting a raise that pushes you into
                 the next bracket only affects the dollars <em>above</em> the threshold. If you&apos;re a single
@@ -511,7 +511,7 @@ export default function FederalTaxBracketsPage() {
               >
                 <summary className="flex items-center justify-between cursor-pointer list-none">
                   <div className="flex items-center gap-3">
-                    <HelpCircle className="h-5 w-5 text-emerald-400 shrink-0" />
+                    <HelpCircle className="h-5 w-5 text-emerald-600 shrink-0" />
                     <span className="font-semibold text-foreground text-sm sm:text-base">{faq.q}</span>
                   </div>
                   <ChevronRight className="h-4 w-4 text-muted-foreground shrink-0 transition-transform group-open:rotate-90" />
@@ -538,7 +538,7 @@ export default function FederalTaxBracketsPage() {
             </p>
             <Link
               href="/paycheck-calculator"
-              className="mt-6 inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-600 to-emerald-500 px-8 py-3.5 text-base font-semibold text-white shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/30 transition-all hover:scale-[1.02]"
+              className="mt-6 inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-700 to-emerald-600 px-8 py-3.5 text-base font-semibold text-white shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/30 transition-all hover:scale-[1.02]"
             >
               <Calculator className="h-5 w-5" />
               Try the Paycheck Calculator
@@ -559,7 +559,7 @@ export default function FederalTaxBracketsPage() {
                   <Link
                     key={s.href}
                     href={s.href}
-                    className="rounded-full border border-emerald-500/20 bg-emerald-500/10 px-3 py-1 text-sm text-emerald-400 hover:bg-emerald-500/20 transition-colors"
+                    className="rounded-full border border-emerald-500/20 bg-emerald-600/10 px-3 py-1 text-sm text-emerald-600 hover:bg-emerald-600/20 transition-colors"
                   >
                     {s.label}
                   </Link>
@@ -569,13 +569,13 @@ export default function FederalTaxBracketsPage() {
 
             {/* Other useful links */}
             <div className="mt-4 flex flex-wrap justify-center gap-3 text-sm">
-              <Link href="/salary" className="text-muted-foreground hover:text-emerald-400 underline transition-colors">
+              <Link href="/salary" className="text-muted-foreground hover:text-emerald-600 underline transition-colors">
                 Salary Explorer
               </Link>
-              <Link href="/glossary" className="text-muted-foreground hover:text-emerald-400 underline transition-colors">
+              <Link href="/glossary" className="text-muted-foreground hover:text-emerald-600 underline transition-colors">
                 Tax Glossary
               </Link>
-              <a href="https://www.irs.gov/filing/federal-income-tax-rates-and-brackets" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-emerald-400 underline transition-colors">
+              <a href="https://www.irs.gov/filing/federal-income-tax-rates-and-brackets" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-emerald-600 underline transition-colors">
                 IRS Brackets Page ↗
               </a>
             </div>
@@ -605,9 +605,9 @@ export default function FederalTaxBracketsPage() {
                   <Link
                     key={item.href}
                     href={item.href}
-                    className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-400 transition-colors"
+                    className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-600 transition-colors"
                   >
-                    <span className="h-1 w-1 rounded-full bg-emerald-500/40 shrink-0 group-hover:bg-emerald-400 transition-colors" />
+                    <span className="h-1 w-1 rounded-full bg-emerald-600/40 shrink-0 group-hover:bg-emerald-500 transition-colors" />
                     {item.label}
                   </Link>
                 ))}
@@ -628,23 +628,23 @@ export default function FederalTaxBracketsPage() {
                   <Link
                     key={s.href}
                     href={s.href}
-                    className="inline-flex items-center rounded-lg border border-border/50 bg-muted/20 px-3 py-1.5 text-xs font-medium text-foreground hover:border-emerald-500/30 hover:text-emerald-400 transition-all"
+                    className="inline-flex items-center rounded-lg border border-border/50 bg-muted/20 px-3 py-1.5 text-xs font-medium text-foreground hover:border-emerald-500/30 hover:text-emerald-600 transition-all"
                   >
                     {s.label}
                   </Link>
                 ))}
               </div>
               <div className="mt-3 space-y-2">
-                <Link href="/salary" className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-400 transition-colors">
-                  <span className="h-1 w-1 rounded-full bg-emerald-500/40 shrink-0 group-hover:bg-emerald-400 transition-colors" />
+                <Link href="/salary" className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-600 transition-colors">
+                  <span className="h-1 w-1 rounded-full bg-emerald-600/40 shrink-0 group-hover:bg-emerald-500 transition-colors" />
                   All 26 Salary Levels
                 </Link>
-                <Link href="/compare" className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-400 transition-colors">
-                  <span className="h-1 w-1 rounded-full bg-emerald-500/40 shrink-0 group-hover:bg-emerald-400 transition-colors" />
+                <Link href="/compare" className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-600 transition-colors">
+                  <span className="h-1 w-1 rounded-full bg-emerald-600/40 shrink-0 group-hover:bg-emerald-500 transition-colors" />
                   Compare State Taxes
                 </Link>
-                <Link href="/glossary" className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-400 transition-colors">
-                  <span className="h-1 w-1 rounded-full bg-emerald-500/40 shrink-0 group-hover:bg-emerald-400 transition-colors" />
+                <Link href="/glossary" className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-600 transition-colors">
+                  <span className="h-1 w-1 rounded-full bg-emerald-600/40 shrink-0 group-hover:bg-emerald-500 transition-colors" />
                   Tax Glossary
                 </Link>
               </div>
@@ -666,9 +666,9 @@ export default function FederalTaxBracketsPage() {
                   <Link
                     key={item.href}
                     href={item.href}
-                    className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-400 transition-colors"
+                    className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-600 transition-colors"
                   >
-                    <span className="h-1 w-1 rounded-full bg-emerald-500/40 shrink-0 group-hover:bg-emerald-400 transition-colors" />
+                    <span className="h-1 w-1 rounded-full bg-emerald-600/40 shrink-0 group-hover:bg-emerald-500 transition-colors" />
                     {item.label}
                   </Link>
                 ))}

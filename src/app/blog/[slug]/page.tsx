@@ -102,11 +102,11 @@ const CATEGORY_LABELS: Record<string, string> = {
 };
 
 const CATEGORY_COLORS: Record<string, string> = {
-  'tax-guide': 'bg-emerald-100 text-emerald-800 dark:bg-emerald-500/20 dark:text-emerald-400 border-emerald-300 dark:border-emerald-500/30',
-  comparison: 'bg-cyan-100 text-cyan-800 dark:bg-cyan-500/20 dark:text-cyan-400 border-cyan-300 dark:border-cyan-500/30',
-  'state-tax': 'bg-violet-100 text-violet-800 dark:bg-violet-500/20 dark:text-violet-400 border-violet-300 dark:border-violet-500/30',
-  tips: 'bg-amber-100 text-amber-800 dark:bg-amber-500/20 dark:text-amber-400 border-amber-300 dark:border-amber-500/30',
-  news: 'bg-rose-100 text-rose-800 dark:bg-rose-500/20 dark:text-rose-400 border-rose-300 dark:border-rose-500/30',
+  'tax-guide': 'bg-emerald-100 text-emerald-800 dark:bg-emerald-600/20 dark:text-emerald-600 border-emerald-300 dark:border-emerald-500/30',
+  comparison: 'bg-cyan-100 text-cyan-800 dark:bg-cyan-500/20 dark:text-cyan-700 border-cyan-300 dark:border-cyan-500/30',
+  'state-tax': 'bg-violet-100 text-violet-800 dark:bg-violet-500/20 dark:text-violet-700 border-violet-300 dark:border-violet-500/30',
+  tips: 'bg-amber-100 text-amber-800 dark:bg-amber-500/20 dark:text-amber-700 border-amber-300 dark:border-amber-500/30',
+  news: 'bg-rose-100 text-rose-800 dark:bg-rose-500/20 dark:text-rose-700 border-rose-300 dark:border-rose-500/30',
 };
 
 function formatDate(dateStr: string): string {
@@ -426,7 +426,7 @@ export default async function BlogDetailPage({
               {CATEGORY_LABELS[post.category] || post.category}
             </span>
             {post.featured && (
-              <span className="inline-flex items-center rounded-full border border-amber-300 bg-amber-100 px-2.5 py-0.5 text-xs font-medium text-amber-800 dark:border-amber-500/30 dark:bg-amber-500/20 dark:text-amber-400">Featured</span>
+              <span className="inline-flex items-center rounded-full border border-amber-300 bg-amber-100 px-2.5 py-0.5 text-xs font-medium text-amber-800 dark:border-amber-500/30 dark:bg-amber-500/20 dark:text-amber-700">Featured</span>
             )}
           </div>
 
@@ -481,7 +481,7 @@ export default async function BlogDetailPage({
       <AuthorBioCard authorId={author.id} />
 
       {/* Internal Links: Try Our Calculators */}
-      <section className="mb-8 rounded-xl border border-emerald-500/20 bg-emerald-500/5 p-6">
+      <section className="mb-8 rounded-xl border border-emerald-500/20 bg-emerald-600/5 p-6">
         <h2 className="text-lg font-bold text-foreground mb-3">Try Our Tax Calculators</h2>
         <p className="text-sm text-muted-foreground mb-4">See exactly how much you&apos;ll take home after all taxes and deductions.</p>
         <div className="flex flex-wrap gap-3">
@@ -513,7 +513,7 @@ export default async function BlogDetailPage({
             <Link
               key={item.href}
               href={item.href}
-              className="inline-flex items-center gap-1.5 rounded-lg border border-emerald-500/20 bg-emerald-500/5 px-4 py-2 text-sm font-medium text-foreground hover:border-emerald-500/40 hover:bg-emerald-500/10 transition-colors"
+              className="inline-flex items-center gap-1.5 rounded-lg border border-emerald-500/20 bg-emerald-600/5 px-4 py-2 text-sm font-medium text-foreground hover:border-emerald-500/40 hover:bg-emerald-600/10 transition-colors"
             >
               {item.label}
             </Link>
@@ -540,7 +540,7 @@ export default async function BlogDetailPage({
                     </span>
                     <span className="text-[10px] text-muted-foreground">{formatDate(rp.createdAt)}</span>
                   </div>
-                  <h3 className="text-sm font-semibold text-foreground group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors line-clamp-2 mb-1.5">
+                  <h3 className="text-sm font-semibold text-foreground group-hover:text-emerald-600 dark:group-hover:text-emerald-600 transition-colors line-clamp-2 mb-1.5">
                     {rp.title}
                   </h3>
                   {rp.excerpt && (

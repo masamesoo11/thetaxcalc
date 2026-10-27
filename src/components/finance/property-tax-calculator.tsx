@@ -137,13 +137,13 @@ interface PropertyTaxResult {
 // ─── Chart Colors ────────────────────────────────────────────────────────────
 
 const CHART_COLORS = {
-  homeValue: '#10b981', // emerald-500
+  homeValue: '#b08d3e', // emerald-500
   propertyTax: '#ef4444', // red-500
 };
 
 const BAR_COLORS = {
   highest: '#ef4444',
-  lowest: '#10b981',
+  lowest: '#b08d3e',
 };
 
 // ─── Custom Tooltips ─────────────────────────────────────────────────────────
@@ -347,7 +347,7 @@ export function PropertyTaxCalculator() {
       {/* ─── Page Title ─────────────────────────────────── */}
       <div className="text-center">
         <h2 className="flex items-center justify-center gap-2 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-          <Home className="h-8 w-8 text-emerald-400" />
+          <Home className="h-8 w-8 text-emerald-600" />
           Property Tax Calculator
         </h2>
         <p className="mt-2 text-muted-foreground">
@@ -377,7 +377,7 @@ export function PropertyTaxCalculator() {
           <Card className="border-border/50 bg-card/80 backdrop-blur-sm">
             <CardHeader className="pb-4">
               <CardTitle className="flex items-center gap-2 text-lg">
-                <Calculator className="h-5 w-5 text-emerald-400" />
+                <Calculator className="h-5 w-5 text-emerald-600" />
                 Property Tax Calculator
               </CardTitle>
               <CardDescription>Enter your home value and select a state to calculate property tax</CardDescription>
@@ -387,7 +387,7 @@ export function PropertyTaxCalculator() {
               <div className="space-y-2">
                 <Label htmlFor="pt-home-value" className="text-sm font-medium">
                   <span className="flex items-center gap-1.5">
-                    <DollarSign className="h-3.5 w-3.5 text-emerald-400" />
+                    <DollarSign className="h-3.5 w-3.5 text-emerald-600" />
                     Home Value
                   </span>
                 </Label>
@@ -410,7 +410,7 @@ export function PropertyTaxCalculator() {
               <div className="space-y-2">
                 <Label htmlFor="pt-state" className="text-sm font-medium">
                   <span className="flex items-center gap-1.5">
-                    <Home className="h-3.5 w-3.5 text-emerald-400" />
+                    <Home className="h-3.5 w-3.5 text-emerald-600" />
                     State
                   </span>
                 </Label>
@@ -445,7 +445,7 @@ export function PropertyTaxCalculator() {
               <div className="space-y-3">
                 <Label className="text-sm font-medium">
                   <span className="flex items-center gap-1.5">
-                    <CheckCircle2 className="h-3.5 w-3.5 text-emerald-400" />
+                    <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600" />
                     Homestead / Exemptions
                   </span>
                 </Label>
@@ -477,8 +477,8 @@ export function PropertyTaxCalculator() {
                       </Button>
                     </div>
                     {useHomestead && (
-                      <div className="rounded-lg bg-emerald-500/10 p-3">
-                        <p className="text-xs text-emerald-400 font-medium">
+                      <div className="rounded-lg bg-emerald-600/10 p-3">
+                        <p className="text-xs text-emerald-600 font-medium">
                           {currentState?.name} Homestead Exemption
                         </p>
                         <p className="text-xs text-muted-foreground mt-1">
@@ -538,11 +538,11 @@ export function PropertyTaxCalculator() {
                 <div className="grid grid-cols-3 gap-2 text-center">
                   <div>
                     <p className="text-[10px] uppercase tracking-wider text-muted-foreground">Effective Rate</p>
-                    <p className="text-sm font-bold text-emerald-400">{currentState ? formatPercent(currentState.rate) : '0%'}</p>
+                    <p className="text-sm font-bold text-emerald-600">{currentState ? formatPercent(currentState.rate) : '0%'}</p>
                   </div>
                   <div>
                     <p className="text-[10px] uppercase tracking-wider text-muted-foreground">Exemption</p>
-                    <p className="text-sm font-bold text-amber-400">{effectiveExemption > 0 ? formatCurrency(effectiveExemption) : 'None'}</p>
+                    <p className="text-sm font-bold text-amber-700">{effectiveExemption > 0 ? formatCurrency(effectiveExemption) : 'None'}</p>
                   </div>
                   <div>
                     <p className="text-[10px] uppercase tracking-wider text-muted-foreground">Taxable Value</p>
@@ -569,11 +569,11 @@ export function PropertyTaxCalculator() {
             <Card className="border-emerald-500/20 bg-card/90 backdrop-blur-sm">
               <CardHeader className="pb-3">
                 <CardTitle className="flex items-center gap-2 text-lg">
-                  <DollarSign className="h-5 w-5 text-emerald-400" />
+                  <DollarSign className="h-5 w-5 text-emerald-600" />
                   Property Tax Breakdown — {result.stateName}
                 </CardTitle>
                 {result.notes && (
-                  <Badge className="bg-amber-500/20 text-amber-400 text-[10px] w-fit">
+                  <Badge className="bg-amber-500/20 text-amber-700 text-[10px] w-fit">
                     {result.notes}
                   </Badge>
                 )}
@@ -581,11 +581,11 @@ export function PropertyTaxCalculator() {
               <CardContent className="space-y-4">
                 {/* Main Results */}
                 <div className="grid gap-3 sm:grid-cols-3">
-                  <div className="rounded-xl border border-emerald-500/20 bg-emerald-500/5 p-4 text-center">
+                  <div className="rounded-xl border border-emerald-500/20 bg-emerald-600/5 p-4 text-center">
                     <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
                       Annual Tax
                     </p>
-                    <p className="mt-1 text-2xl font-bold text-emerald-400">
+                    <p className="mt-1 text-2xl font-bold text-emerald-600">
                       {formatCurrency(result.annualTax)}
                     </p>
                   </div>
@@ -618,7 +618,7 @@ export function PropertyTaxCalculator() {
                   {result.exemptionAmount > 0 && (
                     <div className="flex justify-between">
                       <span className="text-muted-foreground">Exemption</span>
-                      <span className="font-medium text-emerald-400">−{formatCurrency(result.exemptionAmount)}</span>
+                      <span className="font-medium text-emerald-600">−{formatCurrency(result.exemptionAmount)}</span>
                     </div>
                   )}
                   <div className="flex justify-between">
@@ -636,32 +636,32 @@ export function PropertyTaxCalculator() {
                   <>
                     <Separator className="bg-border/40" />
                     <div className="rounded-xl border border-amber-500/20 bg-amber-500/5 p-4">
-                      <p className="text-xs font-medium uppercase tracking-wider text-amber-400/80 mb-2">
+                      <p className="text-xs font-medium uppercase tracking-wider text-amber-700/80 mb-2">
                         State Comparison for {formatCurrency(result.homeValue)} Home
                       </p>
                       <div className="grid gap-2 sm:grid-cols-3">
                         <div className="text-center">
-                          <p className="text-[10px] uppercase tracking-wider text-emerald-400">Lowest</p>
-                          <p className="text-sm font-bold text-emerald-400">{comparisonData.lowestState}</p>
+                          <p className="text-[10px] uppercase tracking-wider text-emerald-600">Lowest</p>
+                          <p className="text-sm font-bold text-emerald-600">{comparisonData.lowestState}</p>
                           <p className="text-sm text-muted-foreground">{formatCurrency(comparisonData.lowestTax)}/yr</p>
                           <p className="text-[10px] text-muted-foreground">({formatPercent(comparisonData.lowestRate)})</p>
                         </div>
                         <div className="flex items-center justify-center">
                           <div className="text-center">
-                            <p className="text-[10px] uppercase tracking-wider text-amber-400">Your State</p>
+                            <p className="text-[10px] uppercase tracking-wider text-amber-700">Your State</p>
                             <p className="text-sm font-bold text-foreground">{result.stateName}</p>
                             <p className="text-sm text-muted-foreground">{formatCurrency(result.annualTax)}/yr</p>
                           </div>
                         </div>
                         <div className="text-center">
-                          <p className="text-[10px] uppercase tracking-wider text-red-400">Highest</p>
-                          <p className="text-sm font-bold text-red-400">{comparisonData.highestState}</p>
+                          <p className="text-[10px] uppercase tracking-wider text-red-600">Highest</p>
+                          <p className="text-sm font-bold text-red-600">{comparisonData.highestState}</p>
                           <p className="text-sm text-muted-foreground">{formatCurrency(comparisonData.highestTax)}/yr</p>
                           <p className="text-[10px] text-muted-foreground">({formatPercent(comparisonData.highestRate)})</p>
                         </div>
                       </div>
                       <p className="mt-2 text-center text-xs text-muted-foreground">
-                        <span className="text-emerald-400">{comparisonData.lowestState}</span> saves you <span className="font-medium">{formatCurrency(roundCurrency(result.annualTax - comparisonData.lowestTax))}</span> vs <span className="text-red-400">{comparisonData.highestState}</span> costs <span className="font-medium">{formatCurrency(roundCurrency(comparisonData.highestTax - result.annualTax))}</span> more
+                        <span className="text-emerald-600">{comparisonData.lowestState}</span> saves you <span className="font-medium">{formatCurrency(roundCurrency(result.annualTax - comparisonData.lowestTax))}</span> vs <span className="text-red-600">{comparisonData.highestState}</span> costs <span className="font-medium">{formatCurrency(roundCurrency(comparisonData.highestTax - result.annualTax))}</span> more
                       </p>
                     </div>
                   </>
@@ -678,7 +678,7 @@ export function PropertyTaxCalculator() {
           <Card className="sticky top-20 border-emerald-500/20 bg-card/90 backdrop-blur-sm">
             <CardHeader className="pb-3">
               <CardTitle className="flex items-center gap-2 text-lg">
-                <TrendingUp className="h-5 w-5 text-emerald-400" />
+                <TrendingUp className="h-5 w-5 text-emerald-600" />
                 Property Tax Rates by State
               </CardTitle>
               <CardDescription>2026 average effective property tax rates</CardDescription>
@@ -712,7 +712,7 @@ export function PropertyTaxCalculator() {
                   </div>
                   <div className="flex justify-center gap-4 text-xs">
                     <div className="flex items-center gap-1.5">
-                      <div className="h-2.5 w-2.5 rounded-full bg-emerald-500" />
+                      <div className="h-2.5 w-2.5 rounded-full bg-emerald-600" />
                       <span className="text-muted-foreground">Home Value</span>
                     </div>
                     <div className="flex items-center gap-1.5">
@@ -728,7 +728,7 @@ export function PropertyTaxCalculator() {
               {/* Top 10 Highest */}
               <div>
                 <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground mb-2 flex items-center gap-1">
-                  <TrendingUp className="h-3 w-3 text-red-400" />
+                  <TrendingUp className="h-3 w-3 text-red-600" />
                   Top 10 Highest Rates
                 </p>
                 <div className="h-64">
@@ -748,7 +748,7 @@ export function PropertyTaxCalculator() {
               {/* Top 10 Lowest */}
               <div>
                 <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground mb-2 flex items-center gap-1">
-                  <TrendingDown className="h-3 w-3 text-emerald-400" />
+                  <TrendingDown className="h-3 w-3 text-emerald-600" />
                   Top 10 Lowest Rates
                 </p>
                 <div className="h-64">
@@ -785,7 +785,7 @@ export function PropertyTaxCalculator() {
                         }}
                       >
                         <span className="text-foreground">{s.name}</span>
-                        <span className={`font-mono font-medium ${s.rate >= 0.015 ? 'text-red-400' : s.rate <= 0.006 ? 'text-emerald-400' : 'text-amber-400'}`}>
+                        <span className={`font-mono font-medium ${s.rate >= 0.015 ? 'text-red-600' : s.rate <= 0.006 ? 'text-emerald-600' : 'text-amber-700'}`}>
                           {(s.rate * 100).toFixed(2)}%
                         </span>
                       </button>

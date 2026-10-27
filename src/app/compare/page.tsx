@@ -134,7 +134,7 @@ export default function CompareLandingPage() {
       {/* Hero */}
       <section className="relative overflow-hidden rounded-2xl bg-mesh-hero p-8 sm:p-12 mb-12 border border-border/20">
         <div className="relative z-10">
-          <div className="inline-flex items-center gap-2 rounded-full bg-emerald-500/10 border border-emerald-500/20 px-4 py-1.5 text-sm text-emerald-400 mb-6">
+          <div className="inline-flex items-center gap-2 rounded-full bg-emerald-600/10 border border-emerald-500/20 px-4 py-1.5 text-sm text-emerald-600 mb-6">
             <ArrowRightLeft className="h-3.5 w-3.5" />
             10 Side-by-Side Comparisons
           </div>
@@ -148,15 +148,15 @@ export default function CompareLandingPage() {
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <span className="flex items-center gap-1.5 text-sm text-muted-foreground">
-              <TrendingDown className="h-4 w-4 text-emerald-400" />
+              <TrendingDown className="h-4 w-4 text-emerald-600" />
               Income Tax Rates
             </span>
             <span className="flex items-center gap-1.5 text-sm text-muted-foreground">
-              <Scale className="h-4 w-4 text-emerald-400" />
+              <Scale className="h-4 w-4 text-emerald-600" />
               Property & Sales Tax
             </span>
             <span className="flex items-center gap-1.5 text-sm text-muted-foreground">
-              <Zap className="h-4 w-4 text-emerald-400" />
+              <Zap className="h-4 w-4 text-emerald-600" />
               Take-Home Pay at $75K & $150K
             </span>
           </div>
@@ -177,10 +177,10 @@ export default function CompareLandingPage() {
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
                   <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-emerald-600/20 to-teal-600/10">
-                    <ArrowRightLeft className="h-6 w-6 text-emerald-400" />
+                    <ArrowRightLeft className="h-6 w-6 text-emerald-600" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-foreground group-hover:text-emerald-400 transition-colors">
+                    <h3 className="text-lg font-semibold text-foreground group-hover:text-emerald-600 transition-colors">
                       {comp.state1.name} vs {comp.state2.name}
                     </h3>
                     <p className="text-xs text-muted-foreground">
@@ -188,15 +188,15 @@ export default function CompareLandingPage() {
                     </p>
                   </div>
                 </div>
-                <ArrowRight className="h-5 w-5 text-muted-foreground group-hover:text-emerald-400 group-hover:translate-x-1 transition-all" />
+                <ArrowRight className="h-5 w-5 text-muted-foreground group-hover:text-emerald-600 group-hover:translate-x-1 transition-all" />
               </div>
 
               {/* Tax Preview */}
               <div className="grid grid-cols-2 gap-3">
                 <div className="rounded-lg bg-muted/30 p-3">
                   <p className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">Income Tax</p>
-                  <p className="mt-1 text-sm font-medium text-foreground">{comp.state1.name}: <span className={comp.state1.incomeTaxRate === 0 ? 'text-emerald-400' : 'text-amber-400'}>{comp.state1.incomeTaxLabel}</span></p>
-                  <p className="text-sm font-medium text-foreground">{comp.state2.name}: <span className={comp.state2.incomeTaxRate === 0 ? 'text-emerald-400' : 'text-amber-400'}>{comp.state2.incomeTaxLabel}</span></p>
+                  <p className="mt-1 text-sm font-medium text-foreground">{comp.state1.name}: <span className={comp.state1.incomeTaxRate === 0 ? 'text-emerald-600' : 'text-amber-700'}>{comp.state1.incomeTaxLabel}</span></p>
+                  <p className="text-sm font-medium text-foreground">{comp.state2.name}: <span className={comp.state2.incomeTaxRate === 0 ? 'text-emerald-600' : 'text-amber-700'}>{comp.state2.incomeTaxLabel}</span></p>
                 </div>
                 <div className="rounded-lg bg-muted/30 p-3">
                   <p className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">Property Tax</p>
@@ -206,7 +206,7 @@ export default function CompareLandingPage() {
               </div>
 
               {/* CTA */}
-              <div className="mt-auto flex items-center gap-1.5 text-sm font-medium text-emerald-400 group-hover:gap-3 transition-all">
+              <div className="mt-auto flex items-center gap-1.5 text-sm font-medium text-emerald-600 group-hover:gap-3 transition-all">
                 View Full Comparison
                 <ArrowRight className="h-4 w-4" />
               </div>
@@ -218,8 +218,8 @@ export default function CompareLandingPage() {
       {/* What to Consider When Comparing State Taxes */}
       <section className="mt-12 rounded-xl border border-border/30 bg-card/50 p-8">
         <div className="flex items-center gap-3 mb-4">
-          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-500/10">
-            <Scale className="h-5 w-5 text-emerald-400" />
+          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-600/10">
+            <Scale className="h-5 w-5 text-emerald-600" />
           </div>
           <h2 className="text-2xl font-bold text-foreground">What to Consider When Comparing State Taxes</h2>
         </div>
@@ -233,7 +233,7 @@ export default function CompareLandingPage() {
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             <div className="rounded-lg bg-muted/20 p-4">
               <div className="flex items-center gap-2 mb-2">
-                <Percent className="h-4 w-4 text-emerald-400" />
+                <Percent className="h-4 w-4 text-emerald-600" />
                 <h3 className="text-sm font-semibold text-foreground">Income Tax Rates</h3>
               </div>
               <p className="text-sm text-muted-foreground leading-relaxed">
@@ -244,7 +244,7 @@ export default function CompareLandingPage() {
             </div>
             <div className="rounded-lg bg-muted/20 p-4">
               <div className="flex items-center gap-2 mb-2">
-                <Home className="h-4 w-4 text-emerald-400" />
+                <Home className="h-4 w-4 text-emerald-600" />
                 <h3 className="text-sm font-semibold text-foreground">Property Tax Burden</h3>
               </div>
               <p className="text-sm text-muted-foreground leading-relaxed">
@@ -257,7 +257,7 @@ export default function CompareLandingPage() {
             </div>
             <div className="rounded-lg bg-muted/20 p-4">
               <div className="flex items-center gap-2 mb-2">
-                <Receipt className="h-4 w-4 text-emerald-400" />
+                <Receipt className="h-4 w-4 text-emerald-600" />
                 <h3 className="text-sm font-semibold text-foreground">Sales Tax Impact</h3>
               </div>
               <p className="text-sm text-muted-foreground leading-relaxed">
@@ -269,7 +269,7 @@ export default function CompareLandingPage() {
             </div>
             <div className="rounded-lg bg-muted/20 p-4">
               <div className="flex items-center gap-2 mb-2">
-                <DollarSign className="h-4 w-4 text-emerald-400" />
+                <DollarSign className="h-4 w-4 text-emerald-600" />
                 <h3 className="text-sm font-semibold text-foreground">Cost of Living Differences</h3>
               </div>
               <p className="text-sm text-muted-foreground leading-relaxed">
@@ -281,7 +281,7 @@ export default function CompareLandingPage() {
             </div>
             <div className="rounded-lg bg-muted/20 p-4">
               <div className="flex items-center gap-2 mb-2">
-                <PiggyBank className="h-4 w-4 text-emerald-400" />
+                <PiggyBank className="h-4 w-4 text-emerald-600" />
                 <h3 className="text-sm font-semibold text-foreground">Tax Credits & Exemptions</h3>
               </div>
               <p className="text-sm text-muted-foreground leading-relaxed">
@@ -293,7 +293,7 @@ export default function CompareLandingPage() {
             </div>
             <div className="rounded-lg bg-muted/20 p-4">
               <div className="flex items-center gap-2 mb-2">
-                <TrendingDown className="h-4 w-4 text-emerald-400" />
+                <TrendingDown className="h-4 w-4 text-emerald-600" />
                 <h3 className="text-sm font-semibold text-foreground">Overall Tax Burden vs Take-Home</h3>
               </div>
               <p className="text-sm text-muted-foreground leading-relaxed">
@@ -310,8 +310,8 @@ export default function CompareLandingPage() {
       {/* FAQ */}
       <section className="mt-12">
         <div className="flex items-center gap-3 mb-6">
-          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-500/10">
-            <BookOpen className="h-5 w-5 text-emerald-400" />
+          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-600/10">
+            <BookOpen className="h-5 w-5 text-emerald-600" />
           </div>
           <h2 className="text-2xl font-bold text-foreground">State Tax Comparison FAQ</h2>
         </div>
@@ -364,7 +364,7 @@ export default function CompareLandingPage() {
         </p>
         <Link
           href="/relocation-calculator"
-          className="mt-6 inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-600 to-emerald-500 px-8 py-3 text-sm font-semibold text-white shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/30 transition-all hover:scale-[1.02]"
+          className="mt-6 inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-700 to-emerald-600 px-8 py-3 text-sm font-semibold text-white shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/30 transition-all hover:scale-[1.02]"
         >
           <ArrowRightLeft className="h-4 w-4" />
           Try Relocation Calculator
@@ -392,9 +392,9 @@ export default function CompareLandingPage() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-400 transition-colors"
+                  className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-600 transition-colors"
                 >
-                  <span className="h-1 w-1 rounded-full bg-emerald-500/40 shrink-0 group-hover:bg-emerald-400 transition-colors" />
+                  <span className="h-1 w-1 rounded-full bg-emerald-600/40 shrink-0 group-hover:bg-emerald-500 transition-colors" />
                   {item.label}
                 </Link>
               ))}
@@ -415,23 +415,23 @@ export default function CompareLandingPage() {
                 <Link
                   key={s.href}
                   href={s.href}
-                  className="inline-flex items-center rounded-lg border border-border/50 bg-muted/20 px-3 py-1.5 text-xs font-medium text-foreground hover:border-emerald-500/30 hover:text-emerald-400 transition-all"
+                  className="inline-flex items-center rounded-lg border border-border/50 bg-muted/20 px-3 py-1.5 text-xs font-medium text-foreground hover:border-emerald-500/30 hover:text-emerald-600 transition-all"
                 >
                   {s.label}
                 </Link>
               ))}
             </div>
             <div className="mt-3 space-y-2">
-              <Link href="/salary" className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-400 transition-colors">
-                <span className="h-1 w-1 rounded-full bg-emerald-500/40 shrink-0 group-hover:bg-emerald-400 transition-colors" />
+              <Link href="/salary" className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-600 transition-colors">
+                <span className="h-1 w-1 rounded-full bg-emerald-600/40 shrink-0 group-hover:bg-emerald-500 transition-colors" />
                 All 26 Salary Levels
               </Link>
-              <Link href="/federal-tax-brackets" className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-400 transition-colors">
-                <span className="h-1 w-1 rounded-full bg-emerald-500/40 shrink-0 group-hover:bg-emerald-400 transition-colors" />
+              <Link href="/federal-tax-brackets" className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-600 transition-colors">
+                <span className="h-1 w-1 rounded-full bg-emerald-600/40 shrink-0 group-hover:bg-emerald-500 transition-colors" />
                 2026 Federal Tax Brackets
               </Link>
-              <Link href="/glossary" className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-400 transition-colors">
-                <span className="h-1 w-1 rounded-full bg-emerald-500/40 shrink-0 group-hover:bg-emerald-400 transition-colors" />
+              <Link href="/glossary" className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-600 transition-colors">
+                <span className="h-1 w-1 rounded-full bg-emerald-600/40 shrink-0 group-hover:bg-emerald-500 transition-colors" />
                 Tax Glossary
               </Link>
             </div>
@@ -451,9 +451,9 @@ export default function CompareLandingPage() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-400 transition-colors"
+                  className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-600 transition-colors"
                 >
-                  <span className="h-1 w-1 rounded-full bg-emerald-500/40 shrink-0 group-hover:bg-emerald-400 transition-colors" />
+                  <span className="h-1 w-1 rounded-full bg-emerald-600/40 shrink-0 group-hover:bg-emerald-500 transition-colors" />
                   {item.label}
                 </Link>
               ))}

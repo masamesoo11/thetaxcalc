@@ -523,7 +523,7 @@ export default async function CalculatorPage({
       </Suspense>
 
       {/* Next Steps */}
-      <section className="mt-8 rounded-xl border border-emerald-500/20 bg-emerald-500/5 p-6 sm:p-8">
+      <section className="mt-8 rounded-xl border border-emerald-500/20 bg-emerald-600/5 p-6 sm:p-8">
         <h2 className="text-lg font-semibold text-foreground mb-3">
           Related Tools &amp; Resources
         </h2>
@@ -532,7 +532,7 @@ export default async function CalculatorPage({
             <Link
               key={step.href}
               href={step.href}
-              className="flex items-start gap-2 rounded-lg p-2 hover:bg-emerald-500/10 transition-colors"
+              className="flex items-start gap-2 rounded-lg p-2 hover:bg-emerald-600/10 transition-colors"
             >
               <span>{step.icon}</span>
               <div>
@@ -559,25 +559,25 @@ export default async function CalculatorPage({
         </section>
 
         {/* How It's Calculated — Methodology & Formula */}
-        <section className="rounded-xl border border-emerald-500/20 bg-emerald-500/5 p-6 sm:p-8">
+        <section className="rounded-xl border border-emerald-500/20 bg-emerald-600/5 p-6 sm:p-8">
           <h2 className="text-2xl font-bold text-foreground mb-4">
             How It&apos;s Calculated
           </h2>
           <div className="space-y-5">
             {/* Formula */}
             <div>
-              <h3 className="text-sm font-semibold uppercase tracking-wider text-emerald-400 mb-2">Formula</h3>
+              <h3 className="text-sm font-semibold uppercase tracking-wider text-emerald-600 mb-2">Formula</h3>
               <div className="rounded-lg bg-background/50 border border-border/30 p-4 font-mono text-sm text-foreground">
                 {content.calculationMethod.formula}
               </div>
             </div>
             {/* Steps */}
             <div>
-              <h3 className="text-sm font-semibold uppercase tracking-wider text-emerald-400 mb-2">Step-by-Step</h3>
+              <h3 className="text-sm font-semibold uppercase tracking-wider text-emerald-600 mb-2">Step-by-Step</h3>
               <ol className="space-y-2">
                 {content.calculationMethod.steps.map((step, i) => (
                   <li key={i} className="flex gap-3 text-sm text-muted-foreground">
-                    <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-500/20 text-xs font-bold text-emerald-400">
+                    <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-600/20 text-xs font-bold text-emerald-600">
                       {i + 1}
                     </span>
                     <span className="leading-relaxed">{step}</span>
@@ -587,20 +587,20 @@ export default async function CalculatorPage({
             </div>
             {/* Example */}
             <div>
-              <h3 className="text-sm font-semibold uppercase tracking-wider text-emerald-400 mb-2">Example</h3>
+              <h3 className="text-sm font-semibold uppercase tracking-wider text-emerald-600 mb-2">Example</h3>
               <div className="rounded-lg bg-background/50 border border-border/30 p-4 text-sm text-muted-foreground leading-relaxed">
                 {content.calculationMethod.example}
               </div>
             </div>
             <p className="text-xs text-muted-foreground">
-              For detailed data sources and full methodology, see our <Link href="/methodology" className="text-emerald-400 hover:text-emerald-300 underline">Methodology &amp; Data Sources</Link> page.
+              For detailed data sources and full methodology, see our <Link href="/methodology" className="text-emerald-600 hover:text-emerald-700 underline">Methodology &amp; Data Sources</Link> page.
             </p>
           </div>
         </section>
 
         {/* Key Rates & Data */}
         {content.keyRates.length > 0 && (
-          <section className="rounded-xl border border-emerald-500/20 bg-emerald-500/5 p-6 sm:p-8">
+          <section className="rounded-xl border border-emerald-500/20 bg-emerald-600/5 p-6 sm:p-8">
             <h2 className="text-2xl font-bold text-foreground mb-4">
               Key Rates &amp; Data for 2026
             </h2>
@@ -666,9 +666,9 @@ export default async function CalculatorPage({
                 <Link
                   key={post.slug}
                   href={`/blog/${post.slug}`}
-                  className="group rounded-lg border border-border/30 bg-card/60 p-4 hover:border-emerald-500/30 hover:bg-emerald-500/5 transition-all"
+                  className="group rounded-lg border border-border/30 bg-card/60 p-4 hover:border-emerald-500/30 hover:bg-emerald-600/5 transition-all"
                 >
-                  <h3 className="text-sm font-semibold text-foreground group-hover:text-emerald-400 transition-colors mb-1">
+                  <h3 className="text-sm font-semibold text-foreground group-hover:text-emerald-600 transition-colors mb-1">
                     {post.title}
                   </h3>
                   {post.excerpt && (
@@ -693,7 +693,7 @@ export default async function CalculatorPage({
                 <Link
                   key={calc.slug}
                   href={`/${calc.slug}`}
-                  className="inline-flex items-center gap-1.5 rounded-lg border border-emerald-500/30 bg-emerald-500/5 px-4 py-2 text-sm font-medium text-emerald-400 hover:bg-emerald-500/10 hover:border-emerald-500/50 transition-all"
+                  className="inline-flex items-center gap-1.5 rounded-lg border border-emerald-500/30 bg-emerald-600/5 px-4 py-2 text-sm font-medium text-emerald-600 hover:bg-emerald-600/10 hover:border-emerald-500/50 transition-all"
                 >
                   <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
@@ -733,7 +733,7 @@ export default async function CalculatorPage({
               ))}
               <Link
                 href="/compare"
-                className="inline-flex items-center gap-1.5 rounded-lg border border-emerald-500/30 bg-emerald-500/5 px-3 py-1.5 text-sm font-medium text-emerald-400 hover:bg-emerald-500/10 transition-colors"
+                className="inline-flex items-center gap-1.5 rounded-lg border border-emerald-500/30 bg-emerald-600/5 px-3 py-1.5 text-sm font-medium text-emerald-600 hover:bg-emerald-600/10 transition-colors"
               >
                 All State Comparisons →
               </Link>
@@ -747,45 +747,45 @@ export default async function CalculatorPage({
             Next Steps
           </p>
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            <Link href="/salary" className="group flex items-start gap-3 rounded-lg border border-border/50 p-4 hover:border-emerald-500/30 hover:bg-emerald-500/5 transition-all">
+            <Link href="/salary" className="group flex items-start gap-3 rounded-lg border border-border/50 p-4 hover:border-emerald-500/30 hover:bg-emerald-600/5 transition-all">
               <span className="text-lg">💰</span>
               <div>
-                <span className="text-sm font-medium text-foreground group-hover:text-emerald-400 transition-colors">Salary After Tax</span>
+                <span className="text-sm font-medium text-foreground group-hover:text-emerald-600 transition-colors">Salary After Tax</span>
                 <p className="text-xs text-muted-foreground mt-0.5">See take-home pay for $30K–$500K across all 50 states</p>
               </div>
             </Link>
-            <Link href="/compare" className="group flex items-start gap-3 rounded-lg border border-border/50 p-4 hover:border-emerald-500/30 hover:bg-emerald-500/5 transition-all">
+            <Link href="/compare" className="group flex items-start gap-3 rounded-lg border border-border/50 p-4 hover:border-emerald-500/30 hover:bg-emerald-600/5 transition-all">
               <span className="text-lg">📊</span>
               <div>
-                <span className="text-sm font-medium text-foreground group-hover:text-emerald-400 transition-colors">Compare States</span>
+                <span className="text-sm font-medium text-foreground group-hover:text-emerald-600 transition-colors">Compare States</span>
                 <p className="text-xs text-muted-foreground mt-0.5">Side-by-side tax comparison for any two states</p>
               </div>
             </Link>
-            <Link href="/relocation-calculator" className="group flex items-start gap-3 rounded-lg border border-border/50 p-4 hover:border-emerald-500/30 hover:bg-emerald-500/5 transition-all">
+            <Link href="/relocation-calculator" className="group flex items-start gap-3 rounded-lg border border-border/50 p-4 hover:border-emerald-500/30 hover:bg-emerald-600/5 transition-all">
               <span className="text-lg">🏠</span>
               <div>
-                <span className="text-sm font-medium text-foreground group-hover:text-emerald-400 transition-colors">Relocation Calculator</span>
+                <span className="text-sm font-medium text-foreground group-hover:text-emerald-600 transition-colors">Relocation Calculator</span>
                 <p className="text-xs text-muted-foreground mt-0.5">Salary you&apos;d need if you move to another state</p>
               </div>
             </Link>
-            <Link href="/401k-retirement-calculator" className="group flex items-start gap-3 rounded-lg border border-border/50 p-4 hover:border-emerald-500/30 hover:bg-emerald-500/5 transition-all">
+            <Link href="/401k-retirement-calculator" className="group flex items-start gap-3 rounded-lg border border-border/50 p-4 hover:border-emerald-500/30 hover:bg-emerald-600/5 transition-all">
               <span className="text-lg">📈</span>
               <div>
-                <span className="text-sm font-medium text-foreground group-hover:text-emerald-400 transition-colors">401(k) Calculator</span>
+                <span className="text-sm font-medium text-foreground group-hover:text-emerald-600 transition-colors">401(k) Calculator</span>
                 <p className="text-xs text-muted-foreground mt-0.5">Project your retirement savings with compound growth</p>
               </div>
             </Link>
-            <Link href="/glossary" className="group flex items-start gap-3 rounded-lg border border-border/50 p-4 hover:border-emerald-500/30 hover:bg-emerald-500/5 transition-all">
+            <Link href="/glossary" className="group flex items-start gap-3 rounded-lg border border-border/50 p-4 hover:border-emerald-500/30 hover:bg-emerald-600/5 transition-all">
               <span className="text-lg">📖</span>
               <div>
-                <span className="text-sm font-medium text-foreground group-hover:text-emerald-400 transition-colors">Tax Glossary</span>
+                <span className="text-sm font-medium text-foreground group-hover:text-emerald-600 transition-colors">Tax Glossary</span>
                 <p className="text-xs text-muted-foreground mt-0.5">Key tax terms explained in plain English</p>
               </div>
             </Link>
-            <Link href="/federal-tax-brackets" className="group flex items-start gap-3 rounded-lg border border-border/50 p-4 hover:border-emerald-500/30 hover:bg-emerald-500/5 transition-all">
+            <Link href="/federal-tax-brackets" className="group flex items-start gap-3 rounded-lg border border-border/50 p-4 hover:border-emerald-500/30 hover:bg-emerald-600/5 transition-all">
               <span className="text-lg">📋</span>
               <div>
-                <span className="text-sm font-medium text-foreground group-hover:text-emerald-400 transition-colors">Tax Brackets 2026</span>
+                <span className="text-sm font-medium text-foreground group-hover:text-emerald-600 transition-colors">Tax Brackets 2026</span>
                 <p className="text-xs text-muted-foreground mt-0.5">Full federal bracket breakdown with examples</p>
               </div>
             </Link>

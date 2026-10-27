@@ -136,7 +136,7 @@ export function GlossaryClient() {
                 disabled={!isAvailable}
                 className={`flex h-9 w-9 items-center justify-center rounded-lg text-sm font-semibold transition-all ${
                   isActive
-                    ? 'bg-emerald-500/20 text-emerald-400 shadow-sm shadow-emerald-500/10'
+                    ? 'bg-emerald-600/20 text-emerald-600 shadow-sm shadow-emerald-500/10'
                     : isAvailable
                       ? 'text-muted-foreground hover:bg-muted/30 hover:text-foreground'
                       : 'text-muted-foreground/40 cursor-not-allowed'
@@ -164,7 +164,7 @@ export function GlossaryClient() {
               {/* Letter Header */}
               <div className="mb-5 flex items-center gap-4">
                 <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-emerald-600/20 to-emerald-500/10 border border-emerald-500/20">
-                  <span className="text-xl font-bold text-emerald-400">{letter}</span>
+                  <span className="text-xl font-bold text-emerald-600">{letter}</span>
                 </div>
                 <div className="divider-glow flex-1" />
                 <span className="text-xs text-muted-foreground">
@@ -188,7 +188,7 @@ export function GlossaryClient() {
           <p className="mt-1 text-sm text-muted-foreground">Try a different search term or clear the filter</p>
           <button
             onClick={clearSearch}
-            className="mt-4 inline-flex items-center gap-2 rounded-xl bg-emerald-500/10 px-4 py-2 text-sm font-medium text-emerald-400 hover:bg-emerald-500/20 transition-colors"
+            className="mt-4 inline-flex items-center gap-2 rounded-xl bg-emerald-600/10 px-4 py-2 text-sm font-medium text-emerald-600 hover:bg-emerald-600/20 transition-colors"
           >
             Clear Search
           </button>
@@ -199,7 +199,7 @@ export function GlossaryClient() {
       {showScrollTop && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-6 right-6 z-50 flex h-10 w-10 items-center justify-center rounded-full bg-emerald-500/20 text-emerald-400 shadow-lg shadow-emerald-500/10 backdrop-blur-sm border border-emerald-500/20 hover:bg-emerald-500/30 transition-all animate-fade-in"
+          className="fixed bottom-6 right-6 z-50 flex h-10 w-10 items-center justify-center rounded-full bg-emerald-600/20 text-emerald-600 shadow-lg shadow-emerald-500/10 backdrop-blur-sm border border-emerald-500/20 hover:bg-emerald-600/30 transition-all animate-fade-in"
           aria-label="Back to top"
         >
           <ChevronUp className="h-5 w-5" />
@@ -217,7 +217,7 @@ function GlossaryCard({ item }: { item: GlossaryTerm }) {
       {/* Term name as H2 (direct child of page H1) */}
       <h2
         id={`term-${item.slug}`}
-        className="text-base font-semibold text-foreground group-hover:text-emerald-400 transition-colors"
+        className="text-base font-semibold text-foreground group-hover:text-emerald-600 transition-colors"
       >
         {item.term}
       </h2>
@@ -229,8 +229,8 @@ function GlossaryCard({ item }: { item: GlossaryTerm }) {
 
       {/* 2026 Figure or Example */}
       {item.figure2026 && (
-        <div className="mt-3 rounded-lg bg-emerald-500/8 border border-emerald-500/15 px-3 py-2">
-          <p className="text-xs font-medium text-emerald-400">
+        <div className="mt-3 rounded-lg bg-emerald-600/8 border border-emerald-500/15 px-3 py-2">
+          <p className="text-xs font-medium text-emerald-600">
             <span className="font-bold">2026 Figure:</span> {item.figure2026}
           </p>
         </div>
@@ -248,7 +248,7 @@ function GlossaryCard({ item }: { item: GlossaryTerm }) {
         <div className="mt-3">
           <Link
             href={item.calculatorLink}
-            className="inline-flex items-center gap-1.5 text-xs font-medium text-emerald-400 hover:text-emerald-300 transition-colors"
+            className="inline-flex items-center gap-1.5 text-xs font-medium text-emerald-600 hover:text-emerald-700 transition-colors"
           >
             {item.calculatorLabel}
             <ArrowRight className="h-3 w-3" />

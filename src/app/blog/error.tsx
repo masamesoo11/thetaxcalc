@@ -19,7 +19,7 @@ export default function BlogError({
       <div className="mx-auto max-w-md text-center">
         <div className="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-full bg-red-500/10">
           <svg
-            className="h-8 w-8 text-red-500"
+            className="h-8 w-8 text-red-600"
             fill="none"
             viewBox="0 0 24 24"
             strokeWidth={1.5}

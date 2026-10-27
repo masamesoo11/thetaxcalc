@@ -97,7 +97,7 @@ export function CompareSSRContent({ config }: Props) {
                     <td className="p-3 font-medium text-foreground">{formatSalary(sal)}</td>
                     <td className="p-3 text-right text-foreground">{fmt(net1)}</td>
                     <td className="p-3 text-right text-foreground">{fmt(net2)}</td>
-                    <td className={`p-3 text-right font-medium ${diff >= 0 ? 'text-emerald-400' : 'text-rose-400'}`}>
+                    <td className={`p-3 text-right font-medium ${diff >= 0 ? 'text-emerald-600' : 'text-rose-700'}`}>
                       {diff >= 0 ? '+' : ''}{fmt(diff)}
                     </td>
                     <td className="p-3 text-right text-muted-foreground">
@@ -166,7 +166,7 @@ export function CompareSSRContent({ config }: Props) {
               </div>
               <div className="flex justify-between border-t border-border/20 pt-2 mt-2">
                 <span className="text-muted-foreground">Annual Difference</span>
-                <span className={`font-medium ${prop2Annual < prop1Annual ? 'text-emerald-400' : 'text-rose-400'}`}>
+                <span className={`font-medium ${prop2Annual < prop1Annual ? 'text-emerald-600' : 'text-rose-700'}`}>
                   {fmt(prop2Annual - prop1Annual)}
                 </span>
               </div>
@@ -195,7 +195,7 @@ export function CompareSSRContent({ config }: Props) {
         <p className="text-muted-foreground leading-relaxed mt-4">
           {s1.extraNotes && <span>{s1.name}: {s1.extraNotes}. </span>}
           {s2.extraNotes && <span>{s2.name}: {s2.extraNotes}. </span>}
-          Use our <Link href="/relocation-calculator" className="text-emerald-400 hover:underline">Relocation Calculator</Link>{' '}
+          Use our <Link href="/relocation-calculator" className="text-emerald-600 hover:underline">Relocation Calculator</Link>{' '}
           for a personalized salary comparison factoring in cost-of-living differences.
         </p>
       </section>
@@ -209,29 +209,29 @@ export function CompareSSRContent({ config }: Props) {
         </p>
         <ul className="space-y-2 text-muted-foreground">
           <li className="flex gap-2">
-            <span className="text-emerald-400">•</span>
+            <span className="text-emerald-600">•</span>
             <span>Federal standard deduction of $16,100 with progressive brackets from 10% to 37%</span>
           </li>
           <li className="flex gap-2">
-            <span className="text-emerald-400">•</span>
+            <span className="text-emerald-600">•</span>
             <span>FICA: 6.2% Social Security (cap at $184,500) + 1.45% Medicare on all wages</span>
           </li>
           <li className="flex gap-2">
-            <span className="text-emerald-400">•</span>
+            <span className="text-emerald-600">•</span>
             <span>{s1.name} state tax: {s1.incomeTaxLabel} ({(s1.incomeTaxRate * 100).toFixed(2)}% effective)</span>
           </li>
           <li className="flex gap-2">
-            <span className="text-emerald-400">•</span>
+            <span className="text-emerald-600">•</span>
             <span>{s2.name} state tax: {s2.incomeTaxLabel} ({(s2.incomeTaxRate * 100).toFixed(2)}% effective)</span>
           </li>
           <li className="flex gap-2">
-            <span className="text-emerald-400">•</span>
-            <span>No pre-tax deductions (401(k), HSA, FSA) — for those, use our <Link href="/paycheck-calculator" className="text-emerald-400 hover:underline">Paycheck Calculator</Link></span>
+            <span className="text-emerald-600">•</span>
+            <span>No pre-tax deductions (401(k), HSA, FSA) — for those, use our <Link href="/paycheck-calculator" className="text-emerald-600 hover:underline">Paycheck Calculator</Link></span>
           </li>
         </ul>
         <p className="text-muted-foreground leading-relaxed mt-3">
           All figures are for single filers. Married filing jointly and head of household will have
-          different results — see our <Link href="/federal-tax-brackets" className="text-emerald-400 hover:underline">2026 Federal Tax Brackets</Link>{' '}
+          different results — see our <Link href="/federal-tax-brackets" className="text-emerald-600 hover:underline">2026 Federal Tax Brackets</Link>{' '}
           guide for full bracket details.
         </p>
       </section>
@@ -243,13 +243,13 @@ export function CompareSSRContent({ config }: Props) {
           <div className="rounded-xl border border-border/30 bg-card/50 p-5">
             <h3 className="font-semibold text-foreground mb-3">State Calculators</h3>
             <div className="space-y-1.5">
-              <Link href={s1.calculatorSlug} className="block text-sm text-muted-foreground hover:text-emerald-400">
+              <Link href={s1.calculatorSlug} className="block text-sm text-muted-foreground hover:text-emerald-600">
                 {s1.name} Tax Calculator
               </Link>
-              <Link href={s2.calculatorSlug} className="block text-sm text-muted-foreground hover:text-emerald-400">
+              <Link href={s2.calculatorSlug} className="block text-sm text-muted-foreground hover:text-emerald-600">
                 {s2.name} Tax Calculator
               </Link>
-              <Link href="/compare" className="block text-sm text-muted-foreground hover:text-emerald-400">
+              <Link href="/compare" className="block text-sm text-muted-foreground hover:text-emerald-600">
                 All State Comparisons
               </Link>
             </div>
@@ -266,7 +266,7 @@ export function CompareSSRContent({ config }: Props) {
                 <Link
                   key={x.amount}
                   href={`/salary/${x.amount}-after-taxes`}
-                  className="inline-flex items-center rounded-lg border border-border/50 bg-muted/20 px-3 py-1.5 text-xs font-medium text-foreground hover:border-emerald-500/30 hover:text-emerald-400 transition-all"
+                  className="inline-flex items-center rounded-lg border border-border/50 bg-muted/20 px-3 py-1.5 text-xs font-medium text-foreground hover:border-emerald-500/30 hover:text-emerald-600 transition-all"
                 >
                   {x.label}
                 </Link>
@@ -276,11 +276,11 @@ export function CompareSSRContent({ config }: Props) {
           <div className="rounded-xl border border-border/30 bg-card/50 p-5">
             <h3 className="font-semibold text-foreground mb-3">Useful Tools</h3>
             <div className="space-y-1.5">
-              <Link href="/paycheck-calculator" className="block text-sm text-muted-foreground hover:text-emerald-400">Paycheck Calculator</Link>
-              <Link href="/relocation-calculator" className="block text-sm text-muted-foreground hover:text-emerald-400">Relocation Calculator</Link>
-              <Link href="/401k-retirement-calculator" className="block text-sm text-muted-foreground hover:text-emerald-400">401(k) Calculator</Link>
-              <Link href="/property-tax-calculator" className="block text-sm text-muted-foreground hover:text-emerald-400">Property Tax Calculator</Link>
-              <Link href="/sales-tax-calculator" className="block text-sm text-muted-foreground hover:text-emerald-400">Sales Tax Calculator</Link>
+              <Link href="/paycheck-calculator" className="block text-sm text-muted-foreground hover:text-emerald-600">Paycheck Calculator</Link>
+              <Link href="/relocation-calculator" className="block text-sm text-muted-foreground hover:text-emerald-600">Relocation Calculator</Link>
+              <Link href="/401k-retirement-calculator" className="block text-sm text-muted-foreground hover:text-emerald-600">401(k) Calculator</Link>
+              <Link href="/property-tax-calculator" className="block text-sm text-muted-foreground hover:text-emerald-600">Property Tax Calculator</Link>
+              <Link href="/sales-tax-calculator" className="block text-sm text-muted-foreground hover:text-emerald-600">Sales Tax Calculator</Link>
             </div>
           </div>
         </div>
@@ -366,19 +366,19 @@ function TaxBreakdownCard({
         </div>
         <div className="flex justify-between">
           <span className="text-muted-foreground">− Federal Tax</span>
-          <span className="text-rose-400">{fmt(takeHome.federalTax)}</span>
+          <span className="text-rose-700">{fmt(takeHome.federalTax)}</span>
         </div>
         <div className="flex justify-between">
           <span className="text-muted-foreground">− FICA (SS + Medicare)</span>
-          <span className="text-rose-400">{fmt(takeHome.ficaTotal)}</span>
+          <span className="text-rose-700">{fmt(takeHome.ficaTotal)}</span>
         </div>
         <div className="flex justify-between">
           <span className="text-muted-foreground">− State Tax</span>
-          <span className="text-rose-400">{fmt(takeHome.stateTax)}</span>
+          <span className="text-rose-700">{fmt(takeHome.stateTax)}</span>
         </div>
         <div className="flex justify-between border-t border-border/20 pt-2 mt-2">
           <span className="font-semibold text-foreground">= Take-Home</span>
-          <span className="font-bold text-emerald-400">{fmt(takeHome.netAnnual)}</span>
+          <span className="font-bold text-emerald-600">{fmt(takeHome.netAnnual)}</span>
         </div>
         <div className="flex justify-between text-xs">
           <span className="text-muted-foreground">Effective Tax Rate</span>
@@ -402,21 +402,21 @@ export function CompareCTA({ state1Slug, state1Name, state2Slug, state2Name }: {
       <div className="flex flex-wrap items-center justify-center gap-3">
         <Link
           href={`/${state1Slug}`}
-          className="inline-flex items-center gap-2 rounded-xl bg-emerald-500 px-6 py-3 text-base font-semibold text-white shadow-lg shadow-emerald-500/20 transition-colors hover:bg-emerald-600"
+          className="inline-flex items-center gap-2 rounded-xl bg-emerald-600 px-6 py-3 text-base font-semibold text-white shadow-lg shadow-emerald-500/20 transition-colors hover:bg-emerald-700"
         >
           <Calculator className="h-5 w-5" />
           {state1Name} Tax Calculator
         </Link>
         <Link
           href={`/${state2Slug}`}
-          className="inline-flex items-center gap-2 rounded-xl bg-emerald-500 px-6 py-3 text-base font-semibold text-white shadow-lg shadow-emerald-500/20 transition-colors hover:bg-emerald-600"
+          className="inline-flex items-center gap-2 rounded-xl bg-emerald-600 px-6 py-3 text-base font-semibold text-white shadow-lg shadow-emerald-500/20 transition-colors hover:bg-emerald-700"
         >
           <Calculator className="h-5 w-5" />
           {state2Name} Tax Calculator
         </Link>
         <Link
           href="/paycheck-calculator"
-          className="inline-flex items-center gap-2 rounded-xl border border-emerald-500/30 bg-card/50 px-6 py-3 text-base font-semibold text-emerald-400 transition-colors hover:bg-emerald-500/10"
+          className="inline-flex items-center gap-2 rounded-xl border border-emerald-500/30 bg-card/50 px-6 py-3 text-base font-semibold text-emerald-600 transition-colors hover:bg-emerald-600/10"
         >
           <DollarSign className="h-5 w-5" />
           Full Paycheck Calculator

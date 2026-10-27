@@ -16,7 +16,7 @@ export default function Icon() {
       </linearGradient>
     </defs>
     <rect width="32" height="32" rx="6" fill="url(#bg)" stroke="rgba(16,185,129,0.3)" stroke-width="1"/>
-    <text x="16" y="22" text-anchor="middle" fill="#10b981" font-family="sans-serif" font-weight="900" font-size="20">T</text>
+    <text x="16" y="22" text-anchor="middle" fill="#b08d3e" font-family="sans-serif" font-weight="900" font-size="20">T</text>
   </svg>`;
 
   return new NextResponse(svg, {

@@ -12,7 +12,7 @@ export default async function Image() {
   const states = ['IL 4.95%', 'TX 0%', 'FL 0%', 'CA 1-13.3%', 'NY 4-10.9%'];
   const stateBadges = states.map(s =>
     `<rect x="0" y="0" width="130" height="40" rx="20" fill="rgba(16,185,129,0.08)" stroke="rgba(16,185,129,0.3)" stroke-width="1"/>
-     <text x="65" y="26" text-anchor="middle" fill="#10b981" font-family="sans-serif" font-weight="600" font-size="16">${s}</text>`
+     <text x="65" y="26" text-anchor="middle" fill="#b08d3e" font-family="sans-serif" font-weight="600" font-size="16">${s}</text>`
   ).join('');
 
   const totalWidth = states.length * 130 + (states.length - 1) * 12;
@@ -30,8 +30,8 @@ export default async function Image() {
 
     <!-- Logo -->
     <rect x="540" y="80" width="64" height="64" rx="16" fill="rgba(16,185,129,0.1)" stroke="rgba(16,185,129,0.4)" stroke-width="2"/>
-    <text x="572" y="122" text-anchor="middle" fill="#10b981" font-family="sans-serif" font-weight="900" font-size="36">T</text>
-    <text x="644" y="120" fill="#10b981" font-family="sans-serif" font-weight="700" font-size="32">TheTaxCalc</text>
+    <text x="572" y="122" text-anchor="middle" fill="#b08d3e" font-family="sans-serif" font-weight="900" font-size="36">T</text>
+    <text x="644" y="120" fill="#b08d3e" font-family="sans-serif" font-weight="700" font-size="32">TheTaxCalc</text>
 
     <!-- Main Heading -->
     <text x="600" y="240" text-anchor="middle" fill="#ffffff" font-family="sans-serif" font-weight="900" font-size="56">Free 2026 Tax Calculators</text>
@@ -44,7 +44,7 @@ export default async function Image() {
       ${states.map((s, i) =>
         `<g transform="translate(${i * 142}, 0)">
           <rect width="130" height="40" rx="20" fill="rgba(16,185,129,0.08)" stroke="rgba(16,185,129,0.3)" stroke-width="1"/>
-          <text x="65" y="26" text-anchor="middle" fill="#10b981" font-family="sans-serif" font-weight="600" font-size="16">${s}</text>
+          <text x="65" y="26" text-anchor="middle" fill="#b08d3e" font-family="sans-serif" font-weight="600" font-size="16">${s}</text>
         </g>`
       ).join('')}
     </g>

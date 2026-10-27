@@ -133,9 +133,9 @@ export function SalaryClientPage({ amountStr }: SalaryClientPageProps) {
         <section className="mb-12">
           <div className="flex items-center gap-3 mb-4">
             <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-emerald-600/20 to-teal-600/10">
-              <DollarSign className="h-6 w-6 text-emerald-400" />
+              <DollarSign className="h-6 w-6 text-emerald-600" />
             </div>
-            <span className="text-xs font-semibold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 rounded-full px-3 py-1">
+            <span className="text-xs font-semibold uppercase tracking-wider text-emerald-600 bg-emerald-600/10 border border-emerald-500/20 rounded-full px-3 py-1">
               2026 Tax Year
             </span>
           </div>
@@ -143,15 +143,15 @@ export function SalaryClientPage({ amountStr }: SalaryClientPageProps) {
           {/* Explicit take-home number for CTR — the #1 thing users search for */}
           <p className="mt-4 text-2xl font-semibold">
             <span className="text-foreground">{calc.salaryFormatted}/year in Texas = </span>
-            <span className="text-emerald-400">{fmt(calc.highestNet.netAnnual)} take-home</span>
+            <span className="text-emerald-600">{fmt(calc.highestNet.netAnnual)} take-home</span>
             <span className="text-muted-foreground text-base font-normal ml-2">(no state tax)</span>
           </p>
           <p className="mt-3 text-lg text-muted-foreground max-w-3xl leading-relaxed">
             Where you live makes a huge difference. Your take-home ranges from{' '}
-            <strong className="text-red-400">{fmt(calc.lowestNet.netAnnual)}</strong> in {calc.lowestNet.stateName} to{' '}
-            <strong className="text-emerald-400">{fmt(calc.highestNet.netAnnual)}</strong> in {calc.highestNet.stateName}{' '}
+            <strong className="text-red-600">{fmt(calc.lowestNet.netAnnual)}</strong> in {calc.lowestNet.stateName} to{' '}
+            <strong className="text-emerald-600">{fmt(calc.highestNet.netAnnual)}</strong> in {calc.highestNet.stateName}{' '}
             ({filingStatusLabel[filingStatus]}, standard deduction). That&apos;s a{' '}
-            <strong className="text-amber-400">{fmt(calc.highestNet.netAnnual - calc.lowestNet.netAnnual)}</strong> gap
+            <strong className="text-amber-700">{fmt(calc.highestNet.netAnnual - calc.lowestNet.netAnnual)}</strong> gap
             per year — just from choosing a different state.
           </p>
           {/* Filing Status Selector */}
@@ -185,9 +185,9 @@ export function SalaryClientPage({ amountStr }: SalaryClientPageProps) {
           </label>
 
           {/* ─── Quick State Lookup (reduces bounce rate) ─── */}
-          <div className="mt-6 rounded-xl border border-emerald-500/30 bg-emerald-500/5 p-4 sm:p-6">
+          <div className="mt-6 rounded-xl border border-emerald-500/30 bg-emerald-600/5 p-4 sm:p-6">
             <h2 className="text-lg font-bold text-foreground mb-2 flex items-center gap-2">
-              <MapPin className="h-5 w-5 text-emerald-400" />
+              <MapPin className="h-5 w-5 text-emerald-600" />
               Find Your Take-Home Pay Instantly
             </h2>
             <p className="text-sm text-muted-foreground mb-3">
@@ -210,7 +210,7 @@ export function SalaryClientPage({ amountStr }: SalaryClientPageProps) {
                 <div className="flex flex-wrap items-center justify-between gap-3">
                   <div>
                     <p className="text-sm text-muted-foreground">Your take-home in {selectedStateData.stateName}</p>
-                    <p className="text-3xl font-bold text-emerald-400">{fmt(selectedStateData.netAnnual)}<span className="text-base font-normal text-muted-foreground">/year</span></p>
+                    <p className="text-3xl font-bold text-emerald-600">{fmt(selectedStateData.netAnnual)}<span className="text-base font-normal text-muted-foreground">/year</span></p>
                   </div>
                   <div className="text-right space-y-1">
                     <p className="text-sm text-muted-foreground">Monthly: <strong className="text-foreground">{fmt(selectedStateData.netMonthly)}</strong></p>
@@ -223,13 +223,13 @@ export function SalaryClientPage({ amountStr }: SalaryClientPageProps) {
                     State income tax: {fmt(selectedStateData.stateTax)} | Federal: {fmt(selectedStateData.federalTax)} | FICA: {fmt(selectedStateData.ficaTotal)}
                   </p>
                 ) : (
-                  <p className="mt-3 text-xs text-emerald-400 font-medium">
+                  <p className="mt-3 text-xs text-emerald-600 font-medium">
                     ✅ {selectedStateData.stateName} has NO state income tax — you keep more of your paycheck!
                   </p>
                 )}
                 <Link
                   href={STATE_KEY_TO_SLUG[selectedStateData.stateKey] || '/paycheck-calculator'}
-                  className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-emerald-400 hover:text-emerald-300"
+                  className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-emerald-600 hover:text-emerald-700"
                 >
                   Open {selectedStateData.stateName} Tax Calculator
                   <ArrowRight className="h-4 w-4" />
@@ -249,11 +249,11 @@ export function SalaryClientPage({ amountStr }: SalaryClientPageProps) {
                 className="group rounded-xl border border-border/30 bg-card/50 p-4 text-center transition-all hover:border-emerald-500/30 hover-lift"
               >
                 <p className="text-xs uppercase tracking-wider text-muted-foreground">{state.stateName}</p>
-                <p className="mt-2 text-2xl font-bold text-emerald-400">{fmt(state.netAnnual)}</p>
+                <p className="mt-2 text-2xl font-bold text-emerald-600">{fmt(state.netAnnual)}</p>
                 <p className="mt-1 text-[11px] text-muted-foreground">
                   {state.stateTax > 0 ? `${state.stateAbbr} tax: ${fmt(state.stateTax)}` : 'No state tax'}
                 </p>
-                <p className="mt-2 text-[11px] text-emerald-400 group-hover:underline">View Calculator →</p>
+                <p className="mt-2 text-[11px] text-emerald-600 group-hover:underline">View Calculator →</p>
               </Link>
             ))}
           </div>
@@ -266,7 +266,7 @@ export function SalaryClientPage({ amountStr }: SalaryClientPageProps) {
         <section className="mb-12">
           <div className="flex items-center gap-3 mb-6">
             <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-emerald-600/20 to-teal-600/10">
-              <BarChart3 className="h-5 w-5 text-emerald-400" />
+              <BarChart3 className="h-5 w-5 text-emerald-600" />
             </div>
             <h2 className="text-2xl font-bold text-foreground">
               {calc.salaryFormatted} Take-Home Pay by State
@@ -289,22 +289,22 @@ export function SalaryClientPage({ amountStr }: SalaryClientPageProps) {
                   <tr
                     key={state.stateKey}
                     className={`border-b border-border/10 transition-colors hover:bg-muted/10 ${
-                      i === 0 ? 'bg-emerald-500/5' : ''
+                      i === 0 ? 'bg-emerald-600/5' : ''
                     }`}
                   >
                     <td className="px-4 py-3 font-medium text-foreground">
                       <div className="flex items-center gap-2">
-                        {i === 0 && <span className="text-emerald-400 text-xs font-bold">★ BEST</span>}
+                        {i === 0 && <span className="text-emerald-600 text-xs font-bold">★ BEST</span>}
                         {state.stateName}
                         <span className="text-muted-foreground text-xs">({state.stateAbbr})</span>
                       </div>
                     </td>
-                    <td className="px-4 py-3 text-right text-red-400">{fmt(state.federalTax)}</td>
-                    <td className="px-4 py-3 text-right text-orange-400">{fmt(state.ficaTotal)}</td>
-                    <td className="px-4 py-3 text-right text-amber-400">
+                    <td className="px-4 py-3 text-right text-red-600">{fmt(state.federalTax)}</td>
+                    <td className="px-4 py-3 text-right text-orange-700">{fmt(state.ficaTotal)}</td>
+                    <td className="px-4 py-3 text-right text-amber-700">
                       {state.stateTax > 0 ? fmt(state.stateTax) : '$0'}
                     </td>
-                    <td className="px-4 py-3 text-right font-bold text-emerald-400">{fmt(state.netAnnual)}</td>
+                    <td className="px-4 py-3 text-right font-bold text-emerald-600">{fmt(state.netAnnual)}</td>
                     <td className="px-4 py-3 text-right text-muted-foreground">{state.effectiveTaxRate.toFixed(1)}%</td>
                   </tr>
                 ))}
@@ -317,7 +317,7 @@ export function SalaryClientPage({ amountStr }: SalaryClientPageProps) {
         <section className="mb-12">
           <div className="flex items-center gap-3 mb-6">
             <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-emerald-600/20 to-teal-600/10">
-              <TrendingUp className="h-5 w-5 text-emerald-400" />
+              <TrendingUp className="h-5 w-5 text-emerald-600" />
             </div>
             <h2 className="text-2xl font-bold text-foreground">
               {calc.salaryFormatted} — Top States Breakdown
@@ -336,17 +336,17 @@ export function SalaryClientPage({ amountStr }: SalaryClientPageProps) {
                 <div key={state.stateKey} className="rounded-xl border border-border/30 bg-card/50 p-5 hover:border-emerald-500/20 transition-all">
                   <div className="flex items-center gap-3 mb-4">
                     <div className={`flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br ${stateColor[state.stateKey] || ''}`}>
-                      <MapPin className="h-5 w-5 text-emerald-400" />
+                      <MapPin className="h-5 w-5 text-emerald-600" />
                     </div>
                     <div>
                       <h3 className="text-lg font-semibold text-foreground">
-                        {i === 0 && <span className="text-emerald-400 text-xs font-bold mr-1">★ BEST</span>}
+                        {i === 0 && <span className="text-emerald-600 text-xs font-bold mr-1">★ BEST</span>}
                         {state.stateName}
                       </h3>
                       <p className="text-xs text-muted-foreground">{state.stateAbbr} resident · {filingStatusLabel[filingStatus]}</p>
                     </div>
                     <div className="ml-auto text-right">
-                      <p className="text-lg font-bold text-emerald-400">{fmt(state.netAnnual)}</p>
+                      <p className="text-lg font-bold text-emerald-600">{fmt(state.netAnnual)}</p>
                       <p className="text-[11px] text-muted-foreground">annual take-home</p>
                     </div>
                   </div>
@@ -358,22 +358,22 @@ export function SalaryClientPage({ amountStr }: SalaryClientPageProps) {
                     <div className="divider-glow" />
                     <div className="flex justify-between">
                       <span className="text-muted-foreground">Federal Tax</span>
-                      <span className="text-red-400">−{fmtFull(state.federalTax)}</span>
+                      <span className="text-red-600">−{fmtFull(state.federalTax)}</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-muted-foreground">FICA (SS + Medicare)</span>
-                      <span className="text-orange-400">−{fmtFull(state.ficaTotal)}</span>
+                      <span className="text-orange-700">−{fmtFull(state.ficaTotal)}</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-muted-foreground">State Tax</span>
-                      <span className={state.stateTax > 0 ? 'text-amber-400' : 'text-emerald-400'}>
+                      <span className={state.stateTax > 0 ? 'text-amber-700' : 'text-emerald-600'}>
                         {state.stateTax > 0 ? `−${fmtFull(state.stateTax)}` : '$0 (no state tax)'}
                       </span>
                     </div>
                     <div className="divider-glow" />
                     <div className="flex justify-between text-base font-semibold">
                       <span className="text-foreground">Net Annual Pay</span>
-                      <span className="text-emerald-400">{fmtFull(state.netAnnual)}</span>
+                      <span className="text-emerald-600">{fmtFull(state.netAnnual)}</span>
                     </div>
                   </div>
                   <div className="mt-4 grid grid-cols-3 gap-3 rounded-lg bg-muted/20 p-3 text-center">
@@ -405,7 +405,7 @@ export function SalaryClientPage({ amountStr }: SalaryClientPageProps) {
         <section className="mb-12 py-10 rounded-2xl border border-border/30 bg-card/30 px-6 sm:px-10">
           <div className="flex items-center gap-3 mb-4">
             <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-emerald-600/20 to-teal-600/10">
-              <CheckCircle2 className="h-5 w-5 text-emerald-400" />
+              <CheckCircle2 className="h-5 w-5 text-emerald-600" />
             </div>
             <h2 className="text-2xl font-bold text-foreground">
               Is {calc.salaryFormatted} a Good Salary?
@@ -414,22 +414,22 @@ export function SalaryClientPage({ amountStr }: SalaryClientPageProps) {
           <div className="text-muted-foreground leading-relaxed space-y-4 max-w-4xl">
             <p>{faqs.find((f) => f.question.includes('good salary'))?.answer}</p>
             <div className="grid gap-3 sm:grid-cols-3 mt-6">
-              <div className="rounded-lg bg-emerald-500/10 border border-emerald-500/20 p-4 text-center">
-                <p className="text-xs text-emerald-400 font-medium">Best State</p>
+              <div className="rounded-lg bg-emerald-600/10 border border-emerald-500/20 p-4 text-center">
+                <p className="text-xs text-emerald-600 font-medium">Best State</p>
                 <p className="mt-1 text-lg font-bold text-foreground">{calc.highestNet.stateName}</p>
-                <p className="text-sm text-emerald-400">{fmt(calc.highestNet.netAnnual)}/yr</p>
+                <p className="text-sm text-emerald-600">{fmt(calc.highestNet.netAnnual)}/yr</p>
               </div>
               <div className="rounded-lg bg-amber-500/10 border border-amber-500/20 p-4 text-center">
-                <p className="text-xs text-amber-400 font-medium">Avg State</p>
+                <p className="text-xs text-amber-700 font-medium">Avg State</p>
                 <p className="mt-1 text-lg font-bold text-foreground">Illinois</p>
-                <p className="text-sm text-amber-400">
+                <p className="text-sm text-amber-700">
                   {fmt(calc.states.find((s) => s.stateKey === 'illinois')?.netAnnual || 0)}/yr
                 </p>
               </div>
               <div className="rounded-lg bg-red-500/10 border border-red-500/20 p-4 text-center">
-                <p className="text-xs text-red-400 font-medium">Highest Tax</p>
+                <p className="text-xs text-red-600 font-medium">Highest Tax</p>
                 <p className="mt-1 text-lg font-bold text-foreground">{calc.lowestNet.stateName}</p>
-                <p className="text-sm text-red-400">{fmt(calc.lowestNet.netAnnual)}/yr</p>
+                <p className="text-sm text-red-600">{fmt(calc.lowestNet.netAnnual)}/yr</p>
               </div>
             </div>
           </div>
@@ -440,7 +440,7 @@ export function SalaryClientPage({ amountStr }: SalaryClientPageProps) {
           <div className="mx-auto max-w-4xl">
             <div className="flex items-center gap-3 mb-8">
               <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-emerald-600/20 to-teal-600/10">
-                <HelpCircle className="h-5 w-5 text-emerald-400" />
+                <HelpCircle className="h-5 w-5 text-emerald-600" />
               </div>
               <h2 className="text-2xl font-bold text-foreground">
                 {calc.salaryFormatted} Salary Tax FAQ
@@ -468,7 +468,7 @@ export function SalaryClientPage({ amountStr }: SalaryClientPageProps) {
         {/* CTA */}
         <section className="py-12 border-t border-border/20">
           <div className="rounded-2xl border border-emerald-500/20 bg-gradient-to-br from-emerald-600/10 to-teal-600/5 p-8 sm:p-12 text-center">
-            <Calculator className="h-10 w-10 text-emerald-400 mx-auto mb-4" />
+            <Calculator className="h-10 w-10 text-emerald-600 mx-auto mb-4" />
             <h2 className="text-2xl font-bold text-foreground mb-3">
               Calculate Your {calc.salaryFormatted} Take-Home Pay
             </h2>
@@ -479,7 +479,7 @@ export function SalaryClientPage({ amountStr }: SalaryClientPageProps) {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
                 href="/paycheck-calculator"
-                className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-600 to-emerald-500 px-8 py-3.5 text-base font-semibold text-white shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/30 transition-all hover:scale-[1.02]"
+                className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-700 to-emerald-600 px-8 py-3.5 text-base font-semibold text-white shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/30 transition-all hover:scale-[1.02]"
               >
                 <BarChart3 className="h-5 w-5" />
                 Open Paycheck Calculator
@@ -509,7 +509,7 @@ export function SalaryClientPage({ amountStr }: SalaryClientPageProps) {
             ) : <span />}
             <Link
               href="/salary"
-              className="text-sm text-emerald-400 hover:text-emerald-300 transition-colors"
+              className="text-sm text-emerald-600 hover:text-emerald-700 transition-colors"
             >
               View All Salaries
             </Link>

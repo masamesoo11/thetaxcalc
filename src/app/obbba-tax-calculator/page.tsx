@@ -163,7 +163,7 @@ export default function OBBBATaxCalculatorPage() {
       </section>
 
       {/* SALT Cap */}
-      <section className="mb-10 rounded-xl border border-emerald-500/20 bg-emerald-500/5 p-6">
+      <section className="mb-10 rounded-xl border border-emerald-500/20 bg-emerald-600/5 p-6">
         <h2 className="text-2xl font-bold text-foreground mb-4">
           SALT Cap Increased to $40,400
         </h2>
@@ -203,7 +203,7 @@ export default function OBBBATaxCalculatorPage() {
           how much your CTC will be under OBBBA. You can also pair this with our{' '}
           <Link
             href="/paycheck-calculator"
-            className="text-emerald-400 hover:text-emerald-300 underline"
+            className="text-emerald-600 hover:text-emerald-700 underline"
           >
             paycheck calculator
           </Link>{' '}
@@ -305,9 +305,9 @@ export default function OBBBATaxCalculatorPage() {
             <Link
               key={item.href}
               href={item.href}
-              className="rounded-lg border border-border/30 bg-card/50 p-4 hover:border-emerald-500/40 hover:bg-emerald-500/5 transition-colors"
+              className="rounded-lg border border-border/30 bg-card/50 p-4 hover:border-emerald-500/40 hover:bg-emerald-600/5 transition-colors"
             >
-              <p className="font-medium text-foreground group-hover:text-emerald-400">
+              <p className="font-medium text-foreground group-hover:text-emerald-600">
                 {item.title}
               </p>
               <p className="text-sm text-muted-foreground mt-1">{item.desc}</p>
@@ -329,59 +329,59 @@ export default function OBBBATaxCalculatorPage() {
             <thead className="bg-muted/30 border-b border-border/30">
               <tr>
                 <th className="text-left p-4 font-semibold text-foreground">Tax Provision</th>
-                <th className="text-left p-4 font-semibold text-emerald-400">OBBBA (2026)</th>
+                <th className="text-left p-4 font-semibold text-emerald-600">OBBBA (2026)</th>
                 <th className="text-left p-4 font-semibold text-muted-foreground">Prior Law (Pre-TCJA)</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-border/20">
               <tr>
                 <td className="p-4 font-medium text-foreground">Top federal tax bracket</td>
-                <td className="p-4 text-emerald-400">37% (TCJA made permanent)</td>
+                <td className="p-4 text-emerald-600">37% (TCJA made permanent)</td>
                 <td className="p-4 text-muted-foreground">39.6% (TCJA sunset)</td>
               </tr>
               <tr>
                 <td className="p-4 font-medium text-foreground">Standard deduction (Single)</td>
-                <td className="p-4 text-emerald-400">$16,100</td>
+                <td className="p-4 text-emerald-600">$16,100</td>
                 <td className="p-4 text-muted-foreground">$8,300 (pre-TCJA level)</td>
               </tr>
               <tr>
                 <td className="p-4 font-medium text-foreground">SALT deduction cap</td>
-                <td className="p-4 text-emerald-400">$40,400</td>
+                <td className="p-4 text-emerald-600">$40,400</td>
                 <td className="p-4 text-muted-foreground">$10,000 (old TCJA cap)</td>
               </tr>
               <tr>
                 <td className="p-4 font-medium text-foreground">Child Tax Credit</td>
-                <td className="p-4 text-emerald-400">$2,200 per child</td>
+                <td className="p-4 text-emerald-600">$2,200 per child</td>
                 <td className="p-4 text-muted-foreground">$1,000 per child</td>
               </tr>
               <tr>
                 <td className="p-4 font-medium text-foreground">Tip income deduction</td>
-                <td className="p-4 text-emerald-400">New above-the-line deduction</td>
+                <td className="p-4 text-emerald-600">New above-the-line deduction</td>
                 <td className="p-4 text-muted-foreground">No deduction</td>
               </tr>
               <tr>
                 <td className="p-4 font-medium text-foreground">Overtime pay deduction</td>
-                <td className="p-4 text-emerald-400">New above-the-line deduction</td>
+                <td className="p-4 text-emerald-600">New above-the-line deduction</td>
                 <td className="p-4 text-muted-foreground">No deduction</td>
               </tr>
               <tr>
                 <td className="p-4 font-medium text-foreground">Senior deduction (65+)</td>
-                <td className="p-4 text-emerald-400">$2,000 additional deduction</td>
+                <td className="p-4 text-emerald-600">$2,000 additional deduction</td>
                 <td className="p-4 text-muted-foreground">No additional deduction</td>
               </tr>
               <tr>
                 <td className="p-4 font-medium text-foreground">AMT exemption (Single)</td>
-                <td className="p-4 text-emerald-400">$88,700 (TCJA permanent)</td>
+                <td className="p-4 text-emerald-600">$88,700 (TCJA permanent)</td>
                 <td className="p-4 text-muted-foreground">$55,400 (pre-TCJA)</td>
               </tr>
               <tr>
                 <td className="p-4 font-medium text-foreground">Estate tax exemption</td>
-                <td className="p-4 text-emerald-400">$14.6 million</td>
+                <td className="p-4 text-emerald-600">$14.6 million</td>
                 <td className="p-4 text-muted-foreground">$7 million (pre-TCJA)</td>
               </tr>
               <tr>
                 <td className="p-4 font-medium text-foreground">QBI deduction (Section 199A)</td>
-                <td className="p-4 text-emerald-400">20% (made permanent)</td>
+                <td className="p-4 text-emerald-600">20% (made permanent)</td>
                 <td className="p-4 text-muted-foreground">Expired (0%)</td>
               </tr>
             </tbody>

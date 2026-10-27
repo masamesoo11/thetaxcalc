@@ -137,7 +137,7 @@ export default function GlossaryPage() {
 
       {/* ─── Hero Section ─────────────────────────────────────────────────── */}
       <section className="mb-10 text-center">
-        <div className="inline-flex items-center gap-2 rounded-full bg-emerald-500/10 border border-emerald-500/20 px-4 py-1.5 text-sm text-emerald-400 mb-4">
+        <div className="inline-flex items-center gap-2 rounded-full bg-emerald-600/10 border border-emerald-500/20 px-4 py-1.5 text-sm text-emerald-600 mb-4">
           <BookOpen className="h-3.5 w-3.5" />
           {termCount} Tax Terms Defined
         </div>
@@ -157,11 +157,11 @@ export default function GlossaryPage() {
 
         {/* Quick Stats */}
         <div className="mt-6 flex flex-wrap items-center justify-center gap-4 text-sm">
-          <span className="flex items-center gap-1.5 rounded-full bg-emerald-500/10 px-3 py-1.5 text-emerald-400">
+          <span className="flex items-center gap-1.5 rounded-full bg-emerald-600/10 px-3 py-1.5 text-emerald-600">
             <Calculator className="h-3.5 w-3.5" />
             {letters.length} Letters
           </span>
-          <span className="flex items-center gap-1.5 rounded-full bg-emerald-500/10 px-3 py-1.5 text-emerald-400">
+          <span className="flex items-center gap-1.5 rounded-full bg-emerald-600/10 px-3 py-1.5 text-emerald-600">
             <Search className="h-3.5 w-3.5" />
             Search & Filter
           </span>
@@ -192,13 +192,13 @@ export default function GlossaryPage() {
               href={calc.href}
               className="group premium-card hover-lift p-5 flex flex-col gap-2"
             >
-              <p className="text-sm font-semibold text-foreground group-hover:text-emerald-400 transition-colors">
+              <p className="text-sm font-semibold text-foreground group-hover:text-emerald-600 transition-colors">
                 {calc.label}
               </p>
               <p className="text-xs text-muted-foreground leading-relaxed">
                 {calc.desc}
               </p>
-              <div className="mt-auto flex items-center gap-1 text-xs font-medium text-emerald-400 group-hover:gap-2 transition-all">
+              <div className="mt-auto flex items-center gap-1 text-xs font-medium text-emerald-600 group-hover:gap-2 transition-all">
                 Try it
                 <ArrowRight className="h-3 w-3" />
               </div>
@@ -210,7 +210,7 @@ export default function GlossaryPage() {
       {/* ─── Salary & Resources Quick Links ────────────────────────────────── */}
       <section className="mt-12 border-t border-border/20 pt-10">
         <p className="text-lg font-bold text-foreground mb-6">
-          Quick Links — <span className="text-emerald-400">Salary, Comparisons & Guides</span>
+          Quick Links — <span className="text-emerald-600">Salary, Comparisons & Guides</span>
         </p>
         <div className="grid gap-6 lg:grid-cols-3">
           {/* Popular Salary Pages */}
@@ -227,13 +227,13 @@ export default function GlossaryPage() {
                 <Link
                   key={s.href}
                   href={s.href}
-                  className="inline-flex items-center rounded-lg border border-border/50 bg-muted/20 px-3 py-1.5 text-xs font-medium text-foreground hover:border-emerald-500/30 hover:text-emerald-400 transition-all"
+                  className="inline-flex items-center rounded-lg border border-border/50 bg-muted/20 px-3 py-1.5 text-xs font-medium text-foreground hover:border-emerald-500/30 hover:text-emerald-600 transition-all"
                 >
                   {s.label} After Tax
                 </Link>
               ))}
             </div>
-            <Link href="/salary" className="mt-3 inline-flex items-center gap-1 text-xs text-emerald-400 hover:text-emerald-300 transition-colors">
+            <Link href="/salary" className="mt-3 inline-flex items-center gap-1 text-xs text-emerald-600 hover:text-emerald-700 transition-colors">
               View all 26 salary levels <ArrowRight className="h-3 w-3" />
             </Link>
           </div>
@@ -250,9 +250,9 @@ export default function GlossaryPage() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-400 transition-colors"
+                  className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-600 transition-colors"
                 >
-                  <span className="h-1 w-1 rounded-full bg-emerald-500/40 shrink-0 group-hover:bg-emerald-400 transition-colors" />
+                  <span className="h-1 w-1 rounded-full bg-emerald-600/40 shrink-0 group-hover:bg-emerald-500 transition-colors" />
                   {item.label}
                 </Link>
               ))}
@@ -273,9 +273,9 @@ export default function GlossaryPage() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-400 transition-colors"
+                  className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-600 transition-colors"
                 >
-                  <span className="h-1 w-1 rounded-full bg-emerald-500/40 shrink-0 group-hover:bg-emerald-400 transition-colors" />
+                  <span className="h-1 w-1 rounded-full bg-emerald-600/40 shrink-0 group-hover:bg-emerald-500 transition-colors" />
                   {item.label}
                 </Link>
               ))}

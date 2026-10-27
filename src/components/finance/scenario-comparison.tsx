@@ -196,7 +196,7 @@ function ScenarioEditor({
           placeholder="Scenario label"
         />
         {isBaseline && (
-          <Badge className="bg-emerald-500/15 text-emerald-400 border-emerald-500/30 shrink-0">
+          <Badge className="bg-emerald-600/15 text-emerald-600 border-emerald-500/30 shrink-0">
             <Crown className="h-3 w-3 mr-1" />
             Baseline
           </Badge>
@@ -206,7 +206,7 @@ function ScenarioEditor({
             variant="ghost"
             size="sm"
             onClick={onSetBaseline}
-            className="h-8 text-xs text-muted-foreground hover:text-emerald-400 shrink-0"
+            className="h-8 text-xs text-muted-foreground hover:text-emerald-600 shrink-0"
           >
             Set as baseline
           </Button>
@@ -216,7 +216,7 @@ function ScenarioEditor({
             variant="ghost"
             size="sm"
             onClick={onRemove}
-            className="h-8 w-8 p-0 text-muted-foreground hover:text-red-400 shrink-0"
+            className="h-8 w-8 p-0 text-muted-foreground hover:text-red-600 shrink-0"
           >
             <X className="h-4 w-4" />
           </Button>
@@ -436,9 +436,9 @@ export function ScenarioComparison({ defaultScenario }: ScenarioComparisonProps)
           <CardHeader className="cursor-pointer pb-4 transition-colors hover:bg-muted/30">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <ArrowRightLeft className="h-5 w-5 text-blue-400" />
+                <ArrowRightLeft className="h-5 w-5 text-blue-700" />
                 <CardTitle className="text-lg">Compare Tax Scenarios</CardTitle>
-                <Badge variant="outline" className="text-xs border-blue-500/30 text-blue-400">
+                <Badge variant="outline" className="text-xs border-blue-500/30 text-blue-700">
                   New
                 </Badge>
               </div>
@@ -460,7 +460,7 @@ export function ScenarioComparison({ defaultScenario }: ScenarioComparisonProps)
                   key={scenario.id}
                   className={`rounded-xl border p-4 ${
                     idx === 0
-                      ? 'border-emerald-500/30 bg-emerald-500/5'
+                      ? 'border-emerald-500/30 bg-emerald-600/5'
                       : 'border-border/30 bg-card/50'
                   }`}
                 >
@@ -482,7 +482,7 @@ export function ScenarioComparison({ defaultScenario }: ScenarioComparisonProps)
                     variant="ghost"
                     size="sm"
                     onClick={() => addScenario()}
-                    className="text-muted-foreground hover:text-blue-400"
+                    className="text-muted-foreground hover:text-blue-700"
                   >
                     <Plus className="h-4 w-4 mr-1" />
                     Add Scenario
@@ -502,7 +502,7 @@ export function ScenarioComparison({ defaultScenario }: ScenarioComparisonProps)
                             variant="ghost"
                             size="sm"
                             onClick={() => addScenario(preset)}
-                            className="w-full justify-start text-xs text-muted-foreground hover:text-blue-400 h-7"
+                            className="w-full justify-start text-xs text-muted-foreground hover:text-blue-700 h-7"
                           >
                             {preset.label}
                           </Button>
@@ -525,11 +525,11 @@ export function ScenarioComparison({ defaultScenario }: ScenarioComparisonProps)
                       </th>
                       {computedResults.map((cr, idx) => (
                         <th key={cr.scenario.id} className="p-3 text-center min-w-[130px]">
-                          <span className={`font-semibold ${idx === 0 ? 'text-emerald-400' : 'text-foreground'}`}>
+                          <span className={`font-semibold ${idx === 0 ? 'text-emerald-600' : 'text-foreground'}`}>
                             {cr.scenario.label}
                           </span>
                           {idx === 0 && (
-                            <span className="block text-[10px] text-emerald-400/60">Baseline</span>
+                            <span className="block text-[10px] text-emerald-600/60">Baseline</span>
                           )}
                         </th>
                       ))}
@@ -549,7 +549,7 @@ export function ScenarioComparison({ defaultScenario }: ScenarioComparisonProps)
                           key={rowIdx}
                           className={`border-b border-border/10 ${
                             row.label === 'Net Take-Home' || row.label === 'Monthly Take-Home'
-                              ? 'bg-emerald-500/5 font-semibold'
+                              ? 'bg-emerald-600/5 font-semibold'
                               : 'hover:bg-muted/10'
                           }`}
                         >
@@ -563,7 +563,7 @@ export function ScenarioComparison({ defaultScenario }: ScenarioComparisonProps)
                               <td
                                 key={cr.scenario.id}
                                 className={`p-3 text-center ${
-                                  isBest ? 'text-emerald-400' : 'text-foreground'
+                                  isBest ? 'text-emerald-600' : 'text-foreground'
                                 }`}
                               >
                                 {row.format === 'currency'
@@ -593,7 +593,7 @@ export function ScenarioComparison({ defaultScenario }: ScenarioComparisonProps)
                                 const pctDiff = baseVal !== 0 ? (diff / baseVal) * 100 : 0;
                                 if (Math.abs(diff) < 0.01) return <span className="text-muted-foreground">—</span>;
                                 return (
-                                  <span className={diff > 0 ? 'text-emerald-400' : 'text-red-400'}>
+                                  <span className={diff > 0 ? 'text-emerald-600' : 'text-red-600'}>
                                     {diff > 0 ? '+' : ''}
                                     {row.format === 'currency'
                                       ? formatCurrency(diff)
@@ -618,7 +618,7 @@ export function ScenarioComparison({ defaultScenario }: ScenarioComparisonProps)
             {computedResults.length >= 2 && (
               <div className="rounded-xl border border-blue-500/20 bg-blue-500/5 p-4">
                 <h4 className="text-sm font-semibold text-foreground mb-2 flex items-center gap-2">
-                  <TrendingUp className="h-4 w-4 text-blue-400" />
+                  <TrendingUp className="h-4 w-4 text-blue-700" />
                   Quick Insight
                 </h4>
                 {(() => {
@@ -638,10 +638,10 @@ export function ScenarioComparison({ defaultScenario }: ScenarioComparisonProps)
                   }
                   return (
                     <p className="text-sm text-muted-foreground">
-                      <span className="text-emerald-400 font-medium">{bestNet.scenario.label}</span> gives you the highest take-home pay at{' '}
-                      <span className="text-emerald-400 font-medium">{formatCurrency(bestNet.result.netAnnual)}/year</span>. That&apos;s{' '}
-                      <span className="text-emerald-400 font-medium">{formatCurrency(savings)}</span> more than{' '}
-                      <span className="text-red-400 font-medium">{worstNet.scenario.label}</span> ({formatCurrency(worstNet.result.netAnnual)}/year).
+                      <span className="text-emerald-600 font-medium">{bestNet.scenario.label}</span> gives you the highest take-home pay at{' '}
+                      <span className="text-emerald-600 font-medium">{formatCurrency(bestNet.result.netAnnual)}/year</span>. That&apos;s{' '}
+                      <span className="text-emerald-600 font-medium">{formatCurrency(savings)}</span> more than{' '}
+                      <span className="text-red-600 font-medium">{worstNet.scenario.label}</span> ({formatCurrency(worstNet.result.netAnnual)}/year).
                     </p>
                   );
                 })()}
@@ -659,7 +659,7 @@ export function ScenarioComparison({ defaultScenario }: ScenarioComparisonProps)
                 >
                   {copiedLink ? (
                     <>
-                      <Check className="h-3 w-3 mr-1 text-emerald-400" />
+                      <Check className="h-3 w-3 mr-1 text-emerald-600" />
                       Copied!
                     </>
                   ) : (

@@ -43,13 +43,13 @@ export function CiteButton({ title, sectionId }: CiteButtonProps) {
       <button
         type="button"
         onClick={handleCite}
-        className="inline-flex items-center gap-1.5 rounded-lg border border-border/40 bg-muted/20 px-3 py-1.5 text-xs font-medium text-muted-foreground hover:border-emerald-500/30 hover:text-emerald-400 transition-all"
+        className="inline-flex items-center gap-1.5 rounded-lg border border-border/40 bg-muted/20 px-3 py-1.5 text-xs font-medium text-muted-foreground hover:border-emerald-500/30 hover:text-emerald-600 transition-all"
         aria-label={`Cite ${title}`}
       >
         {copied ? (
           <>
-            <Check className="h-3 w-3 text-emerald-400" />
-            <span className="text-emerald-400">Copied!</span>
+            <Check className="h-3 w-3 text-emerald-600" />
+            <span className="text-emerald-600">Copied!</span>
           </>
         ) : (
           <>
@@ -62,7 +62,7 @@ export function CiteButton({ title, sectionId }: CiteButtonProps) {
         <button
           type="button"
           onClick={handleCopyLink}
-          className="inline-flex items-center gap-1 rounded-lg border border-border/40 bg-muted/20 px-3 py-1.5 text-xs font-medium text-muted-foreground hover:border-emerald-500/30 hover:text-emerald-400 transition-all"
+          className="inline-flex items-center gap-1 rounded-lg border border-border/40 bg-muted/20 px-3 py-1.5 text-xs font-medium text-muted-foreground hover:border-emerald-500/30 hover:text-emerald-600 transition-all"
           aria-label={`Copy link to ${title}`}
         >
           <LinkIcon className="h-3 w-3" />

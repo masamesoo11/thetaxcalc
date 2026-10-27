@@ -271,7 +271,7 @@ export function Header() {
               onMouseEnter={() => { setCalcDropdownOpen(true); }}
               className={`flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium transition-all ${
                 isCalcActive
-                  ? 'bg-emerald-500/12 text-emerald-400'
+                  ? 'bg-emerald-600/12 text-emerald-600'
                   : 'text-muted-foreground hover:bg-muted/50 hover:text-foreground'
               }`}
             >
@@ -290,7 +290,7 @@ export function Header() {
                 {/* Header with Search — fixed, not scrollable */}
                 <div className="shrink-0 px-4 pt-3 pb-2">
                   <div className="flex items-center gap-2 mb-2">
-                    <Zap className="h-3.5 w-3.5 text-emerald-400" />
+                    <Zap className="h-3.5 w-3.5 text-emerald-600" />
                     <span className="text-xs font-semibold text-foreground">Tax Calculators</span>
                     <span className="ml-auto text-[10px] text-muted-foreground">{ALL_CALC_ITEMS.length} tools</span>
                   </div>
@@ -354,14 +354,14 @@ export function Header() {
                                     onClick={() => setCalcDropdownOpen(false)}
                                     className={`flex items-center gap-2 rounded-lg px-2 py-1.5 text-left transition-all ${
                                       isActive
-                                        ? 'bg-emerald-500/12 text-emerald-400'
+                                        ? 'bg-emerald-600/12 text-emerald-600'
                                         : 'text-muted-foreground hover:bg-muted/30 hover:text-foreground'
                                     }`}
                                   >
                                     <div className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-md ${
-                                      isActive ? 'bg-emerald-500/20' : 'bg-muted/30'
+                                      isActive ? 'bg-emerald-600/20' : 'bg-muted/30'
                                     }`}>
-                                      <Icon className={`h-3 w-3 ${isActive ? 'text-emerald-400' : ''}`} />
+                                      <Icon className={`h-3 w-3 ${isActive ? 'text-emerald-600' : ''}`} />
                                     </div>
                                     <div className="min-w-0">
                                       <p className="text-[12px] font-medium truncate leading-tight">{item.label}</p>
@@ -388,7 +388,7 @@ export function Header() {
                     prefetch={false}
                     href="/paycheck-calculator"
                     onClick={() => setCalcDropdownOpen(false)}
-                    className="text-[11px] font-medium text-emerald-400 hover:text-emerald-300 transition-colors"
+                    className="text-[11px] font-medium text-emerald-600 hover:text-emerald-700 transition-colors"
                   >
                     View all tools →
                   </Link>
@@ -403,7 +403,7 @@ export function Header() {
             href="/compare"
             className={`flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium transition-all ${
               pathname === '/compare' || pathname.startsWith('/compare/')
-                ? 'bg-emerald-500/12 text-emerald-400'
+                ? 'bg-emerald-600/12 text-emerald-600'
                 : 'text-muted-foreground hover:bg-muted/50 hover:text-foreground'
             }`}
           >
@@ -417,7 +417,7 @@ export function Header() {
             href="/glossary"
             className={`flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium transition-all ${
               pathname === '/glossary'
-                ? 'bg-emerald-500/12 text-emerald-400'
+                ? 'bg-emerald-600/12 text-emerald-600'
                 : 'text-muted-foreground hover:bg-muted/50 hover:text-foreground'
             }`}
           >
@@ -431,7 +431,7 @@ export function Header() {
             href="/blog"
             className={`flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium transition-all ${
               isBlogActive
-                ? 'bg-emerald-500/12 text-emerald-400'
+                ? 'bg-emerald-600/12 text-emerald-600'
                 : 'text-muted-foreground hover:bg-muted/50 hover:text-foreground'
             }`}
           >
@@ -445,7 +445,7 @@ export function Header() {
             href="/salary"
             className={`flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium transition-all ${
               pathname === '/salary' || pathname.startsWith('/salary/')
-                ? 'bg-emerald-500/12 text-emerald-400'
+                ? 'bg-emerald-600/12 text-emerald-600'
                 : 'text-muted-foreground hover:bg-muted/50 hover:text-foreground'
             }`}
           >
@@ -459,7 +459,7 @@ export function Header() {
             href="/tax-data"
             className={`flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium transition-all ${
               pathname === '/tax-data'
-                ? 'bg-emerald-500/12 text-emerald-400'
+                ? 'bg-emerald-600/12 text-emerald-600'
                 : 'text-muted-foreground hover:bg-muted/50 hover:text-foreground'
             }`}
           >
@@ -473,7 +473,7 @@ export function Header() {
             href="/widgets"
             className={`flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium transition-all ${
               pathname === '/widgets'
-                ? 'bg-emerald-500/12 text-emerald-400'
+                ? 'bg-emerald-600/12 text-emerald-600'
                 : 'text-muted-foreground hover:bg-muted/50 hover:text-foreground'
             }`}
           >
@@ -487,7 +487,7 @@ export function Header() {
           <Link
             prefetch={false}
             href="/paycheck-calculator"
-            className="hidden sm:flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-600 to-emerald-500 px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/30 transition-all hover:scale-[1.02]"
+            className="hidden sm:flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-700 to-emerald-600 px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/30 transition-all hover:scale-[1.02]"
           >
             <BarChart3 className="h-4 w-4" />
             Calculate Now
@@ -528,7 +528,7 @@ export function Header() {
                 return (
                   <div key={category.id} className="mb-3">
                     <div className="flex items-center gap-2 px-2 py-1.5">
-                      <CatIcon className="h-3.5 w-3.5 text-emerald-400" />
+                      <CatIcon className="h-3.5 w-3.5 text-emerald-600" />
                       <span className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">
                         {category.label}
                       </span>
@@ -545,7 +545,7 @@ export function Header() {
                             onClick={closeMobile}
                             className={`flex items-center gap-2 rounded-lg px-2.5 py-2 text-left text-sm font-medium transition-all ${
                               isActive
-                                ? 'bg-emerald-500/12 text-emerald-400'
+                                ? 'bg-emerald-600/12 text-emerald-600'
                                 : 'text-muted-foreground hover:bg-muted/30 hover:text-foreground'
                             }`}
                           >
@@ -580,7 +580,7 @@ export function Header() {
                     onClick={closeMobile}
                     className={`flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-all ${
                       isActive
-                        ? 'bg-emerald-500/12 text-emerald-400'
+                        ? 'bg-emerald-600/12 text-emerald-600'
                         : 'text-muted-foreground hover:bg-muted/30 hover:text-foreground'
                     }`}
                   >
@@ -596,7 +596,7 @@ export function Header() {
               prefetch={false}
               href="/paycheck-calculator"
               onClick={closeMobile}
-              className="mt-4 flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-emerald-600 to-emerald-500 px-4 py-3 text-sm font-semibold text-white shadow-lg shadow-emerald-500/20"
+              className="mt-4 flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-emerald-700 to-emerald-600 px-4 py-3 text-sm font-semibold text-white shadow-lg shadow-emerald-500/20"
             >
               <Globe className="h-4 w-4" />
               Start Calculating

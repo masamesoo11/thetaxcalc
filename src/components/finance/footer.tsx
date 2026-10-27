@@ -139,7 +139,7 @@ export function Footer() {
           <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-between">
             <div className="text-center sm:text-left">
               <h2 className="text-lg font-bold text-foreground">
-                Stay Updated on <span className="text-emerald-400">Tax Changes</span>
+                Stay Updated on <span className="text-emerald-600">Tax Changes</span>
               </h2>
               <p className="mt-1 text-sm text-muted-foreground">
                 Get the latest tax tips, calculator updates, and financial insights delivered to your inbox.
@@ -147,7 +147,7 @@ export function Footer() {
             </div>
             <div className="flex w-full max-w-sm gap-2">
               {subscribed ? (
-                <div className="flex items-center gap-2 rounded-xl bg-emerald-500/15 px-4 py-2 text-sm text-emerald-400">
+                <div className="flex items-center gap-2 rounded-xl bg-emerald-600/15 px-4 py-2 text-sm text-emerald-600">
                   <Mail className="h-4 w-4" />
                   Subscribed! Check your inbox.
                 </div>
@@ -164,7 +164,7 @@ export function Footer() {
                   />
                   <Button
                     onClick={handleSubscribe}
-                    className="bg-gradient-to-r from-emerald-600 to-emerald-500 text-white hover:from-emerald-500 hover:to-emerald-400 shrink-0"
+                    className="bg-gradient-to-r from-emerald-700 to-emerald-600 text-white hover:from-emerald-500 hover:to-emerald-400 shrink-0"
                   >
                     Subscribe
                   </Button>
@@ -196,7 +196,7 @@ export function Footer() {
               Precision tax calculators for 2026. Compute your take-home pay, plan your mortgage, and compare state taxes — all free, all accurate.
             </p>
             <div className="flex items-center gap-3 text-xs text-muted-foreground">
-              <span className="flex items-center gap-1 rounded-full bg-emerald-500/10 px-2.5 py-1 text-emerald-400">
+              <span className="flex items-center gap-1 rounded-full bg-emerald-600/10 px-2.5 py-1 text-emerald-600">
                 <Shield className="h-3 w-3" />
                 2026 Tax Data
               </span>
@@ -219,7 +219,7 @@ export function Footer() {
                     <Link
                       prefetch={false}
                       href={link.href}
-                      className="flex items-center gap-2 text-sm text-muted-foreground underline underline-offset-2 decoration-border/50 transition-colors hover:text-emerald-400 hover:decoration-emerald-400"
+                      className="flex items-center gap-2 text-sm text-muted-foreground underline underline-offset-2 decoration-border/50 transition-colors hover:text-emerald-600 hover:decoration-emerald-600"
                     >
                       <Icon className="h-3.5 w-3.5" />
                       {link.label}
@@ -243,7 +243,7 @@ export function Footer() {
                     <Link
                       prefetch={false}
                       href={link.href}
-                      className="flex items-center gap-2 text-sm text-muted-foreground underline underline-offset-2 decoration-border/50 transition-colors hover:text-emerald-400 hover:decoration-emerald-400"
+                      className="flex items-center gap-2 text-sm text-muted-foreground underline underline-offset-2 decoration-border/50 transition-colors hover:text-emerald-600 hover:decoration-emerald-600"
                     >
                       <Icon className="h-3.5 w-3.5" />
                       {link.label}
@@ -255,7 +255,7 @@ export function Footer() {
                 <Link
                   prefetch={false}
                   href="/glossary"
-                  className="flex items-center gap-2 text-sm text-muted-foreground underline underline-offset-2 decoration-border/50 transition-colors hover:text-emerald-400 hover:decoration-emerald-400"
+                  className="flex items-center gap-2 text-sm text-muted-foreground underline underline-offset-2 decoration-border/50 transition-colors hover:text-emerald-600 hover:decoration-emerald-600"
                 >
                   <BookOpen className="h-3.5 w-3.5" />
                   Tax Glossary
@@ -265,7 +265,7 @@ export function Footer() {
                 <Link
                   prefetch={false}
                   href="/compare"
-                  className="flex items-center gap-2 text-sm text-muted-foreground underline underline-offset-2 decoration-border/50 transition-colors hover:text-emerald-400 hover:decoration-emerald-400"
+                  className="flex items-center gap-2 text-sm text-muted-foreground underline underline-offset-2 decoration-border/50 transition-colors hover:text-emerald-600 hover:decoration-emerald-600"
                 >
                   <ArrowRightLeft className="h-3.5 w-3.5" />
                   Compare States
@@ -275,7 +275,7 @@ export function Footer() {
                 <Link
                   prefetch={false}
                   href="/salary"
-                  className="flex items-center gap-2 text-sm text-muted-foreground underline underline-offset-2 decoration-border/50 transition-colors hover:text-emerald-400 hover:decoration-emerald-400"
+                  className="flex items-center gap-2 text-sm text-muted-foreground underline underline-offset-2 decoration-border/50 transition-colors hover:text-emerald-600 hover:decoration-emerald-600"
                 >
                   <TrendingUp className="h-3.5 w-3.5" />
                   Salary After Tax
@@ -285,7 +285,7 @@ export function Footer() {
                 <Link
                   prefetch={false}
                   href="/salary/50000-after-taxes"
-                  className="flex items-center gap-2 text-sm text-muted-foreground underline underline-offset-2 decoration-border/50 transition-colors hover:text-emerald-400 hover:decoration-emerald-400 pl-5"
+                  className="flex items-center gap-2 text-sm text-muted-foreground underline underline-offset-2 decoration-border/50 transition-colors hover:text-emerald-600 hover:decoration-emerald-600 pl-5"
                 >
                   $50K After Tax
                 </Link>
@@ -294,7 +294,7 @@ export function Footer() {
                 <Link
                   prefetch={false}
                   href="/salary/75000-after-taxes"
-                  className="flex items-center gap-2 text-sm text-muted-foreground underline underline-offset-2 decoration-border/50 transition-colors hover:text-emerald-400 hover:decoration-emerald-400 pl-5"
+                  className="flex items-center gap-2 text-sm text-muted-foreground underline underline-offset-2 decoration-border/50 transition-colors hover:text-emerald-600 hover:decoration-emerald-600 pl-5"
                 >
                   $75K After Tax
                 </Link>
@@ -303,7 +303,7 @@ export function Footer() {
                 <Link
                   prefetch={false}
                   href="/salary/100000-after-taxes"
-                  className="flex items-center gap-2 text-sm text-muted-foreground underline underline-offset-2 decoration-border/50 transition-colors hover:text-emerald-400 hover:decoration-emerald-400 pl-5"
+                  className="flex items-center gap-2 text-sm text-muted-foreground underline underline-offset-2 decoration-border/50 transition-colors hover:text-emerald-600 hover:decoration-emerald-600 pl-5"
                 >
                   $100K After Tax
                 </Link>
@@ -312,7 +312,7 @@ export function Footer() {
                 <Link
                   prefetch={false}
                   href="/salary/150000-after-taxes"
-                  className="flex items-center gap-2 text-sm text-muted-foreground underline underline-offset-2 decoration-border/50 transition-colors hover:text-emerald-400 hover:decoration-emerald-400 pl-5"
+                  className="flex items-center gap-2 text-sm text-muted-foreground underline underline-offset-2 decoration-border/50 transition-colors hover:text-emerald-600 hover:decoration-emerald-600 pl-5"
                 >
                   $150K After Tax
                 </Link>
@@ -321,7 +321,7 @@ export function Footer() {
                 <Link
                   prefetch={false}
                   href="/blog"
-                  className="flex items-center gap-2 text-sm text-muted-foreground underline underline-offset-2 decoration-border/50 transition-colors hover:text-emerald-400 hover:decoration-emerald-400"
+                  className="flex items-center gap-2 text-sm text-muted-foreground underline underline-offset-2 decoration-border/50 transition-colors hover:text-emerald-600 hover:decoration-emerald-600"
                 >
                   <BookOpen className="h-3.5 w-3.5" />
                   Tax Blog & Guides
@@ -331,7 +331,7 @@ export function Footer() {
                 <Link
                   prefetch={false}
                   href="/tax-data"
-                  className="flex items-center gap-2 text-sm text-muted-foreground underline underline-offset-2 decoration-border/50 transition-colors hover:text-emerald-400 hover:decoration-emerald-400"
+                  className="flex items-center gap-2 text-sm text-muted-foreground underline underline-offset-2 decoration-border/50 transition-colors hover:text-emerald-600 hover:decoration-emerald-600"
                 >
                   <BarChart3 className="h-3.5 w-3.5" />
                   Tax Data & Statistics
@@ -341,7 +341,7 @@ export function Footer() {
                 <Link
                   prefetch={false}
                   href="/widgets"
-                  className="flex items-center gap-2 text-sm text-muted-foreground underline underline-offset-2 decoration-border/50 transition-colors hover:text-emerald-400 hover:decoration-emerald-400"
+                  className="flex items-center gap-2 text-sm text-muted-foreground underline underline-offset-2 decoration-border/50 transition-colors hover:text-emerald-600 hover:decoration-emerald-600"
                 >
                   <Code2 className="h-3.5 w-3.5" />
                   Free Widgets
@@ -362,7 +362,7 @@ export function Footer() {
                     href={link.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-sm text-muted-foreground underline underline-offset-2 decoration-border/50 transition-colors hover:text-emerald-400 hover:decoration-emerald-400"
+                    className="flex items-center gap-2 text-sm text-muted-foreground underline underline-offset-2 decoration-border/50 transition-colors hover:text-emerald-600 hover:decoration-emerald-600"
                   >
                     <ExternalLink className="h-3 w-3 shrink-0" />
                     {link.label}
@@ -377,7 +377,7 @@ export function Footer() {
         {/* ─── All 50 State Tax Calculators Directory ───────────────────────── */}
         <div className="mt-10 pt-8 border-t border-border/20">
           <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-foreground flex items-center gap-2">
-            <MapPin className="h-4 w-4 text-emerald-400" />
+            <MapPin className="h-4 w-4 text-emerald-600" />
             All 50 State Tax Calculators
           </h3>
           <div className="grid grid-cols-2 gap-x-4 gap-y-1 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-6">
@@ -386,7 +386,7 @@ export function Footer() {
                 key={link.href}
                 prefetch={false}
                 href={link.href}
-                className="inline-block py-1 text-xs text-muted-foreground underline underline-offset-2 decoration-border/40 transition-colors hover:text-emerald-400 hover:decoration-emerald-400"
+                className="inline-block py-1 text-xs text-muted-foreground underline underline-offset-2 decoration-border/40 transition-colors hover:text-emerald-600 hover:decoration-emerald-600"
               >
                 {link.label}
               </Link>
@@ -397,7 +397,7 @@ export function Footer() {
         {/* ─── Strategic Pages ────────────────────────────────────────────── */}
         <div className="mt-6 pt-6 border-t border-border/20">
           <h3 className="mb-3 text-sm font-semibold uppercase tracking-wider text-foreground flex items-center gap-2">
-            <FileText className="h-4 w-4 text-emerald-400" />
+            <FileText className="h-4 w-4 text-emerald-600" />
             Guides & Resources
           </h3>
           <div className="flex flex-wrap gap-x-4 gap-y-1.5">
@@ -406,7 +406,7 @@ export function Footer() {
                 key={link.href}
                 prefetch={false}
                 href={link.href}
-                className="inline-block py-1 text-xs text-muted-foreground underline underline-offset-2 decoration-border/40 transition-colors hover:text-emerald-400 hover:decoration-emerald-400"
+                className="inline-block py-1 text-xs text-muted-foreground underline underline-offset-2 decoration-border/40 transition-colors hover:text-emerald-600 hover:decoration-emerald-600"
               >
                 {link.label}
               </Link>
@@ -419,7 +419,7 @@ export function Footer() {
                 key={link.href}
                 prefetch={false}
                 href={link.href}
-                className="inline-block py-1 text-xs text-muted-foreground underline underline-offset-2 decoration-border/40 transition-colors hover:text-emerald-400 hover:decoration-emerald-400"
+                className="inline-block py-1 text-xs text-muted-foreground underline underline-offset-2 decoration-border/40 transition-colors hover:text-emerald-600 hover:decoration-emerald-600"
               >
                 {link.label}
               </Link>
@@ -437,34 +437,34 @@ export function Footer() {
               All calculations are estimates for informational purposes only.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-4 gap-y-2 text-xs text-muted-foreground">
-              <Link href="/privacy" className="underline underline-offset-2 decoration-border/50 hover:text-emerald-400 hover:decoration-emerald-400 transition-colors">
+              <Link href="/privacy" className="underline underline-offset-2 decoration-border/50 hover:text-emerald-600 hover:decoration-emerald-600 transition-colors">
                 Privacy Policy
               </Link>
-              <Link href="/terms" className="underline underline-offset-2 decoration-border/50 hover:text-emerald-400 hover:decoration-emerald-400 transition-colors">
+              <Link href="/terms" className="underline underline-offset-2 decoration-border/50 hover:text-emerald-600 hover:decoration-emerald-600 transition-colors">
                 Terms of Use
               </Link>
-              <Link href="/about" className="underline underline-offset-2 decoration-border/50 hover:text-emerald-400 hover:decoration-emerald-400 transition-colors">
+              <Link href="/about" className="underline underline-offset-2 decoration-border/50 hover:text-emerald-600 hover:decoration-emerald-600 transition-colors">
                 About Us
               </Link>
-              <Link href="/compare" className="underline underline-offset-2 decoration-border/50 hover:text-emerald-400 hover:decoration-emerald-400 transition-colors">
+              <Link href="/compare" className="underline underline-offset-2 decoration-border/50 hover:text-emerald-600 hover:decoration-emerald-600 transition-colors">
                 Compare States
               </Link>
-              <Link href="/glossary" className="underline underline-offset-2 decoration-border/50 hover:text-emerald-400 hover:decoration-emerald-400 transition-colors">
+              <Link href="/glossary" className="underline underline-offset-2 decoration-border/50 hover:text-emerald-600 hover:decoration-emerald-600 transition-colors">
                 Glossary
               </Link>
-              <Link href="/blog" className="underline underline-offset-2 decoration-border/50 hover:text-emerald-400 hover:decoration-emerald-400 transition-colors">
+              <Link href="/blog" className="underline underline-offset-2 decoration-border/50 hover:text-emerald-600 hover:decoration-emerald-600 transition-colors">
                 Blog
               </Link>
-              <Link href="/tax-data" className="underline underline-offset-2 decoration-border/50 hover:text-emerald-400 hover:decoration-emerald-400 transition-colors">
+              <Link href="/tax-data" className="underline underline-offset-2 decoration-border/50 hover:text-emerald-600 hover:decoration-emerald-600 transition-colors">
                 Tax Data
               </Link>
-              <Link href="/widgets" className="underline underline-offset-2 decoration-border/50 hover:text-emerald-400 hover:decoration-emerald-400 transition-colors">
+              <Link href="/widgets" className="underline underline-offset-2 decoration-border/50 hover:text-emerald-600 hover:decoration-emerald-600 transition-colors">
                 Free Widgets
               </Link>
-              <Link href="/freefile-irs" className="underline underline-offset-2 decoration-border/50 hover:text-emerald-400 hover:decoration-emerald-400 transition-colors">
+              <Link href="/freefile-irs" className="underline underline-offset-2 decoration-border/50 hover:text-emerald-600 hover:decoration-emerald-600 transition-colors">
                 IRS Free File
               </Link>
-              <Link href="/methodology" className="underline underline-offset-2 decoration-border/50 hover:text-emerald-400 hover:decoration-emerald-400 transition-colors">
+              <Link href="/methodology" className="underline underline-offset-2 decoration-border/50 hover:text-emerald-600 hover:decoration-emerald-600 transition-colors">
                 Methodology
               </Link>
             </div>

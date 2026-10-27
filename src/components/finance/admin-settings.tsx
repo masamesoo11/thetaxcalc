@@ -97,7 +97,7 @@ export function AdminSettings() {
   if (!loaded) {
     return (
       <div className="flex items-center justify-center py-20">
-        <Loader2 className="h-8 w-8 animate-spin text-emerald-500" />
+        <Loader2 className="h-8 w-8 animate-spin text-emerald-700" />
       </div>
     );
   }
@@ -158,7 +158,7 @@ export function AdminSettings() {
       </Card>
 
       {/* Info Card */}
-      <Card className="border-border/50 bg-emerald-500/5">
+      <Card className="border-border/50 bg-emerald-600/5">
         <CardContent className="p-4">
           <div className="text-sm text-muted-foreground space-y-1">
             <p className="font-medium text-foreground">How it works:</p>

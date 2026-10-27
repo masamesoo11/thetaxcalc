@@ -78,7 +78,7 @@ function ComparisonRow({
       <div
         className={`text-sm font-semibold text-center ${
           highlight === 'left'
-            ? 'text-emerald-400'
+            ? 'text-emerald-600'
             : highlight === 'right'
             ? ''
             : 'text-foreground'
@@ -89,7 +89,7 @@ function ComparisonRow({
       <div
         className={`text-sm font-semibold text-center ${
           highlight === 'right'
-            ? 'text-emerald-400'
+            ? 'text-emerald-600'
             : highlight === 'left'
             ? ''
             : 'text-foreground'
@@ -127,7 +127,7 @@ function TakeHomeBreakdown({
       <div className="flex items-center gap-2">
         <h4 className="text-sm font-semibold text-foreground">{stateName}</h4>
         {isWinner && (
-          <span className="text-[10px] font-semibold uppercase tracking-wider rounded-full px-2 py-0.5 bg-emerald-500/20 text-emerald-400">
+          <span className="text-[10px] font-semibold uppercase tracking-wider rounded-full px-2 py-0.5 bg-emerald-600/20 text-emerald-600">
             More Take-Home
           </span>
         )}
@@ -139,22 +139,22 @@ function TakeHomeBreakdown({
         </div>
         <div className="flex justify-between">
           <span className="text-muted-foreground">Federal Tax</span>
-          <span className="text-red-400">-{formatCurrency(federalTax)}</span>
+          <span className="text-red-600">-{formatCurrency(federalTax)}</span>
         </div>
         <div className="flex justify-between">
           <span className="text-muted-foreground">FICA (SS + Medicare)</span>
-          <span className="text-orange-400">-{formatCurrency(fica)}</span>
+          <span className="text-orange-700">-{formatCurrency(fica)}</span>
         </div>
         <div className="flex justify-between">
           <span className="text-muted-foreground">State Tax</span>
-          <span className={stateTax > 0 ? 'text-amber-400' : 'text-emerald-400'}>
+          <span className={stateTax > 0 ? 'text-amber-700' : 'text-emerald-600'}>
             {stateTax > 0 ? `-${formatCurrency(stateTax)}` : '$0'}
           </span>
         </div>
         <div className="divider-glow" />
         <div className="flex justify-between text-base">
           <span className="font-semibold text-foreground">Net Take-Home</span>
-          <span className={`font-bold ${isWinner ? 'text-emerald-400' : 'text-foreground'}`}>
+          <span className={`font-bold ${isWinner ? 'text-emerald-600' : 'text-foreground'}`}>
             {formatCurrency(net)}
           </span>
         </div>
@@ -196,7 +196,7 @@ export function CompareClientPage({ states }: CompareClientPageProps) {
     <>
       {/* H1 + Intro */}
       <section className="mb-10">
-        <div className="inline-flex items-center gap-2 rounded-full bg-emerald-500/10 border border-emerald-500/20 px-4 py-1.5 text-sm text-emerald-400 mb-4">
+        <div className="inline-flex items-center gap-2 rounded-full bg-emerald-600/10 border border-emerald-500/20 px-4 py-1.5 text-sm text-emerald-600 mb-4">
           <ArrowRightLeft className="h-3.5 w-3.5" />
           2026 Tax Year
         </div>
@@ -230,7 +230,7 @@ export function CompareClientPage({ states }: CompareClientPageProps) {
       {/* Side-by-Side Comparison Table */}
       <section className="mb-12">
         <div className="premium-card overflow-hidden">
-          <div className="grid grid-cols-[1fr_1fr_1fr] gap-4 items-center p-5 border-b border-border/20 bg-emerald-500/5">
+          <div className="grid grid-cols-[1fr_1fr_1fr] gap-4 items-center p-5 border-b border-border/20 bg-emerald-600/5">
             <div className="text-sm font-semibold text-muted-foreground">Tax Category</div>
             <div className="text-center">
               <p className="text-lg font-bold text-foreground">{s1.name}</p>
@@ -251,7 +251,7 @@ export function CompareClientPage({ states }: CompareClientPageProps) {
           </div>
         </div>
         <p className="mt-3 text-xs text-muted-foreground flex items-center gap-1.5">
-          <span className="inline-block h-2.5 w-2.5 rounded-full bg-emerald-400" />
+          <span className="inline-block h-2.5 w-2.5 rounded-full bg-emerald-500" />
           Green highlight = lower tax burden or higher take-home pay
         </p>
       </section>
@@ -264,7 +264,7 @@ export function CompareClientPage({ states }: CompareClientPageProps) {
         <div className="grid gap-6 md:grid-cols-2">
           <div className="premium-card p-6">
             <div className="flex items-center gap-2 mb-4">
-              <DollarSign className="h-5 w-5 text-emerald-400" />
+              <DollarSign className="h-5 w-5 text-emerald-600" />
               <h3 className="text-lg font-semibold text-foreground">$75,000 Salary</h3>
             </div>
             <div className="space-y-3">
@@ -272,15 +272,15 @@ export function CompareClientPage({ states }: CompareClientPageProps) {
               <div className="divider-glow" />
               <TakeHomeBreakdown stateName={s2.name} gross={75000} federalTax={takeHome75k_2.federalTax} fica={takeHome75k_2.fica} stateTax={takeHome75k_2.stateTax} net={takeHome75k_2.net} effectiveRate={takeHome75k_2.effectiveRate} isWinner={takeHome75k_2.net > takeHome75k_1.net} />
             </div>
-            <div className="mt-4 rounded-lg bg-emerald-500/10 border border-emerald-500/20 p-3 text-center">
+            <div className="mt-4 rounded-lg bg-emerald-600/10 border border-emerald-500/20 p-3 text-center">
               <p className="text-sm text-muted-foreground">
-                {betterAt75k} keeps <span className="font-bold text-emerald-400">{formatCurrency(savingsAt75k)}</span> more per year
+                {betterAt75k} keeps <span className="font-bold text-emerald-600">{formatCurrency(savingsAt75k)}</span> more per year
               </p>
             </div>
           </div>
           <div className="premium-card p-6">
             <div className="flex items-center gap-2 mb-4">
-              <DollarSign className="h-5 w-5 text-emerald-400" />
+              <DollarSign className="h-5 w-5 text-emerald-600" />
               <h3 className="text-lg font-semibold text-foreground">$150,000 Salary</h3>
             </div>
             <div className="space-y-3">
@@ -288,9 +288,9 @@ export function CompareClientPage({ states }: CompareClientPageProps) {
               <div className="divider-glow" />
               <TakeHomeBreakdown stateName={s2.name} gross={150000} federalTax={takeHome150k_2.federalTax} fica={takeHome150k_2.fica} stateTax={takeHome150k_2.stateTax} net={takeHome150k_2.net} effectiveRate={takeHome150k_2.effectiveRate} isWinner={takeHome150k_2.net > takeHome150k_1.net} />
             </div>
-            <div className="mt-4 rounded-lg bg-emerald-500/10 border border-emerald-500/20 p-3 text-center">
+            <div className="mt-4 rounded-lg bg-emerald-600/10 border border-emerald-500/20 p-3 text-center">
               <p className="text-sm text-muted-foreground">
-                {betterAt150k} keeps <span className="font-bold text-emerald-400">{formatCurrency(savingsAt150k)}</span> more per year
+                {betterAt150k} keeps <span className="font-bold text-emerald-600">{formatCurrency(savingsAt150k)}</span> more per year
               </p>
             </div>
           </div>
@@ -304,7 +304,7 @@ export function CompareClientPage({ states }: CompareClientPageProps) {
         </h2>
         <div className="premium-card p-6 space-y-4">
           <div className="flex items-start gap-3">
-            {s1.incomeTaxRate <= s2.incomeTaxRate ? <CheckCircle2 className="h-5 w-5 text-emerald-400 shrink-0 mt-0.5" /> : <AlertTriangle className="h-5 w-5 text-amber-400 shrink-0 mt-0.5" />}
+            {s1.incomeTaxRate <= s2.incomeTaxRate ? <CheckCircle2 className="h-5 w-5 text-emerald-600 shrink-0 mt-0.5" /> : <AlertTriangle className="h-5 w-5 text-amber-700 shrink-0 mt-0.5" />}
             <div>
               <h3 className="font-semibold text-foreground">Income Tax</h3>
               <p className="text-sm text-muted-foreground mt-1">
@@ -318,7 +318,7 @@ export function CompareClientPage({ states }: CompareClientPageProps) {
           </div>
           <div className="divider-glow" />
           <div className="flex items-start gap-3">
-            {s1.propertyTaxRate <= s2.propertyTaxRate ? <CheckCircle2 className="h-5 w-5 text-emerald-400 shrink-0 mt-0.5" /> : <AlertTriangle className="h-5 w-5 text-amber-400 shrink-0 mt-0.5" />}
+            {s1.propertyTaxRate <= s2.propertyTaxRate ? <CheckCircle2 className="h-5 w-5 text-emerald-600 shrink-0 mt-0.5" /> : <AlertTriangle className="h-5 w-5 text-amber-700 shrink-0 mt-0.5" />}
             <div>
               <h3 className="font-semibold text-foreground">Property Tax</h3>
               <p className="text-sm text-muted-foreground mt-1">
@@ -332,7 +332,7 @@ export function CompareClientPage({ states }: CompareClientPageProps) {
           </div>
           <div className="divider-glow" />
           <div className="flex items-start gap-3">
-            {s1.salesTaxRate <= s2.salesTaxRate ? <CheckCircle2 className="h-5 w-5 text-emerald-400 shrink-0 mt-0.5" /> : <AlertTriangle className="h-5 w-5 text-amber-400 shrink-0 mt-0.5" />}
+            {s1.salesTaxRate <= s2.salesTaxRate ? <CheckCircle2 className="h-5 w-5 text-emerald-600 shrink-0 mt-0.5" /> : <AlertTriangle className="h-5 w-5 text-amber-700 shrink-0 mt-0.5" />}
             <div>
               <h3 className="font-semibold text-foreground">Sales Tax</h3>
               <p className="text-sm text-muted-foreground mt-1">
@@ -358,8 +358,8 @@ export function CompareClientPage({ states }: CompareClientPageProps) {
             </div>
           )}
           <div className="divider-glow" />
-          <div className="rounded-xl bg-emerald-500/10 border border-emerald-500/20 p-4">
-            <h3 className="font-semibold text-emerald-400 flex items-center gap-2">
+          <div className="rounded-xl bg-emerald-600/10 border border-emerald-500/20 p-4">
+            <h3 className="font-semibold text-emerald-600 flex items-center gap-2">
               <CheckCircle2 className="h-5 w-5" />
               Bottom Line
             </h3>
@@ -378,7 +378,7 @@ export function CompareClientPage({ states }: CompareClientPageProps) {
         <div className="space-y-4">
           {faqs.map((faq, i) => (
             <details key={i} className="group premium-card overflow-hidden" open={i === 0}>
-              <summary className="flex cursor-pointer items-center justify-between p-5 text-base font-semibold text-foreground hover:text-emerald-400 transition-colors list-none">
+              <summary className="flex cursor-pointer items-center justify-between p-5 text-base font-semibold text-foreground hover:text-emerald-600 transition-colors list-none">
                 <span>{faq.question}</span>
                 <ChevronRight className="h-5 w-5 shrink-0 text-muted-foreground group-open:rotate-90 transition-transform" />
               </summary>
@@ -398,22 +398,22 @@ export function CompareClientPage({ states }: CompareClientPageProps) {
         <div className="grid gap-5 sm:grid-cols-2">
           <Link href={s1.calculatorSlug} className="group premium-card hover-lift p-6 flex flex-col items-center gap-3 text-center">
             <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-emerald-600/20 to-teal-600/10">
-              <Calculator className="h-7 w-7 text-emerald-400" />
+              <Calculator className="h-7 w-7 text-emerald-600" />
             </div>
-            <h3 className="text-lg font-semibold text-foreground group-hover:text-emerald-400 transition-colors">{s1.name} Tax Calculator</h3>
+            <h3 className="text-lg font-semibold text-foreground group-hover:text-emerald-600 transition-colors">{s1.name} Tax Calculator</h3>
             <p className="text-sm text-muted-foreground">Get your personalized take-home pay with 401(k), HSA, and filing status options.</p>
-            <span className="mt-auto inline-flex items-center gap-1.5 text-sm font-medium text-emerald-400 group-hover:gap-3 transition-all">
+            <span className="mt-auto inline-flex items-center gap-1.5 text-sm font-medium text-emerald-600 group-hover:gap-3 transition-all">
               Try {s1.name} Calculator
               <ArrowRight className="h-4 w-4" />
             </span>
           </Link>
           <Link href={s2.calculatorSlug} className="group premium-card hover-lift p-6 flex flex-col items-center gap-3 text-center">
             <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-emerald-600/20 to-teal-600/10">
-              <Calculator className="h-7 w-7 text-emerald-400" />
+              <Calculator className="h-7 w-7 text-emerald-600" />
             </div>
-            <h3 className="text-lg font-semibold text-foreground group-hover:text-emerald-400 transition-colors">{s2.name} Tax Calculator</h3>
+            <h3 className="text-lg font-semibold text-foreground group-hover:text-emerald-600 transition-colors">{s2.name} Tax Calculator</h3>
             <p className="text-sm text-muted-foreground">Get your personalized take-home pay with 401(k), HSA, and filing status options.</p>
-            <span className="mt-auto inline-flex items-center gap-1.5 text-sm font-medium text-emerald-400 group-hover:gap-3 transition-all">
+            <span className="mt-auto inline-flex items-center gap-1.5 text-sm font-medium text-emerald-600 group-hover:gap-3 transition-all">
               Try {s2.name} Calculator
               <ArrowRight className="h-4 w-4" />
             </span>
@@ -431,7 +431,7 @@ export function CompareClientPage({ states }: CompareClientPageProps) {
         </p>
         <Link
           href="/relocation-calculator"
-          className="mt-6 inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-600 to-emerald-500 px-8 py-3 text-sm font-semibold text-white shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/30 transition-all hover:scale-[1.02]"
+          className="mt-6 inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-700 to-emerald-600 px-8 py-3 text-sm font-semibold text-white shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/30 transition-all hover:scale-[1.02]"
         >
           <ArrowRightLeft className="h-4 w-4" />
           Try Relocation Calculator

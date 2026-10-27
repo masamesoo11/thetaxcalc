@@ -92,7 +92,7 @@ export function StateComparisonSection() {
       <Card className="border-border/50 bg-card/80">
         <CardHeader>
           <CardTitle id="state-comparison-heading" className="flex items-center gap-2 text-xl">
-            <MapPin className="h-5 w-5 text-emerald-400" />
+            <MapPin className="h-5 w-5 text-emerald-600" />
             2026 State Tax Comparison: IL vs TX vs FL vs CA vs NY
           </CardTitle>
         </CardHeader>
@@ -113,8 +113,8 @@ export function StateComparisonSection() {
                 <TableRow>
                   <TableCell className="font-medium">State Income Tax Rate</TableCell>
                   <TableCell className="text-center"><Badge variant="destructive" className="text-xs">4.95%</Badge></TableCell>
-                  <TableCell className="text-center"><Badge className="bg-emerald-500/20 text-emerald-400 text-xs">0%</Badge></TableCell>
-                  <TableCell className="text-center"><Badge className="bg-emerald-500/20 text-emerald-400 text-xs">0%</Badge></TableCell>
+                  <TableCell className="text-center"><Badge className="bg-emerald-600/20 text-emerald-600 text-xs">0%</Badge></TableCell>
+                  <TableCell className="text-center"><Badge className="bg-emerald-600/20 text-emerald-600 text-xs">0%</Badge></TableCell>
                   <TableCell className="text-center"><Badge variant="destructive" className="text-xs">1%–13.3%</Badge></TableCell>
                   <TableCell className="text-center"><Badge variant="destructive" className="text-xs">4%–10.9%</Badge></TableCell>
                 </TableRow>
@@ -128,11 +128,11 @@ export function StateComparisonSection() {
                 </TableRow>
                 <TableRow>
                   <TableCell className="font-medium">Net on $75K (Single)</TableCell>
-                  <TableCell className="text-center font-semibold text-red-400">$56,969</TableCell>
-                  <TableCell className="text-center font-semibold text-emerald-400">$60,545</TableCell>
-                  <TableCell className="text-center font-semibold text-emerald-400">$60,545</TableCell>
-                  <TableCell className="text-center font-semibold text-red-400">$57,950</TableCell>
-                  <TableCell className="text-center font-semibold text-red-400">$57,686</TableCell>
+                  <TableCell className="text-center font-semibold text-red-600">$56,969</TableCell>
+                  <TableCell className="text-center font-semibold text-emerald-600">$60,545</TableCell>
+                  <TableCell className="text-center font-semibold text-emerald-600">$60,545</TableCell>
+                  <TableCell className="text-center font-semibold text-red-600">$57,950</TableCell>
+                  <TableCell className="text-center font-semibold text-red-600">$57,686</TableCell>
                 </TableRow>
                 <TableRow>
                   <TableCell className="font-medium">Avg Property Tax Rate</TableCell>
@@ -160,9 +160,9 @@ export function StateComparisonSection() {
                 </TableRow>
                 <TableRow>
                   <TableCell className="font-medium">Overall Tax Burden</TableCell>
-                  <TableCell className="text-center"><Badge className="bg-red-500/20 text-red-400 text-xs">Higher</Badge></TableCell>
-                  <TableCell className="text-center"><Badge className="bg-amber-500/20 text-amber-400 text-xs">Medium</Badge></TableCell>
-                  <TableCell className="text-center"><Badge className="bg-emerald-500/20 text-emerald-400 text-xs">Low</Badge></TableCell>
+                  <TableCell className="text-center"><Badge className="bg-red-500/20 text-red-600 text-xs">Higher</Badge></TableCell>
+                  <TableCell className="text-center"><Badge className="bg-amber-500/20 text-amber-700 text-xs">Medium</Badge></TableCell>
+                  <TableCell className="text-center"><Badge className="bg-emerald-600/20 text-emerald-600 text-xs">Low</Badge></TableCell>
                   <TableCell className="text-center"><Badge variant="destructive" className="text-xs">Highest</Badge></TableCell>
                   <TableCell className="text-center"><Badge variant="destructive" className="text-xs">Very High</Badge></TableCell>
                 </TableRow>
@@ -180,7 +180,7 @@ export function StateComparisonSection() {
         <CardContent className="space-y-4 text-sm text-muted-foreground leading-relaxed">
           <p>
             When comparing <strong className="text-foreground">Illinois, Texas, Florida, California, and New York</strong> for
-            overall tax burden in 2026, <strong className="text-emerald-400">Florida</strong> consistently offers the lowest
+            overall tax burden in 2026, <strong className="text-emerald-600">Florida</strong> consistently offers the lowest
             total tax burden. With <strong className="text-foreground">0% income tax</strong>, a low
             <strong className="text-foreground"> 0.86% effective property tax rate</strong>, and a moderate
             <strong className="text-foreground"> 7% average sales tax</strong>, Florida is the clear winner for both
@@ -214,42 +214,42 @@ export function StateComparisonSection() {
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
         <Card className="border-red-500/20 bg-card/80">
           <CardContent className="p-4 text-center">
-            <p className="text-xs uppercase tracking-wider text-red-400">Highest Tax Burden</p>
+            <p className="text-xs uppercase tracking-wider text-red-600">Highest Tax Burden</p>
             <p className="mt-1 text-xl font-bold text-foreground">California</p>
             <p className="mt-1 text-sm text-muted-foreground">1%–13.3% + 8.82% sales + 0.71% property</p>
-            <p className="mt-2 text-sm font-medium text-red-400">-$2,595/yr vs FL at $75K</p>
+            <p className="mt-2 text-sm font-medium text-red-600">-$2,595/yr vs FL at $75K</p>
           </CardContent>
         </Card>
         <Card className="border-red-500/20 bg-card/80">
           <CardContent className="p-4 text-center">
-            <p className="text-xs uppercase tracking-wider text-red-400">Very High Burden</p>
+            <p className="text-xs uppercase tracking-wider text-red-600">Very High Burden</p>
             <p className="mt-1 text-xl font-bold text-foreground">New York</p>
             <p className="mt-1 text-sm text-muted-foreground">4%–10.9% + NYC tax + 8.52% sales</p>
-            <p className="mt-2 text-sm font-medium text-red-400">-$2,859/yr vs FL at $75K</p>
+            <p className="mt-2 text-sm font-medium text-red-600">-$2,859/yr vs FL at $75K</p>
           </CardContent>
         </Card>
         <Card className="border-amber-500/20 bg-card/80">
           <CardContent className="p-4 text-center">
-            <p className="text-xs uppercase tracking-wider text-amber-400">Higher Burden</p>
+            <p className="text-xs uppercase tracking-wider text-amber-700">Higher Burden</p>
             <p className="mt-1 text-xl font-bold text-foreground">Illinois</p>
             <p className="mt-1 text-sm text-muted-foreground">4.95% flat + 1.78% property + 8.86% sales</p>
-            <p className="mt-2 text-sm font-medium text-amber-400">-$3,576/yr vs TX/FL at $75K</p>
+            <p className="mt-2 text-sm font-medium text-amber-700">-$3,576/yr vs TX/FL at $75K</p>
           </CardContent>
         </Card>
         <Card className="border-amber-500/20 bg-card/80">
           <CardContent className="p-4 text-center">
-            <p className="text-xs uppercase tracking-wider text-amber-400">Best for High Earners</p>
+            <p className="text-xs uppercase tracking-wider text-amber-700">Best for High Earners</p>
             <p className="mt-1 text-xl font-bold text-foreground">Texas</p>
             <p className="mt-1 text-sm text-muted-foreground">0% income tax + strong job market</p>
-            <p className="mt-2 text-sm font-medium text-amber-400">Watch: high property tax (1.71%)</p>
+            <p className="mt-2 text-sm font-medium text-amber-700">Watch: high property tax (1.71%)</p>
           </CardContent>
         </Card>
         <Card className="border-emerald-500/20 bg-card/80">
           <CardContent className="p-4 text-center">
-            <p className="text-xs uppercase tracking-wider text-emerald-400">Best Overall Value</p>
+            <p className="text-xs uppercase tracking-wider text-emerald-600">Best Overall Value</p>
             <p className="mt-1 text-xl font-bold text-foreground">Florida</p>
             <p className="mt-1 text-sm text-muted-foreground">0% income + 0.86% property + retiree-friendly</p>
-            <p className="mt-2 text-sm font-medium text-emerald-400">Lowest total tax burden</p>
+            <p className="mt-2 text-sm font-medium text-emerald-600">Lowest total tax burden</p>
           </CardContent>
         </Card>
       </div>
@@ -271,7 +271,7 @@ export function StateComparisonSection() {
               </TableHeader>
               <TableBody>
                 <TableRow>
-                  <TableCell className="font-medium text-emerald-400">10%</TableCell>
+                  <TableCell className="font-medium text-emerald-600">10%</TableCell>
                   <TableCell>$0 – $11,600</TableCell>
                   <TableCell>10% of taxable income</TableCell>
                 </TableRow>
@@ -281,22 +281,22 @@ export function StateComparisonSection() {
                   <TableCell>$1,160 + 12% over $11,600</TableCell>
                 </TableRow>
                 <TableRow>
-                  <TableCell className="font-medium text-amber-400">22%</TableCell>
+                  <TableCell className="font-medium text-amber-700">22%</TableCell>
                   <TableCell>$47,151 – $100,525</TableCell>
                   <TableCell>$5,426 + 22% over $47,150</TableCell>
                 </TableRow>
                 <TableRow>
-                  <TableCell className="font-medium text-orange-400">24%</TableCell>
+                  <TableCell className="font-medium text-orange-700">24%</TableCell>
                   <TableCell>$100,526 – $191,950</TableCell>
                   <TableCell>$17,168.50 + 24% over $100,525</TableCell>
                 </TableRow>
                 <TableRow>
-                  <TableCell className="font-medium text-red-400">32%</TableCell>
+                  <TableCell className="font-medium text-red-600">32%</TableCell>
                   <TableCell>$191,951 – $243,725</TableCell>
                   <TableCell>$39,110.50 + 32% over $191,950</TableCell>
                 </TableRow>
                 <TableRow>
-                  <TableCell className="font-medium text-red-500">35%</TableCell>
+                  <TableCell className="font-medium text-red-600">35%</TableCell>
                   <TableCell>$243,726 – $609,350</TableCell>
                   <TableCell>$55,678.50 + 35% over $243,725</TableCell>
                 </TableRow>

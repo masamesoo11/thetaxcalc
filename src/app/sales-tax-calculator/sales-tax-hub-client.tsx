@@ -171,7 +171,7 @@ export function SalesTaxHubClient() {
       <Card className="border-border/50 bg-card/80 backdrop-blur-sm">
         <CardHeader className="pb-4">
           <CardTitle className="flex items-center gap-2 text-lg">
-            <Calculator className="h-5 w-5 text-emerald-400" />
+            <Calculator className="h-5 w-5 text-emerald-600" />
             Sales Tax Calculator
           </CardTitle>
           <CardDescription>
@@ -183,7 +183,7 @@ export function SalesTaxHubClient() {
           <div className="space-y-2">
             <Label htmlFor="hub-price" className="text-sm font-medium">
               <span className="flex items-center gap-1.5">
-                <DollarSign className="h-3.5 w-3.5 text-emerald-400" />
+                <DollarSign className="h-3.5 w-3.5 text-emerald-600" />
                 Purchase Amount
               </span>
             </Label>
@@ -207,7 +207,7 @@ export function SalesTaxHubClient() {
             <div className="space-y-2">
               <Label htmlFor="hub-state" className="text-sm font-medium">
                 <span className="flex items-center gap-1.5">
-                  <MapPin className="h-3.5 w-3.5 text-emerald-400" />
+                  <MapPin className="h-3.5 w-3.5 text-emerald-600" />
                   State
                 </span>
               </Label>
@@ -240,7 +240,7 @@ export function SalesTaxHubClient() {
             <div className="space-y-2">
               <Label htmlFor="hub-local" className="text-sm font-medium">
                 <span className="flex items-center gap-1.5">
-                  <MapPin className="h-3.5 w-3.5 text-amber-400" />
+                  <MapPin className="h-3.5 w-3.5 text-amber-700" />
                   City/Local Tax Rate (%)
                 </span>
               </Label>
@@ -290,7 +290,7 @@ export function SalesTaxHubClient() {
           <div className="space-y-3">
             <Label className="text-sm font-medium">
               <span className="flex items-center gap-1.5">
-                <Shield className="h-3.5 w-3.5 text-emerald-400" />
+                <Shield className="h-3.5 w-3.5 text-emerald-600" />
                 Tax-Exempt Item?
               </span>
             </Label>
@@ -335,11 +335,11 @@ export function SalesTaxHubClient() {
                   </SelectContent>
                 </Select>
                 {isCategoryExempt ? (
-                  <Badge className="bg-emerald-500/20 text-emerald-400 text-[10px]">
+                  <Badge className="bg-emerald-600/20 text-emerald-600 text-[10px]">
                     {exemptCategory === 'groceries' ? 'Groceries' : exemptCategory === 'prescription' ? 'Prescription drugs' : 'Clothing'} are tax-exempt in {currentState?.name}
                   </Badge>
                 ) : (
-                  <Badge className="bg-red-500/20 text-red-400 text-[10px]">
+                  <Badge className="bg-red-500/20 text-red-600 text-[10px]">
                     {exemptCategory === 'groceries' ? 'Groceries' : exemptCategory === 'prescription' ? 'Prescription drugs' : 'Clothing'} are NOT exempt in {currentState?.name} -- tax will apply
                   </Badge>
                 )}
@@ -355,15 +355,15 @@ export function SalesTaxHubClient() {
             <div className="grid grid-cols-3 gap-2 text-center">
               <div>
                 <p className="text-[10px] uppercase tracking-wider text-muted-foreground">State</p>
-                <p className="text-sm font-bold text-amber-400">{(currentState?.stateRate ?? 0) > 0 ? formatPercent(currentState?.stateRate ?? 0) : '0%'}</p>
+                <p className="text-sm font-bold text-amber-700">{(currentState?.stateRate ?? 0) > 0 ? formatPercent(currentState?.stateRate ?? 0) : '0%'}</p>
               </div>
               <div>
                 <p className="text-[10px] uppercase tracking-wider text-muted-foreground">Local</p>
-                <p className="text-sm font-bold text-orange-400">{formatPercent(effectiveLocalRate)}</p>
+                <p className="text-sm font-bold text-orange-700">{formatPercent(effectiveLocalRate)}</p>
               </div>
               <div>
                 <p className="text-[10px] uppercase tracking-wider text-muted-foreground">Combined</p>
-                <p className="text-sm font-bold text-emerald-400">{isExempt && isCategoryExempt ? '0% (exempt)' : formatPercent(effectiveCombinedRate)}</p>
+                <p className="text-sm font-bold text-emerald-600">{isExempt && isCategoryExempt ? '0% (exempt)' : formatPercent(effectiveCombinedRate)}</p>
               </div>
             </div>
           </div>
@@ -381,7 +381,7 @@ export function SalesTaxHubClient() {
 
           {/* Forward Result */}
           {forwardResult && (
-            <div className="rounded-xl border border-emerald-500/20 bg-emerald-500/5 p-4">
+            <div className="rounded-xl border border-emerald-500/20 bg-emerald-600/5 p-4">
               <div className="grid gap-3 sm:grid-cols-4">
                 <div className="text-center">
                   <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
@@ -393,19 +393,19 @@ export function SalesTaxHubClient() {
                   <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
                     State Tax
                   </p>
-                  <p className="mt-1 text-xl font-bold text-amber-400">{fmtCurrency(forwardResult.stateTax)}</p>
+                  <p className="mt-1 text-xl font-bold text-amber-700">{fmtCurrency(forwardResult.stateTax)}</p>
                 </div>
                 <div className="text-center">
                   <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
                     Local Tax
                   </p>
-                  <p className="mt-1 text-xl font-bold text-orange-400">{fmtCurrency(forwardResult.localTax)}</p>
+                  <p className="mt-1 text-xl font-bold text-orange-700">{fmtCurrency(forwardResult.localTax)}</p>
                 </div>
                 <div className="text-center">
                   <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
                     Total with Tax
                   </p>
-                  <p className="mt-1 text-xl font-bold text-emerald-400">{fmtCurrency(forwardResult.totalPrice)}</p>
+                  <p className="mt-1 text-xl font-bold text-emerald-600">{fmtCurrency(forwardResult.totalPrice)}</p>
                 </div>
               </div>
               <div className="mt-3 text-center">
@@ -423,7 +423,7 @@ export function SalesTaxHubClient() {
       <Card className="border-border/50 bg-card/80 backdrop-blur-sm">
         <CardHeader className="pb-4">
           <CardTitle className="flex items-center gap-2 text-lg">
-            <ArrowLeftRight className="h-5 w-5 text-amber-400" />
+            <ArrowLeftRight className="h-5 w-5 text-amber-700" />
             Reverse Sales Tax Calculator
           </CardTitle>
           <CardDescription>
@@ -435,7 +435,7 @@ export function SalesTaxHubClient() {
             <div className="space-y-2">
               <Label htmlFor="hub-reverse-total" className="text-sm font-medium">
                 <span className="flex items-center gap-1.5">
-                  <DollarSign className="h-3.5 w-3.5 text-amber-400" />
+                  <DollarSign className="h-3.5 w-3.5 text-amber-700" />
                   Total Amount Paid
                 </span>
               </Label>
@@ -457,7 +457,7 @@ export function SalesTaxHubClient() {
             <div className="space-y-2">
               <Label htmlFor="hub-reverse-state" className="text-sm font-medium">
                 <span className="flex items-center gap-1.5">
-                  <MapPin className="h-3.5 w-3.5 text-amber-400" />
+                  <MapPin className="h-3.5 w-3.5 text-amber-700" />
                   State
                 </span>
               </Label>
@@ -490,7 +490,7 @@ export function SalesTaxHubClient() {
             disabled={totalPaid <= 0}
             variant="outline"
             size="sm"
-            className="border-amber-500/30 text-amber-400 hover:bg-amber-500/10"
+            className="border-amber-500/30 text-amber-700 hover:bg-amber-500/10"
           >
             <ArrowLeftRight className="mr-2 h-4 w-4" />
             Calculate Original Price
@@ -504,7 +504,7 @@ export function SalesTaxHubClient() {
                   <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
                     Original Price
                   </p>
-                  <p className="mt-1 text-xl font-bold text-emerald-400">
+                  <p className="mt-1 text-xl font-bold text-emerald-600">
                     {fmtCurrency(reverseResult.originalPrice)}
                   </p>
                 </div>
@@ -512,7 +512,7 @@ export function SalesTaxHubClient() {
                   <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
                     Sales Tax
                   </p>
-                  <p className="mt-1 text-xl font-bold text-amber-400">
+                  <p className="mt-1 text-xl font-bold text-amber-700">
                     {fmtCurrency(reverseResult.taxAmount)}
                   </p>
                 </div>
@@ -548,7 +548,7 @@ export function SalesTaxHubClient() {
       <Card className="border-border/50 bg-card/80 backdrop-blur-sm">
         <CardHeader className="pb-4">
           <CardTitle className="flex items-center gap-2 text-lg">
-            <Car className="h-5 w-5 text-blue-400" />
+            <Car className="h-5 w-5 text-blue-700" />
             Car / Vehicle Sales Tax Calculator
           </CardTitle>
           <CardDescription>
@@ -560,7 +560,7 @@ export function SalesTaxHubClient() {
             <div className="space-y-2">
               <Label htmlFor="hub-car-price" className="text-sm font-medium">
                 <span className="flex items-center gap-1.5">
-                  <DollarSign className="h-3.5 w-3.5 text-blue-400" />
+                  <DollarSign className="h-3.5 w-3.5 text-blue-700" />
                   Vehicle Price
                 </span>
               </Label>
@@ -582,7 +582,7 @@ export function SalesTaxHubClient() {
             <div className="space-y-2">
               <Label htmlFor="hub-car-state" className="text-sm font-medium">
                 <span className="flex items-center gap-1.5">
-                  <MapPin className="h-3.5 w-3.5 text-blue-400" />
+                  <MapPin className="h-3.5 w-3.5 text-blue-700" />
                   State
                 </span>
               </Label>
@@ -637,7 +637,7 @@ export function SalesTaxHubClient() {
             disabled={vehiclePrice <= 0}
             variant="outline"
             size="sm"
-            className="border-blue-500/30 text-blue-400 hover:bg-blue-500/10"
+            className="border-blue-500/30 text-blue-700 hover:bg-blue-500/10"
           >
             <Car className="mr-2 h-4 w-4" />
             Calculate Vehicle Sales Tax
@@ -657,19 +657,19 @@ export function SalesTaxHubClient() {
                   <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
                     Sales Tax
                   </p>
-                  <p className="mt-1 text-xl font-bold text-amber-400">{fmtCurrency(carResult.salesTax)}</p>
+                  <p className="mt-1 text-xl font-bold text-amber-700">{fmtCurrency(carResult.salesTax)}</p>
                 </div>
                 <div className="text-center">
                   <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
                     Combined Rate
                   </p>
-                  <p className="mt-1 text-xl font-bold text-orange-400">{formatPercent(carResult.combinedRate)}</p>
+                  <p className="mt-1 text-xl font-bold text-orange-700">{formatPercent(carResult.combinedRate)}</p>
                 </div>
                 <div className="text-center">
                   <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
                     Total with Tax
                   </p>
-                  <p className="mt-1 text-xl font-bold text-emerald-400">{fmtCurrency(carResult.totalWithTax)}</p>
+                  <p className="mt-1 text-xl font-bold text-emerald-600">{fmtCurrency(carResult.totalWithTax)}</p>
                 </div>
               </div>
               {tradeInValue > 0 && (

@@ -244,7 +244,7 @@ export function EmployeeCostCalculator() {
           <Card className="border-border/50 bg-card/80 backdrop-blur-sm">
             <CardHeader className="pb-4">
               <CardTitle className="flex items-center gap-2 text-lg">
-                <Calculator className="h-5 w-5 text-emerald-400" />
+                <Calculator className="h-5 w-5 text-emerald-600" />
                 Quick Start
               </CardTitle>
               <CardDescription>
@@ -341,7 +341,7 @@ export function EmployeeCostCalculator() {
                 <CardHeader className="cursor-pointer pb-4 transition-colors hover:bg-muted/30">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
-                      <Building2 className="h-5 w-5 text-amber-400" />
+                      <Building2 className="h-5 w-5 text-amber-700" />
                       <CardTitle className="text-lg">Employer Tax Details</CardTitle>
                       <Badge variant="outline" className="text-xs">
                         {result.stateName}
@@ -398,7 +398,7 @@ export function EmployeeCostCalculator() {
           <Card className="sticky top-20 border-emerald-500/20 bg-card/90 backdrop-blur-sm">
             <CardHeader className="pb-3">
               <CardTitle className="flex items-center gap-2 text-lg">
-                <TrendingUp className="h-5 w-5 text-emerald-400" />
+                <TrendingUp className="h-5 w-5 text-emerald-600" />
                 Live Results
               </CardTitle>
               <CardDescription>
@@ -407,11 +407,11 @@ export function EmployeeCostCalculator() {
             </CardHeader>
             <CardContent className="space-y-4">
               {/* Total Annual Payroll Cost - Hero Number */}
-              <div className="rounded-xl bg-emerald-500/10 p-4 text-center">
-                <p className="text-xs font-medium uppercase tracking-wider text-emerald-400/80">
+              <div className="rounded-xl bg-emerald-600/10 p-4 text-center">
+                <p className="text-xs font-medium uppercase tracking-wider text-emerald-600/80">
                   Total Annual Payroll Cost
                 </p>
-                <p className="mt-1 text-3xl font-bold text-emerald-400">
+                <p className="mt-1 text-3xl font-bold text-emerald-600">
                   {fmt(result.totalPayrollCost)}
                 </p>
                 <p className="mt-1 text-xs text-muted-foreground">
@@ -436,7 +436,7 @@ export function EmployeeCostCalculator() {
                 </div>
                 <div className="flex items-baseline justify-between">
                   <span className="text-sm text-muted-foreground">Over Salary</span>
-                  <span className="text-sm font-bold text-amber-400">+{fmtPct(result.costOverSalary)}</span>
+                  <span className="text-sm font-bold text-amber-700">+{fmtPct(result.costOverSalary)}</span>
                 </div>
               </div>
 
@@ -453,24 +453,24 @@ export function EmployeeCostCalculator() {
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="flex items-center gap-1.5 text-sm text-muted-foreground">
-                    <TrendingDown className="h-3.5 w-3.5 text-orange-400" />
+                    <TrendingDown className="h-3.5 w-3.5 text-orange-700" />
                     Employer FICA
                   </span>
-                  <span className="text-sm font-medium text-orange-400">{fmt(result.totalEmployerFICA)}</span>
+                  <span className="text-sm font-medium text-orange-700">{fmt(result.totalEmployerFICA)}</span>
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="flex items-center gap-1.5 text-sm text-muted-foreground">
-                    <TrendingDown className="h-3.5 w-3.5 text-amber-400" />
+                    <TrendingDown className="h-3.5 w-3.5 text-amber-700" />
                     FUTA + SUTA
                   </span>
-                  <span className="text-sm font-medium text-amber-400">{fmt(result.totalFUTA + result.totalSUTA)}</span>
+                  <span className="text-sm font-medium text-amber-700">{fmt(result.totalFUTA + result.totalSUTA)}</span>
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="flex items-center gap-1.5 text-sm text-muted-foreground">
-                    <Briefcase className="h-3.5 w-3.5 text-blue-400" />
+                    <Briefcase className="h-3.5 w-3.5 text-blue-700" />
                     Benefits ({benefitsRate}%)
                   </span>
-                  <span className="text-sm font-medium text-blue-400">{fmt(result.totalBenefits)}</span>
+                  <span className="text-sm font-medium text-blue-700">{fmt(result.totalBenefits)}</span>
                 </div>
               </div>
 
@@ -490,7 +490,7 @@ export function EmployeeCostCalculator() {
                   <p className="text-[10px] uppercase tracking-wider text-muted-foreground">
                     Employer Costs
                   </p>
-                  <p className="text-lg font-bold text-amber-400">
+                  <p className="text-lg font-bold text-amber-700">
                     {fmtPct(1 - result.totalSalaries / result.totalPayrollCost)}
                   </p>
                 </div>
@@ -535,7 +535,7 @@ export function EmployeeCostCalculator() {
 // ─── Simple Cost Breakdown Visual ───────────────────────────────────────────
 function CostBreakdownChart({ result, numEmployees }: { result: EmployeeCostResult; numEmployees: number }) {
   const segments = [
-    { label: 'Base Salaries', value: result.totalSalaries, color: 'bg-emerald-500' },
+    { label: 'Base Salaries', value: result.totalSalaries, color: 'bg-emerald-600' },
     { label: 'Employer FICA', value: result.totalEmployerFICA, color: 'bg-orange-500' },
     { label: 'FUTA + SUTA', value: result.totalFUTA + result.totalSUTA, color: 'bg-amber-500' },
     { label: 'Benefits', value: result.totalBenefits, color: 'bg-blue-500' },
@@ -547,7 +547,7 @@ function CostBreakdownChart({ result, numEmployees }: { result: EmployeeCostResu
     <Card className="border-border/50 bg-card/80 backdrop-blur-sm">
       <CardHeader className="pb-4">
         <CardTitle className="flex items-center gap-2 text-lg">
-          <PieChart className="h-5 w-5 text-emerald-400" />
+          <PieChart className="h-5 w-5 text-emerald-600" />
           Where Your Payroll Dollars Go
         </CardTitle>
         <CardDescription>
@@ -590,17 +590,17 @@ function CostBreakdownChart({ result, numEmployees }: { result: EmployeeCostResu
 
         {/* Summary Stats */}
         <div className="grid grid-cols-3 gap-3 pt-2">
-          <div className="rounded-lg bg-emerald-500/10 p-3 text-center">
-            <p className="text-[10px] uppercase tracking-wider text-emerald-400/80">Total Cost</p>
-            <p className="text-lg font-bold text-emerald-400">{fmt(total)}</p>
+          <div className="rounded-lg bg-emerald-600/10 p-3 text-center">
+            <p className="text-[10px] uppercase tracking-wider text-emerald-600/80">Total Cost</p>
+            <p className="text-lg font-bold text-emerald-600">{fmt(total)}</p>
           </div>
           <div className="rounded-lg bg-amber-500/10 p-3 text-center">
-            <p className="text-[10px] uppercase tracking-wider text-amber-400/80">Over Salary</p>
-            <p className="text-lg font-bold text-amber-400">+{fmtPct(result.costOverSalary)}</p>
+            <p className="text-[10px] uppercase tracking-wider text-amber-700/80">Over Salary</p>
+            <p className="text-lg font-bold text-amber-700">+{fmtPct(result.costOverSalary)}</p>
           </div>
           <div className="rounded-lg bg-blue-500/10 p-3 text-center">
-            <p className="text-[10px] uppercase tracking-wider text-blue-400/80">Per Employee</p>
-            <p className="text-lg font-bold text-blue-400">{fmt(result.totalCostPerEmployee)}</p>
+            <p className="text-[10px] uppercase tracking-wider text-blue-700/80">Per Employee</p>
+            <p className="text-lg font-bold text-blue-700">{fmt(result.totalCostPerEmployee)}</p>
           </div>
         </div>
       </CardContent>

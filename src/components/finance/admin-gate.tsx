@@ -100,7 +100,7 @@ export function AdminGate({ children }: { children: React.ReactNode }) {
             variant="ghost"
             size="sm"
             onClick={handleLogout}
-            className="text-xs text-muted-foreground hover:text-red-400 gap-1.5"
+            className="text-xs text-muted-foreground hover:text-red-600 gap-1.5"
           >
             <Lock className="h-3 w-3" />
             Logout
@@ -115,8 +115,8 @@ export function AdminGate({ children }: { children: React.ReactNode }) {
     <div className="flex min-h-screen items-center justify-center bg-background p-4">
       <div className="w-full max-w-md space-y-6">
         <div className="text-center">
-          <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-emerald-500/10">
-            <Shield className="h-8 w-8 text-emerald-500" />
+          <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-emerald-600/10">
+            <Shield className="h-8 w-8 text-emerald-700" />
           </div>
           <h1 className="text-2xl font-bold tracking-tight">Admin Access Required</h1>
           <p className="mt-2 text-sm text-muted-foreground">
@@ -154,7 +154,7 @@ export function AdminGate({ children }: { children: React.ReactNode }) {
           </div>
 
           {error && (
-            <div className="flex items-center gap-2 rounded-md bg-red-500/10 p-3 text-sm text-red-500">
+            <div className="flex items-center gap-2 rounded-md bg-red-500/10 p-3 text-sm text-red-600">
               <AlertTriangle className="h-4 w-4 flex-shrink-0" />
               {error}
             </div>

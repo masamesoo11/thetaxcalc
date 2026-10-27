@@ -156,7 +156,7 @@ function ConnectionStatusCard({
       <CardHeader className="pb-3">
         <div className="flex items-center justify-between">
           <CardTitle className="text-base flex items-center gap-2">
-            <Database className="h-4 w-4 text-emerald-400" />
+            <Database className="h-4 w-4 text-emerald-600" />
             Database Connection
           </CardTitle>
           <Button
@@ -173,7 +173,7 @@ function ConnectionStatusCard({
       <CardContent>
         {isLoading && (
           <div className="flex items-center gap-3 py-4">
-            <Loader2 className="h-5 w-5 animate-spin text-emerald-400" />
+            <Loader2 className="h-5 w-5 animate-spin text-emerald-600" />
             <span className="text-sm text-muted-foreground">Checking connection...</span>
           </div>
         )}
@@ -194,23 +194,23 @@ function ConnectionStatusCard({
             <div className="flex items-center gap-3">
               {status.status === 'connected' && (
                 <>
-                  <div className="h-3 w-3 rounded-full bg-emerald-500 animate-pulse" />
-                  <CheckCircle2 className="h-5 w-5 text-emerald-400" />
-                  <span className="font-semibold text-emerald-400">Connected</span>
+                  <div className="h-3 w-3 rounded-full bg-emerald-600 animate-pulse" />
+                  <CheckCircle2 className="h-5 w-5 text-emerald-600" />
+                  <span className="font-semibold text-emerald-600">Connected</span>
                 </>
               )}
               {status.status === 'configured' && (
                 <>
                   <div className="h-3 w-3 rounded-full bg-yellow-500 animate-pulse" />
-                  <AlertTriangle className="h-5 w-5 text-yellow-400" />
-                  <span className="font-semibold text-yellow-400">Configured but not connected</span>
+                  <AlertTriangle className="h-5 w-5 text-yellow-700" />
+                  <span className="font-semibold text-yellow-700">Configured but not connected</span>
                 </>
               )}
               {status.status === 'not_configured' && (
                 <>
                   <div className="h-3 w-3 rounded-full bg-red-500" />
-                  <XCircle className="h-5 w-5 text-red-400" />
-                  <span className="font-semibold text-red-400">Not configured</span>
+                  <XCircle className="h-5 w-5 text-red-600" />
+                  <span className="font-semibold text-red-600">Not configured</span>
                 </>
               )}
             </div>
@@ -229,7 +229,7 @@ function ConnectionStatusCard({
             {status.status === 'connected' && (
               <div className="flex items-center gap-2 text-sm">
                 <span className="text-muted-foreground">Posts in database:</span>
-                <Badge variant="outline" className="bg-emerald-500/15 text-emerald-400 border-emerald-500/30">
+                <Badge variant="outline" className="bg-emerald-600/15 text-emerald-600 border-emerald-500/30">
                   {status.postCount}
                 </Badge>
               </div>
@@ -277,7 +277,7 @@ function SetupInstructionsCard() {
     <Card className="border-border/50">
       <CardHeader className="pb-3">
         <CardTitle className="text-base flex items-center gap-2">
-          <Shield className="h-4 w-4 text-emerald-400" />
+          <Shield className="h-4 w-4 text-emerald-600" />
           Setup Instructions
         </CardTitle>
       </CardHeader>
@@ -290,7 +290,7 @@ function SetupInstructionsCard() {
           <ol className="space-y-3">
             {steps.map((step) => (
               <li key={step.num} className="flex gap-3 text-sm">
-                <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-500/15 text-xs font-bold text-emerald-400">
+                <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-600/15 text-xs font-bold text-emerald-600">
                   {step.num}
                 </span>
                 <span className="text-muted-foreground pt-0.5">
@@ -302,7 +302,7 @@ function SetupInstructionsCard() {
                         href={step.link.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 text-emerald-400 hover:text-emerald-300 underline underline-offset-2"
+                        className="inline-flex items-center gap-1 text-emerald-600 hover:text-emerald-700 underline underline-offset-2"
                       >
                         {step.link.label}
                         <ExternalLink className="h-3 w-3" />
@@ -319,18 +319,18 @@ function SetupInstructionsCard() {
           <div className="rounded-lg bg-muted/50 border border-border/50 p-4 mt-3">
             <p className="text-xs font-mono text-muted-foreground mb-2"># .env</p>
             <pre className="text-xs font-mono space-y-1">
-              <code className="text-emerald-400">TURSO_DATABASE_URL</code>
+              <code className="text-emerald-600">TURSO_DATABASE_URL</code>
               <code className="text-muted-foreground">=libsql://your-db-name-your-org.turso.io</code>
               {'\n'}
-              <code className="text-emerald-400">TURSO_AUTH_TOKEN</code>
+              <code className="text-emerald-600">TURSO_AUTH_TOKEN</code>
               <code className="text-muted-foreground">=your-auth-token</code>
             </pre>
           </div>
 
           {/* Free tier note */}
-          <Alert className="border-emerald-500/20 bg-emerald-500/5">
-            <Shield className="h-4 w-4 text-emerald-400" />
-            <AlertTitle className="text-emerald-400">Free Tier Available</AlertTitle>
+          <Alert className="border-emerald-500/20 bg-emerald-600/5">
+            <Shield className="h-4 w-4 text-emerald-600" />
+            <AlertTitle className="text-emerald-600">Free Tier Available</AlertTitle>
             <AlertDescription className="text-muted-foreground">
               Turso offers a generous free tier: 9GB storage, 1 billion reads/month.
               Perfect for a blog database.
@@ -357,7 +357,7 @@ function SeedDatabaseCard({
     <Card className="border-border/50">
       <CardHeader className="pb-3">
         <CardTitle className="text-base flex items-center gap-2">
-          <Upload className="h-4 w-4 text-emerald-400" />
+          <Upload className="h-4 w-4 text-emerald-600" />
           Seed Database
         </CardTitle>
       </CardHeader>
@@ -388,9 +388,9 @@ function SeedDatabaseCard({
 
           {/* Seed result */}
           {seedResult && !isSeeding && (
-            <Alert className="border-emerald-500/20 bg-emerald-500/5">
-              <CheckCircle2 className="h-4 w-4 text-emerald-400" />
-              <AlertTitle className="text-emerald-400">Seeding Complete</AlertTitle>
+            <Alert className="border-emerald-500/20 bg-emerald-600/5">
+              <CheckCircle2 className="h-4 w-4 text-emerald-600" />
+              <AlertTitle className="text-emerald-600">Seeding Complete</AlertTitle>
               <AlertDescription className="text-muted-foreground">
                 Successfully seeded {seedResult.seeded} of {seedResult.total} article{seedResult.total !== 1 ? 's' : ''}.
                 {seedResult.skipped > 0 && ` (${seedResult.skipped} skipped)`}
@@ -402,7 +402,7 @@ function SeedDatabaseCard({
           {seedResult?.errors && seedResult.errors.length > 0 && (
             <div className="space-y-1">
               {seedResult.errors.map((err, i) => (
-                <p key={i} className="text-xs text-red-400">{err}</p>
+                <p key={i} className="text-xs text-red-600">{err}</p>
               ))}
             </div>
           )}
@@ -429,19 +429,19 @@ function DatabaseInfoCard({
     {
       label: 'Total Posts',
       value: postCount,
-      color: 'text-emerald-400',
-      bgColor: 'bg-emerald-500/15',
+      color: 'text-emerald-600',
+      bgColor: 'bg-emerald-600/15',
     },
     {
       label: 'Published',
       value: publishedCount,
-      color: 'text-blue-400',
+      color: 'text-blue-700',
       bgColor: 'bg-blue-500/15',
     },
     {
       label: 'Drafts',
       value: draftCount,
-      color: 'text-amber-400',
+      color: 'text-amber-700',
       bgColor: 'bg-amber-500/15',
     },
   ];
@@ -450,7 +450,7 @@ function DatabaseInfoCard({
     <Card className="border-border/50">
       <CardHeader className="pb-3">
         <CardTitle className="text-base flex items-center gap-2">
-          <Database className="h-4 w-4 text-emerald-400" />
+          <Database className="h-4 w-4 text-emerald-600" />
           Database Info
         </CardTitle>
       </CardHeader>
@@ -503,7 +503,7 @@ function TroubleshootingCard({ error }: { error?: string }) {
     <Card className="border-border/50">
       <CardHeader className="pb-3">
         <CardTitle className="text-base flex items-center gap-2">
-          <AlertTriangle className="h-4 w-4 text-yellow-400" />
+          <AlertTriangle className="h-4 w-4 text-yellow-700" />
           Connection Troubleshooting
         </CardTitle>
       </CardHeader>
@@ -541,7 +541,7 @@ function TroubleshootingCard({ error }: { error?: string }) {
                   href="https://turso.tech/app"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-emerald-400 hover:text-emerald-300 underline underline-offset-2 inline-flex items-center gap-1"
+                  className="text-emerald-600 hover:text-emerald-700 underline underline-offset-2 inline-flex items-center gap-1"
                 >
                   turso.tech/app
                   <ExternalLink className="h-3 w-3" />

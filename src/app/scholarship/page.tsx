@@ -131,7 +131,7 @@ export default function ScholarshipPage() {
 
       {/* Hero */}
       <div className="mb-10 rounded-2xl border border-emerald-500/20 bg-gradient-to-br from-emerald-500/10 to-teal-500/5 p-8 text-center">
-        <span className="inline-flex items-center gap-2 rounded-full bg-emerald-500/10 border border-emerald-500/20 px-4 py-1.5 text-sm text-emerald-400 mb-4">
+        <span className="inline-flex items-center gap-2 rounded-full bg-emerald-600/10 border border-emerald-500/20 px-4 py-1.5 text-sm text-emerald-600 mb-4">
           2026 Application Now Open
         </span>
         <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl mb-4">
@@ -150,7 +150,7 @@ export default function ScholarshipPage() {
             Deadline: <span className="font-semibold text-foreground">May 31, 2026</span>
           </span>
           <span className="rounded-full bg-background/50 px-3 py-1.5 text-muted-foreground">
-            Cost: <span className="font-semibold text-emerald-400">Free to Apply</span>
+            Cost: <span className="font-semibold text-emerald-600">Free to Apply</span>
           </span>
         </div>
       </div>
@@ -196,7 +196,7 @@ export default function ScholarshipPage() {
             'At least 17 years old at the time of application',
           ].map((item) => (
             <li key={item} className="flex items-start gap-2">
-              <span className="text-emerald-400 mt-0.5">✓</span>
+              <span className="text-emerald-600 mt-0.5">✓</span>
               <span>{item}</span>
             </li>
           ))}
@@ -213,7 +213,7 @@ export default function ScholarshipPage() {
         </p>
         <div className="grid gap-4 sm:grid-cols-3">
           <div className="rounded-lg border border-border/30 bg-card/50 p-5">
-            <div className="text-2xl font-bold text-emerald-400 mb-2">1</div>
+            <div className="text-2xl font-bold text-emerald-600 mb-2">1</div>
             <h3 className="font-semibold text-foreground mb-1">Original Essay</h3>
             <p className="text-sm text-muted-foreground leading-relaxed">
               A 500–800 word essay on how understanding personal taxation improves financial
@@ -221,7 +221,7 @@ export default function ScholarshipPage() {
             </p>
           </div>
           <div className="rounded-lg border border-border/30 bg-card/50 p-5">
-            <div className="text-2xl font-bold text-emerald-400 mb-2">2</div>
+            <div className="text-2xl font-bold text-emerald-600 mb-2">2</div>
             <h3 className="font-semibold text-foreground mb-1">Resume / CV</h3>
             <p className="text-sm text-muted-foreground leading-relaxed">
               A current resume highlighting your academic achievements, extracurricular
@@ -229,7 +229,7 @@ export default function ScholarshipPage() {
             </p>
           </div>
           <div className="rounded-lg border border-border/30 bg-card/50 p-5">
-            <div className="text-2xl font-bold text-emerald-400 mb-2">3</div>
+            <div className="text-2xl font-bold text-emerald-600 mb-2">3</div>
             <h3 className="font-semibold text-foreground mb-1">Proof of Enrollment</h3>
             <p className="text-sm text-muted-foreground leading-relaxed">
               An unofficial transcript or registration confirmation showing current enrollment
@@ -241,7 +241,7 @@ export default function ScholarshipPage() {
           Email submissions are not accepted. To request an application form, contact{' '}
           <a
             href="mailto:scholarship@thetaxcalc.com"
-            className="text-emerald-400 hover:text-emerald-300 underline"
+            className="text-emerald-600 hover:text-emerald-700 underline"
           >
             scholarship@thetaxcalc.com
           </a>{' '}
@@ -269,7 +269,7 @@ export default function ScholarshipPage() {
               className="flex items-center justify-between rounded-lg border border-border/30 bg-card/50 p-4"
             >
               <span className="text-sm text-foreground">{item.label}</span>
-              <span className="font-semibold text-emerald-400">{item.weight}</span>
+              <span className="font-semibold text-emerald-600">{item.weight}</span>
             </div>
           ))}
         </div>
@@ -326,7 +326,7 @@ export default function ScholarshipPage() {
             <Link
               key={item.href}
               href={item.href}
-              className="rounded-lg border border-border/30 bg-card/50 p-4 hover:border-emerald-500/40 hover:bg-emerald-500/5 transition-colors"
+              className="rounded-lg border border-border/30 bg-card/50 p-4 hover:border-emerald-500/40 hover:bg-emerald-600/5 transition-colors"
             >
               <p className="font-medium text-foreground">{item.title}</p>
               <p className="text-sm text-muted-foreground mt-1">{item.desc}</p>
@@ -345,13 +345,13 @@ export default function ScholarshipPage() {
             use of their name, headshot, and essay excerpt for promotional purposes. The
             decision of the selection committee is final. By applying, you agree to the full
             official rules available at{' '}
-            <Link href="/terms" className="text-emerald-400 hover:text-emerald-300 underline">
+            <Link href="/terms" className="text-emerald-600 hover:text-emerald-700 underline">
               /terms
             </Link>
             . For questions, email{' '}
             <a
               href="mailto:scholarship@thetaxcalc.com"
-              className="text-emerald-400 hover:text-emerald-300 underline"
+              className="text-emerald-600 hover:text-emerald-700 underline"
             >
               scholarship@thetaxcalc.com
             </a>

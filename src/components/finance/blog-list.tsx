@@ -65,10 +65,10 @@ const GRADIENTS = [
 ];
 
 const CATEGORY_COLORS: Record<string, string> = {
-  'tax-guide': 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30',
-  comparison: 'bg-cyan-500/20 text-cyan-400 border-cyan-500/30',
-  tips: 'bg-amber-500/20 text-amber-400 border-amber-500/30',
-  news: 'bg-rose-500/20 text-rose-400 border-rose-500/30',
+  'tax-guide': 'bg-emerald-600/20 text-emerald-600 border-emerald-500/30',
+  comparison: 'bg-cyan-500/20 text-cyan-700 border-cyan-500/30',
+  tips: 'bg-amber-500/20 text-amber-700 border-amber-500/30',
+  news: 'bg-rose-500/20 text-rose-700 border-rose-500/30',
 };
 
 const CATEGORY_LABELS: Record<string, string> = {
@@ -229,7 +229,7 @@ function PostCard({
         </div>
 
         <h3
-          className={`font-bold leading-tight text-foreground group-hover:text-emerald-400 transition-colors ${
+          className={`font-bold leading-tight text-foreground group-hover:text-emerald-600 transition-colors ${
             featured ? 'text-xl' : 'text-base'
           }`}
         >
@@ -254,7 +254,7 @@ function PostCard({
         </div>
 
         <div className="pt-1">
-          <span className="inline-flex items-center gap-1 text-xs font-medium text-emerald-400 group-hover:gap-2 transition-all">
+          <span className="inline-flex items-center gap-1 text-xs font-medium text-emerald-600 group-hover:gap-2 transition-all">
             Read more
             <ArrowRight className="h-3 w-3" />
           </span>
@@ -336,7 +336,7 @@ export function BlogList({ onNavigate }: { onNavigate: (hash: string) => void })
       {/* ─── Page Header ──────────────────────────────────── */}
       <div className="text-center">
         <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-          TheTaxCalc <span className="text-emerald-400">Blog</span>
+          TheTaxCalc <span className="text-emerald-600">Blog</span>
         </h2>
         <p className="mt-2 text-muted-foreground">
           Expert tax guides, state-by-state comparisons, and financial tips to help you keep more of your money.
@@ -382,7 +382,7 @@ export function BlogList({ onNavigate }: { onNavigate: (hash: string) => void })
       {isLoading ? (
         <BlogListSkeleton />
       ) : error ? (
-        <div className="rounded-lg border border-red-500/30 bg-red-500/10 p-6 text-center text-sm text-red-400">
+        <div className="rounded-lg border border-red-500/30 bg-red-500/10 p-6 text-center text-sm text-red-600">
           Failed to load blog posts. Please try again later.
         </div>
       ) : filteredPosts.length === 0 ? (
@@ -393,7 +393,7 @@ export function BlogList({ onNavigate }: { onNavigate: (hash: string) => void })
           {featuredPosts.length > 0 && activeCategory === 'all' && search.trim() === '' && (
             <section>
               <div className="mb-4 flex items-center gap-2">
-                <TrendingUp className="h-5 w-5 text-emerald-400" />
+                <TrendingUp className="h-5 w-5 text-emerald-600" />
                 <h3 className="text-lg font-semibold text-foreground">Featured Articles</h3>
               </div>
               <div className="grid gap-6 lg:grid-cols-2">
@@ -416,7 +416,7 @@ export function BlogList({ onNavigate }: { onNavigate: (hash: string) => void })
           <section>
             {featuredPosts.length > 0 && activeCategory === 'all' && search.trim() === '' && (
               <div className="mb-4 flex items-center gap-2">
-                <BookOpen className="h-5 w-5 text-emerald-400" />
+                <BookOpen className="h-5 w-5 text-emerald-600" />
                 <h3 className="text-lg font-semibold text-foreground">Latest Articles</h3>
               </div>
             )}
@@ -447,11 +447,11 @@ export function BlogList({ onNavigate }: { onNavigate: (hash: string) => void })
             <button
               key={calc.hash}
               onClick={() => onNavigate(calc.hash)}
-              className="group flex items-start gap-3 rounded-lg border border-border/40 bg-card/60 p-3 text-left transition-all hover:border-emerald-500/30 hover:bg-emerald-500/5"
+              className="group flex items-start gap-3 rounded-lg border border-border/40 bg-card/60 p-3 text-left transition-all hover:border-emerald-500/30 hover:bg-emerald-600/5"
             >
-              <ArrowRight className="mt-0.5 h-4 w-4 shrink-0 text-emerald-400 transition-transform group-hover:translate-x-1" />
+              <ArrowRight className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600 transition-transform group-hover:translate-x-1" />
               <div>
-                <p className="text-sm font-medium text-foreground group-hover:text-emerald-400 transition-colors">
+                <p className="text-sm font-medium text-foreground group-hover:text-emerald-600 transition-colors">
                   {calc.label}
                 </p>
                 <p className="text-xs text-muted-foreground">{calc.desc}</p>

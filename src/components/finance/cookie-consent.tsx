@@ -50,11 +50,11 @@ export function CookieConsent() {
     <div className="fixed bottom-0 left-0 right-0 z-50 border-t border-border/30 glass-strong p-4 sm:p-6 animate-in slide-in-from-bottom duration-300">
       <div className="mx-auto max-w-7xl flex flex-col sm:flex-row items-center gap-4">
         <div className="flex items-center gap-3 flex-1">
-          <Cookie className="h-5 w-5 text-emerald-400 shrink-0" />
+          <Cookie className="h-5 w-5 text-emerald-600 shrink-0" />
           <p className="text-sm text-muted-foreground">
             We use essential cookies to keep this site running and analytics cookies to improve your experience.
             All calculations run in your browser — we never store your financial data.{' '}
-            <Link href="/privacy" className="text-emerald-400 hover:text-emerald-300 underline">Privacy Policy</Link>
+            <Link href="/privacy" className="text-emerald-600 hover:text-emerald-700 underline">Privacy Policy</Link>
           </p>
         </div>
         <div className="flex items-center gap-3 shrink-0">
@@ -66,7 +66,7 @@ export function CookieConsent() {
           </button>
           <button
             onClick={accept}
-            className="text-sm font-semibold text-white rounded-lg bg-gradient-to-r from-emerald-600 to-emerald-500 px-5 py-2 hover:from-emerald-500 hover:to-emerald-400 transition-all"
+            className="text-sm font-semibold text-white rounded-lg bg-gradient-to-r from-emerald-700 to-emerald-600 px-5 py-2 hover:from-emerald-500 hover:to-emerald-400 transition-all"
           >
             Accept
           </button>

@@ -68,8 +68,8 @@ export default function TermsPage() {
       {/* Header */}
       <div className="mb-10">
         <div className="flex items-center gap-3 mb-4">
-          <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-500/10 border border-emerald-500/20">
-            <Scale className="h-6 w-6 text-emerald-400" />
+          <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-600/10 border border-emerald-500/20">
+            <Scale className="h-6 w-6 text-emerald-600" />
           </div>
           <div>
             <h1 className="text-3xl font-bold text-foreground">Terms of Use — TheTaxCalc Free Tax Calculator Service</h1>
@@ -86,7 +86,7 @@ export default function TermsPage() {
       {/* Important Disclaimer Banner */}
       <div className="mb-8 rounded-xl border border-amber-500/20 bg-amber-500/5 p-6">
         <div className="flex items-start gap-3">
-          <AlertTriangle className="h-6 w-6 text-amber-400 shrink-0 mt-0.5" />
+          <AlertTriangle className="h-6 w-6 text-amber-700 shrink-0 mt-0.5" />
           <div>
             <h2 className="text-lg font-semibold text-foreground mb-2">Important Disclaimer</h2>
             <p className="text-sm text-muted-foreground leading-relaxed">
@@ -105,14 +105,14 @@ export default function TermsPage() {
         {/* 1. Acceptance of Terms */}
         <section className="rounded-xl border border-border/30 bg-card/50 p-6">
           <div className="flex items-center gap-2 mb-4">
-            <FileText className="h-5 w-5 text-emerald-400" />
+            <FileText className="h-5 w-5 text-emerald-600" />
             <h2 className="text-xl font-semibold text-foreground">1. Acceptance of Terms</h2>
           </div>
           <div className="text-sm text-muted-foreground leading-relaxed space-y-3">
             <p>
               By accessing and using TheTaxCalc, you acknowledge that you have read, understood, and
               agree to be bound by these Terms of Use — TheTaxCalc Free Tax Calculator Service and our{' '}
-              <Link href="/privacy" className="text-emerald-400 hover:text-emerald-300 underline">
+              <Link href="/privacy" className="text-emerald-600 hover:text-emerald-700 underline">
                 Privacy Policy
               </Link>.
               If you do not agree to these Terms, you must not use our website.
@@ -128,7 +128,7 @@ export default function TermsPage() {
         {/* 2. Use of Our Services */}
         <section className="rounded-xl border border-border/30 bg-card/50 p-6">
           <div className="flex items-center gap-2 mb-4">
-            <Gavel className="h-5 w-5 text-emerald-400" />
+            <Gavel className="h-5 w-5 text-emerald-600" />
             <h2 className="text-xl font-semibold text-foreground">2. Use of Our Services</h2>
           </div>
           <div className="text-sm text-muted-foreground leading-relaxed space-y-3">
@@ -147,7 +147,7 @@ export default function TermsPage() {
         {/* 3. Accuracy of Calculations */}
         <section className="rounded-xl border border-border/30 bg-card/50 p-6">
           <div className="flex items-center gap-2 mb-4">
-            <AlertTriangle className="h-5 w-5 text-amber-400" />
+            <AlertTriangle className="h-5 w-5 text-amber-700" />
             <h2 className="text-xl font-semibold text-foreground">3. Accuracy of Calculations</h2>
           </div>
           <div className="text-sm text-muted-foreground leading-relaxed space-y-3">
@@ -175,7 +175,7 @@ export default function TermsPage() {
         {/* 4. No Professional Advice */}
         <section className="rounded-xl border border-border/30 bg-card/50 p-6">
           <div className="flex items-center gap-2 mb-4">
-            <Shield className="h-5 w-5 text-emerald-400" />
+            <Shield className="h-5 w-5 text-emerald-600" />
             <h2 className="text-xl font-semibold text-foreground">4. No Professional Advice</h2>
           </div>
           <div className="text-sm text-muted-foreground leading-relaxed space-y-3">
@@ -199,7 +199,7 @@ export default function TermsPage() {
         {/* 5. Intellectual Property */}
         <section className="rounded-xl border border-border/30 bg-card/50 p-6">
           <div className="flex items-center gap-2 mb-4">
-            <FileText className="h-5 w-5 text-emerald-400" />
+            <FileText className="h-5 w-5 text-emerald-600" />
             <h2 className="text-xl font-semibold text-foreground">5. Intellectual Property</h2>
           </div>
           <div className="text-sm text-muted-foreground leading-relaxed space-y-3">
@@ -223,7 +223,7 @@ export default function TermsPage() {
         {/* 6. Third-Party Links & Advertising */}
         <section className="rounded-xl border border-border/30 bg-card/50 p-6">
           <div className="flex items-center gap-2 mb-4">
-            <ExternalLink className="h-5 w-5 text-emerald-400" />
+            <ExternalLink className="h-5 w-5 text-emerald-600" />
             <h2 className="text-xl font-semibold text-foreground">6. Third-Party Links & Advertising</h2>
           </div>
           <div className="text-sm text-muted-foreground leading-relaxed space-y-3">
@@ -244,7 +244,7 @@ export default function TermsPage() {
         {/* 7. Limitation of Liability */}
         <section className="rounded-xl border border-border/30 bg-card/50 p-6">
           <div className="flex items-center gap-2 mb-4">
-            <Shield className="h-5 w-5 text-emerald-400" />
+            <Shield className="h-5 w-5 text-emerald-600" />
             <h2 className="text-xl font-semibold text-foreground">7. Limitation of Liability</h2>
           </div>
           <div className="text-sm text-muted-foreground leading-relaxed space-y-3">
@@ -276,7 +276,7 @@ export default function TermsPage() {
         {/* 8. Indemnification */}
         <section className="rounded-xl border border-border/30 bg-card/50 p-6">
           <div className="flex items-center gap-2 mb-4">
-            <Gavel className="h-5 w-5 text-emerald-400" />
+            <Gavel className="h-5 w-5 text-emerald-600" />
             <h2 className="text-xl font-semibold text-foreground">8. Indemnification</h2>
           </div>
           <div className="text-sm text-muted-foreground leading-relaxed">
@@ -291,7 +291,7 @@ export default function TermsPage() {
         {/* 9. Termination */}
         <section className="rounded-xl border border-border/30 bg-card/50 p-6">
           <div className="flex items-center gap-2 mb-4">
-            <FileText className="h-5 w-5 text-emerald-400" />
+            <FileText className="h-5 w-5 text-emerald-600" />
             <h2 className="text-xl font-semibold text-foreground">9. Termination</h2>
           </div>
           <div className="text-sm text-muted-foreground leading-relaxed">
@@ -306,7 +306,7 @@ export default function TermsPage() {
         {/* 10. Governing Law */}
         <section className="rounded-xl border border-border/30 bg-card/50 p-6">
           <div className="flex items-center gap-2 mb-4">
-            <Scale className="h-5 w-5 text-emerald-400" />
+            <Scale className="h-5 w-5 text-emerald-600" />
             <h2 className="text-xl font-semibold text-foreground">10. Governing Law</h2>
           </div>
           <div className="text-sm text-muted-foreground leading-relaxed">
@@ -321,7 +321,7 @@ export default function TermsPage() {
         {/* 11. Contact */}
         <section className="rounded-xl border border-border/30 bg-card/50 p-6">
           <div className="flex items-center gap-2 mb-4">
-            <Mail className="h-5 w-5 text-emerald-400" />
+            <Mail className="h-5 w-5 text-emerald-600" />
             <h2 className="text-xl font-semibold text-foreground">11. Contact</h2>
           </div>
           <div className="text-sm text-muted-foreground leading-relaxed">
@@ -356,9 +356,9 @@ export default function TermsPage() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-400 transition-colors"
+                  className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-600 transition-colors"
                 >
-                  <span className="h-1 w-1 rounded-full bg-emerald-500/40 shrink-0 group-hover:bg-emerald-400 transition-colors" />
+                  <span className="h-1 w-1 rounded-full bg-emerald-600/40 shrink-0 group-hover:bg-emerald-500 transition-colors" />
                   {item.label}
                 </Link>
               ))}
@@ -378,19 +378,19 @@ export default function TermsPage() {
                 <Link
                   key={s.href}
                   href={s.href}
-                  className="inline-flex items-center rounded-lg border border-border/50 bg-muted/20 px-3 py-1.5 text-xs font-medium text-foreground hover:border-emerald-500/30 hover:text-emerald-400 transition-all"
+                  className="inline-flex items-center rounded-lg border border-border/50 bg-muted/20 px-3 py-1.5 text-xs font-medium text-foreground hover:border-emerald-500/30 hover:text-emerald-600 transition-all"
                 >
                   {s.label}
                 </Link>
               ))}
             </div>
             <div className="mt-3 space-y-2">
-              <Link href="/salary" className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-400 transition-colors">
-                <span className="h-1 w-1 rounded-full bg-emerald-500/40 shrink-0 group-hover:bg-emerald-400 transition-colors" />
+              <Link href="/salary" className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-600 transition-colors">
+                <span className="h-1 w-1 rounded-full bg-emerald-600/40 shrink-0 group-hover:bg-emerald-500 transition-colors" />
                 All Salary Levels
               </Link>
-              <Link href="/compare" className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-400 transition-colors">
-                <span className="h-1 w-1 rounded-full bg-emerald-500/40 shrink-0 group-hover:bg-emerald-400 transition-colors" />
+              <Link href="/compare" className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-600 transition-colors">
+                <span className="h-1 w-1 rounded-full bg-emerald-600/40 shrink-0 group-hover:bg-emerald-500 transition-colors" />
                 Compare State Taxes
               </Link>
             </div>
@@ -412,9 +412,9 @@ export default function TermsPage() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-400 transition-colors"
+                  className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-600 transition-colors"
                 >
-                  <span className="h-1 w-1 rounded-full bg-emerald-500/40 shrink-0 group-hover:bg-emerald-400 transition-colors" />
+                  <span className="h-1 w-1 rounded-full bg-emerald-600/40 shrink-0 group-hover:bg-emerald-500 transition-colors" />
                   {item.label}
                 </Link>
               ))}
@@ -427,7 +427,7 @@ export default function TermsPage() {
       <div className="mt-10 text-center">
         <Link
           href="/"
-          className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-600 to-emerald-500 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/30 transition-all hover:scale-[1.02]"
+          className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-700 to-emerald-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/30 transition-all hover:scale-[1.02]"
         >
           Back to Home
         </Link>

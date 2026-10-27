@@ -158,19 +158,19 @@ function SalaryCard({ amount }: { amount: number }) {
     >
       {/* Header */}
       <div className="flex items-center justify-between">
-        <h3 className="text-xl font-bold text-foreground group-hover:text-emerald-400 transition-colors">
+        <h3 className="text-xl font-bold text-foreground group-hover:text-emerald-600 transition-colors">
           {formatSalary(amount)}
         </h3>
-        <span className="text-[10px] font-semibold uppercase tracking-wider rounded-full px-2.5 py-1 bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+        <span className="text-[10px] font-semibold uppercase tracking-wider rounded-full px-2.5 py-1 bg-emerald-600/10 text-emerald-600 border border-emerald-500/20">
           {formatSalaryCompact(amount)}
         </span>
       </div>
 
       {/* Texas take-home (highest net) */}
       <div className="flex items-center gap-2">
-        <MapPin className="h-4 w-4 text-emerald-400 shrink-0" />
+        <MapPin className="h-4 w-4 text-emerald-600 shrink-0" />
         <span className="text-sm text-muted-foreground">
-          TX Take-Home: <strong className="text-emerald-400">{fmt(txNet)}</strong>/yr
+          TX Take-Home: <strong className="text-emerald-600">{fmt(txNet)}</strong>/yr
         </span>
       </div>
 
@@ -182,7 +182,7 @@ function SalaryCard({ amount }: { amount: number }) {
             <div key={state.stateKey} className="text-center">
               <div className="h-1.5 rounded-full bg-muted/30 overflow-hidden">
                 <div
-                  className="h-full rounded-full bg-emerald-500/60"
+                  className="h-full rounded-full bg-emerald-600/60"
                   style={{ width: `${pct * 100}%` }}
                 />
               </div>
@@ -193,7 +193,7 @@ function SalaryCard({ amount }: { amount: number }) {
       </div>
 
       {/* CTA */}
-      <div className="mt-auto flex items-center gap-1.5 text-sm font-medium text-emerald-400 group-hover:gap-3 transition-all">
+      <div className="mt-auto flex items-center gap-1.5 text-sm font-medium text-emerald-600 group-hover:gap-3 transition-all">
         View Details
         <ArrowRight className="h-4 w-4" />
       </div>
@@ -222,9 +222,9 @@ export default function SalaryLandingPage() {
         <section className="mb-16 relative overflow-hidden">
           <div className="flex items-center gap-3 mb-4">
             <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-emerald-600/20 to-teal-600/10">
-              <DollarSign className="h-6 w-6 text-emerald-400" />
+              <DollarSign className="h-6 w-6 text-emerald-600" />
             </div>
-            <span className="text-xs font-semibold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 rounded-full px-3 py-1">
+            <span className="text-xs font-semibold uppercase tracking-wider text-emerald-600 bg-emerald-600/10 border border-emerald-500/20 rounded-full px-3 py-1">
               <Zap className="h-3 w-3 inline mr-1" />
               26 Salary Pages
             </span>
@@ -243,15 +243,15 @@ export default function SalaryLandingPage() {
 
           <div className="mt-6 flex flex-wrap gap-4 text-sm text-muted-foreground">
             <span className="flex items-center gap-1.5">
-              <Calculator className="h-4 w-4 text-emerald-400" />
+              <Calculator className="h-4 w-4 text-emerald-600" />
               Single Filer + Standard Deduction
             </span>
             <span className="flex items-center gap-1.5">
-              <BarChart3 className="h-4 w-4 text-emerald-400" />
+              <BarChart3 className="h-4 w-4 text-emerald-600" />
               Federal + FICA + State Tax
             </span>
             <span className="flex items-center gap-1.5">
-              <TrendingUp className="h-4 w-4 text-emerald-400" />
+              <TrendingUp className="h-4 w-4 text-emerald-600" />
               $30K – $500K
             </span>
           </div>
@@ -312,7 +312,7 @@ export default function SalaryLandingPage() {
               },
             ].map((item) => (
               <div key={item.step} className="rounded-xl border border-border/30 bg-card/50 p-5">
-                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-emerald-500/10 text-emerald-400 font-bold text-sm mb-3">
+                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-emerald-600/10 text-emerald-600 font-bold text-sm mb-3">
                   {item.step}
                 </div>
                 <h3 className="text-base font-semibold text-foreground mb-2">{item.title}</h3>
@@ -347,13 +347,13 @@ export default function SalaryLandingPage() {
                 className="group rounded-xl border border-border/30 bg-card/50 p-5 text-center transition-all hover:border-emerald-500/30 hover-lift"
               >
                 <div className={`mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br ${state.color}`}>
-                  <MapPin className="h-6 w-6 text-emerald-400" />
+                  <MapPin className="h-6 w-6 text-emerald-600" />
                 </div>
-                <h3 className="mt-3 text-base font-semibold text-foreground group-hover:text-emerald-400 transition-colors">
+                <h3 className="mt-3 text-base font-semibold text-foreground group-hover:text-emerald-600 transition-colors">
                   {state.name}
                 </h3>
                 <p className="mt-1 text-xs text-muted-foreground">{state.rate}</p>
-                <p className="mt-3 text-xs text-emerald-400 group-hover:underline">
+                <p className="mt-3 text-xs text-emerald-600 group-hover:underline">
                   Open Calculator <ChevronRight className="h-3 w-3 inline" />
                 </p>
               </Link>
@@ -364,7 +364,7 @@ export default function SalaryLandingPage() {
         {/* ─── CTA ────────────────────────────────────────────────────── */}
         <section className="py-12 border-t border-border/20">
           <div className="rounded-2xl border border-emerald-500/20 bg-gradient-to-br from-emerald-600/10 to-teal-600/5 p-8 sm:p-12 text-center">
-            <Calculator className="h-10 w-10 text-emerald-400 mx-auto mb-4" />
+            <Calculator className="h-10 w-10 text-emerald-600 mx-auto mb-4" />
             <h3 className="text-2xl font-bold text-foreground mb-3">
               Need a More Precise Calculation?
             </h3>
@@ -374,7 +374,7 @@ export default function SalaryLandingPage() {
             </p>
             <Link
               href="/paycheck-calculator"
-              className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-600 to-emerald-500 px-8 py-3.5 text-base font-semibold text-white shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/30 transition-all hover:scale-[1.02]"
+              className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-700 to-emerald-600 px-8 py-3.5 text-base font-semibold text-white shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/30 transition-all hover:scale-[1.02]"
             >
               <BarChart3 className="h-5 w-5" />
               Open Paycheck Calculator
@@ -403,9 +403,9 @@ export default function SalaryLandingPage() {
                   <Link
                     key={item.href}
                     href={item.href}
-                    className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-400 transition-colors"
+                    className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-600 transition-colors"
                   >
-                    <span className="h-1 w-1 rounded-full bg-emerald-500/40 shrink-0 group-hover:bg-emerald-400 transition-colors" />
+                    <span className="h-1 w-1 rounded-full bg-emerald-600/40 shrink-0 group-hover:bg-emerald-500 transition-colors" />
                     {item.label}
                   </Link>
                 ))}
@@ -426,9 +426,9 @@ export default function SalaryLandingPage() {
                   <Link
                     key={item.href}
                     href={item.href}
-                    className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-400 transition-colors"
+                    className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-600 transition-colors"
                   >
-                    <span className="h-1 w-1 rounded-full bg-emerald-500/40 shrink-0 group-hover:bg-emerald-400 transition-colors" />
+                    <span className="h-1 w-1 rounded-full bg-emerald-600/40 shrink-0 group-hover:bg-emerald-500 transition-colors" />
                     {item.label}
                   </Link>
                 ))}
@@ -448,27 +448,27 @@ export default function SalaryLandingPage() {
                   <Link
                     key={s.href}
                     href={s.href}
-                    className="inline-flex items-center rounded-lg border border-border/50 bg-muted/20 px-3 py-1.5 text-xs font-medium text-foreground hover:border-emerald-500/30 hover:text-emerald-400 transition-all"
+                    className="inline-flex items-center rounded-lg border border-border/50 bg-muted/20 px-3 py-1.5 text-xs font-medium text-foreground hover:border-emerald-500/30 hover:text-emerald-600 transition-all"
                   >
                     {s.label}
                   </Link>
                 ))}
               </div>
               <div className="mt-3 space-y-2">
-                <Link href="/compare" className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-400 transition-colors">
-                  <span className="h-1 w-1 rounded-full bg-emerald-500/40 shrink-0 group-hover:bg-emerald-400 transition-colors" />
+                <Link href="/compare" className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-600 transition-colors">
+                  <span className="h-1 w-1 rounded-full bg-emerald-600/40 shrink-0 group-hover:bg-emerald-500 transition-colors" />
                   Compare State Taxes
                 </Link>
-                <Link href="/federal-tax-brackets" className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-400 transition-colors">
-                  <span className="h-1 w-1 rounded-full bg-emerald-500/40 shrink-0 group-hover:bg-emerald-400 transition-colors" />
+                <Link href="/federal-tax-brackets" className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-600 transition-colors">
+                  <span className="h-1 w-1 rounded-full bg-emerald-600/40 shrink-0 group-hover:bg-emerald-500 transition-colors" />
                   2026 Federal Tax Brackets
                 </Link>
-                <Link href="/glossary" className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-400 transition-colors">
-                  <span className="h-1 w-1 rounded-full bg-emerald-500/40 shrink-0 group-hover:bg-emerald-400 transition-colors" />
+                <Link href="/glossary" className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-600 transition-colors">
+                  <span className="h-1 w-1 rounded-full bg-emerald-600/40 shrink-0 group-hover:bg-emerald-500 transition-colors" />
                   Tax Glossary
                 </Link>
-                <Link href="/blog" className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-400 transition-colors">
-                  <span className="h-1 w-1 rounded-full bg-emerald-500/40 shrink-0 group-hover:bg-emerald-400 transition-colors" />
+                <Link href="/blog" className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-600 transition-colors">
+                  <span className="h-1 w-1 rounded-full bg-emerald-600/40 shrink-0 group-hover:bg-emerald-500 transition-colors" />
                   Blog
                 </Link>
               </div>
@@ -479,8 +479,8 @@ export default function SalaryLandingPage() {
         {/* ─── FAQ Section ─────────────────────────────────────────── */}
         <section className="py-12 border-t border-border/20">
           <div className="flex items-center gap-3 mb-6">
-            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-500/10">
-              <BookOpen className="h-5 w-5 text-emerald-400" />
+            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-600/10">
+              <BookOpen className="h-5 w-5 text-emerald-600" />
             </div>
             <h2 className="text-2xl font-bold text-foreground">Salary After Tax FAQ</h2>
           </div>

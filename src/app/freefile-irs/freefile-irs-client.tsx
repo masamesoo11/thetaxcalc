@@ -98,14 +98,14 @@ export function FreefileIrsClient() {
   };
 
   const programIcons = {
-    guided: <Shield className="h-5 w-5 text-emerald-400" />,
-    fillable: <FileText className="h-5 w-5 text-sky-400" />,
-    vita: <Users className="h-5 w-5 text-amber-400" />,
-    none: <XCircle className="h-5 w-5 text-red-400" />,
+    guided: <Shield className="h-5 w-5 text-emerald-600" />,
+    fillable: <FileText className="h-5 w-5 text-sky-700" />,
+    vita: <Users className="h-5 w-5 text-amber-700" />,
+    none: <XCircle className="h-5 w-5 text-red-600" />,
   };
 
   const programColors = {
-    guided: 'border-emerald-500/30 bg-emerald-500/5',
+    guided: 'border-emerald-500/30 bg-emerald-600/5',
     fillable: 'border-sky-500/30 bg-sky-500/5',
     vita: 'border-amber-500/30 bg-amber-500/5',
     none: 'border-border/30 bg-card/50',
@@ -117,7 +117,7 @@ export function FreefileIrsClient() {
       <Card className="border-emerald-500/20 bg-card/50">
         <CardHeader>
           <CardTitle className="flex items-center gap-2 text-lg">
-            <CheckCircle2 className="h-5 w-5 text-emerald-400" />
+            <CheckCircle2 className="h-5 w-5 text-emerald-600" />
             IRS Free File Eligibility Checker
           </CardTitle>
           <p className="text-sm text-muted-foreground">
@@ -132,7 +132,7 @@ export function FreefileIrsClient() {
               </p>
               <Button
                 onClick={() => setShowCalculator(true)}
-                className="bg-gradient-to-r from-emerald-600 to-emerald-500 text-white hover:from-emerald-500 hover:to-emerald-400"
+                className="bg-gradient-to-r from-emerald-700 to-emerald-600 text-white hover:from-emerald-500 hover:to-emerald-400"
               >
                 Check My Eligibility
                 <ChevronRight className="h-4 w-4 ml-1" />
@@ -230,7 +230,7 @@ export function FreefileIrsClient() {
                     type="checkbox"
                     checked={isSelfEmployed}
                     onChange={(e) => setIsSelfEmployed(e.target.checked)}
-                    className="mt-1 h-4 w-4 rounded border-border/50 text-emerald-500 focus:ring-emerald-500/20"
+                    className="mt-1 h-4 w-4 rounded border-border/50 text-emerald-700 focus:ring-emerald-500/20"
                   />
                   <div>
                     <span className="text-sm font-medium text-foreground">Self-employed or independent contractor</span>
@@ -242,7 +242,7 @@ export function FreefileIrsClient() {
                     type="checkbox"
                     checked={hasForeignIncome}
                     onChange={(e) => setHasForeignIncome(e.target.checked)}
-                    className="mt-1 h-4 w-4 rounded border-border/50 text-emerald-500 focus:ring-emerald-500/20"
+                    className="mt-1 h-4 w-4 rounded border-border/50 text-emerald-700 focus:ring-emerald-500/20"
                   />
                   <div>
                     <span className="text-sm font-medium text-foreground">Foreign income or foreign accounts</span>
@@ -256,7 +256,7 @@ export function FreefileIrsClient() {
                 <Button
                   onClick={checkEligibility}
                   disabled={!agi}
-                  className="flex-1 bg-gradient-to-r from-emerald-600 to-emerald-500 text-white hover:from-emerald-500 hover:to-emerald-400"
+                  className="flex-1 bg-gradient-to-r from-emerald-700 to-emerald-600 text-white hover:from-emerald-500 hover:to-emerald-400"
                 >
                   Check Eligibility
                 </Button>
@@ -287,7 +287,7 @@ export function FreefileIrsClient() {
               <ul className="space-y-2 mb-4">
                 {result.details.map((detail, i) => (
                   <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
-                    <CheckCircle2 className="h-4 w-4 text-emerald-400 shrink-0 mt-0.5" />
+                    <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
                     {detail}
                   </li>
                 ))}
@@ -298,7 +298,7 @@ export function FreefileIrsClient() {
                   href={result.partnerLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-emerald-600 to-emerald-500 px-4 py-2 text-sm font-medium text-white hover:from-emerald-500 hover:to-emerald-400 transition-all"
+                  className="inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-emerald-700 to-emerald-600 px-4 py-2 text-sm font-medium text-white hover:from-emerald-500 hover:to-emerald-400 transition-all"
                 >
                   {result.program === 'guided' && 'Go to IRS Free File'}
                   {result.program === 'fillable' && 'Open Fillable Forms'}
@@ -322,7 +322,7 @@ export function FreefileIrsClient() {
       <Card className="border-border/30 bg-card/50">
         <CardHeader>
           <CardTitle className="text-lg flex items-center gap-2">
-            <Clock className="h-5 w-5 text-emerald-400" />
+            <Clock className="h-5 w-5 text-emerald-600" />
             IRS Free File Options at a Glance
           </CardTitle>
         </CardHeader>
@@ -332,9 +332,9 @@ export function FreefileIrsClient() {
               <thead>
                 <tr className="border-b border-border/30">
                   <th className="text-left py-3 px-3 font-semibold text-foreground">Feature</th>
-                  <th className="text-center py-3 px-3 font-semibold text-emerald-400">Guided Prep</th>
-                  <th className="text-center py-3 px-3 font-semibold text-sky-400">Fillable Forms</th>
-                  <th className="text-center py-3 px-3 font-semibold text-amber-400">VITA/TCE</th>
+                  <th className="text-center py-3 px-3 font-semibold text-emerald-600">Guided Prep</th>
+                  <th className="text-center py-3 px-3 font-semibold text-sky-700">Fillable Forms</th>
+                  <th className="text-center py-3 px-3 font-semibold text-amber-700">VITA/TCE</th>
                 </tr>
               </thead>
               <tbody className="text-muted-foreground">
@@ -346,9 +346,9 @@ export function FreefileIrsClient() {
                 </tr>
                 <tr className="border-b border-border/20">
                   <td className="py-2.5 px-3">Cost</td>
-                  <td className="py-2.5 px-3 text-center text-emerald-400">Free federal</td>
-                  <td className="py-2.5 px-3 text-center text-emerald-400">Free federal</td>
-                  <td className="py-2.5 px-3 text-center text-emerald-400">Free federal + state</td>
+                  <td className="py-2.5 px-3 text-center text-emerald-600">Free federal</td>
+                  <td className="py-2.5 px-3 text-center text-emerald-600">Free federal</td>
+                  <td className="py-2.5 px-3 text-center text-emerald-600">Free federal + state</td>
                 </tr>
                 <tr className="border-b border-border/20">
                   <td className="py-2.5 px-3">State Filing</td>
@@ -378,7 +378,7 @@ export function FreefileIrsClient() {
       <Card className="border-border/30 bg-card/50">
         <CardHeader>
           <CardTitle className="text-lg flex items-center gap-2">
-            <Clock className="h-5 w-5 text-emerald-400" />
+            <Clock className="h-5 w-5 text-emerald-600" />
             2026 Tax Season Key Dates
           </CardTitle>
         </CardHeader>
@@ -393,7 +393,7 @@ export function FreefileIrsClient() {
               { date: 'Mid-October 2026', event: 'Free File closes', note: 'IRS Free File portal shuts down for the season' },
             ].map((item) => (
               <div key={item.date + item.event} className="rounded-lg border border-border/20 bg-background/30 p-3">
-                <p className="text-xs font-semibold uppercase tracking-wider text-emerald-400 mb-1">{item.date}</p>
+                <p className="text-xs font-semibold uppercase tracking-wider text-emerald-600 mb-1">{item.date}</p>
                 <p className="text-sm font-medium text-foreground">{item.event}</p>
                 <p className="text-xs text-muted-foreground mt-0.5">{item.note}</p>
               </div>

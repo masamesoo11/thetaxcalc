@@ -51,7 +51,7 @@ export function BlogTableOfContents({ entries }: { entries: TocEntry[] }) {
                 entry.level === 3 ? 'pl-4 text-xs' : 'text-sm'
               } ${
                 activeId === entry.id
-                  ? 'text-emerald-500 dark:text-emerald-400 font-medium border-l-2 border-emerald-500 pl-2'
+                  ? 'text-emerald-700 dark:text-emerald-600 font-medium border-l-2 border-emerald-500 pl-2'
                   : 'border-l-2 border-transparent pl-2'
               }`}
             >

@@ -197,7 +197,7 @@ export default async function CompareStatesPage({
                   href={`/compare/${otherSlug}`}
                   className="group rounded-lg border border-border/30 bg-card/50 p-4 hover:border-emerald-500/30 transition-all"
                 >
-                  <p className="text-sm font-medium text-foreground group-hover:text-emerald-400 transition-colors">
+                  <p className="text-sm font-medium text-foreground group-hover:text-emerald-600 transition-colors">
                     {COMPARE_STATES[k1].name} vs {COMPARE_STATES[k2].name}
                   </p>
                   <p className="mt-1 text-xs text-muted-foreground">Compare take-home pay, tax rates & cost of living</p>
@@ -206,7 +206,7 @@ export default async function CompareStatesPage({
             })}
           </div>
           <div className="mt-6 text-center">
-            <Link href="/compare" className="inline-flex items-center gap-2 text-sm font-medium text-emerald-400 hover:text-emerald-300">
+            <Link href="/compare" className="inline-flex items-center gap-2 text-sm font-medium text-emerald-600 hover:text-emerald-700">
               View All State Comparisons →
             </Link>
           </div>

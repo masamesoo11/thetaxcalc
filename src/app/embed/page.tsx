@@ -14,7 +14,7 @@ export default function EmbedPage() {
         <h1 className="text-3xl font-bold text-foreground sm:text-4xl">Embed Free Tax Calculators</h1>
         <p className="mt-4 text-lg text-muted-foreground">Add any calculator to your website in 30 seconds. No signup, no cost.</p>
       </div>
-      <div className="rounded-xl border border-emerald-500/30 bg-emerald-500/5 p-6 mb-8">
+      <div className="rounded-xl border border-emerald-500/30 bg-emerald-600/5 p-6 mb-8">
         <h2 className="text-xl font-bold text-foreground mb-4">Quick Start</h2>
         <p className="text-sm font-medium text-foreground mb-2">Step 1: Add this div:</p>
         <pre className="rounded-lg bg-background/80 border border-border/30 p-4 text-xs overflow-x-auto mb-4"><code>{'<div data-ttc-widget="paycheck-calculator"></div>'}</code></pre>

@@ -471,11 +471,11 @@ export default function SalesTaxHubPage() {
           <span>By</span>
           <Link
             href={`/about#${author.id}`}
-            className="font-medium text-foreground hover:text-emerald-400 transition-colors"
+            className="font-medium text-foreground hover:text-emerald-600 transition-colors"
           >
             {author.name}
           </Link>
-          <span className="inline-flex items-center rounded-md bg-emerald-500/15 px-2 py-0.5 text-xs font-semibold text-emerald-400 ring-1 ring-emerald-500/25">
+          <span className="inline-flex items-center rounded-md bg-emerald-600/15 px-2 py-0.5 text-xs font-semibold text-emerald-600 ring-1 ring-emerald-500/25">
             {author.credentials}
           </span>
           <span className="text-muted-foreground">| Reviewed January 2026</span>
@@ -483,9 +483,9 @@ export default function SalesTaxHubPage() {
 
         {/* ─── Quick Summary Box ─────────────────────────────────────────── */}
         <div className="mt-8 grid gap-4 sm:grid-cols-3">
-          <div className="rounded-xl border border-emerald-500/20 bg-emerald-500/5 p-5">
+          <div className="rounded-xl border border-emerald-500/20 bg-emerald-600/5 p-5">
             <div className="flex items-center gap-2 mb-2">
-              <svg className="h-5 w-5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
+              <svg className="h-5 w-5 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
               </svg>
               <h2 className="text-base font-semibold text-foreground">Forward Calculator</h2>
@@ -496,7 +496,7 @@ export default function SalesTaxHubPage() {
           </div>
           <div className="rounded-xl border border-amber-500/20 bg-amber-500/5 p-5">
             <div className="flex items-center gap-2 mb-2">
-              <svg className="h-5 w-5 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
+              <svg className="h-5 w-5 text-amber-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4" />
               </svg>
               <h2 className="text-base font-semibold text-foreground">Reverse Calculator</h2>
@@ -507,7 +507,7 @@ export default function SalesTaxHubPage() {
           </div>
           <div className="rounded-xl border border-blue-500/20 bg-blue-500/5 p-5">
             <div className="flex items-center gap-2 mb-2">
-              <svg className="h-5 w-5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
+              <svg className="h-5 w-5 text-blue-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M8 17h8M8 17v4h8v-4M8 17l-2-7h12l-2 7M6 10V6h12v4" />
               </svg>
               <h2 className="text-base font-semibold text-foreground">Car Sales Tax</h2>
@@ -551,25 +551,25 @@ export default function SalesTaxHubPage() {
                     <td className="px-4 py-2.5">
                       <Link
                         href={`/sales-tax-calculator/${stateKeyToSlug(s.key)}`}
-                        className="font-medium text-foreground hover:text-emerald-400 transition-colors"
+                        className="font-medium text-foreground hover:text-emerald-600 transition-colors"
                       >
                         {s.name}
                       </Link>
                     </td>
                     <td className="px-4 py-2.5 text-right text-muted-foreground">
-                      {s.noStateTax ? <span className="text-emerald-400 font-medium">0%</span> : `${formatRate(s.stateRate)}%`}
+                      {s.noStateTax ? <span className="text-emerald-600 font-medium">0%</span> : `${formatRate(s.stateRate)}%`}
                     </td>
                     <td className="px-4 py-2.5 text-right text-muted-foreground">
                       {s.avgLocalRate > 0 ? `${(s.avgLocalRate * 100).toFixed(2)}%` : <span className="text-muted-foreground/50">--</span>}
                     </td>
                     <td className="px-4 py-2.5 text-right font-semibold text-foreground">
-                      {s.noStateTax ? <span className="text-emerald-400">0%</span> : `${(s.combinedRate * 100).toFixed(2)}%`}
+                      {s.noStateTax ? <span className="text-emerald-600">0%</span> : `${(s.combinedRate * 100).toFixed(2)}%`}
                     </td>
                     <td className="px-4 py-2.5 text-center">
                       {s.groceryExempt ? (
-                        <span className="inline-flex items-center justify-center h-5 w-5 rounded-full bg-emerald-500/20 text-emerald-400 text-xs font-bold" aria-label="Yes">Y</span>
+                        <span className="inline-flex items-center justify-center h-5 w-5 rounded-full bg-emerald-600/20 text-emerald-600 text-xs font-bold" aria-label="Yes">Y</span>
                       ) : (
-                        <span className="inline-flex items-center justify-center h-5 w-5 rounded-full bg-red-500/10 text-red-400 text-xs font-bold" aria-label="No">N</span>
+                        <span className="inline-flex items-center justify-center h-5 w-5 rounded-full bg-red-500/10 text-red-600 text-xs font-bold" aria-label="No">N</span>
                       )}
                     </td>
                   </tr>
@@ -589,7 +589,7 @@ export default function SalesTaxHubPage() {
           </h2>
           <div className="space-y-6 max-w-4xl">
             <div className="flex gap-4">
-              <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-emerald-500/15 text-sm font-bold text-emerald-400 ring-1 ring-emerald-500/25">
+              <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-emerald-600/15 text-sm font-bold text-emerald-600 ring-1 ring-emerald-500/25">
                 1
               </div>
               <div>
@@ -600,7 +600,7 @@ export default function SalesTaxHubPage() {
               </div>
             </div>
             <div className="flex gap-4">
-              <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-emerald-500/15 text-sm font-bold text-emerald-400 ring-1 ring-emerald-500/25">
+              <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-emerald-600/15 text-sm font-bold text-emerald-600 ring-1 ring-emerald-500/25">
                 2
               </div>
               <div>
@@ -611,7 +611,7 @@ export default function SalesTaxHubPage() {
               </div>
             </div>
             <div className="flex gap-4">
-              <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-emerald-500/15 text-sm font-bold text-emerald-400 ring-1 ring-emerald-500/25">
+              <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-emerald-600/15 text-sm font-bold text-emerald-600 ring-1 ring-emerald-500/25">
                 3
               </div>
               <div>
@@ -622,7 +622,7 @@ export default function SalesTaxHubPage() {
               </div>
             </div>
             <div className="flex gap-4">
-              <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-emerald-500/15 text-sm font-bold text-emerald-400 ring-1 ring-emerald-500/25">
+              <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-emerald-600/15 text-sm font-bold text-emerald-600 ring-1 ring-emerald-500/25">
                 4
               </div>
               <div>
@@ -633,7 +633,7 @@ export default function SalesTaxHubPage() {
               </div>
             </div>
             <div className="flex gap-4">
-              <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-emerald-500/15 text-sm font-bold text-emerald-400 ring-1 ring-emerald-500/25">
+              <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-emerald-600/15 text-sm font-bold text-emerald-600 ring-1 ring-emerald-500/25">
                 5
               </div>
               <div>
@@ -644,7 +644,7 @@ export default function SalesTaxHubPage() {
               </div>
             </div>
           </div>
-          <div className="mt-6 rounded-xl border border-emerald-500/20 bg-emerald-500/5 p-5">
+          <div className="mt-6 rounded-xl border border-emerald-500/20 bg-emerald-600/5 p-5">
             <p className="text-sm font-semibold text-foreground mb-2">Quick Example: $1,000 Purchase in California</p>
             <div className="text-sm text-muted-foreground space-y-1">
               <p>Purchase Price: $1,000.00</p>
@@ -673,19 +673,19 @@ export default function SalesTaxHubPage() {
             <h3 className="text-lg font-semibold text-foreground mt-6">How to Figure Sales Tax on Any Purchase</h3>
             <div className="grid gap-3 sm:grid-cols-2 my-4">
               <div className="rounded-lg border border-border/30 bg-card/60 p-4">
-                <p className="text-sm font-semibold text-emerald-400 mb-1">Retail Purchases</p>
+                <p className="text-sm font-semibold text-emerald-600 mb-1">Retail Purchases</p>
                 <p className="text-xs text-muted-foreground">In-store purchases automatically add sales tax at the register. The receipt shows the tax amount separately. Use our retail tax calculator above to estimate tax before you shop.</p>
               </div>
               <div className="rounded-lg border border-border/30 bg-card/60 p-4">
-                <p className="text-sm font-semibold text-sky-400 mb-1">Online Shopping</p>
+                <p className="text-sm font-semibold text-sky-700 mb-1">Online Shopping</p>
                 <p className="text-xs text-muted-foreground">Since the 2018 Wayfair ruling, online retailers collect sales tax in most states. The tax rate is based on the delivery address, not the seller&apos;s location. Use our sales tax estimator to check your rate.</p>
               </div>
               <div className="rounded-lg border border-border/30 bg-card/60 p-4">
-                <p className="text-sm font-semibold text-amber-400 mb-1">Restaurant &amp; Food</p>
+                <p className="text-sm font-semibold text-amber-700 mb-1">Restaurant &amp; Food</p>
                 <p className="text-xs text-muted-foreground">Restaurant meals are taxable in all states that have sales tax. Some states charge an additional restaurant tax or prepared food tax on top of the general sales tax. Groceries may be exempt or taxed at a lower rate.</p>
               </div>
               <div className="rounded-lg border border-border/30 bg-card/60 p-4">
-                <p className="text-sm font-semibold text-purple-400 mb-1">Vehicles &amp; Big Ticket</p>
+                <p className="text-sm font-semibold text-purple-700 mb-1">Vehicles &amp; Big Ticket</p>
                 <p className="text-xs text-muted-foreground">Car sales tax is usually paid at the DMV. Trade-in credits may reduce the taxable amount in most states (except CA). Use our car sales tax calculator above for exact numbers.</p>
               </div>
             </div>
@@ -753,7 +753,7 @@ export default function SalesTaxHubPage() {
             </p>
             <div className="rounded-lg border border-amber-500/20 bg-amber-500/5 p-5">
               <p className="text-sm font-semibold text-foreground mb-2">Reverse Sales Tax Formula</p>
-              <p className="text-lg font-mono text-amber-400 mb-2">
+              <p className="text-lg font-mono text-amber-700 mb-2">
                 Original Price = Total Paid / (1 + Tax Rate)
               </p>
               <p className="text-sm text-muted-foreground">
@@ -836,7 +836,7 @@ export default function SalesTaxHubPage() {
                 <strong className="text-foreground">Actual Receipts:</strong> Keep all receipts throughout the year and total the actual sales tax you paid. This method is more work but may result in a larger deduction if you made significant taxable purchases.
               </li>
             </ol>
-            <div className="rounded-lg border border-emerald-500/20 bg-emerald-500/5 p-5">
+            <div className="rounded-lg border border-emerald-500/20 bg-emerald-600/5 p-5">
               <p className="text-sm text-muted-foreground">
                 <strong className="text-foreground">Important:</strong> The SALT (State and Local Tax) deduction cap is $10,000 ($5,000 if married filing separately). This means the total of your state income tax or sales tax, plus property tax, cannot exceed $10,000. Plan your deductions accordingly.
               </p>
@@ -851,7 +851,7 @@ export default function SalesTaxHubPage() {
           </h2>
           <div className="max-w-4xl space-y-4 text-muted-foreground leading-relaxed">
             <p>
-              Since the landmark 2018 Supreme Court ruling in <a href="https://www.oyez.org/cases/2017/17-494" target="_blank" rel="noopener noreferrer" className="text-emerald-400 hover:underline">South Dakota v. Wayfair, Inc.</a>, states can require online retailers to collect sales tax even if the retailer has no physical presence in the state. This decision overturned the previous physical presence requirement and fundamentally changed e-commerce taxation.
+              Since the landmark 2018 Supreme Court ruling in <a href="https://www.oyez.org/cases/2017/17-494" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:underline">South Dakota v. Wayfair, Inc.</a>, states can require online retailers to collect sales tax even if the retailer has no physical presence in the state. This decision overturned the previous physical presence requirement and fundamentally changed e-commerce taxation.
             </p>
             <h3 className="text-lg font-semibold text-foreground mt-4">Marketplace Facilitator Laws</h3>
             <p>
@@ -876,19 +876,19 @@ export default function SalesTaxHubPage() {
             {/* Lowest */}
             <div>
               <h3 className="text-lg font-semibold text-foreground mb-3 flex items-center gap-2">
-                <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-emerald-500/15 text-xs font-bold text-emerald-400 ring-1 ring-emerald-500/25">5</span>
+                <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-emerald-600/15 text-xs font-bold text-emerald-600 ring-1 ring-emerald-500/25">5</span>
                 Lowest Combined Sales Tax Rates
               </h3>
               <div className="space-y-2">
                 {lowestStates.map((s) => (
-                  <div key={s.key} className="flex items-center justify-between rounded-lg border border-emerald-500/20 bg-emerald-500/5 px-4 py-2.5">
+                  <div key={s.key} className="flex items-center justify-between rounded-lg border border-emerald-500/20 bg-emerald-600/5 px-4 py-2.5">
                     <Link
                       href={`/sales-tax-calculator/${stateKeyToSlug(s.key)}`}
-                      className="text-sm font-medium text-foreground hover:text-emerald-400 transition-colors"
+                      className="text-sm font-medium text-foreground hover:text-emerald-600 transition-colors"
                     >
                       {s.name}
                     </Link>
-                    <span className="text-sm font-bold text-emerald-400">{(s.combinedRate * 100).toFixed(2)}%</span>
+                    <span className="text-sm font-bold text-emerald-600">{(s.combinedRate * 100).toFixed(2)}%</span>
                   </div>
                 ))}
               </div>
@@ -899,7 +899,7 @@ export default function SalesTaxHubPage() {
             {/* Highest */}
             <div>
               <h3 className="text-lg font-semibold text-foreground mb-3 flex items-center gap-2">
-                <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-red-500/15 text-xs font-bold text-red-400 ring-1 ring-red-500/25">5</span>
+                <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-red-500/15 text-xs font-bold text-red-600 ring-1 ring-red-500/25">5</span>
                 Highest Combined Sales Tax Rates
               </h3>
               <div className="space-y-2">
@@ -907,11 +907,11 @@ export default function SalesTaxHubPage() {
                   <div key={s.key} className="flex items-center justify-between rounded-lg border border-red-500/20 bg-red-500/5 px-4 py-2.5">
                     <Link
                       href={`/sales-tax-calculator/${stateKeyToSlug(s.key)}`}
-                      className="text-sm font-medium text-foreground hover:text-emerald-400 transition-colors"
+                      className="text-sm font-medium text-foreground hover:text-emerald-600 transition-colors"
                     >
                       {s.name}
                     </Link>
-                    <span className="text-sm font-bold text-red-400">{(s.combinedRate * 100).toFixed(2)}%</span>
+                    <span className="text-sm font-bold text-red-600">{(s.combinedRate * 100).toFixed(2)}%</span>
                   </div>
                 ))}
               </div>
@@ -927,7 +927,7 @@ export default function SalesTaxHubPage() {
                   <Link
                     key={key}
                     href={`/sales-tax-calculator/${stateKeyToSlug(key)}`}
-                    className="inline-flex items-center rounded-lg border border-emerald-500/30 bg-emerald-500/10 px-4 py-2 text-sm font-medium text-emerald-400 hover:bg-emerald-500/20 transition-colors"
+                    className="inline-flex items-center rounded-lg border border-emerald-500/30 bg-emerald-600/10 px-4 py-2 text-sm font-medium text-emerald-600 hover:bg-emerald-600/20 transition-colors"
                   >
                     {s.name} (0%)
                   </Link>

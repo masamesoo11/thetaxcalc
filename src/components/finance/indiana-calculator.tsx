@@ -105,7 +105,7 @@ export function IndianaCalculator() {
     <div className="space-y-6">
       <div className="text-center">
         <h2 className="flex items-center justify-center gap-2 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-          <MapPin className="h-8 w-8 text-sky-400" />
+          <MapPin className="h-8 w-8 text-sky-700" />
           Indiana Paycheck Calculator
         </h2>
         <p className="mt-2 text-muted-foreground">
@@ -116,13 +116,13 @@ export function IndianaCalculator() {
       <Card className="border-sky-500/20 bg-sky-500/5">
         <CardContent className="p-4">
           <div className="flex items-start gap-3">
-            <Info className="mt-0.5 h-5 w-5 shrink-0 text-sky-400" />
+            <Info className="mt-0.5 h-5 w-5 shrink-0 text-sky-700" />
             <div className="space-y-2 text-sm text-muted-foreground">
               <p className="font-medium text-foreground">How Indiana Income Tax Works</p>
               <p>
-                Indiana uses a <strong className="text-sky-400">flat tax rate of 2.95%</strong> on
-                all taxable income. Indiana does not offer a standard deduction but provides a <strong className="text-sky-400">personal exemption</strong> of $1,000 (single) / $2,000 (married).
-                Most Indiana counties also levy <strong className="text-amber-400">county income taxes</strong> averaging 1.5%–2%, which are not included in this calculator.
+                Indiana uses a <strong className="text-sky-700">flat tax rate of 2.95%</strong> on
+                all taxable income. Indiana does not offer a standard deduction but provides a <strong className="text-sky-700">personal exemption</strong> of $1,000 (single) / $2,000 (married).
+                Most Indiana counties also levy <strong className="text-amber-700">county income taxes</strong> averaging 1.5%–2%, which are not included in this calculator.
               </p>
               <p>
                 For a $75,000 salary (single): Taxable income = $75,000 - $1,000 = $74,000. State tax = $74,000 × 2.95% = $2,183.
@@ -137,7 +137,7 @@ export function IndianaCalculator() {
           <Card className="border-border/50 bg-card/80 backdrop-blur-sm">
             <CardHeader className="pb-4">
               <CardTitle className="flex items-center gap-2 text-lg">
-                <DollarSign className="h-5 w-5 text-sky-400" />Salary Input
+                <DollarSign className="h-5 w-5 text-sky-700" />Salary Input
               </CardTitle>
               <CardDescription>Enter your Indiana salary for an instant calculation</CardDescription>
             </CardHeader>
@@ -192,7 +192,7 @@ export function IndianaCalculator() {
                 <CardHeader className="cursor-pointer pb-4 transition-colors hover:bg-muted/30">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
-                      <Shield className="h-5 w-5 text-amber-400" />
+                      <Shield className="h-5 w-5 text-amber-700" />
                       <CardTitle className="text-lg">Advanced Options</CardTitle>
                       <Badge variant="outline" className="text-xs">401(k) &amp; HSA</Badge>
                     </div>
@@ -205,7 +205,7 @@ export function IndianaCalculator() {
                   <div className="grid gap-4 sm:grid-cols-2">
                     <div className="space-y-2">
                       <Label htmlFor="in-401k" className="text-sm font-medium">
-                        <span className="flex items-center gap-1.5"><PiggyBank className="h-3.5 w-3.5 text-amber-400" />401(k) Annual</span>
+                        <span className="flex items-center gap-1.5"><PiggyBank className="h-3.5 w-3.5 text-amber-700" />401(k) Annual</span>
                       </Label>
                       <div className="relative">
                         <DollarSign className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
@@ -214,7 +214,7 @@ export function IndianaCalculator() {
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="in-hsa" className="text-sm font-medium">
-                        <span className="flex items-center gap-1.5"><Shield className="h-3.5 w-3.5 text-sky-400" />HSA Annual</span>
+                        <span className="flex items-center gap-1.5"><Shield className="h-3.5 w-3.5 text-sky-700" />HSA Annual</span>
                       </Label>
                       <div className="relative">
                         <DollarSign className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
@@ -234,13 +234,13 @@ export function IndianaCalculator() {
           <Card className="sticky top-20 border-sky-500/20 bg-card/90 backdrop-blur-sm">
             <CardHeader className="pb-3">
               <CardTitle className="flex items-center gap-2 text-lg">
-                <TrendingUp className="h-5 w-5 text-sky-400" />Indiana Take-Home
+                <TrendingUp className="h-5 w-5 text-sky-700" />Indiana Take-Home
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="rounded-xl bg-sky-500/10 p-4 text-center">
-                <p className="text-xs font-medium uppercase tracking-wider text-sky-400/80">Net Take-Home ({periodLabel})</p>
-                <p className="mt-1 text-3xl font-bold text-sky-400">{formatCurrency(result.netPerPeriod)}</p>
+                <p className="text-xs font-medium uppercase tracking-wider text-sky-700/80">Net Take-Home ({periodLabel})</p>
+                <p className="mt-1 text-3xl font-bold text-sky-700">{formatCurrency(result.netPerPeriod)}</p>
                 <p className="mt-1 text-xs text-muted-foreground">Annual Net: {formatCurrency(result.netAnnual)}</p>
               </div>
 
@@ -249,39 +249,39 @@ export function IndianaCalculator() {
               <div className="space-y-2.5 rounded-lg bg-muted/30 p-3">
                 <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground">Deductions</p>
                 <div className="flex items-center justify-between">
-                  <span className="flex items-center gap-1.5 text-sm text-muted-foreground"><TrendingDown className="h-3.5 w-3.5 text-red-400" />Federal Tax</span>
-                  <span className="text-sm font-medium text-red-400">-{formatCurrency(result.federalTax)}</span>
+                  <span className="flex items-center gap-1.5 text-sm text-muted-foreground"><TrendingDown className="h-3.5 w-3.5 text-red-600" />Federal Tax</span>
+                  <span className="text-sm font-medium text-red-600">-{formatCurrency(result.federalTax)}</span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="flex items-center gap-1.5 text-sm text-muted-foreground"><TrendingDown className="h-3.5 w-3.5 text-orange-400" />FICA</span>
-                  <span className="text-sm font-medium text-orange-400">-{formatCurrency(result.ficaTotal)}</span>
+                  <span className="flex items-center gap-1.5 text-sm text-muted-foreground"><TrendingDown className="h-3.5 w-3.5 text-orange-700" />FICA</span>
+                  <span className="text-sm font-medium text-orange-700">-{formatCurrency(result.ficaTotal)}</span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="flex items-center gap-1.5 text-sm text-muted-foreground"><TrendingDown className="h-3.5 w-3.5 text-amber-400" />IN State Tax (2.95%)</span>
-                  <span className="text-sm font-medium text-amber-400">-{formatCurrency(result.stateTax)}</span>
+                  <span className="flex items-center gap-1.5 text-sm text-muted-foreground"><TrendingDown className="h-3.5 w-3.5 text-amber-700" />IN State Tax (2.95%)</span>
+                  <span className="text-sm font-medium text-amber-700">-{formatCurrency(result.stateTax)}</span>
                 </div>
                 {result.retirement401k > 0 && (
                   <div className="flex items-center justify-between">
                     <span className="text-sm text-muted-foreground">401(k)</span>
-                    <span className="text-sm font-medium text-amber-400">-{formatCurrency(result.retirement401k)}</span>
+                    <span className="text-sm font-medium text-amber-700">-{formatCurrency(result.retirement401k)}</span>
                   </div>
                 )}
                 {result.hsaContribution > 0 && (
                   <div className="flex items-center justify-between">
                     <span className="text-sm text-muted-foreground">HSA</span>
-                    <span className="text-sm font-medium text-sky-400">-{formatCurrency(result.hsaContribution)}</span>
+                    <span className="text-sm font-medium text-sky-700">-{formatCurrency(result.hsaContribution)}</span>
                   </div>
                 )}
               </div>
 
               <div className="rounded-lg bg-amber-500/5 p-3">
-                <p className="text-xs font-medium text-amber-400">Indiana Tax Breakdown</p>
+                <p className="text-xs font-medium text-amber-700">Indiana Tax Breakdown</p>
                 <div className="mt-1.5 space-y-1 text-xs text-muted-foreground">
                   <div className="flex justify-between"><span>Gross Income</span><span>{formatCurrency(result.grossAnnual)}</span></div>
                   <div className="flex justify-between"><span>Less: Personal Exemption</span><span>-{formatCurrency(inBreakdown.personalExemption)}</span></div>
                   <div className="flex justify-between"><span>IN Taxable Income</span><span>{formatCurrency(inBreakdown.inTaxableIncome)}</span></div>
                   <div className="flex justify-between"><span>IN Tax Rate</span><span>2.95%</span></div>
-                  <div className="flex justify-between font-medium text-amber-400"><span>IN State Tax</span><span>{formatCurrency(inBreakdown.inTax)}</span></div>
+                  <div className="flex justify-between font-medium text-amber-700"><span>IN State Tax</span><span>{formatCurrency(inBreakdown.inTax)}</span></div>
                 </div>
               </div>
 
@@ -318,7 +318,7 @@ export function IndianaCalculator() {
             <TableBody>
               <TableRow>
                 <TableCell>State Income Tax Rate</TableCell>
-                <TableCell className="font-medium text-sky-400">2.95% (Flat)</TableCell>
+                <TableCell className="font-medium text-sky-700">2.95% (Flat)</TableCell>
                 <TableCell>One of the lowest flat rates in the nation</TableCell>
               </TableRow>
               <TableRow>
@@ -338,7 +338,7 @@ export function IndianaCalculator() {
               </TableRow>
               <TableRow>
                 <TableCell>County Income Tax</TableCell>
-                <TableCell className="font-medium text-amber-400">0.5%–3.38%</TableCell>
+                <TableCell className="font-medium text-amber-700">0.5%–3.38%</TableCell>
                 <TableCell>Varies by county; not included in this calculation</TableCell>
               </TableRow>
               <TableRow>
@@ -353,7 +353,7 @@ export function IndianaCalculator() {
               </TableRow>
               <TableRow>
                 <TableCell>FICA Total Rate</TableCell>
-                <TableCell className="font-medium text-orange-400">7.65%</TableCell>
+                <TableCell className="font-medium text-orange-700">7.65%</TableCell>
                 <TableCell>6.2% SS + 1.45% Medicare (employee share)</TableCell>
               </TableRow>
             </TableBody>

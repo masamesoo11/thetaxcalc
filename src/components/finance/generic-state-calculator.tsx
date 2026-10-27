@@ -162,7 +162,7 @@ export function GenericStateCalculator({ stateKey }: GenericStateCalculatorProps
       {/* Header */}
       <div className="text-center">
         <h2 className="flex items-center justify-center gap-2 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-          <MapPin className="h-8 w-8 text-emerald-400" />
+          <MapPin className="h-8 w-8 text-emerald-600" />
           {stateProfile.name} Paycheck Calculator
         </h2>
         <p className="mt-2 text-muted-foreground">
@@ -176,10 +176,10 @@ export function GenericStateCalculator({ stateKey }: GenericStateCalculatorProps
       </div>
 
       {/* Info Card */}
-      <Card className="border-emerald-500/20 bg-emerald-500/5">
+      <Card className="border-emerald-500/20 bg-emerald-600/5">
         <CardContent className="p-4">
           <div className="flex items-start gap-3">
-            <Info className="mt-0.5 h-5 w-5 shrink-0 text-emerald-400" />
+            <Info className="mt-0.5 h-5 w-5 shrink-0 text-emerald-600" />
             <div className="space-y-2 text-sm text-muted-foreground">
               <p className="font-medium text-foreground">
                 {isNoTax
@@ -189,21 +189,21 @@ export function GenericStateCalculator({ stateKey }: GenericStateCalculatorProps
               </p>
               {isNoTax ? (
                 <p>
-                  {stateProfile.name} is one of nine U.S. states with <strong className="text-emerald-400">0% state income tax</strong>.
+                  {stateProfile.name} is one of nine U.S. states with <strong className="text-emerald-600">0% state income tax</strong>.
                   Your paycheck is only subject to federal tax and FICA. {stateProfile.description.split('.')[0]}.
                 </p>
               ) : isFlat ? (
                 <>
                   <p>
-                    {stateProfile.name} uses a <strong className="text-emerald-400">flat tax rate of {taxRateLabel}</strong> on
+                    {stateProfile.name} uses a <strong className="text-emerald-600">flat tax rate of {taxRateLabel}</strong> on
                     all taxable income.{' '}
                     {stateProfile.standardDeduction > 0 && (
-                      <>The state offers a <strong className="text-emerald-400">standard deduction</strong>{' '}
+                      <>The state offers a <strong className="text-emerald-600">standard deduction</strong>{' '}
                         (${stateProfile.standardDeductionsByFiling?.single?.toLocaleString() ?? stateProfile.standardDeduction.toLocaleString()} single / ${stateProfile.standardDeductionsByFiling?.married?.toLocaleString() ?? stateProfile.standardDeduction.toLocaleString()} married).{' '}
                       </>
                     )}
                     {stateProfile.personalExemption > 0 && (
-                      <>A <strong className="text-emerald-400">personal exemption</strong>{' '}
+                      <>A <strong className="text-emerald-600">personal exemption</strong>{' '}
                         of ${stateProfile.personalExemptionsByFiling?.single?.toLocaleString() ?? stateProfile.personalExemption.toLocaleString()} per person is also subtracted from gross income.
                       </>
                     )}
@@ -218,13 +218,13 @@ export function GenericStateCalculator({ stateKey }: GenericStateCalculatorProps
               ) : (
                 <>
                   <p>
-                    {stateProfile.name} uses a <strong className="text-emerald-400">progressive tax system with brackets from {taxRateLabel}</strong>.
+                    {stateProfile.name} uses a <strong className="text-emerald-600">progressive tax system with brackets from {taxRateLabel}</strong>.
                     {stateProfile.standardDeduction > 0 && (
-                      <> The state offers a <strong className="text-emerald-400">standard deduction</strong>{' '}
+                      <> The state offers a <strong className="text-emerald-600">standard deduction</strong>{' '}
                         (${stateProfile.standardDeductionsByFiling?.single?.toLocaleString() ?? stateProfile.standardDeduction.toLocaleString()} single / ${stateProfile.standardDeductionsByFiling?.married?.toLocaleString() ?? stateProfile.standardDeduction.toLocaleString()} married).</>
                     )}
                     {stateProfile.personalExemption > 0 && (
-                      <> A <strong className="text-emerald-400">personal exemption</strong> of ${stateProfile.personalExemptionsByFiling?.single?.toLocaleString() ?? stateProfile.personalExemption.toLocaleString()} per person also reduces taxable income.</>
+                      <> A <strong className="text-emerald-600">personal exemption</strong> of ${stateProfile.personalExemptionsByFiling?.single?.toLocaleString() ?? stateProfile.personalExemption.toLocaleString()} per person also reduces taxable income.</>
                     )}
                   </p>
                   <p>
@@ -246,7 +246,7 @@ export function GenericStateCalculator({ stateKey }: GenericStateCalculatorProps
           <Card className="border-border/50 bg-card/80 backdrop-blur-sm">
             <CardHeader className="pb-4">
               <CardTitle className="flex items-center gap-2 text-lg">
-                <DollarSign className="h-5 w-5 text-emerald-400" />Salary Input
+                <DollarSign className="h-5 w-5 text-emerald-600" />Salary Input
               </CardTitle>
               <CardDescription>Enter your {stateProfile.name} salary for an instant calculation</CardDescription>
             </CardHeader>
@@ -302,7 +302,7 @@ export function GenericStateCalculator({ stateKey }: GenericStateCalculatorProps
                 <CardHeader className="cursor-pointer pb-4 transition-colors hover:bg-muted/30">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
-                      <Shield className="h-5 w-5 text-amber-400" />
+                      <Shield className="h-5 w-5 text-amber-700" />
                       <CardTitle className="text-lg">Advanced Options</CardTitle>
                       <Badge variant="outline" className="text-xs">401(k) &amp; HSA</Badge>
                     </div>
@@ -315,7 +315,7 @@ export function GenericStateCalculator({ stateKey }: GenericStateCalculatorProps
                   <div className="grid gap-4 sm:grid-cols-2">
                     <div className="space-y-2">
                       <Label htmlFor={`${abbr}-401k`} className="text-sm font-medium">
-                        <span className="flex items-center gap-1.5"><PiggyBank className="h-3.5 w-3.5 text-amber-400" />401(k) Annual</span>
+                        <span className="flex items-center gap-1.5"><PiggyBank className="h-3.5 w-3.5 text-amber-700" />401(k) Annual</span>
                       </Label>
                       <div className="relative">
                         <DollarSign className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
@@ -324,7 +324,7 @@ export function GenericStateCalculator({ stateKey }: GenericStateCalculatorProps
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor={`${abbr}-hsa`} className="text-sm font-medium">
-                        <span className="flex items-center gap-1.5"><Shield className="h-3.5 w-3.5 text-emerald-400" />HSA Annual</span>
+                        <span className="flex items-center gap-1.5"><Shield className="h-3.5 w-3.5 text-emerald-600" />HSA Annual</span>
                       </Label>
                       <div className="relative">
                         <DollarSign className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
@@ -345,21 +345,21 @@ export function GenericStateCalculator({ stateKey }: GenericStateCalculatorProps
           <Card className="sticky top-20 border-emerald-500/20 bg-card/90 backdrop-blur-sm">
             <CardHeader className="pb-3">
               <CardTitle className="flex items-center gap-2 text-lg">
-                <TrendingUp className="h-5 w-5 text-emerald-400" />{stateProfile.name} Take-Home
+                <TrendingUp className="h-5 w-5 text-emerald-600" />{stateProfile.name} Take-Home
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
-              <div className="rounded-xl bg-emerald-500/10 p-4 text-center">
-                <p className="text-xs font-medium uppercase tracking-wider text-emerald-400/80">Net Take-Home ({periodLabel})</p>
-                <p className="mt-1 text-3xl font-bold text-emerald-400">{formatCurrency(result.netPerPeriod)}</p>
+              <div className="rounded-xl bg-emerald-600/10 p-4 text-center">
+                <p className="text-xs font-medium uppercase tracking-wider text-emerald-600/80">Net Take-Home ({periodLabel})</p>
+                <p className="mt-1 text-3xl font-bold text-emerald-600">{formatCurrency(result.netPerPeriod)}</p>
                 <p className="mt-1 text-xs text-muted-foreground">Annual Net: {formatCurrency(result.netAnnual)}</p>
               </div>
 
               {isNoTax && (
-                <div className="rounded-lg bg-emerald-500/5 p-3 text-center">
+                <div className="rounded-lg bg-emerald-600/5 p-3 text-center">
                   <p className="text-xs text-muted-foreground">State Income Tax</p>
-                  <p className="text-xl font-bold text-emerald-400">$0.00</p>
-                  <p className="text-xs text-emerald-400/60">{stateProfile.name} has 0% income tax</p>
+                  <p className="text-xl font-bold text-emerald-600">$0.00</p>
+                  <p className="text-xs text-emerald-600/60">{stateProfile.name} has 0% income tax</p>
                 </div>
               )}
 
@@ -370,29 +370,29 @@ export function GenericStateCalculator({ stateKey }: GenericStateCalculatorProps
                   {isNoTax ? 'Deductions (Federal Only)' : 'Deductions'}
                 </p>
                 <div className="flex items-center justify-between">
-                  <span className="flex items-center gap-1.5 text-sm text-muted-foreground"><TrendingDown className="h-3.5 w-3.5 text-red-400" />Federal Tax</span>
-                  <span className="text-sm font-medium text-red-400">-{formatCurrency(result.federalTax)}</span>
+                  <span className="flex items-center gap-1.5 text-sm text-muted-foreground"><TrendingDown className="h-3.5 w-3.5 text-red-600" />Federal Tax</span>
+                  <span className="text-sm font-medium text-red-600">-{formatCurrency(result.federalTax)}</span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="flex items-center gap-1.5 text-sm text-muted-foreground"><TrendingDown className="h-3.5 w-3.5 text-orange-400" />FICA</span>
-                  <span className="text-sm font-medium text-orange-400">-{formatCurrency(result.ficaTotal)}</span>
+                  <span className="flex items-center gap-1.5 text-sm text-muted-foreground"><TrendingDown className="h-3.5 w-3.5 text-orange-700" />FICA</span>
+                  <span className="text-sm font-medium text-orange-700">-{formatCurrency(result.ficaTotal)}</span>
                 </div>
                 {!isNoTax && (
                   <div className="flex items-center justify-between">
-                    <span className="flex items-center gap-1.5 text-sm text-muted-foreground"><TrendingDown className="h-3.5 w-3.5 text-amber-400" />{stateProfile.abbreviation} State Tax ({taxRateLabel})</span>
-                    <span className="text-sm font-medium text-amber-400">-{formatCurrency(result.stateTax)}</span>
+                    <span className="flex items-center gap-1.5 text-sm text-muted-foreground"><TrendingDown className="h-3.5 w-3.5 text-amber-700" />{stateProfile.abbreviation} State Tax ({taxRateLabel})</span>
+                    <span className="text-sm font-medium text-amber-700">-{formatCurrency(result.stateTax)}</span>
                   </div>
                 )}
                 {result.retirement401k > 0 && (
                   <div className="flex items-center justify-between">
                     <span className="text-sm text-muted-foreground">401(k)</span>
-                    <span className="text-sm font-medium text-amber-400">-{formatCurrency(result.retirement401k)}</span>
+                    <span className="text-sm font-medium text-amber-700">-{formatCurrency(result.retirement401k)}</span>
                   </div>
                 )}
                 {result.hsaContribution > 0 && (
                   <div className="flex items-center justify-between">
                     <span className="text-sm text-muted-foreground">HSA</span>
-                    <span className="text-sm font-medium text-emerald-400">-{formatCurrency(result.hsaContribution)}</span>
+                    <span className="text-sm font-medium text-emerald-600">-{formatCurrency(result.hsaContribution)}</span>
                   </div>
                 )}
               </div>
@@ -400,7 +400,7 @@ export function GenericStateCalculator({ stateKey }: GenericStateCalculatorProps
               {/* State Tax Breakdown Detail - for flat tax states */}
               {isFlat && flatBreakdown && (
                 <div className="rounded-lg bg-amber-500/5 p-3">
-                  <p className="text-xs font-medium text-amber-400">{stateProfile.name} Tax Breakdown</p>
+                  <p className="text-xs font-medium text-amber-700">{stateProfile.name} Tax Breakdown</p>
                   <div className="mt-1.5 space-y-1 text-xs text-muted-foreground">
                     <div className="flex justify-between"><span>Gross Income</span><span>{formatCurrency(result.grossAnnual)}</span></div>
                     {flatBreakdown.personalExemption > 0 && (
@@ -411,7 +411,7 @@ export function GenericStateCalculator({ stateKey }: GenericStateCalculatorProps
                     )}
                     <div className="flex justify-between"><span>{stateProfile.abbreviation} Taxable Income</span><span>{formatCurrency(flatBreakdown.stateTaxableIncome)}</span></div>
                     <div className="flex justify-between"><span>{stateProfile.abbreviation} Tax Rate</span><span>{taxRateLabel}</span></div>
-                    <div className="flex justify-between font-medium text-amber-400"><span>{stateProfile.abbreviation} State Tax</span><span>{formatCurrency(flatBreakdown.stateTax)}</span></div>
+                    <div className="flex justify-between font-medium text-amber-700"><span>{stateProfile.abbreviation} State Tax</span><span>{formatCurrency(flatBreakdown.stateTax)}</span></div>
                   </div>
                 </div>
               )}
@@ -450,7 +450,7 @@ export function GenericStateCalculator({ stateKey }: GenericStateCalculatorProps
             <TableBody>
               <TableRow>
                 <TableCell>State Income Tax Rate</TableCell>
-                <TableCell className="font-medium text-emerald-400">
+                <TableCell className="font-medium text-emerald-600">
                   {isNoTax ? '0% (No State Tax)' : isFlat ? `${taxRateLabel} (Flat)` : `${taxRateLabel} (Progressive)`}
                 </TableCell>
                 <TableCell>
@@ -515,7 +515,7 @@ export function GenericStateCalculator({ stateKey }: GenericStateCalculatorProps
               </TableRow>
               <TableRow>
                 <TableCell>FICA Total Rate</TableCell>
-                <TableCell className="font-medium text-orange-400">7.65%</TableCell>
+                <TableCell className="font-medium text-orange-700">7.65%</TableCell>
                 <TableCell>6.2% SS + 1.45% Medicare (employee share)</TableCell>
               </TableRow>
             </TableBody>

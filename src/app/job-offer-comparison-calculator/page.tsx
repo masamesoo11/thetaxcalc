@@ -131,7 +131,7 @@ export default function JobOfferComparisonPage() {
 
       {/* Hero */}
       <div className="mb-10 text-center">
-        <div className="inline-flex items-center gap-2 rounded-full bg-blue-500/10 border border-blue-500/20 px-4 py-1.5 text-sm text-blue-400 mb-6">
+        <div className="inline-flex items-center gap-2 rounded-full bg-blue-500/10 border border-blue-500/20 px-4 py-1.5 text-sm text-blue-700 mb-6">
           <ArrowRightLeft className="h-3.5 w-3.5" />
           Offer vs. Offer
         </div>
@@ -151,17 +151,17 @@ export default function JobOfferComparisonPage() {
         </h2>
         <div className="grid gap-6 sm:grid-cols-3">
           <div className="text-center">
-            <div className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-blue-500/10 text-blue-400 font-bold text-lg mb-3">1</div>
+            <div className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-blue-500/10 text-blue-700 font-bold text-lg mb-3">1</div>
             <h3 className="text-sm font-semibold text-foreground mb-1">Enter Each Offer</h3>
             <p className="text-xs text-muted-foreground leading-relaxed">Input salary, state, and benefits for up to 4 job offers.</p>
           </div>
           <div className="text-center">
-            <div className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-blue-500/10 text-blue-400 font-bold text-lg mb-3">2</div>
+            <div className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-blue-500/10 text-blue-700 font-bold text-lg mb-3">2</div>
             <h3 className="text-sm font-semibold text-foreground mb-1">See After-Tax Pay</h3>
             <p className="text-xs text-muted-foreground leading-relaxed">Each offer is calculated with federal, FICA, and state taxes applied.</p>
           </div>
           <div className="text-center">
-            <div className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-blue-500/10 text-blue-400 font-bold text-lg mb-3">3</div>
+            <div className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-blue-500/10 text-blue-700 font-bold text-lg mb-3">3</div>
             <h3 className="text-sm font-semibold text-foreground mb-1">Choose Wisely</h3>
             <p className="text-xs text-muted-foreground leading-relaxed">The difference column reveals which offer gives you more real take-home pay.</p>
           </div>
@@ -211,7 +211,7 @@ export default function JobOfferComparisonPage() {
       </section>
 
       {/* Related Calculators */}
-      <section className="mb-10 rounded-xl border border-emerald-500/20 bg-emerald-500/5 p-8 text-center">
+      <section className="mb-10 rounded-xl border border-emerald-500/20 bg-emerald-600/5 p-8 text-center">
         <h2 className="text-xl font-bold text-foreground mb-4">Related Calculators</h2>
         <div className="flex flex-wrap items-center justify-center gap-3">
           {[
@@ -221,7 +221,7 @@ export default function JobOfferComparisonPage() {
             { href: '/relocation-calculator', label: 'Relocation Calculator' },
             { href: '/compare', label: 'Compare States' },
           ].map((link) => (
-            <Link key={link.href} href={link.href} className="inline-flex items-center gap-1.5 rounded-lg border border-border/50 bg-card/50 px-4 py-2 text-sm text-muted-foreground hover:border-emerald-500/30 hover:text-emerald-400 transition-all">
+            <Link key={link.href} href={link.href} className="inline-flex items-center gap-1.5 rounded-lg border border-border/50 bg-card/50 px-4 py-2 text-sm text-muted-foreground hover:border-emerald-500/30 hover:text-emerald-600 transition-all">
               {link.label}
             </Link>
           ))}

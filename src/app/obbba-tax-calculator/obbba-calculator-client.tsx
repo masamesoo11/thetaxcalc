@@ -101,14 +101,14 @@ export function OBBBACalculatorClient() {
   };
 
   const obbbaSaves = display.federalTaxDelta < 0;
-  const deltaColor = obbbaSaves ? 'text-emerald-400' : 'text-amber-400';
+  const deltaColor = obbbaSaves ? 'text-emerald-600' : 'text-amber-700';
   const DeltaIcon = obbbaSaves ? TrendingDown : TrendingUp;
 
   return (
     <Card className="border-emerald-500/20 bg-card/50">
       <CardHeader>
         <CardTitle className="flex items-center gap-2 text-lg">
-          <Calculator className="h-5 w-5 text-emerald-400" />
+          <Calculator className="h-5 w-5 text-emerald-600" />
           OBBBA vs. Prior Law — 2026 Tax Comparison
         </CardTitle>
         <p className="text-sm text-muted-foreground">
@@ -302,7 +302,7 @@ export function OBBBACalculatorClient() {
           <div className="flex gap-3 pt-2">
             <Button
               onClick={compute}
-              className="flex-1 bg-gradient-to-r from-emerald-600 to-emerald-500 text-white hover:from-emerald-500 hover:to-emerald-400"
+              className="flex-1 bg-gradient-to-r from-emerald-700 to-emerald-600 text-white hover:from-emerald-500 hover:to-emerald-400"
             >
               <Calculator className="h-4 w-4 mr-1.5" />
               Compare OBBBA vs Prior Law
@@ -333,7 +333,7 @@ export function OBBBACalculatorClient() {
               </p>
               <p className="mt-1 text-xs text-muted-foreground">
                 Refund difference:{' '}
-                <span className={display.refundDelta >= 0 ? 'text-emerald-400 font-medium' : 'text-amber-400 font-medium'}>
+                <span className={display.refundDelta >= 0 ? 'text-emerald-600 font-medium' : 'text-amber-700 font-medium'}>
                   {display.refundDelta >= 0 ? '+' : '−'}
                   {formatUSD(Math.abs(display.refundDelta))}
                 </span>
@@ -342,8 +342,8 @@ export function OBBBACalculatorClient() {
 
             {/* Side-by-Side Comparison */}
             <div className="grid gap-3 sm:grid-cols-2">
-              <div className="rounded-xl border border-emerald-500/20 bg-emerald-500/5 p-5">
-                <h2 className="text-base font-semibold text-emerald-400 mb-3">
+              <div className="rounded-xl border border-emerald-500/20 bg-emerald-600/5 p-5">
+                <h2 className="text-base font-semibold text-emerald-600 mb-3">
                   Under OBBBA (2026)
                 </h2>
                 <div className="space-y-2 text-sm">
@@ -357,7 +357,7 @@ export function OBBBACalculatorClient() {
                   <Row label="Marginal Rate" value={formatPct(display.obbba.marginalRate, 0)} />
                   <div className="border-t border-border/30 pt-2 flex justify-between text-sm">
                     <span className="font-semibold text-foreground">Refund / (Owed)</span>
-                    <span className={`font-bold ${display.obbba.refundOrDue >= 0 ? 'text-emerald-400' : 'text-amber-400'}`}>
+                    <span className={`font-bold ${display.obbba.refundOrDue >= 0 ? 'text-emerald-600' : 'text-amber-700'}`}>
                       {formatUSD(display.obbba.refundOrDue)}
                     </span>
                   </div>
@@ -379,7 +379,7 @@ export function OBBBACalculatorClient() {
                   <Row label="Marginal Rate" value={formatPct(display.prior.marginalRate, 0)} />
                   <div className="border-t border-border/30 pt-2 flex justify-between text-sm">
                     <span className="font-semibold text-foreground">Refund / (Owed)</span>
-                    <span className={`font-bold ${display.prior.refundOrDue >= 0 ? 'text-emerald-400' : 'text-amber-400'}`}>
+                    <span className={`font-bold ${display.prior.refundOrDue >= 0 ? 'text-emerald-600' : 'text-amber-700'}`}>
                       {formatUSD(display.prior.refundOrDue)}
                     </span>
                   </div>
@@ -390,7 +390,7 @@ export function OBBBACalculatorClient() {
             {/* OBBBA Provisions Applied */}
             <div className="rounded-xl border border-border/30 bg-card/50 p-5">
               <h2 className="text-base font-semibold text-foreground mb-3 flex items-center gap-2">
-                <Info className="h-4 w-4 text-emerald-400" />
+                <Info className="h-4 w-4 text-emerald-600" />
                 OBBBA Provisions Applied
               </h2>
               <div className="grid gap-2 sm:grid-cols-2 text-sm">

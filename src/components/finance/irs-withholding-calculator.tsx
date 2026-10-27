@@ -252,10 +252,10 @@ const CHART_COLORS = {
   fica: '#f97316',          // orange-500
   socialSecurity: '#f59e0b', // amber-500
   medicare: '#fb923c',      // orange-400
-  takeHome: '#10b981',      // emerald-500
+  takeHome: '#b08d3e',      // emerald-500
   pretax: '#6366f1',        // indigo-500
   current: '#94a3b8',       // slate-400
-  recommended: '#10b981',   // emerald-500
+  recommended: '#b08d3e',   // emerald-500
 };
 
 // ─── Custom Tooltip ─────────────────────────────────────────────────────────────
@@ -377,7 +377,7 @@ export function IRSWithholdingCalculator() {
       {/* ─── Page Title ─────────────────────────────────── */}
       <div className="text-center">
         <h2 className="flex items-center justify-center gap-2 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-          <Calculator className="h-8 w-8 text-emerald-400" />
+          <Calculator className="h-8 w-8 text-emerald-600" />
           IRS Withholding Calculator
         </h2>
         <p className="mt-2 text-muted-foreground">
@@ -386,10 +386,10 @@ export function IRSWithholdingCalculator() {
       </div>
 
       {/* ─── Info Card ──────────────────────────────────── */}
-      <Card className="border-emerald-500/20 bg-emerald-500/5">
+      <Card className="border-emerald-500/20 bg-emerald-600/5">
         <CardContent className="p-4">
           <div className="flex items-start gap-3">
-            <FileText className="mt-0.5 h-5 w-5 shrink-0 text-emerald-400" />
+            <FileText className="mt-0.5 h-5 w-5 shrink-0 text-emerald-600" />
             <div className="space-y-2 text-sm text-muted-foreground">
               <p className="font-medium text-foreground">About IRS Tax Withholding (2026)</p>
               <p>
@@ -414,7 +414,7 @@ export function IRSWithholdingCalculator() {
           <Card className="border-border/50 bg-card/80 backdrop-blur-sm">
             <CardHeader className="pb-4">
               <CardTitle className="flex items-center gap-2 text-lg">
-                <DollarSign className="h-5 w-5 text-emerald-400" />
+                <DollarSign className="h-5 w-5 text-emerald-600" />
                 Income Details
               </CardTitle>
               <CardDescription>Enter your gross income and pay schedule</CardDescription>
@@ -473,7 +473,7 @@ export function IRSWithholdingCalculator() {
                 <div className="space-y-2">
                   <Label htmlFor="dependents" className="text-sm font-medium">
                     <span className="flex items-center gap-1.5">
-                      <Users className="h-3.5 w-3.5 text-emerald-400" />
+                      <Users className="h-3.5 w-3.5 text-emerald-600" />
                       Number of Dependents
                     </span>
                   </Label>
@@ -496,7 +496,7 @@ export function IRSWithholdingCalculator() {
           <Card className="border-border/50 bg-card/80 backdrop-blur-sm">
             <CardHeader className="pb-4">
               <CardTitle className="flex items-center gap-2 text-lg">
-                <Shield className="h-5 w-5 text-amber-400" />
+                <Shield className="h-5 w-5 text-amber-700" />
                 Pre-tax Deductions
               </CardTitle>
               <CardDescription>Enter per-paycheck amounts that reduce taxable income</CardDescription>
@@ -506,7 +506,7 @@ export function IRSWithholdingCalculator() {
                 <div className="space-y-2">
                   <Label htmlFor="401k" className="text-sm font-medium">
                     <span className="flex items-center gap-1.5">
-                      <DollarSign className="h-3.5 w-3.5 text-amber-400" />
+                      <DollarSign className="h-3.5 w-3.5 text-amber-700" />
                       401(k) per Paycheck
                     </span>
                   </Label>
@@ -523,7 +523,7 @@ export function IRSWithholdingCalculator() {
                 <div className="space-y-2">
                   <Label htmlFor="hsa" className="text-sm font-medium">
                     <span className="flex items-center gap-1.5">
-                      <Shield className="h-3.5 w-3.5 text-emerald-400" />
+                      <Shield className="h-3.5 w-3.5 text-emerald-600" />
                       HSA per Paycheck
                     </span>
                   </Label>
@@ -561,7 +561,7 @@ export function IRSWithholdingCalculator() {
           <Card className="border-border/50 bg-card/80 backdrop-blur-sm">
             <CardHeader className="pb-4">
               <CardTitle className="flex items-center gap-2 text-lg">
-                <TrendingUp className="h-5 w-5 text-emerald-400" />
+                <TrendingUp className="h-5 w-5 text-emerald-600" />
                 Current Withholding (Optional)
               </CardTitle>
               <CardDescription>Enter your current federal withholding for comparison</CardDescription>
@@ -596,7 +596,7 @@ export function IRSWithholdingCalculator() {
           <Card className="sticky top-20 border-emerald-500/20 bg-card/90 backdrop-blur-sm">
             <CardHeader className="pb-3">
               <CardTitle className="flex items-center gap-2 text-lg">
-                <Calculator className="h-5 w-5 text-emerald-400" />
+                <Calculator className="h-5 w-5 text-emerald-600" />
                 Withholding Results
               </CardTitle>
               <CardDescription>
@@ -605,11 +605,11 @@ export function IRSWithholdingCalculator() {
             </CardHeader>
             <CardContent className="space-y-4">
               {/* Hero Number: Recommended Withholding */}
-              <div className="rounded-xl bg-emerald-500/10 p-4 text-center">
-                <p className="text-xs font-medium uppercase tracking-wider text-emerald-400/80">
+              <div className="rounded-xl bg-emerald-600/10 p-4 text-center">
+                <p className="text-xs font-medium uppercase tracking-wider text-emerald-600/80">
                   Recommended Withholding per {payFrequencyLabel}
                 </p>
-                <p className="mt-1 text-3xl font-bold text-emerald-400">
+                <p className="mt-1 text-3xl font-bold text-emerald-600">
                   {formatCurrency(result.federalWithholdingPerPaycheck)}
                 </p>
                 <p className="mt-1 text-xs text-muted-foreground">
@@ -623,27 +623,27 @@ export function IRSWithholdingCalculator() {
               <div className="rounded-lg bg-muted/30 p-3">
                 <div className="flex items-center justify-between">
                   <span className="text-sm font-medium text-foreground">Total Deductions per {payFrequencyLabel}</span>
-                  <span className="text-sm font-bold text-red-400">
+                  <span className="text-sm font-bold text-red-600">
                     {formatCurrency(result.pretaxDeductionsPerPaycheck + result.totalWithholdingPerPaycheck)}
                   </span>
                 </div>
                 <div className="mt-2 space-y-1.5">
                   <div className="flex items-center justify-between">
                     <span className="text-xs text-muted-foreground">Federal Tax Withholding</span>
-                    <span className="text-xs font-medium text-red-400">
+                    <span className="text-xs font-medium text-red-600">
                       {formatCurrency(result.federalWithholdingPerPaycheck)}
                     </span>
                   </div>
                   <div className="flex items-center justify-between">
                     <span className="text-xs text-muted-foreground">FICA (SS + Medicare)</span>
-                    <span className="text-xs font-medium text-orange-400">
+                    <span className="text-xs font-medium text-orange-700">
                       {formatCurrency(result.ficaPerPaycheck)}
                     </span>
                   </div>
                   {result.pretaxDeductionsPerPaycheck > 0 && (
                     <div className="flex items-center justify-between">
                       <span className="text-xs text-muted-foreground">Pre-tax Deductions</span>
-                      <span className="text-xs font-medium text-amber-400">
+                      <span className="text-xs font-medium text-amber-700">
                         {formatCurrency(result.pretaxDeductionsPerPaycheck)}
                       </span>
                     </div>
@@ -654,7 +654,7 @@ export function IRSWithholdingCalculator() {
               {/* Net Take-Home */}
               <div className="flex items-center justify-between rounded-lg bg-muted/20 p-3">
                 <span className="text-sm text-muted-foreground">Take-Home per {payFrequencyLabel}</span>
-                <span className="text-lg font-bold text-emerald-400">{formatCurrency(result.netTakeHomePerPaycheck)}</span>
+                <span className="text-lg font-bold text-emerald-600">{formatCurrency(result.netTakeHomePerPaycheck)}</span>
               </div>
 
               <Separator className="bg-border/40" />
@@ -693,25 +693,25 @@ export function IRSWithholdingCalculator() {
                     </div>
                     <div className="flex items-center justify-between">
                       <span className="text-sm text-muted-foreground">Recommended Withholding</span>
-                      <span className="text-sm font-medium text-emerald-400">{formatCurrency(result.federalWithholdingPerPaycheck)}</span>
+                      <span className="text-sm font-medium text-emerald-600">{formatCurrency(result.federalWithholdingPerPaycheck)}</span>
                     </div>
                     <Separator className="bg-border/20" />
                     {result.projectedRefund > 0 && (
-                      <div className="flex items-center justify-between rounded-lg bg-emerald-500/10 p-2.5">
-                        <span className="flex items-center gap-1.5 text-sm font-medium text-emerald-400">
+                      <div className="flex items-center justify-between rounded-lg bg-emerald-600/10 p-2.5">
+                        <span className="flex items-center gap-1.5 text-sm font-medium text-emerald-600">
                           <TrendingDown className="h-3.5 w-3.5" />
                           Projected Refund
                         </span>
-                        <span className="text-sm font-bold text-emerald-400">{formatCurrency(result.projectedRefund)}</span>
+                        <span className="text-sm font-bold text-emerald-600">{formatCurrency(result.projectedRefund)}</span>
                       </div>
                     )}
                     {result.projectedOwed > 0 && (
                       <div className="flex items-center justify-between rounded-lg bg-red-500/10 p-2.5">
-                        <span className="flex items-center gap-1.5 text-sm font-medium text-red-400">
+                        <span className="flex items-center gap-1.5 text-sm font-medium text-red-600">
                           <TrendingUp className="h-3.5 w-3.5" />
                           Projected Amount Owed
                         </span>
-                        <span className="text-sm font-bold text-red-400">{formatCurrency(result.projectedOwed)}</span>
+                        <span className="text-sm font-bold text-red-600">{formatCurrency(result.projectedOwed)}</span>
                       </div>
                     )}
                   </div>
@@ -722,12 +722,12 @@ export function IRSWithholdingCalculator() {
               {result.isUnderWithheld && (
                 <div className="rounded-lg border border-red-500/30 bg-red-500/10 p-3">
                   <div className="flex items-start gap-2">
-                    <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0 text-red-400" />
+                    <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0 text-red-600" />
                     <div>
-                      <p className="text-sm font-semibold text-red-400">Under-Withheld Warning</p>
+                      <p className="text-sm font-semibold text-red-600">Under-Withheld Warning</p>
                       <p className="mt-0.5 text-xs text-muted-foreground">
-                        You may owe <strong className="text-red-400">{formatCurrency(result.projectedOwed)}</strong> at tax time.
-                        Consider adding <strong className="text-red-400">{formatCurrency(result.additionalWithholdingNeeded)}</strong> per paycheck
+                        You may owe <strong className="text-red-600">{formatCurrency(result.projectedOwed)}</strong> at tax time.
+                        Consider adding <strong className="text-red-600">{formatCurrency(result.additionalWithholdingNeeded)}</strong> per paycheck
                         on line 4(c) of your W-4.
                       </p>
                     </div>
@@ -747,7 +747,7 @@ export function IRSWithholdingCalculator() {
       <Card className="border-border/50 bg-card/80 backdrop-blur-sm">
         <CardHeader>
           <CardTitle className="flex items-center gap-2 text-lg">
-            <DollarSign className="h-5 w-5 text-emerald-400" />
+            <DollarSign className="h-5 w-5 text-emerald-600" />
             Annual Tax Breakdown
           </CardTitle>
           <CardDescription>Complete analysis of your federal tax liability for 2026</CardDescription>
@@ -766,7 +766,7 @@ export function IRSWithholdingCalculator() {
                 </div>
                 <div className="flex justify-between">
                   <span className="text-sm text-muted-foreground">Pre-tax Deductions (Annual)</span>
-                  <span className="text-sm font-medium text-amber-400">-{formatCurrency(result.pretaxDeductionsPerPaycheck * PAY_PERIODS[payFrequency])}</span>
+                  <span className="text-sm font-medium text-amber-700">-{formatCurrency(result.pretaxDeductionsPerPaycheck * PAY_PERIODS[payFrequency])}</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-sm text-muted-foreground">Taxable Wages</span>
@@ -776,14 +776,14 @@ export function IRSWithholdingCalculator() {
                   <span className="text-sm text-muted-foreground">
                     Standard Deduction ({FILING_LABELS[filingStatus]})
                   </span>
-                  <span className="text-sm font-medium text-emerald-400">
+                  <span className="text-sm font-medium text-emerald-600">
                     -{formatCurrency(FEDERAL_TAX_2026.standardDeductionsByFiling[filingStatus] ?? FEDERAL_TAX_2026.standardDeduction)}
                   </span>
                 </div>
                 {dependents > 0 && (
                   <div className="flex justify-between">
                     <span className="text-sm text-muted-foreground">Dependent Credits ({dependents})</span>
-                    <span className="text-sm font-medium text-emerald-400">
+                    <span className="text-sm font-medium text-emerald-600">
                       -{formatCurrency(dependents * 2000)}
                     </span>
                   </div>
@@ -791,7 +791,7 @@ export function IRSWithholdingCalculator() {
                 <Separator className="bg-border/30" />
                 <div className="flex justify-between">
                   <span className="text-sm font-semibold text-foreground">Federal Income Tax</span>
-                  <span className="text-sm font-bold text-red-400">{formatCurrency(result.annualFederalTax)}</span>
+                  <span className="text-sm font-bold text-red-600">{formatCurrency(result.annualFederalTax)}</span>
                 </div>
               </div>
             </div>
@@ -806,33 +806,33 @@ export function IRSWithholdingCalculator() {
                   <span className="text-sm text-muted-foreground">
                     Social Security (6.2% up to ${FICA_2026.socialSecurityWageCap.toLocaleString()})
                   </span>
-                  <span className="text-sm font-medium text-orange-400">{formatCurrency(result.annualSocialSecurity)}</span>
+                  <span className="text-sm font-medium text-orange-700">{formatCurrency(result.annualSocialSecurity)}</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-sm text-muted-foreground">Medicare (1.45%)</span>
-                  <span className="text-sm font-medium text-orange-400">{formatCurrency(result.annualMedicare)}</span>
+                  <span className="text-sm font-medium text-orange-700">{formatCurrency(result.annualMedicare)}</span>
                 </div>
                 {result.annualAdditionalMedicare > 0 && (
                   <div className="flex justify-between">
                     <span className="text-sm text-muted-foreground">
                       Additional Medicare (0.9% above ${ADDITIONAL_MEDICARE_THRESHOLD[filingStatus].toLocaleString()})
                     </span>
-                    <span className="text-sm font-medium text-red-400">{formatCurrency(result.annualAdditionalMedicare)}</span>
+                    <span className="text-sm font-medium text-red-600">{formatCurrency(result.annualAdditionalMedicare)}</span>
                   </div>
                 )}
                 <Separator className="bg-border/30" />
                 <div className="flex justify-between">
                   <span className="text-sm font-semibold text-foreground">Total FICA</span>
-                  <span className="text-sm font-bold text-orange-400">{formatCurrency(result.annualFICA)}</span>
+                  <span className="text-sm font-bold text-orange-700">{formatCurrency(result.annualFICA)}</span>
                 </div>
                 <Separator className="bg-border/20" />
                 <div className="flex justify-between">
                   <span className="text-sm font-semibold text-foreground">Total Tax Liability</span>
-                  <span className="text-sm font-bold text-red-400">{formatCurrency(result.annualTotalTax)}</span>
+                  <span className="text-sm font-bold text-red-600">{formatCurrency(result.annualTotalTax)}</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-sm font-semibold text-foreground">Annual Take-Home</span>
-                  <span className="text-sm font-bold text-emerald-400">{formatCurrency(result.annualNetTakeHome)}</span>
+                  <span className="text-sm font-bold text-emerald-600">{formatCurrency(result.annualNetTakeHome)}</span>
                 </div>
               </div>
             </div>
@@ -963,7 +963,7 @@ export function IRSWithholdingCalculator() {
       <Card className="border-emerald-500/20 bg-card/80 backdrop-blur-sm">
         <CardHeader>
           <CardTitle className="flex items-center gap-2 text-lg">
-            <FileText className="h-5 w-5 text-emerald-400" />
+            <FileText className="h-5 w-5 text-emerald-600" />
             W-4 Optimization Guide
           </CardTitle>
           <CardDescription>Step-by-step guidance for filling out your 2026 Form W-4</CardDescription>
@@ -971,39 +971,39 @@ export function IRSWithholdingCalculator() {
         <CardContent className="space-y-5">
           {/* Summary Card */}
           <div className="grid gap-4 sm:grid-cols-3">
-            <div className="rounded-xl border border-emerald-500/20 bg-emerald-500/5 p-4 text-center">
-              <p className="text-xs font-medium uppercase tracking-wider text-emerald-400/80">
+            <div className="rounded-xl border border-emerald-500/20 bg-emerald-600/5 p-4 text-center">
+              <p className="text-xs font-medium uppercase tracking-wider text-emerald-600/80">
                 Filing Status (Step 1)
               </p>
-              <p className="mt-1 text-lg font-bold text-emerald-400">{FILING_LABELS[filingStatus]}</p>
+              <p className="mt-1 text-lg font-bold text-emerald-600">{FILING_LABELS[filingStatus]}</p>
               <p className="text-xs text-muted-foreground">Check box on W-4</p>
             </div>
             <div className="rounded-xl border border-amber-500/20 bg-amber-500/5 p-4 text-center">
-              <p className="text-xs font-medium uppercase tracking-wider text-amber-400/80">
+              <p className="text-xs font-medium uppercase tracking-wider text-amber-700/80">
                 Dependents (Step 3)
               </p>
-              <p className="mt-1 text-lg font-bold text-amber-400">{dependents}</p>
+              <p className="mt-1 text-lg font-bold text-amber-700">{dependents}</p>
               <p className="text-xs text-muted-foreground">{formatCurrency(dependents * 2000)} in credits</p>
             </div>
-            <div className={`rounded-xl border p-4 text-center ${result.additionalWithholdingNeeded > 0 ? 'border-red-500/20 bg-red-500/5' : 'border-emerald-500/20 bg-emerald-500/5'}`}>
-              <p className={`text-xs font-medium uppercase tracking-wider ${result.additionalWithholdingNeeded > 0 ? 'text-red-400/80' : 'text-emerald-400/80'}`}>
+            <div className={`rounded-xl border p-4 text-center ${result.additionalWithholdingNeeded > 0 ? 'border-red-500/20 bg-red-500/5' : 'border-emerald-500/20 bg-emerald-600/5'}`}>
+              <p className={`text-xs font-medium uppercase tracking-wider ${result.additionalWithholdingNeeded > 0 ? 'text-red-600/80' : 'text-emerald-600/80'}`}>
                 Additional (Step 4c)
               </p>
-              <p className={`mt-1 text-lg font-bold ${result.additionalWithholdingNeeded > 0 ? 'text-red-400' : 'text-emerald-400'}`}>
+              <p className={`mt-1 text-lg font-bold ${result.additionalWithholdingNeeded > 0 ? 'text-red-600' : 'text-emerald-600'}`}>
                 {formatCurrency(result.additionalWithholdingNeeded)}
               </p>
               <p className="text-xs text-muted-foreground">per paycheck</p>
             </div>
           </div>
 
-          <Separator className="bg-emerald-500/20" />
+          <Separator className="bg-emerald-600/20" />
 
           {/* Step-by-Step W-4 Instructions */}
           <div className="space-y-4">
             <h3 className="text-sm font-semibold text-foreground">How to Fill Out Your W-4</h3>
             <div className="space-y-3">
               <div className="flex gap-3">
-                <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-emerald-500/20 text-xs font-bold text-emerald-400">
+                <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-emerald-600/20 text-xs font-bold text-emerald-600">
                   1
                 </div>
                 <div>
@@ -1014,7 +1014,7 @@ export function IRSWithholdingCalculator() {
                 </div>
               </div>
               <div className="flex gap-3">
-                <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-emerald-500/20 text-xs font-bold text-emerald-400">
+                <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-emerald-600/20 text-xs font-bold text-emerald-600">
                   2
                 </div>
                 <div>
@@ -1027,7 +1027,7 @@ export function IRSWithholdingCalculator() {
                 </div>
               </div>
               <div className="flex gap-3">
-                <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-amber-500/20 text-xs font-bold text-amber-400">
+                <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-amber-500/20 text-xs font-bold text-amber-700">
                   3
                 </div>
                 <div>
@@ -1040,7 +1040,7 @@ export function IRSWithholdingCalculator() {
                 </div>
               </div>
               <div className="flex gap-3">
-                <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-orange-500/20 text-xs font-bold text-orange-400">
+                <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-orange-500/20 text-xs font-bold text-orange-700">
                   4
                 </div>
                 <div>
@@ -1057,7 +1057,7 @@ export function IRSWithholdingCalculator() {
                     <p>
                       <strong className="text-foreground">4(c):</strong> Extra withholding —{' '}
                       {result.additionalWithholdingNeeded > 0 ? (
-                        <span className="text-red-400 font-medium">
+                        <span className="text-red-600 font-medium">
                           Enter {formatCurrency(result.additionalWithholdingNeeded)} to avoid underpayment penalties.
                         </span>
                       ) : (
@@ -1068,7 +1068,7 @@ export function IRSWithholdingCalculator() {
                 </div>
               </div>
               <div className="flex gap-3">
-                <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-emerald-500/20 text-xs font-bold text-emerald-400">
+                <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-emerald-600/20 text-xs font-bold text-emerald-600">
                   5
                 </div>
                 <div>
@@ -1128,7 +1128,7 @@ export function IRSWithholdingCalculator() {
         <Card className="border-border/50 bg-card/80 backdrop-blur-sm">
           <CardHeader>
             <CardTitle className="flex items-center gap-2 text-lg">
-              <TrendingUp className="h-5 w-5 text-emerald-400" />
+              <TrendingUp className="h-5 w-5 text-emerald-600" />
               Withholding Comparison
             </CardTitle>
             <CardDescription>Side-by-side analysis of your current and recommended withholding</CardDescription>
@@ -1167,17 +1167,17 @@ export function IRSWithholdingCalculator() {
               </div>
 
               {/* Recommended */}
-              <div className={`rounded-xl border p-4 space-y-3 ${result.isUnderWithheld ? 'border-red-500/30 bg-red-500/5' : result.isOverWithheld ? 'border-emerald-500/30 bg-emerald-500/5' : 'border-emerald-500/30 bg-emerald-500/5'}`}>
+              <div className={`rounded-xl border p-4 space-y-3 ${result.isUnderWithheld ? 'border-red-500/30 bg-red-500/5' : result.isOverWithheld ? 'border-emerald-500/30 bg-emerald-600/5' : 'border-emerald-500/30 bg-emerald-600/5'}`}>
                 <div className="flex items-center gap-2">
-                  <Calculator className="h-4 w-4 text-emerald-400" />
+                  <Calculator className="h-4 w-4 text-emerald-600" />
                   <span className="text-sm font-semibold text-foreground">Recommended Withholding</span>
-                  <Badge className="bg-emerald-500/20 text-emerald-400 text-[10px]">Calculated</Badge>
+                  <Badge className="bg-emerald-600/20 text-emerald-600 text-[10px]">Calculated</Badge>
                 </div>
                 <Separator className="bg-border/30" />
                 <div className="space-y-2 text-sm">
                   <div className="flex justify-between">
                     <span className="text-muted-foreground">Federal per {payFrequencyLabel}</span>
-                    <span className="font-medium text-emerald-400">{formatCurrency(result.federalWithholdingPerPaycheck)}</span>
+                    <span className="font-medium text-emerald-600">{formatCurrency(result.federalWithholdingPerPaycheck)}</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-muted-foreground">FICA per {payFrequencyLabel}</span>
@@ -1185,7 +1185,7 @@ export function IRSWithholdingCalculator() {
                   </div>
                   <div className="flex justify-between">
                     <span className="text-muted-foreground">Annual Federal</span>
-                    <span className="font-medium text-emerald-400">{formatCurrency(result.annualFederalTax)}</span>
+                    <span className="font-medium text-emerald-600">{formatCurrency(result.annualFederalTax)}</span>
                   </div>
                   <Separator className="bg-border/20" />
                   <div className="flex justify-between">
@@ -1205,13 +1205,13 @@ export function IRSWithholdingCalculator() {
                   {result.projectedRefund > 0 ? (
                     <>
                       You are currently over-withheld by{' '}
-                      <strong className="text-emerald-400">{formatCurrency(result.projectedRefund)}</strong> per year
+                      <strong className="text-emerald-600">{formatCurrency(result.projectedRefund)}</strong> per year
                       ({formatCurrency(result.projectedRefund / 12)}/month extra in your paycheck if adjusted)
                     </>
                   ) : result.projectedOwed > 0 ? (
                     <>
                       You are currently under-withheld by{' '}
-                      <strong className="text-red-400">{formatCurrency(result.projectedOwed)}</strong> per year
+                      <strong className="text-red-600">{formatCurrency(result.projectedOwed)}</strong> per year
                       — you may owe at tax time
                     </>
                   ) : (
@@ -1219,12 +1219,12 @@ export function IRSWithholdingCalculator() {
                   )}
                 </div>
                 {result.projectedRefund > 0 && (
-                  <Badge className="bg-emerald-500/20 text-emerald-400 text-xs">
+                  <Badge className="bg-emerald-600/20 text-emerald-600 text-xs">
                     +{formatCurrency(result.projectedRefund / PAY_PERIODS[payFrequency])} per paycheck refund
                   </Badge>
                 )}
                 {result.projectedOwed > 0 && (
-                  <Badge className="bg-red-500/20 text-red-400 text-xs">
+                  <Badge className="bg-red-500/20 text-red-600 text-xs">
                     Under-withheld
                   </Badge>
                 )}

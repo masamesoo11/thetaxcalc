@@ -46,7 +46,7 @@ import { AdminSettings } from '@/components/finance/admin-settings';
 function SectionLoader() {
   return (
     <div className="flex items-center justify-center py-20">
-      <Loader2 className="h-8 w-8 animate-spin text-emerald-500" />
+      <Loader2 className="h-8 w-8 animate-spin text-emerald-700" />
     </div>
   );
 }
@@ -187,8 +187,8 @@ export function AdminDashboard() {
         <div className="flex flex-col h-full">
           <div className="p-4 border-b border-border/30">
             <div className="flex items-center gap-2">
-              <div className="h-8 w-8 rounded-lg bg-emerald-500/20 flex items-center justify-center">
-                <BarChart3 className="h-4 w-4 text-emerald-400" />
+              <div className="h-8 w-8 rounded-lg bg-emerald-600/20 flex items-center justify-center">
+                <BarChart3 className="h-4 w-4 text-emerald-600" />
               </div>
               <div>
                 <h2 className="font-bold text-sm">Admin Panel</h2>
@@ -209,7 +209,7 @@ export function AdminDashboard() {
                     onClick={() => navigateTo(item.key)}
                     className={`
                       w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all
-                      ${isActive ? 'bg-emerald-500/15 text-emerald-400' : 'text-muted-foreground hover:bg-muted/50 hover:text-foreground'}
+                      ${isActive ? 'bg-emerald-600/15 text-emerald-600' : 'text-muted-foreground hover:bg-muted/50 hover:text-foreground'}
                     `}
                   >
                     <Icon className="h-4 w-4 shrink-0" />
@@ -345,11 +345,11 @@ function AdminOverview() {
   }
 
   const statCards = [
-    { label: 'Total Posts', value: stats.totalPosts, icon: FileText, color: 'text-emerald-400', bgColor: 'bg-emerald-500/15' },
-    { label: 'Published', value: stats.publishedPosts, icon: FileBarChart, color: 'text-blue-400', bgColor: 'bg-blue-500/15' },
-    { label: 'Total Ads', value: stats.totalAds, icon: Megaphone, color: 'text-amber-400', bgColor: 'bg-amber-500/15' },
-    { label: 'Active Ads', value: stats.activeAds, icon: ToggleLeft, color: 'text-purple-400', bgColor: 'bg-purple-500/15' },
-    { label: 'Calculator Uses', value: stats.totalCalculations, icon: BarChart3, color: 'text-rose-400', bgColor: 'bg-rose-500/15' },
+    { label: 'Total Posts', value: stats.totalPosts, icon: FileText, color: 'text-emerald-600', bgColor: 'bg-emerald-600/15' },
+    { label: 'Published', value: stats.publishedPosts, icon: FileBarChart, color: 'text-blue-700', bgColor: 'bg-blue-500/15' },
+    { label: 'Total Ads', value: stats.totalAds, icon: Megaphone, color: 'text-amber-700', bgColor: 'bg-amber-500/15' },
+    { label: 'Active Ads', value: stats.activeAds, icon: ToggleLeft, color: 'text-purple-700', bgColor: 'bg-purple-500/15' },
+    { label: 'Calculator Uses', value: stats.totalCalculations, icon: BarChart3, color: 'text-rose-700', bgColor: 'bg-rose-500/15' },
   ];
 
   const maxUsage = stats.topCalculators.length > 0 ? Math.max(...stats.topCalculators.map((c) => c.totalUsage)) : 1;
@@ -394,7 +394,7 @@ function AdminOverview() {
                       </div>
                     </div>
                     <div className="flex items-center gap-2 shrink-0">
-                      <Badge variant="outline" className={post.published ? 'text-xs bg-emerald-500/15 text-emerald-400 border-emerald-500/30' : 'text-xs bg-muted text-muted-foreground'}>
+                      <Badge variant="outline" className={post.published ? 'text-xs bg-emerald-600/15 text-emerald-600 border-emerald-500/30' : 'text-xs bg-muted text-muted-foreground'}>
                         {post.published ? 'Live' : 'Draft'}
                       </Badge>
                       <Switch checked={post.published} onCheckedChange={(checked) => toggleMutation.mutate({ slug: post.slug, published: checked })} disabled={toggleMutation.isPending} />
@@ -422,7 +422,7 @@ function AdminOverview() {
                         <span className="text-muted-foreground">{calc.totalUsage.toLocaleString()} uses</span>
                       </div>
                       <div className="h-2 rounded-full bg-muted overflow-hidden">
-                        <div className="h-full rounded-full bg-emerald-500 transition-all duration-500" style={{ width: `${percentage}%` }} />
+                        <div className="h-full rounded-full bg-emerald-600 transition-all duration-500" style={{ width: `${percentage}%` }} />
                       </div>
                     </div>
                   );

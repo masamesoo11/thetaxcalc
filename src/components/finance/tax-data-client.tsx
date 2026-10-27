@@ -54,10 +54,10 @@ function CopyBtn({ text, label = 'Copy' }: { text: string; label?: string }) {
   return (
     <button
       onClick={handleCopy}
-      className="inline-flex items-center gap-1 rounded-lg border border-border/40 bg-muted/20 px-2.5 py-1 text-xs font-medium text-muted-foreground hover:border-emerald-500/30 hover:text-emerald-400 transition-all"
+      className="inline-flex items-center gap-1 rounded-lg border border-border/40 bg-muted/20 px-2.5 py-1 text-xs font-medium text-muted-foreground hover:border-emerald-500/30 hover:text-emerald-600 transition-all"
       aria-label={copied ? 'Copied!' : label}
     >
-      {copied ? <Check className="h-3 w-3 text-emerald-400" /> : <Copy className="h-3 w-3" />}
+      {copied ? <Check className="h-3 w-3 text-emerald-600" /> : <Copy className="h-3 w-3" />}
       {copied ? 'Copied!' : label}
     </button>
   );
@@ -86,14 +86,14 @@ function CiteShareButtons({ title, sectionId }: { title: string; sectionId: stri
     <div className="flex items-center gap-2">
       <button
         onClick={handleCite}
-        className="inline-flex items-center gap-1 rounded-lg border border-border/40 bg-muted/20 px-2.5 py-1 text-xs font-medium text-muted-foreground hover:border-emerald-500/30 hover:text-emerald-400 transition-all"
+        className="inline-flex items-center gap-1 rounded-lg border border-border/40 bg-muted/20 px-2.5 py-1 text-xs font-medium text-muted-foreground hover:border-emerald-500/30 hover:text-emerald-600 transition-all"
       >
-        {cited ? <Check className="h-3 w-3 text-emerald-400" /> : <Quote className="h-3 w-3" />}
+        {cited ? <Check className="h-3 w-3 text-emerald-600" /> : <Quote className="h-3 w-3" />}
         {cited ? 'Copied!' : 'Cite'}
       </button>
       <button
         onClick={handleLink}
-        className="inline-flex items-center gap-1 rounded-lg border border-border/40 bg-muted/20 px-2.5 py-1 text-xs font-medium text-muted-foreground hover:border-emerald-500/30 hover:text-emerald-400 transition-all"
+        className="inline-flex items-center gap-1 rounded-lg border border-border/40 bg-muted/20 px-2.5 py-1 text-xs font-medium text-muted-foreground hover:border-emerald-500/30 hover:text-emerald-600 transition-all"
       >
         <LinkIcon className="h-3 w-3" />
         Link
@@ -114,7 +114,7 @@ function SortHeaderButton({ k, label, sortKey, sortDir, onSort }: { k: SortKey; 
   return (
     <button
       onClick={() => onSort(k)}
-      className="group inline-flex items-center gap-1 text-xs font-semibold uppercase tracking-wider text-emerald-400 hover:text-emerald-300 transition-colors"
+      className="group inline-flex items-center gap-1 text-xs font-semibold uppercase tracking-wider text-emerald-600 hover:text-emerald-700 transition-colors"
     >
       {label}
       <ArrowUpDown
@@ -228,7 +228,7 @@ export function SalesTaxTable() {
               onClick={() => setFilter(f.key)}
               className={`rounded-lg px-3 py-2 text-xs font-medium transition-all ${
                 filter === f.key
-                  ? 'bg-emerald-500/15 text-emerald-400 border border-emerald-500/30'
+                  ? 'bg-emerald-600/15 text-emerald-600 border border-emerald-500/30'
                   : 'bg-muted/20 text-muted-foreground border border-border/20 hover:border-emerald-500/20'
               }`}
             >
@@ -238,7 +238,7 @@ export function SalesTaxTable() {
         </div>
         <button
           onClick={handleDownloadCSV}
-          className="inline-flex items-center gap-1.5 rounded-lg border border-border/40 bg-muted/20 px-3 py-2 text-xs font-medium text-muted-foreground hover:border-emerald-500/30 hover:text-emerald-400 transition-all"
+          className="inline-flex items-center gap-1.5 rounded-lg border border-border/40 bg-muted/20 px-3 py-2 text-xs font-medium text-muted-foreground hover:border-emerald-500/30 hover:text-emerald-600 transition-all"
         >
           <Download className="h-3.5 w-3.5" />
           CSV
@@ -263,7 +263,7 @@ export function SalesTaxTable() {
                 <th className="px-4 py-3 text-left">
                   <SortHeaderButton k="combinedRate" label="Combined" sortKey={sortKey} sortDir={sortDir} onSort={handleSort} />
                 </th>
-                <th className="px-4 py-3 text-left hidden md:table-cell text-xs font-semibold uppercase tracking-wider text-emerald-400">
+                <th className="px-4 py-3 text-left hidden md:table-cell text-xs font-semibold uppercase tracking-wider text-emerald-600">
                   Exemptions
                 </th>
               </tr>
@@ -273,14 +273,14 @@ export function SalesTaxTable() {
                 <tr
                   key={row.key}
                   className={`border-b border-border/10 last:border-0 hover:bg-muted/5 transition-colors ${
-                    row.noStateTax ? 'bg-emerald-500/[0.03]' : ''
+                    row.noStateTax ? 'bg-emerald-600/[0.03]' : ''
                   }`}
                 >
                   <td className="px-4 py-2.5 text-sm">
                     <span className="font-semibold text-foreground">{row.name}</span>
                     <span className="ml-1.5 text-xs text-muted-foreground">({row.abbr})</span>
                     {row.noStateTax && (
-                      <span className="ml-2 inline-flex items-center rounded-md bg-emerald-500/10 px-1.5 py-0.5 text-[10px] font-semibold text-emerald-400">
+                      <span className="ml-2 inline-flex items-center rounded-md bg-emerald-600/10 px-1.5 py-0.5 text-[10px] font-semibold text-emerald-600">
                         NO TAX
                       </span>
                     )}
@@ -289,8 +289,8 @@ export function SalesTaxTable() {
                     <span
                       className={`inline-flex items-center rounded-md px-2 py-0.5 text-xs font-semibold ${
                         row.stateRate === 0
-                          ? 'bg-emerald-500/10 text-emerald-400'
-                          : 'bg-amber-500/10 text-amber-400'
+                          ? 'bg-emerald-600/10 text-emerald-600'
+                          : 'bg-amber-500/10 text-amber-700'
                       }`}
                     >
                       {fmt(row.stateRate)}
@@ -364,7 +364,7 @@ export function SalesTaxChart() {
               onClick={() => setView(v.key)}
               className={`inline-flex items-center gap-1.5 rounded-lg px-4 py-2 text-xs font-medium transition-all ${
                 view === v.key
-                  ? 'bg-emerald-500/15 text-emerald-400 border border-emerald-500/30'
+                  ? 'bg-emerald-600/15 text-emerald-600 border border-emerald-500/30'
                   : 'bg-muted/20 text-muted-foreground border border-border/20 hover:border-emerald-500/20'
               }`}
             >
@@ -412,8 +412,8 @@ export function SalesTaxChart() {
               }
               wrapperStyle={{ fontSize: '11px' }}
             />
-            <Bar dataKey="stateRate" stackId="a" fill="#10b981" radius={[0, 0, 0, 0]} />
-            <Bar dataKey="localRate" stackId="a" fill="#34d399" radius={[4, 4, 0, 0]} />
+            <Bar dataKey="stateRate" stackId="a" fill="#b08d3e" radius={[0, 0, 0, 0]} />
+            <Bar dataKey="localRate" stackId="a" fill="#c9a961" radius={[4, 4, 0, 0]} />
           </BarChart>
         </ResponsiveContainer>
       </div>
@@ -439,7 +439,7 @@ const BRACKET_DATA_SINGLE = [
 ];
 
 const BRACKET_COLORS = [
-  '#10b981', '#34d399', '#6ee7b7', '#a7f3d0',
+  '#b08d3e', '#c9a961', '#e0cb8e', '#e0cb8e',
   '#fbbf24', '#f59e0b', '#ef4444',
 ];
 
@@ -501,11 +501,11 @@ export function NoIncomeTaxTable() {
         <table className="w-full">
           <thead>
             <tr className="border-b border-border/20">
-              <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-emerald-400 bg-emerald-500/5">State</th>
-              <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-emerald-400 bg-emerald-500/5">Income Tax</th>
-              <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-emerald-400 bg-emerald-500/5">Avg Sales Tax</th>
-              <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-emerald-400 bg-emerald-500/5 hidden sm:table-cell">Property Tax</th>
-              <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-emerald-400 bg-emerald-500/5 hidden md:table-cell">Note</th>
+              <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-emerald-600 bg-emerald-600/5">State</th>
+              <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-emerald-600 bg-emerald-600/5">Income Tax</th>
+              <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-emerald-600 bg-emerald-600/5">Avg Sales Tax</th>
+              <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-emerald-600 bg-emerald-600/5 hidden sm:table-cell">Property Tax</th>
+              <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-emerald-600 bg-emerald-600/5 hidden md:table-cell">Note</th>
             </tr>
           </thead>
           <tbody>
@@ -516,7 +516,7 @@ export function NoIncomeTaxTable() {
                   <span className="ml-1 text-xs text-muted-foreground">({row.abbr})</span>
                 </td>
                 <td className="px-4 py-3 text-sm">
-                  <span className="inline-flex items-center rounded-md bg-emerald-500/10 px-2.5 py-0.5 text-xs font-semibold text-emerald-400">
+                  <span className="inline-flex items-center rounded-md bg-emerald-600/10 px-2.5 py-0.5 text-xs font-semibold text-emerald-600">
                     0%
                   </span>
                 </td>
@@ -563,10 +563,10 @@ export function DataEmbedSnippets() {
   ];
 
   return (
-    <div className="rounded-xl border border-emerald-500/20 bg-emerald-500/5 p-6">
+    <div className="rounded-xl border border-emerald-500/20 bg-emerald-600/5 p-6">
       <div className="flex items-center gap-3 mb-4">
-        <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-500/10">
-          <BarChart3 className="h-5 w-5 text-emerald-400" />
+        <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-600/10">
+          <BarChart3 className="h-5 w-5 text-emerald-600" />
         </div>
         <div>
           <h3 className="text-lg font-bold text-foreground">
@@ -580,7 +580,7 @@ export function DataEmbedSnippets() {
 
       <button
         onClick={() => setShowAll(!showAll)}
-        className="flex items-center gap-1.5 text-sm font-medium text-emerald-400 hover:text-emerald-300 transition-colors mb-4"
+        className="flex items-center gap-1.5 text-sm font-medium text-emerald-600 hover:text-emerald-700 transition-colors mb-4"
       >
         <ChevronDown className={`h-4 w-4 transition-transform ${showAll ? 'rotate-180' : ''}`} />
         {showAll ? 'Hide Embed Codes' : 'Show Embed Codes'}
@@ -603,7 +603,7 @@ export function DataEmbedSnippets() {
       )}
 
       <div className="mt-4 flex items-start gap-2 text-xs text-muted-foreground leading-relaxed">
-        <Download className="h-4 w-4 text-emerald-400 shrink-0 mt-0.5" />
+        <Download className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
         <p>
           You can also download the raw data as CSV using the button in the sales tax table above.
           All data is free to use with attribution:{' '}

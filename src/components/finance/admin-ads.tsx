@@ -215,9 +215,9 @@ export function AdminAds() {
 
   const getAdTypeBadge = (adType: string) => {
     const map: Record<string, string> = {
-      adsense: 'bg-amber-500/15 text-amber-400 border-amber-500/30',
-      custom: 'bg-emerald-500/15 text-emerald-400 border-emerald-500/30',
-      affiliate: 'bg-purple-500/15 text-purple-400 border-purple-500/30',
+      adsense: 'bg-amber-500/15 text-amber-700 border-amber-500/30',
+      custom: 'bg-emerald-600/15 text-emerald-600 border-emerald-500/30',
+      affiliate: 'bg-purple-500/15 text-purple-700 border-purple-500/30',
     };
     return map[adType] || 'bg-muted text-muted-foreground border-border';
   };
@@ -313,7 +313,7 @@ export function AdminAds() {
                     variant="ghost"
                     size="sm"
                     onClick={() => setDeleteTarget(ad)}
-                    className="gap-1 text-xs text-red-400 hover:text-red-300 hover:bg-red-500/10"
+                    className="gap-1 text-xs text-red-600 hover:text-red-600 hover:bg-red-500/10"
                   >
                     <Trash2 className="h-3.5 w-3.5" />
                     Delete

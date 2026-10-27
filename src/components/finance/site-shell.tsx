@@ -48,7 +48,7 @@ function SiteShellInner({ children }: { children: React.ReactNode }) {
               href="https://thetaxcalc.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-emerald-400 hover:text-emerald-300 underline underline-offset-2"
+              className="text-emerald-600 hover:text-emerald-700 underline underline-offset-2"
             >
               TheTaxCalc
             </a>

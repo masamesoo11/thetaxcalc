@@ -61,10 +61,10 @@ interface HeadingItem {
 // ─── Constants ────────────────────────────────────────────────────────────────
 
 const CATEGORY_COLORS: Record<string, string> = {
-  'tax-guide': 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30',
-  comparison: 'bg-cyan-500/20 text-cyan-400 border-cyan-500/30',
-  tips: 'bg-amber-500/20 text-amber-400 border-amber-500/30',
-  news: 'bg-rose-500/20 text-rose-400 border-rose-500/30',
+  'tax-guide': 'bg-emerald-600/20 text-emerald-600 border-emerald-500/30',
+  comparison: 'bg-cyan-500/20 text-cyan-700 border-cyan-500/30',
+  tips: 'bg-amber-500/20 text-amber-700 border-amber-500/30',
+  news: 'bg-rose-500/20 text-rose-700 border-rose-500/30',
 };
 
 const CATEGORY_LABELS: Record<string, string> = {
@@ -254,7 +254,7 @@ function TableOfContents({ headings }: { headings: HeadingItem[] }) {
     <Card className="border-border/50 bg-card/80 backdrop-blur-sm sticky top-20">
       <CardHeader className="pb-3">
         <CardTitle className="flex items-center gap-2 text-sm font-semibold text-foreground">
-          <List className="h-4 w-4 text-emerald-400" />
+          <List className="h-4 w-4 text-emerald-600" />
           Table of Contents
         </CardTitle>
       </CardHeader>
@@ -264,7 +264,7 @@ function TableOfContents({ headings }: { headings: HeadingItem[] }) {
             <button
               key={heading.id}
               onClick={() => handleClick(heading.id)}
-              className={`block w-full text-left text-xs text-muted-foreground hover:text-emerald-400 transition-colors rounded px-2 py-1 hover:bg-emerald-500/5 ${
+              className={`block w-full text-left text-xs text-muted-foreground hover:text-emerald-600 transition-colors rounded px-2 py-1 hover:bg-emerald-600/5 ${
                 heading.level === 3 ? 'pl-6' : ''
               }`}
             >
@@ -398,7 +398,7 @@ export function BlogDetail({
     return (
       <div className="flex flex-col items-center justify-center py-16 text-center">
         <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-red-500/10">
-          <BookOpen className="h-8 w-8 text-red-400" />
+          <BookOpen className="h-8 w-8 text-red-600" />
         </div>
         <h3 className="text-lg font-semibold text-foreground">Post Not Found</h3>
         <p className="mt-2 max-w-sm text-sm text-muted-foreground">
@@ -474,7 +474,7 @@ export function BlogDetail({
                 {CATEGORY_LABELS[post.category] || post.category}
               </Badge>
               {post.featured && (
-                <Badge className="bg-amber-500/20 text-amber-400 border-amber-500/30 text-xs">
+                <Badge className="bg-amber-500/20 text-amber-700 border-amber-500/30 text-xs">
                   Featured
                 </Badge>
               )}
@@ -611,7 +611,7 @@ export function BlogDetail({
                 a: ({ children, href, ...props }) => (
                   <a
                     href={href}
-                    className="text-emerald-400 underline hover:text-emerald-300 transition-colors"
+                    className="text-emerald-600 underline hover:text-emerald-700 transition-colors"
                     target={href?.startsWith('http') ? '_blank' : undefined}
                     rel={href?.startsWith('http') ? 'noopener noreferrer' : undefined}
                     {...props}
@@ -621,7 +621,7 @@ export function BlogDetail({
                 ),
                 blockquote: ({ children, ...props }) => (
                   <blockquote
-                    className="my-4 border-l-4 border-emerald-500/50 bg-emerald-500/5 py-3 pl-4 pr-3 italic text-muted-foreground"
+                    className="my-4 border-l-4 border-emerald-500/50 bg-emerald-600/5 py-3 pl-4 pr-3 italic text-muted-foreground"
                     {...props}
                   >
                     {children}
@@ -632,7 +632,7 @@ export function BlogDetail({
                   if (isInline) {
                     return (
                       <code
-                        className="rounded bg-muted/50 px-1.5 py-0.5 text-sm font-mono text-emerald-400"
+                        className="rounded bg-muted/50 px-1.5 py-0.5 text-sm font-mono text-emerald-600"
                         {...props}
                       >
                         {children}
@@ -698,7 +698,7 @@ export function BlogDetail({
 
           {/* Related Calculators */}
           {calculators.length > 0 && (
-            <Card className="border-border/30 bg-emerald-500/5">
+            <Card className="border-border/30 bg-emerald-600/5">
               <CardHeader className="pb-3">
                 <CardTitle className="text-base font-semibold text-foreground">
                   Try These Calculators
@@ -712,7 +712,7 @@ export function BlogDetail({
                       variant="outline"
                       size="sm"
                       onClick={() => onNavigate(calc.hash)}
-                      className="border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/10 hover:text-emerald-300"
+                      className="border-emerald-500/30 text-emerald-600 hover:bg-emerald-600/10 hover:text-emerald-700"
                     >
                       <ArrowRight className="mr-1.5 h-3.5 w-3.5" />
                       {calc.label}
@@ -750,7 +750,7 @@ export function BlogDetail({
                       >
                         {CATEGORY_LABELS[rp.category] || rp.category}
                       </Badge>
-                      <h4 className="text-sm font-semibold leading-tight text-foreground group-hover:text-emerald-400 transition-colors line-clamp-2">
+                      <h4 className="text-sm font-semibold leading-tight text-foreground group-hover:text-emerald-600 transition-colors line-clamp-2">
                         {rp.title}
                       </h4>
                       <span className="flex items-center gap-1 text-xs text-muted-foreground">
@@ -783,7 +783,7 @@ export function BlogDetail({
                     <button
                       key={calc.hash}
                       onClick={() => onNavigate(calc.hash)}
-                      className="flex w-full items-center gap-2 rounded-md px-2 py-1.5 text-xs text-muted-foreground hover:bg-emerald-500/5 hover:text-emerald-400 transition-colors"
+                      className="flex w-full items-center gap-2 rounded-md px-2 py-1.5 text-xs text-muted-foreground hover:bg-emerald-600/5 hover:text-emerald-600 transition-colors"
                     >
                       <ArrowRight className="h-3 w-3" />
                       {calc.label}

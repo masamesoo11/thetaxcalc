@@ -198,7 +198,7 @@ export default async function StateSalesTaxPage({
                   <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
                     {rate.label}
                   </p>
-                  <p className="mt-1 text-lg font-bold text-emerald-400">{rate.value}</p>
+                  <p className="mt-1 text-lg font-bold text-emerald-600">{rate.value}</p>
                 </div>
               ))}
             </div>
@@ -238,7 +238,7 @@ export default async function StateSalesTaxPage({
             <div className="flex flex-wrap gap-3">
               <Link
                 href="/sales-tax-calculator"
-                className="inline-flex items-center rounded-lg border border-emerald-500/30 bg-emerald-500/10 px-4 py-2 text-sm font-medium text-emerald-400 hover:bg-emerald-500/20 transition-colors"
+                className="inline-flex items-center rounded-lg border border-emerald-500/30 bg-emerald-600/10 px-4 py-2 text-sm font-medium text-emerald-600 hover:bg-emerald-600/20 transition-colors"
               >
                 All 50 States
               </Link>
@@ -270,7 +270,7 @@ export default async function StateSalesTaxPage({
                   href={`/sales-tax-calculator/${stateKeyToSlug(key)}`}
                   className={`inline-flex items-center rounded-md px-3 py-1.5 text-xs font-medium transition-colors ${
                     isActive
-                      ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30'
+                      ? 'bg-emerald-600/20 text-emerald-600 border border-emerald-500/30'
                       : 'bg-muted/30 text-muted-foreground border border-border/30 hover:bg-muted/50 hover:text-foreground'
                   }`}
                 >

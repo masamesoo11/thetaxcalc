@@ -205,10 +205,10 @@ export default function ResearchHubPage() {
             <Link
               key={study.slug}
               href={`/research/${study.slug}`}
-              className="block rounded-xl border border-border/30 bg-card/50 p-6 hover:border-emerald-500/40 hover:bg-emerald-500/5 transition-colors"
+              className="block rounded-xl border border-border/30 bg-card/50 p-6 hover:border-emerald-500/40 hover:bg-emerald-600/5 transition-colors"
             >
               <div className="flex items-center gap-2 mb-3">
-                <span className="rounded-full bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-0.5 text-xs text-emerald-400">
+                <span className="rounded-full bg-emerald-600/10 border border-emerald-500/20 px-2.5 py-0.5 text-xs text-emerald-600">
                   {study.category}
                 </span>
                 <span className="text-xs text-muted-foreground">{study.readTime} read</span>
@@ -238,7 +238,7 @@ export default function ResearchHubPage() {
           powers our{' '}
           <Link
             href="/paycheck-calculator"
-            className="text-emerald-400 hover:text-emerald-300 underline"
+            className="text-emerald-600 hover:text-emerald-700 underline"
           >
             paycheck calculator
           </Link>{' '}
@@ -250,7 +250,7 @@ export default function ResearchHubPage() {
           For a full description of how we compute every tax figure on the site, see our{' '}
           <Link
             href="/methodology"
-            className="text-emerald-400 hover:text-emerald-300 underline"
+            className="text-emerald-600 hover:text-emerald-700 underline"
           >
             methodology page
           </Link>
@@ -303,7 +303,7 @@ export default function ResearchHubPage() {
             <Link
               key={item.href}
               href={item.href}
-              className="rounded-lg border border-border/30 bg-card/50 p-4 hover:border-emerald-500/40 hover:bg-emerald-500/5 transition-colors"
+              className="rounded-lg border border-border/30 bg-card/50 p-4 hover:border-emerald-500/40 hover:bg-emerald-600/5 transition-colors"
             >
               <p className="font-medium text-foreground">{item.title}</p>
               <p className="text-sm text-muted-foreground mt-1">{item.desc}</p>
