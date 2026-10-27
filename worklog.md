@@ -983,3 +983,21 @@ Stage Summary:
 - New operational lesson recorded: dev.sh launches must be given time to COMPLETE inside the launching call (wait for "Use 'kill" in .zscripts/dev.log); otherwise the EXIT-trap + reaper chain-kills the server between calls.
 - Everything user-facing is live: thetaxcalc.com/calculators (73-tool instant-search hub) + installable PWA (SW, offline page, manifest shortcuts, install banner).
 - Still open from earlier tasks: PH banner final fate (Q3).
+
+---
+Task ID: 35
+Agent: Main Agent
+Task: User reported live production error on https://thetaxcalc.com/salary — Cloudflare "Error 1102: Worker exceeded resource limits" (Ray a512915be8b53b6f-MUC, 15:00 UTC), minutes after session 34-b's pushes had triggered Pages redeploys. Diagnose and fix.
+
+Work Log:
+- Scoped the breakage: /salary + all key routes returned 200 on retry — the 1102 was INTERMITTENT (first uncached hit on a cold worker after a deploy; subsequent hits fine). Production-size audit revealed the real root cause: /salary HTML was 1,334KB — 3.4x heavier than the heaviest normal page (widgets 394KB; everything else 130-394KB).
+- Weight forensics: the page renders 31 salary cards (26 amounts; 5 boundary amounts appear in 2 overlapping groups), and each card's "mini state comparison" (grid-cols-5, designed for 5 bars) mapped over calc.states = ALL 50 states -> 1,550 mini progress bars + matching RSC flight payload. Rendering/streaming 1.3MB on a cold worker (deploys purge edge cache; first visitor hits origin) intermittently pushed the Worker past CPU/memory limits -> 1102.
+- Fix (commit 3b22d46, surgical, zero SEO impact): SalaryCard now renders COMPARISON_STATES = [texas, florida, illinois, california, newyork] — the exact comparison set the page copy describes — instead of all 50. The bars are non-linking visual elements, so no link/content/SEO change: all 26 salary-level links, FAQs, JSON-LD, H1s unchanged.
+- Verified locally (dev): 490KB HTML, exactly 155 bars (31x5), title/links intact, zero page errors, no lint regressions (same 12 pre-existing only).
+- Pushed -> Pages CI -> live. PRODUCTION VERIFIED: /salary now 414KB (-69% vs 1,334KB), abbr labels exactly 31x TX/FL/IL/CA/NY, 26 unique /salary/{amount} links preserved, 3 consecutive cache-busted hits all 200, and site-wide spot check post-deploy (/, /calculators, /salary/75000-yearly, /paycheck-calculator, /florida-tax-calculator, /blog) all 200.
+
+Stage Summary:
+- Error 1102 on /salary FIXED at the root: the page is now a normal-weight page (414KB) and no longer flirts with Worker resource limits on cold starts. Rollback: git revert 3b22d46.
+- Lesson: heavyweight SSR pages (1MB+ HTML) are a Worker-1102 risk on this OpenNext/Pages stack right after deploys (cache purge -> cold worker + first-hit render). Keep pages under ~500KB; audit any page that renders 50-state loops per item.
+- Residual risk note: other pages were all measured healthy; /salary was the single outlier.
+- Open with user (unchanged): PH banner final fate (Q3).
