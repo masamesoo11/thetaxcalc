@@ -1,6 +1,7 @@
 'use client';
 
 import { useMemo, useState } from 'react';
+import Link from 'next/link';
 import {
   Calculator,
   DollarSign,
@@ -30,6 +31,7 @@ import {
   STATE_LABELS,
 } from '@/lib/salary-calculations';
 import { formatCurrency } from '@/lib/finance-utils';
+import { HOURLY_RATES, rateToSlug } from '@/lib/hourly-calculations';
 
 // ─── Types ──────────────────────────────────────────────────────────────────────
 
@@ -422,7 +424,16 @@ export function HourlyToSalaryCalculator() {
                     className="border-b border-border/20 transition-colors hover:bg-emerald-600/5"
                   >
                     <td className="px-4 py-2.5 font-semibold text-emerald-700">
-                      ${rate.toLocaleString()}/hr
+                      {(HOURLY_RATES as readonly number[]).includes(rate) ? (
+                        <Link
+                          href={`/hourly/${rateToSlug(rate)}`}
+                          className="underline-offset-2 hover:text-emerald-800 hover:underline transition-colors"
+                        >
+                          ${rate.toLocaleString()}/hr
+                        </Link>
+                      ) : (
+                        <span>${rate.toLocaleString()}/hr</span>
+                      )}
                     </td>
                     <td className="px-4 py-2.5 text-right text-foreground">
                       {formatCurrency(rate * 40)}
