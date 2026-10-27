@@ -382,7 +382,7 @@ function TaxBreakdownCard({
         </div>
         <div className="flex justify-between text-xs">
           <span className="text-muted-foreground">Effective Tax Rate</span>
-          <span className="text-muted-foreground">{takeHome.effectiveTaxRate.toFixed(1)}%</span>
+          <span className="text-muted-foreground">{(takeHome.effectiveTaxRate * 100).toFixed(1)}%</span>
         </div>
       </div>
     </div>

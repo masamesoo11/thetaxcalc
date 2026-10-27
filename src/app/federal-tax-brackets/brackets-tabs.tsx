@@ -16,7 +16,7 @@ import {
 } from '@/components/ui/table';
 import { Badge } from '@/components/ui/badge';
 
-// ─── 2026 Tax Bracket Data ─────────────────────────────────────────────────────
+// ─── 2026 Tax Bracket Data (IRS Rev. Proc. 2025-32) ────────────────────────────
 
 interface BracketRow {
   rate: string;
@@ -26,15 +26,36 @@ interface BracketRow {
   hoh: string;
 }
 
-const BRACKETS: BracketRow[] = [
-  { rate: '10%', rateNum: 10, single: '$0 – $11,925', mfj: '$0 – $23,850', hoh: '$0 – $17,000' },
-  { rate: '12%', rateNum: 12, single: '$11,926 – $48,475', mfj: '$23,851 – $96,950', hoh: '$17,001 – $64,850' },
-  { rate: '22%', rateNum: 22, single: '$48,476 – $103,350', mfj: '$96,951 – $206,700', hoh: '$64,851 – $103,350' },
-  { rate: '24%', rateNum: 24, single: '$103,351 – $197,300', mfj: '$206,701 – $394,600', hoh: '$103,351 – $197,300' },
-  { rate: '32%', rateNum: 32, single: '$197,301 – $250,525', mfj: '$394,601 – $501,050', hoh: '$197,301 – $250,500' },
-  { rate: '35%', rateNum: 35, single: '$250,526 – $626,350', mfj: '$501,051 – $751,600', hoh: '$250,501 – $626,350' },
-  { rate: '37%', rateNum: 37, single: 'Over $626,350', mfj: 'Over $751,600', hoh: 'Over $626,350' },
-];
+// 2026 inflation-adjusted thresholds per filing status (matches src/lib/tax-config.ts)
+const BRACKETS_2026 = {
+  single: [12400, 50400, 105700, 201775, 256225, 640600],
+  mfj: [24800, 100800, 211400, 403550, 512450, 768700],
+  hoh: [17700, 67450, 105700, 201750, 256200, 640600],
+} as const;
+
+const RATES = [10, 12, 22, 24, 32, 35, 37] as const;
+
+function rangeLabel(lowerLimit: number | null, upperLimit: number): string {
+  if (lowerLimit === null) return `$0 – $${upperLimit.toLocaleString('en-US')}`;
+  return `$${(lowerLimit + 1).toLocaleString('en-US')} – $${upperLimit.toLocaleString('en-US')}`;
+}
+
+function overLabel(lowerLimit: number): string {
+  return `Over $${lowerLimit.toLocaleString('en-US')}`;
+}
+
+function buildRows(status: 'single' | 'mfj' | 'hoh'): BracketRow[] {
+  const limits = BRACKETS_2026[status];
+  return RATES.map((rateNum, i) => {
+    const label =
+      i < limits.length ? rangeLabel(i === 0 ? null : limits[i - 1], limits[i]) : overLabel(limits[limits.length - 1]);
+    return { rate: `${rateNum}%`, rateNum, single: '', mfj: '', hoh: '', [status]: label } as unknown as BracketRow;
+  });
+}
+
+const SINGLE_ROWS = buildRows('single');
+const MFJ_ROWS = buildRows('mfj');
+const HOH_ROWS = buildRows('hoh');
 
 function getRateColor(rateNum: number): string {
   if (rateNum <= 10) return 'bg-emerald-600/15 text-emerald-600 border-emerald-500/20';
@@ -46,48 +67,36 @@ function getRateColor(rateNum: number): string {
   return 'bg-red-600/20 text-red-600 border-red-500/30';
 }
 
-// Cumulative tax owed at the top of each bracket (Single filing status)
-function calculateCumulativeTax(bracketIndex: number): number {
-  const brackets = [
-    { limit: 11925, rate: 0.10 },
-    { limit: 48475, rate: 0.12 },
-    { limit: 103350, rate: 0.22 },
-    { limit: 197300, rate: 0.24 },
-    { limit: 250525, rate: 0.32 },
-    { limit: 626350, rate: 0.35 },
-  ];
+// Cumulative tax owed at the START of each bracket, computed with the
+// bracket limits OF THAT FILING STATUS (not a single-filer approximation).
+function calculateCumulativeTax(status: 'single' | 'mfj' | 'hoh', bracketIndex: number): number {
+  const limits = BRACKETS_2026[status];
+  const rates = [0.10, 0.12, 0.22, 0.24, 0.32, 0.35];
 
   if (bracketIndex === 0) return 0;
 
   let cumulative = 0;
   let prevLimit = 0;
-  for (let i = 0; i < bracketIndex && i < brackets.length; i++) {
-    cumulative += (brackets[i].limit - prevLimit) * brackets[i].rate;
-    prevLimit = brackets[i].limit;
+  for (let i = 0; i < bracketIndex && i < limits.length; i++) {
+    cumulative += (limits[i] - prevLimit) * rates[i];
+    prevLimit = limits[i];
   }
   return Math.round(cumulative);
 }
 
-function BracketTable({ data, label }: { data: BracketRow[]; label: string }) {
-  const fieldMap: Record<string, keyof BracketRow> = {
-    Single: 'single',
-    'Married Filing Jointly': 'mfj',
-    'Head of Household': 'hoh',
-  };
-  const field = fieldMap[label];
-
+function BracketTable({ data, status, label }: { data: BracketRow[]; status: 'single' | 'mfj' | 'hoh'; label: string }) {
   return (
     <Table>
       <TableHeader>
         <TableRow className="border-border/20 hover:bg-transparent">
           <TableHead className="text-muted-foreground font-semibold">Rate</TableHead>
-          <TableHead className="text-muted-foreground font-semibold">Taxable Income Range</TableHead>
-          <TableHead className="text-muted-foreground font-semibold text-right">Tax on Lower Bracket</TableHead>
+          <TableHead className="text-muted-foreground font-semibold">Taxable Income Range ({label})</TableHead>
+          <TableHead className="text-muted-foreground font-semibold text-right">Tax on Lower Brackets</TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
         {data.map((row, i) => {
-          const taxOnLower = calculateCumulativeTax(i);
+          const taxOnLower = calculateCumulativeTax(status, i);
           return (
             <TableRow key={row.rate} className="border-border/10 hover:bg-muted/30">
               <TableCell>
@@ -98,9 +107,9 @@ function BracketTable({ data, label }: { data: BracketRow[]; label: string }) {
                   {row.rate}
                 </Badge>
               </TableCell>
-              <TableCell className="font-medium text-foreground">{row[field]}</TableCell>
+              <TableCell className="font-medium text-foreground">{row[status]}</TableCell>
               <TableCell className="text-right text-muted-foreground tabular-nums">
-                {taxOnLower > 0 ? `$${taxOnLower.toLocaleString()}` : '—'}
+                {taxOnLower > 0 ? `$${taxOnLower.toLocaleString('en-US')}` : '—'}
               </TableCell>
             </TableRow>
           );
@@ -137,13 +146,13 @@ export function BracketsTabs() {
       </TabsList>
 
       <TabsContent value="single" className="mt-6">
-        <BracketTable data={BRACKETS} label="Single" />
+        <BracketTable data={SINGLE_ROWS} status="single" label="Single" />
       </TabsContent>
       <TabsContent value="mfj" className="mt-6">
-        <BracketTable data={BRACKETS} label="Married Filing Jointly" />
+        <BracketTable data={MFJ_ROWS} status="mfj" label="Married Filing Jointly" />
       </TabsContent>
       <TabsContent value="hoh" className="mt-6">
-        <BracketTable data={BRACKETS} label="Head of Household" />
+        <BracketTable data={HOH_ROWS} status="hoh" label="Head of Household" />
       </TabsContent>
     </Tabs>
   );

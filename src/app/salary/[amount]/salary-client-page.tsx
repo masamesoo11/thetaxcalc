@@ -215,7 +215,7 @@ export function SalaryClientPage({ amountStr }: SalaryClientPageProps) {
                   <div className="text-right space-y-1">
                     <p className="text-sm text-muted-foreground">Monthly: <strong className="text-foreground">{fmt(selectedStateData.netMonthly)}</strong></p>
                     <p className="text-sm text-muted-foreground">Biweekly: <strong className="text-foreground">${(selectedStateData.netAnnual / 26).toFixed(0)}</strong></p>
-                    <p className="text-sm text-muted-foreground">Effective rate: <strong className="text-foreground">{selectedStateData.effectiveTaxRate.toFixed(1)}%</strong></p>
+                    <p className="text-sm text-muted-foreground">Effective rate: <strong className="text-foreground">{(selectedStateData.effectiveTaxRate * 100).toFixed(1)}%</strong></p>
                   </div>
                 </div>
                 {selectedStateData.stateTax > 0 ? (
@@ -305,7 +305,7 @@ export function SalaryClientPage({ amountStr }: SalaryClientPageProps) {
                       {state.stateTax > 0 ? fmt(state.stateTax) : '$0'}
                     </td>
                     <td className="px-4 py-3 text-right font-bold text-emerald-600">{fmt(state.netAnnual)}</td>
-                    <td className="px-4 py-3 text-right text-muted-foreground">{state.effectiveTaxRate.toFixed(1)}%</td>
+                    <td className="px-4 py-3 text-right text-muted-foreground">{(state.effectiveTaxRate * 100).toFixed(1)}%</td>
                   </tr>
                 ))}
               </tbody>

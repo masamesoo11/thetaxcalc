@@ -259,8 +259,8 @@ function buildSalaryPageData(salary: number): SalaryPageData {
     federalTax: tx.federalTax,
     ficaTotal: tx.ficaTotal,
     effFedPct: (tx.federalTax / salary) * 100,
-    effAllTxPct: tx.effectiveTaxRate,
-    keepPctTx: 100 - tx.effectiveTaxRate,
+    effAllTxPct: tx.effectiveTaxRate * 100,
+    keepPctTx: 100 - tx.effectiveTaxRate * 100,
     caGap: tx.netAnnual - ca.netAnnual,
     payrollMarginal,
     caMarginal,
@@ -1136,7 +1136,7 @@ function TopStatesSection({ d }: { d: SalaryPageData }) {
                 <td className="p-3 text-right text-foreground">{fmt(s.netAnnual)}</td>
                 <td className="p-3 text-right text-muted-foreground">{fmt(s.netMonthly)}</td>
                 <td className="p-3 text-right text-muted-foreground">{fmt(s.netBiweekly)}</td>
-                <td className="p-3 text-right text-muted-foreground">{s.effectiveTaxRate.toFixed(1)}%</td>
+                <td className="p-3 text-right text-muted-foreground">{(s.effectiveTaxRate * 100).toFixed(1)}%</td>
               </tr>
             ))}
           </tbody>
@@ -1248,7 +1248,7 @@ function BottomStatesSection({ d }: { d: SalaryPageData }) {
   const intros: Record<Tier, string> = {
     entry: `The spread between the best and worst state for a ${formatted} salary is ${fmt(spread)} a year — ${((spread / d.salary) * 100).toFixed(1)}% of gross. The five below take the biggest share, worst first:`,
     mid: `Five states shave at least ${fmt(Math.min(...bottom5.map((s) => s.stateTax)))} off ${formatted} in state income tax. Ranked from most to least expensive of the bottom five:`,
-    upperMid: `Ranked worst first. The costliest state runs a ${worst.effectiveTaxRate.toFixed(1)}% all-in effective rate on ${formatted}, against ${d.tx.effectiveTaxRate.toFixed(1)}% in a no-tax state:`,
+    upperMid: `Ranked worst first. The costliest state runs a ${(worst.effectiveTaxRate * 100).toFixed(1)}% all-in effective rate on ${formatted}, against ${(d.tx.effectiveTaxRate * 100).toFixed(1)}% in a no-tax state:`,
     high: `The costliest five on ${formatted}, worst first. The full spread across all 50 states is ${fmt(spread)} — ${fmt(spread / 12)} a month of pure geography:`,
     top: `The expensive end of the ${formatted} spectrum — five states where the total tax bill reaches ${fmt(worst.totalDeductions)} or more. Geography is worth ${fmt(spread)} a year at this salary:`,
   };
@@ -1261,7 +1261,7 @@ function BottomStatesSection({ d }: { d: SalaryPageData }) {
           <div key={s.stateKey} className="rounded-lg border border-border/30 bg-card/50 p-3 text-center">
             <p className="font-semibold text-foreground">{s.stateName}</p>
             <p className="text-sm text-emerald-600 mt-1">{fmt(s.netAnnual)}</p>
-            <p className="text-xs text-muted-foreground mt-0.5">{s.effectiveTaxRate.toFixed(1)}% effective</p>
+            <p className="text-xs text-muted-foreground mt-0.5">{(s.effectiveTaxRate * 100).toFixed(1)}% effective</p>
           </div>
         ))}
       </div>

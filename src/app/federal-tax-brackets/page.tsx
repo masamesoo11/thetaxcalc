@@ -83,7 +83,7 @@ const faqJsonLd = {
           name: 'What are the 2026 federal tax brackets?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'The 2026 federal income tax has seven brackets: 10%, 12%, 22%, 24%, 32%, 35%, and 37%. For single filers, the brackets are $0–$11,925 (10%), $11,926–$48,475 (12%), $48,476–$103,350 (22%), $103,351–$197,300 (24%), $197,301–$250,525 (32%), $250,526–$626,350 (35%), and over $626,350 (37%). The bracket widths double for married filing jointly.',
+            text: 'The 2026 federal income tax has seven brackets: 10%, 12%, 22%, 24%, 32%, 35%, and 37%. For single filers, the brackets are $0–$12,400 (10%), $12,401–$50,400 (12%), $50,401–$105,700 (22%), $105,701–$201,775 (24%), $201,776–$256,225 (32%), $256,226–$640,600 (35%), and over $640,600 (37%). The bracket widths roughly double for married filing jointly, except at the very top where the 37% threshold starts at $768,700.',
           },
         },
         {
@@ -115,7 +115,7 @@ const faqJsonLd = {
           name: 'Did the 2026 tax brackets change from 2025?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Yes, the IRS adjusts tax brackets annually for inflation. For 2026, bracket thresholds increased significantly compared to 2025 due to the OBBBA. The standard deduction also increased: $16,100 (single) vs $14,600 in 2025, and $32,200 (MFJ) vs $29,200 in 2025.',
+            text: 'Yes, the IRS adjusts tax brackets annually for inflation. For 2026, bracket thresholds increased significantly compared to 2025 due to the OBBBA. The standard deduction also increased: $16,100 (single) vs $15,750 in 2025, and $32,200 (MFJ) vs $31,500 in 2025.',
           },
         },
       ],
@@ -142,7 +142,7 @@ const faqJsonLd = {
 const FAQS = [
   {
     q: 'What are the 2026 federal tax brackets?',
-    a: 'Seven brackets for 2026: 10%, 12%, 22%, 24%, 32%, 35%, and 37%. For single filers, the ranges go from $0–$11,925 at 10% up to anything over $626,350 at 37%. Married filing jointly? The bracket widths basically double. And no — only the income within each bracket gets taxed at that rate. Your whole paycheck doesn\'t get hit with the top rate.',
+    a: 'Seven brackets for 2026: 10%, 12%, 22%, 24%, 32%, 35%, and 37%. For single filers, the ranges go from $0–$12,400 at 10% up to anything over $640,600 at 37%. Married filing jointly? The bracket widths basically double (the top 37% bracket starts at $768,700). And no — only the income within each bracket gets taxed at that rate. Your whole paycheck doesn\'t get hit with the top rate.',
   },
   {
     q: 'What is the 2026 standard deduction?',
@@ -154,11 +154,11 @@ const FAQS = [
   },
   {
     q: 'What is the difference between marginal and effective tax rates?',
-    a: 'Your marginal rate is what hits your last dollar earned — it\'s your top bracket. Your effective rate is your total tax divided by your total income — the real average rate you pay. Example: a single filer at $75K has a marginal rate of 22% but an effective federal rate of about 11.6%. That\'s a massive difference, and confusing the two is why some people think a raise will cost them money. It won\'t.',
+    a: 'Your marginal rate is what hits your last dollar earned — it\'s your top bracket. Your effective rate is your total tax divided by your total income — the real average rate you pay. Example: a single filer at $75K has a marginal rate of 22% but an effective federal rate of about 10.2%. That\'s a massive difference, and confusing the two is why some people think a raise will cost them money. It won\'t.',
   },
   {
     q: 'Did the 2026 tax brackets change from 2025?',
-    a: 'Yep. The IRS adjusts for inflation every year. For 2026, the OBBBA significantly boosted the standard deduction: from $14,600 to $16,100 (single) and $29,200 to $32,200 (married). Bracket thresholds also increased. These adjustments are supposed to prevent "bracket creep" — where inflation pushes you into a higher bracket even though your purchasing power didn\'t actually improve. Doesn\'t always work perfectly, but it helps.',
+    a: 'Yep. The IRS adjusts for inflation every year. For 2026, the OBBBA significantly boosted the standard deduction: from $15,750 to $16,100 (single) and $31,500 to $32,200 (married). Bracket thresholds also increased. These adjustments are supposed to prevent "bracket creep" — where inflation pushes you into a higher bracket even though your purchasing power didn\'t actually improve. Doesn\'t always work perfectly, but it helps.',
   },
   {
     q: 'What is the standard deduction for someone 65 or older?',
@@ -244,6 +244,19 @@ export default function FederalTaxBracketsPage() {
             <Info className="h-3.5 w-3.5 shrink-0 mt-0.5" />
             Tax brackets apply to <strong>taxable income</strong>, which is your gross income minus the standard deduction (or itemized deductions). Only the income within each bracket is taxed at that rate.
           </p>
+
+          {/* 2027 projections callout */}
+          <div className="mt-6 premium-card p-5 flex items-start gap-3">
+            <TrendingUp className="h-5 w-5 text-amber-700 shrink-0 mt-0.5" />
+            <div className="text-sm text-muted-foreground leading-relaxed">
+              <strong className="text-foreground">Planning ahead?</strong> We&apos;ve already projected the{' '}
+              <Link href="/tax-brackets-2027" className="text-emerald-600 hover:text-emerald-500 underline font-medium transition-colors">
+                2027 tax brackets and standard deduction
+              </Link>{' '}
+              using the IRS&apos;s own inflation-adjustment methodology — updated the same day the official numbers
+              drop (expected early-to-mid November 2026).
+            </div>
+          </div>
         </div>
       </section>
 
@@ -392,21 +405,21 @@ export default function FederalTaxBracketsPage() {
               <div className="mt-6 space-y-2">
                 <p className="text-xs uppercase tracking-wider text-muted-foreground font-medium">Bracket Fill Visualization</p>
                 <div className="flex rounded-lg overflow-hidden h-8 text-xs font-semibold">
-                  <div className="bg-emerald-600/30 flex items-center justify-center text-emerald-700" style={{ width: '19.9%' }}>
+                  <div className="bg-emerald-600/30 flex items-center justify-center text-emerald-700" style={{ width: '21.1%' }}>
                     10%
                   </div>
-                  <div className="bg-teal-500/30 flex items-center justify-center text-teal-300" style={{ width: '60.9%' }}>
+                  <div className="bg-teal-500/30 flex items-center justify-center text-teal-300" style={{ width: '64.5%' }}>
                     12%
                   </div>
-                  <div className="bg-amber-500/30 flex items-center justify-center text-amber-700" style={{ width: '19.2%' }}>
+                  <div className="bg-amber-500/30 flex items-center justify-center text-amber-700" style={{ width: '14.4%' }}>
                     22%
                   </div>
                 </div>
                 <div className="flex justify-between text-[10px] text-muted-foreground">
                   <span>$0</span>
-                  <span>$11,925</span>
-                  <span>$48,475</span>
-                  <span>$60,000</span>
+                  <span>$12,400</span>
+                  <span>$50,400</span>
+                  <span>$58,900</span>
                 </div>
               </div>
             </div>
@@ -468,8 +481,8 @@ export default function FederalTaxBracketsPage() {
               <div className="mt-4 p-3 rounded-lg bg-emerald-600/10 border border-emerald-500/15">
                 <p className="text-sm">
                   <span className="text-emerald-600 font-semibold">Example:</span>{' '}
-                  <span className="text-muted-foreground">Same filer: $8,113 tax ÷ $75,000 gross ={' '}
-                  <strong className="text-foreground">10.82%</strong> effective rate — nearly half the marginal rate.</span>
+                  <span className="text-muted-foreground">Same filer: $7,670 tax ÷ $75,000 gross ={' '}
+                  <strong className="text-foreground">10.23%</strong> effective rate — less than half the marginal rate.</span>
                 </p>
               </div>
             </div>
@@ -482,7 +495,7 @@ export default function FederalTaxBracketsPage() {
               <div className="text-sm text-muted-foreground leading-relaxed">
                 <strong className="text-foreground">Key Insight:</strong> Getting a raise that pushes you into
                 the next bracket only affects the dollars <em>above</em> the threshold. If you&apos;re a single
-                filer at $48,000 and get a $2,000 raise, only the $475 above the 12% bracket limit ($48,475)
+                filer at $49,000 and get a $2,000 raise, only the $600 above the 12% bracket limit ($50,400)
                 is taxed at 22%. The rest is still at 10% and 12%. You <em>never</em> lose money by earning more.
                 We can&apos;t believe we still have to say this, but here we are.
               </div>
@@ -662,6 +675,7 @@ export default function FederalTaxBracketsPage() {
                   { href: '/relocation-calculator', label: 'Relocation Calculator' },
                   { href: '/blog', label: 'All Blog Articles' },
                   { href: '/blog/2026-federal-tax-brackets-explained', label: '2026 Tax Brackets Explained' },
+                  { href: '/tax-brackets-2027', label: '2027 Tax Brackets (Projected)' },
                 ].map((item) => (
                   <Link
                     key={item.href}

@@ -141,7 +141,7 @@ export function SalaryChart({ salary }: Props) {
                   className="fill-muted-foreground"
                   style={{ fontSize: '11px' }}
                 >
-                  {state.effectiveTaxRate.toFixed(1)}% tax
+                  {(state.effectiveTaxRate * 100).toFixed(1)}% tax
                 </text>
                 
                 {/* Separator line between top 10 and bottom 3 */}
