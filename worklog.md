@@ -908,3 +908,18 @@ Stage Summary:
 - PRODUCTION CHANGE committed+pushed: new A+ homepage (light clean + gold) with live embedded calculator, filterable tool browser, searchable 50-state table, condensed-but-complete structure. All SEO assets intact (title/JSON-LD/H1/links/canonical).
 - Rollback: git revert <commit> && git push (Cloudflare Pages auto-redeploys).
 - Phase 2 (awaiting user): rest-of-site chrome (dark header/footer/PH-banner fate = Q3), inner-page theming.
+
+---
+Task ID: 32-a
+Agent: Main Agent
+Task: User reported an SEO-tool warning "Not indexable — the canonical URL on this page is preventing it from being indexed" for https://thetaxcalc.com/ after the A+ redesign. Diagnose and fix.
+
+Work Log:
+- Investigated live HTML: page 200 OK, robots "index, follow", in sitemap — but <link rel=canonical> rendered as "https://thetaxcalc.com" (NO trailing slash) while the audited URL is "https://thetaxcalc.com/". og:url identical no-slash. NOT caused by the A+ redesign itself (metadata export was byte-identical before/after) — root cause is Next.js's metadata resolver.
+- Confirmed in Next source (node_modules/next/dist/lib/metadata/resolvers/resolve-url.js): for root-path URLs it emits origin-only (result.pathname === '/' ? result.origin : result.href), so the metadata API can never render the trailing-slash root form unless trailingSlash:true is set globally (which would 308-redirect the entire site — rejected).
+- Fix (commit 5cfcd2c): page.tsx now emits <link rel=canonical> + <meta og:url> as literal JSX tags (React 19 hoists both into <head>; pattern consistent with salary pages' manual link); removed canonical/openGraph.url from the metadata object (RSS alternate kept; title/description/keywords/JSON-LD untouched). sitemap.ts root entry switched baseUrl -> SITE_HOME_URL (exact canonical form; 239-URL count unchanged; audit-titles gate unaffected — it checks titles only).
+- Verified locally: exactly 1 canonical + 1 og:url, both "https://thetaxcalc.com/", both inside <head> (positions 3675/3735 < head_end 7881); title, robots meta, JSON-LD block count (4) and speakable all byte-identical vs pre-fix HTML; lint clean in both edited files (12 pre-existing problems elsewhere unchanged).
+- Pushed to main -> Cloudflare Pages auto-deploy. Live verification uses ?cb= cache-buster (homepage is edge-cached 1h; query = new cache key = origin fetch, per Task 30 lesson).
+
+Stage Summary:
+- The "not indexable" warning was a string-level canonical mismatch (root slash forms), never a real Google de-indexing risk — Google treats https://thetaxcalc.com and https://thetaxcalc.com/ as ONE URL. Ambiguity eliminated: canonical, og:url and sitemap root are now byte-identical "https://thetaxcalc.com/". Post-deploy live verification + GSC re-validation guidance delivered to user.
