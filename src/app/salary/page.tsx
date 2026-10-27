@@ -146,6 +146,12 @@ const salaryPageJsonLd = {
 
 // ─── Salary Card Component ─────────────────────────────────────────────────────
 
+/** The 5 signature states compared in card mini-bars — matches the page copy
+ * ("Illinois, Texas, Florida, California, and New York"). Rendering all 50
+ * states here bloated the page to 1.3MB+ of HTML and triggered Cloudflare
+ * Worker "Error 1102: exceeded resource limits" on cold starts. */
+const COMPARISON_STATES = ['texas', 'florida', 'illinois', 'california', 'newyork'] as const;
+
 function SalaryCard({ amount }: { amount: number }) {
   const calc = calculateSalaryTakeHome(amount);
   // Texas (0% state tax) = highest net
@@ -174,12 +180,14 @@ function SalaryCard({ amount }: { amount: number }) {
         </span>
       </div>
 
-      {/* Mini state comparison */}
+      {/* Mini state comparison — 5 signature states only (see COMPARISON_STATES) */}
       <div className="grid grid-cols-5 gap-1 mt-1">
-        {calc.states.map((state) => {
+        {COMPARISON_STATES.map((key) => {
+          const state = calc.states.find((s) => s.stateKey === key);
+          if (!state) return null;
           const pct = state.netAnnual / txNet;
           return (
-            <div key={state.stateKey} className="text-center">
+            <div key={key} className="text-center">
               <div className="h-1.5 rounded-full bg-muted/30 overflow-hidden">
                 <div
                   className="h-full rounded-full bg-emerald-600/60"
