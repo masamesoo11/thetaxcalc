@@ -71,8 +71,13 @@ export const metadata: Metadata = {
   description:
     `Free 2026 tax calculator. Take-home pay after federal, FICA & state tax. ${CALCULATOR_COUNT}+ tools & 50-state sales tax data. No sign-up.`,
   authors: [{ name: 'Rachel Mitchell, CPA', url: `${SITE_URL}/about#rachel-mitchell` }],
+  // canonical + og:url are emitted as literal tags in the JSX below: Next's
+  // metadata resolver renders root URLs as origin-only
+  // ("https://thetaxcalc.com" — no trailing slash, see
+  // next/dist/lib/metadata/resolvers/resolve-url.js), which strict SEO
+  // auditors string-compare against the audited URL "https://thetaxcalc.com/"
+  // and report as "canonical points elsewhere → not indexable".
   alternates: {
-    canonical: SITE_HOME_URL,
     types: {
       'application/rss+xml': `${SITE_URL}/feed.xml`,
     },
@@ -82,7 +87,6 @@ export const metadata: Metadata = {
     title: '2026 Tax Calculator — Paycheck & Take-Home Pay | 50 States',
     description:
       `Free 2026 tax calculator. Take-home pay after federal, FICA & state tax. ${CALCULATOR_COUNT}+ tools & 50-state sales tax data. No sign-up.`,
-    url: SITE_HOME_URL,
     siteName: 'TheTaxCalc',
     type: 'website',
     locale: 'en_US',
@@ -306,6 +310,12 @@ const homeJsonLd = {
 export default function HomePage() {
   return (
     <>
+      {/* Exact-form self-canonical + og:url (hoisted into <head> by React 19).
+          Byte-identical to the audited URL "https://thetaxcalc.com/" — see the
+          note at the `alternates` block above. */}
+      <link rel="canonical" href={SITE_HOME_URL} />
+      <meta property="og:url" content={SITE_HOME_URL} />
+
       {/* JSON-LD */}
       <script
         type="application/ld+json"

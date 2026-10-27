@@ -3,7 +3,7 @@ import { CALCULATOR_ROUTES } from '@/lib/calculator-routes';
 import { SALARY_AMOUNTS, salaryToSlug } from '@/lib/salary-calculations';
 import { COMPARISON_SLUGS } from '@/lib/compare-config';
 import { getPublishedPostsMeta } from '@/lib/blog-index';
-import { SITE_URL } from '@/lib/site-config';
+import { SITE_URL, SITE_HOME_URL } from '@/lib/site-config';
 import { ALL_STATE_KEYS, stateKeyToSlug } from '@/lib/state-sales-tax-data';
 
 
@@ -19,7 +19,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const siteUpdate = SITE_CONTENT_UPDATED;
 
   const entries: MetadataRoute.Sitemap = [
-    { url: baseUrl, lastModified: siteUpdate, changeFrequency: 'weekly', priority: 1.0 },
+    // Root entry uses the exact canonical form (trailing slash) so sitemap,
+    // <link rel=canonical> and og:url are byte-identical for strict auditors.
+    { url: SITE_HOME_URL, lastModified: siteUpdate, changeFrequency: 'weekly', priority: 1.0 },
   ];
 
   // Calculator pages
