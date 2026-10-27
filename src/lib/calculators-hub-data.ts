@@ -12,12 +12,18 @@
 
 import { CALCULATOR_ROUTES } from './calculator-routes';
 import { STATE_TAX_DATA } from './state-tax-data';
+import { LOANS_HUB_CARDS } from './calculators-additions/loans-additions';
+import { RETIREMENT_HUB_CARDS } from './calculators-additions/retirement-additions';
+import { SAVINGS_HUB_CARDS } from './calculators-additions/savings-additions';
+import { WORK_HUB_CARDS } from './calculators-additions/work-additions';
+import { UTILS_HUB_CARDS } from './calculators-additions/utils-additions';
 
 export type HubCategory =
   | 'income'
   | 'state'
   | 'city'
   | 'mortgage'
+  | 'loans'
   | 'invest'
   | 'business'
   | 'compare'
@@ -40,6 +46,7 @@ export const HUB_CATEGORY_LABELS: Record<HubCategory, string> = {
   state: 'By State',
   city: 'Major Cities',
   mortgage: 'Mortgage & Property',
+  loans: 'Loans & Debt',
   invest: 'Retirement & Investment',
   business: 'Business & Employers',
   compare: 'Compare',
@@ -54,6 +61,7 @@ export const HUB_CATEGORY_ORDER: (HubCategory | 'all')[] = [
   'state',
   'city',
   'mortgage',
+  'loans',
   'invest',
   'business',
   'compare',
@@ -187,10 +195,8 @@ const CITY_CARDS: Record<string, { label: string; desc: string }> = {
 };
 
 /** Explicit cards for non-state registry calculators. */
-const SPECIAL_CARDS: Record<
-  string,
-  { label: string; desc: string; category: HubCategory; icon: string; keywords?: string }
-> = {
+type SpecialCard = { label: string; desc: string; category: HubCategory; icon: string; keywords?: string };
+const SPECIAL_CARDS: Record<string, SpecialCard> = {
   'paycheck-calculator': {
     label: 'Paycheck Calculator',
     desc: 'Take-home pay — federal, FICA & 50 states',
@@ -310,6 +316,12 @@ const SPECIAL_CARDS: Record<
     icon: 'receipt',
     keywords: 'sales tax reverse before tax checkout',
   },
+  // ─── Task 39 additions: 13 new money calculators ────────────────────────
+  ...(LOANS_HUB_CARDS as Record<string, SpecialCard>),
+  ...(RETIREMENT_HUB_CARDS as Record<string, SpecialCard>),
+  ...(SAVINGS_HUB_CARDS as Record<string, SpecialCard>),
+  ...(WORK_HUB_CARDS as Record<string, SpecialCard>),
+  ...(UTILS_HUB_CARDS as Record<string, SpecialCard>),
 };
 
 /** Dedicated calculator routes that live outside CALCULATOR_ROUTES. */

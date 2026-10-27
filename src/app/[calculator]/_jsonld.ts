@@ -47,6 +47,12 @@ import { SITE_URL } from '@/lib/site-config';
 import { getAuthorForCalculator, authorToJsonLd } from '@/lib/authors';
 import { STATE_TAX_DATA } from '@/lib/state-tax-data';
 import { getStateContentEntry } from '@/lib/state-content-unique';
+import { CALCULATOR_ROUTES } from '@/lib/calculator-routes';
+import { LOANS_CONTENT } from '@/lib/calculators-additions/loans-additions';
+import { RETIREMENT_CONTENT } from '@/lib/calculators-additions/retirement-additions';
+import { SAVINGS_CONTENT } from '@/lib/calculators-additions/savings-additions';
+import { WORK_CONTENT } from '@/lib/calculators-additions/work-additions';
+import { UTILS_CONTENT } from '@/lib/calculators-additions/utils-additions';
 
 // ─── JSON-LD FAQ Helper ─────────────────────────────────────────────────────────
 
@@ -795,6 +801,39 @@ function getTaxCalcJsonLd() {
   };
 }
 
+// ─── Task 39 additions: 13 new money calculators — generic graph builder ─────
+// All five additions modules share the identical content shape, so one
+// parameterized builder (driven by the registry config + module FAQs) replaces
+// 13 bespoke functions while emitting the same @graph structure.
+const ADDITION_CONTENT: Record<string, { faqs: { question: string; answer: string }[] }> = {
+  ...LOANS_CONTENT,
+  ...RETIREMENT_CONTENT,
+  ...SAVINGS_CONTENT,
+  ...WORK_CONTENT,
+  ...UTILS_CONTENT,
+};
+
+const ADDITION_ROUTE_BY_KEY = new Map(CALCULATOR_ROUTES.map((r) => [r.componentKey, r]));
+
+function getAdditionJsonLd(type: string) {
+  const config = ADDITION_ROUTE_BY_KEY.get(type);
+  const content = ADDITION_CONTENT[type];
+  if (!config || !content) return getGenericStateJsonLd(type);
+  const author = getAuthorForCalculator(type);
+  const authorId = `${SITE_URL}${config.canonicalPath}#author`;
+  const baseId = `${SITE_URL}${config.canonicalPath}`;
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      webPageJsonLd(`${baseId}#webpage`, config.title, config.canonicalPath, config.description, authorId),
+      breadcrumbJsonLd(`${baseId}#breadcrumb`, config.breadcrumbLabel, config.canonicalPath),
+      webAppJsonLd(`${baseId}#webapp`, config.title, config.canonicalPath, authorId),
+      { '@id': authorId, ...authorToJsonLd(author) },
+      faqsToJsonLd(content.faqs, `${baseId}#faq`),
+    ],
+  };
+}
+
 export function getJsonLdForType(type: string) {
   switch (type) {
     case 'illinois': return getIllinoisJsonLd();
@@ -838,7 +877,9 @@ export function getJsonLdForType(type: string) {
     case 'hourly-salary': return getHourlySalaryJsonLd();
     case 'compound-interest': return getCompoundInterestJsonLd();
     case 'marriage-tax': return getMarriageTaxJsonLd();
-    default: return getGenericStateJsonLd(type);
+    default:
+      if (ADDITION_CONTENT[type]) return getAdditionJsonLd(type);
+      return getGenericStateJsonLd(type);
   }
 }
 

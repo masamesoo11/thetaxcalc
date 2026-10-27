@@ -310,19 +310,18 @@ Visit https://thetaxcalc.com/about for the full page.`,
     '/fica-calculator': '/paycheck-calculator',
     '/social-security-calculator': '/paycheck-calculator',
     '/ira-calculator': '/401k-retirement-calculator',
-    '/roth-ira-calculator': '/401k-retirement-calculator',
     '/hsa-calculator': '/401k-retirement-calculator',
     '/fsa-calculator': '/401k-retirement-calculator',
     '/401k-calculator': '/401k-retirement-calculator',
     '/401-calculator': '/401k-retirement-calculator',
-    '/retirement-calculator': '/401k-retirement-calculator',
     '/pension-calculator': '/401k-retirement-calculator',
     '/annuity-calculator': '/401k-retirement-calculator',
     '/w-4-calculator': '/irs-withholding-calculator',
     '/irs-calculator': '/irs-withholding-calculator',
-    '/amortization-calculator': '/mortgage-calculator',
-    '/loan-calculator': '/mortgage-calculator',
-    '/interest-calculator': '/mortgage-calculator',
+    // NOTE: /loan-calculator, /amortization-calculator, /interest-calculator,
+    // /retirement-calculator and /roth-ira-calculator previously 301'd to the
+    // closest existing tool because no dedicated page existed. Real pages now
+    // serve those URLs (Task 39) — the five legacy redirects were removed.
     // NOTE: '/calculators' previously 301'd to /paycheck-calculator because no
     // page existed there. A real /calculators hub page now serves that URL —
     // the legacy redirect was removed so the directory resolves to a 200.

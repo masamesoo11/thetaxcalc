@@ -47,6 +47,11 @@ import {
   buildStateCalculationMethod,
   buildStateRelatedCalculators,
 } from '@/lib/state-content-unique';
+import { LOANS_CONTENT } from '@/lib/calculators-additions/loans-additions';
+import { RETIREMENT_CONTENT } from '@/lib/calculators-additions/retirement-additions';
+import { SAVINGS_CONTENT } from '@/lib/calculators-additions/savings-additions';
+import { WORK_CONTENT } from '@/lib/calculators-additions/work-additions';
+import { UTILS_CONTENT } from '@/lib/calculators-additions/utils-additions';
 
 // ─── Calculator Content Data (Server-Rendered for SEO) ─────────────────────────
 
@@ -1503,6 +1508,32 @@ export function getCalculatorContent(type: string): CalculatorContent {
           { slug: 'salary', label: 'Salary After Tax' },
         ],
       };
+    case 'auto-loan':
+      return LOANS_CONTENT['auto-loan'];
+    case 'loan':
+      return LOANS_CONTENT['loan'];
+    case 'personal-loan':
+      return LOANS_CONTENT['personal-loan'];
+    case 'amortization':
+      return LOANS_CONTENT['amortization'];
+    case 'retirement-planning':
+      return RETIREMENT_CONTENT['retirement-planning'];
+    case 'roth-ira':
+      return RETIREMENT_CONTENT['roth-ira'];
+    case 'cd':
+      return SAVINGS_CONTENT['cd'];
+    case 'investments':
+      return SAVINGS_CONTENT['investments'];
+    case 'interest':
+      return SAVINGS_CONTENT['interest'];
+    case 'time-card':
+      return WORK_CONTENT['time-card'];
+    case 'payroll':
+      return WORK_CONTENT['payroll'];
+    case 'tip':
+      return UTILS_CONTENT['tip'];
+    case 'percentage-change':
+      return UTILS_CONTENT['percentage-change'];
     default:
       // 1st priority: hand-written unique content per state — the primary fix
       // for the duplicate-content problem (89–95% template similarity was

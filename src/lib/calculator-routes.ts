@@ -4,6 +4,12 @@
  * This is the single source of truth for all calculator routes.
  */
 
+import { LOANS_ROUTES } from './calculators-additions/loans-additions';
+import { RETIREMENT_ROUTES } from './calculators-additions/retirement-additions';
+import { SAVINGS_ROUTES } from './calculators-additions/savings-additions';
+import { WORK_ROUTES } from './calculators-additions/work-additions';
+import { UTILS_ROUTES } from './calculators-additions/utils-additions';
+
 export interface CalculatorRouteConfig {
   slug: string;
   title: string;
@@ -1468,6 +1474,13 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     canonicalPath: '/marriage-tax-calculator',
     jsonLdType: 'marriage-tax',
   },
+  // ─── Task 39 additions: 13 new money calculators (loans, retirement,
+  // savings, work/payroll, quick utils) — defined in calculators-additions/ ──
+  ...LOANS_ROUTES,
+  ...RETIREMENT_ROUTES,
+  ...SAVINGS_ROUTES,
+  ...WORK_ROUTES,
+  ...UTILS_ROUTES,
 ];
 
 /** Map from componentKey (old hash key) to slug (new route) */

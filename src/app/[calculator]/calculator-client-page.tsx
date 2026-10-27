@@ -178,6 +178,60 @@ const GenericStateCalculator = dynamic(
   { loading: () => <CalculatorSkeleton />, ssr: false }
 );
 
+// ─── Task 39 additions: loans, retirement, savings, work, quick utils ────────
+const AutoLoanCalculator = dynamic(
+  () => import('@/components/finance/auto-loan-calculator').then((m) => ({ default: m.AutoLoanCalculator })),
+  { loading: () => <CalculatorSkeleton />, ssr: false }
+);
+const LoanCalculator = dynamic(
+  () => import('@/components/finance/loan-calculator').then((m) => ({ default: m.LoanCalculator })),
+  { loading: () => <CalculatorSkeleton />, ssr: false }
+);
+const PersonalLoanCalculator = dynamic(
+  () => import('@/components/finance/personal-loan-calculator').then((m) => ({ default: m.PersonalLoanCalculator })),
+  { loading: () => <CalculatorSkeleton />, ssr: false }
+);
+const AmortizationCalculator = dynamic(
+  () => import('@/components/finance/amortization-calculator').then((m) => ({ default: m.AmortizationCalculator })),
+  { loading: () => <CalculatorSkeleton />, ssr: false }
+);
+const RetirementCalculator = dynamic(
+  () => import('@/components/finance/retirement-calculator').then((m) => ({ default: m.RetirementCalculator })),
+  { loading: () => <CalculatorSkeleton />, ssr: false }
+);
+const RothIraCalculator = dynamic(
+  () => import('@/components/finance/roth-ira-calculator').then((m) => ({ default: m.RothIraCalculator })),
+  { loading: () => <CalculatorSkeleton />, ssr: false }
+);
+const CdCalculator = dynamic(
+  () => import('@/components/finance/cd-calculator').then((m) => ({ default: m.CdCalculator })),
+  { loading: () => <CalculatorSkeleton />, ssr: false }
+);
+const InvestmentCalculator = dynamic(
+  () => import('@/components/finance/investment-calculator').then((m) => ({ default: m.InvestmentCalculator })),
+  { loading: () => <CalculatorSkeleton />, ssr: false }
+);
+const InterestCalculator = dynamic(
+  () => import('@/components/finance/interest-calculator').then((m) => ({ default: m.InterestCalculator })),
+  { loading: () => <CalculatorSkeleton />, ssr: false }
+);
+const TimeCardCalculator = dynamic(
+  () => import('@/components/finance/time-card-calculator').then((m) => ({ default: m.TimeCardCalculator })),
+  { loading: () => <CalculatorSkeleton />, ssr: false }
+);
+const PayrollCalculator = dynamic(
+  () => import('@/components/finance/payroll-calculator').then((m) => ({ default: m.PayrollCalculator })),
+  { loading: () => <CalculatorSkeleton />, ssr: false }
+);
+const TipCalculator = dynamic(
+  () => import('@/components/finance/tip-calculator').then((m) => ({ default: m.TipCalculator })),
+  { loading: () => <CalculatorSkeleton />, ssr: false }
+);
+const PercentageChangeCalculator = dynamic(
+  () => import('@/components/finance/percentage-change-calculator').then((m) => ({ default: m.PercentageChangeCalculator })),
+  { loading: () => <CalculatorSkeleton />, ssr: false }
+);
+
 // Set of componentKeys handled by GenericStateCalculator
 const GENERIC_STATE_KEYS = new Set([
   'alaska', 'nevada', 'southdakota', 'wyoming', 'newhampshire',
@@ -306,6 +360,32 @@ export function CalculatorClientPage({ componentKey }: CalculatorClientPageProps
       return <CompoundInterestCalculator />;
     case 'marriage-tax':
       return <MarriageTaxCalculator />;
+    case 'auto-loan':
+      return <AutoLoanCalculator />;
+    case 'loan':
+      return <LoanCalculator />;
+    case 'personal-loan':
+      return <PersonalLoanCalculator />;
+    case 'amortization':
+      return <AmortizationCalculator />;
+    case 'retirement-planning':
+      return <RetirementCalculator />;
+    case 'roth-ira':
+      return <RothIraCalculator />;
+    case 'cd':
+      return <CdCalculator />;
+    case 'investments':
+      return <InvestmentCalculator />;
+    case 'interest':
+      return <InterestCalculator />;
+    case 'time-card':
+      return <TimeCardCalculator />;
+    case 'payroll':
+      return <PayrollCalculator />;
+    case 'tip':
+      return <TipCalculator />;
+    case 'percentage-change':
+      return <PercentageChangeCalculator />;
     default:
       // Check if it's a generic state key
       if (GENERIC_STATE_KEYS.has(componentKey)) {
