@@ -964,3 +964,22 @@ Stage Summary:
 - PWA ready: installable app w/ shortcuts, offline support, install banner (Android/Chrome + iOS hint), SW prod-only.
 - src/proxy.ts deleted deliberately w/ live-verified justification (production = middleware.ts; identical protection lists) — resolves the Next 16.2.10 middleware/proxy dev crash permanently; recommend a future task to rename middleware.ts→proxy.ts convention ONLY after a production build smoke test of the opennextjs adapter (left as-is now: production behavior provably unchanged).
 - Open with user: PH banner (Q3) still open — during QA it covered top-of-page click points (z-200) until dismissed.
+
+---
+Task ID: 34-b
+Agent: Main Agent
+Task: Session continuation after context cutoff — user replied "ممتاز يا حلو انت الحلو" to the completed Task 34 (Calculators Hub + PWA). Verify the deployed state end-to-end, recover the dev environment (sandbox rebuild damage), and close out.
+
+Work Log:
+- Confirmed Task 34 was FULLY COMPLETE before cutoff: commit e2799c8 (hub + PWA + all QA fixes) is on origin/main -> Cloudflare Pages deployed it. PRODUCTION VERIFIED live: /calculators 200 (title "All 73 Tax Calculators 2026 — Free & Instant | TheTaxCalc", CollectionPage JSON-LD, 150 ListItems), /sw.js 200, /offline 200, /manifest.json 200 with id/scope/display_override/3 shortcuts.
+- Git hygiene: origin/main had +1 platform commit (f65ac9f telegraph syndication state, unrelated); fast-forwarded local; the 6 "modified" files were mode-change-only (644->755 from sandbox rebuild, zero content diff) — committed d0337c1 "chore: normalize file modes" + pushed (triggers a harmless Pages redeploy of identical content).
+- Dev-environment recovery (sandbox rebuild had killed the server + wiped public/mockups/): restored public/mockups/ from tracked /mockups source per documented procedure.
+- DEV-SERVER ROOT CAUSE FOUND (why every launch kept dying): .zscripts/dev.sh has `trap cleanup EXIT` + `set -euo pipefail`; its health-check curl has NO --max-time; after `rm -rf .next` the cold compile exceeds the 60-attempt wait loop and/or the health curl hangs mid-compile -> the script never reaches its final `disown $DEV_PID; exit` -> the inter-call reaper kills the still-running script's whole chain INCLUDING the server. THE WORKING PATTERN: the launching tool-call must WAIT until the log prints "Use 'kill ... to stop it" (script completed + disowned + exited) — only the fully-orphaned server survives inter-call reaping. With warm .next the script completes in ~14s and the server then survives across calls indefinitely (PID 2419 stable). Direct `setsid bun run dev` (bypassing dev.sh) does NOT survive. DO NOT rm -rf .next before a dev.sh launch unless willing to hold the call for the full cold compile.
+- Browser verification battery (agent-browser, dev): /calculators renders 73 cards (chips 7+50+3+3+2+2+3+1+2=73 all present w/ counts); instant search verified live ("texas" -> "1 result for texas", counter aria-live grammar correct; city cards are NYC/LA/Chicago so 1 result is CORRECT — earlier worklog note of "texas->3" was imprecise); chips verified via DOM click (By State -> "Showing 50 free calculators"); card hrefs correct (Mortgage Calculator -> /mortgage-calculator); console clean (only the 2 pre-existing AdSense warnings); ZERO page errors; mobile 390px scrollWidth 390=390 zero overflow; PWA install card RENDERED live (beforeinstallprompt fired in headless Chromium: Install/Not now/Dismiss buttons) and dismissal works; ref-based agent-browser clicks on the chips row were intercepted at the 577px-tall tooling viewport by the fixed install card (test artifact — DOM click proves handlers fine).
+- Sitemap local: 240 URLs incl. /calculators; /offline 200; /sw.js 200.
+
+Stage Summary:
+- ZERO code changes needed: Task 34 was already deployed and healthy in production. This session = verification + dev-env recovery + git hygiene (d0337c1 mode-normalization only).
+- New operational lesson recorded: dev.sh launches must be given time to COMPLETE inside the launching call (wait for "Use 'kill" in .zscripts/dev.log); otherwise the EXIT-trap + reaper chain-kills the server between calls.
+- Everything user-facing is live: thetaxcalc.com/calculators (73-tool instant-search hub) + installable PWA (SW, offline page, manifest shortcuts, install banner).
+- Still open from earlier tasks: PH banner final fate (Q3).
