@@ -1,6 +1,7 @@
 import { MetadataRoute } from 'next';
 import { CALCULATOR_ROUTES } from '@/lib/calculator-routes';
 import { SALARY_AMOUNTS, salaryToSlug } from '@/lib/salary-calculations';
+import { HOURLY_RATES, rateToSlug } from '@/lib/hourly-calculations';
 import { COMPARISON_SLUGS } from '@/lib/compare-config';
 import { getPublishedPostsMeta } from '@/lib/blog-index';
 import { SITE_URL, SITE_HOME_URL } from '@/lib/site-config';
@@ -44,8 +45,16 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     entries.push({ url: `${baseUrl}/salary/${salaryToSlug(amount)}`, lastModified: taxYearUpdate, changeFrequency: 'monthly', priority: 0.8 });
   }
 
+  // Hourly rate pages — "$X an hour is how much a year" (added 2026-10-27)
+  for (const rate of HOURLY_RATES) {
+    entries.push({ url: `${baseUrl}/hourly/${rateToSlug(rate)}`, lastModified: taxYearUpdate, changeFrequency: 'monthly', priority: 0.78 });
+  }
+
   entries.push({ url: `${baseUrl}/glossary`, lastModified: siteUpdate, changeFrequency: 'monthly', priority: 0.85 });
   entries.push({ url: `${baseUrl}/federal-tax-brackets`, lastModified: taxYearUpdate, changeFrequency: 'monthly', priority: 0.95 });
+  // 2027 projected brackets — published 2026-10-27 ahead of the IRS Rev. Proc.;
+  // lastmod records the real publication/update date of this projection.
+  entries.push({ url: `${baseUrl}/tax-brackets-2027`, lastModified: '2026-10-27', changeFrequency: 'weekly', priority: 0.95 });
   entries.push({ url: `${baseUrl}/freefile-irs`, lastModified: taxYearUpdate, changeFrequency: 'monthly', priority: 0.95 });
   entries.push({ url: `${baseUrl}/home-sale-tax-calculator`, lastModified: taxYearUpdate, changeFrequency: 'monthly', priority: 0.95 });
   entries.push({ url: `${baseUrl}/about`, lastModified: siteUpdate, changeFrequency: 'monthly', priority: 0.7 });

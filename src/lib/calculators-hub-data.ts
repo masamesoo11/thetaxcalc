@@ -362,6 +362,14 @@ const EXTRA_CALCULATORS: HubCalculator[] = [
     icon: 'layers',
     keywords: 'federal brackets irs marginal effective rate standard deduction',
   },
+  {
+    href: '/tax-brackets-2027',
+    label: '2027 Tax Brackets (Projected)',
+    desc: 'Estimated 2027 brackets ahead of the IRS',
+    category: 'law',
+    icon: 'trending',
+    keywords: '2027 tax brackets projected 2027 standard deduction 2027 rates estimate next year inflation adjustment',
+  },
 ];
 
 /** Featured tools shown first in the default (unfiltered) view. */
