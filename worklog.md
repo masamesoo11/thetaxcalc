@@ -1302,3 +1302,27 @@ Stage Summary:
 - Self-contained additions module pattern (task-39) reused cleanly; JSON-LD came free via the generic @graph builder.
 - Mobile lesson re-applied: min-w-0 on BOTH grid columns is the default discipline for every new calculator component.
 - Standing: 2027 IRS official-numbers flip still armed (expected Nov 9-15) — next sprint is readiness, not more calculators; third batch (net worth, budget, savings goal, pay raise, HSA vs FSA) only if GSC justifies it.
+
+---
+Task ID: 41-GSC
+Agent: Main Agent (orchestrator)
+Task: Analyze the 4 Google Search Console exports uploaded 2026-10-28 (3-month / 28-day / 7-day / 24-hour windows) and translate findings into the next-sprint priority queue.
+
+Work Log:
+- Parsed all 4 xlsx exports (Arabic GSC sheet layout: chart/queries/pages/countries/devices/appearance/filters) with openpyxl; compared against the 2026-07-21 and 2026-06-26 baselines.
+- Growth quantified: daily impressions 1,492 (Jun 26) -> 4,046 (Jul 26) -> 25,812 (Oct 25) = 17x since June; daily clicks 2 -> 12 -> 48 = 24x; weighted avg position 21.8 -> 9.6 over the quarter. Monthly: Aug 404c/204k imps -> Sep 1,311c/489k -> Oct-25d 1,330c/653k (projected close ~1,650c/790k). Weekly imps still climbing W41 166k -> W43 213k (+28%/2wk) — no plateau.
+- Structure: 148 of 316 pages rank pos <=10 (page-1) producing 55% of clicks; mobile 57% of imps at pos 8.3 (desktop pos 17.6); 92% of impressions from US.
+- DIAGNOSIS — CTR collapse is structural (0.21-0.23% overall): "exact-answer" queries are being absorbed by AI Overviews. Smoking gun: "income tax calculator nevada" pos 1.9 with 5,024 imps and ZERO clicks; same pattern across the "Xk a year is how much a month after taxes" family (pos 5-9, 0 clicks). /nevada-tax-calculator: 11,352 imps / 1 click / pos 6.6.
+- What actually earns clicks (replicate model): specific interactive tools — /home-sale-tax-calculator CTR 1.09% pos 7.2; /chicago-* CTR 1.1-1.7%; /salary-comparison-calculator top click-earner last 28d (56c, pos 6.2); /blog/spreadsheet-formula CTR 4.14%. Generic informational queries = zero-click black holes. This validates the task-41 interactive-tools strategy.
+- Assets found under-monetized: (1) sales-tax cluster ~280k imps/quarter across main + 50 state pages at ~0.06% CTR, pos 8.6-11.6 (bottom page 1) — biggest single lever; (2) /blog/robux-tax-calculator-guide-2026 pulls 37k imps at pos 9.5 but is an ARTICLE where intent is a tool; queries "robux tax calculator"(948i/pos13) + "robux tax"(565i) + "roblox tax calculator"(296i) + "robux after tax"(291i) want an interactive page; (3) /self-employment-tax-calculator buried pos 28.1 (5.5k imps/18c) vs query at 381i/pos 44.6; (4) /federal-tax-brackets pos 48.7 (18k imps/6c) — huge keyword, brutal competition, defer.
+- State check: task 41 confirmed fully live in production (3 pages 200 at 170-174KB, sitemap 286, hub 93, commit f16fa7d); lint = exactly the 12 documented; dev server healthy on :3000.
+
+Stage Summary:
+- Next-sprint priority queue (proposed as Task 42, needs user approval):
+  1. CTR salvage of sales-tax cluster: title/meta rewrite (2026 rates + reverse-calculator promise + instant-answer descriptions) for main + top state pages (NJ/MI/PA/FL/NY/UT) — target 0.06% -> 0.3-0.5% CTR on 280k quarterly imps.
+  2. Zero-tax states (Nevada first): visible instant-answer FAQ block + meta description answering "does Nevada have income tax?" directly (11k imps currently converting at 0.01%).
+  3. Robux interactive calculator at /robux-tax-calculator (30% marketplace-fee tool) interlinked with the existing ranking blog guide — quick win on proven demand.
+  4. Salary-cluster title upgrade: promise MORE than the AI answer ("Monthly, Biweekly & Weekly in All 50 States" angle) for /salary/* pages at pos 5-9.
+  5. /self-employment-tax-calculator content/link audit (pos 28.1 underperformer).
+- Explicitly de-prioritized: new calculator batch #3 (net worth/budget/etc.) — GSC shows the bottleneck is CTR on existing 280k-imp surfaces, not coverage; federal-tax-brackets battle deferred.
+- Standing: 2027 IRS flip armed (Nov 9-15); PH banner keep/remove still open with user.
