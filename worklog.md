@@ -1255,3 +1255,24 @@ Stage Summary:
 - Shelved candidates (dedup-verified, not built): Pay Raise Calculator, HSA vs FSA — next-round options.
 - Standing: same-day 2027 official-numbers update when IRS publishes (expected Nov 9-15).
 - Open: PH banner (Q3) — QA shows a "VOTE NOW" banner is live in the DOM; keep/remove decision still pending with user.
+
+---
+Task ID: 40 — إصلاح عاجل: مشكلة في واجهة الموقع (fresh-visit interface)
+Agent: Main Agent (orchestrator)
+
+Task: User reported "بسرعه هناك مشكلة فى واجه الموقع". Diagnosed via agent-browser + VLM screenshot analysis (desktop 1280×800 + iPhone 14 viewport) + Next.js dev-overlay inspection. Found TWO real first-visit interface defects.
+
+Work Log:
+- Diagnosis pass 1 (dev overlay "1 Issue" badge): React hydration mismatch on the sitewide JSON-LD script (layout.tsx:250) — server rendered type="application/ld+json" but hydration aligned it against a type-less script. Root cause: the STATIC async adsbygoogle.js in <head> injects its own "pagead/managed/js/adsense/..." <script> into document.head mid-hydration, desynchronizing React's head node alignment (prod = console hydration errors; dev = "1 Issue" badge).
+- Diagnosis pass 2 (screenshots): the PWA install card fired INSTANTLY on beforeinstallprompt and stacked with the cookie bar — on desktop it covered the "YOU TAKE HOME" hero result; on mobile it covered the gold "Calculate Your Paycheck" CTA. First visit showed 3 competing overlays (PH bar top + install card + cookie bar).
+- Fix A (layout.tsx + client-analytics.tsx): removed the static AdSense loader <script> from <head> (kept <meta name="google-adsense-account"> + preconnect static for crawlers); ClientAnalytics now injects the loader in useEffect (post-hydration → head mutations can never race hydration). ID precedence: admin localStorage > NEXT_PUBLIC_ADSENSE_CLIENT_ID > hardcoded ca-pub-5542276525674040 → ad delivery unchanged (dev log confirms loader executes post-fix).
+- Fix B (pwa-client.tsx): engagement gate for the install card — event still captured immediately (fires once), but the card reveals only after ≥45s dwell AND cookie consent resolved (consent key polled every 3s; poll self-clears). 14-day dismissal, appinstalled handling, and the iOS Share→Add-to-Home-Screen hint (now behind the same gate) all preserved. iOS detection moved behind requestAnimationFrame to keep lint-clean.
+- Gates: bun run lint = exactly the 12 documented (my iOS-detection setState initially added #13; fixed via rAF pattern matching CookieConsent).
+- Browser verification (fresh profile): desktop fresh visit — cookie bar visible, NO install card, "YOU TAKE HOME" fully visible, dev badge GONE, zero page errors; mobile fresh visit — CTA visible, no install sheet, no error badge, interface rated clean. Gate test: consent accepted + 50s dwell → install card correctly appears; X-dismiss persists (dismissed-at stored) and the card does NOT return after reload + 50s (14-day suppression honored).
+- Commit 6ab0d42 "fix(ui): repair first-visit interface — hydration mismatch + popup stacking" pushed to main (3 files, +87/−39).
+
+Stage Summary:
+- Hydration mismatch ELIMINATED (root cause: third-party head mutation during hydration; loader moved post-hydration).
+- First-visit hero is now clean on desktop & mobile: calculator + CTA + take-home result unobstructed; the install invite waits for engagement (45s + consent) instead of ambushing on arrival.
+- AdSense delivery preserved (same pub ID, injected post-hydration; verification meta still static for Google review).
+- PH banner untouched (keep/remove decision still open with user — it is in-flow, thin, dismissible and no longer stacks with other overlays).
