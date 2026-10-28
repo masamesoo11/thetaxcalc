@@ -169,5 +169,25 @@ export const TELEGRAPH_PUBLISHED: Record<string, { url: string; publishedAt: str
   "inheritance-tax-questions-2026": {
     "url": "https://telegra.ph/Inheritance-Tax-Questions-Answered-2026-Rules-10-27",
     "publishedAt": "2026-10-27T13:04:00Z"
+  },
+  "social-security-tax-questions-2026": {
+    "url": "https://telegra.ph/Social-Security-Tax-Questions-Answered-2026-Rules-10-28",
+    "publishedAt": "2026-10-28T13:54:30Z"
+  },
+  "401k-withdrawal-tax-questions-2026": {
+    "url": "https://telegra.ph/401k-Withdrawal-Tax-Questions-Answered-2026-Rules-10-28",
+    "publishedAt": "2026-10-28T13:54:30Z"
+  },
+  "florida-tax-guide-2026": {
+    "url": "https://telegra.ph/Florida-Tax-Guide-2026-No-Income-Tax--Sales-Tax--Calculator-10-28",
+    "publishedAt": "2026-10-28T13:54:30Z"
+  },
+  "federal-tax-brackets-2026-guide": {
+    "url": "https://telegra.ph/2026-Federal-Tax-Brackets-Complete-Guide-to-US-Income-Tax-Rates--Slabs-10-28",
+    "publishedAt": "2026-10-28T13:54:30Z"
+  },
+  "california-tax-guide-2026": {
+    "url": "https://telegra.ph/California-Tax-Guide-2026-Income-Tax-Sales-Tax-and-Local-Rates-10-28",
+    "publishedAt": "2026-10-28T13:54:30Z"
   }
 };
