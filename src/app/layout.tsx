@@ -184,18 +184,14 @@ export default function RootLayout({
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#fafaf9" />
 
-        {/* Google AdSense — site verification + loader (static so crawlers
-            see it in the raw HTML; data-adsense-client also lets
-            ClientAnalytics skip its dynamic injection → no duplicates) */}
+        {/* Google AdSense — site verification meta stays static so crawlers
+            see it in the raw HTML. The loader script is injected by
+            ClientAnalytics AFTER hydration: the async loader appends its own
+            <script> to <head> mid-hydration, which desynchronized React's
+            node alignment and flagged the sitewide JSON-LD script as a
+            hydration mismatch ("1 Issue" dev badge + console errors). */}
         <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
         <meta name="google-adsense-account" content="ca-pub-5542276525674040" />
-        <script
-          async
-          data-cfasync="false"
-          data-adsense-client="ca-pub-5542276525674040"
-          crossOrigin="anonymous"
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5542276525674040"
-        />
 
         {/* Google Tag Manager */}
         {process.env.NEXT_PUBLIC_GTM_ID && (

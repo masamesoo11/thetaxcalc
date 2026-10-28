@@ -6,18 +6,25 @@
  *  1. Registers /sw.js (production only, so the dev server never fights the
  *     service-worker cache during development).
  *  2. Install prompt: captures the browser's `beforeinstallprompt` event and
- *     shows a small, dismissible card. Chrome/Edge/Samsung + Android qualify;
- *     dismissed prompts resurface after 14 days. `appinstalled` closes it for
- *     good on that device.
+ *     shows a small, dismissible card — but only AFTER the visitor is
+ *     engaged: a minimum dwell time AND the cookie banner resolved. Showing
+ *     it immediately stacked it on top of the hero calculator (covering the
+ *     "YOU TAKE HOME" result / the "Calculate Your Paycheck" CTA on mobile)
+ *     alongside the cookie bar — a cluttered first-visit interface.
+ *     Chrome/Edge/Samsung + Android qualify; dismissed prompts resurface
+ *     after 14 days. `appinstalled` closes it for good on that device.
  *  3. iOS Safari doesn't fire beforeinstallprompt — there we show a one-line
- *     "Share → Add to Home Screen" hint instead, once.
+ *     "Share → Add to Home Screen" hint instead, behind the same gate.
  */
 
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { Download, Share, Plus, Smartphone, X } from 'lucide-react';
 
 const DISMISS_KEY = 'ttc-install-dismissed-at';
 const RESURFACE_MS = 14 * 24 * 60 * 60 * 1000; // 14 days
+const CONSENT_KEY = 'thetaxcalc-cookie-consent';
+const REVEAL_AFTER_MS = 45_000; // visitor must dwell ≥ 45s before we interrupt
+const POLL_MS = 3_000;
 
 interface BeforeInstallPromptEvent extends Event {
   prompt: () => Promise<void>;
@@ -55,9 +62,20 @@ function persistDismissal() {
   }
 }
 
+function consentSettled(): boolean {
+  try {
+    // Cookie banner handled (accepted or declined)? Otherwise stay quiet —
+    // never stack two overlays over the hero calculator.
+    return localStorage.getItem(CONSENT_KEY) !== null;
+  } catch {
+    return true; // storage unavailable — don't block the prompt forever
+  }
+}
+
 export function PwaClient() {
   const [installEvent, setInstallEvent] = useState<BeforeInstallPromptEvent | null>(null);
-  const [showIosHint, setShowIosHint] = useState(false);
+  const [isIosDevice, setIsIosDevice] = useState(false);
+  const [revealed, setRevealed] = useState(false);
 
   // 1. Register the service worker (production only).
   useEffect(() => {
@@ -73,7 +91,8 @@ export function PwaClient() {
     return () => window.removeEventListener('load', register);
   }, []);
 
-  // 2. beforeinstallprompt — the standard install flow.
+  // 2. beforeinstallprompt — the standard install flow. The event is captured
+  //     immediately (it only fires once); the card is revealed by gate (4).
   useEffect(() => {
     if (isStandalone() || recentlyDismissed()) return;
     const handler = (e: Event) => {
@@ -84,11 +103,30 @@ export function PwaClient() {
     return () => window.removeEventListener('beforeinstallprompt', handler);
   }, []);
 
-  // 3. iOS hint — once per dismissal window, after a short delay.
+  // 3. iOS detection (state, so render stays pure). rAF keeps the setState
+  //     outside the synchronous effect body (same pattern as CookieConsent).
   useEffect(() => {
-    if (!isIOS() || isStandalone() || recentlyDismissed()) return;
-    const timer = setTimeout(() => setShowIosHint(true), 4000);
-    return () => clearTimeout(timer);
+    requestAnimationFrame(() => {
+      if (isIOS() && !isStandalone() && !recentlyDismissed()) setIsIosDevice(true);
+    });
+  }, []);
+
+  // 4. Engagement gate — reveal only after (a) ≥ 45s on page AND (b) the
+  //     cookie banner is resolved. Polled cheaply; stopped once revealed.
+  useEffect(() => {
+    if (isStandalone() || recentlyDismissed()) return;
+    const startedAt = Date.now();
+    const id = setInterval(() => {
+      if (Date.now() - startedAt < REVEAL_AFTER_MS) return;
+      if (!consentSettled()) return;
+      if (recentlyDismissed()) {
+        clearInterval(id);
+        return;
+      }
+      setRevealed(true);
+      clearInterval(id);
+    }, POLL_MS);
+    return () => clearInterval(id);
   }, []);
 
   // Installed — close forever on this device.
@@ -104,15 +142,16 @@ export function PwaClient() {
     const choice = await installEvent.userChoice;
     if (choice.outcome === 'accepted') persistDismissal();
     setInstallEvent(null);
+    setRevealed(false);
   }, [installEvent]);
 
   const dismiss = useCallback(() => {
     persistDismissal();
     setInstallEvent(null);
-    setShowIosHint(false);
+    setRevealed(false);
   }, []);
 
-  const visible = Boolean(installEvent) || showIosHint;
+  const visible = revealed && (Boolean(installEvent) || isIosDevice);
   if (!visible) return null;
 
   return (
