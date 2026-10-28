@@ -1276,3 +1276,29 @@ Stage Summary:
 - First-visit hero is now clean on desktop & mobile: calculator + CTA + take-home result unobstructed; the install invite waits for engagement (45s + consent) instead of ambushing on arrival.
 - AdSense delivery preserved (same pub ID, injected post-hydration; verification meta still static for Google review).
 - PH banner untouched (keep/remove decision still open with user — it is in-flow, thin, dismissible and no longer stacks with other overlays).
+
+---
+Task ID: 41 — gap batch: inflation, debt payoff & DTI calculators (3 high-volume gaps)
+Agent: Main Agent (solo build — no subagents; task-39 patterns replicated directly)
+
+Task: User approved the 3 gap calculators identified in the registry audit (Inflation ~150k/mo, Credit Card/Debt Payoff ~80k/mo, DTI ~50k/mo). Built, wired, gated, and production-verified in one pass.
+
+Work Log:
+- New pure-math lib src/lib/payoff-math.ts: full BLS CPI-U annual-average table 1913-2025 (113 years), inflateBetween/inflationCurve/projectForward, payoffSchedule (month-by-month, PAYOFF_NEVER sentinel, trimmed final payment), debtToIncome (front/back-end + classification bands, 43% QM / 50% cap constants).
+- Bun verification script (/tmp/verify-payoff-math.ts) against the exact implementation; all copy anchors computed, not invented: $5,000@22%/$200 -> 34 mo / $1,749.88 / payoff Aug 2029; +$50 -> 26 mo / $1,285.72 (saves 8 mo / $464.16); +$100 -> 21 mo / $1,021.60 (saves 13 mo / $728.28); $92 -> 310 mo / $23,462.14 (low-payment trap); $100 in 2000 -> 2025 = $186.99 (+86.99%, avg 2.54%/yr); $10k@3%/10y -> $13,439.16 / $7,440.94 power; $6,000/$2,300 -> 38.33% back-end / 25.00% front-end.
+- 3 components matching the task-39 style contract (emerald, Card hierarchy, live useMemo math, SVG charts, overflow-x-auto tables): inflation-calculator (then-vs-now + future modes, year pickers 1913-2025, CPI reference table), debt-payoff-calculator (never-payoff guard card, extra-payment comparison, balance-decline chart, yearly rollup, avalanche/snowball explainer), debt-to-income-calculator (front/back bars with 28/36/43/50 bands, verdict badges, worked example).
+- Additions module src/lib/calculators-additions/finance-additions.ts: FINANCE_ROUTES (3 registry configs), FINANCE_CONTENT (3 full AdditionContentShape entries — 5-para howItWorks with real interlinks, calculationMethod, keyRates, 6 FAQs each, relatedCalculators), FINANCE_HUB_CARDS (slug-keyed, icons from the explorer ICONS map: receipt/scale/trending).
+- Wiring (6 shared files): routes spread ...FINANCE_ROUTES (registry 80->83), _content 3 cases, _jsonld ...FINANCE_CONTENT into the generic @graph builder, calculator-client-page 3 dynamic()+switch cases, hub ...FINANCE_HUB_CARDS into SPECIAL_CARDS, authors 'inflation' -> retirement/investment family (sarah-johnson).
+- Gates: bunx tsc — 0 errors in all new/wired files (fixed 2 self-introduced typing slips in debt-payoff series); bun run lint = exactly the 12 documented baseline; audit-titles 0 errors/0 warnings on 86 routes; all 3 pages 200 in dev at ~220KB.
+- Browser QA: all bun anchors render (34 mo/$1,749.88/Aug 2029/$91.67; +$100 -> 13 mo saved/$728.28; never-payoff card at $50 with min-needed $91.67; 38.33%/25.00%/"Good"; recompute to 23.00%/"Excellent" at $10k income; $186.99/+86.99%/2.54% + both future-mode figures) — zero page errors; hub "All 93 Tax Calculators" with all 3 cards; sitemap 286 <loc>.
+- Mobile 390px sweep: debt-payoff blew to 434px — isolated to the results column (yearly table min-content inflating the grid track; right column hid -> 390). Applied the task-39 min-w-0 discipline to BOTH grid columns in all 3 components -> all 3 pages exactly 390.
+- Visual VLM QA: chart renders cleanly, cards aligned, table clean, no overlaps.
+- Commit f16fa7d pushed (11 files, +1,973/-1).
+- Production verification (?cb=): all 3 pages 200 at 170-174KB; sitemap 286 live; hub "All 93 Tax Calculators" live; debt-payoff anchors verified in the production DOM; JSON-LD present; zero console/page errors.
+
+Stage Summary:
+- SITE: 93 hub tools (+3), 286 sitemap URLs (+3), registry 83 routes.
+- Gap coverage achieved: inflation calculator (#1 target), credit card/debt payoff calculator, debt-to-income ratio calculator — all on-brand, all with verified math.
+- Self-contained additions module pattern (task-39) reused cleanly; JSON-LD came free via the generic @graph builder.
+- Mobile lesson re-applied: min-w-0 on BOTH grid columns is the default discipline for every new calculator component.
+- Standing: 2027 IRS official-numbers flip still armed (expected Nov 9-15) — next sprint is readiness, not more calculators; third batch (net worth, budget, savings goal, pay raise, HSA vs FSA) only if GSC justifies it.
