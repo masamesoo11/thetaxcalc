@@ -18,6 +18,7 @@ import { SAVINGS_HUB_CARDS } from './calculators-additions/savings-additions';
 import { WORK_HUB_CARDS } from './calculators-additions/work-additions';
 import { UTILS_HUB_CARDS } from './calculators-additions/utils-additions';
 import { FINANCE_HUB_CARDS } from './calculators-additions/finance-additions';
+import { ROBUX_HUB_CARDS } from './calculators-additions/robux-additions';
 
 export type HubCategory =
   | 'income'
@@ -325,6 +326,8 @@ const SPECIAL_CARDS: Record<string, SpecialCard> = {
   ...(UTILS_HUB_CARDS as Record<string, SpecialCard>),
   // ─── Task 41 gap batch: inflation, debt payoff, DTI ────────────────────────
   ...(FINANCE_HUB_CARDS as Record<string, SpecialCard>),
+  // ─── Task 42: robux marketplace-fee calculator (creator earnings) ──────
+  ...(ROBUX_HUB_CARDS as Record<string, SpecialCard>),
 };
 
 /** Dedicated calculator routes that live outside CALCULATOR_ROUTES. */

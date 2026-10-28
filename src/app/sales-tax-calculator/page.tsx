@@ -25,9 +25,9 @@ export async function generateMetadata(): Promise<Metadata> {
   const canonicalPath = '/sales-tax-calculator';
 
   return {
-    title: { absolute: 'Sales Tax Calculator 2026 — All 50 States + Reverse Tax Tool' },
+    title: { absolute: 'Sales Tax Calculator 2026 — All 50 State Rates + Reverse' },
     description:
-      'Free 2026 sales tax calculator for all 50 US states. Combined state + local rates, reverse tax, car sales tax & IRS deductions. No sign-up.',
+      'Your state\u2019s exact sales tax rate, instantly. Enter any amount — or a receipt total to reverse out the tax — with this free 2026 sales tax calculator. No signup.',
     keywords: [
       'sales tax calculator',
       'figuring sales tax',
@@ -90,9 +90,9 @@ export async function generateMetadata(): Promise<Metadata> {
       canonical: `${baseUrl}${canonicalPath}`,
     },
     openGraph: {
-      title: 'Sales Tax Calculator 2026 — All 50 States + Reverse Tax Tool',
+      title: 'Sales Tax Calculator 2026 — All 50 State Rates + Reverse',
       description:
-        'Free 2026 sales tax calculator for all 50 US states. Combined state + local rates, reverse tax, car sales tax & IRS deductions. No sign-up.',
+        'Your state\u2019s exact sales tax rate, instantly. Enter any amount — or a receipt total to reverse out the tax — with this free 2026 sales tax calculator. No signup.',
       url: `${baseUrl}${canonicalPath}`,
       siteName: 'TheTaxCalc',
       type: 'website',
@@ -108,9 +108,9 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     twitter: {
       card: 'summary_large_image',
-      title: 'Sales Tax Calculator 2026 — All 50 States + Reverse Tax Tool',
+      title: 'Sales Tax Calculator 2026 — All 50 State Rates + Reverse',
       description:
-        'Free 2026 sales tax calculator for all 50 US states. Combined state + local rates, reverse tax, car sales tax & IRS deductions. No sign-up.',
+        'Your state\u2019s exact sales tax rate, instantly. Enter any amount — or a receipt total to reverse out the tax — with this free 2026 sales tax calculator. No signup.',
       images: [`${baseUrl}/opengraph-image.png`],
     },
   };

@@ -10,6 +10,7 @@ import { SAVINGS_ROUTES } from './calculators-additions/savings-additions';
 import { WORK_ROUTES } from './calculators-additions/work-additions';
 import { UTILS_ROUTES } from './calculators-additions/utils-additions';
 import { FINANCE_ROUTES } from './calculators-additions/finance-additions';
+import { ROBUX_ROUTES } from './calculators-additions/robux-additions';
 
 export interface CalculatorRouteConfig {
   slug: string;
@@ -278,7 +279,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     h1: 'Free Self-Employment Tax Calculator — 1099 & SE Tax',
     metaTitle: 'Free Self-Employment Tax Calculator 2026 — 1099 & SE Tax',
     metaDesc:
-      'Free 2026 self-employment tax calculator. 15.3% SE tax on 92.35% of net income, half deduction, quarterly estimates. See real take-home pay.',
+      'Self-employment tax is 15.3% on 92.35% of net earnings. Calculate your exact SE tax, the half deduction and quarterly estimates — free 2026 calculator, no signup.',
     keywords: [
       'free self employment tax calculator', 'free tax calculator for self employed',
       'free tax calculator for 1099', 'SE tax calculator', 'self employed tax',
@@ -301,9 +302,9 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     description:
       'Free sales tax calculator for 2026. Calculate sales tax for any US state with combined rates. Includes reverse sales tax calculator. No sign-up required.',
     h1: 'Free Sales Tax Calculator — All 50 States & Reverse',
-    metaTitle: 'Free Sales Tax Calculator 2026 — Instant Results, No Signup',
+    metaTitle: 'Sales Tax Calculator 2026 — All 50 State Rates + Reverse',
     metaDesc:
-      'Instant 2026 sales tax calculator for all 50 states. Enter your amount, get exact state + local tax in seconds. Free, no signup. Try it now!',
+      'Your state\u2019s exact sales tax rate, instantly. Enter any amount \u2014 or a receipt total to reverse out the tax \u2014 with this free 2026 sales tax calculator. No signup.',
     keywords: [
       'free sales tax calculator', 'sales tax calculator', 'reverse sales tax calculator',
       'sales tax by state', 'calculate sales tax', 'sales tax rate',
@@ -667,7 +668,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     h1: 'Free Washington Tax Calculator — Tax Calculator WA',
     metaTitle: 'Washington Tax Calculator 2026: No Income Tax in WA',
     metaDesc:
-      'Free Washington tax calculator 2026. Take-home pay with 0% state tax. Property & sales tax analysis. No sign-up.',
+      'Washington has no state income tax on wages — 0%. A $75,000 salary keeps $61,592 take-home (federal + FICA only). Free 2026 WA tax calculator, no signup.',
     keywords: [
       'free Washington tax calculator', 'Washington tax calculator', 'WA paycheck calculator',
       'Washington no income tax', 'Washington take home pay', 'Washington salary calculator',
@@ -739,7 +740,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     h1: 'Free Tennessee Tax Calculator',
     metaTitle: '0% Income Tax — Tennessee Tax Calculator 2026',
     metaDesc:
-      'Free Tennessee tax calculator 2026. Take-home pay with 0% state tax. Property & sales tax analysis. No sign-up.',
+      'Tennessee has no state income tax on wages — 0% (the Hall tax ended in 2021). A $75,000 salary keeps $61,592 take-home. Free TN tax calculator.',
     keywords: [
       'free Tennessee tax calculator', 'Tennessee tax calculator', 'TN paycheck calculator',
       'Tennessee no income tax', 'Tennessee take home pay', 'Tennessee salary calculator',
@@ -906,7 +907,8 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     description: 'Free Alaska tax calculator for 2026. Calculate take-home pay with 0% state income tax and no state sales tax. No sign-up.',
     h1: 'Free Alaska Tax Calculator',
     metaTitle: '0% Income Tax — Alaska Tax Calculator 2026',
-    metaDesc: 'Free Alaska tax calculator 2026. Take-home pay with 0% state tax and no sales tax. No sign-up required.',
+    metaDesc:
+      'Alaska has no state income tax — 0%. A $75,000 salary keeps $61,592 take-home (federal + FICA only). Free 2026 Alaska tax calculator, no signup.',
     keywords: ['free Alaska tax calculator', 'Alaska tax calculator', 'AK paycheck calculator', 'Alaska no income tax', 'Alaska take home pay', 'Alaska salary calculator', 'free tax calculator for 2026', 'AK state tax 2026'],
     componentKey: 'alaska',
     category: 'paycheck',
@@ -922,7 +924,8 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     description: 'Free Nevada tax calculator for 2026. Calculate take-home pay with 0% state income tax. No sign-up.',
     h1: 'Free Nevada Tax Calculator',
     metaTitle: '0% Income Tax — Nevada Tax Calculator 2026',
-    metaDesc: 'Free Nevada tax calculator 2026. Take-home pay with 0% state tax. No sign-up required.',
+    metaDesc:
+      'Nevada has no state income tax — 0%. A $75,000 salary keeps $61,592 take-home (federal + FICA only). Free 2026 Nevada tax calculator, no signup.',
     keywords: ['free Nevada tax calculator', 'Nevada tax calculator', 'NV paycheck calculator', 'Nevada no income tax', 'Nevada take home pay', 'Nevada salary calculator', 'free tax calculator for 2026', 'NV state tax 2026'],
     componentKey: 'nevada',
     category: 'paycheck',
@@ -938,7 +941,8 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     description: 'Free South Dakota tax calculator for 2026. Calculate take-home pay with 0% state income tax. No sign-up.',
     h1: 'Free South Dakota Tax Calculator',
     metaTitle: '0% Income Tax — South Dakota Tax Calculator 2026',
-    metaDesc: 'Free South Dakota tax calculator 2026. Take-home pay with 0% state tax. No sign-up required.',
+    metaDesc:
+      'South Dakota has no state income tax — 0%. A $75,000 salary keeps $61,592 take-home (federal + FICA only). Free 2026 South Dakota tax calculator, no signup.',
     keywords: ['free South Dakota tax calculator', 'South Dakota tax calculator', 'SD paycheck calculator', 'South Dakota no income tax', 'South Dakota take home pay', 'South Dakota salary calculator', 'free tax calculator for 2026', 'SD state tax 2026'],
     componentKey: 'southdakota',
     category: 'paycheck',
@@ -954,7 +958,8 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     description: 'Free Wyoming tax calculator for 2026. Calculate take-home pay with 0% state income tax. No sign-up.',
     h1: 'Free Wyoming Tax Calculator',
     metaTitle: '0% Income Tax — Wyoming Tax Calculator 2026',
-    metaDesc: 'Free Wyoming tax calculator 2026. Take-home pay with 0% state tax. No sign-up required.',
+    metaDesc:
+      'Wyoming has no state income tax — 0%. A $75,000 salary keeps $61,592 take-home (federal + FICA only). Free 2026 Wyoming tax calculator, no signup.',
     keywords: ['free Wyoming tax calculator', 'Wyoming tax calculator', 'WY paycheck calculator', 'Wyoming no income tax', 'Wyoming take home pay', 'Wyoming salary calculator', 'free tax calculator for 2026', 'WY state tax 2026'],
     componentKey: 'wyoming',
     category: 'paycheck',
@@ -970,7 +975,8 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     description: 'Free New Hampshire tax calculator for 2026. Calculate take-home pay with 0% state income tax and no sales tax. No sign-up.',
     h1: 'Free New Hampshire Tax Calculator',
     metaTitle: '0% Income Tax — New Hampshire Tax Calculator 2026',
-    metaDesc: 'Free New Hampshire tax calculator 2026. Take-home pay with 0% state tax and no sales tax. No sign-up required.',
+    metaDesc:
+      'New Hampshire has no income tax on wages, and its dividend tax hit 0% in 2026. A $75,000 salary keeps $61,592 take-home. Free NH tax calculator.',
     keywords: ['free New Hampshire tax calculator', 'New Hampshire tax calculator', 'NH paycheck calculator', 'New Hampshire no income tax', 'New Hampshire take home pay', 'New Hampshire salary calculator', 'free tax calculator for 2026', 'NH state tax 2026'],
     componentKey: 'newhampshire',
     category: 'paycheck',
@@ -1484,6 +1490,8 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
   ...UTILS_ROUTES,
   // ─── Task 41 gap batch: inflation, debt payoff, debt-to-income ─────────
   ...FINANCE_ROUTES,
+  // ─── Task 42: robux marketplace-fee calculator (creator earnings) ───
+  ...ROBUX_ROUTES,
 ];
 
 /** Map from componentKey (old hash key) to slug (new route) */

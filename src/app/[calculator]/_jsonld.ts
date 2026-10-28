@@ -54,6 +54,7 @@ import { SAVINGS_CONTENT } from '@/lib/calculators-additions/savings-additions';
 import { WORK_CONTENT } from '@/lib/calculators-additions/work-additions';
 import { UTILS_CONTENT } from '@/lib/calculators-additions/utils-additions';
 import { FINANCE_CONTENT } from '@/lib/calculators-additions/finance-additions';
+import { ROBUX_CONTENT } from '@/lib/calculators-additions/robux-additions';
 
 // ─── JSON-LD FAQ Helper ─────────────────────────────────────────────────────────
 
@@ -813,6 +814,7 @@ const ADDITION_CONTENT: Record<string, { faqs: { question: string; answer: strin
   ...WORK_CONTENT,
   ...UTILS_CONTENT,
   ...FINANCE_CONTENT,
+  ...ROBUX_CONTENT,
 };
 
 const ADDITION_ROUTE_BY_KEY = new Map(CALCULATOR_ROUTES.map((r) => [r.componentKey, r]));

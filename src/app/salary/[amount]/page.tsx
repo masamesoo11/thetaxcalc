@@ -46,7 +46,9 @@ export async function generateMetadata({
   // pages — descriptions now vary meaningfully between salary tiers)
   const seo = getSalarySeoText(salary);
 
-  const title = `${formatted} After Taxes 2026 — Take-Home Pay by State`;
+  // Question-format title (Task 42 CTR fix): the top GSC query family for these
+  // pages is literally "70k a year is how much a month after taxes" — mirror it.
+  const title = `How Much Is ${formatted} a Year After Taxes in 2026?`;
 
   return {
     title: { absolute: title },

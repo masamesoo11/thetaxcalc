@@ -395,10 +395,10 @@ export function getStateSEOMeta(stateKey: string): StateSEOMeta {
   if (state.noStateTax) {
     return {
       metaTitle: `Free ${titleName} Sales Tax Calculator 2026 | 0% Rate`,
-      metaDesc: `Free ${name} sales tax calculator 2026. 0% state sales tax${state.abbreviation === 'AK' ? ', local avg 1.82%' : ''}. No sign-up.`,
+      metaDesc: `${name} has no state sales tax${state.abbreviation === 'AK' ? ', but local rates average 1.82%' : ''}. Calculate any purchase or see what is exempt with the free ${name} sales tax calculator. No signup.`,
       h1: `${name} Sales Tax Calculator`,
       ogTitle: `${name} Sales Tax 2026 | 0% State`,
-      ogDescription: `Free ${name} sales tax calculator. ${name} has no state sales tax. See details and exemptions. No sign-up required.`,
+      ogDescription: `${name} has no state sales tax${state.abbreviation === 'AK' ? ' (locals average 1.82%)' : ''}. Free ${name} sales tax calculator with exemption details. No signup.`,
       keywords: [
         `${name} sales tax calculator`, `${name} sales tax rate`, `${abbr} sales tax`,
         `${name} no sales tax`, `${name} 0% sales tax`, `sales tax in ${name}`,
@@ -413,31 +413,26 @@ export function getStateSEOMeta(stateKey: string): StateSEOMeta {
   const statePct = formatRate(state.stateRate);
   const localPct = formatRate(Math.max(0, state.avgLocalRate));
   const combinedPct = pct(state.combinedRate);
-  const tier = tierOf(stateKey);
   const noLocal = localBucketOf(state) === 'zero';
 
-  // Tail phrase varies by tier/local profile so even meta descriptions differ.
-  let tail: string;
-  if (noLocal) {
-    tail = `Same rate in every city. No sign-up.`;
-  } else if (tier === 'high') {
-    tail = `Top-10 rate nationally. No sign-up.`;
-  } else if (tier === 'low') {
-    tail = `Below the ${pct(NATIONAL_AVG_COMBINED)}% US average. No sign-up.`;
-  } else {
-    tail = `Reverse calc & exemptions. No sign-up.`;
-  }
-
+  // Answer-first descriptions (Task 42 CTR fix): lead with the rate the
+  // searcher is asking about, then the $1,000 example and the reverse promise.
+  // For no-local states the sentence uses the exact statewide rate (up to 3
+  // decimals, trailing zeros trimmed — NJ is 6.625%) so the rate and the
+  // per-$1,000 figure can never contradict each other.
+  const exactRate = (state.stateRate * 100).toFixed(3).replace(/\.?0+$/, '');
+  const headlineRate = noLocal ? exactRate : combinedPct;
+  const taxOn1000 = (1000 * (noLocal ? state.stateRate : state.combinedRate)).toFixed(2);
   const core = noLocal
-    ? `Free ${name} sales tax calculator 2026. ${statePct}% statewide rate — ${combinedPct}% is the whole number.`
-    : `Free ${name} sales tax calculator 2026. ${statePct}% state + ${localPct}% local = ${combinedPct}% combined.`;
+    ? `${name} sales tax is ${headlineRate}% — $${taxOn1000} per $1,000 purchase, same in every city.`
+    : `${name} sales tax averages ${headlineRate}% (${statePct}% state + ${localPct}% local) — $${taxOn1000} per $1,000.`;
 
   return {
     metaTitle: `Free ${titleName} Sales Tax Calculator 2026 | ${combinedPct}% Combined`,
-    metaDesc: `${core} ${tail}`,
+    metaDesc: `${core} Reverse a total or calculate any amount. Free, no signup.`,
     h1: `${name} Sales Tax Calculator`,
     ogTitle: `${name} Sales Tax 2026 | ${statePct}%${noLocal ? ' Statewide' : ' + Local'}`,
-    ogDescription: `Free ${name} sales tax calculator. ${core.replace(`Free ${name} sales tax calculator 2026. `, '')} ${tail}`,
+    ogDescription: `${core} Free calculator, no signup.`,
     keywords: [
       `${name} sales tax calculator`, `${name} sales tax rate`, `${abbr} sales tax`,
       `${name} state sales tax`, `${name} local sales tax`, `${name} combined sales tax`,

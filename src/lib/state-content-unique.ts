@@ -1246,6 +1246,11 @@ export function getStateContentEntry(state: string): StateContentEntry | null {
         ],
         faqs: [
           {
+            question: 'Does Alaska have a state income tax?',
+            answer:
+              'No — Alaska has no state income tax, and the state actually pays residents an annual Permanent Fund Dividend instead. Paychecks deduct only federal tax and FICA, so a $75,000 single salary keeps about $61,592.',
+          },
+          {
             question: 'How does Alaska fund itself with no income tax?',
             answer:
               'Oil. Alaska\'s Permanent Fund invests petroleum royalties, and the earnings cover most state functions plus pay the annual dividend to residents. No tax on wages, and no state sales tax either (only small local sales taxes exist in some boroughs).',
@@ -1295,6 +1300,11 @@ export function getStateContentEntry(state: string): StateContentEntry | null {
           { label: 'Federal Standard Deduction', value: '$16,100 (single)' },
         ],
         faqs: [
+          {
+            question: 'Does Nevada have a state income tax?',
+            answer:
+              'No — Nevada\u2019s income tax rate is 0%, and the state constitution makes adding one practically impossible. Paychecks in Nevada deduct only federal tax and FICA, so a $75,000 single salary keeps about $61,592 take-home.',
+          },
           {
             question: 'Could Nevada ever add a state income tax?',
             answer:
@@ -1346,6 +1356,11 @@ export function getStateContentEntry(state: string): StateContentEntry | null {
         ],
         faqs: [
           {
+            question: 'Does South Dakota have a state income tax?',
+            answer:
+              'No — South Dakota levies no individual income tax on wages or retirement income. Paychecks deduct only federal tax and FICA, so a $75,000 single salary keeps about $61,592 take-home.',
+          },
+          {
             question: 'Why do trust companies flock to South Dakota?',
             answer:
               'South Dakota is the national hub for bank and trust-company charters — favorable trust laws plus no state income tax on trust earnings. Financial-industry franchise fees replace what an income tax would raise, and the state is structurally committed to staying at zero.',
@@ -1396,7 +1411,12 @@ export function getStateContentEntry(state: string): StateContentEntry | null {
         ],
         faqs: [
           {
-            question: 'What funds Wyoming\'s zero income tax?',
+            question: 'Does Wyoming have a state income tax?',
+            answer:
+              'No — Wyoming taxes no personal wages, and its constitution requires a supermajority plus voter approval to ever add one. Paychecks deduct only federal tax and FICA: a $75,000 single salary keeps about $61,592.',
+          },
+          {
+            question: 'What funds Wyoming\u2019s zero income tax?',
             answer:
               'Severance taxes on coal, oil, and natural gas — Wyoming is the top coal-producing state, and mineral royalties fill the budget gap. A constitutionally dedicated permanent trust fund makes reinstating an income tax structurally difficult.',
           },
@@ -1445,6 +1465,11 @@ export function getStateContentEntry(state: string): StateContentEntry | null {
           { label: 'Federal Standard Deduction', value: '$16,100 (single)' },
         ],
         faqs: [
+          {
+            question: 'Does New Hampshire have an income tax?',
+            answer:
+              'Not on wages — and as of 2026 the interest-and-dividends tax is fully phased out too, after dropping 1 point per year. New Hampshire now taxes no personal income at all; a $75,000 single salary keeps about $61,592 take-home.',
+          },
           {
             question: 'Does New Hampshire tax paychecks?',
             answer:

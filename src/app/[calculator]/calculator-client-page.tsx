@@ -243,6 +243,10 @@ const DebtToIncomeCalculator = dynamic(
   () => import('@/components/finance/debt-to-income-calculator').then((m) => ({ default: m.DebtToIncomeCalculator })),
   { loading: () => <CalculatorSkeleton />, ssr: false }
 );
+const RobuxTaxCalculator = dynamic(
+  () => import('@/components/finance/robux-tax-calculator').then((m) => ({ default: m.RobuxTaxCalculator })),
+  { loading: () => <CalculatorSkeleton />, ssr: false }
+);
 
 // Set of componentKeys handled by GenericStateCalculator
 const GENERIC_STATE_KEYS = new Set([
@@ -404,6 +408,8 @@ export function CalculatorClientPage({ componentKey }: CalculatorClientPageProps
       return <DebtPayoffCalculator />;
     case 'debt-to-income':
       return <DebtToIncomeCalculator />;
+    case 'robux':
+      return <RobuxTaxCalculator />;
     default:
       // Check if it's a generic state key
       if (GENERIC_STATE_KEYS.has(componentKey)) {
