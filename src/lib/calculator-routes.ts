@@ -9,6 +9,7 @@ import { RETIREMENT_ROUTES } from './calculators-additions/retirement-additions'
 import { SAVINGS_ROUTES } from './calculators-additions/savings-additions';
 import { WORK_ROUTES } from './calculators-additions/work-additions';
 import { UTILS_ROUTES } from './calculators-additions/utils-additions';
+import { FINANCE_ROUTES } from './calculators-additions/finance-additions';
 
 export interface CalculatorRouteConfig {
   slug: string;
@@ -1481,6 +1482,8 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
   ...SAVINGS_ROUTES,
   ...WORK_ROUTES,
   ...UTILS_ROUTES,
+  // ─── Task 41 gap batch: inflation, debt payoff, debt-to-income ─────────
+  ...FINANCE_ROUTES,
 ];
 
 /** Map from componentKey (old hash key) to slug (new route) */

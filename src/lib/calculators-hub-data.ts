@@ -17,6 +17,7 @@ import { RETIREMENT_HUB_CARDS } from './calculators-additions/retirement-additio
 import { SAVINGS_HUB_CARDS } from './calculators-additions/savings-additions';
 import { WORK_HUB_CARDS } from './calculators-additions/work-additions';
 import { UTILS_HUB_CARDS } from './calculators-additions/utils-additions';
+import { FINANCE_HUB_CARDS } from './calculators-additions/finance-additions';
 
 export type HubCategory =
   | 'income'
@@ -322,6 +323,8 @@ const SPECIAL_CARDS: Record<string, SpecialCard> = {
   ...(SAVINGS_HUB_CARDS as Record<string, SpecialCard>),
   ...(WORK_HUB_CARDS as Record<string, SpecialCard>),
   ...(UTILS_HUB_CARDS as Record<string, SpecialCard>),
+  // ─── Task 41 gap batch: inflation, debt payoff, DTI ────────────────────────
+  ...(FINANCE_HUB_CARDS as Record<string, SpecialCard>),
 };
 
 /** Dedicated calculator routes that live outside CALCULATOR_ROUTES. */

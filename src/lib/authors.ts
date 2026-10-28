@@ -141,7 +141,7 @@ export function getRetirementAuthor(): AuthorProfile {
 
 /** Map calculator type → author ID */
 export function getAuthorForCalculator(calculatorType: string): AuthorProfile {
-  const retirementTypes = ['retirement', 'capital-gains', 'irs-withholding', 'retirement-planning', 'roth-ira', 'investments', 'cd', 'interest'];
+  const retirementTypes = ['retirement', 'capital-gains', 'irs-withholding', 'retirement-planning', 'roth-ira', 'investments', 'cd', 'interest', 'inflation'];
   const selfEmploymentTypes = ['self-employment', 'overtime', 'bonus-tax'];
 
   if (retirementTypes.includes(calculatorType)) {

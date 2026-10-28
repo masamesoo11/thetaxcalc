@@ -52,6 +52,7 @@ import { RETIREMENT_CONTENT } from '@/lib/calculators-additions/retirement-addit
 import { SAVINGS_CONTENT } from '@/lib/calculators-additions/savings-additions';
 import { WORK_CONTENT } from '@/lib/calculators-additions/work-additions';
 import { UTILS_CONTENT } from '@/lib/calculators-additions/utils-additions';
+import { FINANCE_CONTENT } from '@/lib/calculators-additions/finance-additions';
 
 // ─── Calculator Content Data (Server-Rendered for SEO) ─────────────────────────
 
@@ -1534,6 +1535,12 @@ export function getCalculatorContent(type: string): CalculatorContent {
       return UTILS_CONTENT['tip'];
     case 'percentage-change':
       return UTILS_CONTENT['percentage-change'];
+    case 'inflation':
+      return FINANCE_CONTENT['inflation'];
+    case 'debt-payoff':
+      return FINANCE_CONTENT['debt-payoff'];
+    case 'debt-to-income':
+      return FINANCE_CONTENT['debt-to-income'];
     default:
       // 1st priority: hand-written unique content per state — the primary fix
       // for the duplicate-content problem (89–95% template similarity was

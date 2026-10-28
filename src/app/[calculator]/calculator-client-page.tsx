@@ -231,6 +231,18 @@ const PercentageChangeCalculator = dynamic(
   () => import('@/components/finance/percentage-change-calculator').then((m) => ({ default: m.PercentageChangeCalculator })),
   { loading: () => <CalculatorSkeleton />, ssr: false }
 );
+const InflationCalculator = dynamic(
+  () => import('@/components/finance/inflation-calculator').then((m) => ({ default: m.InflationCalculator })),
+  { loading: () => <CalculatorSkeleton />, ssr: false }
+);
+const DebtPayoffCalculator = dynamic(
+  () => import('@/components/finance/debt-payoff-calculator').then((m) => ({ default: m.DebtPayoffCalculator })),
+  { loading: () => <CalculatorSkeleton />, ssr: false }
+);
+const DebtToIncomeCalculator = dynamic(
+  () => import('@/components/finance/debt-to-income-calculator').then((m) => ({ default: m.DebtToIncomeCalculator })),
+  { loading: () => <CalculatorSkeleton />, ssr: false }
+);
 
 // Set of componentKeys handled by GenericStateCalculator
 const GENERIC_STATE_KEYS = new Set([
@@ -386,6 +398,12 @@ export function CalculatorClientPage({ componentKey }: CalculatorClientPageProps
       return <TipCalculator />;
     case 'percentage-change':
       return <PercentageChangeCalculator />;
+    case 'inflation':
+      return <InflationCalculator />;
+    case 'debt-payoff':
+      return <DebtPayoffCalculator />;
+    case 'debt-to-income':
+      return <DebtToIncomeCalculator />;
     default:
       // Check if it's a generic state key
       if (GENERIC_STATE_KEYS.has(componentKey)) {
