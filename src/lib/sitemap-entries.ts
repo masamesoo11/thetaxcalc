@@ -1,0 +1,121 @@
+/**
+ * Sitemap entries — single source of truth for every canonical site URL.
+ *
+ * Consumed by:
+ *   - src/app/sitemap.ts        (the /sitemap.xml output, 287 URLs)
+ *   - src/lib/indexnow.ts       (getAllSiteUrls() inventory for IndexNow pings)
+ *
+ * NEVER add a URL to only one consumer — add it here and both stay in sync.
+ */
+import type { MetadataRoute } from 'next';
+import { CALCULATOR_ROUTES } from '@/lib/calculator-routes';
+import { SALARY_AMOUNTS, salaryToSlug } from '@/lib/salary-calculations';
+import { HOURLY_RATES, rateToSlug } from '@/lib/hourly-calculations';
+import { COMPARISON_SLUGS } from '@/lib/compare-config';
+import { getPublishedPostsMeta } from '@/lib/blog-index';
+import { SITE_URL, SITE_HOME_URL } from '@/lib/site-config';
+import { ALL_STATE_KEYS, stateKeyToSlug } from '@/lib/state-sales-tax-data';
+
+export function getSitemapEntries(): MetadataRoute.Sitemap {
+  const baseUrl = SITE_URL;
+  // Google prefers truthful lastModified values that reflect actual content
+  // changes — every URL using "today" on each build makes lastmod meaningless.
+  // These constants record the dates content actually changed.
+  const TAX_DATA_UPDATED = '2026-10-24'; // 2026 state rate overhaul (29 states corrected)
+  const SITE_CONTENT_UPDATED = '2026-10-24'; // site copy, methodology, about pages
+  const taxYearUpdate = TAX_DATA_UPDATED;
+  const siteUpdate = SITE_CONTENT_UPDATED;
+
+  const entries: MetadataRoute.Sitemap = [
+    // Root entry uses the exact canonical form (trailing slash) so sitemap,
+    // <link rel=canonical> and og:url are byte-identical for strict auditors.
+    { url: SITE_HOME_URL, lastModified: siteUpdate, changeFrequency: 'weekly', priority: 1.0 },
+    // Calculators hub — the /calculators directory (added 2026-10-24)
+    { url: `${baseUrl}/calculators`, lastModified: siteUpdate, changeFrequency: 'weekly', priority: 0.9 },
+  ];
+
+  // Calculator pages
+  for (const route of CALCULATOR_ROUTES) {
+    const priority = route.category === 'paycheck' ? 0.95 : route.category === 'mortgage' ? 0.9 : 0.85;
+    entries.push({ url: `${baseUrl}${route.canonicalPath}`, lastModified: taxYearUpdate, changeFrequency: 'monthly', priority });
+  }
+
+  // 50 state sales tax pages
+  for (const stateKey of ALL_STATE_KEYS) {
+    entries.push({ url: `${baseUrl}/sales-tax-calculator/${stateKeyToSlug(stateKey)}`, lastModified: taxYearUpdate, changeFrequency: 'monthly', priority: 0.82 });
+  }
+
+  entries.push({ url: `${baseUrl}/salary`, lastModified: taxYearUpdate, changeFrequency: 'monthly', priority: 0.9 });
+
+  // Salary pages — use new SEO-friendly URL pattern: /salary/85000-after-taxes
+  for (const amount of SALARY_AMOUNTS) {
+    entries.push({ url: `${baseUrl}/salary/${salaryToSlug(amount)}`, lastModified: taxYearUpdate, changeFrequency: 'monthly', priority: 0.8 });
+  }
+
+  // Hourly rate pages — "$X an hour is how much a year" (added 2026-10-27)
+  for (const rate of HOURLY_RATES) {
+    entries.push({ url: `${baseUrl}/hourly/${rateToSlug(rate)}`, lastModified: taxYearUpdate, changeFrequency: 'monthly', priority: 0.78 });
+  }
+
+  entries.push({ url: `${baseUrl}/glossary`, lastModified: siteUpdate, changeFrequency: 'monthly', priority: 0.85 });
+  entries.push({ url: `${baseUrl}/federal-tax-brackets`, lastModified: taxYearUpdate, changeFrequency: 'monthly', priority: 0.95 });
+  // 2027 projected brackets — published 2026-10-27 ahead of the IRS Rev. Proc.;
+  // lastmod records the real publication/update date of this projection.
+  entries.push({ url: `${baseUrl}/tax-brackets-2027`, lastModified: '2026-10-27', changeFrequency: 'weekly', priority: 0.95 });
+  entries.push({ url: `${baseUrl}/freefile-irs`, lastModified: taxYearUpdate, changeFrequency: 'monthly', priority: 0.95 });
+  entries.push({ url: `${baseUrl}/home-sale-tax-calculator`, lastModified: taxYearUpdate, changeFrequency: 'monthly', priority: 0.95 });
+  entries.push({ url: `${baseUrl}/about`, lastModified: siteUpdate, changeFrequency: 'monthly', priority: 0.7 });
+  entries.push({ url: `${baseUrl}/tax-data`, lastModified: siteUpdate, changeFrequency: 'monthly', priority: 0.9 });
+  entries.push({ url: `${baseUrl}/widgets`, lastModified: siteUpdate, changeFrequency: 'monthly', priority: 0.85 });
+  entries.push({ url: `${baseUrl}/methodology`, lastModified: siteUpdate, changeFrequency: 'monthly', priority: 0.6 });
+  entries.push({ url: `${baseUrl}/salary-comparison-calculator`, lastModified: taxYearUpdate, changeFrequency: 'monthly', priority: 0.92 });
+  entries.push({ url: `${baseUrl}/job-offer-comparison-calculator`, lastModified: taxYearUpdate, changeFrequency: 'monthly', priority: 0.92 });
+  entries.push({ url: `${baseUrl}/paycheck-difference-calculator`, lastModified: taxYearUpdate, changeFrequency: 'monthly', priority: 0.92 });
+
+  for (const path of ['/privacy', '/terms']) {
+    entries.push({ url: `${baseUrl}${path}`, lastModified: '2026-03-04', changeFrequency: 'yearly', priority: 0.3 });
+  }
+
+  entries.push({ url: `${baseUrl}/compare`, lastModified: taxYearUpdate, changeFrequency: 'monthly', priority: 0.9 });
+
+  for (const slug of COMPARISON_SLUGS) {
+    entries.push({ url: `${baseUrl}/compare/${slug}`, lastModified: taxYearUpdate, changeFrequency: 'monthly', priority: 0.88 });
+  }
+
+  // ─── Strategic pages (added 2026-07) ───────────────────────────────────────
+  entries.push({ url: `${baseUrl}/obbba-tax-calculator`, lastModified: taxYearUpdate, changeFrequency: 'monthly', priority: 0.95 });
+  entries.push({ url: `${baseUrl}/scholarship`, lastModified: taxYearUpdate, changeFrequency: 'monthly', priority: 0.85 });
+  entries.push({ url: `${baseUrl}/smartasset-alternative`, lastModified: taxYearUpdate, changeFrequency: 'monthly', priority: 0.85 });
+  entries.push({ url: `${baseUrl}/tax-professionals`, lastModified: taxYearUpdate, changeFrequency: 'monthly', priority: 0.85 });
+  entries.push({ url: `${baseUrl}/research`, lastModified: taxYearUpdate, changeFrequency: 'monthly', priority: 0.9 });
+
+  // 6 research studies (dynamic [slug] route) — published 2026-07-04; lastmod
+  // records their real content date, matching each page's JSON-LD dateModified.
+  const RESEARCH_PUBLISHED = '2026-07-04';
+  const RESEARCH_SLUGS = [
+    '2026-state-tax-burden',
+    'best-states-for-remote-workers-2026',
+    'child-tax-credit-guide-2026',
+    'property-tax-by-state-2026',
+    'salary-needed-to-live-comfortably-2026',
+    'tax-refund-statistics-2026',
+  ];
+  for (const slug of RESEARCH_SLUGS) {
+    entries.push({ url: `${baseUrl}/research/${slug}`, lastModified: RESEARCH_PUBLISHED, changeFrequency: 'monthly', priority: 0.85 });
+  }
+
+  entries.push({ url: `${baseUrl}/blog`, lastModified: siteUpdate, changeFrequency: 'weekly', priority: 0.8 });
+
+  // Blog posts from static index — use actual post dates
+  const posts = getPublishedPostsMeta();
+  for (const post of posts) {
+    entries.push({
+      url: `${baseUrl}/blog/${post.slug}`,
+      lastModified: post.updatedAt || post.createdAt || siteUpdate,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    });
+  }
+
+  return entries;
+}

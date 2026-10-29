@@ -1411,3 +1411,23 @@ Stage Summary:
 - Standing capability: POST /api/indexnow { urls: [...] } (admin session) for targeted pings, or { all: true } for the full ~400-URL inventory — and the documented one-off bun pattern for agent-driven submissions after each deploy.
 - Deploy-routine addition: after each push, submit the changed pages to IndexNow (per user's quoted workflow: 'Submit the pages I just published to IndexNow').
 - Standing: 2027 IRS flip armed (Nov 9-15); next GSC snapshot re-measures Task-42 CTR levers.
+
+---
+Task ID: 46
+Agent: Main Agent (solo)
+Task: User pasted Bing WMT dashboard (Arabic UI): 0 clicks / 0 impressions across the full trailing 3 months (Jul 29-Oct 26), top recommendation "set up IndexNow", second recommendation "not enough inbound links from quality domains". Diagnosis + Bing-indexing bootstrap.
+
+Work Log:
+- Diagnosis: Bing has NOT indexed the site (not a robots/sitemap problem: bingbot allowed under User-Agent: * with Sitemap: line present, /sitemap.xml live with 287 URLs, key file 200 — Bing itself validated the key via accepted submissions). Classic new-site discovery deficit: no backlinks -> bingbot never crawled. The panel's "Not found" badge and IndexNow recommendation card are STALE (from checks pre-deploy); re-checking in the panel clears them.
+- BOOTSTRAP SUBMISSION 1: full inventory via existing getAllSiteUrls() one-off (bun): 243 URLs, 3 batches x100 (1s apart) -> bing.com/indexnow 200 x3, api.indexnow.org 200 x3, yandex 202 x2 + 1 transient socket close. Note: this inventory contained ~24 non-canonical salary forms (/salary/30000) — verified they 301 to canonical /salary/30000-after-taxes, harmless.
+- DIFF DISCOVERY: sitemap (287) vs code inventory (243) = 72 URLs missing from the inventory, including the /calculators hub, all 24 canonical salary slugs (*-after-taxes), the ENTIRE /hourly/* section (27 pages), /research hub + 6 studies, /tax-brackets-2027, /freefile-irs, /home-sale-tax-calculator, /methodology, 3 comparison calculators, /obbba-tax-calculator, /scholarship, /smartasset-alternative, /tax-professionals. Root cause: getAllSiteUrls() was a hand-maintained list that drifted from sitemap.ts when hourly/research/strategic sections shipped.
+- BOOTSTRAP SUBMISSION 2 (delta): the 72 missing URLs submitted -> Bing 200, api.indexnow.org 200 (yandex direct 403 — transient; the shared endpoint had validated the key minutes earlier with 202s and distributes to all participating engines). NET: all 287 canonical URLs now pinged to Bing/DuckDuckGo/Yahoo pipeline.
+- ARCHITECTURAL FIX (single source of truth): extracted the sitemap entry-building verbatim into src/lib/sitemap-entries.ts (getSitemapEntries()); src/app/sitemap.ts is now a 6-line thin wrapper; src/lib/indexnow.ts getAllSiteUrls() now derives from getSitemapEntries(). Inventory can never drift from the sitemap again. ~55 lines of hand-maintained URL list deleted.
+- Gates: lint = exactly the 12 documented; project-wide tsc = 47 documented baseline, all 3 touched files clean; dev /sitemap.xml BYTE-IDENTICAL to production (287 URLs); new inventory = 287 unique, 0 missing vs sitemap, 0 extra. Temp one-off scripts deleted after use.
+- User panel actions advised: refresh Bing WMT integrations page (re-check clears stale "Not found" + recommendation card); optionally submit sitemap via panel; expect first Bing impressions within days-to-weeks as bingbot processes the ~315 pings (243+72). Backlinks recommendation acknowledged as a standing (longer-term) lever — widgets/embed.js syndication is the existing link-bait asset.
+
+Stage Summary:
+- Bing indexing bootstrap complete: every canonical URL on the site pinged to Bing's IndexNow pipeline with a key Bing itself validated (200s on accepted submissions — a missing key file would 403).
+- Sitemap and IndexNow inventory now share one source (sitemap-entries.ts): adding a page to the sitemap automatically adds it to future {all:true} submissions.
+- Standing routine unchanged: post-deploy step = submit changed pages only (the full-inventory bootstrap was a one-time event triggered by zero Bing visibility).
+- Standing: 2027 IRS flip armed (Nov 9-15); next GSC snapshot re-measures Task-42 CTR levers; Bing impressions expected to lift from 0 as crawling ramps.

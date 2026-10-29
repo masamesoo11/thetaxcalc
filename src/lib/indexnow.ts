@@ -4,12 +4,7 @@
  * @see https://www.indexnow.org/documentation
  */
 
-import { SITE_URL } from '@/lib/site-config';
-import { CALCULATOR_ROUTES } from '@/lib/calculator-routes';
-import { SALARY_AMOUNTS } from '@/lib/salary-calculations';
-import { COMPARISON_SLUGS } from '@/lib/compare-config';
-import { ALL_STATE_KEYS, stateKeyToSlug } from '@/lib/state-sales-tax-data';
-import { getPublishedPostsMeta } from '@/lib/blog-index';
+import { getSitemapEntries } from '@/lib/sitemap-entries';
 
 // ─── Configuration ──────────────────────────────────────────────────────────
 
@@ -200,59 +195,15 @@ export async function submitToIndexNow(urls: string[]): Promise<SubmitResult> {
 // ─── Sitemap-Based Submission ───────────────────────────────────────────────
 
 /**
- * Generates a list of all important site URLs from the sitemap configuration.
+ * Generates the complete canonical URL inventory.
+ * Single source of truth: src/lib/sitemap-entries.ts — the same function that
+ * builds /sitemap.xml, so the IndexNow inventory can never drift from the
+ * sitemap (a hand-maintained list here previously missed 72 sitemap URLs,
+ * including the /calculators hub, the hourly section, and /research pages).
  * Used by submitAllPagesToIndexNow() to submit the full site.
  */
 export function getAllSiteUrls(): string[] {
-  const urls: string[] = [];
-
-  // Homepage
-  urls.push(SITE_URL);
-
-  // Calculator pages
-  for (const route of CALCULATOR_ROUTES) {
-    urls.push(`${SITE_URL}${route.canonicalPath}`);
-  }
-
-  // Sales Tax Calculator main page
-  urls.push(`${SITE_URL}/sales-tax-calculator`);
-
-  // 50 state sales tax pages
-  for (const stateKey of ALL_STATE_KEYS) {
-    urls.push(`${SITE_URL}/sales-tax-calculator/${stateKeyToSlug(stateKey)}`);
-  }
-
-  // Salary landing page
-  urls.push(`${SITE_URL}/salary`);
-
-  // Salary amount pages
-  for (const amount of SALARY_AMOUNTS) {
-    urls.push(`${SITE_URL}/salary/${amount}`);
-  }
-
-  // Static content pages
-  urls.push(`${SITE_URL}/glossary`);
-  urls.push(`${SITE_URL}/federal-tax-brackets`);
-  urls.push(`${SITE_URL}/about`);
-  urls.push(`${SITE_URL}/widgets`);
-  urls.push(`${SITE_URL}/tax-data`);
-  urls.push(`${SITE_URL}/privacy`);
-  urls.push(`${SITE_URL}/terms`);
-
-  // Compare pages
-  urls.push(`${SITE_URL}/compare`);
-  for (const slug of COMPARISON_SLUGS) {
-    urls.push(`${SITE_URL}/compare/${slug}`);
-  }
-
-  // Blog pages
-  urls.push(`${SITE_URL}/blog`);
-  const posts = getPublishedPostsMeta();
-  for (const post of posts) {
-    urls.push(`${SITE_URL}/blog/${post.slug}`);
-  }
-
-  return urls;
+  return getSitemapEntries().map((entry) => entry.url);
 }
 
 /**
