@@ -120,7 +120,7 @@ export async function GET(): Promise<NextResponse> {
   return NextResponse.json({
     service: 'IndexNow API',
     host: 'thetaxcalc.com',
-    keyLocation: 'https://thetaxcalc.com/d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9.txt',
+    keyLocation: 'https://thetaxcalc.com/5e34d86060864b8ab89960f70671a252.txt',
     maxUrlsPerRequest: MAX_URLS_PER_REQUEST,
     endpoints: [
       'https://api.indexnow.org/IndexNow',

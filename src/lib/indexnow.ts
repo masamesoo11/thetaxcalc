@@ -13,7 +13,9 @@ import { getPublishedPostsMeta } from '@/lib/blog-index';
 
 // ─── Configuration ──────────────────────────────────────────────────────────
 
-const INDEXNOW_KEY = 'd4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9';
+// Key issued by Bing Webmaster Tools for thetaxcalc.com (Oct 2026).
+// Key file served at https://thetaxcalc.com/5e34d86060864b8ab89960f70671a252.txt
+const INDEXNOW_KEY = '5e34d86060864b8ab89960f70671a252';
 const INDEXNOW_HOST = 'thetaxcalc.com';
 const INDEXNOW_KEY_LOCATION = `https://thetaxcalc.com/${INDEXNOW_KEY}.txt`;
 

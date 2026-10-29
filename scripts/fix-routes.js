@@ -59,7 +59,9 @@ const EXPLICIT_EXCLUDES = [
   '/sitemap.xml',
   '/feed.xml',
 
-  // IndexNow verification key
+  // IndexNow verification keys
+  // (new key issued by Bing Webmaster Tools; legacy key kept for engines that cached it)
+  '/5e34d86060864b8ab89960f70671a252.txt',
   '/d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9.txt',
 
   // Google Disavow file (toxic backlink protection)
