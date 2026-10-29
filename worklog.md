@@ -1350,3 +1350,25 @@ Stage Summary:
 - Learned: dedicated-route pages (src/app/sales-tax-calculator/) own their metadata — registry edits alone don't move the SERP snippet; check which side renders <title> before editing.
 - Expected impact (next GSC snapshot): sales-tax cluster CTR 0.06% -> 0.15-0.3%; zero-tax pages 0.01-0.17% -> 0.3%+; robux queries consolidated on the tool page. Re-measure with the NEXT 3-month GSC export.
 - Standing: 2027 IRS flip armed (Nov 9-15); PH banner decision still open; robux page indexed via sitemap + guide interlink.
+
+---
+Task ID: 43
+Agent: Main Agent (solo — quick-fix batch)
+Task: User uploaded a fresh site-audit CSV (7 issues: 5 meta descriptions >160 chars + 2 heading-level skips). Fixed all 7 + an infrastructure incident discovered on the way.
+
+Work Log:
+- Audit rows mapped to code: /calculators 184c (hub page.tsx), /sales-tax-calculator 161c (registry + dedicated route ×3 — the Task-42 answer-first desc, 1 char over), /self-employment 162c (registry), /georgia 186c (registry metaDesc + og), /arizona 175c (registry). Heading skips: /calculators rendered h1→h3×105 with NO h2 (CalculatorsExplorer cards follow the h1 directly); /mortgage-calculator h1→h3 ('More … Tools & Resources' before any h2).
+- All 5 descriptions trimmed with answer-first numbers kept (bun-measured decoded lengths, entity-aware): /calculators 184→157 (kept 'directory' keyword, dropped 'self-employment'/'2026 law' from the list), /sales-tax-calculator 161→140 ('Free 2026 calculator, no signup.' replacing the em-dash clause; identical text in registry \u-escapes + dedicated-page literal ×3), /self-employment 162→158 (dropped 'the' before 'half deduction'), /georgia 186→154 ('with'→',' and dropped ' after state, federal & FICA'; ogDescription synced to match), /arizona 175→147 (reworded lead: "Arizona's 2.5% flat income tax is one of the lowest in the US…").
+- Heading fixes: sr-only h2 ('Calculator directory — search & filter') added as first child of the CalculatorsExplorer section (h2 bridge over 105 h3 cards; zero visual change — verified invisible via computed styles); mortgage 'More {CONFIG.h1} Tools & Resources' h3→h2 keeping the text-lg className (rendered 18px identical).
+- INCIDENT (dev-only, prod never affected): dev server found thrashing (108% CPU/1.6GB, port held) then 500 sitewide on every restart — Lightning CSS parse error at generated line 1324: `.max-w-\[<U+FFFD>!<U+FFFD><0x03>(100%-2rem)\]`. Root cause chain: a gutted-.next recovery dir created IN THE PROJECT ROOT (`.next_gutted_*`) is NOT matched by the `/.next/` gitignore pattern → Tailwind v4 oxide scans it (it respects gitignore, not naming conventions) → corrupted binary chunk bytes inside get U+FFFD-replaced → poisoned class candidates reach the generated CSS → parse error → every page 500s. Fix: moved the gut dir to /tmp (task-39's original pattern — in-root gutting was the mistake) + `.gitignore` += `.next_gutted_*`. Server recovered instantly (GET / 200 in 304ms). Lesson recorded: NEVER gut .next into the project root; always /tmp or add the pattern first.
+- Push rejected once: remote had auto-commit 6ad10ae (telegra.ph syndication state) — rebased cleanly, no conflicts.
+- Gates: bun run lint = exactly the 12 documented; audit-titles 0 errors/0 warnings (87 routes + 50 sales-tax pages); bunx tsc — 0 errors in all 6 touched files (47 pre-existing elsewhere, unchanged); all 5 descs ≤160 decoded (157/140/158/154/147).
+- Browser QA (agent-browser, fresh profile): /calculators heading order now H1→H2(sr-only)→H3-cards, sr-only h2 invisible, search interactive ('paycheck' → 19 cards, first 'Paycheck Calculator'), scrollW=1280 desktop; /mortgage-calculator H1→H2→H2…, More-Tools h2 rendered at 18px (visual parity); mobile 390px: both pages scrollWidth exactly 390; console clean (2 documented AdSense warnings only), zero page errors.
+- Commit 4e9dc00 pushed (6 source files + tsbuildinfo, +14/−12).
+- Production verification (?cb=): all 6 pages live — /calculators new desc + h1→h2→h3 + sr-only h2 in prod DOM; /mortgage-calculator 'Tools & Resources</h2>' confirmed; sales-tax 140 / self-employment 158 / georgia 154 / arizona 147 descs live verbatim; sitemap 287 <loc> intact.
+
+Stage Summary:
+- All 7 audit rows closed: 5 meta descriptions now ≤160 chars (keeping every answer-first number from Task 42's CTR strategy) + 2 heading hierarchies sequential (h1→h2→h3).
+- Zero visual/layout change anywhere: sr-only bridge heading + tag swap with identical className; verified at DOM, computed-style and 390px-overflow level.
+- Infrastructure hardened: .next_gutted_* gitignored — the root-level gut pattern can never poison the Tailwind scan again.
+- Standing: 2027 IRS flip armed (Nov 9-15); PH banner decision still open; next GSC snapshot will re-measure Task-42 CTR levers on the now-clean snippets.
