@@ -1372,3 +1372,23 @@ Stage Summary:
 - Zero visual/layout change anywhere: sr-only bridge heading + tag swap with identical className; verified at DOM, computed-style and 390px-overflow level.
 - Infrastructure hardened: .next_gutted_* gitignored — the root-level gut pattern can never poison the Tailwind scan again.
 - Standing: 2027 IRS flip armed (Nov 9-15); PH banner decision still open; next GSC snapshot will re-measure Task-42 CTR levers on the now-clean snippets.
+
+---
+Task ID: 44
+Agent: Main Agent (solo — micro-task)
+Task: User issued the long-pending Product Hunt banner decision: REMOVE ('قرار شريط Product Hunt يزال'). Executed cleanly.
+
+Work Log:
+- Scoped the banner: single component src/components/finance/product-hunt-banner.tsx ('use client', post-hydration reveal via localStorage gate — NEVER in SSR HTML) with exactly ONE render site, site-shell.tsx line 67 (before <Header />).
+- Removal: deleted the component file outright + removed the import and <ProductHuntBanner /> render from site-shell. rg sweep: zero remaining references (no imports, no 'ph-banner-dismissed' readers). Nothing else in the codebase mentions it.
+- Gates: bun run lint = exactly the 12 documented (the deleted file's eslint-disable suppression was for a suppressed issue — baseline unchanged); bunx tsc — site-shell clean, 47 pre-existing elsewhere; dev pages 200.
+- Dev server incident #2 (same signature as this morning's): next-server thrashed at 104% CPU / 1.5GB RSS after the site-shell recompile, wedging the QA browser tab and timing out curls. Recovered via the documented pattern — kill + gut .next (to /tmp per the new rule) + relaunch: / 200 in 0.3s. Note: two thrash episodes today vs none during Oct-28 QA; box memory pressure (next-server RSS 1.5GB on ~4.1GB total) is the recurring trigger — keep QA sessions light (no reload loops), gut to /tmp always.
+- Browser QA (fresh sessions, light pattern): desktop 1280 — phText false, .lucide-rocket count 0, header getBoundingClientRect().top = 0px (flush at viewport top on every page — banner strip no longer pushes it), scrollW 1280, console clean (2 documented AdSense warnings); mobile 390px — scrollW exactly 390, phText false; zero page errors both passes.
+- Commit d0e9c62 pushed ('feat(ui): remove Product Hunt vote banner', 2 files, −60 lines).
+- Production verification: banner was client-only, so curl/SSR can't prove absence — verified via hydrated DOM on live prod (fresh agent-browser session, ?cb=): phText false, rocketIcon 0, headerTopPx 0, zero errors. Banner confirmed gone from production.
+
+Stage Summary:
+- Q3 open item CLOSED by user decision: the PH vote banner (dark strip + gold CTA above the header sitewide) is fully removed from code and production; first-visit surface is now hero + cookie bar only (post task-40 hygiene).
+- Header sits flush at viewport top everywhere; zero layout side effects (flex-col shell unchanged, sticky footer intact).
+- -60 lines of client JS dropped from every page bundle (tiny perf bonus on top of the UX cleanup).
+- Standing: 2027 IRS flip armed (Nov 9-15); next GSC snapshot re-measures Task-42 CTR levers; third calculator batch still deferred pending CTR evidence.
