@@ -189,5 +189,25 @@ export const TELEGRAPH_PUBLISHED: Record<string, { url: string; publishedAt: str
   "california-tax-guide-2026": {
     "url": "https://telegra.ph/California-Tax-Guide-2026-Income-Tax-Sales-Tax-and-Local-Rates-10-28",
     "publishedAt": "2026-10-28T13:54:30Z"
+  },
+  "washington-tax-guide-2026": {
+    "url": "https://telegra.ph/Washington-State-Tax-Guide-2026-No-Income-Tax-But-High-Sales-Tax-10-29",
+    "publishedAt": "2026-10-29T13:59:53Z"
+  },
+  "sales-tax-by-state-guide-2026": {
+    "url": "https://telegra.ph/Sales-Tax-by-State-Complete-Guide-to-US-Tax-Rates-in-2026-10-29",
+    "publishedAt": "2026-10-29T13:59:53Z"
+  },
+  "property-tax-by-state-guide-2026": {
+    "url": "https://telegra.ph/Property-Tax-by-State-Who-Pays-the-Most-and-Least-in-2026-10-29",
+    "publishedAt": "2026-10-29T13:59:53Z"
+  },
+  "doordash-taxes-guide-2026": {
+    "url": "https://telegra.ph/DoorDash-Taxes-The-Complete-Guide-for-Drivers-in-2026-10-29",
+    "publishedAt": "2026-10-29T13:59:53Z"
+  },
+  "sep-ira-solo-401k-guide-2026": {
+    "url": "https://telegra.ph/SEP-IRA-vs-Solo-401k-Best-for-Self-Employed-in-2026-10-29",
+    "publishedAt": "2026-10-29T13:59:53Z"
   }
 };
