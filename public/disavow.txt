@@ -1,7 +1,17 @@
 # Google Disavow File for thetaxcalc.com
 # Created: 2026-06-20
-# Updated: 2026-07-19 (merged all spam networks from Semrush + SEOExpress)
+# Updated: 2026-10-29 (merged 26 new domains from Bing WMT backlinks export:
+#   the '/all/2906/6.html' PBN network (22 dofollow domains, spam 60-70,
+#   anchor = "Buy Backlinks Online Cheap" ad text, attack ongoing since
+#   2026-08-06, latest link discovered 2026-10-29) + 4 SEO-service
+#   fake-testimonial domains. 2 seopxl domains below were already covered.)
 # Reason: Negative SEO attack - unsolicited spam/PBN backlinks
+#
+# HOW TO APPLY (Google): upload this file at
+#   https://search.google.com/search-console/disavow-links-main
+#   -> select the thetaxcalc.com property -> upload the latest version.
+# HOW TO APPLY (Bing): Google's file is ignored by Bing — disavow the same
+#   domains inside Bing Webmaster Tools -> Backlinks -> Disavow Links.
 
 # SEOExpress Spam Network (.store TLD)
 domain:brilliant-edu-link-firm-outrank-hq.store
@@ -72,3 +82,39 @@ domain:toplikevideo.com
 
 # Copycat / Impersonation Domain
 domain:thetaxcalc.online
+
+# ─── Bing WMT export 2026-10-29 ──────────────────────────────────────────────
+# PBN network: all 22 domains use the identical template page /all/2906/6.html,
+# identical anchor ("High Quality Dofollow Backlinks DA 50 PA 40 Premium PBN
+# Network Service ... Buy Backlinks Online Cheap"), all dofollow, all target
+# the homepage, all spam-score 60-70. Spray-and-pray PBN demo advertising a
+# link-selling service — NOT links we bought. domain: covers subdomains (www).
+domain:websquemolan.com
+domain:clifflisting.com
+domain:dbike-us.com
+domain:bureatag.com
+domain:thcradar.com
+domain:techbumppy.com
+domain:bestnz-poker-casinoslot.com
+domain:sahammurah.com
+domain:archive-hu.com
+domain:thedocmag.com
+domain:dupurgeniefr.com
+domain:kernelpanicpodcast.com
+domain:cvillico.com
+domain:onvaxs.com
+domain:fashionclothingnews.com
+domain:quotesblom.com
+domain:uncledspizza.com
+domain:theforbestimes.com
+domain:betwinnermirror.com
+domain:betulcrime.com
+domain:homesforsaleoldgreenwichct.com
+domain:ggmap.us.com
+
+# SEO-service fake-testimonial domains (nofollow, anchor "thetaxcalc.com" /
+# SEO ad copy) — pattern implies "site owner bought SEO links"; disavowed.
+domain:seolinkagency.shop
+domain:seonix.agency
+domain:rank-seo-now.shop
+domain:leonlinks.org

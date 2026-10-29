@@ -1431,3 +1431,22 @@ Stage Summary:
 - Sitemap and IndexNow inventory now share one source (sitemap-entries.ts): adding a page to the sitemap automatically adds it to future {all:true} submissions.
 - Standing routine unchanged: post-deploy step = submit changed pages only (the full-inventory bootstrap was a one-time event triggered by zero Bing visibility).
 - Standing: 2027 IRS flip armed (Nov 9-15); next GSC snapshot re-measures Task-42 CTR levers; Bing impressions expected to lift from 0 as crawling ramps.
+
+---
+Task ID: 47
+Agent: Main Agent (solo)
+Task: User uploaded the Bing WMT backlinks export (34 links / 34 domains) and asked for a full backlinks analysis ("حلل الروابط الخلفيه").
+
+Work Log:
+- Parsed upload/backlinks-backlinks-thetaxcalc.com.csv. Classification: (a) 22 dofollow PBN domains — identical /all/2906/6.html template page, identical anchor ("High Quality Dofollow Backlinks DA 50 PA 40 Premium PBN Network Service ... Buy Backlinks Online Cheap"), all -> homepage, spam scores 60-70, first seen 2026-08-06 through TODAY 2026-10-29 (attack actively ongoing); (b) 6 SEO-service fake-testimonial domains (nofollow, spam 25-70, e.g. seonix.agency, seopxl-*.shop, leonlinks.org); (c) 5 junk GitHub-clone/topic aggregators (nofollow, spam 0-40 — 230411.xyz, ithub.global.ssl.fastly.net, git.hubp.de, gitblind.noratr.app, harmless); (d) 2 legit launch directories (firstsited.com DR61 dofollow -> /privacy, stackscope.dev DR54 nofollow -> /privacy); (e) THE GEM: dev.to DR82 dofollow x2 -> /paycheck-calculator with anchor "free paycheck calculator" — the syndication strategy produces the site's only high-authority editorial link.
+- Risk math: of 24 dofollow links, 22 are toxic PBN (92%). For a new site with a tiny natural profile, an anchor literally reading "Buy Backlinks Online Cheap" is a textbook bought-link footprint Google could attribute to the owner — negative-SEO risk is real even though Google discounts most obvious PBN spam.
+- Existing public/disavow.txt (June 2026, Semrush-based) already covered 2 of today's .shop domains (seopxl-organic-boost-lab, seopxl-ranking-boost-lab) — the June work was prescient; the attack has since expanded to 26 uncovered domains.
+- UPDATE: disavow.txt extended with 26 new domains (22 PBN network, bare-domain form so domain: covers www subdomains, + 4 SEO-service domains) and a HOW-TO-APPLY header for both engines. Total disavowed: ~70 domains.
+- Gates: lint = exactly the 12 documented (txt-only change). Commit pushed. Production /disavow.txt verified post-deploy.
+- User actions required (cannot be done from agent): (1) upload the updated file to Google Search Console disavow tool (https://search.google.com/search-console/disavow-links-main, select thetaxcalc.com property) — Google's file is ignored by Bing; (2) separately disavow the same 28 domains in Bing WMT -> Backlinks -> Disavow Links; (3) re-export backlinks monthly — the PBN wave is ongoing (latest link today), expect more domains.
+- Strategic takeaway: the only antidote to a spam-heavy ratio is earning real authority links; the dev.to syndication already produced the best link in the profile (DR82, dofollow, exact-match commercial anchor). Syndication cadence (dev.to + similar dev communities) = the legitimate fix for Bing's "not enough quality backlinks" recommendation.
+
+Stage Summary:
+- Full backlinks audit delivered: 34 links = 28 toxic (82%) / 5 neutral junk / 1 gem; disavow file extended 26 domains and live on production.
+- Standing item: monthly backlinks re-export + disavow refresh while the PBN wave continues; syndication as the positive-side lever.
+- Standing: 2027 IRS flip armed (Nov 9-15); Bing IndexNow bootstrap (Task 46) awaiting crawl; next GSC snapshot re-measures Task-42 CTR levers.
