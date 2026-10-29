@@ -1392,3 +1392,22 @@ Stage Summary:
 - Header sits flush at viewport top everywhere; zero layout side effects (flex-col shell unchanged, sticky footer intact).
 - -60 lines of client JS dropped from every page bundle (tiny perf bonus on top of the UX cleanup).
 - Standing: 2027 IRS flip armed (Nov 9-15); next GSC snapshot re-measures Task-42 CTR levers; third calculator batch still deferred pending CTR evidence.
+
+---
+Task ID: 45
+Agent: Main Agent (solo — micro-task)
+Task: User pasted the Bing Webmaster Tools IndexNow onboarding (key 5e34d86060864b8ab89960f70671a252 showing 'Not found' at the key-file URL) + asked to wire it end-to-end.
+
+Work Log:
+- Discovered an EXISTING IndexNow integration with a handcrafted legacy key (d4e5f6a7… — clearly invented hex, not engine-issued): src/lib/indexnow.ts (key + 3 endpoints, batch submitter, getAllSiteUrls over registry/salary/compare/blog), admin-auth-protected POST /api/indexnow, key file in public/, excluded from the CF worker by scripts/fix-routes.js (explicit list + auto-scan of .txt build output).
+- Wired the NEW Bing-issued key: public/5e34d86060864b8ab89960f70671a252.txt created (32 chars + trailing newline — byte-format matched to the proven legacy file); INDEXNOW_KEY switched in src/lib/indexnow.ts (commented with provenance) + keyLocation string in the API route's GET handler; fix-routes.js EXPLICIT_EXCLUDES extended with the new key (legacy entry kept — engines that cached the old key still resolve it; both files remain live).
+- Gates: lint = exactly the 12 documented; tsc clean on all touched files (47 pre-existing elsewhere unchanged); dev serves the key file 200 text/plain with exact content.
+- Commit 567d061 pushed (5 files).
+- Production verification: https://thetaxcalc.com/5e34d86060864b8ab89960f70671a252.txt -> HTTP 200, text/plain, 33 bytes, exact key content — the Bing 'Not found' is fixed. Legacy key file still 200.
+- END-TO-END submission (step 2 of the onboarding, 'just the pages that changed'): one-off bun POST of the 12 recently changed URLs (Tasks 41-44: 4 new calculators, robux, 6 meta/heading-updated pages, homepage, nevada) with the new key: api.indexnow.org -> HTTP 202 Accepted, bing.com/indexnow -> HTTP 200 OK — key validated by the protocol itself (a missing/mismatched key file would 403), URLs accepted for crawling by Bing/DuckDuckGo/Yahoo/Yandex.
+
+Stage Summary:
+- IndexNow fully armed with a Bing-property-registered key: instant-indexing pings now tie to the user's Bing Webmaster Tools property (the old handcrafted key was protocol-valid but property-anonymous).
+- Standing capability: POST /api/indexnow { urls: [...] } (admin session) for targeted pings, or { all: true } for the full ~400-URL inventory — and the documented one-off bun pattern for agent-driven submissions after each deploy.
+- Deploy-routine addition: after each push, submit the changed pages to IndexNow (per user's quoted workflow: 'Submit the pages I just published to IndexNow').
+- Standing: 2027 IRS flip armed (Nov 9-15); next GSC snapshot re-measures Task-42 CTR levers.
