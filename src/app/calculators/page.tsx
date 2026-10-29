@@ -26,7 +26,7 @@ import {
 
 export const metadata: Metadata = {
   title: `All ${HUB_CALCULATOR_COUNT} Tax Calculators 2026 — Free & Instant`,
-  description: `Browse every free TheTaxCalc tool in one directory: paycheck, 50 state, mortgage, capital gains, 401(k), self-employment, sales tax & 2026 law calculators. Instant search — no sign-up.`,
+  description: `Browse every free TheTaxCalc tool in one directory: paycheck, 50 state, mortgage, capital gains, 401(k) & sales tax calculators. Instant search — no sign-up.`,
   keywords: [
     'tax calculators',
     'all tax calculators',

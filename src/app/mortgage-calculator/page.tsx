@@ -218,9 +218,9 @@ export default async function MortgageCalculatorPage() {
 
       {/* Next Steps */}
       <section className="mt-8 rounded-xl border border-emerald-500/20 bg-emerald-600/5 p-6 sm:p-8">
-        <h3 className="text-lg font-semibold text-foreground mb-3">
+        <h2 className="text-lg font-semibold text-foreground mb-3">
           More {CONFIG.h1} Tools &amp; Resources
-        </h3>
+        </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
           {NEXT_STEPS.map((step) => (
             <Link

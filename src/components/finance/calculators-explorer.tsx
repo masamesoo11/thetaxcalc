@@ -84,6 +84,7 @@ export function CalculatorsExplorer({ items, categories }: CalculatorsExplorerPr
 
   return (
     <section aria-label="Calculator directory">
+      <h2 className="sr-only">Calculator directory — search &amp; filter</h2>
       {/* Search + filter bar */}
       <div className="rounded-2xl border border-border/30 bg-card/50 p-4 sm:p-5 shadow-sm">
         <div className="relative">

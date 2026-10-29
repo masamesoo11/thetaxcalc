@@ -279,7 +279,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     h1: 'Free Self-Employment Tax Calculator — 1099 & SE Tax',
     metaTitle: 'Free Self-Employment Tax Calculator 2026 — 1099 & SE Tax',
     metaDesc:
-      'Self-employment tax is 15.3% on 92.35% of net earnings. Calculate your exact SE tax, the half deduction and quarterly estimates — free 2026 calculator, no signup.',
+      'Self-employment tax is 15.3% on 92.35% of net earnings. Calculate your exact SE tax, half deduction and quarterly estimates — free 2026 calculator, no signup.',
     keywords: [
       'free self employment tax calculator', 'free tax calculator for self employed',
       'free tax calculator for 1099', 'SE tax calculator', 'self employed tax',
@@ -304,7 +304,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     h1: 'Free Sales Tax Calculator — All 50 States & Reverse',
     metaTitle: 'Sales Tax Calculator 2026 — All 50 State Rates + Reverse',
     metaDesc:
-      'Your state\u2019s exact sales tax rate, instantly. Enter any amount \u2014 or a receipt total to reverse out the tax \u2014 with this free 2026 sales tax calculator. No signup.',
+      'Your state\u2019s exact sales tax rate, instantly. Enter any amount \u2014 or a receipt total to reverse out the tax. Free 2026 calculator, no signup.',
     keywords: [
       'free sales tax calculator', 'sales tax calculator', 'reverse sales tax calculator',
       'sales tax by state', 'calculate sales tax', 'sales tax rate',
@@ -379,7 +379,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     h1: 'Free Georgia Tax Calculator — 4.99% Flat Tax',
     metaTitle: 'Georgia Tax Calculator 2026 — 4.99% Flat | $75K = $58,599',
     metaDesc:
-      'GA flat 4.99% income tax with $15,000 standard deduction. On $75K salary you keep ~$58,599. Calculate your exact Georgia 2026 take-home pay after state, federal & FICA. Free, no sign-up.',
+      'GA flat 4.99% income tax, $15,000 standard deduction. On $75K salary you keep ~$58,599. Calculate your exact Georgia 2026 take-home pay. Free, no sign-up.',
     keywords: [
       'free Georgia tax calculator', 'Georgia tax calculator', 'GA paycheck calculator',
       'Georgia income tax', 'Georgia 4.99% tax', 'Georgia take home pay',
@@ -391,7 +391,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     breadcrumbLabel: 'Georgia',
     ogTitle: 'Georgia Tax Calculator 2026 — 4.99% Flat | $75K = $58,599',
     ogDescription:
-      'GA flat 4.99% income tax with $15,000 standard deduction. On $75K salary you keep ~$58,599. Calculate your exact Georgia 2026 take-home pay. Free, no sign-up.',
+      'GA flat 4.99% income tax, $15,000 standard deduction. On $75K salary you keep ~$58,599. Calculate your exact Georgia 2026 take-home pay. Free, no sign-up.',
     canonicalPath: '/georgia-tax-calculator',
     jsonLdType: 'georgia',
   },
@@ -644,7 +644,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     h1: 'Free Arizona Tax Calculator',
     metaTitle: 'Arizona Income Tax 2026: 2.5% Flat Rate — Free Calculator',
     metaDesc:
-      'Arizona charges just 2.5% flat income tax — one of the lowest rates in the US. On $75K that\'s ~$1,875. Calculate your exact AZ take-home pay. Free 2026 calculator, no sign-up.',
+      'Arizona\'s 2.5% flat income tax is one of the lowest in the US. On $75K that\'s ~$1,875. Calculate your exact AZ take-home pay. Free 2026 calculator.',
     keywords: [
       'free Arizona tax calculator', 'Arizona tax calculator', 'AZ paycheck calculator',
       'Arizona income tax', 'Arizona 2.5% tax', 'Arizona take home pay',

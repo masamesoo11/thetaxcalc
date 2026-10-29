@@ -27,7 +27,7 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: { absolute: 'Sales Tax Calculator 2026 — All 50 State Rates + Reverse' },
     description:
-      'Your state\u2019s exact sales tax rate, instantly. Enter any amount — or a receipt total to reverse out the tax — with this free 2026 sales tax calculator. No signup.',
+      'Your state\u2019s exact sales tax rate, instantly. Enter any amount — or a receipt total to reverse out the tax. Free 2026 calculator, no signup.',
     keywords: [
       'sales tax calculator',
       'figuring sales tax',
@@ -92,7 +92,7 @@ export async function generateMetadata(): Promise<Metadata> {
     openGraph: {
       title: 'Sales Tax Calculator 2026 — All 50 State Rates + Reverse',
       description:
-        'Your state\u2019s exact sales tax rate, instantly. Enter any amount — or a receipt total to reverse out the tax — with this free 2026 sales tax calculator. No signup.',
+        'Your state\u2019s exact sales tax rate, instantly. Enter any amount — or a receipt total to reverse out the tax. Free 2026 calculator, no signup.',
       url: `${baseUrl}${canonicalPath}`,
       siteName: 'TheTaxCalc',
       type: 'website',
@@ -110,7 +110,7 @@ export async function generateMetadata(): Promise<Metadata> {
       card: 'summary_large_image',
       title: 'Sales Tax Calculator 2026 — All 50 State Rates + Reverse',
       description:
-        'Your state\u2019s exact sales tax rate, instantly. Enter any amount — or a receipt total to reverse out the tax — with this free 2026 sales tax calculator. No signup.',
+        'Your state\u2019s exact sales tax rate, instantly. Enter any amount — or a receipt total to reverse out the tax. Free 2026 calculator, no signup.',
       images: [`${baseUrl}/opengraph-image.png`],
     },
   };
