@@ -209,5 +209,21 @@ export const TELEGRAPH_PUBLISHED: Record<string, { url: string; publishedAt: str
   "sep-ira-solo-401k-guide-2026": {
     "url": "https://telegra.ph/SEP-IRA-vs-Solo-401k-Best-for-Self-Employed-in-2026-10-29",
     "publishedAt": "2026-10-29T13:59:53Z"
+  },
+  "how-fica-taxes-work-2026": {
+    "url": "https://telegra.ph/How-FICA-Taxes-Work-in-2026-10-30",
+    "publishedAt": "2026-10-30T13:55:24Z"
+  },
+  "florida-vs-texas-tax-comparison": {
+    "url": "https://telegra.ph/Florida-vs-Texas-Tax-Comparison-10-30",
+    "publishedAt": "2026-10-30T13:55:24Z"
+  },
+  "why-texas-has-no-income-tax": {
+    "url": "https://telegra.ph/Why-Texas-Has-No-Income-Tax-10-30",
+    "publishedAt": "2026-10-30T13:55:24Z"
+  },
+  "2026-federal-tax-brackets-explained": {
+    "url": "https://telegra.ph/2026-Tax-Brackets-IRS-Income-Tax-Brackets-2026-Explained-10-30",
+    "publishedAt": "2026-10-30T13:55:24Z"
   }
 };
