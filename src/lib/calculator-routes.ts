@@ -1494,6 +1494,17 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
   ...ROBUX_ROUTES,
 ];
 
+/**
+ * Task 48 (AdSense content-focus cleanup): calculators that stay SERVED at
+ * their URL (SLUG_TO_CONFIG above still resolves them) but are deliberately
+ * unlisted from every public surface — hub directory, ItemList schema, and
+ * site-wide counts — because they sit off a tax site's core topic. They are
+ * also noindexed (see their page metadata + sitemap-entries.ts NOINDEX_PATHS).
+ * To re-list a tool: remove its path from this set (and from NOINDEX_PATHS).
+ */
+export const UNLISTED_CALCULATOR_PATHS: readonly string[] = ['/robux-tax-calculator'];
+const isUnlisted = (path: string) => UNLISTED_CALCULATOR_PATHS.includes(path);
+
 /** Map from componentKey (old hash key) to slug (new route) */
 export const COMPONENT_KEY_TO_SLUG: Record<string, string> = Object.fromEntries(
   CALCULATOR_ROUTES.map((r) => [r.componentKey, r.slug])
@@ -1512,8 +1523,9 @@ export function getCalculatorSlugs(): string[] {
 // ─── Site-wide calculator count (single source of truth) ─────────────────────
 // The homepage H2, meta descriptions, ItemList schema, llms.txt, and the about
 // page must all quote the SAME number. It is derived, never hardcoded:
-// 67 routes above + 5 standalone calculator pages that live outside this file
-// (dedicated page.tsx files with their own client components).
+// routes above + 5 standalone calculator pages that live outside this file
+// (dedicated page.tsx files with their own client components), EXCLUDING the
+// Task-48 unlisted tools (they exist but are deliberately not counted).
 export const STANDALONE_CALCULATOR_ROUTES: { path: string; label: string }[] = [
   { path: '/home-sale-tax-calculator', label: 'Home Sale Tax Calculator' },
   { path: '/salary-comparison-calculator', label: 'Salary Comparison Calculator' },
@@ -1523,12 +1535,16 @@ export const STANDALONE_CALCULATOR_ROUTES: { path: string; label: string }[] = [
 ];
 
 export const TOTAL_CALCULATOR_COUNT =
-  CALCULATOR_ROUTES.length + STANDALONE_CALCULATOR_ROUTES.length;
+  CALCULATOR_ROUTES.filter((r) => !isUnlisted(r.canonicalPath)).length +
+  STANDALONE_CALCULATOR_ROUTES.length;
 
 /** ItemList entries for ALL calculators (used by the homepage ItemList schema). */
 export function getAllCalculatorListItems(): { name: string; url: string }[] {
   return [
-    ...CALCULATOR_ROUTES.map((r) => ({ name: r.breadcrumbLabel, url: r.canonicalPath })),
+    ...CALCULATOR_ROUTES.filter((r) => !isUnlisted(r.canonicalPath)).map((r) => ({
+      name: r.breadcrumbLabel,
+      url: r.canonicalPath,
+    })),
     ...STANDALONE_CALCULATOR_ROUTES.map((r) => ({ name: r.label, url: r.path })),
   ];
 }

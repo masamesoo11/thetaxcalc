@@ -42,124 +42,132 @@
   Cross-Origin-Resource-Policy: same-site
   Cross-Origin-Embedder-Policy: unsafe-none
 
-# === Calculator pages — aggressive CDN caching ===
+# === Content pages — CDN edge caching, instant browser freshness (Task 48) ===
+# Browsers revalidate on every visit (max-age=0); Cloudflare edge caches 24h
+# (purged automatically on every deploy) to protect the origin under crawl
+# load; stale-while-revalidate capped at 5 minutes — NEVER raise it again:
+# a 604800 (7-day) SWR window made third-party examiners and AdSense
+# reviewers see week-old builds after fixes shipped (2026-10-31 incident).
+#
 # Includes both the main page AND sub-routes (wildcard *)
 
 /mortgage-calculator
-  Cache-Control: public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800
+  Cache-Control: public, max-age=0, s-maxage=86400, stale-while-revalidate=300
 
 /paycheck-calculator
-  Cache-Control: public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800
+  Cache-Control: public, max-age=0, s-maxage=86400, stale-while-revalidate=300
 
 /illinois-tax-calculator
-  Cache-Control: public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800
+  Cache-Control: public, max-age=0, s-maxage=86400, stale-while-revalidate=300
 
 /texas-tax-calculator
-  Cache-Control: public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800
+  Cache-Control: public, max-age=0, s-maxage=86400, stale-while-revalidate=300
 
 /florida-tax-calculator
-  Cache-Control: public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800
+  Cache-Control: public, max-age=0, s-maxage=86400, stale-while-revalidate=300
 
 /california-tax-calculator
-  Cache-Control: public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800
+  Cache-Control: public, max-age=0, s-maxage=86400, stale-while-revalidate=300
 
 /new-york-tax-calculator
-  Cache-Control: public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800
+  Cache-Control: public, max-age=0, s-maxage=86400, stale-while-revalidate=300
 
 /401k-retirement-calculator
-  Cache-Control: public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800
+  Cache-Control: public, max-age=0, s-maxage=86400, stale-while-revalidate=300
 
 /relocation-calculator
-  Cache-Control: public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800
+  Cache-Control: public, max-age=0, s-maxage=86400, stale-while-revalidate=300
 
 /capital-gains-calculator
-  Cache-Control: public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800
+  Cache-Control: public, max-age=0, s-maxage=86400, stale-while-revalidate=300
 
 /self-employment-tax-calculator
-  Cache-Control: public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800
+  Cache-Control: public, max-age=0, s-maxage=86400, stale-while-revalidate=300
 
 /sales-tax-calculator
-  Cache-Control: public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800
+  Cache-Control: public, max-age=0, s-maxage=86400, stale-while-revalidate=300
 
 /tax-refund-calculator
-  Cache-Control: public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800
+  Cache-Control: public, max-age=0, s-maxage=86400, stale-while-revalidate=300
 
 /overtime-tax-calculator
-  Cache-Control: public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800
+  Cache-Control: public, max-age=0, s-maxage=86400, stale-while-revalidate=300
 
 /georgia-tax-calculator
-  Cache-Control: public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800
+  Cache-Control: public, max-age=0, s-maxage=86400, stale-while-revalidate=300
 
 /lottery-tax-calculator
-  Cache-Control: public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800
+  Cache-Control: public, max-age=0, s-maxage=86400, stale-while-revalidate=300
 
 /irs-withholding-calculator
-  Cache-Control: public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800
+  Cache-Control: public, max-age=0, s-maxage=86400, stale-while-revalidate=300
 
 /property-tax-calculator
-  Cache-Control: public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800
+  Cache-Control: public, max-age=0, s-maxage=86400, stale-while-revalidate=300
 
 /bonus-tax-calculator
-  Cache-Control: public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800
+  Cache-Control: public, max-age=0, s-maxage=86400, stale-while-revalidate=300
 
 /virginia-tax-calculator
-  Cache-Control: public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800
+  Cache-Control: public, max-age=0, s-maxage=86400, stale-while-revalidate=300
 
 /income-tax-calculator
-  Cache-Control: public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800
+  Cache-Control: public, max-age=0, s-maxage=86400, stale-while-revalidate=300
 
 /tax-calculator
-  Cache-Control: public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800
+  Cache-Control: public, max-age=0, s-maxage=86400, stale-while-revalidate=300
 
 /freefile-irs
-  Cache-Control: public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800
+  Cache-Control: public, max-age=0, s-maxage=86400, stale-while-revalidate=300
 
 /home-sale-tax-calculator
-  Cache-Control: public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800
+  Cache-Control: public, max-age=0, s-maxage=86400, stale-while-revalidate=300
 
 # === Dynamic sub-route pages — CDN caching (CRITICAL for crawl performance) ===
 # These wildcard rules cover the 50 state pages, salary pages, blog posts, etc.
-# Without these, every sub-page request hits the origin → Connection Timeout under crawl load
+# Without s-maxage, every sub-page request hits the origin → Connection Timeout
+# under crawl load. s-maxage alone carries that protection — browsers still
+# revalidate every visit (max-age=0).
 
 /sales-tax-calculator/*
-  Cache-Control: public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800
+  Cache-Control: public, max-age=0, s-maxage=86400, stale-while-revalidate=300
 
 /salary/*
-  Cache-Control: public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800
+  Cache-Control: public, max-age=0, s-maxage=86400, stale-while-revalidate=300
 
 /compare/*
-  Cache-Control: public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800
+  Cache-Control: public, max-age=0, s-maxage=86400, stale-while-revalidate=300
 
 /blog/*
-  Cache-Control: public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800
+  Cache-Control: public, max-age=0, s-maxage=86400, stale-while-revalidate=300
 
 /federal-tax-brackets/*
-  Cache-Control: public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800
+  Cache-Control: public, max-age=0, s-maxage=86400, stale-while-revalidate=300
 
 # === Other static pages ===
 /about
-  Cache-Control: public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800
+  Cache-Control: public, max-age=0, s-maxage=86400, stale-while-revalidate=300
 
 /widgets
-  Cache-Control: public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800
+  Cache-Control: public, max-age=0, s-maxage=86400, stale-while-revalidate=300
 
 /glossary
-  Cache-Control: public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800
+  Cache-Control: public, max-age=0, s-maxage=86400, stale-while-revalidate=300
 
 /compare
-  Cache-Control: public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800
+  Cache-Control: public, max-age=0, s-maxage=86400, stale-while-revalidate=300
 
 /blog
-  Cache-Control: public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800
+  Cache-Control: public, max-age=0, s-maxage=86400, stale-while-revalidate=300
 
 /salary
-  Cache-Control: public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800
+  Cache-Control: public, max-age=0, s-maxage=86400, stale-while-revalidate=300
 
 /resources
-  Cache-Control: public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800
+  Cache-Control: public, max-age=0, s-maxage=86400, stale-while-revalidate=300
 
 /tax-data
-  Cache-Control: public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800
+  Cache-Control: public, max-age=0, s-maxage=86400, stale-while-revalidate=300
 
 /federal-tax-brackets
-  Cache-Control: public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800
+  Cache-Control: public, max-age=0, s-maxage=86400, stale-while-revalidate=300

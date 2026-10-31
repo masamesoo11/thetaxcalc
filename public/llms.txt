@@ -1,8 +1,8 @@
 # TheTaxCalc
 
-> Free 2026 tax calculators for US taxpayers. 72 calculators covering all 50 states. No sign-up required.
+> Free 2026 tax calculators for US taxpayers. 91 calculators covering all 50 states. No sign-up required.
 
-TheTaxCalc provides free, accurate tax calculators for federal, state, and local taxes. All calculations are based on 2026 IRS tax brackets and state tax rates. Author: Rachel Mitchell, CPA.
+TheTaxCalc provides free, accurate tax calculators for federal, state, and local taxes. All calculations are based on 2026 IRS tax brackets and state tax rates. Maintained by the TheTaxCalc Editorial Team — every rate verified against IRS publications and state revenue departments.
 
 ## Calculators
 
@@ -81,6 +81,25 @@ TheTaxCalc provides free, accurate tax calculators for federal, state, and local
 - [South Carolina Income Tax Calculator](https://thetaxcalc.com/south-carolina-tax-calculator): 0%–6% progressive income tax
 - [Vermont Income Tax Calculator](https://thetaxcalc.com/vermont-tax-calculator): 3.35%–8.75% progressive income tax
 - [West Virginia Income Tax Calculator](https://thetaxcalc.com/west-virginia-tax-calculator): 2.11%–4.58% progressive income tax
+- [Hourly to Salary Calculator Income Tax Calculator](https://thetaxcalc.com/hourly-to-salary-calculator): 2026 state income tax calculator
+- [Compound Interest Calculator Income Tax Calculator](https://thetaxcalc.com/compound-interest-calculator): 2026 state income tax calculator
+- [Marriage Tax Calculator Income Tax Calculator](https://thetaxcalc.com/marriage-tax-calculator): 2026 state income tax calculator
+- [Auto Loan Calculator Income Tax Calculator](https://thetaxcalc.com/auto-loan-calculator): 2026 state income tax calculator
+- [Loan Calculator Income Tax Calculator](https://thetaxcalc.com/loan-calculator): 2026 state income tax calculator
+- [Personal Loan Calculator Income Tax Calculator](https://thetaxcalc.com/personal-loan-calculator): 2026 state income tax calculator
+- [Amortization Calculator Income Tax Calculator](https://thetaxcalc.com/amortization-calculator): 2026 state income tax calculator
+- [Retirement Calculator Income Tax Calculator](https://thetaxcalc.com/retirement-calculator): 2026 state income tax calculator
+- [Roth IRA Calculator Income Tax Calculator](https://thetaxcalc.com/roth-ira-calculator): 2026 state income tax calculator
+- [CD Calculator Income Tax Calculator](https://thetaxcalc.com/cd-calculator): 2026 state income tax calculator
+- [Investment Calculator Income Tax Calculator](https://thetaxcalc.com/investment-calculator): 2026 state income tax calculator
+- [Interest Calculator Income Tax Calculator](https://thetaxcalc.com/interest-calculator): 2026 state income tax calculator
+- [Time Card Calculator Income Tax Calculator](https://thetaxcalc.com/time-card-calculator): 2026 state income tax calculator
+- [Payroll Calculator Income Tax Calculator](https://thetaxcalc.com/payroll-calculator): 2026 state income tax calculator
+- [Tip Calculator Income Tax Calculator](https://thetaxcalc.com/tip-calculator): 2026 state income tax calculator
+- [Percentage Increase Calculator Income Tax Calculator](https://thetaxcalc.com/percentage-increase-calculator): 2026 state income tax calculator
+- [Inflation Calculator Income Tax Calculator](https://thetaxcalc.com/inflation-calculator): 2026 state income tax calculator
+- [Debt Payoff Calculator Income Tax Calculator](https://thetaxcalc.com/debt-payoff-calculator): 2026 state income tax calculator
+- [Debt-to-Income Calculator Income Tax Calculator](https://thetaxcalc.com/debt-to-income-calculator): 2026 state income tax calculator
 
 ## State Sales Tax (50 states)
 
@@ -135,7 +154,7 @@ TheTaxCalc provides free, accurate tax calculators for federal, state, and local
 
 ## Optional
 
-- Author: Rachel Mitchell, CPA
+- Author: TheTaxCalc Editorial Team
 - Data sources: IRS Rev. Proc. 2025-32, IRS publications, state revenue departments, Tax Foundation
-- Last updated: 2026-10-24
-- Contact: https://thetaxcalc.com/about
+- Last updated: 2026-10-31
+- Contact: https://thetaxcalc.com/contact

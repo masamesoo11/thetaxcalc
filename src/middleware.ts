@@ -607,15 +607,25 @@ Visit https://thetaxcalc.com/about for the full page.`,
     '</sitemap.xml>; rel="service-doc"',
   ].join(', '));
 
-  // Cache for HTML pages — CDN edge caching for Cloudflare Pages
+  // Cache for HTML pages — CDN edge caching for Cloudflare Pages.
   // Must delete Next.js default Cache-Control (max-age=0) before setting ours,
   // otherwise Next.js overwrites it AFTER middleware runs on Cloudflare Pages.
-  // 1-hour edge TTL + stale-while-revalidate: content fixes propagate quickly
-  // (a 30-day s-maxage made corrected pages invisible to Google for a month).
+  // POLICY (Task 48 cache incident, 2026-10-31): the previous header allowed
+  // BROWSERS to serve a week-old copy (stale-while-revalidate=604800) — a
+  // third-party examiner re-checked the site after our fixes and saw the
+  // PRE-FIX build from their disk cache (their quoted "0.23% vs 22.64%"
+  // contradiction matched the old build byte-for-byte). An AdSense reviewer
+  // would have the same experience. New policy:
+  //   - max-age=0: browsers revalidate HTML on every visit (cheap 304s)
+  //   - s-maxage=86400: Cloudflare edge still caches 24h — the origin-protection
+  //     that prevents connection timeouts under crawl load stays intact; CF
+  //     Pages purges the edge automatically on every deploy
+  //   - stale-while-revalidate=300: a stale copy may be shown for at most
+  //     5 minutes while revalidating in the background (was 7 DAYS)
   const isHtmlPage = !pathname.startsWith('/_next') && !pathname.startsWith('/api') && !pathname.startsWith('/admin') && !pathname.match(/\.(svg|png|jpg|jpeg|gif|webp|ico|xml|json|txt|css|js|woff2?|ttf|eot)$/);
   if (isHtmlPage) {
     response.headers.delete('Cache-Control');
-    response.headers.set('Cache-Control', 'public, max-age=300, s-maxage=3600, stale-while-revalidate=604800');
+    response.headers.set('Cache-Control', 'public, max-age=0, s-maxage=86400, stale-while-revalidate=300');
   }
 
   // Check if this is a public API route (always allow)

@@ -100,5 +100,6 @@ Agents may also use API key-based authentication:
 
 - Website: https://thetaxcalc.com
 - About: https://thetaxcalc.com/about
-- Author: Rachel Mitchell, CPA
-- Last updated: 2026-06-20
+- Contact: https://thetaxcalc.com/contact
+- Maintained by the TheTaxCalc Editorial Team
+- Last updated: 2026-10-31

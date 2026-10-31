@@ -12,6 +12,7 @@ import {
   CALCULATOR_ROUTES,
   STANDALONE_CALCULATOR_ROUTES,
   TOTAL_CALCULATOR_COUNT,
+  UNLISTED_CALCULATOR_PATHS,
 } from '../src/lib/calculator-routes';
 import { STATE_SALES_TAX, ALL_STATE_KEYS, stateKeyToSlug } from '../src/lib/state-sales-tax-data';
 import { STATE_PROFILES } from '../src/lib/tax-config';
@@ -36,7 +37,11 @@ const GENERAL_KEYS = new Set([
 ]);
 
 const general = CALCULATOR_ROUTES.filter((r) => GENERAL_KEYS.has(r.slug));
-const stateCalcs = CALCULATOR_ROUTES.filter((r) => !GENERAL_KEYS.has(r.slug));
+// Task 48: unlisted tools (robux) are excluded from llms.txt alongside the
+// counts — the page is noindexed and unreachable from any public list.
+const stateCalcs = CALCULATOR_ROUTES.filter(
+  (r) => !GENERAL_KEYS.has(r.slug) && !UNLISTED_CALCULATOR_PATHS.includes(r.canonicalPath)
+);
 
 const GENERAL_DESC: Record<string, string> = {
   'paycheck-calculator': 'Take-home pay after federal, FICA, and state taxes. All 50 states, 401(k)/HSA deductions.',
@@ -93,7 +98,7 @@ lines.push('# TheTaxCalc');
 lines.push('');
 lines.push(`> Free 2026 tax calculators for US taxpayers. ${TOTAL_CALCULATOR_COUNT} calculators covering all 50 states. No sign-up required.`);
 lines.push('');
-lines.push(`TheTaxCalc provides free, accurate tax calculators for federal, state, and local taxes. All calculations are based on 2026 IRS tax brackets and state tax rates. Author: Rachel Mitchell, CPA.`);
+lines.push(`TheTaxCalc provides free, accurate tax calculators for federal, state, and local taxes. All calculations are based on 2026 IRS tax brackets and state tax rates. Maintained by the TheTaxCalc Editorial Team — every rate verified against IRS publications and state revenue departments.`);
 lines.push('');
 
 const GENERAL_TITLE: Record<string, string> = {
@@ -175,10 +180,10 @@ lines.push('');
 
 lines.push('## Optional');
 lines.push('');
-lines.push('- Author: Rachel Mitchell, CPA');
+lines.push('- Author: TheTaxCalc Editorial Team');
 lines.push('- Data sources: IRS Rev. Proc. 2025-32, IRS publications, state revenue departments, Tax Foundation');
-lines.push('- Last updated: 2026-10-24');
-lines.push(`- Contact: ${SITE}/about`);
+lines.push(`- Last updated: ${new Date().toISOString().slice(0, 10)}`);
+lines.push(`- Contact: ${SITE}/contact`);
 lines.push('');
 
 writeFileSync(OUT, lines.join('\n'), 'utf-8');

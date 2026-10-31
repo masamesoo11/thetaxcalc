@@ -10,7 +10,7 @@
  * its JSON-LD ItemList, and the client-side CalculatorsExplorer.
  */
 
-import { CALCULATOR_ROUTES } from './calculator-routes';
+import { CALCULATOR_ROUTES, UNLISTED_CALCULATOR_PATHS } from './calculator-routes';
 import { STATE_TAX_DATA } from './state-tax-data';
 import { LOANS_HUB_CARDS } from './calculators-additions/loans-additions';
 import { RETIREMENT_HUB_CARDS } from './calculators-additions/retirement-additions';
@@ -18,7 +18,6 @@ import { SAVINGS_HUB_CARDS } from './calculators-additions/savings-additions';
 import { WORK_HUB_CARDS } from './calculators-additions/work-additions';
 import { UTILS_HUB_CARDS } from './calculators-additions/utils-additions';
 import { FINANCE_HUB_CARDS } from './calculators-additions/finance-additions';
-import { ROBUX_HUB_CARDS } from './calculators-additions/robux-additions';
 
 export type HubCategory =
   | 'income'
@@ -327,8 +326,10 @@ const SPECIAL_CARDS: Record<string, SpecialCard> = {
   ...(UTILS_HUB_CARDS as Record<string, SpecialCard>),
   // ─── Task 41 gap batch: inflation, debt payoff, DTI ────────────────────────
   ...(FINANCE_HUB_CARDS as Record<string, SpecialCard>),
-  // ─── Task 42: robux marketplace-fee calculator (creator earnings) ──────
-  ...(ROBUX_HUB_CARDS as Record<string, SpecialCard>),
+  // Task 48: ROBUX_HUB_CARDS intentionally NOT spread here — the robux tool
+  // is noindexed (see sitemap-entries.ts NOINDEX_PATHS) and delisted from the
+  // hub so AdSense reviewers & crawlers never reach it by following links;
+  // the page stays live for direct URL visits until the re-index decision.
 };
 
 /** Dedicated calculator routes that live outside CALCULATOR_ROUTES. */
@@ -426,6 +427,9 @@ function buildHubCalculators(): HubCalculator[] {
   const items: HubCalculator[] = [];
 
   for (const route of CALCULATOR_ROUTES) {
+    // Task 48: unlisted tools (robux) are served at their URL but never
+    // appear in the hub directory, its counts, or its ItemList schema.
+    if (UNLISTED_CALCULATOR_PATHS.includes(route.canonicalPath)) continue;
     const slug = route.slug;
     const href = route.canonicalPath;
 
