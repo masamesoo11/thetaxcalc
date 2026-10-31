@@ -537,10 +537,12 @@ Visit https://thetaxcalc.com/about for the full page.`,
     );
   }
 
-  // /contact → /about (no standalone contact page; /about has author bios + editorial policy)
-  if (pathname === '/contact' || pathname === '/contact-us') {
+  // /contact → /about legacy redirect REMOVED 2026-10-29: a standalone
+  // /contact page now exists (AdSense review requirement — contact form +
+  // email). Keep /contact-us redirecting for old inbound links.
+  if (pathname === '/contact-us') {
     return NextResponse.redirect(
-      new URL('/about', request.url),
+      new URL('/contact', request.url),
       301
     );
   }

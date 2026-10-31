@@ -65,6 +65,8 @@ export function getSitemapEntries(): MetadataRoute.Sitemap {
   entries.push({ url: `${baseUrl}/freefile-irs`, lastModified: taxYearUpdate, changeFrequency: 'monthly', priority: 0.95 });
   entries.push({ url: `${baseUrl}/home-sale-tax-calculator`, lastModified: taxYearUpdate, changeFrequency: 'monthly', priority: 0.95 });
   entries.push({ url: `${baseUrl}/about`, lastModified: siteUpdate, changeFrequency: 'monthly', priority: 0.7 });
+  // Contact page — required for ad-network reviews (added 2026-10-29)
+  entries.push({ url: `${baseUrl}/contact`, lastModified: '2026-10-29', changeFrequency: 'yearly', priority: 0.5 });
   entries.push({ url: `${baseUrl}/tax-data`, lastModified: siteUpdate, changeFrequency: 'monthly', priority: 0.9 });
   entries.push({ url: `${baseUrl}/widgets`, lastModified: siteUpdate, changeFrequency: 'monthly', priority: 0.85 });
   entries.push({ url: `${baseUrl}/methodology`, lastModified: siteUpdate, changeFrequency: 'monthly', priority: 0.6 });

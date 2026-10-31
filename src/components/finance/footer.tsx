@@ -447,6 +447,9 @@ export function Footer() {
               <Link href="/about" className="underline underline-offset-2 decoration-border/50 hover:text-emerald-600 hover:decoration-emerald-600 transition-colors">
                 About Us
               </Link>
+              <Link href="/contact" className="underline underline-offset-2 decoration-border/50 hover:text-emerald-600 hover:decoration-emerald-600 transition-colors">
+                Contact
+              </Link>
               <Link href="/compare" className="underline underline-offset-2 decoration-border/50 hover:text-emerald-600 hover:decoration-emerald-600 transition-colors">
                 Compare States
               </Link>

@@ -189,9 +189,39 @@ export default function PrivacyPage() {
                 </a>.
               </li>
               <li>
-                <strong className="text-foreground">Advertising Partners:</strong> We may display
-                advertisements from third-party networks. These partners may use cookies and similar
-                technologies to serve relevant ads based on your browsing activity.
+                <strong className="text-foreground">Google AdSense &amp; Advertising Partners:</strong>{' '}
+                We use Google AdSense and other third-party advertising networks. Third-party
+                vendors, including Google, use cookies to serve ads based on your prior visits
+                to this website or other websites. Google&apos;s use of advertising cookies
+                (such as the DoubleClick DART cookie) enables it and its partners to serve ads
+                to you based on your visit to our site and/or other sites on the Internet. You
+                may opt out of personalized advertising by visiting{' '}
+                <a
+                  href="https://www.google.com/settings/ads"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-emerald-600 hover:text-emerald-700 underline"
+                >
+                  Google Ads Settings
+                </a>{' '}
+                and{' '}
+                <a
+                  href="https://www.aboutads.info/choices/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-emerald-600 hover:text-emerald-700 underline"
+                >
+                  aboutads.info
+                </a>. For more details on how Google uses data when you use our partners&apos;
+                sites or apps, see{' '}
+                <a
+                  href="https://policies.google.com/technologies/partner-sites"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-emerald-600 hover:text-emerald-700 underline"
+                >
+                  Google&apos;s partner-sites policy
+                </a>.
               </li>
             </ul>
           </div>
@@ -214,7 +244,10 @@ export default function PrivacyPage() {
             </ul>
             <p>
               You can manage your cookie preferences through your browser settings. Disabling cookies may
-              affect the functionality of our website.
+              affect the functionality of our website. Where required by law (e.g., in the EEA and UK),
+              we ask for your consent before setting non-essential cookies via our cookie banner, and
+              you can change or withdraw that choice at any time by clearing this site&apos;s storage
+              in your browser.
             </p>
           </div>
         </section>
@@ -282,6 +315,12 @@ export default function PrivacyPage() {
               <p className="font-semibold text-foreground">TheTaxCalc</p>
               <p>Email: <ProtectedEmail code="privacy|thetaxcalc.com" /></p>
               <p>Website: {SITE_URL}</p>
+              <p>
+                Contact form:{' '}
+                <Link href="/contact" className="text-emerald-600 hover:text-emerald-700 underline underline-offset-2">
+                  thetaxcalc.com/contact
+                </Link>
+              </p>
             </div>
           </div>
         </section>

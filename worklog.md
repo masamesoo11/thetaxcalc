@@ -1450,3 +1450,23 @@ Stage Summary:
 - Full backlinks audit delivered: 34 links = 28 toxic (82%) / 5 neutral junk / 1 gem; disavow file extended 26 domains and live on production.
 - Standing item: monthly backlinks re-export + disavow refresh while the PBN wave continues; syndication as the positive-side lever.
 - Standing: 2027 IRS flip armed (Nov 9-15); Bing IndexNow bootstrap (Task 46) awaiting crawl; next GSC snapshot re-measures Task-42 CTR levers.
+---
+Task ID: 48
+Agent: Main Agent (solo)
+Task: User reported AdSense application REJECTED ("لم تتم الموافقة على حسابك" — compliance with AdSense program policies). Diagnose site-side causes and fix everything fixable from our end.
+
+Work Log:
+- Audit findings: ads.txt valid (pub-5542276525674040 DIRECT + Google AUTH tag), AdSense script loads post-hydration with ca-pub- ID, verification meta present in layout. BUT: (1) NO /contact page — the middleware had a legacy 301 /contact -> /about from before the site grew (classic ad-network rejection reason: no adequate contact info); (2) privacy policy advertising disclosure was generic (no Google/AdSense/DART naming, no opt-out links); (3) contact email existed (contact@ on About) but no dedicated channel.
+- Built /contact page: H1 + intro, working contact form (name/email/topic select/message), honeypot anti-spam, 3 side cards (ProtectedEmail contact@thetaxcalc.com, response time 1-2 days, "before you write" links to methodology/glossary/privacy), "What can you contact us about?" section (4 reasons with icons). ContactPage + BreadcrumbList JSON-LD. Full metadata + canonical + OG.
+- Backend: src/lib/contact-store.ts (module-level in-memory store, capped 200 — worker has NO persistent DB by architecture, see db.ts rationale) + POST /api/contact (validation: name 2-100, email regex, topic whitelist, message 10-5000; honeypot returns fake success; per-IP rate limit 5/hour; fire-and-forget forward to CONTACT_WEBHOOK_URL env for persistent delivery when configured) + GET /api/contact (admin-session inbox, verifySessionToken auth like /api/indexnow).
+- Middleware fix: removed the /contact -> /about 301; /contact-us now 301s to /contact.
+- Privacy policy strengthened: Google AdSense section with the standard required disclosure (third-party vendors incl. Google use cookies for ads based on prior visits; DART/DoubleClick cookie; opt-out links to google.com/settings/ads + aboutads.info + partner-sites policy) + EEA/UK cookie-banner consent note + contact form link in section 9.
+- Footer: Contact link added (after About Us). Sitemap: /contact entry added in sitemap-entries.ts (single source of truth pays off immediately) -> sitemap now 288 URLs.
+- Gates: lint = exactly the 12 documented; audit-titles = 0/0; project tsc = 47 documented baseline, all touched files clean; dev API suite: valid POST 200 success, honeypot 200 fake-success, invalid 400 with field errors, GET unauth 401; browser QA (fresh session, desktop 1280 + mobile 390): form filled + submitted end-to-end -> success state rendered, scrollW exactly 1280/390 (no overflow), footer Contact link live, zero page errors, cookie banner dismissed on accept. Privacy page: AdSense/DART/opt-out links/contact-form link all present post-hydration.
+- Dev incident #3 today (next-server 105% CPU / 1.6GB RSS): recovered via documented pattern (kill + gut .next to /tmp + relaunch), / 200 in 293ms after.
+
+Stage Summary:
+- AdSense rejection top site-side gaps CLOSED: dedicated /contact page with working form + email, named Google AdSense privacy disclosures with opt-out links, discoverable via footer + sitemap + internal links.
+- Standing capability: contact inbox via GET /api/contact (admin session); persistent message delivery available by setting CONTACT_WEBHOOK_URL env (Make/Zapier/Slack/Telegram webhook).
+- Re-application guidance delivered to user: fix-first, then re-apply from AdSense; content depth (288 URLs) + 4.5-month domain age are adequate; the PBN spam wave (Task 47) is unrelated to AdSense policy review but the disavow hygiene continues.
+- Standing: 2027 IRS flip armed (Nov 9-15); Bing IndexNow bootstrap awaiting crawl; monthly backlinks re-export while PBN wave continues.
