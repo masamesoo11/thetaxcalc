@@ -181,5 +181,17 @@ export const TELEGRAPH_PUBLISHED: Record<string, { url: string; publishedAt: str
   "why-texas-has-no-income-tax": {
     "url": "https://telegra.ph/Why-Texas-Has-No-Income-Tax-10-30",
     "publishedAt": "2026-10-30T13:55:24Z"
+  },
+  "inheritance-tax-guide-2026": {
+    "url": "https://telegra.ph/Inheritance-Tax-Guide-2026-State-by-State-Rules-Exemptions--Calculator-10-31",
+    "publishedAt": "2026-10-31T13:27:42Z"
+  },
+  "401k-withdrawal-tax-guide-2026": {
+    "url": "https://telegra.ph/401k-Withdrawal-Tax-Guide-2026-Rules--Penalties-10-31",
+    "publishedAt": "2026-10-31T13:27:42Z"
+  },
+  "retirement-tax-planning-guide-2026": {
+    "url": "https://telegra.ph/Retirement-Tax-Planning-Guide-2026-Strategies-Brackets--Withdrawals-10-31",
+    "publishedAt": "2026-10-31T13:27:42Z"
   }
 };
