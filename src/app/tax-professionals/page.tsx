@@ -60,7 +60,7 @@ const FAQS = [
   {
     question: 'How can tax professionals contribute to TheTaxCalc?',
     answer:
-      'We welcome contributions from credentialed tax professionals. You can submit corrections or updates via email, write guest articles for our blog (we attribute every piece to a credentialed author), or volunteer to review new calculators before they go live. CPAs and EAs who contribute regularly are listed on our authors page with their credentials and a link to their firm. If you would like to contribute, email hello@thetaxcalc.com with your credentials and the topic you would like to cover.',
+      'We welcome contributions from tax professionals. You can submit corrections or updates via email, write guest articles for our blog (guest authors retain full byline credit and their credentials are shown with the piece), or flag data discrepancies you spot in our calculators. If you would like to contribute, email hello@thetaxcalc.com with your background and the topic you would like to cover. Corrections from credentialed professionals are reviewed and applied quickly, with a note in our methodology change log.',
   },
 ];
 
@@ -187,8 +187,8 @@ export default function TaxProfessionalsPage() {
         For Tax Professionals — Free Tools for CPAs, EAs &amp; Preparers
       </h1>
       <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-        TheTaxCalc is used by Certified Public Accountants, Enrolled Agents, tax attorneys,
-        and non-credentialed preparers across the country. Every calculator on our site is
+        TheTaxCalc is built for tax professionals — Certified Public Accountants, Enrolled
+        Agents, tax attorneys, and non-credentialed preparers. Every calculator on our site is
         free for professional use — during client meetings, in research, embedded on firm
         websites, and in continuing education materials. No sign-up, no per-client fees, no
         data collection.
@@ -318,17 +318,25 @@ export default function TaxProfessionalsPage() {
         </div>
       </section>
 
-      {/* Credentialed Authors */}
+      {/* Editorial Standards */}
       <section className="mb-10">
         <h2 className="text-2xl font-bold text-foreground mb-4">
-          Credentialed Authors &amp; Reviewers
+          Editorial Standards &amp; Data Sourcing
         </h2>
         <p className="text-muted-foreground leading-relaxed mb-4">
-          Every blog article and calculator methodology on TheTaxCalc is written or reviewed by
-          a credentialed tax professional. Our author team includes CPAs, Enrolled Agents, and
-          a former IRS revenue agent. Every page is dated and timestamped so you can verify
-          that the information is current. We also publish a full author bio page for each
-          contributor, with their credentials and a link to their firm or LinkedIn profile.
+          All content on TheTaxCalc is researched and maintained by our editorial team, and
+          every tax figure is checked against primary sources — IRS publications (including
+          Publication 15-T and the annual inflation adjustments), Social Security
+          Administration announcements, and each state&rsquo;s published revenue department
+          tables — before it goes live. Every page is dated and timestamped so you can verify
+          that the information is current, and our{' '}
+          <Link
+            href="/methodology"
+            className="text-emerald-600 hover:text-emerald-700 underline"
+          >
+            methodology page
+          </Link>{' '}
+          documents every source we use plus a dated change log of updates.
         </p>
         <p className="text-muted-foreground leading-relaxed">
           If you are a CPA, EA, or tax attorney interested in writing for TheTaxCalc — whether

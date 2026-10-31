@@ -96,8 +96,11 @@ export function getSitemapEntries(): MetadataRoute.Sitemap {
   }
 
   // ─── Strategic pages (added 2026-07) ───────────────────────────────────────
+  // NOTE: /scholarship REMOVED 2026-10-31 (batch 5) — the page was retired because
+  // it advertised an award program we cannot actually administer (AdSense
+  // deception risk flagged by the external audit). URL 301s to /research in
+  // middleware; never re-add without a real, funded program.
   entries.push({ url: `${baseUrl}/obbba-tax-calculator`, lastModified: taxYearUpdate, changeFrequency: 'monthly', priority: 0.95 });
-  entries.push({ url: `${baseUrl}/scholarship`, lastModified: taxYearUpdate, changeFrequency: 'monthly', priority: 0.85 });
   entries.push({ url: `${baseUrl}/smartasset-alternative`, lastModified: taxYearUpdate, changeFrequency: 'monthly', priority: 0.85 });
   entries.push({ url: `${baseUrl}/tax-professionals`, lastModified: taxYearUpdate, changeFrequency: 'monthly', priority: 0.85 });
   entries.push({ url: `${baseUrl}/research`, lastModified: taxYearUpdate, changeFrequency: 'monthly', priority: 0.9 });

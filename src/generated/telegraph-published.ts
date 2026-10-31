@@ -58,32 +58,12 @@ export const TELEGRAPH_PUBLISHED: Record<string, { url: string; publishedAt: str
     "url": "https://telegra.ph/OBBBA-Tax-Refund-Impact-2026-How-It-Changes-Your-Refund-10-24",
     "publishedAt": "2026-10-24T10:50:16Z"
   },
-  "how-to-calculate-federal-tax-refund-2026": {
-    "url": "https://telegra.ph/How-to-Calculate-Your-2026-Federal-Tax-Refund-10-24",
-    "publishedAt": "2026-10-24T10:50:16Z"
-  },
-  "2026-self-employed-tax-refund-calculator": {
-    "url": "https://telegra.ph/Self-Employed-Tax-Refund-Calculator-2026-SE-Tax-Quarterly-Payments--Deductions-10-24",
-    "publishedAt": "2026-10-24T10:50:16Z"
-  },
-  "2026-w2-tax-refund-calculator-guide": {
-    "url": "https://telegra.ph/W-2-Tax-Refund-Calculator-Guide-2026-Exact-Numbers-10-24",
-    "publishedAt": "2026-10-24T10:50:16Z"
-  },
   "2026-federal-tax-refund-estimator-guide": {
     "url": "https://telegra.ph/2026-Federal-Tax-Refund-Estimator-How-Much-Back-10-24",
     "publishedAt": "2026-10-24T11:54:12Z"
   },
   "2026-paycheck-take-home-pay-guide": {
     "url": "https://telegra.ph/2026-Paycheck--Take-Home-Pay-Calculator-Guide-How-Much-of-Your-Salary-You-Actually-Keep-10-24",
-    "publishedAt": "2026-10-24T11:54:12Z"
-  },
-  "bonus-tax-flat-vs-aggregate-method-explained": {
-    "url": "https://telegra.ph/Why-Is-My-Bonus-Taxed-So-High-22-Flat-Rate-vs-Aggregate-Method-10-24",
-    "publishedAt": "2026-10-24T11:54:12Z"
-  },
-  "how-to-calculate-overtime-pay-tax-rate": {
-    "url": "https://telegra.ph/Is-Overtime-Taxed-More-The-Truth-About-Overtime-Tax-Rates-10-24",
     "publishedAt": "2026-10-24T11:54:12Z"
   },
   "1099-vs-w2-take-home-pay-comparison-2026": {
@@ -146,10 +126,6 @@ export const TELEGRAPH_PUBLISHED: Record<string, { url: string; publishedAt: str
     "url": "https://telegra.ph/Lottery-Tax-How-Much-You-Really-Keep-After-Winning-in-2026-10-26",
     "publishedAt": "2026-10-26T14:01:34Z"
   },
-  "hourly-wage-after-tax-questions-2026": {
-    "url": "https://telegra.ph/Hourly-Wage-After-Tax-Questions-Answered-2026-Calculator-10-26",
-    "publishedAt": "2026-10-26T14:01:34Z"
-  },
   "free-tax-calculator-no-signup-2026": {
     "url": "https://telegra.ph/Free-Tax-Calculator-2026--No-Signup-No-Email-Instant-Results-10-27",
     "publishedAt": "2026-10-27T13:04:00Z"
@@ -161,22 +137,6 @@ export const TELEGRAPH_PUBLISHED: Record<string, { url: string; publishedAt: str
   "tax-questions-answered-2026": {
     "url": "https://telegra.ph/Tax-Questions-Answered-Brackets-Overtime--Bonuses-2026-10-27",
     "publishedAt": "2026-10-27T13:04:00Z"
-  },
-  "tax-refund-questions-2026": {
-    "url": "https://telegra.ph/Tax-Refund-Questions-Answered-2026-10-27",
-    "publishedAt": "2026-10-27T13:04:00Z"
-  },
-  "inheritance-tax-questions-2026": {
-    "url": "https://telegra.ph/Inheritance-Tax-Questions-Answered-2026-Rules-10-27",
-    "publishedAt": "2026-10-27T13:04:00Z"
-  },
-  "social-security-tax-questions-2026": {
-    "url": "https://telegra.ph/Social-Security-Tax-Questions-Answered-2026-Rules-10-28",
-    "publishedAt": "2026-10-28T13:54:30Z"
-  },
-  "401k-withdrawal-tax-questions-2026": {
-    "url": "https://telegra.ph/401k-Withdrawal-Tax-Questions-Answered-2026-Rules-10-28",
-    "publishedAt": "2026-10-28T13:54:30Z"
   },
   "florida-tax-guide-2026": {
     "url": "https://telegra.ph/Florida-Tax-Guide-2026-No-Income-Tax--Sales-Tax--Calculator-10-28",
@@ -220,10 +180,6 @@ export const TELEGRAPH_PUBLISHED: Record<string, { url: string; publishedAt: str
   },
   "why-texas-has-no-income-tax": {
     "url": "https://telegra.ph/Why-Texas-Has-No-Income-Tax-10-30",
-    "publishedAt": "2026-10-30T13:55:24Z"
-  },
-  "2026-federal-tax-brackets-explained": {
-    "url": "https://telegra.ph/2026-Tax-Brackets-IRS-Income-Tax-Brackets-2026-Explained-10-30",
     "publishedAt": "2026-10-30T13:55:24Z"
   }
 };

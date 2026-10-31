@@ -30,21 +30,6 @@ export const BLOG_INDEX: BlogPostMeta[] = [
     "updatedAt": "2026-06-21T15:00:00.000Z"
   },
 {
-    "id": "hourly-wage-after-tax-questions-2026",
-    "title": "Hourly Wage After Tax Questions Answered (2026 Calculator)",
-    "slug": "hourly-wage-after-tax-questions-2026",
-    "excerpt": "How much tax is taken out of a $300 paycheck? How much is $20/hour after taxes? $21/hour annually? $1200/week? Exact numbers for common wages with free calculator.",
-    "category": "tax-guide",
-    "tags": "hourly,wage,after,tax,questions,2026,taxable income,tax exempt,what do you get taxed on,types of taxes,hourly wage after tax",
-    "coverImage": "",
-    "published": true,
-    "featured": false,
-    "metaTitle": "Hourly Wage After Tax Questions Answered (2026)",
-    "metaDesc": "How much tax on $300 paycheck, $20/hour, $21/hour, $1200/week? Exact after-tax numbers for 2026. Free calculator, no signup. IRS-verified rates.",
-    "createdAt": "2026-06-21T15:00:00.000Z",
-    "updatedAt": "2026-06-21T15:00:00.000Z"
-  },
-{
     "id": "free-tax-calculator-no-signup-2026",
     "title": "Free Tax Calculator 2026 — No Signup, No Email, Instant Results",
     "slug": "free-tax-calculator-no-signup-2026",
@@ -101,66 +86,6 @@ export const BLOG_INDEX: BlogPostMeta[] = [
     "featured": false,
     "metaTitle": "Tax Questions Answered: Brackets, Overtime & Bonuses (2026)",
     "metaDesc": "Common tax questions answered for 2026. Overtime, bonuses, brackets, Florida vs other states, property tax deductions, and 1099 quarterly taxes.",
-    "createdAt": "2026-06-21T13:00:00.000Z",
-    "updatedAt": "2026-06-21T13:00:00.000Z"
-  },
-{
-    "id": "tax-refund-questions-2026",
-    "title": "Tax Refund Questions Answered (2026)",
-    "slug": "tax-refund-questions-2026",
-    "excerpt": "Complete FAQ guide to tax refunds in 2026. When you'll get your refund, how to track it, what can delay it, and how to get it faster.",
-    "category": "tax-guide",
-    "tags": "tax,refund,questions,2026,tax questions,tax faq,2026 tax rules,tax faq 2026",
-    "coverImage": "",
-    "published": true,
-    "featured": false,
-    "metaTitle": "Tax Refund Questions Answered (2026)",
-    "metaDesc": "Common tax refund questions answered for 2026. Refund timeline, tracking, delays, garnishment, credits vs deductions, and faster refunds.",
-    "createdAt": "2026-06-21T13:00:00.000Z",
-    "updatedAt": "2026-06-21T13:00:00.000Z"
-  },
-{
-    "id": "inheritance-tax-questions-2026",
-    "title": "Inheritance Tax Questions Answered (2026 Rules)",
-    "slug": "inheritance-tax-questions-2026",
-    "excerpt": "Complete FAQ guide to inheritance tax in 2026. How much is inheritance tax, estate vs inheritance tax, state rules, and how to calculate.",
-    "category": "tax-guide",
-    "tags": "inheritance,tax,questions,2026,tax questions,tax faq,2026 tax rules,tax faq 2026",
-    "coverImage": "",
-    "published": true,
-    "featured": false,
-    "metaTitle": "Inheritance Tax Questions Answered (2026 Rules)",
-    "metaDesc": "Common inheritance tax questions answered for 2026. Estate vs inheritance tax, state rules, exemptions, and calculations. Free calculators.",
-    "createdAt": "2026-06-21T13:00:00.000Z",
-    "updatedAt": "2026-06-21T13:00:00.000Z"
-  },
-{
-    "id": "social-security-tax-questions-2026",
-    "title": "Social Security Tax Questions Answered (2026 Rules)",
-    "slug": "social-security-tax-questions-2026",
-    "excerpt": "Complete FAQ guide to Social Security taxation in 2026. Are benefits taxable, how much is taxable, state taxes, and strategies to minimize taxes.",
-    "category": "tax-guide",
-    "tags": "social,security,tax,questions,2026,tax questions,tax faq,2026 tax rules,tax faq 2026",
-    "coverImage": "",
-    "published": true,
-    "featured": false,
-    "metaTitle": "Social Security Tax Questions Answered (2026 Rules)",
-    "metaDesc": "Common Social Security tax questions answered for 2026. Are benefits taxable, thresholds, state taxes, and strategies to minimize taxes. Free calculators.",
-    "createdAt": "2026-06-21T13:00:00.000Z",
-    "updatedAt": "2026-06-21T13:00:00.000Z"
-  },
-{
-    "id": "401k-withdrawal-tax-questions-2026",
-    "title": "401(k) Withdrawal Tax Questions Answered (2026 Rules)",
-    "slug": "401k-withdrawal-tax-questions-2026",
-    "excerpt": "Complete FAQ guide to 401(k) withdrawal taxes in 2026. How taxes work, penalties, Rule of 55, RMDs, and how withdrawals affect Social Security.",
-    "category": "tax-guide",
-    "tags": "401k,withdrawal,tax,questions,2026,tax questions,tax faq,2026 tax rules,tax faq 2026",
-    "coverImage": "",
-    "published": true,
-    "featured": false,
-    "metaTitle": "401(k) Withdrawal Tax Questions Answered (2026 Rules)",
-    "metaDesc": "Common 401(k) withdrawal tax questions answered for 2026. Penalties, Rule of 55, RMDs, tax rates, and Social Security interaction. Free calculators.",
     "createdAt": "2026-06-21T13:00:00.000Z",
     "updatedAt": "2026-06-21T13:00:00.000Z"
   },
@@ -224,22 +149,7 @@ export const BLOG_INDEX: BlogPostMeta[] = [
     "createdAt": "2026-05-28T12:00:00.000Z",
     "updatedAt": "2026-10-24"
   },
-  {
-    "id": "cmpmabv3i0000mnivco81phfw",
-    "title": "2026 Tax Brackets: IRS Income Tax Brackets 2026 Explained",
-    "slug": "2026-federal-tax-brackets-explained",
-    "excerpt": "Complete guide to the IRS 2026 tax brackets — income tax brackets 2026, marginal tax rate, federal income tax rates, adjusted gross income, and tax credits for married couples filing jointly.",
-    "category": "tax-guide",
-    "tags": "federal,tax brackets,2026,income tax,irs 2026 tax brackets,tax brackets 2026,income tax brackets 2026",
-    "coverImage": "",
-    "published": true,
-    "featured": true,
-    "metaTitle": "2026 IRS Tax Brackets Explained",
-    "metaDesc": "Complete guide to IRS 2026 tax brackets. See income tax brackets 2026 for single filers and married couples filing jointly.",
-    "createdAt": "2026-05-26T06:59:34.062Z",
-    "updatedAt": "2026-05-26T20:31:33.161Z"
-  },
-  {
+    {
     "id": "doordash-taxes-2026-guide",
     "title": "DoorDash Taxes: The Complete Guide for Drivers in 2026",
     "slug": "doordash-taxes-guide-2026",
@@ -524,52 +434,7 @@ export const BLOG_INDEX: BlogPostMeta[] = [
     "createdAt": "2026-07-04T20:30:00.000Z",
     "updatedAt": "2026-07-04T20:30:00.000Z"
   },
-  {
-    "id": "2026-w2-tax-refund-calculator-guide",
-    "title": "W-2 Tax Refund Calculator Guide 2026: Exact Numbers",
-    "slug": "2026-w2-tax-refund-calculator-guide",
-    "excerpt": "2026 W-2 tax refund guide for employees. Read your W-2, calculate withholding, and estimate your refund.",
-    "category": "tax-guide",
-    "tags": "W-2 tax refund calculator 2026,W2 refund estimator,federal tax refund 2026,W-2 form guide,tax withholding 2026,W-4 calculator 2026,child tax credit 2026,standard deduction 2026,OBBBA 2026,federal tax brackets 2026,tax refund estimate,Box 1 wages,Box 2 withholding,bonus tax rate,multiple jobs tax",
-    "coverImage": "",
-    "published": true,
-    "featured": true,
-    "metaTitle": "W-2 Tax Refund Calculator Guide 2026: Exact Numbers",
-    "metaDesc": "2026 W-2 tax refund guide for employees. Read your W-2, calculate withholding, and estimate your refund.",
-    "createdAt": "2026-07-04T20:35:00.000Z",
-    "updatedAt": "2026-07-04T20:35:00.000Z"
-  },
-  {
-    "id": "2026-self-employed-tax-refund-calculator",
-    "title": "Self-Employed Tax Refund Calculator 2026: SE Tax, Quarterly Payments & Deductions",
-    "slug": "2026-self-employed-tax-refund-calculator",
-    "excerpt": "Complete 2026 tax refund guide for self-employed workers, freelancers, and contractors. Calculate SE tax, quarterly estimated payments, business deductions, and your expected refund with worked examples.",
-    "category": "tax-guide",
-    "tags": "self-employed tax refund 2026,self-employment tax calculator,SE tax 2026,quarterly estimated payments,freelance tax calculator,1099 tax refund,self-employed deductions,SEP IRA 2026,solo 401k,home office deduction,OBBBA 2026,self-employment tax rate,15.3% SE tax,business deductions,quarterly tax payments",
-    "coverImage": "",
-    "published": true,
-    "featured": true,
-    "metaTitle": "Self-Employed Tax Refund Calculator 2026",
-    "metaDesc": "Complete 2026 tax refund guide for self-employed workers, freelancers, and contractors. Calculate SE tax, quarterly estimated payments, business.",
-    "createdAt": "2026-07-04T20:40:00.000Z",
-    "updatedAt": "2026-07-04T20:40:00.000Z"
-  },
-  {
-    "id": "how-to-calculate-federal-tax-refund-2026",
-    "title": "How to Calculate Your 2026 Federal Tax Refund",
-    "slug": "how-to-calculate-federal-tax-refund-2026",
-    "excerpt": "Exact formula for your 2026 federal tax refund. Step-by-step calculation with brackets, deductions, and credits.",
-    "category": "tax-guide",
-    "tags": "how to calculate tax refund 2026,federal tax refund formula,tax refund calculation,2026 tax brackets,taxable income formula,standard deduction 2026,child tax credit 2026,tax credits 2026,OBBBA 2026,W-4 withholding,tax liability calculation,progressive tax brackets,refund vs balance due,tax deductions 2026,earned income credit",
-    "coverImage": "",
-    "published": true,
-    "featured": true,
-    "metaTitle": "How to Calculate Your 2026 Federal Tax Refund",
-    "metaDesc": "Exact formula for your 2026 federal tax refund. Step-by-step calculation with brackets, deductions, and credits.",
-    "createdAt": "2026-07-04T20:45:00.000Z",
-    "updatedAt": "2026-07-04T20:45:00.000Z"
-  },
-  {
+        {
     "id": "obbba-tax-refund-impact-2026",
     "title": "OBBBA Tax Refund Impact 2026: How It Changes Your Refund",
     "slug": "obbba-tax-refund-impact-2026",
@@ -734,22 +599,7 @@ export const BLOG_INDEX: BlogPostMeta[] = [
     "createdAt": "2026-06-25T10:10:00.000Z",
     "updatedAt": "2026-06-25T10:10:00.000Z"
   },
-  {
-    "id": "blog_bonus_tax_methods_2026",
-    "title": "Why Is My Bonus Taxed So High? 22% Flat Rate vs Aggregate Method",
-    "slug": "bonus-tax-flat-vs-aggregate-method-explained",
-    "excerpt": "Did your bonus get crushed by taxes? We explain supplemental income, the 22% flat rate method, and the aggregate method.",
-    "category": "tax-guide",
-    "tags": "bonus,supplemental wages,tax return",
-    "coverImage": "",
-    "published": true,
-    "featured": false,
-    "metaTitle": "Why Is My Bonus Taxed So High? 22% Flat Rate Explained",
-    "metaDesc": "Understand how the IRS taxes bonuses as supplemental wages. Learn the difference between the 22% flat rate method and the aggregate withholding method.",
-    "createdAt": "2026-06-25T10:20:00.000Z",
-    "updatedAt": "2026-06-25T10:20:00.000Z"
-  },
-  {
+    {
     "id": "florida-tax-guide-2026",
     "title": "Florida Tax Guide 2026: No Income Tax & Sales Tax & Calculator",
     "slug": "florida-tax-guide-2026",
@@ -779,22 +629,7 @@ export const BLOG_INDEX: BlogPostMeta[] = [
     "createdAt": "2026-06-25T10:00:00.000Z",
     "updatedAt": "2026-10-24"
   },
-  {
-    "id": "blog_overtime_tax_rate_2026",
-    "title": "Is Overtime Taxed More? The Truth About Overtime Tax Rates",
-    "slug": "how-to-calculate-overtime-pay-tax-rate",
-    "excerpt": "It feels like the government takes half your overtime pay. But is overtime actually taxed at a higher rate? We explain how overtime withholding works.",
-    "category": "tax-guide",
-    "tags": "overtime,withholding,paycheck,tax brackets",
-    "coverImage": "",
-    "published": true,
-    "featured": false,
-    "metaTitle": "Is Overtime Taxed More? Overtime Tax Rate Explained",
-    "metaDesc": "Does working overtime put you in a higher tax bracket? Learn the difference between overtime tax withholding and actual tax liability.",
-    "createdAt": "2026-06-25T10:15:00.000Z",
-    "updatedAt": "2026-06-25T10:15:00.000Z"
-  },
-  {
+    {
     "id": "blog_ca_to_tx_2026",
     "title": "Moving from California to Texas: Exactly How Much Tax You'll Save in 2026",
     "slug": "moving-from-california-to-texas-tax-savings-2026",
@@ -841,9 +676,27 @@ export const BLOG_INDEX: BlogPostMeta[] = [
   }
 ];
 
-/** Get all published posts metadata */
+/**
+ * Task 48 (batch 5 — AdSense content-focus audit): posts that stay LIVE at their
+ * URL (direct visits still work, noindex kept — see blog/[slug]/page.tsx and
+ * NOINDEX_PATHS in sitemap-entries.ts) but are EXCLUDED from every listing
+ * surface: blog index, homepage "Blog & Guides" + latest posts, footer
+ * navigation, RSS feed, sitemap, syndication API, and llms.txt.
+ *
+ * This mirrors UNLISTED_CALCULATOR_PATHS in calculator-routes.ts (batch 4),
+ * which delisted the robux CALCULATOR; this delists the companion ARTICLE,
+ * completing the examiner's request that it disappear from the blog list too.
+ *
+ * Remove a slug here (and keep it out of NOINDEX_POST_SLUGS +
+ * NOINDEX_PATHS) to re-list and re-index the article.
+ */
+export const UNLISTED_POST_SLUGS: ReadonlySet<string> = new Set([
+  'robux-tax-calculator-guide-2026',
+]);
+
+/** Get all published posts metadata (excludes unlisted posts — use getPostMeta for a live unlisted page) */
 export function getPublishedPostsMeta(): BlogPostMeta[] {
-  return BLOG_INDEX.filter(p => p.published).sort((a, b) => {
+  return BLOG_INDEX.filter(p => p.published && !UNLISTED_POST_SLUGS.has(p.slug)).sort((a, b) => {
     if (a.featured !== b.featured) return a.featured ? -1 : 1;
     return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
   });
@@ -854,9 +707,9 @@ export function getPostMeta(slug: string): BlogPostMeta | null {
   return BLOG_INDEX.find(p => p.slug === slug && p.published) || null;
 }
 
-/** Get all published slugs */
+/** Get all published slugs (excludes unlisted posts — their pages render on demand) */
 export function getPublishedSlugs(): string[] {
-  return BLOG_INDEX.filter(p => p.published).map(p => p.slug);
+  return BLOG_INDEX.filter(p => p.published && !UNLISTED_POST_SLUGS.has(p.slug)).map(p => p.slug);
 }
 
 /** Convert BlogPostMeta to BlogPost with empty content */

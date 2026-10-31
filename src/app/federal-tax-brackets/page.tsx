@@ -674,7 +674,7 @@ export default function FederalTaxBracketsPage() {
                   { href: '/self-employment-tax-calculator', label: 'Self-Employment Tax' },
                   { href: '/relocation-calculator', label: 'Relocation Calculator' },
                   { href: '/blog', label: 'All Blog Articles' },
-                  { href: '/blog/2026-federal-tax-brackets-explained', label: '2026 Tax Brackets Explained' },
+                  { href: '/blog/federal-tax-brackets-2026-guide', label: '2026 Tax Brackets Guide' },
                   { href: '/tax-brackets-2027', label: '2027 Tax Brackets (Projected)' },
                 ].map((item) => (
                   <Link

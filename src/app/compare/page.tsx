@@ -445,7 +445,7 @@ export default function CompareLandingPage() {
                 { href: '/blog', label: 'All Blog Articles' },
                 { href: '/blog/florida-vs-texas-tax-comparison', label: 'Florida vs Texas Comparison' },
                 { href: '/blog/why-texas-has-no-income-tax', label: 'Why Texas Has No Income Tax' },
-                { href: '/blog/2026-federal-tax-brackets-explained', label: '2026 Tax Brackets Explained' },
+                { href: '/blog/federal-tax-brackets-2026-guide', label: '2026 Tax Brackets Guide' },
                 { href: '/blog/illinois-income-tax-guide-2026', label: 'Illinois Tax Guide 2026' },
               ].map((item) => (
                 <Link

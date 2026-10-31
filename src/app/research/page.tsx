@@ -92,7 +92,7 @@ const FAQS = [
   {
     question: 'What is TheTaxCalc Research?',
     answer:
-      'TheTaxCalc Research is our collection of original data studies and reference guides on U.S. taxation. Each study combines official government data — IRS, SSA, Census Bureau, and state revenue departments — with our own analysis to produce practical, accurate, and fully-sourced tax insights. Every study is reviewed by a credentialed tax professional before publication.',
+      'TheTaxCalc Research is our collection of original data studies and reference guides on U.S. taxation. Each study combines official government data — IRS, SSA, Census Bureau, and state revenue departments — with our own analysis to produce practical, accurate, and fully-sourced tax insights. Every study documents its primary sources and methodology, and is reviewed by our editorial team before publication (see our methodology page for the full source list and update log).',
   },
   {
     question: 'How often is the research updated?',
@@ -117,7 +117,7 @@ const FAQS = [
   {
     question: 'How is this research different from your blog?',
     answer:
-      'Our blog covers timely tax news, how-to guides, and current-year updates. Our research hub, by contrast, contains original data-driven studies with a longer shelf life. Research pieces are typically longer (7-12 minutes of reading), include multiple data tables and charts, and undergo a more rigorous editorial review process. Both are written by credentialed tax professionals and sourced from official government data.',
+      'Our blog covers timely tax news, how-to guides, and current-year updates. Our research hub, by contrast, contains original data-driven studies with a longer shelf life. Research pieces are typically longer (7-12 minutes of reading), include multiple data tables and charts, and document their full methodology and source list. Both are maintained by TheTaxCalc Editorial Team and sourced from official government data.',
   },
 ];
 
@@ -193,8 +193,8 @@ export default function ResearchHubPage() {
       <p className="text-lg text-muted-foreground leading-relaxed mb-10">
         Original research, data studies, and reference guides from TheTaxCalc. Every study is
         sourced from official government data — IRS, SSA, Census Bureau, and state revenue
-        departments — and reviewed by a credentialed tax professional. Free to read, free to
-        cite, no sign-up required.
+        departments — with the full methodology and source list published at the bottom of
+        each study. Free to read, free to cite, no sign-up required.
       </p>
 
       {/* Studies Grid */}
@@ -243,8 +243,9 @@ export default function ResearchHubPage() {
             paycheck calculator
           </Link>{' '}
           and other tools — to produce derived metrics. Each step is documented in a
-          methodology section at the bottom of the study. Every study is then reviewed by a
-          credentialed tax professional (CPA or EA) before publication.
+          methodology section at the bottom of the study. Every study is then checked by our
+          editorial team against the primary sources before publication, and re-checked
+          whenever the underlying government data is revised.
         </p>
         <p className="text-muted-foreground leading-relaxed">
           For a full description of how we compute every tax figure on the site, see our{' '}

@@ -93,9 +93,10 @@ const ALL_STATE_LINKS: { href: string; label: string }[] = [
 ];
 
 // Strategic pages — ensures they are not orphan pages
+// NOTE: /scholarship removed 2026-10-31 (batch 5) — page retired (unfunded award
+// program = AdSense deception risk); URL 301s to /research in middleware.
 const STRATEGIC_PAGE_LINKS: { href: string; label: string }[] = [
   { href: '/obbba-tax-calculator', label: 'OBBBA Tax Calculator' },
-  { href: '/scholarship', label: 'Tax Literacy Scholarship' },
   { href: '/smartasset-alternative', label: 'SmartAsset Alternative' },
   { href: '/tax-professionals', label: 'For Tax Professionals' },
   { href: '/research', label: 'Research Hub' },
@@ -459,6 +460,18 @@ export function Footer() {
               <Link href="/blog" className="underline underline-offset-2 decoration-border/50 hover:text-emerald-600 hover:decoration-emerald-600 transition-colors">
                 Blog
               </Link>
+              {/* Cookie Settings — reopens the EEA/UK consent banner (ttxOpenConsent
+                  is registered by ConsentBanner). No-op for non-EEA/UK visitors. */}
+              <button
+                type="button"
+                onClick={() => {
+                  const w = window as unknown as { ttxOpenConsent?: () => void };
+                  w.ttxOpenConsent?.();
+                }}
+                className="underline underline-offset-2 decoration-border/50 hover:text-emerald-600 hover:decoration-emerald-600 transition-colors"
+              >
+                Cookie Settings
+              </button>
               <Link href="/tax-data" className="underline underline-offset-2 decoration-border/50 hover:text-emerald-600 hover:decoration-emerald-600 transition-colors">
                 Tax Data
               </Link>

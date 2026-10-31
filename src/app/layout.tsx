@@ -5,6 +5,7 @@ import { Suspense } from "react";
 import { QueryProvider } from "@/components/providers/query-provider";
 import { DynamicProviders } from "@/components/providers/dynamic-providers";
 import { ClientAnalytics } from "@/components/finance/client-analytics";
+import { ConsentBanner } from "@/components/finance/consent-banner";
 import { SiteShell } from "@/components/finance/site-shell";
 import { WebMCPProvider } from "@/components/finance/webmcp-provider";
 import { PwaClient } from "@/components/pwa/pwa-client";
@@ -193,6 +194,28 @@ export default function RootLayout({
         <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
         <meta name="google-adsense-account" content="ca-pub-5542276525674040" />
 
+        {/* Google Consent Mode v2 defaults — MUST run before any gtag/GTM/AdSense
+            script. Reads the ttx_consent cookie + EEA/UK timezone heuristic and
+            sets denied defaults for EEA/UK visitors without an explicit "accept".
+            The consent banner (bottom of body) and ClientAnalytics (AdSense gate)
+            both build on the window.__ttx* flags set here. See src/lib/consent.ts. */}
+        <script
+          data-cfasync="false"
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{
+var TZ={ 'Europe/Amsterdam':1,'Europe/Athens':1,'Europe/Berlin':1,'Europe/Bratislava':1,'Europe/Brussels':1,'Europe/Bucharest':1,'Europe/Budapest':1,'Europe/Busingen':1,'Europe/Copenhagen':1,'Europe/Dublin':1,'Europe/Helsinki':1,'Europe/Lisbon':1,'Europe/Ljubljana':1,'Europe/Luxembourg':1,'Europe/Madrid':1,'Europe/Malta':1,'Europe/Mariehamn':1,'Europe/Oslo':1,'Europe/Paris':1,'Europe/Prague':1,'Europe/Riga':1,'Europe/Rome':1,'Europe/Stockholm':1,'Europe/Sofia':1,'Europe/Tallinn':1,'Europe/Vaduz':1,'Europe/Vienna':1,'Europe/Vilnius':1,'Europe/Warsaw':1,'Europe/Zagreb':1,'Asia/Nicosia':1,'Asia/Famagusta':1,'Atlantic/Reykjavik':1,'Atlantic/Faeroe':1,'Atlantic/Canary':1,'Atlantic/Madeira':1,'Atlantic/Azores':1,'Europe/London':1,'Europe/Belfast':1,'Europe/Guernsey':1,'Europe/Isle_of_Man':1,'Europe/Jersey':1,'Europe/Gibraltar':1 };
+var tz=Intl.DateTimeFormat().resolvedOptions().timeZone||'';
+var eea=!!TZ[tz];window.__ttxEEAUK=eea;
+var m=document.cookie.match(/(?:^|;\\s*)ttx_consent=([^;]*)/);
+var c=m?decodeURIComponent(m[1]):'';
+window.__ttxConsent=(c==='all'||c==='essential')?c:null;
+var g=(!eea)||(c==='all');
+window.dataLayer=window.dataLayer||[];
+window.dataLayer.push(['consent','default',{ad_storage:g?'granted':'denied',ad_user_data:g?'granted':'denied',ad_personalization:g?'granted':'denied',analytics_storage:g?'granted':'denied'}]);
+}catch(e){}})();`,
+          }}
+        />
+
         {/* Google Tag Manager */}
         {process.env.NEXT_PUBLIC_GTM_ID && (
           <script
@@ -268,6 +291,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <SiteShell>
         <WebMCPProvider />{children}<PwaClient /></SiteShell>
           <DynamicProviders />
+          {/* EEA/UK consent banner (GDPR / UK GDPR) — renders only for EEA/UK
+              visitors without a stored choice; gates the AdSense loader. */}
+          <ConsentBanner />
         </QueryProvider>
       </body>
     </html>

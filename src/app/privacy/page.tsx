@@ -245,9 +245,11 @@ export default function PrivacyPage() {
             <p>
               You can manage your cookie preferences through your browser settings. Disabling cookies may
               affect the functionality of our website. Where required by law (e.g., in the EEA and UK),
-              we ask for your consent before setting non-essential cookies via our cookie banner, and
-              you can change or withdraw that choice at any time by clearing this site&apos;s storage
-              in your browser.
+              we ask for your consent before setting non-essential cookies via our cookie banner: for
+              visitors from those regions, advertising and analytics scripts — including Google AdSense —
+              do not load at all until you choose &ldquo;Accept all&rdquo;. You can change or withdraw
+              your choice at any time via the &ldquo;Cookie Settings&rdquo; link in our footer, or by
+              clearing this site&rsquo;s storage in your browser.
             </p>
           </div>
         </section>

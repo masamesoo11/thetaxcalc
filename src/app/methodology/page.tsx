@@ -35,7 +35,7 @@ export default function MethodologyPage() {
         and what assumptions go into our 2026 calculators.
       </p>
       <p className="text-xs text-muted-foreground mb-10">
-        Last updated: January 2026 &middot; Tax year: 2026
+        Last updated: October 31, 2026 &middot; Tax year: 2026
       </p>
 
       {/* ─── Federal Income Tax ─────────────────────────────────────── */}
@@ -445,6 +445,89 @@ export default function MethodologyPage() {
             <span>Full review of all calculator logic and data sources for consistency</span>
           </li>
         </ul>
+      </section>
+
+      {/* ─── Change Log ─────────────────────────────────────────────── */}
+      <section className="mb-10">
+        <h2 className="text-2xl font-bold text-foreground mb-4">
+          Change Log
+        </h2>
+        <p className="text-muted-foreground leading-relaxed mb-4">
+          We document every material change to our data or calculation logic here —
+          including the unglamorous ones. Corrections are never made quietly.
+        </p>
+        <div className="space-y-3">
+          <div className="rounded-lg border border-border/30 bg-card/50 p-4">
+            <p className="text-sm font-semibold text-foreground mb-1">October 31, 2026</p>
+            <ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground ml-2">
+              <li>
+                Content consolidation: 11 overlapping blog articles (duplicate refund
+                guides, the &ldquo;Questions Answered&rdquo; cluster, bonus/overtime
+                explainers, and a duplicate brackets article) were merged into 7 canonical
+                guides. Old URLs redirect (301) to the merged articles.
+              </li>
+              <li>
+                The /scholarship page was retired. It advertised an award program we are
+                not able to administer, so it was removed rather than left standing as an
+                unverifiable claim.
+              </li>
+              <li>
+                Removed remaining &ldquo;credentialed professional review&rdquo; claims
+                from the Research Hub and Tax Professionals pages. Our standard is the
+                honest one: editorial-team maintenance with primary-source verification,
+                documented on this page.
+              </li>
+            </ul>
+          </div>
+          <div className="rounded-lg border border-border/30 bg-card/50 p-4">
+            <p className="text-sm font-semibold text-foreground mb-1">October 30, 2026</p>
+            <ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground ml-2">
+              <li>
+                Fixed a display bug in the homepage calculator hero: the effective tax
+                rate was rendering the raw fraction (0.23) instead of a percentage
+                (22.6%). The underlying math was correct; only the display formatting was
+                wrong.
+              </li>
+              <li>
+                State take-home figures on state pages are now derived by the same
+                calculation engine as the interactive tools, eliminating a display
+                inconsistency where Washington and Florida showed different results at
+                the same income.
+              </li>
+              <li>
+                All 50 state rate cells in the state-by-state table now render from
+                engine data (previously some displayed an em-dash placeholder).
+              </li>
+            </ul>
+          </div>
+          <div className="rounded-lg border border-border/30 bg-card/50 p-4">
+            <p className="text-sm font-semibold text-foreground mb-1">October 2026</p>
+            <ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground ml-2">
+              <li>
+                One Big Beautiful Bill Act (OBBBA) provisions incorporated site-wide: the
+                $6,000/$12,000 senior deduction, expanded Child Tax Credit ($2,200 with
+                $1,700 refundable), tip/overtime deduction rules, SALT cap changes, and a
+                dedicated OBBBA comparison calculator.
+              </li>
+              <li>
+                2027 projection page published ahead of the IRS revenue procedure
+                (expected early-to-mid November 2026). It will be reconciled against the
+                official figures the same day they publish.
+              </li>
+            </ul>
+          </div>
+          <div className="rounded-lg border border-border/30 bg-card/50 p-4">
+            <p className="text-sm font-semibold text-foreground mb-1">January 2026</p>
+            <ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground ml-2">
+              <li>
+                2026 tax-year data loaded across all calculators: seven federal brackets
+                per Rev. Proc. 2025-32, standard deductions ($16,100 single / $32,200 MFJ
+                / $24,150 HoH), $184,500 SSA wage base, and refreshed income and sales
+                tax tables for all 50 states.
+              </li>
+            </ul>
+          </div>
+        </div>
       </section>
     </div>
   );

@@ -1,14 +1,960 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>TheTaxCalc — Free 2026 Tax Calculators</title>
+    <title>TheTaxCalc — Tax Calculators &amp; Guides</title>
     <link>https://thetaxcalc.com</link>
-    <description>Free 2026 paycheck, mortgage, 401(k), capital gains, and self-employment tax calculators for IL, TX, FL, CA, NY.</description>
+    <description>Free 2026 tax calculators — paycheck, mortgage, 401(k), capital gains, and self-employment.</description>
     <language>en-us</language>
-    <lastBuildDate>2026-01-01T00:00:00Z</lastBuildDate>
+    <lastBuildDate>Sat, 31 Oct 2026 09:39:56 GMT</lastBuildDate>
     <atom:link href="https://thetaxcalc.com/feed.xml" rel="self" type="application/rss+xml" />
-    <copyright>Copyright 2026 TheTaxCalc</copyright>
-    <managingEditor>info@thetaxcalc.com (TheTaxCalc)</managingEditor>
-    <webMaster>info@thetaxcalc.com (TheTaxCalc)</webMaster>
+    <copyright>Copyright 2026 TheTaxCalc.com</copyright>
+    <managingEditor>contact@thetaxcalc.com (TheTaxCalc)</managingEditor>
+    <webMaster>contact@thetaxcalc.com (TheTaxCalc)</webMaster>
+    <item>
+      <title>Free Paycheck Calculator 2026 — Instant Results</title>
+      <link>https://thetaxcalc.com/paycheck-calculator</link>
+      <description>Free paycheck tax calculator for 2026. Calculate take-home pay after federal, FICA &amp; state taxes. No sign-up. Covers IL, TX, FL, CA, NY.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/paycheck-calculator</guid>
+      <category>Tax Calculator</category>
+    </item>
+    <item>
+      <title>Illinois Tax Calculator 2026 — Free, Instant Take-Home Pay</title>
+      <link>https://thetaxcalc.com/illinois-tax-calculator</link>
+      <description>Enter your salary and instantly see your Illinois take-home pay. Flat 4.95% tax, exact numbers for 2026. Free, no signup — try it now!</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/illinois-tax-calculator</guid>
+      <category>Tax Calculator</category>
+    </item>
+    <item>
+      <title>Texas Tax Calculator 2026 — 0% State Tax, Instant Results</title>
+      <link>https://thetaxcalc.com/texas-tax-calculator</link>
+      <description>Texas has 0% state income tax. On $75K, keep $61,592. Calculate your exact TX take-home pay. Free 2026 calculator, no sign-up.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/texas-tax-calculator</guid>
+      <category>Tax Calculator</category>
+    </item>
+    <item>
+      <title>Florida Tax Calculator 2026 — Free, 0% State Tax</title>
+      <link>https://thetaxcalc.com/florida-tax-calculator</link>
+      <description>Florida has 0% income tax! Enter your salary and instantly see your full take-home pay. Free 2026 Florida tax calculator — no signup required.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/florida-tax-calculator</guid>
+      <category>Tax Calculator</category>
+    </item>
+    <item>
+      <title>California Tax Calculator 2026 — Free, Instant Take-Home Pay</title>
+      <link>https://thetaxcalc.com/california-tax-calculator</link>
+      <description>California charges up to 13.3% state tax. Enter your salary and instantly see your exact CA take-home pay. Free 2026 calculator, no signup.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/california-tax-calculator</guid>
+      <category>Tax Calculator</category>
+    </item>
+    <item>
+      <title>New York Tax Calculator 2026 — Free, Instant NYC Tax Results</title>
+      <link>https://thetaxcalc.com/new-york-tax-calculator</link>
+      <description>NY charges up to 10.9% + NYC tax. New York: enter your salary and instantly see your exact NY take-home pay. Free 2026 calculator, no signup.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/new-york-tax-calculator</guid>
+      <category>Tax Calculator</category>
+    </item>
+    <item>
+      <title>Free Mortgage Calculator 2026 | Payment &amp; Amortization</title>
+      <link>https://thetaxcalc.com/mortgage-calculator</link>
+      <description>Free mortgage calculator with extra payments, amortization &amp; payoff comparison. No sign-up. Calculate monthly payment and interest.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/mortgage-calculator</guid>
+      <category>Tax Calculator</category>
+    </item>
+    <item>
+      <title>Free 401(k) Calculator 2026 | Retirement Projections</title>
+      <link>https://thetaxcalc.com/401k-retirement-calculator</link>
+      <description>Free 401(k) calculator 2026. Project balance with employer match &amp; compound growth. No sign-up. Visual charts included.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/401k-retirement-calculator</guid>
+      <category>Tax Calculator</category>
+    </item>
+    <item>
+      <title>Free Relocation Tax Calculator 2026 — Compare Take-Home Pay</title>
+      <link>https://thetaxcalc.com/relocation-calculator</link>
+      <description>Free relocation calculator 2026. Compare take-home pay in IL, TX, FL, CA, NY. No sign-up. Find equivalent salary by state.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/relocation-calculator</guid>
+      <category>Tax Calculator</category>
+    </item>
+    <item>
+      <title>Free Capital Gains Tax Calculator 2026 | Short &amp; Long-Term</title>
+      <link>https://thetaxcalc.com/capital-gains-calculator</link>
+      <description>Free capital gains tax calculator 2026. Short-term (up to 37%) &amp; long-term (0%/15%/20% + NIIT). No sign-up.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/capital-gains-calculator</guid>
+      <category>Tax Calculator</category>
+    </item>
+    <item>
+      <title>Free Self-Employment Tax Calculator 2026 — 1099 &amp; SE Tax</title>
+      <link>https://thetaxcalc.com/self-employment-tax-calculator</link>
+      <description>Self-employment tax is 15.3% on 92.35% of net earnings. Calculate your exact SE tax, half deduction and quarterly estimates — free 2026 calculator, no signup.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/self-employment-tax-calculator</guid>
+      <category>Tax Calculator</category>
+    </item>
+    <item>
+      <title>Sales Tax Calculator 2026 — All 50 State Rates + Reverse</title>
+      <link>https://thetaxcalc.com/sales-tax-calculator</link>
+      <description>Your state’s exact sales tax rate, instantly. Enter any amount — or a receipt total to reverse out the tax. Free 2026 calculator, no signup.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/sales-tax-calculator</guid>
+      <category>Tax Calculator</category>
+    </item>
+    <item>
+      <title>Free Tax Refund Calculator 2026 — Estimate Your Refund</title>
+      <link>https://thetaxcalc.com/tax-refund-calculator</link>
+      <description>Free tax refund calculator 2026. Estimate your federal and state refund based on income, withholding, deductions &amp; credits. No sign-up required.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/tax-refund-calculator</guid>
+      <category>Tax Calculator</category>
+    </item>
+    <item>
+      <title>Free Overtime Tax Calculator 2026 — After-Tax OT Pay</title>
+      <link>https://thetaxcalc.com/overtime-tax-calculator</link>
+      <description>Free overtime tax calculator 2026. Calculate after-tax overtime pay at 1.5x rate. Federal, FICA &amp; state taxes included. No sign-up required.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/overtime-tax-calculator</guid>
+      <category>Tax Calculator</category>
+    </item>
+    <item>
+      <title>Georgia Tax Calculator 2026 — 4.99% Flat | $75K = $58,599</title>
+      <link>https://thetaxcalc.com/georgia-tax-calculator</link>
+      <description>GA flat 4.99% income tax, $15,000 standard deduction. On $75K salary you keep ~$58,599. Calculate your exact Georgia 2026 take-home pay. Free, no sign-up.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/georgia-tax-calculator</guid>
+      <category>Tax Calculator</category>
+    </item>
+    <item>
+      <title>Free Lottery Tax Calculator 2026 — Powerball Payout</title>
+      <link>https://thetaxcalc.com/lottery-tax-calculator</link>
+      <description>Instant lottery tax calculator. See your actual Powerball &amp; Mega Millions payout after federal + state tax. Free, no signup — try it now!</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/lottery-tax-calculator</guid>
+      <category>Tax Calculator</category>
+    </item>
+    <item>
+      <title>Free IRS Withholding Calculator 2026 — W-4 Optimization Tool</title>
+      <link>https://thetaxcalc.com/irs-withholding-calculator</link>
+      <description>Free IRS W-4 withholding calculator 2026. Find your exact federal withholding per paycheck to avoid penalties &amp; overpayment. Based on IRS Pub 15-T.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/irs-withholding-calculator</guid>
+      <category>Tax Calculator</category>
+    </item>
+    <item>
+      <title>Free Property Tax Calculator 2026 — Cost by State</title>
+      <link>https://thetaxcalc.com/property-tax-calculator</link>
+      <description>Enter your home value and instantly see your property tax for any state. Free 2026 property tax calculator — no signup required.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/property-tax-calculator</guid>
+      <category>Tax Calculator</category>
+    </item>
+    <item>
+      <title>Free Bonus Tax Calculator 2026 — 22% Flat vs Aggregate</title>
+      <link>https://thetaxcalc.com/bonus-tax-calculator</link>
+      <description>A $5K bonus nets only ~$3,400 after 22% federal + FICA + state taxes. Compare flat vs aggregate method &amp; see your real after-tax bonus. Free 2026 tool.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/bonus-tax-calculator</guid>
+      <category>Tax Calculator</category>
+    </item>
+    <item>
+      <title>North Carolina Tax Calculator 2026 | 3.99% Flat Rate</title>
+      <link>https://thetaxcalc.com/north-carolina-tax-calculator</link>
+      <description>Free North Carolina tax calculator 2026. Take-home pay after 3.99% flat tax and $12,750 standard deduction. No sign-up.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/north-carolina-tax-calculator</guid>
+      <category>Tax Calculator</category>
+    </item>
+    <item>
+      <title>Pennsylvania Tax Calculator 2026 | 3.07% Flat Rate</title>
+      <link>https://thetaxcalc.com/pennsylvania-tax-calculator</link>
+      <description>Free Pennsylvania tax calculator 2026. Take-home pay after 3.07% flat tax. No state deductions. No sign-up.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/pennsylvania-tax-calculator</guid>
+      <category>Tax Calculator</category>
+    </item>
+    <item>
+      <title>Ohio Tax Calculator 2026 | 0% to 2.75% Rate</title>
+      <link>https://thetaxcalc.com/ohio-tax-calculator</link>
+      <description>Free Ohio tax calculator 2026. Take-home pay after progressive tax (0%–2.75%). First $26,050 tax-free. No sign-up.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/ohio-tax-calculator</guid>
+      <category>Tax Calculator</category>
+    </item>
+    <item>
+      <title>Michigan Tax Calculator 2026 | 4.25% Flat Rate</title>
+      <link>https://thetaxcalc.com/michigan-tax-calculator</link>
+      <description>Free Michigan tax calculator 2026. Take-home pay after 4.25% flat tax and $5,500 personal exemption. No sign-up.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/michigan-tax-calculator</guid>
+      <category>Tax Calculator</category>
+    </item>
+    <item>
+      <title>New Jersey Tax Calculator 2026 | 1.4% to 10.75%</title>
+      <link>https://thetaxcalc.com/new-jersey-tax-calculator</link>
+      <description>Free New Jersey tax calculator 2026. Take-home pay after progressive tax (1.4%–10.75%). No sign-up.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/new-jersey-tax-calculator</guid>
+      <category>Tax Calculator</category>
+    </item>
+    <item>
+      <title>Colorado Tax Calculator 2026 | 4.4% Flat Rate</title>
+      <link>https://thetaxcalc.com/colorado-tax-calculator</link>
+      <description>Free Colorado tax calculator 2026. Take-home pay after 4.4% flat tax. Uses federal taxable income. No sign-up.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/colorado-tax-calculator</guid>
+      <category>Tax Calculator</category>
+    </item>
+    <item>
+      <title>Arizona Income Tax 2026: 2.5% Flat Rate — Free Calculator</title>
+      <link>https://thetaxcalc.com/arizona-tax-calculator</link>
+      <description>Arizona&apos;s 2.5% flat income tax is one of the lowest in the US. On $75K that&apos;s ~$1,875. Calculate your exact AZ take-home pay. Free 2026 calculator.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/arizona-tax-calculator</guid>
+      <category>Tax Calculator</category>
+    </item>
+    <item>
+      <title>Washington Tax Calculator 2026: No Income Tax in WA</title>
+      <link>https://thetaxcalc.com/washington-tax-calculator</link>
+      <description>Washington has no state income tax on wages — 0%. A $75,000 salary keeps $61,592 take-home (federal + FICA only). Free 2026 WA tax calculator, no signup.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/washington-tax-calculator</guid>
+      <category>Tax Calculator</category>
+    </item>
+    <item>
+      <title>Massachusetts Tax Calculator 2026 | 5% Flat &amp; 9% Surtax</title>
+      <link>https://thetaxcalc.com/massachusetts-tax-calculator</link>
+      <description>Free Massachusetts tax calculator 2026. Take-home pay after 5% flat tax and 9% surtax over $1M. No sign-up.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/massachusetts-tax-calculator</guid>
+      <category>Tax Calculator</category>
+    </item>
+    <item>
+      <title>Indiana Tax Calculator 2026 | 2.95% Flat Rate</title>
+      <link>https://thetaxcalc.com/indiana-tax-calculator</link>
+      <description>Free Indiana tax calculator 2026. Take-home pay after 2.95% flat tax. No sign-up.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/indiana-tax-calculator</guid>
+      <category>Tax Calculator</category>
+    </item>
+    <item>
+      <title>0% Income Tax — Tennessee Tax Calculator 2026</title>
+      <link>https://thetaxcalc.com/tennessee-tax-calculator</link>
+      <description>Tennessee has no state income tax on wages — 0% (the Hall tax ended in 2021). A $75,000 salary keeps $61,592 take-home. Free TN tax calculator.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/tennessee-tax-calculator</guid>
+      <category>Tax Calculator</category>
+    </item>
+    <item>
+      <title>Missouri Tax Calculator 2026 | 0-4.7% Rate</title>
+      <link>https://thetaxcalc.com/missouri-tax-calculator</link>
+      <description>Free Missouri tax calculator 2026. Take-home pay after progressive tax (0%–4.7%). No sign-up.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/missouri-tax-calculator</guid>
+      <category>Tax Calculator</category>
+    </item>
+    <item>
+      <title>Maryland Tax Calculator 2026 | 2-6.5% + County Tax</title>
+      <link>https://thetaxcalc.com/maryland-tax-calculator</link>
+      <description>Free Maryland tax calculator 2026. Take-home pay after progressive tax (2%–6.5%) plus county taxes. No sign-up.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/maryland-tax-calculator</guid>
+      <category>Tax Calculator</category>
+    </item>
+    <item>
+      <title>Wisconsin Tax Calculator 2026 | 3.5-7.65%</title>
+      <link>https://thetaxcalc.com/wisconsin-tax-calculator</link>
+      <description>Free Wisconsin tax calculator 2026. Take-home pay after progressive tax (3.5%–7.65%). No sign-up.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/wisconsin-tax-calculator</guid>
+      <category>Tax Calculator</category>
+    </item>
+    <item>
+      <title>Minnesota Tax Calculator 2026 | 5.35-9.85%</title>
+      <link>https://thetaxcalc.com/minnesota-tax-calculator</link>
+      <description>Free Minnesota tax calculator 2026. Take-home pay after progressive tax (5.35%–9.85%). No sign-up.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/minnesota-tax-calculator</guid>
+      <category>Tax Calculator</category>
+    </item>
+    <item>
+      <title>Oregon Tax Calculator 2026 | 4.75-9.9% Rate</title>
+      <link>https://thetaxcalc.com/oregon-tax-calculator</link>
+      <description>Free Oregon tax calculator 2026. Take-home pay after progressive tax (4.75%–9.9%). No sales tax. No sign-up.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/oregon-tax-calculator</guid>
+      <category>Tax Calculator</category>
+    </item>
+    <item>
+      <title>Virginia Tax Calculator 2026 | 2-5.75% Rate</title>
+      <link>https://thetaxcalc.com/virginia-tax-calculator</link>
+      <description>Calculate 2026 Virginia take-home after 2%-5.75% state tax, federal &amp; FICA. See real numbers instantly. No sign-up.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/virginia-tax-calculator</guid>
+      <category>Tax Calculator</category>
+    </item>
+    <item>
+      <title>0% Income Tax — Alaska Tax Calculator 2026</title>
+      <link>https://thetaxcalc.com/alaska-tax-calculator</link>
+      <description>Alaska has no state income tax — 0%. A $75,000 salary keeps $61,592 take-home (federal + FICA only). Free 2026 Alaska tax calculator, no signup.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/alaska-tax-calculator</guid>
+      <category>Tax Calculator</category>
+    </item>
+    <item>
+      <title>0% Income Tax — Nevada Tax Calculator 2026</title>
+      <link>https://thetaxcalc.com/nevada-tax-calculator</link>
+      <description>Nevada has no state income tax — 0%. A $75,000 salary keeps $61,592 take-home (federal + FICA only). Free 2026 Nevada tax calculator, no signup.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/nevada-tax-calculator</guid>
+      <category>Tax Calculator</category>
+    </item>
+    <item>
+      <title>0% Income Tax — South Dakota Tax Calculator 2026</title>
+      <link>https://thetaxcalc.com/south-dakota-tax-calculator</link>
+      <description>South Dakota has no state income tax — 0%. A $75,000 salary keeps $61,592 take-home (federal + FICA only). Free 2026 South Dakota tax calculator, no signup.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/south-dakota-tax-calculator</guid>
+      <category>Tax Calculator</category>
+    </item>
+    <item>
+      <title>0% Income Tax — Wyoming Tax Calculator 2026</title>
+      <link>https://thetaxcalc.com/wyoming-tax-calculator</link>
+      <description>Wyoming has no state income tax — 0%. A $75,000 salary keeps $61,592 take-home (federal + FICA only). Free 2026 Wyoming tax calculator, no signup.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/wyoming-tax-calculator</guid>
+      <category>Tax Calculator</category>
+    </item>
+    <item>
+      <title>0% Income Tax — New Hampshire Tax Calculator 2026</title>
+      <link>https://thetaxcalc.com/new-hampshire-tax-calculator</link>
+      <description>New Hampshire has no income tax on wages, and its dividend tax hit 0% in 2026. A $75,000 salary keeps $61,592 take-home. Free NH tax calculator.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/new-hampshire-tax-calculator</guid>
+      <category>Tax Calculator</category>
+    </item>
+    <item>
+      <title>Idaho Tax Calculator 2026 | 5.3% Flat Rate</title>
+      <link>https://thetaxcalc.com/idaho-tax-calculator</link>
+      <description>Free Idaho tax calculator 2026. Take-home pay after 5.3% flat tax. No sign-up.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/idaho-tax-calculator</guid>
+      <category>Tax Calculator</category>
+    </item>
+    <item>
+      <title>Kentucky Tax Calculator 2026 | 3.5% Flat Rate</title>
+      <link>https://thetaxcalc.com/kentucky-tax-calculator</link>
+      <description>Free Kentucky tax calculator 2026. Take-home pay after 3.5% flat tax. No sign-up.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/kentucky-tax-calculator</guid>
+      <category>Tax Calculator</category>
+    </item>
+    <item>
+      <title>Mississippi Tax Calculator 2026 | 4% Flat Rate</title>
+      <link>https://thetaxcalc.com/mississippi-tax-calculator</link>
+      <description>Free Mississippi tax calculator 2026. Take-home pay after 4% flat tax. No sign-up.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/mississippi-tax-calculator</guid>
+      <category>Tax Calculator</category>
+    </item>
+    <item>
+      <title>Utah Tax Calculator 2026 | 4.45% Flat Rate</title>
+      <link>https://thetaxcalc.com/utah-tax-calculator</link>
+      <description>Free Utah tax calculator 2026. Take-home pay after 4.45% flat tax. No sign-up.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/utah-tax-calculator</guid>
+      <category>Tax Calculator</category>
+    </item>
+    <item>
+      <title>Alabama Tax Calculator 2026: 2-5% Progressive</title>
+      <link>https://thetaxcalc.com/alabama-tax-calculator</link>
+      <description>Free Alabama tax calculator 2026. Take-home pay after progressive tax (2%–5%). No sign-up.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/alabama-tax-calculator</guid>
+      <category>Tax Calculator</category>
+    </item>
+    <item>
+      <title>Arkansas Tax Calculator 2026 | 0-3.9% Progressive</title>
+      <link>https://thetaxcalc.com/arkansas-tax-calculator</link>
+      <description>Free Arkansas tax calculator 2026. Take-home pay after progressive tax (0%–3.9%). No sign-up.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/arkansas-tax-calculator</guid>
+      <category>Tax Calculator</category>
+    </item>
+    <item>
+      <title>Connecticut Tax Calculator 2026 | 2-6.99% Progressive</title>
+      <link>https://thetaxcalc.com/connecticut-tax-calculator</link>
+      <description>Free Connecticut tax calculator 2026. Take-home pay after progressive tax (2%–6.99%). No sign-up.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/connecticut-tax-calculator</guid>
+      <category>Tax Calculator</category>
+    </item>
+    <item>
+      <title>Delaware Tax Calculator 2026 | 0-6.6% Progressive</title>
+      <link>https://thetaxcalc.com/delaware-tax-calculator</link>
+      <description>Free Delaware tax calculator 2026. Take-home pay after progressive tax (0%–6.6%). No sign-up.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/delaware-tax-calculator</guid>
+      <category>Tax Calculator</category>
+    </item>
+    <item>
+      <title>Hawaii Tax Calculator 2026 | 1.4-11% Progressive</title>
+      <link>https://thetaxcalc.com/hawaii-tax-calculator</link>
+      <description>Free Hawaii tax calculator 2026. Take-home pay after progressive tax (1.4%–11%). No sign-up.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/hawaii-tax-calculator</guid>
+      <category>Tax Calculator</category>
+    </item>
+    <item>
+      <title>Iowa Tax Calculator 2026 | 3.8% Flat Rate</title>
+      <link>https://thetaxcalc.com/iowa-tax-calculator</link>
+      <description>Free Iowa tax calculator 2026. Take-home pay after 3.8% flat tax. No sign-up.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/iowa-tax-calculator</guid>
+      <category>Tax Calculator</category>
+    </item>
+    <item>
+      <title>Kansas Tax Calculator 2026 | 5.2-5.58% Rate</title>
+      <link>https://thetaxcalc.com/kansas-tax-calculator</link>
+      <description>Free Kansas tax calculator 2026. Take-home pay after progressive tax (5.2%–5.58%). No sign-up.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/kansas-tax-calculator</guid>
+      <category>Tax Calculator</category>
+    </item>
+    <item>
+      <title>Louisiana Tax Calculator 2026 | 3% Flat Rate</title>
+      <link>https://thetaxcalc.com/louisiana-tax-calculator</link>
+      <description>Free Louisiana tax calculator 2026. Take-home pay after the 3% flat tax. No sign-up.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/louisiana-tax-calculator</guid>
+      <category>Tax Calculator</category>
+    </item>
+    <item>
+      <title>Maine Tax Calculator 2026 | 5.8-7.15% Progressive</title>
+      <link>https://thetaxcalc.com/maine-tax-calculator</link>
+      <description>Free Maine tax calculator 2026. Take-home pay after progressive tax (5.8%–7.15%). No sign-up.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/maine-tax-calculator</guid>
+      <category>Tax Calculator</category>
+    </item>
+    <item>
+      <title>Montana Tax Calculator 2026 | 4.7-5.65% Rate</title>
+      <link>https://thetaxcalc.com/montana-tax-calculator</link>
+      <description>Free Montana tax calculator 2026. Take-home pay after progressive tax (4.7%–5.65%). No sales tax. No sign-up.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/montana-tax-calculator</guid>
+      <category>Tax Calculator</category>
+    </item>
+    <item>
+      <title>Nebraska Tax Calculator 2026 | 2.46-4.55% Progressive</title>
+      <link>https://thetaxcalc.com/nebraska-tax-calculator</link>
+      <description>Free Nebraska tax calculator 2026. Take-home pay after progressive tax (2.46%–4.55%). No sign-up.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/nebraska-tax-calculator</guid>
+      <category>Tax Calculator</category>
+    </item>
+    <item>
+      <title>New Mexico Tax Calculator 2026 | 1.5-5.9% Progressive</title>
+      <link>https://thetaxcalc.com/new-mexico-tax-calculator</link>
+      <description>Free New Mexico tax calculator 2026. Take-home pay after progressive tax (1.5%–5.9%). No sign-up.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/new-mexico-tax-calculator</guid>
+      <category>Tax Calculator</category>
+    </item>
+    <item>
+      <title>North Dakota Tax Calculator 2026 | 0-2.5% Rate</title>
+      <link>https://thetaxcalc.com/north-dakota-tax-calculator</link>
+      <description>Free North Dakota tax calculator 2026. Take-home pay after progressive tax (0%–2.5%). No sign-up.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/north-dakota-tax-calculator</guid>
+      <category>Tax Calculator</category>
+    </item>
+    <item>
+      <title>Oklahoma Tax Calculator 2026 | 0-4.5% Progressive</title>
+      <link>https://thetaxcalc.com/oklahoma-tax-calculator</link>
+      <description>Free Oklahoma tax calculator 2026. Take-home pay after progressive tax (0%–4.5%). No sign-up.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/oklahoma-tax-calculator</guid>
+      <category>Tax Calculator</category>
+    </item>
+    <item>
+      <title>Rhode Island Tax Calculator 2026 | 3.75-5.99% Progressive</title>
+      <link>https://thetaxcalc.com/rhode-island-tax-calculator</link>
+      <description>Free Rhode Island tax calculator 2026. Take-home pay after progressive tax (3.75%–5.99%). No sign-up.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/rhode-island-tax-calculator</guid>
+      <category>Tax Calculator</category>
+    </item>
+    <item>
+      <title>South Carolina Tax Calculator 2026 | 0-6% Progressive</title>
+      <link>https://thetaxcalc.com/south-carolina-tax-calculator</link>
+      <description>Free South Carolina tax calculator 2026. Take-home pay after progressive tax (up to 6%). No sign-up.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/south-carolina-tax-calculator</guid>
+      <category>Tax Calculator</category>
+    </item>
+    <item>
+      <title>Vermont Tax Calculator 2026 | 3.35-8.75% Progressive</title>
+      <link>https://thetaxcalc.com/vermont-tax-calculator</link>
+      <description>Free Vermont tax calculator 2026. Take-home pay after progressive tax (3.35%–8.75%). No sign-up.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/vermont-tax-calculator</guid>
+      <category>Tax Calculator</category>
+    </item>
+    <item>
+      <title>Free Employee Cost Calculator 2026 — True Cost of Hiring</title>
+      <link>https://thetaxcalc.com/employee-cost-calculator</link>
+      <description>Free 2026 employee cost calculator. Estimate total payroll cost including salary, employer FICA, FUTA, SUTA, and benefits. For 1–49 employees. No signup.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/employee-cost-calculator</guid>
+      <category>Tax Calculator</category>
+    </item>
+    <item>
+      <title>West Virginia Tax Calculator 2026 | 2.11-4.58% Progressive</title>
+      <link>https://thetaxcalc.com/west-virginia-tax-calculator</link>
+      <description>Free West Virginia tax calculator 2026. Take-home pay after progressive tax (2.11%–4.58%). No sign-up.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/west-virginia-tax-calculator</guid>
+      <category>Tax Calculator</category>
+    </item>
+    <item>
+      <title>NYC Tax Calculator 2026 | Calculate Local Taxes</title>
+      <link>https://thetaxcalc.com/new-york-city-tax-calculator</link>
+      <description>Free New York City tax calculator 2026. Take-home pay after federal, NY state, and NYC local taxes. No sign-up.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/new-york-city-tax-calculator</guid>
+      <category>Tax Calculator</category>
+    </item>
+    <item>
+      <title>Los Angeles Tax Calculator 2026 | LA Take-Home Pay</title>
+      <link>https://thetaxcalc.com/los-angeles-tax-calculator</link>
+      <description>Free Los Angeles tax calculator 2026. Calculate your true take-home pay in LA after all California state and federal taxes. No sign-up.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/los-angeles-tax-calculator</guid>
+      <category>Tax Calculator</category>
+    </item>
+    <item>
+      <title>Chicago Tax Calculator 2026 | Illinois Take-Home</title>
+      <link>https://thetaxcalc.com/chicago-tax-calculator</link>
+      <description>Free Chicago tax calculator 2026. Take-home pay after federal, Illinois 4.95% state tax, and FICA. No sign-up.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/chicago-tax-calculator</guid>
+      <category>Tax Calculator</category>
+    </item>
+    <item>
+      <title>Hourly to Salary Calculator 2026 — Instant Conversion + Take-Home</title>
+      <link>https://thetaxcalc.com/hourly-to-salary-calculator</link>
+      <description>Convert hourly to salary instantly: $25/hr = $52,000/year. Weekly, bi-weekly, monthly pay + take-home after tax in your state. Overtime at 1.5× included. Free.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/hourly-to-salary-calculator</guid>
+      <category>Tax Calculator</category>
+    </item>
+    <item>
+      <title>Compound Interest Calculator 2026 — Free Growth Projector + Chart</title>
+      <link>https://thetaxcalc.com/compound-interest-calculator</link>
+      <description>Free compound interest calculator with monthly contributions, growth chart, and year-by-year milestones. See how savings snowball — and how taxes shrink (or spare) the snowball.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/compound-interest-calculator</guid>
+      <category>Tax Calculator</category>
+    </item>
+    <item>
+      <title>Marriage Tax Calculator 2026 — Penalty vs Bonus, Exact Brackets</title>
+      <link>https://thetaxcalc.com/marriage-tax-calculator</link>
+      <description>Will marriage raise or cut your taxes? Compare two single returns vs married filing jointly with exact 2026 federal brackets. Free, instant, no sign-up.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/marriage-tax-calculator</guid>
+      <category>Tax Calculator</category>
+    </item>
+    <item>
+      <title>Auto Loan Calculator 2026 — Car Payment &amp; Total Cost</title>
+      <link>https://thetaxcalc.com/auto-loan-calculator</link>
+      <description>Free auto loan calculator for 2026. Estimate your monthly car payment with sales tax, trade-in and dealer fees, plus total interest and payoff schedule.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/auto-loan-calculator</guid>
+      <category>Tax Calculator</category>
+    </item>
+    <item>
+      <title>Loan Calculator 2026 — Monthly Payment &amp; Total Interest</title>
+      <link>https://thetaxcalc.com/loan-calculator</link>
+      <description>Free loan calculator for 2026. Compute any fixed-rate loan payment, total interest and payoff schedule, and see how extra payments cut months and interest.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/loan-calculator</guid>
+      <category>Tax Calculator</category>
+    </item>
+    <item>
+      <title>Personal Loan Calculator 2026 — Monthly Payment &amp; APR</title>
+      <link>https://thetaxcalc.com/personal-loan-calculator</link>
+      <description>Free personal loan calculator for 2026. See your monthly payment, total interest cost and 36 vs 48 vs 60 month trade-offs, plus typical APR by credit band.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/personal-loan-calculator</guid>
+      <category>Tax Calculator</category>
+    </item>
+    <item>
+      <title>Amortization Calculator 2026 — Schedule &amp; Extra Payments</title>
+      <link>https://thetaxcalc.com/amortization-calculator</link>
+      <description>Free amortization calculator for 2026. Build a full yearly amortization schedule with a cumulative interest chart and extra-payment payoff comparison.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/amortization-calculator</guid>
+      <category>Tax Calculator</category>
+    </item>
+    <item>
+      <title>Free Retirement Calculator 2026 — Will You Have Enough?</title>
+      <link>https://thetaxcalc.com/retirement-calculator</link>
+      <description>Will you have enough to retire? Project your nest egg, test it with the 4% rule, and see the monthly savings needed to close the gap. Free, no sign-up.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/retirement-calculator</guid>
+      <category>Tax Calculator</category>
+    </item>
+    <item>
+      <title>Free Roth IRA Calculator 2026 — Limits &amp; Tax-Free Growth</title>
+      <link>https://thetaxcalc.com/roth-ira-calculator</link>
+      <description>Project your Roth IRA balance to any age, check 2026 limits and MAGI phase-out bands, and see the tax-free edge vs a taxable brokerage. Free, no sign-up.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/roth-ira-calculator</guid>
+      <category>Tax Calculator</category>
+    </item>
+    <item>
+      <title>CD Calculator 2026 — CD Maturity Value &amp; Interest Earned</title>
+      <link>https://thetaxcalc.com/cd-calculator</link>
+      <description>Free 2026 CD calculator: deposit + APY + term = maturity value, total interest and early-withdrawal penalty impact. FDIC-insured growth, no sign-up required.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/cd-calculator</guid>
+      <category>Tax Calculator</category>
+    </item>
+    <item>
+      <title>Investment Calculator 2026 — Growth, Fees &amp; Inflation</title>
+      <link>https://thetaxcalc.com/investment-calculator</link>
+      <description>Free 2026 investment calculator: initial sum + monthly contributions, growth, fee drag and inflation-adjusted value in today&apos;s dollars. No sign-up required.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/investment-calculator</guid>
+      <category>Tax Calculator</category>
+    </item>
+    <item>
+      <title>Interest Calculator 2026 — Simple vs Compound Interest</title>
+      <link>https://thetaxcalc.com/interest-calculator</link>
+      <description>Free 2026 interest calculator: simple vs compound interest side by side, cumulative interest by year, daily or monthly compounding. No sign-up required.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/interest-calculator</guid>
+      <category>Tax Calculator</category>
+    </item>
+    <item>
+      <title>Time Card Calculator 2026 - Weekly Hours &amp; Gross Pay</title>
+      <link>https://thetaxcalc.com/time-card-calculator</link>
+      <description>Enter clock in and clock out times for each day of the week. Get decimal work hours, overtime over 40 at 1.5x, and weekly gross pay. Free, no sign-up.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/time-card-calculator</guid>
+      <category>Tax Calculator</category>
+    </item>
+    <item>
+      <title>Payroll Calculator 2026 - True Employer Cost Per Period</title>
+      <link>https://thetaxcalc.com/payroll-calculator</link>
+      <description>Run payroll in seconds: per-period gross, employee deductions, employer FICA match, FUTA, SUTA, benefits and your true cost per paycheck. Free 2026 tool.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/payroll-calculator</guid>
+      <category>Tax Calculator</category>
+    </item>
+    <item>
+      <title>Tip Calculator 2026 — Split Bills, Presets, Round-Up</title>
+      <link>https://thetaxcalc.com/tip-calculator</link>
+      <description>Tip calculator for 2026: split the bill, 10-25% presets, tip on the pre-tax subtotal, round-up per person. Free, instant, no sign-up.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/tip-calculator</guid>
+      <category>Tax Calculator</category>
+    </item>
+    <item>
+      <title>Percentage Increase Calculator 2026 — % Change &amp; Difference</title>
+      <link>https://thetaxcalc.com/percentage-increase-calculator</link>
+      <description>Percentage increase calculator: percent change between two numbers, percentage difference, X% of Y, and pay-raise math. Free, instant, no sign-up.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/percentage-increase-calculator</guid>
+      <category>Tax Calculator</category>
+    </item>
+    <item>
+      <title>Inflation Calculator 2026 — CPI Value of Money Over Time</title>
+      <link>https://thetaxcalc.com/inflation-calculator</link>
+      <description>Free inflation calculator built on official BLS CPI-U annual averages (1913-2025). Adjust any amount for US inflation, then project forward. Instant, no sign-up.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/inflation-calculator</guid>
+      <category>Tax Calculator</category>
+    </item>
+    <item>
+      <title>Debt Payoff Calculator 2026 — When Will You Be Debt-Free?</title>
+      <link>https://thetaxcalc.com/debt-payoff-calculator</link>
+      <description>Free credit card payoff calculator: months to payoff, total interest, payoff date, and what extra payments save. Instant schedule, no sign-up.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/debt-payoff-calculator</guid>
+      <category>Tax Calculator</category>
+    </item>
+    <item>
+      <title>Debt-to-Income Calculator 2026 — Front &amp; Back-End DTI</title>
+      <link>https://thetaxcalc.com/debt-to-income-calculator</link>
+      <description>Free debt-to-income ratio calculator for 2026. Front-end and back-end DTI with the 28/36 rule, 43% QM limit and 50% cap explained. Instant, no sign-up.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/debt-to-income-calculator</guid>
+      <category>Tax Calculator</category>
+    </item>
+    <item>
+      <title>OBBBA Tax Refund Impact 2026: How It Changes Your Refund</title>
+      <link>https://thetaxcalc.com/blog/obbba-tax-refund-impact-2026</link>
+      <description>How OBBBA changes your 2026 tax refund. New SALT cap, doubled Child Tax Credit, tip/overtime deductions with examples.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/blog/obbba-tax-refund-impact-2026</guid>
+      <pubDate>Sat, 04 Jul 2026 20:50:00 GMT</pubDate>
+      <category>Tax Guide</category>
+    </item>
+    <item>
+      <title>2026 Federal Tax Refund Estimator: How Much Back?</title>
+      <link>https://thetaxcalc.com/blog/2026-federal-tax-refund-estimator-guide</link>
+      <description>Estimate your 2026 federal tax refund. OBBBA changes, brackets, child tax credit, and examples for W-2 and self-employed.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/blog/2026-federal-tax-refund-estimator-guide</guid>
+      <pubDate>Sat, 04 Jul 2026 20:30:00 GMT</pubDate>
+      <category>Tax Guide</category>
+    </item>
+    <item>
+      <title>2026 Paycheck &amp; Take-Home Pay Calculator Guide: How Much of Your Salary You Actually Keep</title>
+      <link>https://thetaxcalc.com/blog/2026-paycheck-take-home-pay-guide</link>
+      <description>Calculate your 2026 take-home pay. Guide to federal brackets, FICA, state taxes, and payroll deductions with examples.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/blog/2026-paycheck-take-home-pay-guide</guid>
+      <pubDate>Sat, 04 Jul 2026 18:00:00 GMT</pubDate>
+      <category>Tax Guide</category>
+    </item>
+    <item>
+      <title>How Much Tax Do You Pay on a $100K Salary in Every State? (2026)</title>
+      <link>https://thetaxcalc.com/blog/how-much-tax-on-100k-salary-by-state-2026</link>
+      <description>Making $100,000 doesn&apos;t mean taking home $100,000. See exactly how much you&apos;ll take home in all 50 states after federal, state, and FICA taxes in 2026.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/blog/how-much-tax-on-100k-salary-by-state-2026</guid>
+      <pubDate>Thu, 25 Jun 2026 10:00:00 GMT</pubDate>
+      <category>Tax Guide</category>
+    </item>
+    <item>
+      <title>Inheritance Tax Guide 2026: State-by-State Rules, Exemptions &amp; Calculator</title>
+      <link>https://thetaxcalc.com/blog/inheritance-tax-guide-2026</link>
+      <description>Complete inheritance tax guide for 2026. Learn the difference between estate tax and inheritance tax, state-by-state rules, federal exemptions, and how to calculate your inheritance tax liability.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/blog/inheritance-tax-guide-2026</guid>
+      <pubDate>Sun, 21 Jun 2026 12:00:00 GMT</pubDate>
+      <category>Tax Guide</category>
+    </item>
+    <item>
+      <title>401(k) Withdrawal Tax Guide 2026: Rules &amp; Penalties</title>
+      <link>https://thetaxcalc.com/blog/401k-withdrawal-tax-guide-2026</link>
+      <description>Complete guide to 401(k) withdrawal taxes in 2026. Learn early withdrawal penalties, RMD rules, tax implications, 72(t) exceptions, and strategies to minimize taxes on 401(k) withdrawals.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/blog/401k-withdrawal-tax-guide-2026</guid>
+      <pubDate>Sun, 21 Jun 2026 12:00:00 GMT</pubDate>
+      <category>Tax Guide</category>
+    </item>
+    <item>
+      <title>Retirement Tax Planning Guide 2026: Strategies, Brackets &amp; Withdrawals</title>
+      <link>https://thetaxcalc.com/blog/retirement-tax-planning-guide-2026</link>
+      <description>Complete retirement tax planning guide for 2026. Learn tax strategies for retirees, 401(k) withdrawal rules, Social Security taxation, RMDs, and Roth conversions to minimize your tax burden.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/blog/retirement-tax-planning-guide-2026</guid>
+      <pubDate>Sun, 21 Jun 2026 12:00:00 GMT</pubDate>
+      <category>Tax Guide</category>
+    </item>
+    <item>
+      <title>Florida Tax Guide 2026: No Income Tax &amp; Sales Tax &amp; Calculator</title>
+      <link>https://thetaxcalc.com/blog/florida-tax-guide-2026</link>
+      <description>Complete guide to Florida taxes in 2026. No state income tax, 6% sales tax (avg 6.98%), property tax rates, salary after taxes ($50k-$500k), and Florida homestead exemption explained.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/blog/florida-tax-guide-2026</guid>
+      <pubDate>Sat, 20 Jun 2026 12:00:00 GMT</pubDate>
+      <category>Tax Guide</category>
+    </item>
+    <item>
+      <title>2026 Federal Tax Brackets: Complete Guide to US Income Tax Rates &amp; Slabs</title>
+      <link>https://thetaxcalc.com/blog/federal-tax-brackets-2026-guide</link>
+      <description>Complete guide to 2026 federal income tax brackets, standard deductions, tax credits, and how inflation adjustments affect your tax bill.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/blog/federal-tax-brackets-2026-guide</guid>
+      <pubDate>Fri, 19 Jun 2026 12:00:00 GMT</pubDate>
+      <category>Tax Guide</category>
+    </item>
+    <item>
+      <title>California Tax Guide 2026: Income Tax, Sales Tax, and Local Rates</title>
+      <link>https://thetaxcalc.com/blog/california-tax-guide-2026</link>
+      <description>Complete guide to California taxes in 2026. Income tax rates, sales tax rates, district taxes, and total tax amount.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/blog/california-tax-guide-2026</guid>
+      <pubDate>Fri, 19 Jun 2026 12:00:00 GMT</pubDate>
+      <category>Tax Guide</category>
+    </item>
+    <item>
+      <title>Texas Tax Guide 2026: No Income Tax, But What About Property and Sales Tax?</title>
+      <link>https://thetaxcalc.com/blog/texas-tax-guide-2026</link>
+      <description>Texas has no state income tax, but property tax is among the highest. Complete guide to Texas taxes in 2026.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/blog/texas-tax-guide-2026</guid>
+      <pubDate>Fri, 19 Jun 2026 12:00:00 GMT</pubDate>
+      <category>Tax Guide</category>
+    </item>
+    <item>
+      <title>New York State Taxes 2026: NYC Tax, Filing, and What You Owe</title>
+      <link>https://thetaxcalc.com/blog/new-york-tax-guide-2026</link>
+      <description>Complete guide to New York taxes in 2026. NYC tax rates, state income tax brackets, estate tax, and filing.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/blog/new-york-tax-guide-2026</guid>
+      <pubDate>Fri, 19 Jun 2026 12:00:00 GMT</pubDate>
+      <category>Tax Guide</category>
+    </item>
+    <item>
+      <title>Washington State Tax Guide 2026: No Income Tax, But High Sales Tax</title>
+      <link>https://thetaxcalc.com/blog/washington-tax-guide-2026</link>
+      <description>Complete guide to Washington state taxes in 2026. No income tax, but sales tax up to 10.25%.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/blog/washington-tax-guide-2026</guid>
+      <pubDate>Fri, 19 Jun 2026 12:00:00 GMT</pubDate>
+      <category>Tax Guide</category>
+    </item>
+    <item>
+      <title>Sales Tax by State: Complete Guide to US Tax Rates in 2026</title>
+      <link>https://thetaxcalc.com/blog/sales-tax-by-state-guide-2026</link>
+      <description>Complete guide to sales tax rates for all 50 US states in 2026. State rates, local rates, combined rates, tax-exempt items, and how to calculate sales tax. Free calculator included.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/blog/sales-tax-by-state-guide-2026</guid>
+      <pubDate>Mon, 01 Jun 2026 12:00:00 GMT</pubDate>
+      <category>Tax Guide</category>
+    </item>
+    <item>
+      <title>No Tax on Overtime: How the New Law Saves You Money (2025–2028)</title>
+      <link>https://thetaxcalc.com/blog/no-tax-on-overtime-guide-2026</link>
+      <description>Complete guide to the No Tax on Overtime law for 2025-2028. Calculate your savings, understand eligibility, and see how FICA and state taxes still apply. Free calculator.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/blog/no-tax-on-overtime-guide-2026</guid>
+      <pubDate>Mon, 01 Jun 2026 12:00:00 GMT</pubDate>
+      <category>Tax Guide</category>
+    </item>
+    <item>
+      <title>1099 Taxes: How Much Freelancers Really Owe in 2026</title>
+      <link>https://thetaxcalc.com/blog/1099-tax-guide-self-employed-2026</link>
+      <description>The complete guide to 1099 taxes for self-employed freelancers and contractors in 2026. Learn how to calculate your tax bill, maximize deductions, and avoid penalties.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/blog/1099-tax-guide-self-employed-2026</guid>
+      <pubDate>Thu, 28 May 2026 12:00:00 GMT</pubDate>
+      <category>Tax Guide</category>
+    </item>
+    <item>
+      <title>DoorDash Taxes: The Complete Guide for Drivers in 2026</title>
+      <link>https://thetaxcalc.com/blog/doordash-taxes-guide-2026</link>
+      <description>Everything DoorDash drivers need to know about taxes in 2026 — how much you&apos;ll pay, what deductions to claim, and how to avoid surprise tax bills.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/blog/doordash-taxes-guide-2026</guid>
+      <pubDate>Thu, 28 May 2026 12:00:00 GMT</pubDate>
+      <category>Tax Guide</category>
+    </item>
+    <item>
+      <title>Florida vs Texas Tax Comparison</title>
+      <link>https://thetaxcalc.com/blog/florida-vs-texas-tax-comparison</link>
+      <description>A detailed comparison of the tax structures in Florida and Texas — two of the most popular no-income-tax states for relocation.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/blog/florida-vs-texas-tax-comparison</guid>
+      <pubDate>Tue, 26 May 2026 06:59:34 GMT</pubDate>
+      <category>Tax Guide</category>
+    </item>
+    <item>
+      <title>Illinois Income Tax Guide 2026</title>
+      <link>https://thetaxcalc.com/blog/illinois-income-tax-guide-2026</link>
+      <description>Everything you need to know about Illinois income tax in 2026, including the flat tax rate, personal exemptions, and how it compares to neighboring states.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/blog/illinois-income-tax-guide-2026</guid>
+      <pubDate>Tue, 26 May 2026 06:59:34 GMT</pubDate>
+      <category>Tax Guide</category>
+    </item>
+    <item>
+      <title>How to Calculate Sales Tax in 2026: The Formula, Examples, and Rates for Every State</title>
+      <link>https://thetaxcalc.com/blog/how-to-calculate-sales-tax-2026</link>
+      <description>Learn the exact sales tax formula with worked examples at real 2026 rates. Find your combined state, county, and city rate, plus reverse calculation and exemptions.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/blog/how-to-calculate-sales-tax-2026</guid>
+      <pubDate>Sat, 24 Oct 2026 12:45:00 GMT</pubDate>
+      <category>Tax Guide</category>
+    </item>
+    <item>
+      <title>Selling Your House in 2026? Here&apos;s How Much Tax You&apos;ll Actually Pay</title>
+      <link>https://thetaxcalc.com/blog/home-sale-tax-guide-2026</link>
+      <description>How much tax do you pay when you sell your house? The 2026 rules explained: the $250K/$500K exclusion, cost basis, capital gains rates, depreciation recapture, and state taxes — with worked examples.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/blog/home-sale-tax-guide-2026</guid>
+      <pubDate>Sat, 24 Oct 2026 12:30:00 GMT</pubDate>
+      <category>Tax Guide</category>
+    </item>
+    <item>
+      <title>Spreadsheet Formula to Calculate Income Tax (Excel &amp; Google Sheets)</title>
+      <link>https://thetaxcalc.com/blog/spreadsheet-formula-to-calculate-income-tax-2026</link>
+      <description>Ready-to-use spreadsheet formulas for calculating 2026 federal income tax. Nested IF, VLOOKUP, and SUMPRODUCT methods for Excel and Google Sheets.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/blog/spreadsheet-formula-to-calculate-income-tax-2026</guid>
+      <pubDate>Thu, 09 Jul 2026 08:40:00 GMT</pubDate>
+      <category>Tax Guide</category>
+    </item>
+    <item>
+      <title>Federal Income Tax Rate Calculator: How to Calculate Your 2026 Tax</title>
+      <link>https://thetaxcalc.com/blog/federal-income-tax-rate-calculator-guide-2026</link>
+      <description>Free federal income tax rate calculator guide for 2026. Seven tax brackets, standard deductions, step-by-step calculation examples, and OBBBA changes.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/blog/federal-income-tax-rate-calculator-guide-2026</guid>
+      <pubDate>Thu, 09 Jul 2026 08:30:00 GMT</pubDate>
+      <category>Tax Guide</category>
+    </item>
+    <item>
+      <title>Reverse Sales Tax Calculator: How to Calculate Pre-Tax Price</title>
+      <link>https://thetaxcalc.com/blog/reverse-sales-tax-calculator-guide-2026</link>
+      <description>Free reverse sales tax calculator guide. Calculate pre-tax price from any total. Formula, examples by state, and common mistakes to avoid.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/blog/reverse-sales-tax-calculator-guide-2026</guid>
+      <pubDate>Wed, 08 Jul 2026 07:00:00 GMT</pubDate>
+      <category>Tax Guide</category>
+    </item>
+    <item>
+      <title>Best Tax Preparer Near Me: How to Find a Qualified CPA or EA in 2026</title>
+      <link>https://thetaxcalc.com/blog/best-tax-preparer-near-me-2026</link>
+      <description>How to find the best tax preparer near you. CPA vs EA vs unenrolled, cost, red flags, free VITA options, and questions to ask.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/blog/best-tax-preparer-near-me-2026</guid>
+      <pubDate>Tue, 07 Jul 2026 20:30:00 GMT</pubDate>
+      <category>Tax Guide</category>
+    </item>
+    <item>
+      <title>IRS Tax Refund Schedule 2026: When Will You Get It?</title>
+      <link>https://thetaxcalc.com/blog/irs-tax-refund-schedule-2026</link>
+      <description>2026 IRS tax refund schedule. E-file direct deposit takes 8-14 days. Check refund status, processing times, delays, and $3,000 refund qualification.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/blog/irs-tax-refund-schedule-2026</guid>
+      <pubDate>Tue, 07 Jul 2026 20:15:00 GMT</pubDate>
+      <category>Tax Guide</category>
+    </item>
+    <item>
+      <title>Amended Tax Return Guide: How to Check Status and File Form 1040-X</title>
+      <link>https://thetaxcalc.com/blog/amended-tax-return-guide-2026</link>
+      <description>Complete amended tax return guide. How to file Form 1040-X, check amended return status online, processing times, and deadlines.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/blog/amended-tax-return-guide-2026</guid>
+      <pubDate>Tue, 07 Jul 2026 20:10:00 GMT</pubDate>
+      <category>Tax Guide</category>
+    </item>
+    <item>
+      <title>R&amp;D Tax Credit Guide 2026: Qualify as a Startup</title>
+      <link>https://thetaxcalc.com/blog/rd-tax-credit-guide-2026</link>
+      <description>Complete R&amp;D tax credit guide for 2026. Qualification criteria, four-part test, payroll tax offset for startups, and how to calculate your credit.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/blog/rd-tax-credit-guide-2026</guid>
+      <pubDate>Tue, 07 Jul 2026 20:05:00 GMT</pubDate>
+      <category>Tax Guide</category>
+    </item>
+    <item>
+      <title>OASDI Tax Explained: What It Is and How Much You Pay in 2026</title>
+      <link>https://thetaxcalc.com/blog/oasdi-tax-explained-2026</link>
+      <description>OASDI tax is 6.2% of your wages up to $184,500 in 2026. Learn what OASDI means, how it differs from FICA, and how to calculate your Social Security tax.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/blog/oasdi-tax-explained-2026</guid>
+      <pubDate>Tue, 07 Jul 2026 20:00:00 GMT</pubDate>
+      <category>Tax Guide</category>
+    </item>
+    <item>
+      <title>W2 vs 1099 Take-Home Pay: Which Actually Pays More in 2026?</title>
+      <link>https://thetaxcalc.com/blog/1099-vs-w2-take-home-pay-comparison-2026</link>
+      <description>If a company offers you $80k as a W2 employee or $90k as a 1099 contractor, which is the better deal financially? We break down the tax math.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/blog/1099-vs-w2-take-home-pay-comparison-2026</guid>
+      <pubDate>Thu, 25 Jun 2026 10:10:00 GMT</pubDate>
+      <category>Tax Guide</category>
+    </item>
+    <item>
+      <title>Moving from California to Texas: Exactly How Much Tax You&apos;ll Save in 2026</title>
+      <link>https://thetaxcalc.com/blog/moving-from-california-to-texas-tax-savings-2026</link>
+      <description>Is the &quot;Texas migration&quot; worth it financially? We break down exactly how much you save in income tax, and what happens when property taxes enter the chat.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/blog/moving-from-california-to-texas-tax-savings-2026</guid>
+      <pubDate>Thu, 25 Jun 2026 10:05:00 GMT</pubDate>
+      <category>Tax Guide</category>
+    </item>
+    <item>
+      <title>What Is Taxable Income? Complete Guide (2026)</title>
+      <link>https://thetaxcalc.com/blog/what-is-taxable-income-guide-2026</link>
+      <description>What do you get taxed on? Complete guide to taxable and tax-exempt income in 2026. 20 types of taxable income, 20 types of tax-free income, and 12 types of taxes.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/blog/what-is-taxable-income-guide-2026</guid>
+      <pubDate>Sun, 21 Jun 2026 15:00:00 GMT</pubDate>
+      <category>Tax Guide</category>
+    </item>
+    <item>
+      <title>Free Tax Calculator 2026 — No Signup, No Email, Instant Results</title>
+      <link>https://thetaxcalc.com/blog/free-tax-calculator-no-signup-2026</link>
+      <description>Free 2026 tax calculator with no signup, no email, no paywall. Calculate take-home pay, tax refund, self-employment tax, and more. Verified against IRS publications.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/blog/free-tax-calculator-no-signup-2026</guid>
+      <pubDate>Sun, 21 Jun 2026 14:00:00 GMT</pubDate>
+      <category>Tax Guide</category>
+    </item>
+    <item>
+      <title>Take Home Pay Calculator 2026: How Much You Actually Keep</title>
+      <link>https://thetaxcalc.com/blog/take-home-pay-calculator-guide-2026</link>
+      <description>Complete take-home pay guide for 2026. Calculate your net pay after federal, FICA, and state taxes. Real examples for every state. Free calculator, no signup.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/blog/take-home-pay-calculator-guide-2026</guid>
+      <pubDate>Sun, 21 Jun 2026 14:00:00 GMT</pubDate>
+      <category>Tax Guide</category>
+    </item>
+    <item>
+      <title>How Much Tax Will I Owe in 2026? Complete Calculator &amp; Guide</title>
+      <link>https://thetaxcalc.com/blog/how-much-tax-will-i-owe-2026</link>
+      <description>How much tax will you owe on $50K, $75K, $100K? Complete guide with free calculator. Federal tax, FICA, state tax breakdown. No signup required.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/blog/how-much-tax-will-i-owe-2026</guid>
+      <pubDate>Sun, 21 Jun 2026 14:00:00 GMT</pubDate>
+      <category>Tax Guide</category>
+    </item>
+    <item>
+      <title>Tax Questions Answered: Brackets, Overtime &amp; Bonuses (2026)</title>
+      <link>https://thetaxcalc.com/blog/tax-questions-answered-2026</link>
+      <description>Complete FAQ guide to common tax questions for 2026. Overtime taxes, bonus taxes, tax brackets, state comparisons, and property tax deductions.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/blog/tax-questions-answered-2026</guid>
+      <pubDate>Sun, 21 Jun 2026 13:00:00 GMT</pubDate>
+      <category>Tax Guide</category>
+    </item>
+    <item>
+      <title>How Are Bonuses Taxed in 2026? The 22% Flat Rate Explained</title>
+      <link>https://thetaxcalc.com/blog/how-bonuses-are-taxed-2026</link>
+      <description>Complete guide to bonus taxation in 2026. Understand the 22% flat rate vs aggregate method, FICA on bonuses, and state taxes. Free bonus tax calculator.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/blog/how-bonuses-are-taxed-2026</guid>
+      <pubDate>Mon, 01 Jun 2026 12:00:00 GMT</pubDate>
+      <category>Tax Guide</category>
+    </item>
+    <item>
+      <title>Property Tax by State: Who Pays the Most (and Least) in 2026</title>
+      <link>https://thetaxcalc.com/blog/property-tax-by-state-guide-2026</link>
+      <description>Complete guide to property tax rates for all 50 US states in 2026. See which states have the highest and lowest property taxes.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/blog/property-tax-by-state-guide-2026</guid>
+      <pubDate>Mon, 01 Jun 2026 12:00:00 GMT</pubDate>
+      <category>Tax Guide</category>
+    </item>
+    <item>
+      <title>Lottery Tax: How Much You Really Keep After Winning in 2026</title>
+      <link>https://thetaxcalc.com/blog/lottery-tax-guide-2026</link>
+      <description>Complete guide to lottery taxes in 2026. Federal tax, state tax, lump sum vs annuity, and how much you actually keep. Free lottery tax calculator.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/blog/lottery-tax-guide-2026</guid>
+      <pubDate>Mon, 01 Jun 2026 12:00:00 GMT</pubDate>
+      <category>Tax Guide</category>
+    </item>
+    <item>
+      <title>IRS Withholding 2026: How to Fill Out Your W-4 and Avoid Surprises</title>
+      <link>https://thetaxcalc.com/blog/irs-withholding-w4-guide-2026</link>
+      <description>Complete guide to IRS withholding and W-4 form for 2026. Calculate your recommended withholding, optimize your paycheck, and avoid tax surprises. Free calculator.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/blog/irs-withholding-w4-guide-2026</guid>
+      <pubDate>Mon, 01 Jun 2026 12:00:00 GMT</pubDate>
+      <category>Tax Guide</category>
+    </item>
+    <item>
+      <title>SEP IRA vs Solo 401k: Best for Self-Employed in 2026</title>
+      <link>https://thetaxcalc.com/blog/sep-ira-solo-401k-guide-2026</link>
+      <description>Complete comparison of SEP IRA and Solo 401k contribution limits, rules, and tax benefits for self-employed workers in 2026. Find out which retirement plan saves you more.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/blog/sep-ira-solo-401k-guide-2026</guid>
+      <pubDate>Thu, 28 May 2026 12:00:00 GMT</pubDate>
+      <category>Tax Guide</category>
+    </item>
+    <item>
+      <title>How FICA Taxes Work in 2026</title>
+      <link>https://thetaxcalc.com/blog/how-fica-taxes-work-2026</link>
+      <description>Understanding FICA taxes (Social Security and Medicare) in 2026 — what you pay, what your employer pays, and how self-employment tax differs.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/blog/how-fica-taxes-work-2026</guid>
+      <pubDate>Tue, 26 May 2026 06:59:34 GMT</pubDate>
+      <category>Tax Guide</category>
+    </item>
+    <item>
+      <title>Why Texas Has No Income Tax</title>
+      <link>https://thetaxcalc.com/blog/why-texas-has-no-income-tax</link>
+      <description>How Texas funds its government without a personal income tax, and what it means for residents in terms of property taxes and overall tax burden.</description>
+      <guid isPermaLink="true">https://thetaxcalc.com/blog/why-texas-has-no-income-tax</guid>
+      <pubDate>Tue, 26 May 2026 06:59:34 GMT</pubDate>
+      <category>Tax Guide</category>
+    </item>
   </channel>
 </rss>

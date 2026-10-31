@@ -147,10 +147,10 @@ TheTaxCalc provides free, accurate tax calculators for federal, state, and local
 ## Blog Posts
 
 - [OBBBA Tax Refund Impact 2026: How It Changes Your Refund](https://thetaxcalc.com/blog/obbba-tax-refund-impact-2026): How OBBBA changes your 2026 tax refund. New SALT cap, doubled Child Tax Credit, tip/overtime deducti
-- [How to Calculate Your 2026 Federal Tax Refund](https://thetaxcalc.com/blog/how-to-calculate-federal-tax-refund-2026): Exact formula for your 2026 federal tax refund. Step-by-step calculation with brackets, deductions, 
-- [Self-Employed Tax Refund Calculator 2026: SE Tax, Quarterly Payments & Deductions](https://thetaxcalc.com/blog/2026-self-employed-tax-refund-calculator): Complete 2026 tax refund guide for self-employed workers, freelancers, and contractors. Calculate SE
-- [W-2 Tax Refund Calculator Guide 2026: Exact Numbers](https://thetaxcalc.com/blog/2026-w2-tax-refund-calculator-guide): 2026 W-2 tax refund guide for employees. Read your W-2, calculate withholding, and estimate your ref
 - [2026 Federal Tax Refund Estimator: How Much Back?](https://thetaxcalc.com/blog/2026-federal-tax-refund-estimator-guide): Estimate your 2026 federal tax refund. OBBBA changes, brackets, child tax credit, and examples for W
+- [2026 Paycheck & Take-Home Pay Calculator Guide: How Much of Your Salary You Actually Keep](https://thetaxcalc.com/blog/2026-paycheck-take-home-pay-guide): Calculate your 2026 take-home pay. Guide to federal brackets, FICA, state taxes, and payroll deducti
+- [How Much Tax Do You Pay on a $100K Salary in Every State? (2026)](https://thetaxcalc.com/blog/how-much-tax-on-100k-salary-by-state-2026): Making $100,000 doesn't mean taking home $100,000. See exactly how much you'll take home in all 50 s
+- [Inheritance Tax Guide 2026: State-by-State Rules, Exemptions & Calculator](https://thetaxcalc.com/blog/inheritance-tax-guide-2026): Complete inheritance tax guide for 2026. Learn the difference between estate tax and inheritance tax
 
 ## Optional
 

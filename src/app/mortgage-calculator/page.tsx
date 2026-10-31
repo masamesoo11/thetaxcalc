@@ -102,9 +102,9 @@ const MORTGAGE_JSONLD = {
 // ─── Related blog posts (hardcoded to avoid importing blog-index.ts) ────────
 const RELATED_POSTS = [
   {
-    slug: '2026-federal-tax-brackets-explained',
-    title: '2026 Federal Tax Brackets Explained',
-    excerpt: 'Complete guide to the 2026 federal income tax brackets, standard deductions, and how to calculate your effective tax rate.',
+    slug: 'federal-tax-brackets-2026-guide',
+    title: '2026 Federal Tax Brackets: Complete Guide',
+    excerpt: 'Complete guide to 2026 federal tax brackets. Compare IRS 2026 vs 2025 brackets, capital gains rates, Social Security tax rate, and use our federal income tax rate calculator.',
   },
 ];
 

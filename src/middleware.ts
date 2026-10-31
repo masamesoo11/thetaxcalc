@@ -365,13 +365,47 @@ Visit https://thetaxcalc.com/about for the full page.`,
     }
   }
 
+  // ─── Retired page redirects ────────────────────────────────────────────────
+  // Task 48 batch 5 (2026-10-31): /scholarship retired — it advertised a $2,500
+  // award program we cannot actually administer (deception risk flagged by the
+  // external AdSense audit). 301 to the closest topical page so the URL never
+  // 404s for users or crawlers.
+  const PAGE_REDIRECTS: Record<string, string> = {
+    '/scholarship': '/research',
+  };
+
+  if (PAGE_REDIRECTS[pathname]) {
+    return NextResponse.redirect(
+      new URL(PAGE_REDIRECTS[pathname], request.url),
+      301
+    );
+  }
+
   // ─── Blog URL redirects ────────────────────────────────────────────────────
+  // Task 48 batch 5 (2026-10-31): AdSense "mass production of similar content"
+  // fix — 11 overlapping/duplicate articles were consolidated into 7 stronger
+  // canonical guides (unique FAQs, tables, and worked examples folded in; the
+  // absorbed JSON files deleted from content/blog/ and BLOG_INDEX). Each
+  // removed URL 301s to its canonical so users and crawlers never 404 and
+  // link equity is preserved.
   const BLOG_REDIRECTS: Record<string, string> = {
-    '/blog/tax-brackets-2026': '/blog/2026-federal-tax-brackets-explained',
-    '/blog/tax-refund-calculator': '/blog/tax-refund-questions-2026',
+    '/blog/tax-brackets-2026': '/blog/federal-tax-brackets-2026-guide',
+    '/blog/tax-refund-calculator': '/blog/2026-federal-tax-refund-estimator-guide',
     '/blog/income-tax-guide': '/blog/how-much-tax-will-i-owe-2026',
     '/blog/state-tax-comparison': '/blog/florida-vs-texas-tax-comparison',
-    '/blog/tax-tips': '/blog/2026-federal-tax-brackets-explained',
+    '/blog/tax-tips': '/blog/federal-tax-brackets-2026-guide',
+    // Batch 5 (2026-10-31) consolidation redirects — deleted articles → canonicals:
+    '/blog/2026-w2-tax-refund-calculator-guide': '/blog/2026-federal-tax-refund-estimator-guide',
+    '/blog/how-to-calculate-federal-tax-refund-2026': '/blog/2026-federal-tax-refund-estimator-guide',
+    '/blog/2026-self-employed-tax-refund-calculator': '/blog/2026-federal-tax-refund-estimator-guide',
+    '/blog/tax-refund-questions-2026': '/blog/2026-federal-tax-refund-estimator-guide',
+    '/blog/401k-withdrawal-tax-questions-2026': '/blog/401k-withdrawal-tax-guide-2026',
+    '/blog/inheritance-tax-questions-2026': '/blog/inheritance-tax-guide-2026',
+    '/blog/hourly-wage-after-tax-questions-2026': '/blog/2026-paycheck-take-home-pay-guide',
+    '/blog/social-security-tax-questions-2026': '/blog/oasdi-tax-explained-2026',
+    '/blog/bonus-tax-flat-vs-aggregate-method-explained': '/blog/how-bonuses-are-taxed-2026',
+    '/blog/how-to-calculate-overtime-pay-tax-rate': '/blog/no-tax-on-overtime-guide-2026',
+    '/blog/2026-federal-tax-brackets-explained': '/blog/federal-tax-brackets-2026-guide',
     // These articles are now published — redirects removed
     // '/blog/2026-paycheck-take-home-pay-guide': '/blog/take-home-pay-calculator-guide-2026',
     // Task 48 content pruning: 3 off-topic/stale news articles deleted from
@@ -425,10 +459,10 @@ Visit https://thetaxcalc.com/about for the full page.`,
     '/blog/retirement-tax-planning': '/blog/retirement-tax-planning-guide-2026',
     '/blog/401k-withdrawal': '/blog/401k-withdrawal-tax-guide-2026',
     '/blog/inheritance-tax': '/blog/inheritance-tax-guide-2026',
-    '/blog/social-security-tax': '/blog/social-security-tax-questions-2026',
+    '/blog/social-security-tax': '/blog/oasdi-tax-explained-2026',
     '/blog/tax-questions': '/blog/tax-questions-answered-2026',
-    '/blog/tax-refund-questions': '/blog/tax-refund-questions-2026',
-    '/blog/federal-tax-brackets': '/blog/2026-federal-tax-brackets-explained',
+    '/blog/tax-refund-questions': '/blog/2026-federal-tax-refund-estimator-guide',
+    '/blog/federal-tax-brackets': '/blog/federal-tax-brackets-2026-guide',
     '/blog/sales-tax-guide': '/blog/sales-tax-by-state-guide-2026',
     '/blog/property-tax-guide': '/blog/property-tax-by-state-guide-2026',
     '/blog/lottery-tax': '/blog/lottery-tax-guide-2026',

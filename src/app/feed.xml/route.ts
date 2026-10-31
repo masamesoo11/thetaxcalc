@@ -1,4 +1,4 @@
-import { CALCULATOR_ROUTES } from '@/lib/calculator-routes';
+import { CALCULATOR_ROUTES, UNLISTED_CALCULATOR_PATHS } from '@/lib/calculator-routes';
 import { getPublishedPostsMeta } from '@/lib/blog-index';
 import { SITE_URL, SITE_NAME, SITE_DESCRIPTION } from '@/lib/site-config';
 
@@ -6,7 +6,11 @@ import { SITE_URL, SITE_NAME, SITE_DESCRIPTION } from '@/lib/site-config';
 export async function GET() {
   const posts = getPublishedPostsMeta();
 
-  const calculatorItems = CALCULATOR_ROUTES.map(
+  // Batch 5 (2026-10-31): unlisted calculators (robux — noindex + delisted from
+  // the hub) must not be advertised in the RSS feed either.
+  const calculatorItems = CALCULATOR_ROUTES
+    .filter((route) => !UNLISTED_CALCULATOR_PATHS.includes(route.canonicalPath))
+    .map(
     (route) => `    <item>
       <title>${escapeXml(route.metaTitle ?? route.title)}</title>
       <link>${SITE_URL}${route.canonicalPath}</link>
