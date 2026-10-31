@@ -617,15 +617,17 @@ Visit https://thetaxcalc.com/about for the full page.`,
   // contradiction matched the old build byte-for-byte). An AdSense reviewer
   // would have the same experience. New policy:
   //   - max-age=0: browsers revalidate HTML on every visit (cheap 304s)
-  //   - s-maxage=86400: Cloudflare edge still caches 24h — the origin-protection
-  //     that prevents connection timeouts under crawl load stays intact; CF
-  //     Pages purges the edge automatically on every deploy
+  //   - s-maxage=300: Cloudflare's zone cache holds HTML only 5 minutes —
+  //     zone-cache entries are NOT purged by Pages deploys (verified live:
+  //     post-deploy plain fetches still HIT with pre-deploy headers), so a
+  //     long TTL would delay every content fix for its whole window;
+  //     5 min still shields the worker from crawl bursts
   //   - stale-while-revalidate=300: a stale copy may be shown for at most
   //     5 minutes while revalidating in the background (was 7 DAYS)
   const isHtmlPage = !pathname.startsWith('/_next') && !pathname.startsWith('/api') && !pathname.startsWith('/admin') && !pathname.match(/\.(svg|png|jpg|jpeg|gif|webp|ico|xml|json|txt|css|js|woff2?|ttf|eot)$/);
   if (isHtmlPage) {
     response.headers.delete('Cache-Control');
-    response.headers.set('Cache-Control', 'public, max-age=0, s-maxage=86400, stale-while-revalidate=300');
+    response.headers.set('Cache-Control', 'public, max-age=0, s-maxage=300, stale-while-revalidate=300');
   }
 
   // Check if this is a public API route (always allow)
