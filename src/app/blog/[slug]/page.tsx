@@ -39,6 +39,14 @@ function getStaticPosts() {
 
 // ─── Metadata ─────────────────────────────────────────────────────────────────
 
+/**
+ * Task 48 (AdSense content-focus cleanup): off-topic articles stay live for
+ * users who arrive via internal links but are kept OUT of the search index
+ * (noindex, follow) and out of the sitemap (see sitemap-entries.ts).
+ * Remove a slug here (and in NOINDEX_PATHS) to re-index the article.
+ */
+const NOINDEX_POST_SLUGS = new Set(['robux-tax-calculator-guide-2026']);
+
 export async function generateMetadata({
   params,
 }: {
@@ -62,6 +70,9 @@ export async function generateMetadata({
     title: { absolute: metaTitle },
     description: metaDesc,
     keywords: post.tags ? post.tags.split(',').map((t) => t.trim()) : [],
+    robots: NOINDEX_POST_SLUGS.has(slug)
+      ? { index: false, follow: true }
+      : undefined,
     alternates: {
       canonical: `${SITE_URL}/blog/${slug}`,
     },

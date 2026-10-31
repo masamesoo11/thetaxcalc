@@ -16,6 +16,17 @@ import { getPublishedPostsMeta } from '@/lib/blog-index';
 import { SITE_URL, SITE_HOME_URL } from '@/lib/site-config';
 import { ALL_STATE_KEYS, stateKeyToSlug } from '@/lib/state-sales-tax-data';
 
+/**
+ * Task 48 content-focus cleanup (AdSense low-value-content review):
+ * pages kept LIVE for users but deliberately excluded from the sitemap (and
+ * marked `noindex` in their page metadata) because they sit off a tax
+ * site's core topic. Removing a path from this list re-indexes the page.
+ */
+const NOINDEX_PATHS: readonly string[] = [
+  '/robux-tax-calculator', // Roblox marketplace-fee tool (gaming topic)
+  '/blog/robux-tax-calculator-guide-2026', // its companion guide article
+];
+
 export function getSitemapEntries(): MetadataRoute.Sitemap {
   const baseUrl = SITE_URL;
   // Google prefers truthful lastModified values that reflect actual content
@@ -119,5 +130,7 @@ export function getSitemapEntries(): MetadataRoute.Sitemap {
     });
   }
 
-  return entries;
+  // Keep noindex'd pages out of the sitemap (a sitemap listing for a
+  // noindex URL is a contradiction search engines flag).
+  return entries.filter((e) => !NOINDEX_PATHS.some((p) => e.url.endsWith(p)));
 }

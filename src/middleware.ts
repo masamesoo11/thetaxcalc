@@ -374,6 +374,12 @@ Visit https://thetaxcalc.com/about for the full page.`,
     '/blog/tax-tips': '/blog/2026-federal-tax-brackets-explained',
     // These articles are now published — redirects removed
     // '/blog/2026-paycheck-take-home-pay-guide': '/blog/take-home-pay-calculator-guide-2026',
+    // Task 48 content pruning: 3 off-topic/stale news articles deleted from
+    // the blog (AdSense low-value-content review). 301 to the closest live
+    // topic page so removed URLs never 404 for users or crawlers.
+    '/blog/brian-kemp-income-tax-rebates-2026': '/georgia-tax-calculator',
+    '/blog/turbotax-lawsuit-guide-2026': '/freefile-irs',
+    '/blog/alameda-county-property-tax-2026': '/property-tax-calculator',
   };
 
   if (BLOG_REDIRECTS[pathname]) {

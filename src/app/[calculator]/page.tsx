@@ -41,6 +41,14 @@ export function generateStaticParams() {
 
 // ─── Per-Page Metadata ────────────────────────────────────────────────────────
 
+/**
+ * Task 48 (AdSense content-focus cleanup): off-topic tools stay live for
+ * users who arrive via internal links but are kept OUT of the search index
+ * (noindex, follow) and out of the sitemap (see sitemap-entries.ts).
+ * Remove a slug here (and in NOINDEX_PATHS) to re-index the page.
+ */
+const NOINDEX_CALCULATORS = new Set(['robux-tax-calculator']);
+
 export async function generateMetadata({
   params,
 }: {
@@ -60,6 +68,9 @@ export async function generateMetadata({
     description: config.metaDesc,
     keywords: config.keywords,
     authors: [{ name: 'TheTaxCalc Editorial Team' }],
+    robots: NOINDEX_CALCULATORS.has(calculator)
+      ? { index: false, follow: true }
+      : undefined,
     alternates: {
       canonical: `${baseUrl}${config.canonicalPath}`,
     },

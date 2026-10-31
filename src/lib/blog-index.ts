@@ -645,36 +645,6 @@ export const BLOG_INDEX: BlogPostMeta[] = [
     "updatedAt": "2026-07-07T20:15:00.000Z"
   },
   {
-    "id": "brian-kemp-income-tax-rebates-2026",
-    "title": "Brian Kemp Income Tax Rebates 2026: Who Qualifies and How Much?",
-    "slug": "brian-kemp-income-tax-rebates-2026",
-    "excerpt": "Brian Kemp income tax rebates 2026. Up to $500 for Georgia residents. Who qualifies, how much you'll receive, when to expect payment, and how to check.",
-    "category": "tax-guide",
-    "tags": "brian kemp income tax rebates,georgia tax rebate,georgia income tax refund,house bill 112,georgia flat tax,kemp tax rebate 2026",
-    "coverImage": "",
-    "published": true,
-    "featured": false,
-    "metaTitle": "Brian Kemp Income Tax Rebates 2026: Do You Qualify?",
-    "metaDesc": "Brian Kemp income tax rebates 2026. Up to $500 for Georgia residents. Who qualifies, how much you'll receive, when to expect payment, and how to check.",
-    "createdAt": "2026-07-07T20:20:00.000Z",
-    "updatedAt": "2026-10-24"
-  },
-  {
-    "id": "turbotax-lawsuit-guide-2026",
-    "title": "TurboTax Lawsuit Explained: What Happened and What It Means for You",
-    "slug": "turbotax-lawsuit-guide-2026",
-    "excerpt": "TurboTax lawsuit explained. $141M settlement, who qualifies, payment amounts, and how to file taxes for free without TurboTax.",
-    "category": "tax-guide",
-    "tags": "turbotax lawsuit,intuit settlement,turbotax settlement,turbotax free file,irs free file,turbotax lawsuit 2026",
-    "coverImage": "",
-    "published": true,
-    "featured": false,
-    "metaTitle": "TurboTax Lawsuit Explained: What It Means (2026)",
-    "metaDesc": "TurboTax lawsuit explained. $141M settlement, who qualifies, payment amounts, and how to file taxes for free without TurboTax. Complete 2026 guide.",
-    "createdAt": "2026-07-07T20:25:00.000Z",
-    "updatedAt": "2026-07-07T20:25:00.000Z"
-  },
-  {
     "id": "best-tax-preparer-near-me-2026",
     "title": "Best Tax Preparer Near Me: How to Find a Qualified CPA or EA in 2026",
     "slug": "best-tax-preparer-near-me-2026",
@@ -688,21 +658,6 @@ export const BLOG_INDEX: BlogPostMeta[] = [
     "metaDesc": "How to find the best tax preparer near you. CPA vs EA vs unenrolled, cost, red flags, free VITA options, and questions to ask. Complete 2026 guide.",
     "createdAt": "2026-07-07T20:30:00.000Z",
     "updatedAt": "2026-07-07T20:30:00.000Z"
-  },
-  {
-    "id": "alameda-county-property-tax-2026",
-    "title": "Alameda County Property Tax 2026: Rates, Assessment, and How to Pay",
-    "slug": "alameda-county-property-tax-2026",
-    "excerpt": "Complete Alameda County property tax guide 2026. Rates by city, payment schedule, exemptions, how to appeal assessments, and OBBBA SALT cap impact.",
-    "category": "tax-guide",
-    "tags": "alameda county property tax,property tax california,oakland property tax,alameda county tax collector,prop 13,property tax 2026",
-    "coverImage": "",
-    "published": true,
-    "featured": false,
-    "metaTitle": "Alameda County Property Tax 2026: Rates & How to Pay",
-    "metaDesc": "Complete Alameda County property tax guide 2026. Rates by city, payment schedule, exemptions, how to appeal assessments, and OBBBA SALT cap impact.",
-    "createdAt": "2026-07-07T20:35:00.000Z",
-    "updatedAt": "2026-07-07T20:35:00.000Z"
   },
   {
     "id": "reverse-sales-tax-calculator-guide-2026",
