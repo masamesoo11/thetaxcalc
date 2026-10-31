@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: 'Property Tax Disparities Across U.S. States: Effective Rates, Assessment Practices, and Burden Distribution in 2026 | TheTaxCalc Research',
   description: `A 2026 statistical analysis of effective property tax rates across all 50 U.S. states, examining assessment practices and distributional impact.`,
   keywords: ['property tax by state', 'effective property tax rate', 'property tax comparison', 'state property tax rankings', 'property tax burden'],
-  authors: [{ name: 'Rachel Mitchell, CPA & Sarah Johnson' }],
+  authors: [{ name: 'TheTaxCalc Editorial Team' }],
   alternates: {
     canonical: `${SITE_URL}/research/property-tax-by-state-2026`,
   },
@@ -25,7 +25,7 @@ const scholarlyArticleJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'ScholarlyArticle',
   headline: 'Property Tax Disparities Across U.S. States: Effective Rates, Assessment Practices, and Burden Distribution in 2026',
-  author: [{ '@type': 'Person', name: 'Rachel Mitchell, CPA & Sarah Johnson', affiliation: { '@type': 'Organization', name: 'TheTaxCalc Research Division' } }],
+  author: [{ '@type': 'Organization', name: 'TheTaxCalc Editorial Team', affiliation: { '@type': 'Organization', name: 'TheTaxCalc' } }],
   datePublished: '2026-07-04',
   dateModified: '2026-07-04',
   publisher: { '@type': 'Organization', name: 'TheTaxCalc', url: SITE_URL },
@@ -82,7 +82,7 @@ export default function ResearchPage() {
             Property Tax Disparities Across U.S. States: Effective Rates, Assessment Practices, and Burden Distribution in 2026
           </h1>
           <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
-            <span>By Rachel Mitchell, CPA & Sarah Johnson</span>
+            <span>By TheTaxCalc Editorial Team</span>
             <span>•</span>
             <span>Published July 4, 2026</span>
           </div>

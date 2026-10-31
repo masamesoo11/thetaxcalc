@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     'which salary is better after tax',
     'net pay comparison',
   ],
-  authors: [{ name: 'Rachel Mitchell, CPA' }],
+  authors: [{ name: 'TheTaxCalc Editorial Team' }],
   alternates: {
     canonical: `${SITE_URL}/salary-comparison-calculator`,
   },
@@ -222,7 +222,7 @@ export default function SalaryComparisonPage() {
 
       {/* Author */}
       <section className="py-12 border-t border-border/20">
-        <AuthorBioCard authorId="rachel-mitchell" />
+        <AuthorBioCard authorId="editorial-team" />
       </section>
     </div>
   );

@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: 'Tax Refund Statistics 2026: Demographics, Behavioral Patterns, and Trends | TheTaxCalc Research',
   description: `An analysis of IRS tax refund data for the 2025 filing season, examining refund amounts, timing, payment methods, and demographic patterns.`,
   keywords: ['tax refund statistics', 'average tax refund', 'irs refund data', 'tax refund trends', 'refund timing', 'direct deposit refund'],
-  authors: [{ name: 'David Chen & Rachel Mitchell, CPA' }],
+  authors: [{ name: 'TheTaxCalc Editorial Team' }],
   alternates: {
     canonical: `${SITE_URL}/research/tax-refund-statistics-2026`,
   },
@@ -25,7 +25,7 @@ const scholarlyArticleJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'ScholarlyArticle',
   headline: 'Tax Refund Statistics 2026: Demographics, Behavioral Patterns, and Trends',
-  author: [{ '@type': 'Person', name: 'David Chen & Rachel Mitchell, CPA', affiliation: { '@type': 'Organization', name: 'TheTaxCalc Research Division' } }],
+  author: [{ '@type': 'Organization', name: 'TheTaxCalc Editorial Team', affiliation: { '@type': 'Organization', name: 'TheTaxCalc' } }],
   datePublished: '2026-07-04',
   dateModified: '2026-07-04',
   publisher: { '@type': 'Organization', name: 'TheTaxCalc', url: SITE_URL },
@@ -82,7 +82,7 @@ export default function ResearchPage() {
             Tax Refund Statistics 2026: Demographics, Behavioral Patterns, and Trends
           </h1>
           <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
-            <span>By David Chen & Rachel Mitchell, CPA</span>
+            <span>By TheTaxCalc Editorial Team</span>
             <span>•</span>
             <span>Published July 4, 2026</span>
           </div>

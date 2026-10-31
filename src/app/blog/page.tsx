@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   title: 'Tax Blog — 2026 Guides, Tips & News',
   description: 'Expert tax guides, state comparisons, and financial tips updated for 2026. Clear explanations and free calculators to help you keep more of your money.',
   keywords: ['tax blog', 'tax tips', 'tax guide', 'tax news', 'state tax comparison', 'tax planning', 'financial tips'],
-  authors: [{ name: 'Rachel Mitchell, CPA' }],
+  authors: [{ name: 'TheTaxCalc Editorial Team' }],
   alternates: {
     canonical: `${SITE_URL}/blog`,
   },
@@ -107,7 +107,7 @@ export default async function BlogPage() {
       </section>
 
       {/* Author Bio Card — E-E-A-T */}
-      <AuthorBioCard authorId="rachel-mitchell" />
+      <AuthorBioCard authorId="editorial-team" />
 
       {/* Internal Links: Calculator CTA */}
       <section className="mt-12 rounded-xl border border-emerald-500/20 bg-emerald-600/5 p-6">

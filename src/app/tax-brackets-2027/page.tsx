@@ -57,7 +57,7 @@ export const metadata: Metadata = {
     '2027 irs brackets prediction',
     '2027 inflation adjustment tax',
   ],
-  authors: [{ name: 'Rachel Mitchell, CPA' }],
+  authors: [{ name: 'TheTaxCalc Editorial Team' }],
   alternates: {
     canonical: `${SITE_URL}/tax-brackets-2027`,
   },
@@ -633,7 +633,7 @@ export default function TaxBrackets2027Page() {
       {/* ─── Author (E-E-A-T) ──────────────────────────────────────────── */}
       <section className="py-12 border-t border-border/20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <AuthorBioCard authorId="rachel-mitchell" />
+          <AuthorBioCard authorId="editorial-team" />
         </div>
       </section>
     </>

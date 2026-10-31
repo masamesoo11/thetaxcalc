@@ -11,10 +11,10 @@ interface AuthorBioCardProps {
 /**
  * Author Bio Card — E-E-A-T component for Google quality raters.
  *
- * Displays a compact, visually prominent card with the named author's
- * credentials, verified-expert badge, review date, and data-verification
- * notice. Rendered on calculator and blog pages so that YMYL content is
- * clearly attributed to identifiable, credentialed professionals.
+ * Displays a compact, visually prominent card attributing content to the
+ * TheTaxCalc Editorial Team, with a data-review date and a source
+ * verification notice. Rendered on calculator and blog pages so that YMYL
+ * content is clearly attributed and its data provenance is visible.
  */
 export function AuthorBioCard({ authorId, variant = 'light' }: AuthorBioCardProps) {
   const author = getAuthor(authorId);
@@ -39,7 +39,7 @@ export function AuthorBioCard({ authorId, variant = 'light' }: AuthorBioCardProp
         {author.image ? (
           <img
             src={author.image}
-            alt={`${author.name}, ${author.credentials}`}
+            alt={author.credentials ? `${author.name}, ${author.credentials}` : author.name}
             width={48}
             height={48}
             className={`h-12 w-12 shrink-0 rounded-full object-cover ring-1 ${ink ? 'ring-[#c9a961]/40' : 'ring-emerald-500/30'}`}
@@ -47,10 +47,11 @@ export function AuthorBioCard({ authorId, variant = 'light' }: AuthorBioCardProp
           />
         ) : (
           <div className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-full text-sm font-bold ring-1 ${ink ? 'bg-[#c9a961]/15 text-[#c9a961] ring-[#c9a961]/30' : 'bg-emerald-600/15 text-emerald-600 ring-emerald-500/30'}`}>
-            {author.name
-              .split(' ')
-              .map((n) => n[0])
-              .join('')}
+            {author.initials ||
+              author.name
+                .split(' ')
+                .map((n) => n[0])
+                .join('')}
           </div>
         )}
 
@@ -63,9 +64,11 @@ export function AuthorBioCard({ authorId, variant = 'light' }: AuthorBioCardProp
             >
               {author.name}
             </Link>
-            <span className={`inline-flex items-center rounded-md px-2 py-0.5 text-xs font-semibold ring-1 ${ink ? 'bg-[#c9a961]/15 text-[#c9a961] ring-[#c9a961]/25' : 'bg-emerald-600/15 text-emerald-600 ring-emerald-500/25'}`}>
-              {author.credentials}
-            </span>
+            {author.credentials ? (
+              <span className={`inline-flex items-center rounded-md px-2 py-0.5 text-xs font-semibold ring-1 ${ink ? 'bg-[#c9a961]/15 text-[#c9a961] ring-[#c9a961]/25' : 'bg-emerald-600/15 text-emerald-600 ring-emerald-500/25'}`}>
+                {author.credentials}
+              </span>
+            ) : null}
           </div>
 
           {/* Title */}
@@ -95,10 +98,10 @@ export function AuthorBioCard({ authorId, variant = 'light' }: AuthorBioCardProp
                   d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"
                 />
               </svg>
-              Reviewed: January 2026
+              Reviewed: October 2026
             </span>
             <span>
-              Tax data verified against IRS Publication 15-T &amp; state revenue departments
+              Tax data verified against IRS publications &amp; state revenue departments
             </span>
           </div>
         </div>

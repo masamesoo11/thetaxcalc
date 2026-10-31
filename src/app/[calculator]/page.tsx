@@ -59,7 +59,7 @@ export async function generateMetadata({
     title: { absolute: config.metaTitle ?? config.title },
     description: config.metaDesc,
     keywords: config.keywords,
-    authors: [{ name: 'Rachel Mitchell, CPA' }],
+    authors: [{ name: 'TheTaxCalc Editorial Team' }],
     alternates: {
       canonical: `${baseUrl}${config.canonicalPath}`,
     },

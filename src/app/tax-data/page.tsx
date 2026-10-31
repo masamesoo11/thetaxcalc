@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     'tax data for journalists',
     'citable tax data',
   ],
-  authors: [{ name: 'Rachel Mitchell, CPA' }],
+  authors: [{ name: 'TheTaxCalc Editorial Team' }],
   alternates: {
     canonical: `${SITE_URL}/tax-data`,
   },

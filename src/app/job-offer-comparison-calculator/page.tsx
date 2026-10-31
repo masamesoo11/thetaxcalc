@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     'after tax job offer comparison',
     'relocation salary calculator',
   ],
-  authors: [{ name: 'Rachel Mitchell, CPA' }],
+  authors: [{ name: 'TheTaxCalc Editorial Team' }],
   alternates: {
     canonical: `${SITE_URL}/job-offer-comparison-calculator`,
   },
@@ -230,7 +230,7 @@ export default function JobOfferComparisonPage() {
 
       {/* Author */}
       <section className="py-12 border-t border-border/20">
-        <AuthorBioCard authorId="rachel-mitchell" />
+        <AuthorBioCard authorId="editorial-team" />
       </section>
     </div>
   );

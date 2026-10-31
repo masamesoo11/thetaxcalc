@@ -24,10 +24,10 @@ import { getCalculatorAuthor, authorToJsonLd, AUTHORS } from '@/lib/authors';
 import { AuthorBioCard } from '@/components/finance/author-bio-card';
 
 export const metadata: Metadata = {
-    title: 'About TheTaxCalc — Free 2026 Tax Calculators & CPA-Reviewed',
+    title: 'About TheTaxCalc — Free 2026 Tax Calculators & Verified Tax Data',
     description:
       'Learn about TheTaxCalc — our mission to provide free, accurate tax calculators. Understand your take-home pay after federal, FICA, and state taxes.',
-    authors: [{ name: 'Rachel Mitchell, CPA' }],
+    authors: [{ name: 'TheTaxCalc Editorial Team' }],
     keywords: ['about thetaxcalc', 'tax calculator about', 'tax tool mission', 'free tax calculator', 'tax data accuracy', 'tax calculator team'],
     alternates: {
       canonical: `${SITE_URL}/about`,
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
 
 const ABOUT_FAQS = [
   { question: 'Is TheTaxCalc really free? What\'s the catch?', answer: 'No catch. Because all calculations run in your browser and we don\'t store any of your data, our server costs are minimal. No premium tiers, no paywalls, no "unlock full results for $9.99." Just free calculators.' },
-  { question: 'How accurate are the calculations?', answer: 'We use the same data the IRS and state revenue departments publish — the 2026 brackets, standard deductions, FICA rates, the works. Every methodology is reviewed by tax professionals. Our tools give you solid estimates, not guarantees. For filing your actual return, talk to a CPA.' },
+  { question: 'How accurate are the calculations?', answer: 'We use the same data the IRS and state revenue departments publish — the 2026 brackets, standard deductions, FICA rates, the works. Every figure traces back to an official source, and our methodology page documents where each number comes from. Our tools give you solid estimates, not guarantees. For filing your actual return, talk to a CPA.' },
   { question: 'Does TheTaxCalc store my salary or financial data?', answer: 'Nope. When you type your salary into one of our calculators, that number stays in your browser. It never gets sent to our servers. We don\'t have accounts, we don\'t use tracking cookies on calculations, and we couldn\'t tie your data to you even if we wanted to.' },
   { question: 'Do you cover all 50 states?', answer: 'Yes. We cover all 50 states with dedicated income tax calculators and all 50 states for sales tax — from zero-income-tax states (TX, FL, WA, NV, WY, AK, SD, NH, TN) to the highest-tax states (CA, NY), plus flat-tax states (IL, CO, IN, PA, MI, MA) and progressive states across the country. Every state has its own calculator with local rates and rules.' },
   { question: 'When do you update tax brackets?', answer: 'As soon as the IRS and state revenue departments publish new figures — usually late Q4 or early Q1. Our 2026 data is current as of January 2026.' },
@@ -68,7 +68,7 @@ const organizationJsonLd = {
       '@id': `${SITE_URL}/about#author`,
       ...authorToJsonLd(getCalculatorAuthor()),
     },
-    // Add Person schema for all team members — strengthens E-E-A-T
+    // Editorial team schema (single honest entity — see /methodology)
     ...Object.values(AUTHORS).map((author) => ({
       '@id': `${SITE_URL}/about#${author.id}`,
       ...authorToJsonLd(author),
@@ -126,7 +126,7 @@ const VALUES = [
 ];
 
 const TEAM_STATS = [
-  { value: '64', label: 'Free Calculators', icon: Calculator },
+  { value: String(TOTAL_CALCULATOR_COUNT), label: 'Free Calculators', icon: Calculator },
   { value: '50', label: 'State Profiles', icon: Globe },
   { value: '2026', label: 'Tax Year Data', icon: BarChart3 },
   { value: '0', label: 'Data Stored', icon: Shield },
@@ -172,17 +172,17 @@ export default function AboutPage() {
         </div>
         <div className="text-muted-foreground leading-relaxed space-y-4">
           <p>
-            In 2022, one of our team members moved from Sacramento to Austin. Same salary ($115,000),
-            same company — but suddenly his take-home pay jumped by over $8,700 a year. He knew
-            Texas didn't have a state income tax, but actually seeing the number on a paycheck?
-            That hit different. He'd been leaving nearly $725 a month on the table and didn't even
-            realize it.
+            TheTaxCalc started with a simple question: what does a salary actually mean after
+            taxes? The answer changes by thousands of dollars depending on where you live — on a
+            $115,000 salary, the gap between California and Texas take-home pay is roughly $6,800
+            a year. Most people never see that number until the first paycheck in the new state
+            arrives.
           </p>
           <p>
-            He went looking for a calculator that could have shown him this beforehand. What he
-            found was frustrating: tools that required his email before showing results, calculators
-            using outdated tax brackets, sites that looked like they hadn&apos;t been updated since 2015,
-            and — worst of all — calculators that asked for his salary and then tried to sell him
+            We went looking for a calculator that could show this beforehand. What we found was
+            frustrating: tools that required an email before showing results, calculators using
+            outdated tax brackets, sites that looked like they hadn&apos;t been updated since 2015,
+            and — worst of all — calculators that asked for a salary and then tried to sell
             financial planning services.
           </p>
           <p className="text-foreground font-medium">
@@ -408,9 +408,10 @@ export default function AboutPage() {
             <div className="rounded-lg bg-muted/20 p-4">
               <h3 className="text-sm font-semibold text-foreground mb-2">Professional Review</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                Every calculation methodology gets reviewed by tax professionals before it goes
-                live. They check that our bracket logic, deduction rules, and FICA calculations
-                follow current tax law. And when we find an error — it happens, we&apos;re human —
+                Every calculation methodology is verified against primary sources — IRS
+                publications and state revenue department tables — before it goes live. We
+                check that our bracket logic, deduction rules, and FICA calculations follow
+                current tax law. And when we find an error — it happens, we&apos;re human —
                 we fix it and document what changed. No quiet corrections.
               </p>
             </div>
@@ -436,17 +437,18 @@ export default function AboutPage() {
         </div>
         <div className="text-muted-foreground leading-relaxed space-y-4">
           <p>
-            TheTaxCalc is a small team of financial professionals and software engineers who got
+            TheTaxCalc is a small team of tax researchers and software engineers who got
             together because we shared one frustration: tax tools shouldn&apos;t be this hard to use.
-            Some of us have backgrounds in accounting and financial planning. Others are engineers
-            who&apos;ve spent years building user-facing products. The combination works — we argue
-            about tax brackets and UX in equal measure.
+            Some of us have spent years working with tax data and financial planning tools. Others
+            are engineers who&apos;ve spent years building user-facing products. The combination
+            works — we argue about tax brackets and UX in equal measure.
           </p>
           <p>
-            What we don&apos;t do is cut corners on the math. Every calculator goes through a review
-            process where someone who actually understands the tax code checks the logic. Not just
-            &ldquo;does it compile?&rdquo; — but &ldquo;does this correctly apply the Illinois
-            personal exemption?&rdquo; and &ldquo;are we handling the NYC tax threshold right?&rdquo;
+            What we don&apos;t do is cut corners on the math. Every calculator is checked against
+            the primary source — the IRS bracket tables, the state revenue department rules.
+            Not just &ldquo;does it compile?&rdquo; — but &ldquo;does this correctly apply the
+            Illinois personal exemption?&rdquo; and &ldquo;are we handling the NYC tax threshold
+            right?&rdquo;
           </p>
           <p>
             And when we mess up? We fix it fast and tell you about it. We&apos;d rather earn your
@@ -454,7 +456,7 @@ export default function AboutPage() {
           </p>
           <div className="flex items-center gap-2 text-sm text-emerald-600 mt-2">
             <CheckCircle2 className="h-4 w-4" />
-            <span>Last reviewed: January 2026</span>
+            <span>Last reviewed: October 2026</span>
           </div>
         </div>
       </section>
@@ -465,15 +467,15 @@ export default function AboutPage() {
           <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-600/10">
             <ClipboardCheck className="h-5 w-5 text-emerald-600" />
           </div>
-          <h2 className="text-2xl font-bold text-foreground">Our Tax Experts</h2>
+          <h2 className="text-2xl font-bold text-foreground">Our Editorial Team</h2>
         </div>
         <p className="text-muted-foreground leading-relaxed mb-6">
-          Every calculator and article on TheTaxCalc is written and reviewed by credentialed
-          tax professionals. Their expertise covers the full range of topics our calculators
-          address — from federal income tax and FICA to self-employment, retirement planning,
-          and capital gains.
+          Every calculator and article on TheTaxCalc is researched and maintained by our editorial
+          team, with every rate and rule verified against the official source — IRS publications
+          and state revenue department publications. The topics we cover run from federal income
+          tax and FICA to self-employment, retirement planning, and capital gains.
         </p>
-        <div className="grid gap-6 sm:grid-cols-1 lg:grid-cols-3">
+        <div className="grid gap-6 sm:grid-cols-1 max-w-2xl">
           {Object.values(AUTHORS).map((author) => (
             <div
               key={author.id}
@@ -492,15 +494,17 @@ export default function AboutPage() {
                 />
               ) : (
                 <div className="flex h-14 w-14 items-center justify-center rounded-full bg-emerald-600/15 text-base font-bold text-emerald-600 ring-2 ring-emerald-500/30 mb-4">
-                  {author.name.split(' ').map((n) => n[0]).join('')}
+                  {author.initials || author.name.split(' ').map((n) => n[0]).join('')}
                 </div>
               )}
               {/* Name & Credentials */}
               <div className="flex flex-wrap items-center gap-2 mb-1">
                 <h3 className="text-lg font-semibold text-foreground">{author.name}</h3>
-                <span className="inline-flex items-center rounded-md bg-emerald-600/15 px-2 py-0.5 text-xs font-semibold text-emerald-600 ring-1 ring-emerald-500/25">
-                  {author.credentials}
-                </span>
+                {author.credentials ? (
+                  <span className="inline-flex items-center rounded-md bg-emerald-600/15 px-2 py-0.5 text-xs font-semibold text-emerald-600 ring-1 ring-emerald-500/25">
+                    {author.credentials}
+                  </span>
+                ) : null}
               </div>
               {/* Title */}
               <p className="text-sm text-muted-foreground mb-3">
@@ -539,8 +543,8 @@ export default function AboutPage() {
           ))}
         </div>
         <p className="mt-4 text-xs text-muted-foreground">
-          All tax data and calculation methodologies on TheTaxCalc are reviewed by our expert team
-          and verified against official IRS publications and state revenue department sources.
+          All tax data and calculation methodologies on TheTaxCalc are maintained by our editorial
+          team and verified against official IRS publications and state revenue department sources.
         </p>
       </section>
 
@@ -564,15 +568,14 @@ export default function AboutPage() {
           <div className="rounded-lg border border-border/30 bg-card/50 p-5">
             <div className="flex items-center gap-2 mb-3">
               <ClipboardCheck className="h-5 w-5 text-emerald-600" />
-              <h3 className="text-base font-semibold text-foreground">Credentialed Experts Only</h3>
+              <h3 className="text-base font-semibold text-foreground">Primary Sources, Not Opinions</h3>
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Every calculator, guide, and FAQ is authored or reviewed by a credentialed tax
-              professional — a CPA (Certified Public Accountant), EA (IRS Enrolled Agent), or
-              CFP® (Certified Financial Planner). We do not publish anonymous content under
-              generic bylines like &ldquo;TheTaxCalc Team.&rdquo; Every page links to a named
-              author with a verifiable LinkedIn profile, professional credentials, and a
-              transparent bio on this page.
+              Every calculator, guide, and FAQ is researched and maintained by our editorial team
+              and verified against primary documents — IRS publications (including Publication
+              15-T and the annual inflation adjustments) and each state revenue department&apos;s
+              own published figures. We don&apos;t ask you to trust a byline; we show you the
+              source on our methodology page.
             </p>
           </div>
 
@@ -580,13 +583,13 @@ export default function AboutPage() {
           <div className="rounded-lg border border-border/30 bg-card/50 p-5">
             <div className="flex items-center gap-2 mb-3">
               <CheckCircle2 className="h-5 w-5 text-emerald-600" />
-              <h3 className="text-base font-semibold text-foreground">Two-Person Review Process</h3>
+              <h3 className="text-base font-semibold text-foreground">Calculation Verification Process</h3>
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Every page goes through a two-person review: the author writes and tests the
-              calculator logic, then a second credentialed reviewer independently verifies the
-              math, the tax bracket application, and the methodology. Disagreements are resolved
-              by consulting primary sources (IRS publications, state revenue department websites)
+              Every calculation engine is verified two ways: the formulas are derived directly
+              from the official bracket tables, then the outputs are spot-checked against
+              published IRS examples and withholding tables. Discrepancies are resolved by
+              consulting primary sources (IRS publications, state revenue department websites)
               before publication.
             </p>
           </div>
@@ -655,7 +658,7 @@ export default function AboutPage() {
         {/* Trust badges */}
         <div className="mt-6 flex flex-wrap items-center gap-3 text-xs">
           <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-600/10 px-3 py-1.5 text-emerald-600 border border-emerald-500/20">
-            <CheckCircle2 className="h-3 w-3" /> CPA-Reviewed
+            <CheckCircle2 className="h-3 w-3" /> Data-Verified
           </span>
           <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-600/10 px-3 py-1.5 text-emerald-600 border border-emerald-500/20">
             <CheckCircle2 className="h-3 w-3" /> E-E-A-T Compliant
@@ -677,32 +680,32 @@ export default function AboutPage() {
           </div>
           <h2 className="text-2xl font-bold text-foreground">Authorship &amp; Review Statement</h2>
         </div>
-        <div className="rounded-xl border border-border/30 bg-card/50 p-6 space-y-4 text-sm text-muted-foreground leading-relaxed">
+        <div
+          id="editorial-team"
+          className="rounded-xl border border-border/30 bg-card/50 p-6 space-y-4 text-sm text-muted-foreground leading-relaxed"
+        >
           <p>
-            <strong className="text-foreground">Tax Calculator Pages:</strong> Authored by Rachel
-            Mitchell, CPA (Lead Tax Analyst &amp; Editorial Director). Calculation logic independently
-            reviewed by David Chen, EA (Tax Research Director). Last comprehensive review: January 2026.
+            <strong className="text-foreground">Who we are:</strong> All content on TheTaxCalc is
+            researched, written, and maintained by the TheTaxCalc Editorial Team. We are not
+            licensed tax professionals and we don&apos;t pretend to be — our work is finding,
+            structuring, and keeping current the official numbers published by the IRS and state
+            revenue departments, and building calculators that apply them precisely.
           </p>
           <p>
-            <strong className="text-foreground">Self-Employment &amp; 1099 Content:</strong> Authored
-            by David Chen, EA. Reviewed by Rachel Mitchell, CPA. This content covers SE tax calculations,
-            quarterly estimated payments, and independent contractor tax rules — areas where David&apos;s
-            15+ years of IRS representation experience directly applies.
+            <strong className="text-foreground">Tax Calculator Pages:</strong> Every calculation
+            engine is built from IRS Publication 15-T, the annual inflation adjustments, and each
+            state&apos;s published bracket tables. Outputs are spot-checked against official
+            withholding tables. Last comprehensive data review: October 2026.
           </p>
           <p>
-            <strong className="text-foreground">Retirement &amp; Investment Content:</strong> Authored
-            by Sarah Johnson, CFP®. Reviewed by Rachel Mitchell, CPA. This includes 401(k) calculators,
-            capital gains tax guides, and retirement planning articles.
+            <strong className="text-foreground">Guides &amp; Research:</strong> Articles cite their
+            sources inline and display a review date at the top of the page. When the underlying
+            law changes, we update the page and its methodology notes.
           </p>
           <p>
-            <strong className="text-foreground">State Tax Pages:</strong> Authored by Rachel Mitchell,
-            CPA, with state-specific review by our editorial team. Each state&apos;s brackets, deductions,
-            and credits are verified against that state&apos;s revenue department publication.
-          </p>
-          <p>
-            <strong className="text-foreground">Blog Articles &amp; Guides:</strong> Authored by the
-            credentialed expert most relevant to the topic. Every article displays the author&apos;s
-            name, credentials, and review date at the top of the page.
+            <strong className="text-foreground">Corrections:</strong> Found an error? Write to
+            contact@thetaxcalc.com — reported calculation errors are investigated within 48 hours
+            and corrected with a visible update.
           </p>
           <p className="text-xs italic text-muted-foreground/80 pt-2 border-t border-border/20">
             TheTaxCalc content is for informational and planning purposes only. It is not tax, legal,
@@ -728,7 +731,7 @@ export default function AboutPage() {
             },
             {
               q: 'How accurate are the calculations?',
-              a: 'We use the same data the IRS and state revenue departments publish — the 2026 brackets, standard deductions, FICA rates, the works. Every methodology is reviewed by tax professionals. But here\'s the honest answer: our tools give you solid estimates, not guarantees. Your actual tax depends on things we can\'t know — itemized deductions, credits, multiple income sources, life changes mid-year. For planning purposes, we\'re great. For filing your actual return? Talk to a CPA.',
+              a: 'We use the same data the IRS and state revenue departments publish — the 2026 brackets, standard deductions, FICA rates, the works. Every figure traces back to an official source. But here\'s the honest answer: our tools give you solid estimates, not guarantees. Your actual tax depends on things we can\'t know — itemized deductions, credits, multiple income sources, life changes mid-year. For planning purposes, we\'re great. For filing your actual return? Talk to a CPA.',
             },
             {
               q: 'Does TheTaxCalc store my salary or financial data?',

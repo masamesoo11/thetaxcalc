@@ -54,7 +54,7 @@ export async function generateMetadata({
     title: { absolute: title },
     description: seo.description,
     keywords: seo.keywords,
-    authors: [{ name: 'Rachel Mitchell, CPA' }],
+    authors: [{ name: 'TheTaxCalc Editorial Team' }],
     alternates: {
       canonical: `${baseUrl}${canonicalPath}`,
     },
@@ -203,7 +203,7 @@ export default async function SalaryAmountPage({
       {/* ─── Author Attribution (E-E-A-T) ──────────────────────── */}
       <section className="py-12 border-t border-border/20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <AuthorBioCard authorId="rachel-mitchell" />
+          <AuthorBioCard authorId="editorial-team" />
         </div>
       </section>
     </>

@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     'texas vs florida taxes', 'compare state income tax', 'state tax rates comparison',
     'best state for taxes', 'lowest tax state', 'relocate for lower taxes',
   ],
-  authors: [{ name: 'Rachel Mitchell, CPA' }],
+  authors: [{ name: 'TheTaxCalc Editorial Team' }],
   alternates: {
     canonical: `${SITE_URL}/compare`,
   },
@@ -465,7 +465,7 @@ export default function CompareLandingPage() {
       {/* ─── Author Attribution (E-E-A-T) ──────────────────────── */}
       <section className="py-12 border-t border-border/20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <AuthorBioCard authorId="rachel-mitchell" />
+          <AuthorBioCard authorId="editorial-team" />
         </div>
       </section>
     </div>

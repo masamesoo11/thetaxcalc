@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: 'Child Tax Credit 2026: Complete Guide to Eligibility, Amounts, and OBBBA Changes | TheTaxCalc Research',
   description: `A comprehensive 2026 guide to the Child Tax Credit under OBBBA, including eligibility, credit amounts ($2,200), phaseout thresholds, and refundability rules.`,
   keywords: ['child tax credit 2026', 'CTC 2026', 'OBBBA child tax credit', 'child tax credit eligibility', 'additional child tax credit', 'CTC phaseout'],
-  authors: [{ name: 'Rachel Mitchell, CPA' }],
+  authors: [{ name: 'TheTaxCalc Editorial Team' }],
   alternates: {
     canonical: `${SITE_URL}/research/child-tax-credit-guide-2026`,
   },
@@ -25,7 +25,7 @@ const scholarlyArticleJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'ScholarlyArticle',
   headline: 'Child Tax Credit 2026: Complete Guide to Eligibility, Amounts, and OBBBA Changes',
-  author: [{ '@type': 'Person', name: 'Rachel Mitchell, CPA', affiliation: { '@type': 'Organization', name: 'TheTaxCalc Research Division' } }],
+  author: [{ '@type': 'Organization', name: 'TheTaxCalc Editorial Team', affiliation: { '@type': 'Organization', name: 'TheTaxCalc' } }],
   datePublished: '2026-07-04',
   dateModified: '2026-07-04',
   publisher: { '@type': 'Organization', name: 'TheTaxCalc', url: SITE_URL },
@@ -82,7 +82,7 @@ export default function ResearchPage() {
             Child Tax Credit 2026: Complete Guide to Eligibility, Amounts, and OBBBA Changes
           </h1>
           <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
-            <span>By Rachel Mitchell, CPA</span>
+            <span>By TheTaxCalc Editorial Team</span>
             <span>•</span>
             <span>Published July 4, 2026</span>
           </div>

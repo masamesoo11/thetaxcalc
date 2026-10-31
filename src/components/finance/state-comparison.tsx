@@ -11,6 +11,22 @@ import {
   TableRow,
 } from '@/components/ui/table';
 import { Badge } from '@/components/ui/badge';
+import { calculateSalaryTakeHome } from '@/lib/salary-calculations';
+
+// Net-pay figures are computed from the SAME calculation engine as every
+// calculator on the site (Task 48: this table previously carried stale
+// 2024-era hardcoded numbers that contradicted the site's own results).
+const ENGINE_75K = calculateSalaryTakeHome(75000, 'single').states;
+const ENGINE_100K = calculateSalaryTakeHome(100000, 'single').states;
+const netOn = (states: typeof ENGINE_75K, key: string) =>
+  '$' + Math.round((states.find((s) => s.stateKey === key)?.netAnnual ?? 0)).toLocaleString('en-US');
+const net75 = (key: string) => netOn(ENGINE_75K, key);
+const net100 = (key: string) => netOn(ENGINE_100K, key);
+const flDelta = (key: string) =>
+  '$' + Math.round(
+    (ENGINE_75K.find((s) => s.stateKey === 'florida')?.netAnnual ?? 0) -
+      (ENGINE_75K.find((s) => s.stateKey === key)?.netAnnual ?? 0)
+  ).toLocaleString('en-US');
 
 const COMPARISON_DATA = [
   {
@@ -23,8 +39,8 @@ const COMPARISON_DATA = [
     avgAnnualPropertyTax: '$5,228',
     salesTaxRate: '8.86%',
     stateNotes: 'Flat tax on all income levels; no standard deduction, only personal exemption',
-    netOn75k: '$56,969',
-    netOn100k: '$73,215',
+    netOn75k: net75('illinois'),
+    netOn100k: net100('illinois'),
     effectiveBurden: 'Higher',
   },
   {
@@ -37,8 +53,8 @@ const COMPARISON_DATA = [
     avgAnnualPropertyTax: '$4,959',
     salesTaxRate: '8.20%',
     stateNotes: 'No state income tax; high property taxes compensate; great for high earners',
-    netOn75k: '$60,545',
-    netOn100k: '$78,597',
+    netOn75k: net75('texas'),
+    netOn100k: net100('texas'),
     effectiveBurden: 'Medium',
   },
   {
@@ -51,8 +67,8 @@ const COMPARISON_DATA = [
     avgAnnualPropertyTax: '$3,397',
     salesTaxRate: '7.00%',
     stateNotes: 'No state income tax; low property tax; no retirement income tax; retiree-friendly',
-    netOn75k: '$60,545',
-    netOn100k: '$78,597',
+    netOn75k: net75('florida'),
+    netOn100k: net100('florida'),
     effectiveBurden: 'Low',
   },
   {
@@ -65,8 +81,8 @@ const COMPARISON_DATA = [
     avgAnnualPropertyTax: '$5,574',
     salesTaxRate: '8.82%',
     stateNotes: 'Highest state income tax; progressive brackets; high sales tax; expensive housing',
-    netOn75k: '$57,950',
-    netOn100k: '$73,216',
+    netOn75k: net75('california'),
+    netOn100k: net100('california'),
     effectiveBurden: 'Highest',
   },
   {
@@ -79,8 +95,8 @@ const COMPARISON_DATA = [
     avgAnnualPropertyTax: '$6,885',
     salesTaxRate: '8.52%',
     stateNotes: 'High progressive tax + NYC additional tax; high property tax; high COL',
-    netOn75k: '$57,686',
-    netOn100k: '$73,656',
+    netOn75k: net75('newyork'),
+    netOn100k: net100('newyork'),
     effectiveBurden: 'Very High',
   },
 ];
@@ -128,11 +144,18 @@ export function StateComparisonSection() {
                 </TableRow>
                 <TableRow>
                   <TableCell className="font-medium">Net on $75K (Single)</TableCell>
-                  <TableCell className="text-center font-semibold text-red-600">$56,969</TableCell>
-                  <TableCell className="text-center font-semibold text-emerald-600">$60,545</TableCell>
-                  <TableCell className="text-center font-semibold text-emerald-600">$60,545</TableCell>
-                  <TableCell className="text-center font-semibold text-red-600">$57,950</TableCell>
-                  <TableCell className="text-center font-semibold text-red-600">$57,686</TableCell>
+                  {COMPARISON_DATA.map((d) => (
+                    <TableCell
+                      key={d.abbreviation}
+                      className={`text-center font-semibold ${
+                        d.effectiveBurden === 'Low' || d.effectiveBurden === 'Medium'
+                          ? 'text-emerald-600'
+                          : 'text-red-600'
+                      }`}
+                    >
+                      {d.netOn75k}
+                    </TableCell>
+                  ))}
                 </TableRow>
                 <TableRow>
                   <TableCell className="font-medium">Avg Property Tax Rate</TableCell>
@@ -197,8 +220,8 @@ export function StateComparisonSection() {
           </p>
           <p>
             <strong className="text-foreground">Illinois</strong> at 4.95% flat rate sits in the middle — less
-            expensive than CA or NY for high earners, but $3,576/year more expensive than TX or FL on a $75,000
-            salary. Illinois compensates somewhat by not taxing retirement income.
+            expensive than CA or NY for high earners, but about $3,500/year more expensive than TX or FL
+            on a $75,000 salary. Illinois compensates somewhat by not taxing retirement income.
           </p>
           <p>
             <strong className="text-foreground">For retirees</strong>, the ranking is clear:
@@ -217,7 +240,7 @@ export function StateComparisonSection() {
             <p className="text-xs uppercase tracking-wider text-red-600">Highest Tax Burden</p>
             <p className="mt-1 text-xl font-bold text-foreground">California</p>
             <p className="mt-1 text-sm text-muted-foreground">1%–13.3% + 8.82% sales + 0.71% property</p>
-            <p className="mt-2 text-sm font-medium text-red-600">-$2,595/yr vs FL at $75K</p>
+            <p className="mt-2 text-sm font-medium text-red-600">-{flDelta('california')}/yr vs FL at $75K</p>
           </CardContent>
         </Card>
         <Card className="border-red-500/20 bg-card/80">
@@ -225,7 +248,7 @@ export function StateComparisonSection() {
             <p className="text-xs uppercase tracking-wider text-red-600">Very High Burden</p>
             <p className="mt-1 text-xl font-bold text-foreground">New York</p>
             <p className="mt-1 text-sm text-muted-foreground">4%–10.9% + NYC tax + 8.52% sales</p>
-            <p className="mt-2 text-sm font-medium text-red-600">-$2,859/yr vs FL at $75K</p>
+            <p className="mt-2 text-sm font-medium text-red-600">-{flDelta('newyork')}/yr vs FL at $75K</p>
           </CardContent>
         </Card>
         <Card className="border-amber-500/20 bg-card/80">
@@ -233,7 +256,7 @@ export function StateComparisonSection() {
             <p className="text-xs uppercase tracking-wider text-amber-700">Higher Burden</p>
             <p className="mt-1 text-xl font-bold text-foreground">Illinois</p>
             <p className="mt-1 text-sm text-muted-foreground">4.95% flat + 1.78% property + 8.86% sales</p>
-            <p className="mt-2 text-sm font-medium text-amber-700">-$3,576/yr vs TX/FL at $75K</p>
+            <p className="mt-2 text-sm font-medium text-amber-700">-{flDelta('illinois')}/yr vs TX/FL at $75K</p>
           </CardContent>
         </Card>
         <Card className="border-amber-500/20 bg-card/80">
@@ -272,38 +295,38 @@ export function StateComparisonSection() {
               <TableBody>
                 <TableRow>
                   <TableCell className="font-medium text-emerald-600">10%</TableCell>
-                  <TableCell>$0 – $11,600</TableCell>
+                  <TableCell>$0 – $12,400</TableCell>
                   <TableCell>10% of taxable income</TableCell>
                 </TableRow>
                 <TableRow>
                   <TableCell className="font-medium">12%</TableCell>
-                  <TableCell>$11,601 – $47,150</TableCell>
-                  <TableCell>$1,160 + 12% over $11,600</TableCell>
+                  <TableCell>$12,400 – $50,400</TableCell>
+                  <TableCell>$1,240 + 12% over $12,400</TableCell>
                 </TableRow>
                 <TableRow>
                   <TableCell className="font-medium text-amber-700">22%</TableCell>
-                  <TableCell>$47,151 – $100,525</TableCell>
-                  <TableCell>$5,426 + 22% over $47,150</TableCell>
+                  <TableCell>$50,400 – $105,700</TableCell>
+                  <TableCell>$5,800 + 22% over $50,400</TableCell>
                 </TableRow>
                 <TableRow>
                   <TableCell className="font-medium text-orange-700">24%</TableCell>
-                  <TableCell>$100,526 – $191,950</TableCell>
-                  <TableCell>$17,168.50 + 24% over $100,525</TableCell>
+                  <TableCell>$105,700 – $201,775</TableCell>
+                  <TableCell>$17,966 + 24% over $105,700</TableCell>
                 </TableRow>
                 <TableRow>
                   <TableCell className="font-medium text-red-600">32%</TableCell>
-                  <TableCell>$191,951 – $243,725</TableCell>
-                  <TableCell>$39,110.50 + 32% over $191,950</TableCell>
+                  <TableCell>$201,775 – $256,225</TableCell>
+                  <TableCell>$41,024 + 32% over $201,775</TableCell>
                 </TableRow>
                 <TableRow>
                   <TableCell className="font-medium text-red-600">35%</TableCell>
-                  <TableCell>$243,726 – $609,350</TableCell>
-                  <TableCell>$55,678.50 + 35% over $243,725</TableCell>
+                  <TableCell>$256,225 – $640,600</TableCell>
+                  <TableCell>$58,448 + 35% over $256,225</TableCell>
                 </TableRow>
                 <TableRow>
                   <TableCell className="font-medium text-red-600">37%</TableCell>
-                  <TableCell>$609,351+</TableCell>
-                  <TableCell>$183,647.25 + 37% over $609,350</TableCell>
+                  <TableCell>$640,600+</TableCell>
+                  <TableCell>$192,979 + 37% over $640,600</TableCell>
                 </TableRow>
               </TableBody>
             </Table>

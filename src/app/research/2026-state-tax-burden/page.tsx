@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     'best states for taxes',
     'worst states for taxes',
   ],
-  authors: [{ name: 'Rachel Mitchell, CPA' }],
+  authors: [{ name: 'TheTaxCalc Editorial Team' }],
   alternates: {
     canonical: `${SITE_URL}/research/2026-state-tax-burden`,
   },
@@ -39,16 +39,8 @@ const scholarlyArticleJsonLd = {
   headline: 'Comparative Analysis of State Tax Burdens Across the 50 United States: A 2026 Cross-Sectional Study',
   author: [
     {
-      '@type': 'Person',
-      name: 'Rachel Mitchell',
-      jobTitle: 'CPA, Lead Researcher',
-      affiliation: { '@type': 'Organization', name: 'TheTaxCalc Research Division' },
-    },
-    {
-      '@type': 'Person',
-      name: 'David Chen',
-      jobTitle: 'Data Analyst',
-      affiliation: { '@type': 'Organization', name: 'TheTaxCalc Research Division' },
+      '@type': 'Organization',
+      name: 'TheTaxCalc Editorial Team',
     },
   ],
   datePublished: '2026-07-04',
@@ -212,7 +204,7 @@ export default function StateTaxBurdenStudy() {
             Comparative Analysis of State Tax Burdens Across the 50 United States: A 2026 Cross-Sectional Study
           </h1>
           <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
-            <span>By Rachel Mitchell, CPA &amp; David Chen</span>
+            <span>By TheTaxCalc Editorial Team</span>
             <span>•</span>
             <span>Published July 4, 2026</span>
             <span>•</span>

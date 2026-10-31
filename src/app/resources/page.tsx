@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     'tax reference data',
     'free tax data',
   ],
-  authors: [{ name: 'Rachel Mitchell, CPA' }],
+  authors: [{ name: 'TheTaxCalc Editorial Team' }],
   alternates: {
     canonical: `${SITE_URL}/resources`,
   },
@@ -1022,7 +1022,7 @@ export default function ResourcesPage() {
       {/* ─── Author Attribution (E-E-A-T) ──────────────────────── */}
       <section className="py-12 border-t border-border/20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <AuthorBioCard authorId="rachel-mitchell" />
+          <AuthorBioCard authorId="editorial-team" />
         </div>
       </section>
     </div>

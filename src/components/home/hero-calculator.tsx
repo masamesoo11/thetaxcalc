@@ -230,7 +230,7 @@ export function HeroCalculator() {
             <div className="flex items-baseline justify-between gap-3 pt-1">
               <span className="text-[#78716c]">Effective tax rate</span>
               <span className="shrink-0 font-semibold tabular-nums text-[#8a6a24]">
-                {effective.toFixed(2)}%
+                {(effective * 100).toFixed(1)}%
               </span>
             </div>
           </div>

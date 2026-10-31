@@ -46,7 +46,7 @@ export async function generateMetadata({
     title: { absolute: config.metaTitle },
     description: config.metaDesc,
     keywords: config.keywords,
-    authors: [{ name: 'Rachel Mitchell, CPA' }],
+    authors: [{ name: 'TheTaxCalc Editorial Team' }],
     alternates: {
       canonical: `${baseUrl}${canonicalPath}`,
     },
@@ -216,7 +216,7 @@ export default async function CompareStatesPage({
       {/* ─── Author Attribution (E-E-A-T) ──────────────────────── */}
       <section className="py-12 border-t border-border/20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <AuthorBioCard authorId="rachel-mitchell" />
+          <AuthorBioCard authorId="editorial-team" />
         </div>
       </section>
     </>

@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: 'Salary Needed to Live Comfortably in All 50 U.S. States: 2026 Analysis | TheTaxCalc Research',
   description: `How much do you need to earn to live comfortably in each U.S. state? 2026 analysis using the 50/30/20 budgeting rule and state-specific cost-of-living data.`,
   keywords: ['salary needed to live comfortably', 'comfortable living salary by state', 'how much to live comfortably', '50 30 20 rule salary', 'cost of living by state 2026', 'living wage by state'],
-  authors: [{ name: 'Sarah Johnson, CFP & David Chen' }],
+  authors: [{ name: 'TheTaxCalc Editorial Team' }],
   alternates: {
     canonical: `${SITE_URL}/research/salary-needed-to-live-comfortably-2026`,
   },
@@ -25,7 +25,7 @@ const scholarlyArticleJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'ScholarlyArticle',
   headline: 'Salary Needed to Live Comfortably in All 50 U.S. States: 2026 Analysis',
-  author: [{ '@type': 'Person', name: 'Sarah Johnson, CFP & David Chen', affiliation: { '@type': 'Organization', name: 'TheTaxCalc Research Division' } }],
+  author: [{ '@type': 'Organization', name: 'TheTaxCalc Editorial Team', affiliation: { '@type': 'Organization', name: 'TheTaxCalc' } }],
   datePublished: '2026-07-04',
   dateModified: '2026-07-04',
   publisher: { '@type': 'Organization', name: 'TheTaxCalc', url: SITE_URL },
@@ -82,7 +82,7 @@ export default function ResearchPage() {
             Salary Needed to Live Comfortably in All 50 U.S. States: 2026 Analysis
           </h1>
           <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
-            <span>By Sarah Johnson, CFP & David Chen</span>
+            <span>By TheTaxCalc Editorial Team</span>
             <span>•</span>
             <span>Published July 4, 2026</span>
           </div>

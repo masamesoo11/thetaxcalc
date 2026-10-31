@@ -126,8 +126,9 @@ const STATE_SLUG_TO_NAME: Record<string, string> = {
   'west-virginia-tax-calculator': 'West Virginia',
 };
 
-/** 2026 income-tax rate blurbs for the 22 popular states not in STATE_TAX_DATA. */
-const POPULAR_STATE_RATES: Record<string, string> = {
+/** 2026 income-tax rate blurbs for the 22 popular states not in STATE_TAX_DATA.
+ *  Also used by the homepage 50-state table (Task 48) — single source of truth. */
+export const POPULAR_STATE_RATES: Record<string, string> = {
   'illinois-tax-calculator': '4.95% flat income tax',
   'texas-tax-calculator': '0% income tax',
   'florida-tax-calculator': '0% income tax',

@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: 'The State Tax Implications of Remote Work: Optimal U.S. States for Location-Independent Workers in 2026 | TheTaxCalc Research',
   description: `This study develops a composite Remote Worker Tax Attractiveness Index (RWTAI) for all 50 U.S. states, ranking the best states for remote workers in 2026.`,
   keywords: ['best states for remote workers', 'remote work tax', 'RWTAI', 'convenience of employer rule', 'digital nomad taxes'],
-  authors: [{ name: 'Sarah Johnson, CFP & David Chen' }],
+  authors: [{ name: 'TheTaxCalc Editorial Team' }],
   alternates: {
     canonical: `${SITE_URL}/research/best-states-for-remote-workers-2026`,
   },
@@ -25,7 +25,7 @@ const scholarlyArticleJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'ScholarlyArticle',
   headline: 'The State Tax Implications of Remote Work: Optimal U.S. States for Location-Independent Workers in 2026',
-  author: [{ '@type': 'Person', name: 'Sarah Johnson, CFP & David Chen', affiliation: { '@type': 'Organization', name: 'TheTaxCalc Research Division' } }],
+  author: [{ '@type': 'Organization', name: 'TheTaxCalc Editorial Team', affiliation: { '@type': 'Organization', name: 'TheTaxCalc' } }],
   datePublished: '2026-07-04',
   dateModified: '2026-07-04',
   publisher: { '@type': 'Organization', name: 'TheTaxCalc', url: SITE_URL },
@@ -82,7 +82,7 @@ export default function ResearchPage() {
             The State Tax Implications of Remote Work: Optimal U.S. States for Location-Independent Workers in 2026
           </h1>
           <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
-            <span>By Sarah Johnson, CFP & David Chen</span>
+            <span>By TheTaxCalc Editorial Team</span>
             <span>•</span>
             <span>Published July 4, 2026</span>
           </div>

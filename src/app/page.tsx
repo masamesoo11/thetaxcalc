@@ -1,12 +1,13 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { SITE_URL, SITE_HOME_URL } from '@/lib/site-config';
-import { SALARY_AMOUNTS, formatSalaryCompact } from '@/lib/salary-calculations';
+import { SALARY_AMOUNTS, calculateSalaryTakeHome, formatSalaryCompact } from '@/lib/salary-calculations';
 import { getPublishedPostsMeta } from '@/lib/blog-index';
 import { COMPARISON_SLUGS, COMPARE_STATES, parseComparisonSlug } from '@/lib/compare-config';
 import { getCalculatorAuthor, authorToJsonLd } from '@/lib/authors';
 import { AuthorBioCard } from '@/components/finance/author-bio-card';
 import { TOTAL_CALCULATOR_COUNT, getAllCalculatorListItems } from '@/lib/calculator-routes';
+import { POPULAR_STATE_RATES } from '@/lib/calculators-hub-data';
 import { STATE_SALES_TAX, ALL_STATE_KEYS, stateKeyToSlug } from '@/lib/state-sales-tax-data';
 import { STATE_TAX_DATA } from '@/lib/state-tax-data';
 import { HeroCalculator } from '@/components/home/hero-calculator';
@@ -49,20 +50,50 @@ const LATEST_POSTS = getPublishedPostsMeta().slice(0, 3);
 
 // 50-state table rows (income tax + sales tax). Replaces the old 50-tile
 // grid — same /sales-tax-calculator/{slug} links, denser presentation.
+// Income-tax rate falls back to POPULAR_STATE_RATES for the 23 states with
+// dedicated calculators that aren't in STATE_TAX_DATA (Task 48: the table
+// previously rendered “—” for CA/NY/IL/TX/FL…). NOTE: POPULAR_STATE_RATES is
+// keyed by calculator path ("california-tax-calculator"), so the lookup MUST
+// append "-tax-calculator" to the state slug — the first version of this fix
+// used the bare slug and matched nothing (all 23 fallback states stayed "—").
 const STATE_TABLE_ROWS: StateTaxRow[] = ALL_STATE_KEYS.map((key) => {
   const sales = STATE_SALES_TAX[key];
   const tax = STATE_TAX_DATA[key];
+  const slug = stateKeyToSlug(key);
+  // "5% income tax (9% over $1M)" → "5%"; "2%–5.75% + county income tax" → "2%–5.75%"
+  const popularRate = POPULAR_STATE_RATES[`${slug}-tax-calculator`]
+    ?.split(' income tax')[0]
+    .replace(' + county', '');
+  const incomeTaxRate = tax?.incomeTaxRate ?? popularRate ?? '—';
   return {
     key,
     name: sales.name,
-    slug: stateKeyToSlug(key),
-    incomeTaxRate: tax?.incomeTaxRate ?? '—',
+    slug,
+    incomeTaxRate,
     salesTaxCombined: sales.noStateTax
       ? '0%'
       : `${(sales.combinedRate * 100).toFixed(2)}%`,
-    isNoIncomeTax: Boolean(tax?.isNoIncomeTax),
+    isNoIncomeTax: Boolean(tax?.isNoIncomeTax) || incomeTaxRate === '0%',
   };
 });
+
+// Engine-derived numbers for the “Which State Has the Lowest Tax?” cards and
+// the Illinois example box (Task 48: hardcoded values had drifted from the
+// real calculation engine — FL showed $60,545 vs the true $61,593 net).
+const ENGINE_75K_SINGLE = calculateSalaryTakeHome(75000, 'single').states;
+const engineState = (key: string) =>
+  ENGINE_75K_SINGLE.find((s) => s.stateKey === key) ?? ENGINE_75K_SINGLE[0];
+const engineNet = (key: string) =>
+  '$' + Math.round(engineState(key).netAnnual).toLocaleString('en-US');
+const usdCents = (amount: number) =>
+  amount.toLocaleString('en-US', {
+    style: 'currency',
+    currency: 'USD',
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  });
+const IL_75K = engineState('illinois');
+const IL_75K_TAXABLE = Math.round(IL_75K.stateTax / 0.0495);
 
 // ─── Home Page Metadata ───────────────────────────────────────────────────────
 
@@ -70,7 +101,7 @@ export const metadata: Metadata = {
   title: '2026 Tax Calculator — Paycheck & Take-Home Pay | 50 States',
   description:
     `Free 2026 tax calculator. Take-home pay after federal, FICA & state tax. ${CALCULATOR_COUNT}+ tools & 50-state sales tax data. No sign-up.`,
-  authors: [{ name: 'Rachel Mitchell, CPA', url: `${SITE_URL}/about#rachel-mitchell` }],
+  authors: [{ name: 'TheTaxCalc Editorial Team', url: `${SITE_URL}/about#editorial-team` }],
   // canonical + og:url are emitted as literal tags in the JSX below: Next's
   // metadata resolver renders root URLs as origin-only
   // ("https://thetaxcalc.com" — no trailing slash, see
@@ -453,11 +484,11 @@ export default function HomePage() {
 
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
               {[
-                { state: 'Washington', net: '$61,593', rate: '0%', label: 'No Income Tax', tone: 'gold', href: '/washington-tax-calculator' },
-                { state: 'Florida', net: '$60,545', rate: '0%', label: 'Lowest Burden', tone: 'gold', href: '/florida-tax-calculator' },
-                { state: 'Arizona', net: '$60,083', rate: '2.5%', label: 'Lowest Rate', tone: 'gold', href: '/arizona-tax-calculator' },
-                { state: 'California', net: '$57,950', rate: '1%–13.3%', label: 'Highest Rate', tone: 'red', href: '/california-tax-calculator' },
-                { state: 'New York', net: '$57,686', rate: '4%–10.9%', label: '+ NYC Tax', tone: 'red', href: '/new-york-tax-calculator' },
+                { state: 'Washington', key: 'washington', rate: '0%', label: 'No Income Tax', tone: 'gold', href: '/washington-tax-calculator' },
+                { state: 'Florida', key: 'florida', rate: '0%', label: 'Lowest Burden', tone: 'gold', href: '/florida-tax-calculator' },
+                { state: 'Arizona', key: 'arizona', rate: '2.5%', label: 'Lowest Rate', tone: 'gold', href: '/arizona-tax-calculator' },
+                { state: 'California', key: 'california', rate: '1%–13.3%', label: 'Highest Rate', tone: 'red', href: '/california-tax-calculator' },
+                { state: 'New York', key: 'newyork', rate: '4%–10.9%', label: 'High Burden', tone: 'red', href: '/new-york-tax-calculator' },
               ].map((item) => (
                 <Link
                   prefetch={false}
@@ -476,7 +507,7 @@ export default function HomePage() {
                   </p>
                   <p className="mt-2 text-xl font-bold text-[#1c1917]">{item.state}</p>
                   <p className="mt-1 text-sm text-[#57534e]">Tax: {item.rate}</p>
-                  <p className="mt-2 text-lg font-semibold text-[#1c1917]">Net: {item.net}</p>
+                  <p className="mt-2 text-lg font-semibold text-[#1c1917]">Net: {engineNet(item.key)}</p>
                   <p className={`mt-1 text-[11px] group-hover:underline ${item.tone === 'gold' ? 'text-[#8a6a24]' : 'text-red-600'}`}>
                     View Calculator →
                   </p>
@@ -647,8 +678,7 @@ export default function HomePage() {
                   <p>
                     Honestly? We got tired of tax calculators that felt like they were designed by the IRS.
                     You know the ones — confusing interfaces, outdated brackets, and somehow always trying
-                    to sell you something at the end. Whether you need a 2025 tax calculator for last year&apos;s
-                    return or a tax calculator 2026 for this year, we&apos;ve got you covered.
+                    to sell you something at the end. So we built the alternative we wanted to use.
                   </p>
                   <p>
                     Every paycheck has OASDI tax (Social Security), Medicare, federal income tax, and state tax
@@ -656,25 +686,22 @@ export default function HomePage() {
                     $184,500 wage cap, to the 1.45% Medicare with no cap, to your state&apos;s specific brackets.
                   </p>
                   <p>
-                    One of our team members moved from California to Texas a few years back. Same salary,
-                    same company — but his take-home jumped by over $8,700 a year. He had no idea the
-                    difference would be that big until the first paycheck hit. That&apos;s when we thought:
-                    <em> everyone should be able to see this before they make big decisions.</em>
+                    Most people never see the full picture until the first paycheck lands. On a $75,000 salary,
+                    working in California versus Texas changes your take-home pay by more than $3,000 a year
+                    — same salary, same federal taxes, just a different state line. Seeing that number before
+                    you negotiate an offer, plan a move, or set a budget is the entire point of this site.
                   </p>
                   <p>
-                    So we built the tools we wished existed. All our calculations use the latest 2026
-                    federal brackets, FICA rates, and state-specific tax laws — pulled straight from{' '}
+                    Every calculation uses the latest 2026 federal brackets, FICA rates, and state-specific
+                    tax laws — pulled straight from{' '}
                     <a href="https://www.irs.gov/filing/federal-income-tax-rates-and-brackets" target="_blank" rel="noopener noreferrer" className="font-medium text-[#8a6a24] underline underline-offset-2 hover:text-[#6f551d]">IRS publications</a> and{' '}
                     <a href="https://taxfoundation.org/" target="_blank" rel="noopener noreferrer" className="font-medium text-[#8a6a24] underline underline-offset-2 hover:text-[#6f551d]">state revenue departments</a>, not some third-party blog post.
                   </p>
                   <p>
-                    Whether you&apos;re searching for a 2025 tax calculator to estimate last year&apos;s refund
-                    or planning ahead with our tax calculator 2026, our income tax calculator handles federal
-                    income tax, FICA, and state tax for all 50 states. Calculate your tax liability, factor
-                    in itemized deductions vs. the standard deduction, and see your true take-home pay based
-                    on your gross income. No tax preparation software required — just enter your salary and
-                    get instant, accurate numbers. We even earn income estimates for self-employed workers,
-                    freelancers, and W-2 employees alike. Not tax advice, just honest math.
+                    W-2 employee or self-employed, you get the full breakdown: federal income tax, Social
+                    Security, Medicare, and your state&apos;s cut — plus how pre-tax deductions like a 401(k)
+                    or HSA change the picture. Not tax advice, just honest, sourced math you can check
+                    against any paycheck.
                   </p>
                 </div>
                 <ul className="mt-6 space-y-3">
@@ -704,24 +731,24 @@ export default function HomePage() {
                   <div className="border-t border-dashed border-[#e7e0d0]" />
                   <div className="flex justify-between">
                     <span className="text-[#57534e]">Federal Tax (after $16,100 std ded)</span>
-                    <span className="font-medium text-red-700">-$7,670.00</span>
+                    <span className="font-medium text-red-700">-{usdCents(IL_75K.federalTax)}</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-[#57534e]">FICA (SS + Medicare)</span>
-                    <span className="font-medium text-orange-700">-$5,737.50</span>
+                    <span className="font-medium text-orange-700">-{usdCents(IL_75K.ficaSS + IL_75K.ficaMedicare)}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-[#57534e]">IL State Tax (4.95% on $72,225)</span>
-                    <span className="font-medium text-amber-700">-$3,575.14</span>
+                    <span className="text-[#57534e]">IL State Tax (4.95% on ${IL_75K_TAXABLE.toLocaleString('en-US')})</span>
+                    <span className="font-medium text-amber-700">-{usdCents(IL_75K.stateTax)}</span>
                   </div>
                   <div className="border-t border-dashed border-[#e7e0d0]" />
                   <div className="flex justify-between text-base">
                     <span className="font-semibold text-[#1c1917]">Net Annual Take-Home</span>
-                    <span className="font-bold text-[#8a6a24]">$58,017.36</span>
+                    <span className="font-bold text-[#8a6a24]">{usdCents(IL_75K.netAnnual)}</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-[#57534e]">Effective Tax Rate</span>
-                    <span className="font-medium text-[#1c1917]">22.64%</span>
+                    <span className="font-medium text-[#1c1917]">{(IL_75K.effectiveTaxRate * 100).toFixed(2)}%</span>
                   </div>
                 </div>
               </div>

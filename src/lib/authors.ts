@@ -1,10 +1,14 @@
 /**
  * Author profiles for YMYL / E-E-A-T compliance.
  *
- * Google's quality rater guidelines require identifiable, credible authors
- * for Your-Money-Or-Your-Life content (tax, finance, legal, health).
+ * All content on TheTaxCalc is researched and maintained by a single
+ * editorial team. We do NOT use named persona authors with professional
+ * credentials (CPA/EA/CFP) — every calculation is instead verified
+ * directly against primary sources (IRS publications and state revenue
+ * department figures), which is documented on /methodology and /about.
+ *
  * These profiles are used in:
- *   1. JSON-LD Person schema (structured data)
+ *   1. JSON-LD schema (structured data)
  *   2. Author bio cards on calculator and blog pages
  *   3. Metadata authors array
  */
@@ -17,11 +21,12 @@ export interface AuthorProfile {
   id: string;
   name: string;
   title: string;
-  credentials: string; // e.g. "CPA", "EA", "CFP®"
+  credentials: string; // empty string = no badge rendered
   bio: string;
   url: string;        // author page URL
-  sameAs: string[];   // social / LinkedIn / professional profiles
-  image?: string;     // headshot URL
+  sameAs: string[];   // social / professional profiles
+  initials: string;   // avatar fallback
+  image?: string;     // headshot URL (unused for team entities)
   knowsAbout: string[];
   worksFor: {
     name: string;
@@ -31,139 +36,82 @@ export interface AuthorProfile {
 
 // ─── Author Definitions ────────────────────────────────────────────────────
 
-export const AUTHORS: Record<string, AuthorProfile> = {
-  'rachel-mitchell': {
-    id: 'rachel-mitchell',
-    name: 'Rachel Mitchell',
-    title: 'Lead Tax Analyst & Editorial Director',
-    credentials: 'CPA',
-    bio: 'Rachel Mitchell is a Certified Public Accountant (CPA) licensed in Illinois with over 12 years of experience in individual and small-business taxation. She specializes in federal and state income tax compliance, FICA optimization, payroll tax strategy, and multi-state tax planning. Rachel holds an MS in Taxation from Golden Gate University and a BS in Accounting from the University of Illinois Urbana-Champaign. She is an active member of the American Institute of Certified Public Accountants (AICPA) and the Illinois CPA Society. Before joining TheTaxCalc, Rachel spent 8 years at a Big Four accounting firm advising high-net-worth clients on tax-efficient wealth strategies.',
-    url: `${SITE_URL}/about#rachel-mitchell`,
-    sameAs: [
-      'https://www.linkedin.com/in/rachelmitchellcpa/',
-      'https://www.aicpa-cima.com/',
-    ],
-    image: `${SITE_URL}/author-rachel-mitchell.webp`,
-    knowsAbout: [
-      'Federal Income Tax',
-      'State Income Tax',
-      'FICA Tax',
-      'Payroll Tax',
-      'IRS Compliance',
-      'Tax Planning',
-      'Multi-State Taxation',
-      'Tax-Advantaged Accounts',
-    ],
-    worksFor: {
-      name: 'TheTaxCalc',
-      url: SITE_URL,
-    },
-  },
-
-  'david-chen': {
-    id: 'david-chen',
-    name: 'David Chen',
-    title: 'Tax Research Director & IRS Practice Lead',
-    credentials: 'EA',
-    bio: 'David Chen is an IRS Enrolled Agent (EA) with 15+ years of experience representing taxpayers before the IRS in audits, collections, and appeals. He specializes in self-employment tax, quarterly estimated payments, independent contractor classification, and IRS dispute resolution. David is a member of the National Association of Enrolled Agents (NAEA) and the California Society of Enrolled Agents. He holds a Master of Taxation (MTax) from San Jose State University and has completed advanced coursework in IRS Circular 230 ethics. David regularly contributes to tax policy analysis and has been quoted in publications including Tax Notes and the Wall Street Journal tax section.',
-    url: `${SITE_URL}/about#david-chen`,
-    sameAs: [
-      'https://www.linkedin.com/in/davidchenea/',
-      'https://www.naea.org/',
-    ],
-    image: `${SITE_URL}/author-david-chen.webp`,
-    knowsAbout: [
-      'Self-Employment Tax',
-      'Estimated Tax Payments',
-      'IRS Representation',
-      'Tax Audits',
-      '1099 Tax Compliance',
-      'Independent Contractor Tax',
-      'IRS Collections',
-      'Offer in Compromise',
-    ],
-    worksFor: {
-      name: 'TheTaxCalc',
-      url: SITE_URL,
-    },
-  },
-
-  'sarah-johnson': {
-    id: 'sarah-johnson',
-    name: 'Sarah Johnson',
-    title: 'Financial Planning Specialist & Retirement Tax Strategist',
-    credentials: 'CFP®',
-    bio: 'Sarah Johnson is a CERTIFIED FINANCIAL PLANNER™ (CFP®) professional with over 10 years of experience helping individuals optimize their retirement savings, investment tax strategies, and long-term wealth building. She specializes in 401(k) optimization, Roth conversion strategies, capital gains harvesting, and required minimum distribution (RMD) planning. Sarah is a member of the Financial Planning Association (FPA) and holds the Chartered Retirement Planning Counselor (CRPC®) designation. She earned her BS in Finance from Indiana University and completed the CFP® certification program at Northwestern University. Sarah has presented at the FPA Annual Conference and contributes regularly to retirement planning publications.',
-    url: `${SITE_URL}/about#sarah-johnson`,
-    sameAs: [
-      'https://www.linkedin.com/in/sarahjohnsoncfp/',
-      'https://www.financialplanningassociation.org/',
-    ],
-    image: `${SITE_URL}/author-sarah-johnson.webp`,
-    knowsAbout: [
-      'Retirement Planning',
-      '401(k) Optimization',
-      'Capital Gains Tax',
-      'Investment Tax Strategy',
-      'IRS Withholding',
-      'Tax-Advantaged Accounts',
-      'Roth Conversions',
-      'RMD Planning',
-    ],
-    worksFor: {
-      name: 'TheTaxCalc',
-      url: SITE_URL,
-    },
+const EDITORIAL_TEAM: AuthorProfile = {
+  id: 'editorial-team',
+  name: 'TheTaxCalc Editorial Team',
+  title: 'Editorial Team',
+  credentials: '',
+  bio: 'TheTaxCalc Editorial Team researches and maintains every calculator and guide on this site. All federal rates, brackets, and rules are verified directly against IRS publications (including Publication 15-T and the annual inflation adjustments), and every state figure is checked against that state revenue department\'s official documentation. Tax data is updated within days of official changes — see our methodology page for sources and the full update history.',
+  url: `${SITE_URL}/about#editorial-team`,
+  sameAs: [],
+  initials: 'TC',
+  knowsAbout: [
+    'Federal Income Tax',
+    'State Income Tax',
+    'FICA Tax',
+    'Payroll Tax',
+    'IRS Compliance',
+    'Tax Planning',
+    'Multi-State Taxation',
+    'Tax-Advantaged Accounts',
+    'Self-Employment Tax',
+    'Estimated Tax Payments',
+    'Retirement Planning',
+    'Capital Gains Tax',
+  ],
+  worksFor: {
+    name: 'TheTaxCalc',
+    url: SITE_URL,
   },
 };
 
+export const AUTHORS: Record<string, AuthorProfile> = {
+  'editorial-team': EDITORIAL_TEAM,
+};
+
+// Legacy persona IDs were passed as <AuthorBioCard authorId="..."> props
+// across pages built before the editorial-team refactor (Task 48). They all
+// resolve to the single team profile so no caller breaks.
+const LEGACY_AUTHOR_IDS = ['rachel-mitchell', 'david-chen', 'sarah-johnson'];
+
 // ─── Helpers ───────────────────────────────────────────────────────────────
 
-/** Get an author profile by ID */
+/** Get an author profile by ID (legacy persona IDs resolve to the team) */
 export function getAuthor(id: string): AuthorProfile | undefined {
-  return AUTHORS[id];
+  if (AUTHORS[id]) return AUTHORS[id];
+  if (LEGACY_AUTHOR_IDS.includes(id)) return EDITORIAL_TEAM;
+  return undefined;
 }
 
 /** Get the primary author for calculator pages */
 export function getCalculatorAuthor(): AuthorProfile {
-  return AUTHORS['rachel-mitchell'];
+  return EDITORIAL_TEAM;
 }
 
 /** Get the primary author for self-employment / 1099 content */
 export function getSelfEmploymentAuthor(): AuthorProfile {
-  return AUTHORS['david-chen'];
+  return EDITORIAL_TEAM;
 }
 
 /** Get the primary author for retirement / investment content */
 export function getRetirementAuthor(): AuthorProfile {
-  return AUTHORS['sarah-johnson'];
+  return EDITORIAL_TEAM;
 }
 
-/** Map calculator type → author ID */
-export function getAuthorForCalculator(calculatorType: string): AuthorProfile {
-  const retirementTypes = ['retirement', 'capital-gains', 'irs-withholding', 'retirement-planning', 'roth-ira', 'investments', 'cd', 'interest', 'inflation'];
-  const selfEmploymentTypes = ['self-employment', 'overtime', 'bonus-tax'];
-
-  if (retirementTypes.includes(calculatorType)) {
-    return getRetirementAuthor();
-  }
-  if (selfEmploymentTypes.includes(calculatorType)) {
-    return getSelfEmploymentAuthor();
-  }
-  return getCalculatorAuthor();
+/** Map calculator type → author (single editorial team) */
+export function getAuthorForCalculator(_calculatorType: string): AuthorProfile {
+  return EDITORIAL_TEAM;
 }
 
-// ─── JSON-LD Person Schema Generator ──────────────────────────────────────
+// ─── JSON-LD Schema Generator ──────────────────────────────────────────────
 
 export function authorToJsonLd(author: AuthorProfile) {
   const schema: Record<string, unknown> = {
-    '@type': 'Person' as const,
+    '@type': 'Organization' as const,
     name: author.name,
     url: author.url,
-    jobTitle: `${author.title}, ${author.credentials}`,
     description: author.bio,
     knowsAbout: author.knowsAbout,
-    sameAs: author.sameAs,
     worksFor: {
       '@type': 'Organization' as const,
       name: author.worksFor.name,
@@ -175,4 +123,3 @@ export function authorToJsonLd(author: AuthorProfile) {
   }
   return schema;
 }
-

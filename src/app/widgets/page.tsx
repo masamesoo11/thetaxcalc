@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     'paycheck difference widget',
     'relocation calculator widget',
   ],
-  authors: [{ name: 'Rachel Mitchell, CPA' }],
+  authors: [{ name: 'TheTaxCalc Editorial Team' }],
   alternates: {
     canonical: `${SITE_URL}/widgets`,
   },
@@ -676,7 +676,7 @@ export default function WidgetsPage() {
       {/* ─── Author Attribution (E-E-A-T) ──────────────────────── */}
       <section className="py-12 border-t border-border/20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <AuthorBioCard authorId="rachel-mitchell" />
+          <AuthorBioCard authorId="editorial-team" />
         </div>
       </section>
     </div>

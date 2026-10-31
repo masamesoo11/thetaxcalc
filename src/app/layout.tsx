@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   },
   description:
     "Free 2026 tax calculator — paycheck, take-home pay, federal & state taxes. Plus mortgage, 401(k), self-employment & capital gains tools. No sign-up.",
-  authors: [{ name: "Rachel Mitchell, CPA", url: `${SITE_URL}/about#rachel-mitchell` }],
+  authors: [{ name: "TheTaxCalc Editorial Team", url: `${SITE_URL}/about#editorial-team` }],
   creator: "TheTaxCalc",
   publisher: "TheTaxCalc",
   icons: {

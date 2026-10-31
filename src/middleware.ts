@@ -99,7 +99,7 @@ export async function middleware(request: NextRequest) {
 
 ## Author
 
-Rachel Mitchell, CPA
+TheTaxCalc Editorial Team
 
 Visit https://thetaxcalc.com for full interactive calculators.`,
       '/paycheck-calculator': `# Free Paycheck Calculator 2026
@@ -214,7 +214,7 @@ We built these calculators so you can see exactly where your money goes — fede
 
 ## Author
 
-**Rachel Mitchell, CPA** — Licensed Certified Public Accountant with expertise in federal and state tax law.
+**TheTaxCalc Editorial Team** — tax researchers & software engineers; every rate verified against IRS publications and state revenue department figures.
 
 ## Data Sources
 
@@ -226,7 +226,7 @@ We built these calculators so you can see exactly where your money goes — fede
 ## Contact
 
 - Website: https://thetaxcalc.com
-- Author: Rachel Mitchell, CPA
+- Author: TheTaxCalc Editorial Team
 
 Visit https://thetaxcalc.com/about for the full page.`,
     };

@@ -341,9 +341,9 @@ export function BlogDetail({
         datePublished: post.createdAt,
         dateModified: post.updatedAt,
         author: author ? { '@id': `${SITE_URL}/blog/${post.slug}#author` } : {
-          '@type': 'Person',
-          name: 'Rachel Mitchell, CPA',
-          url: `${SITE_URL}/about#rachel-mitchell`,
+          '@type': 'Organization',
+          name: 'TheTaxCalc Editorial Team',
+          url: `${SITE_URL}/about#editorial-team`,
         },
         publisher: { '@id': `${SITE_URL}/#organization` },
         mainEntityOfPage: {
@@ -494,17 +494,7 @@ export function BlogDetail({
             <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
               <span className="flex items-center gap-1.5">
                 <User className="h-4 w-4" />
-                {(() => {
-                  const authorId = post.category === 'tips' ? 'sarah-johnson'
-                    : post.category === 'news' ? 'david-chen'
-                    : 'rachel-mitchell';
-                  const authors: Record<string, string> = {
-                    'rachel-mitchell': 'Rachel Mitchell, CPA',
-                    'david-chen': 'David Chen, EA',
-                    'sarah-johnson': 'Sarah Johnson, CFP®',
-                  };
-                  return authors[authorId] || 'Rachel Mitchell, CPA';
-                })()}
+                TheTaxCalc Editorial Team
               </span>
               <span className="flex items-center gap-1.5">
                 <Calendar className="h-4 w-4" />

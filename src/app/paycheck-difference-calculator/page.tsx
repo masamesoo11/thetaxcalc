@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     'net pay difference calculator',
     'take home pay by state',
   ],
-  authors: [{ name: 'Rachel Mitchell, CPA' }],
+  authors: [{ name: 'TheTaxCalc Editorial Team' }],
   alternates: {
     canonical: `${SITE_URL}/paycheck-difference-calculator`,
   },
@@ -231,7 +231,7 @@ export default function PaycheckDifferencePage() {
 
       {/* Author */}
       <section className="py-12 border-t border-border/20">
-        <AuthorBioCard authorId="rachel-mitchell" />
+        <AuthorBioCard authorId="editorial-team" />
       </section>
     </div>
   );

@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     '$100000 after tax', '$150000 after tax', 'salary by state',
     'take home pay calculator', 'after tax income',
   ],
-  authors: [{ name: 'Rachel Mitchell, CPA' }],
+  authors: [{ name: 'TheTaxCalc Editorial Team' }],
   alternates: {
     canonical: `${SITE_URL}/salary`,
   },
@@ -539,7 +539,7 @@ export default function SalaryLandingPage() {
 
         {/* ─── Author Attribution (E-E-A-T) ──────────────────────── */}
         <section className="py-12 border-t border-border/20">
-          <AuthorBioCard authorId="rachel-mitchell" />
+          <AuthorBioCard authorId="editorial-team" />
         </section>
       </div>
     </>
