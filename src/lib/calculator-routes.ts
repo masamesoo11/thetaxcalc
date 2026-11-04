@@ -36,9 +36,9 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     description:
       'Free paycheck tax calculator for 2026. Calculate take-home pay after federal, FICA & state taxes. No sign-up required. Supports IL, TX, FL, CA, NY with 401(k) and HSA deductions.',
     h1: 'Free Paycheck Calculator',
-    metaTitle: 'Free Paycheck Calculator 2026 — Instant Results',
+    metaTitle: 'Free Paycheck Calculator 2026 — Take-Home Pay by State',
     metaDesc:
-      'Free paycheck tax calculator for 2026. Calculate take-home pay after federal, FICA & state taxes. No sign-up. Covers IL, TX, FL, CA, NY.',
+      'Free paycheck tax calculator for 2026. Calculate take-home pay after federal, FICA & state taxes. No sign-up. All 50 states + 401(k) & HSA.',
     keywords: [
       'free paycheck tax calculator', 'free tax calculator for paycheck',
       'free tax calculator federal and state', 'free tax calculator for 2026',
@@ -62,7 +62,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     description:
       'Free Illinois tax calculator for 2026. Calculate take-home pay after 4.95% flat state tax, $2,775 personal exemption, federal tax & FICA. No sign-up.',
     h1: 'Free Illinois Tax Calculator',
-    metaTitle: 'Illinois Tax Calculator 2026 — Free, Instant Take-Home Pay',
+    metaTitle: 'Illinois Tax Calculator 2026 — Flat 4.95% Take-Home Pay',
     metaDesc:
       'Enter your salary and instantly see your Illinois take-home pay. Flat 4.95% tax, exact numbers for 2026. Free, no signup — try it now!',
     keywords: [
@@ -134,7 +134,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     description:
       'Free California tax calculator for 2026. Calculate take-home pay after progressive state tax (1%–13.3%), federal tax & FICA. No sign-up. 401(k) and HSA deductions.',
     h1: 'Free California Tax Calculator — Tax Amount in CA',
-    metaTitle: 'California Tax Calculator 2026 — Free, Instant Take-Home Pay',
+    metaTitle: 'California Income Tax Calculator 2026 — Take-Home Pay',
     metaDesc:
       'California charges up to 13.3% state tax. Enter your salary and instantly see your exact CA take-home pay. Free 2026 calculator, no signup.',
     keywords: [
@@ -158,7 +158,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     description:
       'Free New York tax calculator for 2026. Calculate take-home pay after progressive state tax (3.9%–10.9%), NYC tax, federal tax & FICA. No sign-up.',
     h1: 'Free New York Tax Calculator — NYC Tax Rates',
-    metaTitle: 'New York Tax Calculator 2026 — Free, Instant NYC Tax Results',
+    metaTitle: 'New York Tax Calculator 2026 — Income, NYC, Take-Home Pay',
     metaDesc:
       'NY charges up to 10.9% + NYC tax. New York: enter your salary and instantly see your exact NY take-home pay. Free 2026 calculator, no signup.',
     keywords: [
@@ -923,10 +923,10 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     title: '0% Income Tax — Nevada Tax Calculator 2026',
     description: 'Free Nevada tax calculator for 2026. Calculate take-home pay with 0% state income tax. No sign-up.',
     h1: 'Free Nevada Tax Calculator',
-    metaTitle: '0% Income Tax — Nevada Tax Calculator 2026',
+    metaTitle: 'Nevada Tax Calculator 2026 — 0% Income, 8.23% Sales Tax',
     metaDesc:
-      'Nevada has no state income tax — 0%. A $75,000 salary keeps $61,592 take-home (federal + FICA only). Free 2026 Nevada tax calculator, no signup.',
-    keywords: ['free Nevada tax calculator', 'Nevada tax calculator', 'NV paycheck calculator', 'Nevada no income tax', 'Nevada take home pay', 'Nevada salary calculator', 'free tax calculator for 2026', 'NV state tax 2026'],
+      'No state income tax, but sales tax averages 8.23% combined. A $75,000 salary still keeps $61,592 take-home. Free 2026 Nevada tax calculator.',
+    keywords: ['free Nevada tax calculator', 'Nevada tax calculator', 'NV paycheck calculator', 'Nevada no income tax', 'Nevada take home pay', 'Nevada salary calculator', 'Nevada sales tax rate', 'Nevada sales tax 2026', 'free tax calculator for 2026', 'NV state tax 2026'],
     componentKey: 'nevada',
     category: 'paycheck',
     breadcrumbLabel: 'Nevada',
