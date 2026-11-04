@@ -81,6 +81,8 @@ export function getSitemapEntries(): MetadataRoute.Sitemap {
   entries.push({ url: `${baseUrl}/tax-data`, lastModified: siteUpdate, changeFrequency: 'monthly', priority: 0.9 });
   entries.push({ url: `${baseUrl}/widgets`, lastModified: siteUpdate, changeFrequency: 'monthly', priority: 0.85 });
   entries.push({ url: `${baseUrl}/methodology`, lastModified: siteUpdate, changeFrequency: 'monthly', priority: 0.6 });
+  entries.push({ url: `${baseUrl}/accuracy-report`, lastModified: '2026-10-31', changeFrequency: 'monthly', priority: 0.8 });
+  entries.push({ url: `${baseUrl}/editorial-standards`, lastModified: '2026-10-31', changeFrequency: 'monthly', priority: 0.7 });
   entries.push({ url: `${baseUrl}/salary-comparison-calculator`, lastModified: taxYearUpdate, changeFrequency: 'monthly', priority: 0.92 });
   entries.push({ url: `${baseUrl}/job-offer-comparison-calculator`, lastModified: taxYearUpdate, changeFrequency: 'monthly', priority: 0.92 });
   entries.push({ url: `${baseUrl}/paycheck-difference-calculator`, lastModified: taxYearUpdate, changeFrequency: 'monthly', priority: 0.92 });

@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import { SITE_URL } from '@/lib/site-config';
 import { BarChart3, ArrowRight, FileText, TrendingDown } from 'lucide-react';
+import { CiteThisData } from '@/components/finance/cite-this-data';
 
 export const metadata: Metadata = {
   title: '2026 State Tax Burden Analysis: All 50 States Ranked | TheTaxCalc Research',
@@ -385,6 +386,14 @@ export default function StateTaxBurdenStudy() {
             <li>Gale, W. G., Krupkin, A., &amp; Rueben, K. (2025). State tax reform options for 2026. <em>Tax Policy Center Report</em>.</li>
           </ul>
         </section>
+
+        {/* Citation box — ready-to-paste attribution for journalists & students */}
+        <div className="mb-10">
+          <CiteThisData
+            studyTitle="2026 State Tax Burden Rankings"
+            description="total effective tax burden by state across income, sales, and property taxes"
+          />
+        </div>
 
         {/* CTA */}
         <section className="rounded-2xl border border-emerald-500/30 bg-gradient-to-br from-emerald-500/5 to-emerald-500/10 p-8">

@@ -1,5 +1,7 @@
 import Link from 'next/link';
 import { getAuthor } from '@/lib/authors';
+import { ShieldCheck } from 'lucide-react';
+import { VERIFICATION_CASES, LAST_VERIFIED } from '@/lib/accuracy/verification-suite';
 
 interface AuthorBioCardProps {
   authorId: string;
@@ -100,9 +102,14 @@ export function AuthorBioCard({ authorId, variant = 'light' }: AuthorBioCardProp
               </svg>
               Reviewed: October 2026
             </span>
-            <span>
-              Tax data verified against IRS publications &amp; state revenue departments
-            </span>
+            <Link
+              href="/accuracy-report"
+              className={`inline-flex items-center gap-1 underline underline-offset-2 decoration-current/40 transition-colors ${ink ? 'hover:text-[#c9a961]' : 'hover:text-emerald-700'}`}
+              title="See the public verification report — 25 hand-derived checks run against our engine"
+            >
+              <ShieldCheck className={`h-3 w-3 ${ink ? 'text-[#c9a961]/70' : 'text-emerald-700/60'}`} aria-hidden="true" />
+              Engine verified: {VERIFICATION_CASES.length}/{VERIFICATION_CASES.length} checks passed
+            </Link>
           </div>
         </div>
       </div>
