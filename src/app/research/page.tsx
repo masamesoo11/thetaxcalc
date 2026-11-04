@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { SITE_URL } from '@/lib/site-config';
+import { CiteThisData } from '@/components/finance/cite-this-data';
 
 export const metadata: Metadata = {
   title: 'Research Hub — 2026 Tax Data & Original Studies',
@@ -222,6 +223,14 @@ export default function ResearchHubPage() {
           ))}
         </div>
       </section>
+
+      {/* Citation box — ready-to-paste attribution for journalists & students */}
+      <div className="mb-10">
+        <CiteThisData
+          studyTitle="TheTaxCalc 2026 Tax Research Series"
+          description="original analysis of US state tax burdens, refund statistics, and salary benchmarks"
+        />
+      </div>
 
       {/* Methodology */}
       <section className="mb-10 rounded-xl border border-border/30 bg-card/50 p-6">
