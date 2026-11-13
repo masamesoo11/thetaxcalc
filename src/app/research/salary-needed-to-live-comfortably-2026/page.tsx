@@ -4,7 +4,7 @@ import { SITE_URL } from '@/lib/site-config';
 import { ArrowRight, DollarSign, FileText, Home, TrendingUp } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Salary Needed to Live Comfortably in All 50 U.S. States: 2026 Analysis | TheTaxCalc Research',
+  title: 'Salary Needed to Live Comfortably in All 50 U.S. States: 2026 Analysis',
   description: `How much do you need to earn to live comfortably in each U.S. state? 2026 analysis using the 50/30/20 budgeting rule and state-specific cost-of-living data.`,
   keywords: ['salary needed to live comfortably', 'comfortable living salary by state', 'how much to live comfortably', '50 30 20 rule salary', 'cost of living by state 2026', 'living wage by state'],
   authors: [{ name: 'TheTaxCalc Editorial Team' }],

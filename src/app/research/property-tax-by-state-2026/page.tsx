@@ -4,7 +4,7 @@ import { SITE_URL } from '@/lib/site-config';
 import { ArrowRight, FileText, Home, Shield, TrendingDown } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Property Tax Disparities Across U.S. States: Effective Rates, Assessment Practices, and Burden Distribution in 2026 | TheTaxCalc Research',
+  title: 'Property Tax Disparities Across U.S. States: Effective Rates, Assessment Practices, and Burden Distribution in 2026',
   description: `A 2026 statistical analysis of effective property tax rates across all 50 U.S. states, examining assessment practices and distributional impact.`,
   keywords: ['property tax by state', 'effective property tax rate', 'property tax comparison', 'state property tax rankings', 'property tax burden'],
   authors: [{ name: 'TheTaxCalc Editorial Team' }],

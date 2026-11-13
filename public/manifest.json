@@ -20,65 +20,46 @@
       "short_name": "Paycheck",
       "description": "Take-home pay after all 2026 taxes",
       "url": "/paycheck-calculator",
-      "icons": [{ "src": "/icon?s=96", "sizes": "96x96", "type": "image/png" }]
+      "icons": [{ "src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }]
     },
     {
       "name": "All Calculators",
       "short_name": "Calculators",
-      "description": "Browse all 73 free tax calculators",
+      "description": "Browse all 93 free tax calculators",
       "url": "/calculators",
-      "icons": [{ "src": "/icon?s=96", "sizes": "96x96", "type": "image/png" }]
+      "icons": [{ "src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }]
     },
     {
       "name": "Mortgage Calculator",
       "short_name": "Mortgage",
       "description": "Payment + amortization schedule",
       "url": "/mortgage-calculator",
-      "icons": [{ "src": "/icon?s=96", "sizes": "96x96", "type": "image/png" }]
+      "icons": [{ "src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }]
     }
   ],
   "icons": [
     {
-      "src": "/icon?s=48",
-      "sizes": "48x48",
+      "src": "/icon.png",
+      "sizes": "32x32",
       "type": "image/png"
     },
     {
-      "src": "/icon?s=72",
-      "sizes": "72x72",
-      "type": "image/png"
-    },
-    {
-      "src": "/icon?s=96",
-      "sizes": "96x96",
-      "type": "image/png"
-    },
-    {
-      "src": "/icon?s=144",
-      "sizes": "144x144",
-      "type": "image/png"
-    },
-    {
-      "src": "/icon?s=192",
-      "sizes": "192x192",
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
     },
     {
-      "src": "/icon?s=256",
-      "sizes": "256x256",
-      "type": "image/png"
-    },
-    {
-      "src": "/icon?s=384",
-      "sizes": "384x384",
-      "type": "image/png"
-    },
-    {
-      "src": "/icon?s=512",
-      "sizes": "512x512",
+      "src": "/logo-512.png",
+      "sizes": "1024x1024",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
+    },
+    {
+      "src": "/logo-512.png",
+      "sizes": "1024x1024",
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ],
   "screenshots": [],

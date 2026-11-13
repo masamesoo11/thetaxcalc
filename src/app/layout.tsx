@@ -108,12 +108,6 @@ const sitewideJsonLd = {
       },
       description: "Free 2026 tax calculators — paycheck, mortgage, 401(k), capital gains, and self-employment. Trusted by thousands of users for accurate, up-to-date tax estimates.",
       foundingDate: "2022",
-      sameAs: [
-        `${SITE_URL}/about`,
-        `${SITE_URL}/blog`,
-        `${SITE_URL}/research`,
-        `${SITE_URL}/methodology`,
-      ] as string[],
       contactPoint: [
         {
           "@type": "ContactPoint",
@@ -131,14 +125,6 @@ const sitewideJsonLd = {
       description: "Free 2026 tax calculators — paycheck, mortgage, 401(k), capital gains, and self-employment.",
       inLanguage: "en-US",
       publisher: { "@id": `${SITE_URL}/#organization` },
-      potentialAction: {
-        "@type": "SearchAction",
-        target: {
-          "@type": "EntryPoint",
-          urlTemplate: `${SITE_URL}/?q={search_term_string}`,
-        },
-        "query-input": "required name=search_term_string",
-      },
     },
     {
       "@id": `${SITE_URL}/#webpage-home`,

@@ -4,7 +4,7 @@ import { SITE_URL } from '@/lib/site-config';
 import { AlertCircle, ArrowRight, FileText, Laptop, TrendingDown } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'The State Tax Implications of Remote Work: Optimal U.S. States for Location-Independent Workers in 2026 | TheTaxCalc Research',
+  title: 'The State Tax Implications of Remote Work: Optimal U.S. States for Location-Independent Workers in 2026',
   description: `This study develops a composite Remote Worker Tax Attractiveness Index (RWTAI) for all 50 U.S. states, ranking the best states for remote workers in 2026.`,
   keywords: ['best states for remote workers', 'remote work tax', 'RWTAI', 'convenience of employer rule', 'digital nomad taxes'],
   authors: [{ name: 'TheTaxCalc Editorial Team' }],

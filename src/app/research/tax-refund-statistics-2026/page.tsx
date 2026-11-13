@@ -4,7 +4,7 @@ import { SITE_URL } from '@/lib/site-config';
 import { ArrowRight, DollarSign, FileText, Users, Zap } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Tax Refund Statistics 2026: Demographics, Behavioral Patterns, and Trends | TheTaxCalc Research',
+  title: 'Tax Refund Statistics 2026: Demographics, Behavioral Patterns, and Trends',
   description: `An analysis of IRS tax refund data for the 2025 filing season, examining refund amounts, timing, payment methods, and demographic patterns.`,
   keywords: ['tax refund statistics', 'average tax refund', 'irs refund data', 'tax refund trends', 'refund timing', 'direct deposit refund'],
   authors: [{ name: 'TheTaxCalc Editorial Team' }],

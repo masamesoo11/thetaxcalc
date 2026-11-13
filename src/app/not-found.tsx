@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: 'Page Not Found',
   description: 'The page you are looking for does not exist. Try our free tax calculators instead.',
   robots: { index: false, follow: false },
+  // Do not inherit the homepage canonical from the root layout — a 404 must
+  // not claim to be a copy of / (audit finding: 404 carried the home canonical).
+  alternates: { canonical: null },
 };
 
 export default function NotFound() {

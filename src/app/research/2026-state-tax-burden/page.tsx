@@ -5,7 +5,7 @@ import { BarChart3, ArrowRight, FileText, TrendingDown } from 'lucide-react';
 import { CiteThisData } from '@/components/finance/cite-this-data';
 
 export const metadata: Metadata = {
-  title: '2026 State Tax Burden Analysis: All 50 States Ranked | TheTaxCalc Research',
+  title: '2026 State Tax Burden Analysis: All 50 States Ranked',
   description:
     'Original 2026 cross-sectional study comparing effective state and local tax burdens across all 50 U.S. states. Findings, methodology, and interactive data for four household income profiles.',
   keywords: [

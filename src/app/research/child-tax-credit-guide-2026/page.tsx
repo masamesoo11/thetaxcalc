@@ -4,7 +4,7 @@ import { SITE_URL } from '@/lib/site-config';
 import { ArrowRight, Baby, DollarSign, FileText, TrendingUp } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Child Tax Credit 2026: Complete Guide to Eligibility, Amounts, and OBBBA Changes | TheTaxCalc Research',
+  title: 'Child Tax Credit 2026: Complete Guide to Eligibility, Amounts, and OBBBA Changes',
   description: `A comprehensive 2026 guide to the Child Tax Credit under OBBBA, including eligibility, credit amounts ($2,200), phaseout thresholds, and refundability rules.`,
   keywords: ['child tax credit 2026', 'CTC 2026', 'OBBBA child tax credit', 'child tax credit eligibility', 'additional child tax credit', 'CTC phaseout'],
   authors: [{ name: 'TheTaxCalc Editorial Team' }],
