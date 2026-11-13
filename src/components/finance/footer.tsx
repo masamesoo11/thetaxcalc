@@ -484,6 +484,12 @@ export function Footer() {
               <Link href="/methodology" className="underline underline-offset-2 decoration-border/50 hover:text-emerald-600 hover:decoration-emerald-600 transition-colors">
                 Methodology
               </Link>
+              <Link href="/accuracy-report" className="underline underline-offset-2 decoration-border/50 hover:text-emerald-600 hover:decoration-emerald-600 transition-colors">
+                Accuracy Report
+              </Link>
+              <Link href="/editorial-standards" className="underline underline-offset-2 decoration-border/50 hover:text-emerald-600 hover:decoration-emerald-600 transition-colors">
+                Editorial Standards
+              </Link>
             </div>
           </div>
         </div>

@@ -1635,27 +1635,27 @@ export function getSalarySeoText(salary: number): {
 
   switch (getTier(salary)) {
     case 'entry':
-      description = `${formatted} after taxes in 2026? A single filer keeps about ${fmt(tx.netAnnual)} in a no-tax state (${fmt(tx.netMonthly)}/month) vs. ${fmt(ca.netAnnual)} in California. Bracket math & all 50 states.`;
+      description = `${formatted} after taxes in 2026? A single filer keeps about ${fmt(tx.netAnnual)} in a no-tax state — ${fmt(tx.netMonthly)}/month, ${fmt(tx.netBiweekly)} biweekly — vs. ${fmt(ca.netAnnual)} in California. Hourly rate & all 50 states.`;
       extraKeywords = ['starting salary after tax', `${formatted} paycheck breakdown`, `${formatted} first job budget`];
       webAppDescription = `See what a ${formatted} starting salary nets after federal tax, FICA, and state income tax — with paycheck-by-paycheck breakdowns, bracket position, and all 50 states for 2026.`;
       break;
     case 'mid':
-      description = `Take-home on ${formatted} in 2026: ${fmt(tx.netAnnual)} in Texas, ${fmt(ca.netAnnual)} in California. Your ${marginal.rateLabel} bracket position, raise value & pay-frequency math for all 50 states.`;
+      description = `Take-home on ${formatted} in 2026: ${fmt(tx.netAnnual)}/year in Texas (${fmt(tx.netMonthly)}/mo, ${fmt(tx.netBiweekly)} biweekly) vs. ${fmt(ca.netAnnual)} in California. Hourly, biweekly & all 50 states.`;
       extraKeywords = [`${formatted} raise take-home`, `${formatted} hourly rate`, `${formatted} vs median income`];
       webAppDescription = `Calculate ${formatted} take-home pay in 2026: the full deduction ladder, ${marginal.rateLabel} bracket position, what raises are worth after tax, and net pay across all 50 states.`;
       break;
     case 'upperMid':
-      description = `${formatted} after tax in 2026: ~${fmt(tx.netAnnual)} net in Texas, ${fmt(ca.netAnnual)} in California. Where the 24% bracket starts, what a maxed 401(k) saves & all 50 states.`;
+      description = `${formatted} after tax in 2026: ~${fmt(tx.netAnnual)} net in Texas (${fmt(tx.netMonthly)}/month) vs. ${fmt(ca.netAnnual)} in California. Biweekly & hourly pay, 401(k) savings & all 50 states.`;
       extraKeywords = [`${formatted} tax bracket`, `24 percent bracket 2026`, `${formatted} 401k savings`];
       webAppDescription = `Calculate ${formatted} take-home pay for 2026 — federal brackets, FICA, and state tax for all 50 states, plus 401(k) deferral savings and overtime pay math.`;
       break;
     case 'high':
-      description = `${formatted} after taxes in 2026: net from ${fmt(tx.netAnnual)} (no-tax states) to ${fmt(ca.netAnnual)} (California). Marginal stack, Medicare surtax, Social Security cap — 50 states.`;
+      description = `${formatted} after taxes in 2026: net from ${fmt(tx.netAnnual)} (${fmt(tx.netMonthly)}/mo) in no-tax states to ${fmt(ca.netAnnual)} in California. Biweekly checks, Medicare surtax — 50 states.`;
       extraKeywords = [`${formatted} additional medicare tax`, `social security wage cap 2026`, `${formatted} effective tax rate`];
       webAppDescription = `Calculate ${formatted} take-home pay for 2026 — the ${marginal.rateLabel} marginal bracket, Additional Medicare Tax, the Social Security wage cap, and net pay across all 50 states.`;
       break;
     default:
-      description = `${formatted} after tax: ${marginal.rateLabel} marginal bracket, but only ${effFed.toFixed(1)}% effective federal. Net ~${fmt(tx.netAnnual)} in Texas vs. ${fmt(ca.netAnnual)} in California — all 50 states.`;
+      description = `${formatted} after tax: ${marginal.rateLabel} marginal bracket, but only ${effFed.toFixed(1)}% effective federal. Net ~${fmt(tx.netAnnual)} (${fmt(tx.netMonthly)}/month) in Texas vs. ${fmt(ca.netAnnual)} in California — all 50 states.`;
       extraKeywords = [`${formatted} take home california`, `35 percent bracket 2026`, `${formatted} net pay texas`];
       webAppDescription = `Calculate ${formatted} take-home pay for 2026 — marginal versus effective rates, payroll-tax caps, and state-by-state net pay across all 50 states.`;
       break;

@@ -549,7 +549,7 @@ export const BLOG_INDEX: BlogPostMeta[] = [
     "coverImage": "",
     "published": true,
     "featured": false,
-    "metaTitle": "Robux Tax Calculator: How Much Does Roblox Take? (2026)",
+    "metaTitle": "Robux Tax Calculator: How Much Does Roblox Take?",
     "metaDesc": "Robux tax calculator. Roblox takes 30% marketplace fee on all sales. Calculate your earnings, reverse calculator, DevEx rates, and real-world tax.",
     "createdAt": "2026-07-08T07:10:00.000Z",
     "updatedAt": "2026-07-08T07:10:00.000Z"

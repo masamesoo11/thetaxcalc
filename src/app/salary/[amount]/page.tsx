@@ -46,9 +46,11 @@ export async function generateMetadata({
   // pages — descriptions now vary meaningfully between salary tiers)
   const seo = getSalarySeoText(salary);
 
-  // Question-format title (Task 42 CTR fix): the top GSC query family for these
-  // pages is literally "70k a year is how much a month after taxes" — mirror it.
-  const title = `How Much Is ${formatted} a Year After Taxes in 2026?`;
+  // Title v3 (Nov 2026 CTR push): GSC shows the dominant query family is
+  // "70k a year is how much a MONTH after taxes" — the answer formats people
+  // want are monthly/biweekly/hourly, not the yearly question. Title now
+  // carries all three frequency tokens alongside the amount + year.
+  const title = `${formatted} After Taxes 2026 — Monthly, Biweekly & Hourly`;
 
   return {
     title: { absolute: title },

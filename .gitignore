@@ -27,3 +27,9 @@ tool-results/
 # re-create after a sandbox rebuild with: mkdir -p public/mockups && cp mockups/*.html public/mockups/
 /public/mockups/
 /public/index.html
+
+# scratch snapshots & build noise (Task 49 cleanup — kept on disk, untracked)
+dev-alive.log
+*.tsbuildinfo
+public/*.bak-*
+src/*.bak-*
