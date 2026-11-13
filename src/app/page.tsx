@@ -544,7 +544,7 @@ export default function HomePage() {
                 <Link
                   prefetch={false}
                   key={item.amount}
-                  href={`/salary/${item.amount}`}
+                  href={`/salary/${item.amount}-after-taxes`}
                   className="group inline-flex items-center gap-1.5 rounded-xl border border-[#e7e0d0] bg-white px-5 py-3 text-sm font-semibold text-[#1c1917] transition-all hover:border-[#b08d3e]/50 hover:bg-[#faf5e9] hover:text-[#8a6a24]"
                 >
                   {item.label}
@@ -786,7 +786,7 @@ export default function HomePage() {
                     <Link
                       prefetch={false}
                       key={amount}
-                      href={`/salary/${amount}`}
+                      href={`/salary/${amount}-after-taxes`}
                       className="rounded-md border border-[#e7e0d0] bg-[#fafaf9] px-2.5 py-1 text-xs font-medium text-[#57534e] transition-all hover:border-[#b08d3e]/50 hover:bg-[#faf5e9] hover:text-[#8a6a24]"
                     >
                       {formatSalaryCompact(amount)}

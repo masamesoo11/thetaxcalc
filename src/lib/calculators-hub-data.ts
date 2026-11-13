@@ -495,7 +495,7 @@ function buildHubCalculators(): HubCalculator[] {
   });
 }
 
-/** The complete hub tool list (73 calculators as of 2026). */
+/** The complete hub tool list — count is derived at build time (HUB_CALCULATOR_COUNT). */
 export const HUB_CALCULATORS: HubCalculator[] = buildHubCalculators();
 
 export const HUB_CALCULATOR_COUNT = HUB_CALCULATORS.length;

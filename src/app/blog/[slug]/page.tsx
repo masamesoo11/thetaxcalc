@@ -515,11 +515,11 @@ export default async function BlogDetailPage({
         <p className="text-sm text-muted-foreground mb-4">Quick access to take-home pay estimates for common salary levels.</p>
         <div className="flex flex-wrap gap-3">
           {[
-            { href: '/salary/50000', label: '$50,000' },
-            { href: '/salary/75000', label: '$75,000' },
-            { href: '/salary/100000', label: '$100,000' },
-            { href: '/salary/150000', label: '$150,000' },
-            { href: '/salary/200000', label: '$200,000' },
+            { href: '/salary/50000-after-taxes', label: '$50,000' },
+            { href: '/salary/75000-after-taxes', label: '$75,000' },
+            { href: '/salary/100000-after-taxes', label: '$100,000' },
+            { href: '/salary/150000-after-taxes', label: '$150,000' },
+            { href: '/salary/200000-after-taxes', label: '$200,000' },
           ].map((item) => (
             <Link
               key={item.href}

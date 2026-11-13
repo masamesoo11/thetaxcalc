@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Admin Dashboard | TheTaxCalc',
+  title: 'Admin Dashboard',
   description: 'Internal admin dashboard for TheTaxCalc.',
   robots: {
     index: false,

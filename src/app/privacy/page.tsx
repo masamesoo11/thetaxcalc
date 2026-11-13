@@ -361,10 +361,10 @@ export default function PrivacyPage() {
             <h3 className="text-base font-semibold text-foreground mb-3">Salary After Tax</h3>
             <div className="flex flex-wrap gap-2">
               {[
-                { href: '/salary/50000', label: '$50K' },
-                { href: '/salary/75000', label: '$75K' },
-                { href: '/salary/100000', label: '$100K' },
-                { href: '/salary/150000', label: '$150K' },
+                { href: '/salary/50000-after-taxes', label: '$50K' },
+                { href: '/salary/75000-after-taxes', label: '$75K' },
+                { href: '/salary/100000-after-taxes', label: '$100K' },
+                { href: '/salary/150000-after-taxes', label: '$150K' },
               ].map((s) => (
                 <Link
                   key={s.href}

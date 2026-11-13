@@ -55,7 +55,7 @@ export function SeoNavigation() {
               <li><a href="/salary" className="text-sm text-emerald-600 font-medium hover:text-emerald-700 transition-colors">All 26 Salary Levels</a></li>
               {SALARY_AMOUNTS.slice(0, 10).map((amount) => (
                 <li key={amount}>
-                  <a href={`/salary/${amount}`} className="text-sm text-muted-foreground hover:text-emerald-600 transition-colors">
+                  <a href={`/salary/${amount}-after-taxes`} className="text-sm text-muted-foreground hover:text-emerald-600 transition-colors">
                     {formatSalaryCompact(amount)} After Tax
                   </a>
                 </li>
@@ -128,7 +128,7 @@ export function SeoNavigation() {
             {SALARY_AMOUNTS.map((amount) => (
               <a
                 key={amount}
-                href={`/salary/${amount}`}
+                href={`/salary/${amount}-after-taxes`}
                 className="inline-flex items-center rounded border border-border/30 bg-background/50 px-2.5 py-1 text-xs text-muted-foreground hover:border-emerald-500/30 hover:text-emerald-600 transition-all"
               >
                 {formatSalaryCompact(amount)}
