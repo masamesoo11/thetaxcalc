@@ -149,15 +149,15 @@ export function getCalculatorContent(type: string): CalculatorContentData {
     case 'newyork':
       return {
         howItWorks: [
-          'New York takes a lot out of your paycheck. <a href="https://www.tax.ny.gov/" target="_blank" rel="noopener noreferrer">State income tax</a> runs from 4% to 10.9% across nine brackets, and if you live in NYC, there\'s an additional city tax (3.078%–3.876%) on top. NYC residents face the highest combined state and local income tax in the US.',
-          'NY\'s standard deduction is $8,100 for single filers, $16,200 for married filing jointly — actually higher than California\'s, which is something. The top 10.9% rate doesn\'t kick in until $25,000,000 of taxable income, so most earners are in the 6%–8% range.',
+          'New York takes a lot out of your paycheck. <a href="https://www.tax.ny.gov/" target="_blank" rel="noopener noreferrer">State income tax</a> runs from 3.9% to 10.9% across nine brackets, and if you live in NYC, there\'s an additional city tax (3.078%–3.876%) on top. NYC residents face the highest combined state and local income tax in the US.',
+          'NY\'s standard deduction is $8,000 for single filers, $16,050 for married filing jointly — actually higher than California\'s, which is something. The top 10.9% rate doesn\'t kick in until $25,000,000 of taxable income, so most earners are in the 6%–8% range.',
           'That NYC tax though. If you live in any of the five boroughs, the city takes an additional 3.078%–3.876%. On $100,000, that\'s roughly $3,400 that people in literally any other US city don\'t pay. I\'ve seen friends reconsider job offers after factoring in the city tax. It\'s a toggle in this calculator for a reason — it makes a huge difference.',
           'One bright spot: New York doesn\'t tax Social Security, and excludes up to $20,000 of retirement income (pensions, 401(k), IRA) for taxpayers 59½ and older. Property taxes average 1.62% and combined sales tax is about 8.52%. Not great. But also not the worst part about living here.',
           'Winner for lowest total tax burden? Not New York, obviously. But if you\'re here for the career or the city, at least you can see exactly what it costs you.',
         ],
         keyRates: [
-          { label: 'NY Tax Brackets', value: '4% – 10.9% (9 brackets)' },
-          { label: 'NY Standard Deduction (Single)', value: '$8,100' },
+          { label: 'NY Tax Brackets', value: '3.9% – 10.9% (9 brackets)' },
+          { label: 'NY Standard Deduction (Single)', value: '$8,000' },
           { label: 'NYC Income Tax', value: '3.078% – 3.876%' },
           { label: 'NY Avg Property Tax Rate', value: '~1.62%' },
           { label: 'NY Avg Combined Sales Tax', value: '8.52%' },
@@ -333,7 +333,7 @@ export function getCalculatorContent(type: string): CalculatorContentData {
           'This tax calculator estimates your total federal and state tax burden for 2026. It accounts for income tax, FICA payroll taxes, and state-specific tax rules — everything that comes out of your paycheck before you see it.',
           'Federal income tax uses progressive brackets (10%–37%). You subtract the standard deduction first — $16,100 for single filers — then each bracket applies only to the income within that range. Your effective tax rate (total tax ÷ gross income) is always lower than your marginal rate (the bracket your last dollar falls into). Most people overestimate their effective rate.',
           'FICA adds another 7.65% on top: 6.2% for Social Security (capped at $184,500 in earnings) and 1.45% for Medicare (no cap). Earn over $200,000 and there\'s an extra 0.9% Medicare surcharge. Unlike income tax, FICA is calculated on gross pay before deductions — 401(k) contributions don\'t reduce it.',
-          'State tax is where things get interesting. We cover five states with very different approaches: Illinois charges a flat 4.95% with a small personal exemption. Texas and Florida charge 0% income tax (they fund government through property and sales taxes instead). California runs progressive brackets from 1% to 13.3%. New York does 4% to 10.9% progressive, and NYC residents pay an additional city tax. The difference between the highest and lowest state tax on the same salary can be $8,000+ per year.',
+          'State tax is where things get interesting. We cover five states with very different approaches: Illinois charges a flat 4.95% with a small personal exemption. Texas and Florida charge 0% income tax (they fund government through property and sales taxes instead). California runs progressive brackets from 1% to 13.3%. New York does 3.9% to 10.9% progressive, and NYC residents pay an additional city tax. The difference between the highest and lowest state tax on the same salary can be $8,000+ per year.',
           'Pre-tax deductions are your friend. 401(k) contributions (up to $24,500 in 2026) and HSA contributions reduce your taxable income for federal and state income tax — but not for FICA. At a 22% marginal rate, every $1,000 in 401(k) contributions saves you $220 in federal tax plus whatever your state charges.',
         ],
         keyRates: [

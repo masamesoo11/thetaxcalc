@@ -1,5 +1,8 @@
 import type { OpenNextConfig } from "@opennextjs/cloudflare";
-import staticAssetsIncrementalCache from "@opennextjs/cloudflare/overrides/incremental-cache/static-assets";
+// NOTE: in @opennextjs/cloudflare 1.19.x the module file is
+// static-assets-incremental-cache.js (the docs' "static-assets"
+// subpath does not exist in this version).
+import staticAssetsIncrementalCache from "@opennextjs/cloudflare/overrides/incremental-cache/static-assets-incremental-cache";
 
 const config: OpenNextConfig = {
   default: {

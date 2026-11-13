@@ -179,7 +179,7 @@ export function calculateNYCTax(
   const brackets = NYC_TAX_2026.brackets[filingStatus] ?? NYC_TAX_2026.brackets.single;
   // NYC tax is on NYS taxable income (after NYS standard deduction)
   // For simplicity, we apply on gross - NYS standard deduction
-  const nysDeduction = STATE_PROFILES.newyork?.standardDeductionsByFiling?.[filingStatus] ?? 8100;
+  const nysDeduction = STATE_PROFILES.newyork?.standardDeductionsByFiling?.[filingStatus] ?? 8000;
   const taxableIncome = Math.max(0, annualGross - nysDeduction);
   if (taxableIncome <= 0) return 0;
 

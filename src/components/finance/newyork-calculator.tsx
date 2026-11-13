@@ -162,14 +162,14 @@ export function NewYorkCalculator() {
               <p className="font-medium text-foreground">How New York Progressive Income Tax Works</p>
               <p>
                 New York uses a <strong className="text-emerald-600">progressive tax system</strong> with
-                9 brackets ranging from <strong className="text-emerald-600">4% to 10.9%</strong>.
-                Your income is taxed in layers — the first dollars are taxed at 4%, with higher rates applied
+                9 brackets ranging from <strong className="text-emerald-600">3.9% to 10.9%</strong>.
+                Your income is taxed in layers — the first dollars are taxed at 3.9%, with higher rates applied
                 as income increases. A <strong className="text-emerald-600">standard deduction</strong> of
-                $8,100 (single), $16,200 (married), or $11,200 (head of household) is subtracted first.
+                $8,000 (single), $16,050 (married), or $11,200 (head of household) is subtracted first.
               </p>
               <p>
-                For a $100,000 salary (single): Taxable income = $100,000 − $8,100 = $91,900.
-                NY state tax ≈ $4,941 across 5 brackets — effective rate ~4.9%.
+                For a $100,000 salary (single): Taxable income = $100,000 − $8,000 = $92,000.
+                NY state tax ≈ $4,860 across 5 brackets — effective rate ~4.9%.
                 <strong className="text-red-600"> NYC residents</strong> pay an additional city tax of
                 3.078%–3.876%, making the combined state + city rate up to 14.8% for high earners.
                 Combined with <strong className="text-amber-700">8.52% avg sales tax</strong> and
@@ -497,18 +497,18 @@ export function NewYorkCalculator() {
             <TableBody>
               <TableRow>
                 <TableCell>State Income Tax Rate</TableCell>
-                <TableCell className="font-medium text-emerald-600">4% – 10.9% (Progressive)</TableCell>
+                <TableCell className="font-medium text-emerald-600">3.9% – 10.9% (Progressive)</TableCell>
                 <TableCell>9 brackets; highest rate applies above $25M</TableCell>
               </TableRow>
               <TableRow>
                 <TableCell>Standard Deduction (Single)</TableCell>
-                <TableCell className="font-medium">$8,100</TableCell>
+                <TableCell className="font-medium">$8,000</TableCell>
                 <TableCell>Subtracted from gross before bracket computation</TableCell>
               </TableRow>
               <TableRow>
                 <TableCell>Standard Deduction (Married)</TableCell>
-                <TableCell className="font-medium">$16,200</TableCell>
-                <TableCell>Double the single deduction for joint filers</TableCell>
+                <TableCell className="font-medium">$16,050</TableCell>
+                <TableCell>Roughly double the single deduction for joint filers</TableCell>
               </TableRow>
               <TableRow>
                 <TableCell>Standard Deduction (Head of Household)</TableCell>
@@ -549,14 +549,14 @@ export function NewYorkCalculator() {
         <h2 className="text-xl font-bold text-foreground">New York $100,000 Salary Example (2026)</h2>
         <div className="mt-3 space-y-1 text-sm text-muted-foreground">
           <p>Gross Annual Salary: $100,000.00</p>
-          <p>New York Standard Deduction (Single): -$8,100.00</p>
-          <p>New York Taxable Income: $91,900.00</p>
-          <p>New York State Tax (4%–6.85% brackets): $4,941.38</p>
+          <p>New York Standard Deduction (Single): -$8,000.00</p>
+          <p>New York Taxable Income: $92,000.00</p>
+          <p>New York State Tax (3.9%–5.9% brackets): $4,859.75</p>
           <p>Federal Tax (after $16,100 std deduction): $13,170.00</p>
           <p>FICA Total (7.65%): $7,650.00</p>
-          <p>Total Deductions: $25,761.38</p>
-          <p>Net Annual Take-Home: $74,238.62</p>
-          <p>Monthly Take-Home: $6,186.55</p>
+          <p>Total Deductions: $25,679.75</p>
+          <p>Net Annual Take-Home: $74,320.25</p>
+          <p>Monthly Take-Home: $6,193.35</p>
           <p>Estimated COL Burden (Property + Sales Tax): $11,310.40/yr</p>
           <p>Note: NYC residents pay additional city income tax of 3.078%–3.876%</p>
         </div>

@@ -142,9 +142,9 @@ const STATE_TAX_DATA = [
   {
     state: 'New York',
     abbr: 'NY',
-    rate: '4% – 10.9%',
+    rate: '3.9% – 10.9%',
     type: 'Progressive',
-    deduction: '$8,500 (S) / $17,150 (MFJ)',
+    deduction: '$8,000 (S) / $16,050 (MFJ)',
     calculator: '/new-york-tax-calculator',
   },
   {

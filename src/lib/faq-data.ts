@@ -210,12 +210,12 @@ export const NEWYORK_FAQS: FAQItem[] = [
   {
     question: 'How much is New York state income tax in 2026?',
     answer:
-      "New York uses progressive brackets from 4% up to 10.9% across 9 brackets. For a single filer at $100K after the $8,100 standard deduction, the effective rate comes out to roughly 4.9%. That top 10.9% rate? It only applies above $25 million in taxable income, so unless you're in that stratosphere, don't sweat it.",
+      "New York uses progressive brackets from 3.9% up to 10.9% across 9 brackets. For a single filer at $100K after the $8,000 standard deduction, the effective rate comes out to roughly 4.9%. That top 10.9% rate? It only applies above $25 million in taxable income, so unless you're in that stratosphere, don't sweat it.",
   },
   {
     question: 'What is the New York standard deduction for 2026?',
     answer:
-      "$8,100 for single filers, $16,200 for married filing jointly, and $11,200 for head of household. Better than California's deduction, at least.",
+      "$8,000 for single filers, $16,050 for married filing jointly, and $11,200 for head of household. Better than California's deduction, at least.",
   },
   {
     question: 'Does New York City have its own income tax?',
