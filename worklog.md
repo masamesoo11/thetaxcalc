@@ -384,7 +384,7 @@ Work Log:
 - Pending final sequence once the key arrives: PATCH DEVTO_API_KEY → POST new deployment → poll to success → live-verify chain (token dry-run 200 = process.env proof, admin login 200, dispatch workflow → green run → 5 real posts) → verify dev.to article count 1→6 → remind user to DELETE the CF API token.
 
 Stage Summary:
-- Cloudflare side is 90% done via API (no dashboard work for the user): 3 of 4 env vars live in project config incl. a NEW admin password (Thc-CQyGa7hzYCZp8t — communicated to the user; works only after the upcoming deploy).
+- Cloudflare side is 90% done via API (no dashboard work for the user): 3 of 4 env vars live in project config incl. a NEW admin password ([REDACTED 2026-11-05 — full value was exposed in this public repo] — communicated to the user; works only after the upcoming deploy).
 - ONLY missing piece: DEVTO_API_KEY (awaiting user paste — lost from sandbox in the env reset).
 - Proven reusable techniques: account-ID via GitHub check-run details URL; PATCH env-var merge semantics verified on a disposable test project; deploy trigger + status polling via Pages API ready.
 - CF API token (cfut_…b53322) is in chat — MUST tell user to delete it from dash.cloudflare.com/profile/api-tokens when everything is green.
@@ -397,7 +397,7 @@ Task: Complete the delegated Cloudflare setup — dev.to key received, full go-l
 Work Log:
 - User pasted the dev.to key (QKUo••••5PLZ — matches the pre-reset masked record exactly; created Oct 22). Verified via /api/users/me (masamesoo11) → PATCHed DEVTO_API_KEY to production (merge, one key) → sandbox .env restored too.
 - Triggered production deployment via API (id 15e5bc4e) → polled to "deploy success" (~2 min).
-- LIVE VERIFICATION (all on thetaxcalc.com): token-auth publish-all dry-run = HTTP 200 with keySource:"env", 51 new + 1 syndicated, wouldPublish 5 newest, rateGuard {limit:5, remaining:46} — FIRST-EVER runtime env var read on the worker WORKS (OpenNext process.env population confirmed; the Task-13 watch-item is closed). Admin login with new password Thc-CQyGa7hzYCZp8t = 200.
+- LIVE VERIFICATION (all on thetaxcalc.com): token-auth publish-all dry-run = HTTP 200 with keySource:"env", 51 new + 1 syndicated, wouldPublish 5 newest, rateGuard {limit:5, remaining:46} — FIRST-EVER runtime env var read on the worker WORKS (OpenNext process.env population confirmed; the Task-13 watch-item is closed). Admin login with new password [REDACTED 2026-11-05] = 200.
 - Dispatched the GitHub Actions workflow (run 39903537480): GREEN (conclusion: success), HTTP 200 from endpoint, attempted 5, succeeded 2, failed 3 (dev.to 429 rate limit — young-account article-creation throttle). Two articles LIVE with canonical attribution:
   · dev.to/masamesoo11/federal-income-tax-rate-calculator-how-to-calculate-your-2026-tax-4e9
   · dev.to/masamesoo11/robux-tax-calculator-how-much-tax-does-roblox-take-333b
@@ -528,13 +528,13 @@ Work Log:
 - User completed the Medium repair flow (paste full body from dev.to into the Medium stub). First Medium article now complete: canonical + full 795-word body. Told user the self-check: reading time should now read ~4 min (was 1).
 - Published the W4 article to dev.to as the paste-source for Medium import #2: /api/syndicate action=publish slug=irs-withholding-w4-guide-2026 → dev.to id 4904684, https://dev.to/masamesoo11/irs-withholding-2026-how-to-fill-out-your-w-4-and-avoid-surprises-3p53 (verified rendered: 3227 words, 29 headings). dev.to count now 7.
 - ENVIRONMENT RESET DISCOVERED mid-session (~08:54): sandbox .env wiped to DATABASE_URL only (SYNDICATION_TOKEN + DEVTO_API_KEY lost locally) AND /home/z/push-main + /home/z/thetaxcalc-fix worktrees deleted (both were "prunable" in git).
-- WORKAROUND for the lost SYNDICATION_TOKEN (production value still live in CF env): admin-login fallback — POST /api/auth/login {"password":"Thc-CQyGa7hzYCZp8t"} → thetaxcalc_admin_session cookie → POST /api/syndicate with the cookie. authorize() accepts admin sessions (verified working against production). ADMIN PASSWORD IS THE RECOVERABLE AUTH PATH for the syndication API.
+- WORKAROUND for the lost SYNDICATION_TOKEN (production value still live in CF env): admin-login fallback — POST /api/auth/login {"password":"[REDACTED 2026-11-05]"} → thetaxcalc_admin_session cookie → POST /api/syndicate with the cookie. authorize() accepts admin sessions (verified working against production). ADMIN PASSWORD IS THE RECOVERABLE AUTH PATH for the syndication API.
 - Recreated /home/z/push-main worktree from origin/main (git worktree prune + add, branch push-main). Production HEAD is ead0b61 (blog-body fix, deploy still pending on CF infra).
 - Origin probe after Medium publish: still 88 words — deploy not landed yet; dev.to paste flow remains the required path for Medium imports.
 
 Stage Summary:
 - Medium channel: article #1 COMPLETE (canonical + full body); articles #2 (1099 guide, already on dev.to) and #3 (W4 guide, newly published) have ready paste-sources.
-- Sandbox .env was reset by the platform — production env vars untouched; use admin login (Thc-CQyGa7hzYCZp8t) to drive /api/syndicate when the local token is missing.
+- Sandbox .env was reset by the platform — production env vars untouched; use admin login ([REDACTED 2026-11-05]) to drive /api/syndicate when the local token is missing.
 - push-main worktree recreated; origin/main = ead0b61 awaiting a successful CF Pages build.
 
 ---
