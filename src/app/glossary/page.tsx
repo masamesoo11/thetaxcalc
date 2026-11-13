@@ -114,7 +114,7 @@ const RELATED_CALCULATORS = [
   { href: '/texas-tax-calculator', label: 'Texas Calculator', desc: '0% income tax take-home pay' },
   { href: '/florida-tax-calculator', label: 'Florida Calculator', desc: '0% income tax + homestead' },
   { href: '/california-tax-calculator', label: 'California Calculator', desc: '1%–13.3% progressive brackets' },
-  { href: '/new-york-tax-calculator', label: 'New York Calculator', desc: '4%–10.9% + NYC tax' },
+  { href: '/new-york-tax-calculator', label: 'New York Calculator', desc: '3.9%–10.9% + NYC tax' },
 ];
 
 // ─── Server Component Page ────────────────────────────────────────────────────

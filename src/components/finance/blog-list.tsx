@@ -84,7 +84,7 @@ const RELATED_CALCULATORS = [
   { hash: 'texas', label: 'Texas Calculator', desc: '0% state income tax' },
   { hash: 'florida', label: 'Florida Calculator', desc: '0% state income tax' },
   { hash: 'california', label: 'California Calculator', desc: 'CA progressive 1%–13.3%' },
-  { hash: 'newyork', label: 'New York Calculator', desc: 'NY progressive 4%–10.9%' },
+  { hash: 'newyork', label: 'New York Calculator', desc: 'NY progressive 3.9%–10.9%' },
   { hash: 'mortgage', label: 'Mortgage Calculator', desc: 'Monthly payment & amortization' },
   { hash: 'retirement', label: '401(k) Projection', desc: 'Retirement savings growth' },
   { hash: 'relocation', label: 'Relocation Calculator', desc: 'Salary equivalent by state' },

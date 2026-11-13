@@ -311,7 +311,7 @@ export default function SalaryLandingPage() {
               {
                 step: '3',
                 title: 'State Income Tax',
-                desc: 'IL: 4.95% flat · TX & FL: 0% · CA: 1%–13.3% progressive · NY: 4%–10.9% progressive.',
+                desc: 'IL: 4.95% flat · TX & FL: 0% · CA: 1%–13.3% progressive · NY: 3.9%–10.9% progressive.',
               },
               {
                 step: '4',
@@ -347,7 +347,7 @@ export default function SalaryLandingPage() {
               { name: 'Texas', abbr: 'TX', rate: '0% income tax', href: '/texas-tax-calculator', color: 'from-red-600/20 to-orange-600/10' },
               { name: 'Florida', abbr: 'FL', rate: '0% income tax', href: '/florida-tax-calculator', color: 'from-amber-600/20 to-yellow-600/10' },
               { name: 'California', abbr: 'CA', rate: '1%–13.3%', href: '/california-tax-calculator', color: 'from-violet-600/20 to-purple-600/10' },
-              { name: 'New York', abbr: 'NY', rate: '4%–10.9%', href: '/new-york-tax-calculator', color: 'from-cyan-600/20 to-sky-600/10' },
+              { name: 'New York', abbr: 'NY', rate: '3.9%–10.9%', href: '/new-york-tax-calculator', color: 'from-cyan-600/20 to-sky-600/10' },
             ].map((state) => (
               <Link
                 key={state.abbr}
@@ -429,7 +429,7 @@ export default function SalaryLandingPage() {
                   { href: '/texas-tax-calculator', label: 'Texas (0% income tax)' },
                   { href: '/florida-tax-calculator', label: 'Florida (0% income tax)' },
                   { href: '/california-tax-calculator', label: 'California (1%–13.3%)' },
-                  { href: '/new-york-tax-calculator', label: 'New York (4%–10.9%)' },
+                  { href: '/new-york-tax-calculator', label: 'New York (3.9%–10.9%)' },
                 ].map((item) => (
                   <Link
                     key={item.href}

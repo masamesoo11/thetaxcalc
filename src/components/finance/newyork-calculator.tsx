@@ -150,7 +150,7 @@ export function NewYorkCalculator() {
           New York Paycheck Calculator
         </h2>
         <p className="mt-2 text-muted-foreground">
-          Progressive 4%–10.9% state tax + potential NYC tax — complete take-home &amp; cost of living breakdown
+          Progressive 3.9%–10.9% state tax + potential NYC tax — complete take-home &amp; cost of living breakdown
         </p>
       </div>
 
@@ -380,7 +380,7 @@ export function NewYorkCalculator() {
                   <span className="text-sm font-medium text-orange-700">-{formatCurrency(result.ficaTotal)}</span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="flex items-center gap-1.5 text-sm text-muted-foreground"><TrendingDown className="h-3.5 w-3.5 text-amber-700" />NY State Tax (4%–10.9%)</span>
+                  <span className="flex items-center gap-1.5 text-sm text-muted-foreground"><TrendingDown className="h-3.5 w-3.5 text-amber-700" />NY State Tax (3.9%–10.9%)</span>
                   <span className="text-sm font-medium text-amber-700">-{formatCurrency(result.stateTax)}</span>
                 </div>
                 {nycResident && result.nycTax > 0 && (

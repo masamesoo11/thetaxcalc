@@ -132,7 +132,7 @@ export const POPULAR_STATE_RATES: Record<string, string> = {
   'texas-tax-calculator': '0% income tax',
   'florida-tax-calculator': '0% income tax',
   'california-tax-calculator': '1%–13.3% income tax',
-  'new-york-tax-calculator': '4%–10.9% income tax',
+  'new-york-tax-calculator': '3.9%–10.9% income tax',
   'georgia-tax-calculator': '4.99% flat income tax',
   'virginia-tax-calculator': '2%–5.75% income tax',
   'north-carolina-tax-calculator': '3.99% flat income tax',

@@ -148,7 +148,7 @@ function getOtherStates(currentState: string) {
     { slug: 'texas-tax-calculator', name: 'Texas', rate: '0%', key: 'texas' },
     { slug: 'florida-tax-calculator', name: 'Florida', rate: '0%', key: 'florida' },
     { slug: 'california-tax-calculator', name: 'California', rate: '1%–13.3%', key: 'california' },
-    { slug: 'new-york-tax-calculator', name: 'New York', rate: '4%–10.9%', key: 'newyork' },
+    { slug: 'new-york-tax-calculator', name: 'New York', rate: '3.9%–10.9%', key: 'newyork' },
     { slug: 'georgia-tax-calculator', name: 'Georgia', rate: '4.99%', key: 'georgia' },
     { slug: 'virginia-tax-calculator', name: 'Virginia', rate: '2%–5.75%', key: 'virginia' },
     { slug: 'north-carolina-tax-calculator', name: 'North Carolina', rate: '4.5%', key: 'northcarolina' },
@@ -384,7 +384,7 @@ function getNextSteps(type: string): { href: string; icon: string; title: string
     case 'massachusetts':
       return [
         { href: '/paycheck-calculator', icon: '\u{1F4B5}', title: 'Paycheck Calculator', description: 'Full take-home pay breakdown' },
-        { href: '/new-york-tax-calculator', icon: '\u{1F3E0}', title: 'New York Calculator', description: 'Compare NY 4%–10.9% vs MA 5%/9%' },
+        { href: '/new-york-tax-calculator', icon: '\u{1F3E0}', title: 'New York Calculator', description: 'Compare NY 3.9%–10.9% vs MA 5%/9%' },
         { href: '/relocation-calculator', icon: '\u{1F4CA}', title: 'Relocation Calculator', description: 'Compare MA to other states' },
         { href: '/salary', icon: '\u{1F4B0}', title: 'Salary After Tax', description: 'Take-home pay at every level' },
       ];

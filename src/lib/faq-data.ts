@@ -45,7 +45,7 @@ export const HOME_FAQS: FAQItem[] = [
   {
     question: 'How much is $75,000 a year after taxes in 2026?',
     answer:
-      "On a $75,000 salary in 2026, your take-home pay depends on your state. After federal income tax ($7,670 for single filers) and FICA ($5,738), you keep about $61,592 in no-income-tax states like Texas, Florida, Washington, Nevada, and Wyoming. In Illinois (4.95% flat), you keep about $58,017. In California (1%–13.3%), take-home drops to around $54,849. In New York (4%–10.9%), about $55,413. Use our paycheck calculator above to see exact numbers for your state and filing status.",
+      "On a $75,000 salary in 2026, your take-home pay depends on your state. After federal income tax ($7,670 for single filers) and FICA ($5,738), you keep about $61,592 in no-income-tax states like Texas, Florida, Washington, Nevada, and Wyoming. In Illinois (4.95% flat), you keep about $58,017. In California (1%–13.3%), take-home drops to around $54,849. In New York (3.9%–10.9%), about $55,413. Use our paycheck calculator above to see exact numbers for your state and filing status.",
   },
   {
     question: 'How to calculate federal income tax step by step?',
@@ -527,7 +527,7 @@ export const INCOME_TAX_FAQS: FAQItem[] = [
   {
     question: 'How do state income taxes differ from federal?',
     answer:
-      "State income taxes vary dramatically. Texas and Florida charge 0%. Illinois charges a flat 4.95%. California runs 1%–13.3% progressive. New York does 4%–10.9% progressive, plus NYC residents pay an additional 3.078%–3.876% city tax. The state you live in can easily mean thousands of dollars difference on the same salary.",
+      "State income taxes vary dramatically. Texas and Florida charge 0%. Illinois charges a flat 4.95%. California runs 1%–13.3% progressive. New York does 3.9%–10.9% progressive, plus NYC residents pay an additional 3.078%–3.876% city tax. The state you live in can easily mean thousands of dollars difference on the same salary.",
   },
   {
     question: 'What deductions can reduce my taxable income?',

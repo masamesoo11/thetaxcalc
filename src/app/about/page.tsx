@@ -268,7 +268,7 @@ export default function AboutPage() {
               { state: 'Texas', rate: '0% state income tax', href: '/texas-tax-calculator' },
               { state: 'Florida', rate: '0% state income tax', href: '/florida-tax-calculator' },
               { state: 'California', rate: '1%–13.3% progressive', href: '/california-tax-calculator' },
-              { state: 'New York', rate: '4%–10.9% + NYC tax', href: '/new-york-tax-calculator' },
+              { state: 'New York', rate: '3.9%–10.9% + NYC tax', href: '/new-york-tax-calculator' },
               { state: 'Georgia', rate: '4.99% flat tax', href: '/georgia-tax-calculator' },
               { state: 'Virginia', rate: '2%–5.75% progressive', href: '/virginia-tax-calculator' },
               { state: 'Colorado', rate: '4.4% flat tax', href: '/colorado-tax-calculator' },
@@ -780,7 +780,7 @@ export default function AboutPage() {
                 { href: '/texas-tax-calculator', label: 'Texas (0% income tax)' },
                 { href: '/florida-tax-calculator', label: 'Florida (0% income tax)' },
                 { href: '/california-tax-calculator', label: 'California (1%–13.3%)' },
-                { href: '/new-york-tax-calculator', label: 'New York (4%–10.9%)' },
+                { href: '/new-york-tax-calculator', label: 'New York (3.9%–10.9%)' },
               ].map((item) => (
                 <Link
                   key={item.href}

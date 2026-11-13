@@ -65,7 +65,7 @@ const CALC_CATEGORIES = [
       { key: 'texas', href: '/texas-tax-calculator', label: 'Texas', desc: '0% income tax' },
       { key: 'florida', href: '/florida-tax-calculator', label: 'Florida', desc: '0% income tax' },
       { key: 'california', href: '/california-tax-calculator', label: 'California', desc: '1%–13.3%' },
-      { key: 'newyork', href: '/new-york-tax-calculator', label: 'New York', desc: '4%–10.9%' },
+      { key: 'newyork', href: '/new-york-tax-calculator', label: 'New York', desc: '3.9%–10.9%' },
       { key: 'georgia', href: '/georgia-tax-calculator', label: 'Georgia', desc: '4.99% flat' },
       { key: 'virginia', href: '/virginia-tax-calculator', label: 'Virginia', desc: '2%–5.75%' },
       { key: 'northcarolina', href: '/north-carolina-tax-calculator', label: 'North Carolina', desc: '3.99% flat' },

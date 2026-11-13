@@ -36,7 +36,7 @@ export function SeoNavigation() {
               <li><a href="/texas-tax-calculator" className="text-sm text-muted-foreground hover:text-emerald-600 transition-colors">Texas Tax Calculator (0%)</a></li>
               <li><a href="/florida-tax-calculator" className="text-sm text-muted-foreground hover:text-emerald-600 transition-colors">Florida Tax Calculator (0%)</a></li>
               <li><a href="/california-tax-calculator" className="text-sm text-muted-foreground hover:text-emerald-600 transition-colors">California Tax Calculator (1%–13.3%)</a></li>
-              <li><a href="/new-york-tax-calculator" className="text-sm text-muted-foreground hover:text-emerald-600 transition-colors">New York Tax Calculator (4%–10.9%)</a></li>
+              <li><a href="/new-york-tax-calculator" className="text-sm text-muted-foreground hover:text-emerald-600 transition-colors">New York Tax Calculator (3.9%–10.9%)</a></li>
               <li><a href="/mortgage-calculator" className="text-sm text-muted-foreground hover:text-emerald-600 transition-colors">Mortgage Calculator</a></li>
               <li><a href="/401k-retirement-calculator" className="text-sm text-muted-foreground hover:text-emerald-600 transition-colors">401(k) Retirement Calculator</a></li>
               <li><a href="/capital-gains-calculator" className="text-sm text-muted-foreground hover:text-emerald-600 transition-colors">Capital Gains Tax Calculator</a></li>

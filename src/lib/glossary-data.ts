@@ -308,7 +308,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     slug: 'state-income-tax',
     letter: 'S',
     definition:
-      'State income tax is a tax levied by individual states on resident income. Rates and structures vary widely: some states have progressive brackets (CA: 1%–13.3%, NY: 4%–10.9%), some have flat rates (IL: 4.95%), and nine states have no income tax at all (including TX and FL).',
+      'State income tax is a tax levied by individual states on resident income. Rates and structures vary widely: some states have progressive brackets (CA: 1%–13.3%, NY: 3.9%–10.9%), some have flat rates (IL: 4.95%), and nine states have no income tax at all (including TX and FL).',
     example:
       'A $75,000 earner pays $0 state tax in Texas or Florida, ~$3,575 in Illinois (4.95%), and potentially over $5,000 in California or New York.',
     calculatorLink: '/relocation-calculator',

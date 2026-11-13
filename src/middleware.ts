@@ -81,7 +81,7 @@ export async function middleware(request: NextRequest) {
 - [California Tax Calculator](/california-tax-calculator) — 1%–13.3% progressive
 - [Texas Tax Calculator](/texas-tax-calculator) — 0% income tax
 - [Florida Tax Calculator](/florida-tax-calculator) — 0% income tax
-- [New York Tax Calculator](/new-york-tax-calculator) — 4%–10.9% + NYC tax
+- [New York Tax Calculator](/new-york-tax-calculator) — 3.9%–10.9% + NYC tax
 - [Illinois Tax Calculator](/illinois-tax-calculator) — 4.95% flat tax
 
 ## Compare States

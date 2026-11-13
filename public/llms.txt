@@ -156,5 +156,5 @@ TheTaxCalc provides free, accurate tax calculators for federal, state, and local
 
 - Author: TheTaxCalc Editorial Team
 - Data sources: IRS Rev. Proc. 2025-32, IRS publications, state revenue departments, Tax Foundation
-- Last updated: 2026-10-31
+- Last updated: 2026-11-13
 - Contact: https://thetaxcalc.com/contact

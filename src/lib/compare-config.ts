@@ -90,7 +90,7 @@ export const COMPARE_STATES: Record<string, CompareStateData> = {
     abbreviation: 'NY',
     slug: 'new-york',
     taxConfigKey: 'newyork',
-    incomeTaxLabel: '4%–10.9% progressive',
+    incomeTaxLabel: '3.9%–10.9% progressive',
     incomeTaxRate: 0.0685, // approximate effective rate for mid-income
     standardDeduction: 8100,
     propertyTaxRate: 0.0162,

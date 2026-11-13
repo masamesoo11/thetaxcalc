@@ -304,7 +304,7 @@ export default function SmartAssetAlternativePage() {
           Alaska, New Hampshire, Tennessee), flat-tax states (Illinois at 4.95%, Pennsylvania
           at 3.07%, Colorado at 4.4%, Indiana at 2.95%, Michigan at 4.25%, Massachusetts at
           5.0%, Georgia at 4.99%, North Carolina at 3.99%), and the most progressive states
-          (California at 1%–13.3%, New York at 4%–10.9% plus NYC tax). Use our{' '}
+          (California at 1%–13.3%, New York at 3.9%–10.9% plus NYC tax). Use our{' '}
           <Link
             href="/paycheck-calculator"
             className="text-emerald-600 hover:text-emerald-700 underline"

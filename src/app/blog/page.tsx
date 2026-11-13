@@ -162,7 +162,7 @@ export default async function BlogPage() {
                 { href: '/texas-tax-calculator', label: 'Texas (0% income tax)' },
                 { href: '/florida-tax-calculator', label: 'Florida (0% income tax)' },
                 { href: '/california-tax-calculator', label: 'California (1%–13.3%)' },
-                { href: '/new-york-tax-calculator', label: 'New York (4%–10.9%)' },
+                { href: '/new-york-tax-calculator', label: 'New York (3.9%–10.9%)' },
               ].map((item) => (
                 <Link
                   key={item.href}

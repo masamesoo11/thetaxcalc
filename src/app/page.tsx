@@ -146,7 +146,7 @@ const CALCULATOR_CARDS: HomeCardData[] = [
   { href: '/texas-tax-calculator', title: 'Texas Tax Calculator', desc: '0% state income tax — compute TX take-home pay with property tax analysis', badge: 'TX', category: 'state', featured: true, icon: 'MapPin' },
   { href: '/florida-tax-calculator', title: 'Florida Tax Calculator', desc: '0% income tax + homestead exemption — FL take-home pay & cost of living', badge: 'FL', category: 'state', featured: true, icon: 'MapPin' },
   { href: '/california-tax-calculator', title: 'California Tax Calculator', desc: '1%–13.3% progressive brackets — CA take-home pay with high tax burden', badge: 'CA', category: 'state', featured: true, icon: 'MapPin' },
-  { href: '/new-york-tax-calculator', title: 'New York Tax Calculator', desc: '4%–10.9% progressive + NYC tax — NY take-home pay analysis', badge: 'NY', category: 'state', featured: true, icon: 'MapPin' },
+  { href: '/new-york-tax-calculator', title: 'New York Tax Calculator', desc: '3.9%–10.9% progressive + NYC tax — NY take-home pay analysis', badge: 'NY', category: 'state', featured: true, icon: 'MapPin' },
   { href: '/mortgage-calculator', title: 'Mortgage Calculator', desc: 'Monthly payment, amortization schedule & extra payment savings', badge: 'Finance', category: 'finance', featured: true, icon: 'Home' },
   { href: '/401k-retirement-calculator', title: '401(k) Retirement Calculator', desc: 'Projected balance with employer match & compound annual growth', badge: 'Planning', category: 'finance', featured: true, icon: 'PiggyBank' },
   { href: '/relocation-calculator', title: 'Relocation Calculator', desc: 'Compare equivalent salary between states — IL, TX, FL, CA, NY', badge: 'Compare', category: 'business', featured: true, icon: 'ArrowRightLeft' },
@@ -255,7 +255,7 @@ const homeJsonLd = {
         {
           '@type': 'HowToStep',
           name: 'Select Your State',
-          text: 'Choose your state — we cover all 50 states with dedicated income tax calculators, including IL (4.95%), TX (0%), FL (0%), CA (1%–13.3%), NY (4%–10.9%), and 46 more states.'
+          text: 'Choose your state — we cover all 50 states with dedicated income tax calculators, including IL (4.95%), TX (0%), FL (0%), CA (1%–13.3%), NY (3.9%–10.9%), and 46 more states.'
         },
         {
           '@type': 'HowToStep',
@@ -487,7 +487,7 @@ export default function HomePage() {
                 { state: 'Florida', key: 'florida', rate: '0%', label: 'Lowest Burden', tone: 'gold', href: '/florida-tax-calculator' },
                 { state: 'Arizona', key: 'arizona', rate: '2.5%', label: 'Lowest Rate', tone: 'gold', href: '/arizona-tax-calculator' },
                 { state: 'California', key: 'california', rate: '1%–13.3%', label: 'Highest Rate', tone: 'red', href: '/california-tax-calculator' },
-                { state: 'New York', key: 'newyork', rate: '4%–10.9%', label: 'High Burden', tone: 'red', href: '/new-york-tax-calculator' },
+                { state: 'New York', key: 'newyork', rate: '3.9%–10.9%', label: 'High Burden', tone: 'red', href: '/new-york-tax-calculator' },
               ].map((item) => (
                 <Link
                   prefetch={false}

@@ -88,7 +88,7 @@ const COMPARISON_DATA = [
   {
     state: 'New York',
     abbreviation: 'NY',
-    incomeTaxRate: '4%–10.9%',
+    incomeTaxRate: '3.9%–10.9%',
     incomeTaxType: 'Progressive',
     personalExemption: '$8,100 std ded',
     avgPropertyTaxRate: '1.62%',
@@ -132,7 +132,7 @@ export function StateComparisonSection() {
                   <TableCell className="text-center"><Badge className="bg-emerald-600/20 text-emerald-600 text-xs">0%</Badge></TableCell>
                   <TableCell className="text-center"><Badge className="bg-emerald-600/20 text-emerald-600 text-xs">0%</Badge></TableCell>
                   <TableCell className="text-center"><Badge variant="destructive" className="text-xs">1%–13.3%</Badge></TableCell>
-                  <TableCell className="text-center"><Badge variant="destructive" className="text-xs">4%–10.9%</Badge></TableCell>
+                  <TableCell className="text-center"><Badge variant="destructive" className="text-xs">3.9%–10.9%</Badge></TableCell>
                 </TableRow>
                 <TableRow>
                   <TableCell className="font-medium">Tax Type</TableCell>
@@ -247,7 +247,7 @@ export function StateComparisonSection() {
           <CardContent className="p-4 text-center">
             <p className="text-xs uppercase tracking-wider text-red-600">Very High Burden</p>
             <p className="mt-1 text-xl font-bold text-foreground">New York</p>
-            <p className="mt-1 text-sm text-muted-foreground">4%–10.9% + NYC tax + 8.52% sales</p>
+            <p className="mt-1 text-sm text-muted-foreground">3.9%–10.9% + NYC tax + 8.52% sales</p>
             <p className="mt-2 text-sm font-medium text-red-600">-{flDelta('newyork')}/yr vs FL at $75K</p>
           </CardContent>
         </Card>

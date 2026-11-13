@@ -146,9 +146,9 @@ const WIDGETS: WidgetInfo[] = [
     slug: 'new-york-tax-calculator',
     title: 'New York Tax Calculator',
     description:
-      'Calculate your NYC/NY paycheck with progressive 4%–10.9% state tax and city tax considerations.',
+      'Calculate your NYC/NY paycheck with progressive 3.9%–10.9% state tax and city tax considerations.',
     icon: MapPin,
-    badge: 'NY — 4%–10.9%',
+    badge: 'NY — 3.9%–10.9%',
     defaultHeight: 650,
     color: 'emerald',
   },
