@@ -33,10 +33,12 @@ export function rateToSlug(rate: number): string {
 
 /**
  * Parse a rate slug. Accepts both "25-an-hour" and the legacy bare "25".
- * Returns the number, or null for non-numeric slugs.
+ * Returns the number, or null for anything else. The match is anchored at
+ * both ends so junk slugs ("22_5-an-hour", "25-foo") 404 instead of
+ * rendering a duplicate of the page for their numeric prefix.
  */
 export function slugToRate(slug: string): number | null {
-  const match = slug.match(/^(\d+(?:\.\d{1,2})?)/);
+  const match = slug.match(/^(\d+(?:\.\d{1,2})?)(?:-an-hour)?$/);
   if (!match) return null;
   const num = parseFloat(match[1]);
   if (isNaN(num) || num <= 0) return null;
@@ -51,6 +53,15 @@ export function isLegacyRateSlug(slug: string): boolean {
 /** On-demand rendering range — anything from $5 to $500 an hour gets a page. */
 export function isValidHourlyRate(rate: number): boolean {
   return rate >= 5 && rate <= 500;
+}
+
+/**
+ * Only the curated HOURLY_RATES are indexable. Other in-range rates still
+ * render for users (on-demand) but are served noindex,follow so the
+ * 5–500 range does not become an unbounded set of near-duplicate pages.
+ */
+export function isIndexableHourlyRate(rate: number): boolean {
+  return (HOURLY_RATES as readonly number[]).includes(rate);
 }
 
 // ─── Format Helpers ───────────────────────────────────────────────────────────

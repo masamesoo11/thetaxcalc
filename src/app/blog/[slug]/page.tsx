@@ -70,9 +70,11 @@ export async function generateMetadata({
     title: { absolute: metaTitle },
     description: metaDesc,
     keywords: post.tags ? post.tags.split(',').map((t) => t.trim()) : [],
-    robots: NOINDEX_POST_SLUGS.has(slug)
-      ? { index: false, follow: true }
-      : undefined,
+    // Spread instead of `robots: undefined` so indexable posts inherit the
+    // layout's `index, follow` default rather than overriding it with nothing.
+    ...(NOINDEX_POST_SLUGS.has(slug)
+      ? { robots: { index: false, follow: true } }
+      : {}),
     alternates: {
       canonical: `${SITE_URL}/blog/${slug}`,
     },

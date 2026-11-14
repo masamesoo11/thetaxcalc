@@ -1,11 +1,10 @@
 import { Metadata } from 'next';
-import { notFound } from 'next/navigation';
+import { notFound, permanentRedirect } from 'next/navigation';
 import { SITE_URL } from '@/lib/site-config';
 import {
   isValidSalaryAmount,
   slugToSalary,
   salaryToSlug,
-  isLegacySalarySlug,
   formatSalary,
 } from '@/lib/salary-calculations';
 import { DynamicSalaryPage } from './dynamic-salary-page';
@@ -22,7 +21,9 @@ export const dynamicParams = true; // Allow on-demand generation for other salar
 export function generateStaticParams() {
   // Only pre-generate top 8 salary amounts to reduce build time
   const topSalaries = [50000, 75000, 100000, 150000, 200000];
-  return topSalaries.map((amount) => ({ amount: String(amount) }));
+  // Canonical slugs: the bare-number form is 301'd by middleware, so
+  // pre-rendering it produced pages that could never be served.
+  return topSalaries.map((amount) => ({ amount: salaryToSlug(amount) }));
 }
 
 // ─── Per-Page Metadata (tier-differentiated descriptions) ────────────────────
@@ -34,7 +35,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { amount: amountStr } = await params;
   const salary = slugToSalary(amountStr);
-  if (!salary) return { title: 'Salary Not Found' };
+  if (!salary || !isValidSalaryAmount(salary)) return { title: 'Salary Not Found' };
 
   const formatted = formatSalary(salary);
   const baseUrl = SITE_URL;
@@ -168,7 +169,11 @@ export default async function SalaryAmountPage({
   const seo = getSalarySeoText(salary);
   const jsonLd = generateJsonLd(salary, seo.description, seo.webAppDescription);
   const canonicalSlug = salaryToSlug(salary);
-  const isLegacy = isLegacySalarySlug(amountStr);
+  // Accepted-but-non-canonical slugs (e.g. "075000-after-taxes") 308 to the
+  // canonical URL. Bare-number legacy slugs are already 301'd in middleware.
+  if (amountStr !== canonicalSlug) {
+    permanentRedirect(`/salary/${canonicalSlug}`);
+  }
   const salaryFormatted = formatSalary(salary);
 
   return (
@@ -178,11 +183,6 @@ export default async function SalaryAmountPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-
-      {/* If this is a legacy URL, add a meta refresh to the canonical URL for bots that don't follow canonical */}
-      {isLegacy && (
-        <link rel="canonical" href={`${SITE_URL}/salary/${canonicalSlug}`} />
-      )}
 
       {/* H1 — Server-rendered for SEO (client component uses ssr:false) */}
       <div className="mx-auto max-w-7xl px-4 pt-8 sm:px-6 lg:px-8">

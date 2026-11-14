@@ -10,7 +10,6 @@ import { SiteShell } from "@/components/finance/site-shell";
 import { WebMCPProvider } from "@/components/finance/webmcp-provider";
 import { PwaClient } from "@/components/pwa/pwa-client";
 import { SITE_URL, SITE_HOME_URL } from '@/lib/site-config';
-import { TOTAL_CALCULATOR_COUNT } from '@/lib/calculator-routes';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -106,7 +105,7 @@ const sitewideJsonLd = {
         "@type": "ImageObject",
         url: `${SITE_URL}/icon.png`,
       },
-      description: "Free 2026 tax calculators — paycheck, mortgage, 401(k), capital gains, and self-employment. Trusted by thousands of users for accurate, up-to-date tax estimates.",
+      description: "Free 2026 tax calculators — paycheck, mortgage, 401(k), capital gains, and self-employment, built on published IRS and state tax-agency figures.",
       foundingDate: "2022",
       contactPoint: [
         {
@@ -126,19 +125,9 @@ const sitewideJsonLd = {
       inLanguage: "en-US",
       publisher: { "@id": `${SITE_URL}/#organization` },
     },
-    {
-      "@id": `${SITE_URL}/#webpage-home`,
-      "@type": "WebPage",
-      name: "2026 Tax Calculator — Paycheck & Take-Home Pay | 50 States",
-      description: `Free 2026 tax calculator. Take-home pay after federal, FICA & state tax. ${TOTAL_CALCULATOR_COUNT} tools & 50-state sales tax data. No sign-up.`,
-      url: SITE_URL,
-      inLanguage: "en-US",
-      isPartOf: { "@id": `${SITE_URL}/#website` },
-      about: {
-        "@type": "Thing",
-        name: "Tax Calculator",
-      },
-    },
+    // The home-page WebPage node used to live here, which emitted a WebPage
+    // with url = site root on EVERY page. The home page declares its own
+    // WebPage node in src/app/page.tsx, so it is intentionally not repeated.
   ],
 };
 

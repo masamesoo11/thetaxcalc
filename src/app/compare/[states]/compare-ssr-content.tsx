@@ -401,14 +401,14 @@ export function CompareCTA({ state1Slug, state1Name, state2Slug, state2Name }: {
       </p>
       <div className="flex flex-wrap items-center justify-center gap-3">
         <Link
-          href={`/${state1Slug}`}
+          href={`/${state1Slug}-tax-calculator`}
           className="inline-flex items-center gap-2 rounded-xl bg-emerald-600 px-6 py-3 text-base font-semibold text-white shadow-lg shadow-emerald-500/20 transition-colors hover:bg-emerald-700"
         >
           <Calculator className="h-5 w-5" />
           {state1Name} Tax Calculator
         </Link>
         <Link
-          href={`/${state2Slug}`}
+          href={`/${state2Slug}-tax-calculator`}
           className="inline-flex items-center gap-2 rounded-xl bg-emerald-600 px-6 py-3 text-base font-semibold text-white shadow-lg shadow-emerald-500/20 transition-colors hover:bg-emerald-700"
         >
           <Calculator className="h-5 w-5" />

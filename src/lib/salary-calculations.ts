@@ -345,7 +345,8 @@ export function salaryToLegacySlug(amount: number): string {
 
 export function slugToSalary(slug: string): number | null {
   // Handle both new pattern "85000-after-taxes" and legacy pattern "85000"
-  const match = slug.match(/^(\d+)/);
+  // Anchored at both ends: "75000-foo" must 404, not render the $75,000 page.
+  const match = slug.match(/^(\d+)(?:-after-taxes)?$/);
   if (!match) return null;
   const num = parseInt(match[1], 10);
   if (isNaN(num) || num <= 0) return null;

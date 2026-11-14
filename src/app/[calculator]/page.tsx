@@ -68,9 +68,11 @@ export async function generateMetadata({
     description: config.metaDesc,
     keywords: config.keywords,
     authors: [{ name: 'TheTaxCalc Editorial Team' }],
-    robots: NOINDEX_CALCULATORS.has(calculator)
-      ? { index: false, follow: true }
-      : undefined,
+    // Spread instead of `robots: undefined` so indexable pages inherit the
+    // layout's `index, follow` default rather than overriding it with nothing.
+    ...(NOINDEX_CALCULATORS.has(calculator)
+      ? { robots: { index: false, follow: true } }
+      : {}),
     alternates: {
       canonical: `${baseUrl}${config.canonicalPath}`,
     },

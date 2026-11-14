@@ -524,6 +524,17 @@ Visit https://thetaxcalc.com/about for the full page.`,
     );
   }
 
+  // ─── Hourly legacy URL redirect (/hourly/25 → /hourly/25-an-hour) ──────────
+  // Whole-dollar rates only: paths containing "." are skipped at the top of
+  // this middleware, so fractional legacy slugs are redirected by the page.
+  const hourlyMatch = pathname.match(/^\/hourly\/(\d+)$/);
+  if (hourlyMatch) {
+    return NextResponse.redirect(
+      new URL(`/hourly/${Number(hourlyMatch[1])}-an-hour`, request.url),
+      301
+    );
+  }
+
   // ─── Sales-tax legacy slug redirects (/sales-tax-calculator/newjersey → new-jersey) ───
   // Canonical slugs are hyphenated (derived from the state name). Old
   // non-hyphenated links (blog posts, external backlinks) get a 301 so their

@@ -1,10 +1,10 @@
 import { Metadata } from 'next';
-import { notFound } from 'next/navigation';
+import { notFound, permanentRedirect } from 'next/navigation';
 import { SITE_URL } from '@/lib/site-config';
 import {
   formatRate,
   getRateTier,
-  isLegacyRateSlug,
+  isIndexableHourlyRate,
   isValidHourlyRate,
   rateToSlug,
   slugToRate,
@@ -62,6 +62,8 @@ export async function generateMetadata({
     description: seo.description,
     keywords: seo.keywords,
     authors: [{ name: 'TheTaxCalc Editorial Team' }],
+    // On-demand rates outside the curated set stay usable but out of the index.
+    ...(isIndexableHourlyRate(rate) ? {} : { robots: { index: false, follow: true } }),
     alternates: {
       canonical: `${baseUrl}${canonicalPath}`,
     },
@@ -172,7 +174,11 @@ export default async function HourlyRatePage({
   const seo = getRateSeoText(rate);
   const jsonLd = generateJsonLd(rate, seo.description, seo.webAppDescription);
   const canonicalSlug = rateToSlug(rate);
-  const isLegacy = isLegacyRateSlug(rateStr);
+  // Any accepted-but-non-canonical slug ("22.50-an-hour", "025-an-hour", or a
+  // fractional legacy slug the middleware cannot see) 308s to the canonical URL.
+  if (rateStr !== canonicalSlug) {
+    permanentRedirect(`/hourly/${canonicalSlug}`);
+  }
   const rateLabel = formatRate(rate);
 
   return (
@@ -182,11 +188,6 @@ export default async function HourlyRatePage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-
-      {/* If this is a legacy URL, add a meta refresh to the canonical URL for bots that don't follow canonical */}
-      {isLegacy && (
-        <link rel="canonical" href={`${SITE_URL}/hourly/${canonicalSlug}`} />
-      )}
 
       {/* H1 — Server-rendered for SEO (client component uses ssr:false) */}
       <div className="mx-auto max-w-7xl px-4 pt-8 sm:px-6 lg:px-8">
