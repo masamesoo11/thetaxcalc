@@ -125,6 +125,8 @@ export function parseComparisonSlug(slug: string): [string, string] | null {
   const state1 = parts[0];
   const state2 = parts[1];
   if (!COMPARE_STATES[state1] || !COMPARE_STATES[state2]) return null;
+  // A state compared with itself is not a real comparison (was a soft-404 at 200).
+  if (state1 === state2) return null;
   return [state1, state2];
 }
 
@@ -293,6 +295,9 @@ function buildFaqs(s1: CompareStateData, s2: CompareStateData): { question: stri
 const _configCache = new Map<string, CompareConfig | null>();
 
 export function getCompareConfig(slug: string): CompareConfig | null {
+  // Only the canonical pairs are real pages. Reversed pairs are 301'd in
+  // middleware; anything else (unknown or same-state) must 404, not render.
+  if (!(COMPARISON_SLUGS as readonly string[]).includes(slug)) return null;
   if (!_configCache.has(slug)) {
     _configCache.set(slug, buildCompareConfig(slug));
   }

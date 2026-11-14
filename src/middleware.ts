@@ -301,6 +301,7 @@ Visit https://thetaxcalc.com/about for the full page.`,
     '/compare/new-york-vs-texas': '/compare/texas-vs-new-york',
     '/compare/new-york-vs-florida': '/compare/florida-vs-new-york',
     '/compare/new-york-vs-california': '/compare/california-vs-new-york',
+    '/compare/california-vs-florida': '/compare/florida-vs-california',
     '/compare/texas-vs-illinois': '/compare/illinois-vs-texas',
     '/compare/florida-vs-illinois': '/compare/illinois-vs-florida',
     '/compare/california-vs-illinois': '/compare/illinois-vs-california',
@@ -432,27 +433,12 @@ Visit https://thetaxcalc.com/about for the full page.`,
     );
   }
 
-  // ─── Bot redirect: strip query params for calculator URLs ──────────────────
-  const CALCULATOR_PATHS_WITH_PARAMS = [
-    '/property-tax-calculator', '/sales-tax-calculator', '/paycheck-calculator',
-    '/illinois-tax-calculator', '/texas-tax-calculator', '/florida-tax-calculator',
-    '/california-tax-calculator', '/new-york-tax-calculator', '/georgia-tax-calculator',
-    '/virginia-tax-calculator', '/north-carolina-tax-calculator', '/pennsylvania-tax-calculator',
-    '/ohio-tax-calculator', '/michigan-tax-calculator', '/new-jersey-tax-calculator',
-    '/colorado-tax-calculator', '/arizona-tax-calculator', '/washington-tax-calculator',
-    '/massachusetts-tax-calculator', '/indiana-tax-calculator', '/tennessee-tax-calculator',
-    '/missouri-tax-calculator', '/maryland-tax-calculator', '/wisconsin-tax-calculator',
-    '/minnesota-tax-calculator', '/oregon-tax-calculator',
-  ];
-  const userAgent = request.headers.get('user-agent') || '';
-  const isBot = /googlebot|bingbot|slurp|duckduckbot|baiduspider|yandexbot|facebookexternalhit|twitterbot|linkedinbot|telegrambot|whatsapp|applebot/i.test(userAgent);
-  if (isBot && CALCULATOR_PATHS_WITH_PARAMS.includes(pathname) && searchParams.toString().length > 0) {
-    return NextResponse.redirect(
-      new URL(pathname, request.url),
-      301
-    );
-  }
-
+  // NOTE: The former UA-based "bot redirect" that stripped query params from
+  // calculator URLs was removed. The edge cache key is URL-only (see the
+  // comment near the top of this file), so a 301 served to a bot for
+  // `/paycheck-calculator?embed=1` was cached and then replayed to real
+  // browsers, breaking embedded widgets. Parameterised URLs are consolidated
+  // by the self-referencing canonical instead, which is UA-independent.
 
   // ─── Blog short URL redirects (prevent 404s) ───────────────────────────────
   const BLOG_SHORT_REDIRECTS: Record<string, string> = {
