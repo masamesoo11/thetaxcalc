@@ -141,7 +141,7 @@ export const TEXAS_FAQS: FAQItem[] = [
   {
     question: 'What is the marginal tax rate vs effective tax rate in Texas?',
     answer:
-      "In Texas (no state income tax), your marginal tax rate is the rate on your last dollar of federal income. For a $75,000 single filer in 2026, the marginal rate is 22% (the bracket from $48,351 to $103,350). Your effective tax rate is the average rate you actually pay — about 10.8% federal on $75,000 after the standard deduction. The effective rate is always lower than the marginal rate because the marginal only applies to your top bracket.",
+      "In Texas (no state income tax), your marginal tax rate is the rate on your last dollar of federal income. For a $75,000 single filer in 2026, the marginal rate is 22% (the bracket from $50,401 to $105,700). Your effective tax rate is the average rate you actually pay — about 10.8% federal on $75,000 after the standard deduction. The effective rate is always lower than the marginal rate because the marginal only applies to your top bracket.",
   },
 ];
 

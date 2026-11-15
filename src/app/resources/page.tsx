@@ -76,31 +76,31 @@ export const metadata: Metadata = {
 
 const FEDERAL_BRACKETS = {
   Single: [
-    { range: '$0 – $11,925', rate: '10%' },
-    { range: '$11,926 – $48,475', rate: '12%' },
-    { range: '$48,476 – $103,350', rate: '22%' },
-    { range: '$103,351 – $197,300', rate: '24%' },
-    { range: '$197,301 – $250,525', rate: '32%' },
-    { range: '$250,526 – $626,350', rate: '35%' },
-    { range: '$626,351+', rate: '37%' },
+    { range: '$0 – $12,400', rate: '10%' },
+    { range: '$12,401 – $50,400', rate: '12%' },
+    { range: '$50,401 – $105,700', rate: '22%' },
+    { range: '$105,701 – $201,775', rate: '24%' },
+    { range: '$201,776 – $256,225', rate: '32%' },
+    { range: '$256,226 – $640,600', rate: '35%' },
+    { range: '$640,601+', rate: '37%' },
   ],
   'Married Filing Jointly': [
-    { range: '$0 – $23,850', rate: '10%' },
-    { range: '$23,851 – $96,950', rate: '12%' },
-    { range: '$96,951 – $206,700', rate: '22%' },
-    { range: '$206,701 – $394,600', rate: '24%' },
-    { range: '$394,601 – $501,050', rate: '32%' },
-    { range: '$501,051 – $751,600', rate: '35%' },
-    { range: '$751,601+', rate: '37%' },
+    { range: '$0 – $24,800', rate: '10%' },
+    { range: '$24,801 – $100,800', rate: '12%' },
+    { range: '$100,801 – $211,400', rate: '22%' },
+    { range: '$211,401 – $403,550', rate: '24%' },
+    { range: '$403,551 – $512,450', rate: '32%' },
+    { range: '$512,451 – $768,700', rate: '35%' },
+    { range: '$768,701+', rate: '37%' },
   ],
   'Head of Household': [
-    { range: '$0 – $17,000', rate: '10%' },
-    { range: '$17,001 – $64,850', rate: '12%' },
-    { range: '$64,851 – $137,700', rate: '22%' },
-    { range: '$137,701 – $209,400', rate: '24%' },
-    { range: '$209,401 – $275,450', rate: '32%' },
-    { range: '$275,451 – $561,500', rate: '35%' },
-    { range: '$561,501+', rate: '37%' },
+    { range: '$0 – $17,700', rate: '10%' },
+    { range: '$17,701 – $67,450', rate: '12%' },
+    { range: '$67,451 – $105,700', rate: '22%' },
+    { range: '$105,701 – $201,750', rate: '24%' },
+    { range: '$201,751 – $256,200', rate: '32%' },
+    { range: '$256,201 – $640,600', rate: '35%' },
+    { range: '$640,601+', rate: '37%' },
   ],
 };
 
@@ -461,8 +461,8 @@ export default function ResourcesPage() {
         </div>
         <p className="mt-4 text-xs text-muted-foreground leading-relaxed">
           Tax brackets are marginal — only the income within each bracket is taxed at that rate.
-          For example, a single filer earning $50,000 pays 10% on the first $11,925, 12% on the
-          next $36,550, and so on. Use our{' '}
+          For example, a single filer earning $50,000 pays 10% on the first $12,400, 12% on the
+          next $38,000, and so on. Use our{' '}
           <Link href="/paycheck-calculator" className="text-emerald-600 hover:text-emerald-700 underline underline-offset-2">
             paycheck calculator
           </Link>{' '}

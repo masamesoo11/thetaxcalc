@@ -12,6 +12,7 @@
     "build:cf": "node scripts/generate-syndication-content.mjs && bun scripts/generate-llms.ts && bun scripts/audit-titles.ts && npx opennextjs-cloudflare build && npx opennextjs-cloudflare populateCache local",
     "start": "npx serve out",
     "lint": "eslint .",
+    "test": "esbuild tests/calculator-accuracy.test.ts --bundle --platform=node --format=esm --outfile=dist-tests/calculator-accuracy.test.mjs && node --test dist-tests/calculator-accuracy.test.mjs",
     "db:push": "prisma db push",
     "db:generate": "prisma generate",
     "db:migrate": "prisma migrate dev",

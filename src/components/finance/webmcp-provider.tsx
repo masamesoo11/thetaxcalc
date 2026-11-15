@@ -153,31 +153,31 @@ export function WebMCPProvider() {
             execute: async (input: { filingStatus: string }) => {
               const brackets: Record<string, Array<{rate: string; range: string}>> = {
                 single: [
-                  { rate: "10%", range: "$0 – $11,925" },
-                  { rate: "12%", range: "$11,926 – $48,475" },
-                  { rate: "22%", range: "$48,476 – $103,350" },
-                  { rate: "24%", range: "$103,351 – $197,300" },
-                  { rate: "32%", range: "$197,301 – $250,525" },
-                  { rate: "35%", range: "$250,526 – $626,350" },
-                  { rate: "37%", range: "Over $626,350" }
+                  { rate: "10%", range: "$0 – $12,400" },
+                  { rate: "12%", range: "$12,401 – $50,400" },
+                  { rate: "22%", range: "$50,401 – $105,700" },
+                  { rate: "24%", range: "$105,701 – $201,775" },
+                  { rate: "32%", range: "$201,776 – $256,225" },
+                  { rate: "35%", range: "$256,226 – $640,600" },
+                  { rate: "37%", range: "Over $640,600" }
                 ],
                 married_filing_jointly: [
-                  { rate: "10%", range: "$0 – $23,850" },
-                  { rate: "12%", range: "$23,851 – $96,950" },
-                  { rate: "22%", range: "$96,951 – $206,700" },
-                  { rate: "24%", range: "$206,701 – $394,600" },
-                  { rate: "32%", range: "$394,601 – $501,050" },
-                  { rate: "35%", range: "$501,051 – $751,600" },
-                  { rate: "37%", range: "Over $751,600" }
+                  { rate: "10%", range: "$0 – $24,800" },
+                  { rate: "12%", range: "$24,801 – $100,800" },
+                  { rate: "22%", range: "$100,801 – $211,400" },
+                  { rate: "24%", range: "$211,401 – $403,550" },
+                  { rate: "32%", range: "$403,551 – $512,450" },
+                  { rate: "35%", range: "$512,451 – $768,700" },
+                  { rate: "37%", range: "Over $768,700" }
                 ],
                 head_of_household: [
-                  { rate: "10%", range: "$0 – $17,000" },
-                  { rate: "12%", range: "$17,001 – $64,850" },
-                  { rate: "22%", range: "$64,851 – $103,350" },
-                  { rate: "24%", range: "$103,351 – $197,300" },
-                  { rate: "32%", range: "$197,301 – $250,500" },
-                  { rate: "35%", range: "$250,501 – $626,350" },
-                  { rate: "37%", range: "Over $626,350" }
+                  { rate: "10%", range: "$0 – $17,700" },
+                  { rate: "12%", range: "$17,701 – $67,450" },
+                  { rate: "22%", range: "$67,451 – $105,700" },
+                  { rate: "24%", range: "$105,701 – $201,750" },
+                  { rate: "32%", range: "$201,751 – $256,200" },
+                  { rate: "35%", range: "$256,201 – $640,600" },
+                  { rate: "37%", range: "Over $640,600" }
                 ]
               };
               const status = input.filingStatus as keyof typeof brackets;

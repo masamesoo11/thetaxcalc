@@ -429,13 +429,13 @@ export function SalesTaxChart() {
 // ─── Federal Brackets Chart ──────────────────────────────────────────────────
 
 const BRACKET_DATA_SINGLE = [
-  { bracket: '10%', min: 0, max: 11925 },
-  { bracket: '12%', min: 11926, max: 48475 },
-  { bracket: '22%', min: 48476, max: 103350 },
-  { bracket: '24%', min: 103351, max: 197300 },
-  { bracket: '32%', min: 197301, max: 250525 },
-  { bracket: '35%', min: 250526, max: 626350 },
-  { bracket: '37%', min: 626351, max: 626350 + 1 },
+  { bracket: '10%', min: 0, max: 12400 },
+  { bracket: '12%', min: 12401, max: 50400 },
+  { bracket: '22%', min: 50401, max: 105700 },
+  { bracket: '24%', min: 105701, max: 201775 },
+  { bracket: '32%', min: 201776, max: 256225 },
+  { bracket: '35%', min: 256226, max: 640600 },
+  { bracket: '37%', min: 640601, max: 640600 + 1 },
 ];
 
 const BRACKET_COLORS = [
