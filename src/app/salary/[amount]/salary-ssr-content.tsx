@@ -21,6 +21,7 @@
 
 import { Fragment, type ReactNode } from 'react';
 import Link from 'next/link';
+import { EditorialReviewNote } from '@/components/finance/editorial-review-note';
 import {
   SALARY_AMOUNTS,
   calculateSalaryTakeHome,
@@ -314,6 +315,7 @@ export function SalarySSRContent({ salary }: Props) {
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 space-y-12">
+      <EditorialReviewNote subject={`a ${formatSalary(salary)} after-tax salary`} />
       <QuickAnswerSection d={d} />
       {SECTION_ORDER[d.tier].map((key) => (
         <Fragment key={key}>{sections[key]}</Fragment>

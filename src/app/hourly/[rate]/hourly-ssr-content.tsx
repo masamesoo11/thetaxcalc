@@ -24,6 +24,7 @@
  */
 
 import Link from 'next/link';
+import { EditorialReviewNote } from '@/components/finance/editorial-review-note';
 import {
   SALARY_AMOUNTS,
   calculateSalaryTakeHome,
@@ -206,6 +207,7 @@ export function RateSSRContent({ rate }: { rate: number }) {
   const d = buildHourlyPageData(rate);
   return (
     <div className="mx-auto max-w-7xl space-y-12 px-4 py-8 sm:px-6 lg:px-8">
+      <EditorialReviewNote subject={`${formatRate(rate)} an hour`} />
       <ConversionTableSection d={d} />
       <StateTakeHomeSection d={d} />
       <TierArticleSection d={d} />
