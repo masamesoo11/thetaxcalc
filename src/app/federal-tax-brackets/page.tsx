@@ -19,9 +19,9 @@ import { AuthorBioCard } from '@/components/finance/author-bio-card';
 // ─── Page Metadata ──────────────────────────────────────────────────────────────
 
 export const metadata: Metadata = {
-  title: { absolute: '2026 Federal Income Tax Brackets — US Tax Rates & Slabs & Deductions' },
+  title: { absolute: '2026 Federal Income Tax Brackets — Rates by Filing Status' },
   description:
-    '2026 federal tax brackets for all filing statuses. Standard deductions, progressive rates, and effective vs marginal rates explained.',
+    '2026 federal tax brackets for all filing statuses. Standard deductions, progressive tax rates, and effective vs marginal rates explained.',
   keywords: [
     '2026 federal tax brackets',
     '2026 tax brackets',
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     canonical: `${SITE_URL}/federal-tax-brackets`,
   },
   openGraph: {
-    title: '2026 Federal Income Tax Brackets — US Tax Rates & Slabs',
+    title: '2026 Federal Income Tax Brackets — Rates by Filing Status',
     description:
       '2026 federal tax brackets for all filing statuses. Standard deductions, progressive rates, and effective vs marginal rates explained.',
     url: `${SITE_URL}/federal-tax-brackets`,
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: '2026 Federal Income Tax Brackets — US Tax Rates & Slabs',
+    title: '2026 Federal Income Tax Brackets — Rates by Filing Status',
     description:
       '2026 federal tax brackets for all filing statuses. Standard deductions, progressive rates, and effective vs marginal rates explained.',
   },
@@ -123,7 +123,7 @@ const faqJsonLd = {
     {
       '@id': `${SITE_URL}/federal-tax-brackets#webpage`,
       '@type': 'WebPage',
-      name: '2026 Federal Income Tax Brackets — US Tax Rates & Slabs, Standard Deductions & Calculator',
+      name: '2026 Federal Income Tax Brackets — Rates, Standard Deductions & Calculator',
       description: 'Official 2026 federal income tax brackets for all filing statuses with standard deductions and tax calculator.',
       url: `${SITE_URL}/federal-tax-brackets`,
       inLanguage: 'en-US',

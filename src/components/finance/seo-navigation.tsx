@@ -119,6 +119,32 @@ export function SeoNavigation() {
           </div>
         </div>
 
+        {/* Research & Data — links the low-inlink research studies + inflation calculator from every page */}
+        <div className="mt-6 pt-6 border-t border-border/10">
+          <h3 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3">
+            Research & Data
+          </h3>
+          <div className="flex flex-wrap gap-2">
+            {[
+              { href: '/research/2026-state-tax-burden', label: '2026 State Tax Burden' },
+              { href: '/research/property-tax-by-state-2026', label: 'Property Tax by State 2026' },
+              { href: '/research/salary-needed-to-live-comfortably-2026', label: 'Salary Needed to Live Comfortably' },
+              { href: '/research/tax-refund-statistics-2026', label: 'Tax Refund Statistics 2026' },
+              { href: '/research/best-states-for-remote-workers-2026', label: 'Best States for Remote Workers' },
+              { href: '/research/child-tax-credit-guide-2026', label: 'Child Tax Credit Guide 2026' },
+              { href: '/inflation-calculator', label: 'Inflation Calculator' },
+            ].map((r) => (
+              <a
+                key={r.href}
+                href={r.href}
+                className="inline-flex items-center rounded border border-border/30 bg-background/50 px-2.5 py-1 text-xs text-muted-foreground hover:border-emerald-500/30 hover:text-emerald-600 transition-all"
+              >
+                {r.label}
+              </a>
+            ))}
+          </div>
+        </div>
+
         {/* Bottom: All salary links for comprehensive crawling */}
         <div className="mt-6 pt-6 border-t border-border/10">
           <h3 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3">

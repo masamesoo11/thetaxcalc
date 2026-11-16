@@ -331,15 +331,15 @@ export const BLOG_INDEX: BlogPostMeta[] = [
   },
   {
     "id": "federal-tax-brackets-2026-guide",
-    "title": "2026 Federal Tax Brackets: Complete Guide to US Income Tax Rates & Slabs",
+    "title": "2026 Federal Tax Brackets: Complete Guide to US Income Tax Rates",
     "slug": "federal-tax-brackets-2026-guide",
     "excerpt": "Complete guide to 2026 federal income tax brackets, standard deductions, tax credits, and how inflation adjustments affect your tax bill.",
     "category": "tax-guide",
-    "tags": "federal tax brackets 2026,income tax slab in usa,federal income tax rates,tax deductions,tax credits,inflation adjustments",
+    "tags": "federal tax brackets 2026,federal tax rates,federal income tax rates,tax deductions,tax credits,inflation adjustments",
     "coverImage": "",
     "published": true,
     "featured": true,
-    "metaTitle": "2026 Federal Tax Brackets: US Income Tax Rates & Slabs Guide",
+    "metaTitle": "2026 Federal Tax Brackets: US Income Tax Rates & Deductions Guide",
     "metaDesc": "Complete guide to 2026 federal income tax brackets, standard deductions, tax credits, and inflation adjustments.",
     "createdAt": "2026-06-19T12:00:00.000Z",
     "updatedAt": "2026-06-19T12:00:00.000Z"

@@ -3,7 +3,7 @@ import { SITE_URL } from '@/lib/site-config';
 
 export const metadata: Metadata = {
   title: 'Embed Free Tax Calculators — 1-Line Setup',
-  description: 'Embed free tax calculator widgets on your website with a single line of code. 91+ calculators. No signup, no cost.',
+  description: 'Embed free tax calculator widgets on your website with a single line of code. 91 free calculators. No signup, no cost.',
   alternates: { canonical: `${SITE_URL}/embed` },
 };
 
