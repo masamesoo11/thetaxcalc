@@ -4,7 +4,6 @@ import { SITE_URL } from '@/lib/site-config';
 import {
   formatRate,
   getRateTier,
-  isIndexableHourlyRate,
   isValidHourlyRate,
   rateToSlug,
   slugToRate,
@@ -62,8 +61,6 @@ export async function generateMetadata({
     description: seo.description,
     keywords: seo.keywords,
     authors: [{ name: 'TheTaxCalc Editorial Team' }],
-    // On-demand rates outside the curated set stay usable but out of the index.
-    ...(isIndexableHourlyRate(rate) ? {} : { robots: { index: false, follow: true } }),
     alternates: {
       canonical: `${baseUrl}${canonicalPath}`,
     },
