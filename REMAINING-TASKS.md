@@ -3,7 +3,7 @@
 Items that can only be done by the site owner or require external access. **Not** blockers for this branch's merge.
 
 ## Requires Cloudflare / hosting account access
-1. **Purge cached 301 for `/paycheck-calculator?embed=1`** — the stale cached redirect predates `f08b5ef` and is server/edge-side. Even though the middleware no longer strips the param, Cloudflare's cache key (URL-only) may still serve the old 301 until purged.
+1. **~~Purge cached 301 for `/paycheck-calculator?embed=1`~~** — **DONE by owner on 2026-11-16.** The stale cached 301 (predating `f08b5ef`) is now purged; visits to `?embed=1` should hit the current middleware behavior. Verify once in normal traffic after deploy.
 2. **Browser Cache TTL** — Cloudflare's `Browser Cache TTL` overrides the `max-age=0` cache header on HTML; configure to respect `no-cache`/short TTL for HTML on `/paycheck-calculator` so embed fixes propagate to visitors.
 3. Production build & deploy of branch `seo/full-site-optimization` on the Vercel/Cloudflare Pages side (worktree build via junctioned `node_modules` untested).
 

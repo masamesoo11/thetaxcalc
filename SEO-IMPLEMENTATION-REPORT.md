@@ -7,7 +7,7 @@ Scope: issues identified and fixed during the 2026 audit-driven optimization of 
 ### Batch 1 — Critical
 | Issue | Fix |
 |---|---|
-| **Cached 301 on `/paycheck-calculator?embed=1`** — UA-based bot query-param strip returned 301 for `?embed=1`, and the edge cache keyed on URL only made `no-store` unreliable | Removed the whole UA-based `strip query params` block from `src/middleware.ts`; embed now renders normally. Cloudflare **still needs a manual purge** of the stale cached 301. |
+| **Cached 301 on `/paycheck-calculator?embed=1`** — UA-based bot query-param strip returned 301 for `?embed=1`, and the edge cache keyed on URL only made `no-store` unreliable | Removed the whole UA-based `strip query params` block from `src/middleware.ts`; embed now renders normally. Cloudflare edge cache for the stale `/paycheck-calculator?embed=1` 301 was **purged by the owner on 2026-11-16**. |
 | **Broken compare page for reversed slugs** | `parseComparisonSlug` returns `null` when `state1 === state2`; `getCompareConfig` returns null unless slug in `COMPARISON_SLUGS`; middleware 301s `california-vs-florida` → canonical.
 | **State/city pages not targeting "paycheck calculator" intent** | All 53 state/city route H1s and metaTitles rewritten via `src/lib/calculator-routes.ts` (e.g. "Texas Paycheck Calculator 2026 — …") with hand-written overrides for CA/NY/NYC/LA/Chicago. |
 | **Invalid compare pairs** | Non-canonical pairs now 404 via `notFound()`. |

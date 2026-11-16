@@ -28,7 +28,7 @@ Performed where environment allowed (static/compile-level checks):
 - `/compare/texas-vs-texas` → parse returns null + 404 path.
 - `/hourly/25` → matches curated; `/hourly/22_5-an-hour` → 404/permanentRedirect to canonical; `/hourly/33-an-hour` → noindex for non-curated.
 - `/salary/75000-foo` → not matched by anchored regex → permanentRedirect.
-- `?embed=1` → no longer subject to param-strip redirect at middleware level (Cloudflare edge cached 301 still needs manual purge — external).
+- `?embed=1` → no longer subject to param-strip redirect at middleware level. The previously stale Cloudflare edge-cached 301 was **purged by the owner on 2026-11-16** — intended to be live for visitors; external verification in live traffic pending deploy.
 
 ## Not verified (no access / external)
 - Production build in the worktree via junctioned `node_modules` (Turbopack risk) — not executed.
