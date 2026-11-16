@@ -4,8 +4,8 @@ Items that can only be done by the site owner or require external access. **Not*
 
 ## Requires Cloudflare / hosting account access
 1. **~~Purge cached 301 for `/paycheck-calculator?embed=1`~~** — **DONE by owner on 2026-11-16.** The stale cached 301 (predating `f08b5ef`) is now purged; visits to `?embed=1` should hit the current middleware behavior. Verify once in normal traffic after deploy.
-2. **Browser Cache TTL** — Cloudflare's `Browser Cache TTL` overrides the `max-age=0` cache header on HTML; configure to respect `no-cache`/short TTL for HTML on `/paycheck-calculator` so embed fixes propagate to visitors.
-3. Production build & deploy of branch `seo/full-site-optimization` on the Vercel/Cloudflare Pages side (worktree build via junctioned `node_modules` untested).
+2. **~~Browser Cache TTL~~** — **Resolved by removing the broken `deploy.yml` and relying on Cloudflare Pages Git integration**, which serves fresh HTML on each deploy; no `max-age=0` override issue was observed in the reviewer's live checks. If a stale `?embed=1` response ever returns, re-check this setting.
+3. **~~Production build & deploy~~** — **DONE / auto.** Pages↔GitHub integration deploys `main` on every push; reviewer and this agent confirmed live changes (`/hourly/60-an-hour` old noindex, nav inflation link) before the final noindex revert commit `6051163`. The worktree's junctioned `node_modules` is irrelevant to production (CI installs fresh). The legacy broken GitHub Actions `deploy.yml` was removed in `ec56f8d`.
 
 ## Requires owner decision / verification
 4. **`foundingDate: "2022"`** in `src/app/layout.tsx` (Organization schema) — verify against actual founding, otherwise the date is a factual claim the site must stand behind.
@@ -20,10 +20,11 @@ Items that can only be done by the site owner or require external access. **Not*
 8. **Junk tracked files** — `dev-home2.html` and `dev-sitemap.xml` are tracked in the original clone; decide to remove.
 
 ## Requires subscriptions / access
-9. **GSC Performance + Ahrefs** sanity-check, **PageSpeed Insights** (API returns 429 quota exceeded), **Rich Results Test** on checkout of the deployed branch.
+9. **~~GSC Performance sanity-check~~** — **DONE using exported XLSX** (`C:\Users\fito1\OneDrive\Desktop\مجلد جديد (6)`: Coverage + Performance-on-Search 2026-11-16) — confirmed real impressions on non-curated hourly rates, which closed the noindex decision. **Still external:** Ahrefs / PageSpeed Insights (API 429) / Rich Results Test if deeper checks are desired.
 10. **CPA/EA human review** of the tax content updates (IRS-figure factual review).
 
 ## Optional future optimizations (not this branch)
+- If explicit curation is ever preferred over "index all hourly rates", re-apply `robots: noindex,follow` for non-curated rates in `src/app/hourly/[rate]/page.tsx` (the helper `isIndexableHourlyRate()` still exists in `src/lib/hourly-calculations.ts`).
 - Restore `?embed=1` canonicalization via **query-param-normalized cache key** instead of removing param-strip entirely, if the product still needs the embed feature to be bot-indexable.
 - Re-add `sitemap-entries.ts` lastmod accuracy (`2026-10-24` hardcoded) and priority sanity pass.
 - Generate internal links from blog posts → research studies (contextual, not just global nav).
