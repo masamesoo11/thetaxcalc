@@ -23,6 +23,19 @@ Items that can only be done by the site owner or require external access. **Not*
 9. **~~GSC Performance sanity-check~~** — **DONE using exported XLSX** (`C:\Users\fito1\OneDrive\Desktop\مجلد جديد (6)`: Coverage + Performance-on-Search 2026-11-16) — confirmed real impressions on non-curated hourly rates, which closed the noindex decision. **Still external:** Ahrefs / PageSpeed Insights (API 429) / Rich Results Test if deeper checks are desired.
 10. **CPA/EA human review** of the tax content updates (IRS-figure factual review).
 
+## Google AdSense (pub-5542276525674040) — rejected 2026-10-30 without clear reason
+**In-code fixes applied (`edab619`, live on main):**
+- Visible "How this page is produced" editorial note on every `/hourly/*` and `/salary/*` page — links to `/methodology` and `/accuracy-report`; converts the "auto-generated thin-content" impression into a documented, computed-set impression.
+- Existing before: policy pages (about/privacy/terms/contact/editorial-standards/methodology) all present; `ads.txt` present; no prohibited content; single honest editorial team identity (no fake CPA/EA personas or headshots).
+
+**Still required from the owner (cannot be done in code):**
+- **Add a real named founder/owner + short bio + LinkedIn or author page** in `/about` — YMYL (finance) reviewers want a real human accountable for the content. Provide the name/bio; I will wire it into About + schema honorably (no invented credentials).
+- **Upload the disavow** file (`C:\Users\fito1\AppData\Local\Temp\kilo\disavow-suggested.txt`) via Google's disavow tool, then wait for re-crawl before re-applying to AdSense.
+- **Re-submit AdSense** and write a short English note in the form describing: independent tax-calculator site, 91 calculators, 2026 IRS-sourced figures, editorial team + methodology pages, full policies.
+- Confirm the publisher ID `pub-5542276525674040` belongs to the same account currently intending to monetize thetaxcalc.com (a mismatched account alone causes rejection).
+
+**Non-goal:** we will NOT fabricate a founder, credentials, reviews, or traffic claims.
+
 ## Optional future optimizations (not this branch)
 - If explicit curation is ever preferred over "index all hourly rates", re-apply `robots: noindex,follow` for non-curated rates in `src/app/hourly/[rate]/page.tsx` (the helper `isIndexableHourlyRate()` still exists in `src/lib/hourly-calculations.ts`).
 - Restore `?embed=1` canonicalization via **query-param-normalized cache key** instead of removing param-strip entirely, if the product still needs the embed feature to be bot-indexable.

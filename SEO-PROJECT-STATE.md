@@ -10,6 +10,7 @@
 ## Git history (newest first)
 | Commit | Description |
 |---|---|
+| `edab619` | AdSense: visible "How this page is produced" editorial note on `/hourly/*` + `/salary/*` |
 | `6051163` | Revert noindex on non-curated hourly rates (GSC 2026-11-16 shows real impressions: 30=484, 32=338, 50=234) |
 | `ec56f8d` | Remove broken legacy `deploy.yml` (never succeeded 43/43, wrong toolchain `@cloudflare/next-on-pages`) |
 | `1d8108b` | Docs: Cloudflare cache purge for `?embed=1` marked done |
