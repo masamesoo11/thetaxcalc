@@ -461,6 +461,30 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* ─── Founder / Ownership (distinct from editorial team) ─────────── */}
+      <section className="mb-12 rounded-xl border border-border/30 bg-card/50 p-8">
+        <div className="flex items-center gap-3 mb-4">
+          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-600/10">
+            <Users className="h-5 w-5 text-emerald-600" />
+          </div>
+          <h2 className="text-2xl font-bold text-foreground">Founder</h2>
+        </div>
+        <div className="text-muted-foreground leading-relaxed space-y-4">
+          <p>
+            TheTaxCalc was founded by <span className="font-semibold text-foreground">Alfaytouri</span>,
+            who built the site so that anyone could see what their salary really works out to after
+            federal, FICA, and state taxes — without an account, without an upsell, and using
+            current tax-year data.
+          </p>
+          <p>
+            The founder is the site&apos;s owner and operator. Tax content itself is researched,
+            verified, and maintained separately by TheTaxCalc Editorial Team (below), whose
+            work is checked against official IRS publications and state revenue department
+            sources. The founder does not act as, or claim to be, a CPA, EA, or tax professional.
+          </p>
+        </div>
+      </section>
+
       {/* ─── Our Tax Experts (E-E-A-T) ──────────────────────────── */}
       <section className="mb-12">
         <div className="flex items-center gap-3 mb-6">

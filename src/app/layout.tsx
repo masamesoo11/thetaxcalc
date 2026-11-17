@@ -107,6 +107,10 @@ const sitewideJsonLd = {
       },
       description: "Free 2026 tax calculators — paycheck, mortgage, 401(k), capital gains, and self-employment, built on published IRS and state tax-agency figures.",
       foundingDate: "2022",
+      founder: {
+        "@type": "Person",
+        name: "Alfaytouri",
+      },
       contactPoint: [
         {
           "@type": "ContactPoint",

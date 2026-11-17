@@ -12,6 +12,9 @@ export const SITE_HOME_URL = SITE_URL.endsWith('/') ? SITE_URL : `${SITE_URL}/`;
 
 export const SITE_NAME = 'TheTaxCalc';
 
+/** Site founder (owner) — distinct from the editorial team that writes tax content. */
+export const FOUNDER_NAME = 'Alfaytouri';
+
 export const SITE_DESCRIPTION =
   'Free 2026 tax calculators — paycheck, mortgage, 401(k), capital gains, and self-employment.';
 
