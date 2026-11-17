@@ -56,9 +56,14 @@ export function isValidHourlyRate(rate: number): boolean {
 }
 
 /**
- * Only the curated HOURLY_RATES are indexable. Other in-range rates still
- * render for users (on-demand) but are served noindex,follow so the
- * 5–500 range does not become an unbounded set of near-duplicate pages.
+ * Whether a rate is in the curated HOURLY_RATES set.
+ *
+ * Retained as a utility: the 2026-11-16 decision (commit 6051163) reverted
+ * the noindex on non-curated rates — all valid in-range rates (5–500) are
+ * currently indexable, backed by fresh GSC impressions on non-curated rates
+ * (30, 32, 50-an-hour). If an explicit curation policy is ever chosen again,
+ * this predicate is the hook for it; today it is intentionally not consumed
+ * by any page.
  */
 export function isIndexableHourlyRate(rate: number): boolean {
   return (HOURLY_RATES as readonly number[]).includes(rate);

@@ -134,7 +134,8 @@ test('hourly: strict slug parsing rejects junk suffixes', () => {
 test('hourly: only curated rates are indexable', () => {
   assert.ok(isIndexableHourlyRate(25));
   assert.ok(isIndexableHourlyRate(22));
-  assert.ok(!!HOURLY_RATES.includes(33) === isIndexableHourlyRate(33));
+  // 33 is not in HOURLY_RATES; cast to keep the tuple union type happy.
+  assert.ok(((HOURLY_RATES as readonly number[]).includes(33)) === isIndexableHourlyRate(33));
   assert.equal(isIndexableHourlyRate(22.5), false);
   assert.equal(isIndexableHourlyRate(33), false); // on-demand → noindex
   assert.equal(isLegacyRateSlug('25'), true);
