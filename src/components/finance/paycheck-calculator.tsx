@@ -51,16 +51,48 @@ interface PaycheckCalculatorProps {
 }
 
 export function PaycheckCalculator({ defaultState = 'illinois', onStateChange }: PaycheckCalculatorProps) {
-  // Read initial values from URL hash using useSyncExternalStore-backed hooks
+  // Read initial values from URL hash (or query string fallback)
   const hashParams = useHashParams();
-  const [salary, setSalary] = useState<number>(() => hashParams.salary ? Number(hashParams.salary) : 75000);
-  const [payFrequency, setPayFrequency] = useState<PayFrequency>(() => (hashParams.frequency as PayFrequency) || 'annual');
-  const [hoursPerWeek, setHoursPerWeek] = useState<number>(() => hashParams.hours ? Number(hashParams.hours) : 40);
-  const [stateKey, setStateKey] = useState<string>(() => hashParams.state || defaultState);
-  const [filingStatus, setFilingStatus] = useState<'single' | 'married' | 'head_of_household'>(() => (hashParams.filing as 'single' | 'married' | 'head_of_household') || 'single');
-  const [retirement401k, setRetirement401k] = useState<number>(() => hashParams.k401k ? Number(hashParams.k401k) : 0);
-  const [hsaContribution, setHsaContribution] = useState<number>(() => hashParams.hsa ? Number(hashParams.hsa) : 0);
-  const [nycResident, setNycResident] = useState<boolean>(() => hashParams.nyc === '1' || false);
+  const initialParams = useMemo(() => {
+    if (Object.keys(hashParams).length > 0) return hashParams;
+    if (typeof window === 'undefined' || !window.location.search) return hashParams;
+    const out: Record<string, string> = {};
+    new URLSearchParams(window.location.search).forEach((v, k) => {
+      out[k] = v;
+    });
+    return out;
+  }, [hashParams]);
+
+  const [salary, setSalary] = useState<number>(() => {
+    const n = Number(initialParams.salary);
+    return Number.isFinite(n) && n > 0 ? n : 75000;
+  });
+  const [payFrequency, setPayFrequency] = useState<PayFrequency>(() => {
+    const f = initialParams.frequency;
+    return f === 'annual' || f === 'monthly' || f === 'biweekly' || f === 'weekly' || f === 'hourly'
+      ? f
+      : 'annual';
+  });
+  const [hoursPerWeek, setHoursPerWeek] = useState<number>(() => {
+    const n = Number(initialParams.hours);
+    return Number.isFinite(n) && n > 0 ? n : 40;
+  });
+  const [stateKey, setStateKey] = useState<string>(() =>
+    initialParams.state && STATE_PROFILES[initialParams.state] ? initialParams.state : defaultState
+  );
+  const [filingStatus, setFilingStatus] = useState<'single' | 'married' | 'head_of_household'>(() => {
+    const f = initialParams.filing;
+    return f === 'single' || f === 'married' || f === 'head_of_household' ? f : 'single';
+  });
+  const [retirement401k, setRetirement401k] = useState<number>(() => {
+    const n = Number(initialParams.k401k);
+    return Number.isFinite(n) && n >= 0 ? n : 0;
+  });
+  const [hsaContribution, setHsaContribution] = useState<number>(() => {
+    const n = Number(initialParams.hsa);
+    return Number.isFinite(n) && n >= 0 ? n : 0;
+  });
+  const [nycResident, setNycResident] = useState<boolean>(() => initialParams.nyc === '1');
   const [advancedOpen, setAdvancedOpen] = useState(false);
 
   // Sync state to URL hash whenever inputs change (side-effect only, no setState)
@@ -110,7 +142,7 @@ export function PaycheckCalculator({ defaultState = 'illinois', onStateChange }:
   const periodLabel = payFrequency === 'hourly' ? 'Hourly' : payFrequency === 'annual' ? 'Annual' : `Per ${payFrequency === 'biweekly' ? 'Bi-Weekly' : payFrequency === 'weekly' ? 'Weekly' : 'Monthly'}`;
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 pb-20 lg:pb-0">
       {/* ─── Page Title ────────────────────────────────────── */}
       <div className="text-center">
         <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
@@ -158,7 +190,7 @@ export function PaycheckCalculator({ defaultState = 'illinois', onStateChange }:
                     Pay Frequency
                   </Label>
                   <Select value={payFrequency} onValueChange={(v) => setPayFrequency(v as PayFrequency)}>
-                    <SelectTrigger id="frequency">
+                    <SelectTrigger id="frequency" aria-label="Pay frequency">
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
@@ -193,7 +225,7 @@ export function PaycheckCalculator({ defaultState = 'illinois', onStateChange }:
                     State
                   </Label>
                   <Select value={stateKey} onValueChange={handleStateChange}>
-                    <SelectTrigger id="state">
+                    <SelectTrigger id="state" aria-label="State">
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
@@ -210,7 +242,7 @@ export function PaycheckCalculator({ defaultState = 'illinois', onStateChange }:
                     Filing Status
                   </Label>
                   <Select value={filingStatus} onValueChange={(v) => setFilingStatus(v as typeof filingStatus)}>
-                    <SelectTrigger id="filing">
+                    <SelectTrigger id="filing" aria-label="Filing status">
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
@@ -324,7 +356,7 @@ export function PaycheckCalculator({ defaultState = 'illinois', onStateChange }:
         </div>
 
         {/* Right: Tier 3 — Instant Live Results */}
-        <div className="lg:col-span-2">
+        <div id="paycheck-results" className="lg:col-span-2 scroll-mt-24">
           <Card className="sticky top-20 border-emerald-500/20 bg-card/90 backdrop-blur-sm">
             <CardHeader className="pb-3">
               <CardTitle className="flex items-center gap-2 text-lg">
@@ -546,6 +578,29 @@ export function PaycheckCalculator({ defaultState = 'illinois', onStateChange }:
       </Card>
 
       <AdSlot position="mid-content" />
+
+      {/* ─── Mobile Sticky Result Bar (visible < lg) ───────────── */}
+      <div
+        className="fixed inset-x-0 bottom-0 z-40 border-t border-border/80 bg-background/95 px-4 py-2.5 shadow-[0_-4px_20px_rgba(28,25,23,0.08)] backdrop-blur-md lg:hidden"
+        aria-live="polite"
+      >
+        <div className="mx-auto flex max-w-2xl items-center justify-between gap-3">
+          <div className="min-w-0">
+            <p className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
+              Take-Home ({periodLabel}) · {formatPercent(result.effectiveTaxRate)} tax
+            </p>
+            <p className="truncate text-lg font-bold tabular-nums text-emerald-600">
+              {formatCurrency(result.netPerPeriod)}
+            </p>
+          </div>
+          <a
+            href="#paycheck-results"
+            className="shrink-0 rounded-lg bg-emerald-600 px-3.5 py-2 text-xs font-semibold text-white transition hover:bg-emerald-700"
+          >
+            Full Breakdown
+          </a>
+        </div>
+      </div>
     </div>
   );
 }

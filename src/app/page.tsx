@@ -464,7 +464,7 @@ export default function HomePage() {
                 ask for your email.
               </p>
             </div>
-            <CalculatorBrowser cards={CALCULATOR_CARDS} />
+            <CalculatorBrowser cards={CALCULATOR_CARDS} totalCount={CALCULATOR_COUNT} />
           </div>
         </section>
 
@@ -516,55 +516,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* ─── Salary after tax ─────────────────────────────────────── */}
-        <section className="py-16 sm:py-20">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="mb-10 text-center">
-              <h2 className="text-3xl font-bold tracking-tight text-[#1c1917] sm:text-4xl">
-                What&apos;s Your <span className="text-[#8a6a24]">Take-Home Pay</span> After Taxes?
-              </h2>
-              <p className="mx-auto mt-3 max-w-xl text-[#57534e]">
-                Select your salary to see exact take-home pay across all 50 states — including Illinois, Texas, Florida, California, and New York.
-              </p>
-            </div>
-
-            <div className="flex flex-wrap justify-center gap-3">
-              {[
-                { amount: 50000, label: '$50K' },
-                { amount: 60000, label: '$60K' },
-                { amount: 75000, label: '$75K' },
-                { amount: 80000, label: '$80K' },
-                { amount: 100000, label: '$100K' },
-                { amount: 120000, label: '$120K' },
-                { amount: 150000, label: '$150K' },
-                { amount: 200000, label: '$200K' },
-                { amount: 250000, label: '$250K' },
-                { amount: 300000, label: '$300K' },
-              ].map((item) => (
-                <Link
-                  prefetch={false}
-                  key={item.amount}
-                  href={`/salary/${item.amount}-after-taxes`}
-                  className="group inline-flex items-center gap-1.5 rounded-xl border border-[#e7e0d0] bg-white px-5 py-3 text-sm font-semibold text-[#1c1917] transition-all hover:border-[#b08d3e]/50 hover:bg-[#faf5e9] hover:text-[#8a6a24]"
-                >
-                  {item.label}
-                  <ArrowRight className="h-3.5 w-3.5 -translate-x-1 opacity-0 transition-all group-hover:translate-x-0 group-hover:opacity-100" />
-                </Link>
-              ))}
-            </div>
-
-            <div className="mt-8 text-center">
-              <Link
-                prefetch={false}
-                href="/salary"
-                className="inline-flex items-center gap-2 text-sm font-semibold text-[#8a6a24] transition-colors hover:text-[#6f551d]"
-              >
-                View all 26 salary levels
-                <ArrowRight className="h-4 w-4" />
-              </Link>
-            </div>
-          </div>
-        </section>
+        {/* ─── Salary after tax (removed duplicate pill band; full 26-level selector lives in directory below) ─── */}
 
         {/* ─── Sales tax by state (searchable table) ────────────────── */}
         <section className="border-t border-[#e7e0d0] bg-white py-16 sm:py-20">
@@ -805,7 +757,7 @@ export default function HomePage() {
                 </div>
               </div>
 
-              {/* Blog & guides */}
+              {/* Blog & guides — top 8 latest articles to keep homepage lean; full archive lives at /blog */}
               <div className="rounded-2xl border border-[#e7e0d0] bg-white p-5">
                 <div className="mb-4 flex items-center gap-2">
                   <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#faf5e9]">
@@ -814,30 +766,32 @@ export default function HomePage() {
                   <h3 className="text-base font-semibold text-[#1c1917]">Blog & Guides</h3>
                   <span className="ml-auto rounded-full bg-[#faf5e9] px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-[#8a6a24]">{BLOG_COUNT} Articles</span>
                 </div>
-                <ul className="max-h-96 space-y-2 overflow-y-auto pr-2 [scrollbar-width:thin] [scrollbar-color:#d6c9a5_transparent]">
-                  <li>
-                    <Link
-                      prefetch={false}
-                      href="/blog"
-                      className="group flex items-center gap-2 py-0.5 text-sm font-semibold text-[#8a6a24] transition-colors hover:text-[#6f551d]"
-                    >
-                      <span className="h-1 w-1 shrink-0 rounded-full bg-[#b08d3e]" />
-                      All Blog Articles
-                    </Link>
-                  </li>
-                  {getPublishedPostsMeta().map((post) => (
-                    <li key={post.slug}>
-                      <Link
-                        prefetch={false}
-                        href={`/blog/${post.slug}`}
-                        className="group flex items-center gap-2 py-0.5 text-sm text-[#57534e] transition-colors hover:text-[#8a6a24]"
-                      >
-                        <span className="h-1 w-1 shrink-0 rounded-full bg-[#d6c9a5] transition-colors group-hover:bg-[#b08d3e]" />
-                        <span className="line-clamp-1">{post.title}</span>
-                      </Link>
-                    </li>
-                  ))}
+                <ul className="space-y-2">
+                  {getPublishedPostsMeta()
+                    .slice(0, 8)
+                    .map((post) => (
+                      <li key={post.slug}>
+                        <Link
+                          prefetch={false}
+                          href={`/blog/${post.slug}`}
+                          className="group flex items-center gap-2 py-0.5 text-sm text-[#57534e] transition-colors hover:text-[#8a6a24]"
+                        >
+                          <span className="h-1 w-1 shrink-0 rounded-full bg-[#d6c9a5] transition-colors group-hover:bg-[#b08d3e]" />
+                          <span className="line-clamp-1">{post.title}</span>
+                        </Link>
+                      </li>
+                    ))}
                 </ul>
+                <div className="mt-3 border-t border-[#f0ece3] pt-3">
+                  <Link
+                    prefetch={false}
+                    href="/blog"
+                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#8a6a24] transition-colors hover:text-[#6f551d]"
+                  >
+                    Browse all {BLOG_COUNT} articles
+                    <ArrowRight className="h-3 w-3" />
+                  </Link>
+                </div>
               </div>
             </div>
 

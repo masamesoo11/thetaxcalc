@@ -15,7 +15,7 @@ import {
   STATE_LABELS,
   type FilingStatus,
 } from '@/lib/salary-calculations';
-import { ArrowRight, Calculator } from 'lucide-react';
+import { ArrowRight, Calculator, Check, ChevronDown, Copy } from 'lucide-react';
 
 const PERIODS = [
   { key: 'annual', label: 'Per year', divisor: 1 },
@@ -45,6 +45,7 @@ export function HeroCalculator() {
   const [stateKey, setStateKey] = useState<string>('illinois');
   const [filingStatus, setFilingStatus] = useState<FilingStatus>('single');
   const [period, setPeriod] = useState<PeriodKey>('monthly');
+  const [copied, setCopied] = useState(false);
 
   const salary = useMemo(() => {
     const n = Number(salaryInput.replace(/[^0-9.]/g, ''));
@@ -83,6 +84,37 @@ export function HeroCalculator() {
   const effective = state ? state.effectiveTaxRate : 0;
   const gross = salary / div;
 
+  const shares = useMemo(() => {
+    if (!state || salary <= 0) return null;
+    const netPct = Math.max(0, Math.min(100, (state.netAnnual / salary) * 100));
+    const fedPct = Math.max(0, (state.federalTax / salary) * 100);
+    const ficaPct = Math.max(0, ((state.ficaSS + state.ficaMedicare) / salary) * 100);
+    const statePct = Math.max(0, (state.stateTax / salary) * 100);
+    return { netPct, fedPct, ficaPct, statePct };
+  }, [state, salary]);
+
+  const paycheckHref = useMemo(() => {
+    const params = new URLSearchParams();
+    if (salary > 0) params.set('salary', String(Math.round(salary)));
+    if (stateKey) params.set('state', stateKey);
+    if (filingStatus) params.set('filing', filingStatus);
+    params.set('frequency', 'annual');
+    return `/paycheck-calculator#home?${params.toString()}`;
+  }, [salary, stateKey, filingStatus]);
+
+  const handleCopy = async () => {
+    if (!state || salary <= 0) return;
+    const periodWord = periodDef.label.toLowerCase();
+    const summary = `${usd(Math.round(salary))}/yr in ${state.stateName} (${filingStatus.replaceAll('_', ' ')}): ${usd(Math.round(net))} ${periodWord} take-home (${(effective * 100).toFixed(1)}% effective tax) — https://thetaxcalc.com${paycheckHref}`;
+    try {
+      await navigator.clipboard.writeText(summary);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+      // Clipboard unavailable (non-secure context or denied)
+    }
+  };
+
   return (
     <div
       className="relative rounded-2xl border border-[#e7e0d0] bg-white p-5 sm:p-6 shadow-[0_1px_2px_rgba(28,25,23,0.04),0_8px_32px_-8px_rgba(138,106,36,0.12)]"
@@ -114,18 +146,24 @@ export function HeroCalculator() {
           <span className="mb-1 block text-xs font-semibold uppercase tracking-wider text-[#78716c]">
             State
           </span>
-          <select
-            value={stateKey}
-            onChange={(e) => setStateKey(e.target.value)}
-            className="w-full appearance-none rounded-lg border border-[#e7e0d0] bg-[#fafaf9] px-3 py-2.5 text-sm font-semibold text-[#1c1917] outline-none transition focus:border-[#b08d3e] focus:ring-2 focus:ring-[#b08d3e]/20"
-            aria-label="Your state"
-          >
-            {STATE_KEYS.map((key) => (
-              <option key={key} value={key}>
-                {STATE_LABELS[key]?.name ?? key}
-              </option>
-            ))}
-          </select>
+          <div className="relative">
+            <select
+              value={stateKey}
+              onChange={(e) => setStateKey(e.target.value)}
+              className="w-full appearance-none rounded-lg border border-[#e7e0d0] bg-[#fafaf9] py-2.5 pl-3 pr-9 text-sm font-semibold text-[#1c1917] outline-none transition focus:border-[#b08d3e] focus:ring-2 focus:ring-[#b08d3e]/20 cursor-pointer"
+              aria-label="Your state"
+            >
+              {STATE_KEYS.map((key) => (
+                <option key={key} value={key}>
+                  {STATE_LABELS[key]?.name ?? key}
+                </option>
+              ))}
+            </select>
+            <ChevronDown
+              aria-hidden="true"
+              className="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-[#78716c]"
+            />
+          </div>
         </label>
 
         <div className="sm:col-span-2">
@@ -160,18 +198,24 @@ export function HeroCalculator() {
           <span className="mb-1 block text-xs font-semibold uppercase tracking-wider text-[#78716c]">
             Pay period
           </span>
-          <select
-            value={period}
-            onChange={(e) => setPeriod(e.target.value as PeriodKey)}
-            className="w-full appearance-none rounded-lg border border-[#e7e0d0] bg-[#fafaf9] px-3 py-2.5 text-sm font-semibold text-[#1c1917] outline-none transition focus:border-[#b08d3e] focus:ring-2 focus:ring-[#b08d3e]/20"
-            aria-label="Pay period"
-          >
-            {PERIODS.map((p) => (
-              <option key={p.key} value={p.key}>
-                {p.label}
-              </option>
-            ))}
-          </select>
+          <div className="relative">
+            <select
+              value={period}
+              onChange={(e) => setPeriod(e.target.value as PeriodKey)}
+              className="w-full appearance-none rounded-lg border border-[#e7e0d0] bg-[#fafaf9] py-2.5 pl-3 pr-9 text-sm font-semibold text-[#1c1917] outline-none transition focus:border-[#b08d3e] focus:ring-2 focus:ring-[#b08d3e]/20 cursor-pointer"
+              aria-label="Pay period"
+            >
+              {PERIODS.map((p) => (
+                <option key={p.key} value={p.key}>
+                  {p.label}
+                </option>
+              ))}
+            </select>
+            <ChevronDown
+              aria-hidden="true"
+              className="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-[#78716c]"
+            />
+          </div>
         </label>
       </div>
 
@@ -180,18 +224,90 @@ export function HeroCalculator() {
         className="mt-5 rounded-xl border border-[#b08d3e]/25 bg-gradient-to-b from-[#faf5e9] to-white p-4 sm:p-5"
         aria-live="polite"
       >
-        <p className="text-xs font-semibold uppercase tracking-wider text-[#8a6a24]">
-          You take home{' '}
-          <span className="font-normal normal-case tracking-normal text-[#78716c]">
-            ({periodDef.label.toLowerCase().replace('per ', '')}, after tax)
-          </span>
-        </p>
+        <div className="flex items-start justify-between gap-2">
+          <p className="text-xs font-semibold uppercase tracking-wider text-[#8a6a24]">
+            You take home{' '}
+            <span className="font-normal normal-case tracking-normal text-[#78716c]">
+              ({periodDef.label.toLowerCase().replace('per ', '')}, after tax)
+            </span>
+          </p>
+          {salary > 0 && (
+            <button
+              type="button"
+              onClick={handleCopy}
+              aria-label="Copy calculation summary"
+              className="inline-flex shrink-0 items-center gap-1 rounded-md border border-[#e7e0d0] bg-white px-2 py-1 text-[11px] font-semibold text-[#57534e] transition hover:border-[#b08d3e]/50 hover:text-[#8a6a24]"
+            >
+              {copied ? (
+                <>
+                  <Check className="h-3 w-3 text-[#8a6a24]" />
+                  Copied
+                </>
+              ) : (
+                <>
+                  <Copy className="h-3 w-3" />
+                  Copy
+                </>
+              )}
+            </button>
+          )}
+        </div>
         <p className="mt-1 text-4xl font-bold tracking-tight text-[#1c1917]">
           {salary > 0 ? usd(Math.round(net)) : usd(0)}
           <span className="ml-2 align-middle text-sm font-semibold text-[#8a6a24]">
             from {usd(Math.round(gross))} gross
           </span>
         </p>
+
+        {/* Visual Paycheck Split Bar */}
+        {shares && (
+          <div className="mt-3">
+            <div
+              className="flex h-2.5 w-full overflow-hidden rounded-full bg-[#f0ece3]"
+              role="img"
+              aria-label={`Take-home ${shares.netPct.toFixed(0)}%, Federal tax ${shares.fedPct.toFixed(0)}%, FICA ${shares.ficaPct.toFixed(0)}%, State tax ${shares.statePct.toFixed(0)}%`}
+            >
+              <div
+                style={{ width: `${shares.netPct}%` }}
+                className="bg-[#8a6a24] transition-all duration-300"
+              />
+              <div
+                style={{ width: `${shares.fedPct}%` }}
+                className="bg-[#dc2626]/80 transition-all duration-300"
+              />
+              <div
+                style={{ width: `${shares.ficaPct}%` }}
+                className="bg-[#d97706]/80 transition-all duration-300"
+              />
+              {shares.statePct > 0 && (
+                <div
+                  style={{ width: `${shares.statePct}%` }}
+                  className="bg-[#57534e]/75 transition-all duration-300"
+                />
+              )}
+            </div>
+            <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] text-[#57534e]">
+              <span className="inline-flex items-center gap-1">
+                <span className="h-2 w-2 rounded-full bg-[#8a6a24]" />
+                Keep {shares.netPct.toFixed(0)}%
+              </span>
+              <span className="inline-flex items-center gap-1">
+                <span className="h-2 w-2 rounded-full bg-[#dc2626]/80" />
+                Fed {shares.fedPct.toFixed(0)}%
+              </span>
+              <span className="inline-flex items-center gap-1">
+                <span className="h-2 w-2 rounded-full bg-[#d97706]/80" />
+                FICA {shares.ficaPct.toFixed(0)}%
+              </span>
+              {shares.statePct > 0 && (
+                <span className="inline-flex items-center gap-1">
+                  <span className="h-2 w-2 rounded-full bg-[#57534e]/75" />
+                  State {shares.statePct.toFixed(0)}%
+                </span>
+              )}
+            </div>
+          </div>
+        )}
 
         {breakdown && salary > 0 && (
           <div className="mt-4 space-y-2 border-t border-[#b08d3e]/20 pt-3 text-sm">
@@ -237,15 +353,15 @@ export function HeroCalculator() {
         )}
       </div>
 
-      {/* CTA to the full calculator */}
+      {/* CTA to the full calculator (carries salary, state, filing & pay period) */}
       <Link
         prefetch={false}
-        href="/paycheck-calculator"
+        href={paycheckHref}
         className="group mt-4 flex items-center justify-between gap-2 rounded-xl bg-[#1c1917] px-4 py-3 text-sm font-semibold text-white transition hover:bg-[#8a6a24]"
       >
         <span className="inline-flex items-center gap-2">
           <Calculator className="h-4 w-4" />
-          Add 401(k), HSA & see all 50 states
+          Open full breakdown (401(k), HSA &amp; scenarios)
         </span>
         <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
       </Link>

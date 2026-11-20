@@ -13,6 +13,7 @@ import {
   PiggyBank,
   ArrowRightLeft,
   BookOpen,
+  BookMarked,
   Shield,
   TrendingUp,
   ChevronDown,
@@ -28,7 +29,12 @@ import {
   Building2,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { COMPONENT_KEY_TO_SLUG } from '@/lib/calculator-routes';
+import {
+  HUB_CALCULATORS,
+  HUB_CALCULATOR_COUNT,
+  HUB_CATEGORY_LABELS,
+  type HubCategory,
+} from '@/lib/calculators-hub-data';
 
 // ─── Calculator Items organized by category ─────────────────────────────────
 
@@ -118,8 +124,7 @@ const CALC_CATEGORIES = [
   },
 ];
 
-// Flat list for mobile & search
-const ALL_CALC_ITEMS = CALC_CATEGORIES.flatMap((cat) => cat.items);
+// Flat list removed — HUB_CALCULATORS (all 87+ tools) powers search & active-state checks.
 
 const MORE_LINKS = [
   { key: 'compare', href: '/compare', label: 'Compare States', icon: ArrowRightLeft, desc: 'State vs state taxes' },
@@ -127,9 +132,22 @@ const MORE_LINKS = [
   { key: 'salary', href: '/salary', label: 'Salary After Tax', icon: TrendingUp, desc: 'Take-home pay by salary' },
   { key: 'tax-data', href: '/tax-data', label: 'Tax Data', icon: BarChart3, desc: 'All 50 states — cite & embed' },
   { key: 'widgets', href: '/widgets', label: 'Free Widgets', icon: Code2, desc: 'Embed calculators on your site' },
-  { key: 'glossary', href: '/glossary', label: 'Tax Glossary', icon: BookOpen, desc: '25+ tax terms explained' },
+  { key: 'glossary', href: '/glossary', label: 'Tax Glossary', icon: BookMarked, desc: '25+ tax terms explained' },
   { key: 'blog', href: '/blog', label: 'Blog', icon: BookOpen, desc: 'Tax guides & tips' },
 ];
+
+const HUB_ICON_MAP: Record<HubCategory, React.ComponentType<{ className?: string }>> = {
+  income: DollarSign,
+  state: MapPin,
+  city: Building2,
+  mortgage: Home,
+  loans: Landmark,
+  invest: PiggyBank,
+  business: Shield,
+  compare: ArrowRightLeft,
+  sales: Receipt,
+  law: FileText,
+};
 
 // Map key to icon for search results
 const KEY_TO_ICON: Record<string, React.ComponentType<{ className?: string }>> = {
@@ -180,7 +198,9 @@ export function Header() {
   const searchInputRef = useRef<HTMLInputElement>(null);
 
   // Determine if any calculator page is active (incl. the /calculators hub)
-  const isCalcActive = pathname === '/calculators' || ALL_CALC_ITEMS.some((c) => pathname === c.href || pathname.startsWith(c.href + '/'));
+  const isCalcActive =
+    pathname === '/calculators' ||
+    HUB_CALCULATORS.some((c) => pathname === c.href || pathname.startsWith(c.href + '/'));
   const isBlogActive = pathname === '/blog' || pathname.startsWith('/blog/');
 
   const closeMobile = () => {
@@ -188,19 +208,42 @@ export function Header() {
     setCalcDropdownOpen(false);
   };
 
-  // Filter calculators based on search
+  // Filter calculators based on search — searches ALL 87+ hub calculators when typing,
+  // and shows the curated categories when the search box is empty.
   const filteredCategories = useMemo(() => {
-    if (!searchQuery.trim()) return CALC_CATEGORIES;
-    const q = searchQuery.toLowerCase();
-    return CALC_CATEGORIES.map((cat) => ({
-      ...cat,
-      items: cat.items.filter(
-        (item) =>
-          item.label.toLowerCase().includes(q) ||
-          item.desc.toLowerCase().includes(q) ||
-          cat.label.toLowerCase().includes(q)
-      ),
-    })).filter((cat) => cat.items.length > 0);
+    const q = searchQuery.trim().toLowerCase();
+    if (!q) return CALC_CATEGORIES;
+
+    const matchedByCat = new Map<
+      HubCategory,
+      { key: string; href: string; label: string; desc: string }[]
+    >();
+
+    for (const calc of HUB_CALCULATORS) {
+      const catLabel = HUB_CATEGORY_LABELS[calc.category].toLowerCase();
+      if (
+        calc.label.toLowerCase().includes(q) ||
+        calc.desc.toLowerCase().includes(q) ||
+        calc.keywords.includes(q) ||
+        catLabel.includes(q)
+      ) {
+        const list = matchedByCat.get(calc.category) ?? [];
+        list.push({
+          key: calc.href,
+          href: calc.href,
+          label: calc.label,
+          desc: calc.desc,
+        });
+        matchedByCat.set(calc.category, list);
+      }
+    }
+
+    return Array.from(matchedByCat.entries()).map(([catId, items]) => ({
+      id: catId,
+      label: HUB_CATEGORY_LABELS[catId],
+      icon: HUB_ICON_MAP[catId] ?? Calculator,
+      items,
+    }));
   }, [searchQuery]);
 
   const totalFiltered = filteredCategories.reduce((sum, cat) => sum + cat.items.length, 0);
@@ -267,6 +310,9 @@ export function Header() {
           {/* Calculators Dropdown */}
           <div className="relative" ref={dropdownRef} style={{ zIndex: 110 }}>
             <button
+              type="button"
+              aria-expanded={calcDropdownOpen}
+              aria-haspopup="true"
               onClick={() => { setCalcDropdownOpen(!calcDropdownOpen); if (calcDropdownOpen) setSearchQuery(''); }}
               onMouseEnter={() => { setCalcDropdownOpen(true); }}
               className={`flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium transition-all ${
@@ -292,7 +338,7 @@ export function Header() {
                   <div className="flex items-center gap-2 mb-2">
                     <Zap className="h-3.5 w-3.5 text-emerald-600" />
                     <span className="text-xs font-semibold text-foreground">Tax Calculators</span>
-                    <span className="ml-auto text-[10px] text-muted-foreground">{ALL_CALC_ITEMS.length} tools</span>
+                    <span className="ml-auto text-[10px] text-muted-foreground">{HUB_CALCULATOR_COUNT} tools</span>
                   </div>
                   {/* Search Input */}
                   <div className="relative">
@@ -302,11 +348,14 @@ export function Header() {
                       type="text"
                       value={searchQuery}
                       onChange={(e) => setSearchQuery(e.target.value)}
-                      placeholder="Search calculators..."
-                      className="w-full rounded-lg border border-border/40 bg-muted/30 pl-8 pr-3 py-1.5 text-sm text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:ring-1 focus:ring-emerald-500/50 focus:border-emerald-500/50 transition-all"
+                      placeholder={`Search all ${HUB_CALCULATOR_COUNT} calculators (state, loan, W-4, 401k)...`}
+                      aria-label="Search calculators"
+                      className="w-full rounded-lg border border-border/40 bg-muted/30 pl-8 pr-7 py-1.5 text-sm text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:ring-1 focus:ring-emerald-500/50 focus:border-emerald-500/50 transition-all"
                     />
                     {searchQuery && (
                       <button
+                        type="button"
+                        aria-label="Clear search"
                         onClick={() => setSearchQuery('')}
                         className="absolute right-2.5 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
                       >
@@ -382,7 +431,9 @@ export function Header() {
                 <div className="shrink-0 divider-glow mx-4" />
                 <div className="shrink-0 px-4 py-2 flex items-center justify-between">
                   <p className="text-[10px] text-muted-foreground">
-                    {searchQuery ? `${totalFiltered} result${totalFiltered !== 1 ? 's' : ''}` : `Showing all ${ALL_CALC_ITEMS.length} calculators`}
+                    {searchQuery
+                      ? `${totalFiltered} result${totalFiltered !== 1 ? 's' : ''} of ${HUB_CALCULATOR_COUNT}`
+                      : `Popular tools — search all ${HUB_CALCULATOR_COUNT} calculators`}
                   </p>
                   <Link
                     prefetch={false}
@@ -390,7 +441,7 @@ export function Header() {
                     onClick={() => setCalcDropdownOpen(false)}
                     className="text-[11px] font-medium text-emerald-600 hover:text-emerald-700 transition-colors"
                   >
-                    View all tools →
+                    Browse all {HUB_CALCULATOR_COUNT} tools →
                   </Link>
                 </div>
               </div>
@@ -421,7 +472,7 @@ export function Header() {
                 : 'text-muted-foreground hover:bg-muted/50 hover:text-foreground'
             }`}
           >
-            <BookOpen className="h-4 w-4" />
+            <BookMarked className="h-4 w-4" />
             Glossary
           </Link>
 
@@ -516,7 +567,8 @@ export function Header() {
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search calculators..."
+                placeholder={`Search all ${HUB_CALCULATOR_COUNT} calculators...`}
+                aria-label="Search calculators"
                 className="w-full rounded-lg border border-border/40 bg-muted/30 pl-9 pr-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:ring-1 focus:ring-emerald-500/50 transition-all"
               />
             </div>

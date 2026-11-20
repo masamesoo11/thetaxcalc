@@ -58,12 +58,18 @@ interface Category {
   label: string;
 }
 
-export function CalculatorBrowser({ cards }: { cards: HomeCardData[] }) {
+export function CalculatorBrowser({
+  cards,
+  totalCount,
+}: {
+  cards: HomeCardData[];
+  totalCount?: number;
+}) {
   const [active, setActive] = useState<Category['key']>('featured');
 
   const categories: Category[] = [
     { key: 'featured', label: 'Featured' },
-    { key: 'all', label: `All ${cards.length}` },
+    { key: 'all', label: `All ${cards.length} Shown` },
     { key: 'paycheck', label: 'Paychecks & Income' },
     { key: 'state', label: 'State Calculators' },
     { key: 'finance', label: 'Finance & Retirement' },
@@ -139,6 +145,18 @@ export function CalculatorBrowser({ cards }: { cards: HomeCardData[] }) {
           );
         })}
       </div>
+      {totalCount && totalCount > cards.length && (
+        <div className="mt-8 text-center">
+          <Link
+            prefetch={false}
+            href="/calculators"
+            className="inline-flex items-center gap-2 rounded-xl border border-[#e7e0d0] bg-white px-6 py-3 text-sm font-semibold text-[#1c1917] transition-all hover:border-[#b08d3e]/50 hover:bg-[#faf5e9] hover:text-[#8a6a24]"
+          >
+            Browse all {totalCount} calculators
+            <ArrowRight className="h-4 w-4" />
+          </Link>
+        </div>
+      )}
     </div>
   );
 }
