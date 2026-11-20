@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useMemo, useState, useCallback } from 'react';
+import { useEffect, useMemo, useState, useCallback, useRef } from 'react';
 import {
   Calculator,
   DollarSign,
@@ -248,8 +248,14 @@ export function SalesTaxCalculator({ defaultState }: { defaultState?: string } =
     return (currentState?.stateRate ?? 0) + effectiveLocalRate;
   }, [isTaxExempt, currentState, effectiveLocalRate]);
 
-  // Persist to URL
+  // Persist to URL only after user changes inputs (avoid mutating URL on initial mount,
+  // which caused Googlebot to discover /sales-tax-calculator/<state>?price=1000&state=... duplicates)
+  const isInitialUrlSync = useRef(true);
   useEffect(() => {
+    if (isInitialUrlSync.current) {
+      isInitialUrlSync.current = false;
+      return;
+    }
     updateUrlState({
       price: purchasePrice,
       state: stateKey,

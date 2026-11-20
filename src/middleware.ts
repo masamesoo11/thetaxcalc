@@ -271,8 +271,8 @@ Visit https://thetaxcalc.com/about for the full page.`,
     );
   }
 
-  // /yr → /paycheck-calculator (truncated URL found in GSC)
-  if (pathname === '/yr') {
+  // /yr & /year → /paycheck-calculator (truncated/legacy URLs found in GSC)
+  if (pathname === '/yr' || pathname === '/year') {
     return NextResponse.redirect(
       new URL('/paycheck-calculator', request.url),
       301
@@ -326,6 +326,7 @@ Visit https://thetaxcalc.com/about for the full page.`,
     // NOTE: '/calculators' previously 301'd to /paycheck-calculator because no
     // page existed there. A real /calculators hub page now serves that URL —
     // the legacy redirect was removed so the directory resolves to a 200.
+    '/calculator': '/calculators',
     '/tools': '/paycheck-calculator',
     '/faq': '/glossary',
     '/help': '/glossary',

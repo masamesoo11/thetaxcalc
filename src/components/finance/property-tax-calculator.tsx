@@ -218,8 +218,14 @@ export function PropertyTaxCalculator() {
     return 0;
   }, [useHomestead, homesteadInfo, useCustomExemption, customExemption]);
 
-  // Persist to URL
+  // Persist to URL only after user changes inputs (avoid mutating URL on initial mount,
+  // which caused Googlebot to discover /property-tax-calculator?value=350000&state=... duplicates)
+  const isInitialUrlSync = useRef(true);
   useEffect(() => {
+    if (isInitialUrlSync.current) {
+      isInitialUrlSync.current = false;
+      return;
+    }
     updateUrlState({
       value: homeValue,
       state: stateKey,
