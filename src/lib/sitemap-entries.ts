@@ -2,7 +2,7 @@
  * Sitemap entries — single source of truth for every canonical site URL.
  *
  * Consumed by:
- *   - src/app/sitemap.ts        (the /sitemap.xml output, 287 URLs)
+ *   - src/app/sitemap.ts        (the /sitemap.xml output, 273 URLs)
  *   - src/lib/indexnow.ts       (getAllSiteUrls() inventory for IndexNow pings)
  *
  * NEVER add a URL to only one consumer — add it here and both stay in sync.

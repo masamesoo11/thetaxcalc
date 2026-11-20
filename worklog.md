@@ -1551,3 +1551,15 @@ Stage Summary:
 - review/credibility-authority pushed with this worklog + evidence; PR opened against main. Production untouched until merge.
 - DECISIONS REQUESTED: (1) scholarship draft â€” keep dormant / drop / activate only with a real funded program + methodology changelog update; (2) 15 migrated article drafts â€” drop / harvest citations / re-list; (3) ProductHunt banner â€” mount or drop.
 - After merge: CF Pages production deploy (~3-5 min), then live verification + IndexNow ping for the 2 new URLs and the changed titles.
+
+---
+Task ID: 50 (SEO/tech cleanup batch — branch seo/final-fixes-2026-11-19)
+Agent: Coordinated (2 verification subagents) then Main
+Task: Fix the concrete, verifiable repo-level SEO/tech hygiene issues the subagents surfaced, without touching runtime math or layout logic.
+Changes on branch:
+- Removed 23 tracked root/screenshots artifacts (dev-home*.html, page.html, index.html, dev-sitemap.xml, screenshot-*.png, screenshots/, admin-settings-test.png, seo-*.png, freefile-irs-screenshot.png, ph-banner-screenshot.png) — repo bloat only, none referenced by builds; .gitignore patterns added so they never return.
+- Deleted src/app/robots.ts (redundant generated route): public/robots.txt is the authoritative, richer file (AI-bot allowances + image bot + sitemap) and is what prod serves. One robots source instead of two.
+- src/app/layout.tsx: dropped dead preconnects/dns-prefetches to fonts.googleapis.com + fonts.gstatic.com — fonts are self-hosted via next/font, so those hints were pure waste.
+- src/app/page.tsx: meta description (and OG/Twitter copies) tightened + CTA ("with instant take-home pay ... no sign-up") — current 2026-targeted phrasing, ~150 chars.
+- src/lib/sitemap-entries.ts: corrected stale "287 URLs" doc comment to 273 (matches actual builder output).
+Verification: all three modified source files read back clean; removals are build-irrelevant (rg sweep confirmed no imports of deleted artifacts). Full tsc/unit suite not runnable locally per REMAINING-ISSUES.md (junctioned node_modules) — prod CI installs fresh and deploys on merge.

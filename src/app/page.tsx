@@ -99,7 +99,7 @@ const IL_75K_TAXABLE = Math.round(IL_75K.stateTax / 0.0495);
 export const metadata: Metadata = {
   title: '2026 Tax Calculator — Paycheck & Take-Home Pay | 50 States',
   description:
-    `Free 2026 tax calculator. Take-home pay after federal, FICA & state tax. ${CALCULATOR_COUNT}+ tools & 50-state sales tax data. No sign-up.`,
+    `Free 2026 tax calculator with instant take-home pay after federal, FICA & state tax. ${CALCULATOR_COUNT}+ tools, 50-state sales tax data, no sign-up.`,
   authors: [{ name: 'TheTaxCalc Editorial Team', url: `${SITE_URL}/about#editorial-team` }],
   // canonical + og:url are emitted as literal tags in the JSX below: Next's
   // metadata resolver renders root URLs as origin-only
@@ -116,7 +116,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: '2026 Tax Calculator — Paycheck & Take-Home Pay | 50 States',
     description:
-      `Free 2026 tax calculator. Take-home pay after federal, FICA & state tax. ${CALCULATOR_COUNT}+ tools & 50-state sales tax data. No sign-up.`,
+      `Free 2026 tax calculator with instant take-home pay after federal, FICA & state tax. ${CALCULATOR_COUNT}+ tools, 50-state sales tax data, no sign-up.`,
     siteName: 'TheTaxCalc',
     type: 'website',
     locale: 'en_US',
@@ -133,7 +133,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: '2026 Tax Calculator — Paycheck & Take-Home Pay | 50 States',
     description:
-      `Free 2026 tax calculator. Take-home pay after federal, FICA & state tax. ${CALCULATOR_COUNT}+ tools & 50-state sales tax data. No sign-up.`,
+      `Free 2026 tax calculator with instant take-home pay after federal, FICA & state tax. ${CALCULATOR_COUNT}+ tools, 50-state sales tax data, no sign-up.`,
     images: [`${SITE_URL}/opengraph-image.png`],
   },
 };
