@@ -317,38 +317,17 @@ export default function CompareLandingPage() {
           <h2 className="text-2xl font-bold text-foreground">State Tax Comparison FAQ</h2>
         </div>
         <div className="space-y-3">
-          {[
-            {
-              q: 'Which state has the lowest taxes?',
-              a: 'Among the states we cover, Texas and Florida have no state income tax, so they win on that front. But here\'s the thing: Texas has much higher property taxes than Florida. When you factor in all taxes — income, property, and sales — Florida generally comes out ahead for most income levels. That said, Wyoming, Alaska, and Nevada (which we don\'t cover yet) rank among the lowest-tax states nationally. For the five states we do cover, Florida is usually the winner.',
-            },
-            {
-              q: 'Should I move to a state with no income tax?',
-              a: 'It depends on your full financial picture — and we mean full. States with no income tax make up the revenue elsewhere: higher property taxes, sales taxes, or fees. Texas has no income tax but hits you with some of the highest property taxes in the US. If you\'re a renter with a good salary, Texas or Florida is very attractive. If you own an expensive home, the property tax bill might offset your income tax savings. Run the numbers for your specific situation before making any decisions.',
-            },
-            {
-              q: 'How do property taxes compare across states?',
-              a: 'They vary enormously. Among our five states, Texas has the highest effective rate at roughly 1.71% of home value. Illinois isn\'t far behind at around 2.08%. California has a lower effective rate (~0.75%) thanks to Proposition 13 caps, but when homes cost $800,000+, the dollar amount is still huge. Florida and New York fall in between. Pro tip: a lower rate on a more expensive home can still cost you more in actual dollars than a higher rate on a cheaper home.',
-            },
-            {
-              q: 'What is the total tax burden by state?',
-              a: 'Total tax burden = income tax + property tax + sales tax combined. Among our five states, California and New York carry the highest total burden (often 10–13% of income for mid-to-high earners), while Texas and Florida have the lowest (roughly 6–8% depending on whether you own a home). Illinois sits in the middle — its flat income tax isn\'t terrible, but those property taxes really add up. Our comparison pages show take-home pay at $75K and $150K so you can see the real dollar impact, not just percentages.',
-            },
-            {
-              q: 'Does a 0% income tax mean I pay no state taxes?',
-              a: 'Absolutely not. Even in Texas and Florida, you\'re still paying state and local taxes — just not on your wages. Property taxes, sales taxes, fuel taxes, hotel taxes, various fees... they all add up. In fact, Texas has among the highest property tax rates in the nation, which can cost homeowners $5,000–$10,000+ per year. The 0% income tax is real and valuable, but it\'s not the whole story. That\'s why we show you the full picture on our comparison pages.',
-            },
-          ].map((faq, i) => (
+          {COMPARE_LANDING_FAQS.map((faq, i) => (
             <details
               key={i}
               className="group rounded-xl border border-border/30 bg-card/50 overflow-hidden"
             >
               <summary className="flex cursor-pointer items-center justify-between gap-3 p-5 text-left font-medium text-foreground hover:bg-muted/10 transition-colors">
-                <h3 className="text-sm sm:text-base">{faq.q}</h3>
+                <h3 className="text-sm sm:text-base">{faq.question}</h3>
                 <ChevronDown className="h-4 w-4 shrink-0 text-muted-foreground transition-transform group-open:rotate-180" />
               </summary>
-              <div className="px-5 pb-5 text-sm text-muted-foreground leading-relaxed">
-                {faq.a}
+              <div className="px-5 pb-5 text-sm text-muted-foreground leading-relaxed border-t border-border/20 pt-3">
+                {faq.answer}
               </div>
             </details>
           ))}

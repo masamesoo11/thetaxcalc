@@ -100,7 +100,7 @@ export const BLOG_INDEX: BlogPostMeta[] = [
     "published": true,
     "featured": true,
     "metaTitle": "Inheritance Tax Guide 2026: State Rules & Exemptions",
-    "metaDesc": "2026 inheritance tax guide: estate vs inheritance tax, state-by-state rules,  federal exemption, and how to estimate your liability.",
+    "metaDesc": "2026 inheritance tax guide: estate vs inheritance tax, state-by-state rules, $15M federal exemption, and how to estimate your liability.",
     "createdAt": "2026-06-21T12:00:00.000Z",
     "updatedAt": "2026-06-21T12:00:00.000Z"
   },
@@ -655,7 +655,7 @@ export const BLOG_INDEX: BlogPostMeta[] = [
     "published": true,
     "featured": false,
     "metaTitle": "Selling Your House in 2026: Taxes, Exclusions & Real Examples | TheTaxCalc",
-    "metaDesc": "How much tax do you owe when selling a house in 2026? / exclusion rules, capital gains rates, cost basis, and worked examples.",
+    "metaDesc": "How much tax do you owe when selling a house in 2026? $250K/$500K exclusion rules, capital gains rates, cost basis, and worked examples.",
     "createdAt": "2026-10-24T12:30:00.000Z",
     "updatedAt": "2026-10-24T12:30:00.000Z"
   },
