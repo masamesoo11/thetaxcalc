@@ -384,7 +384,7 @@ export function RetirementProjection() {
                   value={String(projectionYears)}
                   onValueChange={(v) => setProjectionYears(Number(v))}
                 >
-                  <SelectTrigger id="ret-years">
+                  <SelectTrigger id="ret-years" aria-label="Years to retirement">
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent>

@@ -162,7 +162,7 @@ export function MassachusettsCalculator() {
                 <div className="space-y-2">
                   <Label htmlFor="ma-frequency" className="text-sm font-medium">Pay Frequency</Label>
                   <Select value={payFrequency} onValueChange={(v) => setPayFrequency(v as PayFrequency)}>
-                    <SelectTrigger id="ma-frequency"><SelectValue /></SelectTrigger>
+                    <SelectTrigger id="ma-frequency" aria-label="Pay frequency"><SelectValue /></SelectTrigger>
                     <SelectContent>
                       <SelectItem value="annual">Annual</SelectItem>
                       <SelectItem value="monthly">Monthly</SelectItem>
@@ -183,7 +183,7 @@ export function MassachusettsCalculator() {
                 <div className="space-y-2">
                   <Label htmlFor="ma-filing" className="text-sm font-medium">Filing Status</Label>
                   <Select value={filingStatus} onValueChange={(v) => setFilingStatus(v as typeof filingStatus)}>
-                    <SelectTrigger id="ma-filing"><SelectValue /></SelectTrigger>
+                    <SelectTrigger id="ma-filing" aria-label="Filing status"><SelectValue /></SelectTrigger>
                     <SelectContent>
                       <SelectItem value="single">Single</SelectItem>
                       <SelectItem value="married">Married</SelectItem>

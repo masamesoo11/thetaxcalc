@@ -349,7 +349,7 @@ export function AdminLinks() {
                   value={form.category}
                   onValueChange={(value) => setForm((prev) => ({ ...prev, category: value }))}
                 >
-                  <SelectTrigger className="bg-background">
+                  <SelectTrigger className="bg-background" aria-label="Link category">
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent>

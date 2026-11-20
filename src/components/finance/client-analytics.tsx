@@ -56,8 +56,6 @@ export function ClientAnalytics() {
         adsenseScript.setAttribute('data-adsense-client', adsenseId);
         adsenseScript.src = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseId}`;
         document.head.appendChild(adsenseScript);
-
-        console.log('[Analytics] AdSense loaded:', adsenseId);
       }
     };
 

@@ -153,7 +153,7 @@ export function IndianaCalculator() {
                 <div className="space-y-2">
                   <Label htmlFor="in-frequency" className="text-sm font-medium">Pay Frequency</Label>
                   <Select value={payFrequency} onValueChange={(v) => setPayFrequency(v as PayFrequency)}>
-                    <SelectTrigger id="in-frequency"><SelectValue /></SelectTrigger>
+                    <SelectTrigger id="in-frequency" aria-label="Pay frequency"><SelectValue /></SelectTrigger>
                     <SelectContent>
                       <SelectItem value="annual">Annual</SelectItem>
                       <SelectItem value="monthly">Monthly</SelectItem>
@@ -174,7 +174,7 @@ export function IndianaCalculator() {
                 <div className="space-y-2">
                   <Label htmlFor="in-filing" className="text-sm font-medium">Filing Status</Label>
                   <Select value={filingStatus} onValueChange={(v) => setFilingStatus(v as typeof filingStatus)}>
-                    <SelectTrigger id="in-filing"><SelectValue /></SelectTrigger>
+                    <SelectTrigger id="in-filing" aria-label="Filing status"><SelectValue /></SelectTrigger>
                     <SelectContent>
                       <SelectItem value="single">Single</SelectItem>
                       <SelectItem value="married">Married</SelectItem>

@@ -443,7 +443,7 @@ export function IRSWithholdingCalculator() {
                     Pay Frequency
                   </Label>
                   <Select value={payFrequency} onValueChange={(v) => setPayFrequency(v as PayFrequencyType)}>
-                    <SelectTrigger id="pay-frequency">
+                    <SelectTrigger id="pay-frequency" aria-label="Pay frequency">
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
@@ -460,7 +460,7 @@ export function IRSWithholdingCalculator() {
                     Filing Status
                   </Label>
                   <Select value={filingStatus} onValueChange={(v) => setFilingStatus(v as FilingStatus)}>
-                    <SelectTrigger id="filing-status">
+                    <SelectTrigger id="filing-status" aria-label="Filing status">
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent>

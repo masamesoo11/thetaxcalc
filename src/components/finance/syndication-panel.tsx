@@ -720,7 +720,7 @@ export function SyndicationPanel() {
             <div className="space-y-1.5">
               <Label htmlFor="syndication-mode">Content mode</Label>
               <Select value={mode} onValueChange={handleModeChange}>
-                <SelectTrigger id="syndication-mode" className="w-full">
+                <SelectTrigger id="syndication-mode" className="w-full" aria-label="Syndication mode">
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>

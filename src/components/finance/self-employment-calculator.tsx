@@ -391,7 +391,7 @@ export function SelfEmploymentCalculator() {
             <div className="space-y-2">
               <Label htmlFor="se-filing" className="text-sm font-medium">Filing Status</Label>
               <Select value={filingStatus} onValueChange={(v) => setFilingStatus(v as FilingStatus)}>
-                <SelectTrigger id="se-filing" className="w-full">
+                <SelectTrigger id="se-filing" className="w-full" aria-label="Filing status">
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
@@ -408,7 +408,7 @@ export function SelfEmploymentCalculator() {
             <div className="space-y-2">
               <Label htmlFor="se-state" className="text-sm font-medium">State</Label>
               <Select value={stateKey} onValueChange={(v) => setStateKey(v as StateKey)}>
-                <SelectTrigger id="se-state" className="w-full">
+                <SelectTrigger id="se-state" className="w-full" aria-label="State">
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
@@ -489,7 +489,7 @@ export function SelfEmploymentCalculator() {
 
       {/* ─── Results Section ────────────────────────────── */}
       {result && hasCalculated && (
-        <div className="space-y-6">
+        <div id="se-results" className="space-y-6">
           {/* Hero Results */}
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             <Card className="border-red-500/20 bg-red-500/5">
@@ -916,6 +916,28 @@ export function SelfEmploymentCalculator() {
       </Card>
 
       <AdSlot position="mid-content" />
+
+      {/* Mobile Sticky Result Bar */}
+      {result && hasCalculated && (
+        <div className="fixed inset-x-0 bottom-0 z-40 border-t border-border/80 bg-card/95 px-4 py-2.5 shadow-[0_-4px_20px_rgba(0,0,0,0.08)] backdrop-blur-md lg:hidden">
+          <div className="mx-auto flex max-w-2xl items-center justify-between gap-3">
+            <div className="min-w-0">
+              <p className="text-[11px] font-medium uppercase tracking-wider text-muted-foreground">
+                Net Income ({formatPercent(result.effectiveTaxRate)} eff. tax)
+              </p>
+              <p className="truncate text-lg font-bold tabular-nums text-emerald-600">
+                {formatCurrency(result.netIncomeAfterTax)}
+              </p>
+            </div>
+            <a
+              href="#se-results"
+              className="shrink-0 rounded-full bg-emerald-600 px-3.5 py-2 text-xs font-semibold text-white shadow-sm hover:bg-emerald-700"
+            >
+              Full Breakdown
+            </a>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

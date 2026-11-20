@@ -126,6 +126,61 @@ const CATEGORY_COLORS: Record<string, string> = {
   news: 'bg-rose-100 text-rose-800 dark:bg-rose-500/20 dark:text-rose-700 border-rose-300 dark:border-rose-500/30',
 };
 
+interface ResearchLinkItem {
+  slug: string;
+  title: string;
+  desc: string;
+  keywords: string[];
+}
+
+const RESEARCH_STUDIES_INDEX: ResearchLinkItem[] = [
+  {
+    slug: '2026-state-tax-burden',
+    title: '2026 State Tax Burden: All 50 States Ranked',
+    desc: 'Combined income, sales, and property tax burden across 4 income levels.',
+    keywords: ['state', 'texas', 'florida', 'california', 'new-york', 'illinois', 'washington', 'comparison', 'brackets', 'income'],
+  },
+  {
+    slug: 'best-states-for-remote-workers-2026',
+    title: 'Best States for Remote Workers in 2026',
+    desc: '50-state tax-adjusted index for location-independent workers.',
+    keywords: ['remote', 'relocation', 'comparison', 'freelanc', '1099', 'self-employed', 'doordash', 'state', 'florida', 'texas'],
+  },
+  {
+    slug: 'child-tax-credit-guide-2026',
+    title: 'Child Tax Credit Guide 2026 (OBBBA Rules)',
+    desc: 'Credit amounts, phaseouts, refundability, and worked family examples.',
+    keywords: ['child', 'obbba', 'refund', 'credit', 'w4', 'withholding', 'family', 'deduction'],
+  },
+  {
+    slug: 'property-tax-by-state-2026',
+    title: 'Property Tax by State 2026: Rates & Median Bills',
+    desc: 'Effective property tax rates across all 50 states and D.C.',
+    keywords: ['property', 'home', 'mortgage', 'house', 'texas', 'illinois', 'florida', 'new-york', 'california', 'washington'],
+  },
+  {
+    slug: 'salary-needed-to-live-comfortably-2026',
+    title: 'Salary Needed to Live Comfortably by State (2026)',
+    desc: '50/30/20 after-tax income benchmarks for all 50 U.S. states.',
+    keywords: ['salary', 'paycheck', 'take-home', 'hourly', '100k', 'overtime', 'bonus', 'comfortable', 'wage'],
+  },
+  {
+    slug: 'tax-refund-statistics-2026',
+    title: 'Tax Refund Statistics 2026: IRS Averages & Trends',
+    desc: 'Average refunds, filing timing, direct deposit rates, and OBBBA impact.',
+    keywords: ['refund', 'irs', 'withholding', 'w4', 'w2', 'obbba', 'owe', 'brackets', 'filing'],
+  },
+];
+
+function getRelatedResearchStudies(post: { slug: string; title: string; tags: string; category: string }): ResearchLinkItem[] {
+  const haystack = `${post.slug} ${post.title} ${post.tags} ${post.category}`.toLowerCase();
+  const scored = RESEARCH_STUDIES_INDEX.map((study) => ({
+    study,
+    score: study.keywords.reduce((acc, kw) => (haystack.includes(kw) ? acc + 1 : acc), 0),
+  })).sort((a, b) => b.score - a.score);
+  return scored.slice(0, 3).map((s) => s.study);
+}
+
 function formatDate(dateStr: string): string {
   try {
     return new Date(dateStr).toLocaleDateString('en-US', {
@@ -512,6 +567,30 @@ export default async function BlogDetailPage({
           <Link href="/compare" className="inline-flex items-center gap-1.5 rounded-lg border border-border/50 px-4 py-2 text-sm font-medium text-foreground hover:border-emerald-500/30 transition-colors">Compare Salaries</Link>
           <Link href="/glossary" className="inline-flex items-center gap-1.5 rounded-lg border border-border/50 px-4 py-2 text-sm font-medium text-foreground hover:border-emerald-500/30 transition-colors">Tax Glossary</Link>
           <Link href="/federal-tax-brackets" className="inline-flex items-center gap-1.5 rounded-lg border border-border/50 px-4 py-2 text-sm font-medium text-foreground hover:border-emerald-500/30 transition-colors">Federal Tax Brackets</Link>
+        </div>
+      </section>
+
+      {/* Related 2026 Research Studies — contextual internal linking */}
+      <section className="mb-8 rounded-xl border border-border/50 bg-card p-6">
+        <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
+          <h2 className="text-lg font-bold text-foreground">Related 2026 Research &amp; Data Studies</h2>
+          <Link href="/research" className="text-xs font-semibold text-emerald-700 hover:underline">
+            All 6 research studies →
+          </Link>
+        </div>
+        <div className="grid gap-3 sm:grid-cols-3">
+          {getRelatedResearchStudies(post).map((study) => (
+            <Link
+              key={study.slug}
+              href={`/research/${study.slug}`}
+              className="group rounded-lg border border-border/50 bg-muted/20 p-4 transition-all hover:border-emerald-500/40 hover:bg-emerald-600/5"
+            >
+              <p className="text-sm font-semibold text-foreground group-hover:text-emerald-700 transition-colors">
+                {study.title}
+              </p>
+              <p className="mt-1 text-xs text-muted-foreground leading-relaxed">{study.desc}</p>
+            </Link>
+          ))}
         </div>
       </section>
 

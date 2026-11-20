@@ -60,7 +60,7 @@ const breadcrumbJsonLd = {
   itemListElement: [
     { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE_URL}/` },
     { '@type': 'ListItem', position: 2, name: 'Research', item: `${SITE_URL}/research` },
-    { '@type': 'ListItem', position: 3, name: 'property-tax-by-state-2026', item: `${SITE_URL}/research/property-tax-by-state-2026` },
+    { '@type': 'ListItem', position: 3, name: 'Property Tax by State 2026', item: `${SITE_URL}/research/property-tax-by-state-2026` },
   ],
 };
 
@@ -77,7 +77,7 @@ export default function ResearchPage() {
           <span aria-hidden="true">/</span>
           <Link href="/research" className="hover:text-foreground transition-colors">Research</Link>
           <span aria-hidden="true">/</span>
-          <span className="text-foreground font-medium">property-tax-by-state-2026</span>
+          <span className="text-foreground font-medium">Property Tax by State 2026</span>
         </nav>
 
         <header className="mb-10">

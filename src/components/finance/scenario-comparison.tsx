@@ -245,7 +245,7 @@ function ScenarioEditor({
             value={scenario.stateKey}
             onValueChange={(v) => onChange({ ...scenario, stateKey: v })}
           >
-            <SelectTrigger className="h-8 text-sm">
+            <SelectTrigger className="h-8 text-sm" aria-label="Scenario state">
               <SelectValue />
             </SelectTrigger>
             <SelectContent>
@@ -267,7 +267,7 @@ function ScenarioEditor({
             value={scenario.filingStatus}
             onValueChange={(v) => onChange({ ...scenario, filingStatus: v as TaxScenario['filingStatus'] })}
           >
-            <SelectTrigger className="h-8 text-sm">
+            <SelectTrigger className="h-8 text-sm" aria-label="Scenario filing status">
               <SelectValue />
             </SelectTrigger>
             <SelectContent>

@@ -100,7 +100,7 @@ export function MinnesotaCalculator() {
                 <div className="space-y-2">
                   <Label htmlFor="mn-frequency" className="text-sm font-medium">Pay Frequency</Label>
                   <Select value={payFrequency} onValueChange={(v) => setPayFrequency(v as PayFrequency)}>
-                    <SelectTrigger id="mn-frequency"><SelectValue /></SelectTrigger>
+                    <SelectTrigger id="mn-frequency" aria-label="Pay frequency"><SelectValue /></SelectTrigger>
                     <SelectContent>
                       <SelectItem value="annual">Annual</SelectItem>
                       <SelectItem value="monthly">Monthly</SelectItem>
@@ -121,7 +121,7 @@ export function MinnesotaCalculator() {
                 <div className="space-y-2">
                   <Label htmlFor="mn-filing" className="text-sm font-medium">Filing Status</Label>
                   <Select value={filingStatus} onValueChange={(v) => setFilingStatus(v as typeof filingStatus)}>
-                    <SelectTrigger id="mn-filing"><SelectValue /></SelectTrigger>
+                    <SelectTrigger id="mn-filing" aria-label="Filing status"><SelectValue /></SelectTrigger>
                     <SelectContent>
                       <SelectItem value="single">Single</SelectItem>
                       <SelectItem value="married">Married</SelectItem>

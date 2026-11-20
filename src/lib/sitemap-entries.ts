@@ -32,8 +32,8 @@ export function getSitemapEntries(): MetadataRoute.Sitemap {
   // Google prefers truthful lastModified values that reflect actual content
   // changes — every URL using "today" on each build makes lastmod meaningless.
   // These constants record the dates content actually changed.
-  const TAX_DATA_UPDATED = '2026-10-24'; // 2026 state rate overhaul (29 states corrected)
-  const SITE_CONTENT_UPDATED = '2026-10-24'; // site copy, methodology, about pages
+  const TAX_DATA_UPDATED = '2026-11-20'; // 2026 tax brackets & LTCG thresholds updated
+  const SITE_CONTENT_UPDATED = '2026-11-20'; // site copy, research links, and UX updates
   const taxYearUpdate = TAX_DATA_UPDATED;
   const siteUpdate = SITE_CONTENT_UPDATED;
 

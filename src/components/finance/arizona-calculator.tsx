@@ -156,7 +156,7 @@ export function ArizonaCalculator() {
                 <div className="space-y-2">
                   <Label htmlFor="az-frequency" className="text-sm font-medium">Pay Frequency</Label>
                   <Select value={payFrequency} onValueChange={(v) => setPayFrequency(v as PayFrequency)}>
-                    <SelectTrigger id="az-frequency"><SelectValue /></SelectTrigger>
+                    <SelectTrigger id="az-frequency" aria-label="Pay frequency"><SelectValue /></SelectTrigger>
                     <SelectContent>
                       <SelectItem value="annual">Annual</SelectItem>
                       <SelectItem value="monthly">Monthly</SelectItem>
@@ -177,7 +177,7 @@ export function ArizonaCalculator() {
                 <div className="space-y-2">
                   <Label htmlFor="az-filing" className="text-sm font-medium">Filing Status</Label>
                   <Select value={filingStatus} onValueChange={(v) => setFilingStatus(v as typeof filingStatus)}>
-                    <SelectTrigger id="az-filing"><SelectValue /></SelectTrigger>
+                    <SelectTrigger id="az-filing" aria-label="Filing status"><SelectValue /></SelectTrigger>
                     <SelectContent>
                       <SelectItem value="single">Single</SelectItem>
                       <SelectItem value="married">Married</SelectItem>

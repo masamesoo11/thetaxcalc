@@ -156,7 +156,7 @@ export function ColoradoCalculator() {
                 <div className="space-y-2">
                   <Label htmlFor="co-frequency" className="text-sm font-medium">Pay Frequency</Label>
                   <Select value={payFrequency} onValueChange={(v) => setPayFrequency(v as PayFrequency)}>
-                    <SelectTrigger id="co-frequency"><SelectValue /></SelectTrigger>
+                    <SelectTrigger id="co-frequency" aria-label="Pay frequency"><SelectValue /></SelectTrigger>
                     <SelectContent>
                       <SelectItem value="annual">Annual</SelectItem>
                       <SelectItem value="monthly">Monthly</SelectItem>
@@ -177,7 +177,7 @@ export function ColoradoCalculator() {
                 <div className="space-y-2">
                   <Label htmlFor="co-filing" className="text-sm font-medium">Filing Status</Label>
                   <Select value={filingStatus} onValueChange={(v) => setFilingStatus(v as typeof filingStatus)}>
-                    <SelectTrigger id="co-filing"><SelectValue /></SelectTrigger>
+                    <SelectTrigger id="co-filing" aria-label="Filing status"><SelectValue /></SelectTrigger>
                     <SelectContent>
                       <SelectItem value="single">Single</SelectItem>
                       <SelectItem value="married">Married</SelectItem>

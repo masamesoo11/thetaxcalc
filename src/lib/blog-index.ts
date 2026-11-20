@@ -14,7 +14,7 @@ export interface BlogPost {
 }
 
 export const BLOG_INDEX: BlogPostMeta[] = [
-                            {
+  {
     "id": "what-is-taxable-income-guide-2026",
     "title": "What Is Taxable Income? Complete Guide (2026)",
     "slug": "what-is-taxable-income-guide-2026",
@@ -29,7 +29,7 @@ export const BLOG_INDEX: BlogPostMeta[] = [
     "createdAt": "2026-06-21T15:00:00.000Z",
     "updatedAt": "2026-06-21T15:00:00.000Z"
   },
-{
+  {
     "id": "free-tax-calculator-no-signup-2026",
     "title": "Free Tax Calculator 2026 — No Signup, No Email, Instant Results",
     "slug": "free-tax-calculator-no-signup-2026",
@@ -44,7 +44,7 @@ export const BLOG_INDEX: BlogPostMeta[] = [
     "createdAt": "2026-06-21T14:00:00.000Z",
     "updatedAt": "2026-06-21T14:00:00.000Z"
   },
-{
+  {
     "id": "take-home-pay-calculator-guide-2026",
     "title": "Take Home Pay Calculator 2026: How Much You Actually Keep",
     "slug": "take-home-pay-calculator-guide-2026",
@@ -59,7 +59,7 @@ export const BLOG_INDEX: BlogPostMeta[] = [
     "createdAt": "2026-06-21T14:00:00.000Z",
     "updatedAt": "2026-10-24"
   },
-{
+  {
     "id": "how-much-tax-will-i-owe-2026",
     "title": "How Much Tax Will I Owe in 2026? Complete Calculator & Guide",
     "slug": "how-much-tax-will-i-owe-2026",
@@ -74,7 +74,7 @@ export const BLOG_INDEX: BlogPostMeta[] = [
     "createdAt": "2026-06-21T14:00:00.000Z",
     "updatedAt": "2026-06-21T14:00:00.000Z"
   },
-{
+  {
     "id": "tax-questions-answered-2026",
     "title": "Tax Questions Answered: Brackets, Overtime & Bonuses (2026)",
     "slug": "tax-questions-answered-2026",
@@ -89,7 +89,7 @@ export const BLOG_INDEX: BlogPostMeta[] = [
     "createdAt": "2026-06-21T13:00:00.000Z",
     "updatedAt": "2026-06-21T13:00:00.000Z"
   },
-{
+  {
     "id": "inheritance-tax-guide-2026",
     "title": "Inheritance Tax Guide 2026: State-by-State Rules, Exemptions & Calculator",
     "slug": "inheritance-tax-guide-2026",
@@ -100,11 +100,11 @@ export const BLOG_INDEX: BlogPostMeta[] = [
     "published": true,
     "featured": true,
     "metaTitle": "Inheritance Tax Guide 2026: State Rules & Exemptions",
-    "metaDesc": "Complete 2026 inheritance tax guide. Difference between estate and inheritance tax, state-by-state rules, federal exemptions ($13.",
+    "metaDesc": "2026 inheritance tax guide: estate vs inheritance tax, state-by-state rules,  federal exemption, and how to estimate your liability.",
     "createdAt": "2026-06-21T12:00:00.000Z",
     "updatedAt": "2026-06-21T12:00:00.000Z"
   },
-{
+  {
     "id": "401k-withdrawal-tax-guide-2026",
     "title": "401(k) Withdrawal Tax Guide 2026: Rules & Penalties",
     "slug": "401k-withdrawal-tax-guide-2026",
@@ -115,11 +115,11 @@ export const BLOG_INDEX: BlogPostMeta[] = [
     "published": true,
     "featured": true,
     "metaTitle": "401(k) Withdrawal Tax Guide 2026: Rules & Penalties",
-    "metaDesc": "Complete 2026 401(k) withdrawal tax guide. Early withdrawal penalties, RMD rules, tax implications, 72(t) exceptions, and strategies to minimize taxes on.",
+    "metaDesc": "2026 401(k) withdrawal tax guide: early withdrawal penalties, RMD rules, 72(t) exceptions, and strategies to reduce taxes on withdrawals.",
     "createdAt": "2026-06-21T12:00:00.000Z",
     "updatedAt": "2026-06-21T12:00:00.000Z"
   },
-{
+  {
     "id": "retirement-tax-planning-guide-2026",
     "title": "Retirement Tax Planning Guide 2026: Strategies, Brackets & Withdrawals",
     "slug": "retirement-tax-planning-guide-2026",
@@ -130,11 +130,11 @@ export const BLOG_INDEX: BlogPostMeta[] = [
     "published": true,
     "featured": true,
     "metaTitle": "Retirement Tax Planning Guide 2026: Strategies & Tax Rates",
-    "metaDesc": "Complete 2026 retirement tax planning guide. Learn tax strategies for retirees, 401(k) withdrawal taxes, Social Security taxation, RMDs, and Roth.",
+    "metaDesc": "2026 retirement tax planning guide: 401(k) withdrawal taxes, Social Security taxation, RMD rules, Roth conversions, and free calculators.",
     "createdAt": "2026-06-21T12:00:00.000Z",
     "updatedAt": "2026-06-21T12:00:00.000Z"
   },
-{
+  {
     "id": "1099-tax-guide-self-employed-2026",
     "title": "1099 Taxes: How Much Freelancers Really Owe in 2026",
     "slug": "1099-tax-guide-self-employed-2026",
@@ -149,7 +149,7 @@ export const BLOG_INDEX: BlogPostMeta[] = [
     "createdAt": "2026-05-28T12:00:00.000Z",
     "updatedAt": "2026-10-24"
   },
-    {
+  {
     "id": "doordash-taxes-2026-guide",
     "title": "DoorDash Taxes: The Complete Guide for Drivers in 2026",
     "slug": "doordash-taxes-guide-2026",
@@ -265,7 +265,7 @@ export const BLOG_INDEX: BlogPostMeta[] = [
     "published": true,
     "featured": true,
     "metaTitle": "No Tax on Overtime 2025-2028: Complete Guide",
-    "metaDesc": "Complete guide to the No Tax on Overtime law for 2025-2028. Calculate your savings, understand eligibility, and see how FICA and state taxes still apply.",
+    "metaDesc": "2025–2028 No Tax on Overtime guide: calculate your federal tax savings, check eligibility, and see how FICA and state taxes still apply.",
     "createdAt": "2026-06-01T12:00:00.000Z",
     "updatedAt": "2026-10-24"
   },
@@ -325,7 +325,7 @@ export const BLOG_INDEX: BlogPostMeta[] = [
     "published": true,
     "featured": false,
     "metaTitle": "IRS Withholding & W-4 Guide 2026",
-    "metaDesc": "Complete guide to IRS withholding and W-4 form for 2026. Calculate your recommended withholding, optimize your paycheck, and avoid tax surprises.",
+    "metaDesc": "2026 IRS withholding and Form W-4 guide: estimate recommended federal withholding, optimize your paycheck, and avoid tax-time surprises.",
     "createdAt": "2026-06-01T12:00:00.000Z",
     "updatedAt": "2026-06-01T12:00:00.000Z"
   },
@@ -340,7 +340,7 @@ export const BLOG_INDEX: BlogPostMeta[] = [
     "published": true,
     "featured": true,
     "metaTitle": "2026 Federal Tax Brackets: US Income Tax Rates & Deductions Guide",
-    "metaDesc": "Complete guide to 2026 federal income tax brackets, standard deductions, tax credits, and inflation adjustments.",
+    "metaDesc": "2026 federal tax brackets guide: IRS 2026 vs 2025 comparison, capital gains brackets, Social Security cap, and free income tax calculator.",
     "createdAt": "2026-06-19T12:00:00.000Z",
     "updatedAt": "2026-06-19T12:00:00.000Z"
   },
@@ -400,7 +400,7 @@ export const BLOG_INDEX: BlogPostMeta[] = [
     "published": true,
     "featured": true,
     "metaTitle": "Washington State Tax Guide 2026: No Income Tax",
-    "metaDesc": "Complete guide to Washington state taxes in 2026. No income tax but sales tax up to 10.25%.",
+    "metaDesc": "Complete 2026 Washington tax guide: 0% income tax, Seattle 10.25% sales tax, county property tax rates, exemptions, and take-home pay.",
     "createdAt": "2026-06-19T12:00:00.000Z",
     "updatedAt": "2026-06-19T12:00:00.000Z"
   },
@@ -415,7 +415,7 @@ export const BLOG_INDEX: BlogPostMeta[] = [
     "published": true,
     "featured": true,
     "metaTitle": "2026 Paycheck Tax Calculator: Take-Home Pay Guide",
-    "metaDesc": "Calculate your 2026 take-home pay. Guide to federal brackets, FICA, state taxes, and payroll deductions with examples.",
+    "metaDesc": "Calculate your 2026 take-home pay with our complete guide to federal brackets, FICA, state taxes, payroll deductions, and real worked examples.",
     "createdAt": "2026-07-04T18:00:00.000Z",
     "updatedAt": "2026-07-04T18:00:00.000Z"
   },
@@ -430,11 +430,11 @@ export const BLOG_INDEX: BlogPostMeta[] = [
     "published": true,
     "featured": true,
     "metaTitle": "2026 Federal Tax Refund Estimator: How Much Back?",
-    "metaDesc": "Estimate your 2026 federal tax refund with our complete guide. Covers OBBBA changes, 2026 tax brackets, child tax credit, standard deductions, and worked.",
+    "metaDesc": "Estimate your 2026 federal tax refund with OBBBA changes, 2026 brackets, Child Tax Credit, standard deductions, and W-2 & 1099 examples.",
     "createdAt": "2026-07-04T20:30:00.000Z",
     "updatedAt": "2026-07-04T20:30:00.000Z"
   },
-        {
+  {
     "id": "obbba-tax-refund-impact-2026",
     "title": "OBBBA Tax Refund Impact 2026: How It Changes Your Refund",
     "slug": "obbba-tax-refund-impact-2026",
@@ -445,7 +445,7 @@ export const BLOG_INDEX: BlogPostMeta[] = [
     "published": true,
     "featured": true,
     "metaTitle": "OBBBA Tax Refund Impact 2026: How It Changes Your Refund",
-    "metaDesc": "How OBBBA changes your 2026 tax refund. New SALT cap, doubled Child Tax Credit, tip/overtime deductions with examples.",
+    "metaDesc": "See how the One Big Beautiful Bill Act (OBBBA) affects your 2026 tax refund: SALT cap, Child Tax Credit, tip/overtime deductions & examples.",
     "createdAt": "2026-07-04T20:50:00.000Z",
     "updatedAt": "2026-10-24"
   },
@@ -565,7 +565,7 @@ export const BLOG_INDEX: BlogPostMeta[] = [
     "published": true,
     "featured": false,
     "metaTitle": "Federal Income Tax Rate Calculator: 2026 Tax",
-    "metaDesc": "Free federal income tax rate calculator guide for 2026. Seven tax brackets, standard deductions, step-by-step calculation examples, and OBBBA changes.",
+    "metaDesc": "2026 federal income tax rate guide: seven tax brackets, standard deductions, OBBBA changes, and step-by-step calculation examples.",
     "createdAt": "2026-07-09T08:30:00.000Z",
     "updatedAt": "2026-07-09T08:30:00.000Z"
   },
@@ -580,7 +580,7 @@ export const BLOG_INDEX: BlogPostMeta[] = [
     "published": true,
     "featured": false,
     "metaTitle": "Spreadsheet Formula to Calculate Income Tax 2026",
-    "metaDesc": "Spreadsheet formulas for 2026 federal income tax. Nested IF, VLOOKUP, and SUMPRODUCT for Excel and Google Sheets.",
+    "metaDesc": "Ready-to-use Excel and Google Sheets formulas for 2026 federal income tax: nested IF, VLOOKUP, and SUMPRODUCT with FICA & deductions.",
     "createdAt": "2026-07-09T08:40:00.000Z",
     "updatedAt": "2026-10-24"
   },
@@ -599,7 +599,7 @@ export const BLOG_INDEX: BlogPostMeta[] = [
     "createdAt": "2026-06-25T10:10:00.000Z",
     "updatedAt": "2026-06-25T10:10:00.000Z"
   },
-    {
+  {
     "id": "florida-tax-guide-2026",
     "title": "Florida Tax Guide 2026: No Income Tax & Sales Tax & Calculator",
     "slug": "florida-tax-guide-2026",
@@ -610,7 +610,7 @@ export const BLOG_INDEX: BlogPostMeta[] = [
     "published": true,
     "featured": true,
     "metaTitle": "Florida Tax Guide 2026: No Income Tax & Sales Tax",
-    "metaDesc": "Complete guide to Florida taxes 2026. No income tax, 6% sales tax (avg 6.98%), property tax rates, salary after taxes, and Florida homestead exemption.",
+    "metaDesc": "Complete 2026 Florida tax guide: 0% state income tax, 6% sales tax (avg 6.98%), property tax rates, take-home pay, and homestead exemption.",
     "createdAt": "2026-06-20T12:00:00.000Z",
     "updatedAt": "2026-06-20T12:00:00.000Z"
   },
@@ -629,7 +629,7 @@ export const BLOG_INDEX: BlogPostMeta[] = [
     "createdAt": "2026-06-25T10:00:00.000Z",
     "updatedAt": "2026-10-24"
   },
-    {
+  {
     "id": "blog_ca_to_tx_2026",
     "title": "Moving from California to Texas: Exactly How Much Tax You'll Save in 2026",
     "slug": "moving-from-california-to-texas-tax-savings-2026",
@@ -655,7 +655,7 @@ export const BLOG_INDEX: BlogPostMeta[] = [
     "published": true,
     "featured": false,
     "metaTitle": "Selling Your House in 2026: Taxes, Exclusions & Real Examples | TheTaxCalc",
-    "metaDesc": "How much tax do you pay when you sell your house? 2026 rules for the $250K/$500K exclusion, capital gains rates, cost basis, and depreciation recapture — with worked examples.",
+    "metaDesc": "How much tax do you owe when selling a house in 2026? / exclusion rules, capital gains rates, cost basis, and worked examples.",
     "createdAt": "2026-10-24T12:30:00.000Z",
     "updatedAt": "2026-10-24T12:30:00.000Z"
   },

@@ -362,7 +362,7 @@ export function LotteryTaxCalculator() {
                 <div className="space-y-2">
                   <Label htmlFor="payout-type" className="text-sm font-medium">Payout Type</Label>
                   <Select value={payoutType} onValueChange={(v) => setPayoutType(v as PayoutType)}>
-                    <SelectTrigger id="payout-type">
+                    <SelectTrigger id="payout-type" aria-label="Payout option">
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
@@ -425,7 +425,7 @@ export function LotteryTaxCalculator() {
                 <div className="space-y-2">
                   <Label htmlFor="lottery-filing" className="text-sm font-medium">Filing Status</Label>
                   <Select value={filingStatus} onValueChange={(v) => setFilingStatus(v as FilingStatus)}>
-                    <SelectTrigger id="lottery-filing">
+                    <SelectTrigger id="lottery-filing" aria-label="Filing status">
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
@@ -440,7 +440,7 @@ export function LotteryTaxCalculator() {
                 <div className="space-y-2">
                   <Label htmlFor="lottery-state" className="text-sm font-medium">State</Label>
                   <Select value={stateKey} onValueChange={setStateKey}>
-                    <SelectTrigger id="lottery-state">
+                    <SelectTrigger id="lottery-state" aria-label="State">
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent>

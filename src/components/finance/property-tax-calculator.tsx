@@ -423,7 +423,7 @@ export function PropertyTaxCalculator() {
                     setCustomExemption(0);
                   }}
                 >
-                  <SelectTrigger id="pt-state" className="w-full">
+                  <SelectTrigger id="pt-state" className="w-full" aria-label="State">
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent className="max-h-64">

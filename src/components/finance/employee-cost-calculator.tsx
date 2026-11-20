@@ -296,7 +296,7 @@ export function EmployeeCostCalculator() {
                     State
                   </Label>
                   <Select value={stateKey} onValueChange={setStateKey}>
-                    <SelectTrigger id="state">
+                    <SelectTrigger id="state" aria-label="State">
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent>

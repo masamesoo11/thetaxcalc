@@ -72,13 +72,7 @@ export function StatesTaxTable({ rows }: { rows: StateTaxRow[] }) {
                     }`}
                   >
                     <td className="px-4 py-3 font-semibold text-[#1c1917]">
-                      <Link
-                        prefetch={false}
-                        href={`/sales-tax-calculator/${row.slug}`}
-                        className="transition-colors hover:text-[#8a6a24] hover:underline"
-                      >
-                        {row.name}
-                      </Link>
+                      {row.name}
                     </td>
                     <td className="px-4 py-3">
                       {row.isNoIncomeTax ? (
@@ -99,7 +93,7 @@ export function StatesTaxTable({ rows }: { rows: StateTaxRow[] }) {
                         aria-label={`Open ${row.name} sales tax calculator`}
                         className="inline-flex items-center gap-1 text-xs font-semibold text-[#8a6a24] hover:underline"
                       >
-                        Open
+                        {row.name} rates
                         <ArrowRight className="h-3.5 w-3.5" />
                       </Link>
                     </td>

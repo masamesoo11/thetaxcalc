@@ -154,7 +154,7 @@ export function RelocationCalculator() {
                   setHasCalculated(false);
                 }}
               >
-                <SelectTrigger id="source-state" className="w-full">
+                <SelectTrigger id="source-state" className="w-full" aria-label="Current state">
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
@@ -205,7 +205,7 @@ export function RelocationCalculator() {
                   setHasCalculated(false);
                 }}
               >
-                <SelectTrigger id="target-state" className="w-full">
+                <SelectTrigger id="target-state" className="w-full" aria-label="Target state">
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
@@ -244,7 +244,7 @@ export function RelocationCalculator() {
                 setHasCalculated(false);
               }}
             >
-              <SelectTrigger id="relocation-filing" className="w-full max-w-xs">
+              <SelectTrigger id="relocation-filing" className="w-full max-w-xs" aria-label="Filing status">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>

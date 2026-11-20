@@ -399,7 +399,7 @@ export function BonusTaxCalculator() {
                 <div className="space-y-2">
                   <Label htmlFor="bonus-filing" className="text-sm font-medium">Filing Status</Label>
                   <Select value={filingStatus} onValueChange={(v) => setFilingStatus(v as FilingStatus)}>
-                    <SelectTrigger id="bonus-filing">
+                    <SelectTrigger id="bonus-filing" aria-label="Filing status">
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
@@ -414,7 +414,7 @@ export function BonusTaxCalculator() {
                 <div className="space-y-2">
                   <Label htmlFor="bonus-state" className="text-sm font-medium">State</Label>
                   <Select value={stateKey} onValueChange={setStateKey}>
-                    <SelectTrigger id="bonus-state">
+                    <SelectTrigger id="bonus-state" aria-label="State">
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
@@ -431,7 +431,7 @@ export function BonusTaxCalculator() {
                 <div className="space-y-2">
                   <Label htmlFor="bonus-method" className="text-sm font-medium">Tax Method</Label>
                   <Select value={selectedMethod} onValueChange={(v) => setSelectedMethod(v as BonusMethod)}>
-                    <SelectTrigger id="bonus-method">
+                    <SelectTrigger id="bonus-method" aria-label="Tax withholding method">
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent>

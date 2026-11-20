@@ -137,7 +137,7 @@ export function FloridaCalculator() {
                 <div className="space-y-2">
                   <Label htmlFor="fl-frequency" className="text-sm font-medium">Pay Frequency</Label>
                   <Select value={payFrequency} onValueChange={(v) => setPayFrequency(v as PayFrequency)}>
-                    <SelectTrigger id="fl-frequency"><SelectValue /></SelectTrigger>
+                    <SelectTrigger id="fl-frequency" aria-label="Pay frequency"><SelectValue /></SelectTrigger>
                     <SelectContent>
                       <SelectItem value="annual">Annual</SelectItem>
                       <SelectItem value="monthly">Monthly</SelectItem>
@@ -158,7 +158,7 @@ export function FloridaCalculator() {
                 <div className="space-y-2">
                   <Label htmlFor="fl-filing" className="text-sm font-medium">Filing Status</Label>
                   <Select value={filingStatus} onValueChange={(v) => setFilingStatus(v as typeof filingStatus)}>
-                    <SelectTrigger id="fl-filing"><SelectValue /></SelectTrigger>
+                    <SelectTrigger id="fl-filing" aria-label="Filing status"><SelectValue /></SelectTrigger>
                     <SelectContent>
                       <SelectItem value="single">Single</SelectItem>
                       <SelectItem value="married">Married</SelectItem>

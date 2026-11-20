@@ -72,7 +72,7 @@ const SALARY_LANDING_FAQS = [
   },
   {
     question: 'Which state has the highest take-home pay?',
-    answer: 'Among the states we cover, Texas and Florida consistently produce the highest take-home pay because they have 0% state income tax. Illinois is in the middle at 4.95% flat, while New York and California take the biggest bite — especially at higher income levels where their progressive rates kick in. However, if you live in New York City, you pay an additional 3.078%–3.876% city tax on top of the state rate, making NYC one of the most taxed jurisdictions in the country.',
+    answer: 'Among the major states highlighted here, Texas and Florida — along with the other seven no-income-tax states (AK, NV, NH, SD, TN, WA, WY) — produce the highest take-home pay because they have 0% state income tax. Illinois sits in the middle at 4.95% flat, while New York and California take the biggest bite — especially at higher income levels where progressive rates kick in, plus an additional 3.078%–3.876% city tax for New York City residents.',
   },
   {
     question: 'How are salary after-tax calculations done?',

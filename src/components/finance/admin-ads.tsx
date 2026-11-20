@@ -365,7 +365,7 @@ export function AdminAds() {
                 value={form.adType}
                 onValueChange={(value) => setForm((prev) => ({ ...prev, adType: value }))}
               >
-                <SelectTrigger className="bg-background">
+                <SelectTrigger className="bg-background" aria-label="Ad type">
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>

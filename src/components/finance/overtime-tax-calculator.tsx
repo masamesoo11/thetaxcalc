@@ -480,7 +480,7 @@ export function OvertimeTaxCalculator() {
                     value={String(overtimeMultiplier)}
                     onValueChange={(v) => handleInputChange(setOvertimeMultiplier)(Number(v))}
                   >
-                    <SelectTrigger id="ot-multiplier">
+                    <SelectTrigger id="ot-multiplier" aria-label="Overtime rate multiplier">
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
@@ -513,7 +513,7 @@ export function OvertimeTaxCalculator() {
                 <div className="space-y-2">
                   <Label htmlFor="ot-filing" className="text-sm font-medium">Filing Status</Label>
                   <Select value={filingStatus} onValueChange={(v) => setFilingStatus(v as FilingStatus)}>
-                    <SelectTrigger id="ot-filing">
+                    <SelectTrigger id="ot-filing" aria-label="Filing status">
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
@@ -528,7 +528,7 @@ export function OvertimeTaxCalculator() {
                 <div className="space-y-2">
                   <Label htmlFor="ot-state" className="text-sm font-medium">State</Label>
                   <Select value={stateKey} onValueChange={setStateKey}>
-                    <SelectTrigger id="ot-state">
+                    <SelectTrigger id="ot-state" aria-label="State">
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent>

@@ -520,7 +520,7 @@ export function BlogEditor({ editSlug, onNavigate }: BlogEditorProps) {
                     value={form.category}
                     onValueChange={(v) => updateField('category', v)}
                   >
-                    <SelectTrigger className="bg-background/50 border-border/50">
+                    <SelectTrigger className="bg-background/50 border-border/50" aria-label="Post category">
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent>

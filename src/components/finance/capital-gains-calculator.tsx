@@ -351,7 +351,7 @@ export function CapitalGainsCalculator() {
               <div className="space-y-2">
                 <Label htmlFor="cg-filing" className="text-sm font-medium">Filing Status</Label>
                 <Select value={filingStatus} onValueChange={(v) => setFilingStatus(v as FilingStatus)}>
-                  <SelectTrigger id="cg-filing" className="w-full max-w-xs">
+                  <SelectTrigger id="cg-filing" className="w-full max-w-xs" aria-label="Filing status">
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent>
@@ -548,7 +548,7 @@ export function CapitalGainsCalculator() {
 
       {/* ─── Results Section ────────────────────────────── */}
       {result && hasCalculated && (
-        <div className="space-y-6">
+        <div id="cg-results" className="space-y-6">
           {/* Hero Result */}
           <Card className="border-emerald-500/30 bg-card/90 backdrop-blur-sm">
             <CardContent className="p-6">
@@ -860,6 +860,28 @@ export function CapitalGainsCalculator() {
       </Card>
 
       <AdSlot position="mid-content" />
+
+      {/* Mobile Sticky Result Bar */}
+      {result && hasCalculated && (
+        <div className="fixed inset-x-0 bottom-0 z-40 border-t border-border/80 bg-card/95 px-4 py-2.5 shadow-[0_-4px_20px_rgba(0,0,0,0.08)] backdrop-blur-md lg:hidden">
+          <div className="mx-auto flex max-w-2xl items-center justify-between gap-3">
+            <div className="min-w-0">
+              <p className="text-[11px] font-medium uppercase tracking-wider text-muted-foreground">
+                Capital Gains Tax ({formatPercent(result.effectiveRate)})
+              </p>
+              <p className="truncate text-lg font-bold tabular-nums text-red-600">
+                {formatCurrency(result.totalTax)}
+              </p>
+            </div>
+            <a
+              href="#cg-results"
+              className="shrink-0 rounded-full bg-emerald-600 px-3.5 py-2 text-xs font-semibold text-white shadow-sm hover:bg-emerald-700"
+            >
+              Full Breakdown
+            </a>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

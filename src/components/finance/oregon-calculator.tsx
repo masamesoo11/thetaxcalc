@@ -100,7 +100,7 @@ export function OregonCalculator() {
                 <div className="space-y-2">
                   <Label htmlFor="or-frequency" className="text-sm font-medium">Pay Frequency</Label>
                   <Select value={payFrequency} onValueChange={(v) => setPayFrequency(v as PayFrequency)}>
-                    <SelectTrigger id="or-frequency"><SelectValue /></SelectTrigger>
+                    <SelectTrigger id="or-frequency" aria-label="Pay frequency"><SelectValue /></SelectTrigger>
                     <SelectContent>
                       <SelectItem value="annual">Annual</SelectItem>
                       <SelectItem value="monthly">Monthly</SelectItem>
@@ -121,7 +121,7 @@ export function OregonCalculator() {
                 <div className="space-y-2">
                   <Label htmlFor="or-filing" className="text-sm font-medium">Filing Status</Label>
                   <Select value={filingStatus} onValueChange={(v) => setFilingStatus(v as typeof filingStatus)}>
-                    <SelectTrigger id="or-filing"><SelectValue /></SelectTrigger>
+                    <SelectTrigger id="or-filing" aria-label="Filing status"><SelectValue /></SelectTrigger>
                     <SelectContent>
                       <SelectItem value="single">Single</SelectItem>
                       <SelectItem value="married">Married</SelectItem>
