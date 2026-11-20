@@ -41,6 +41,13 @@ function isRateLimited(ip: string): boolean {
     hits.set(ip, window);
     return true;
   }
+  if (hits.size > 5000) {
+    for (const [k, times] of hits.entries()) {
+      const fresh = times.filter((t) => now - t < RATE_WINDOW_MS);
+      if (fresh.length === 0) hits.delete(k);
+      else hits.set(k, fresh);
+    }
+  }
   window.push(now);
   hits.set(ip, window);
   return false;

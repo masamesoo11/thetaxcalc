@@ -22,12 +22,12 @@ export async function POST(request: NextRequest) {
     }
 
     const { db } = await import('@/lib/db');
-    const body = await request.json();
-    const { calculator } = body;
+    const body = await request.json().catch(() => null);
+    const calculator = typeof body?.calculator === 'string' ? body.calculator.trim() : '';
 
-    if (!calculator || typeof calculator !== 'string') {
+    if (!calculator || calculator.length > 100 || !/^[a-z0-9-]+$/i.test(calculator)) {
       return NextResponse.json(
-        { error: 'Calculator name is required' },
+        { error: 'Valid calculator name is required' },
         { status: 400 }
       );
     }

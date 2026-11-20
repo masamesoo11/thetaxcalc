@@ -73,11 +73,26 @@ export async function verifySessionToken(token: string): Promise<AdminSession | 
 }
 
 /**
+ * Constant-time string comparison safe for Edge / Web Crypto runtimes.
+ */
+function timingSafeStringEqual(a: string, b: string): boolean {
+  const enc = new TextEncoder();
+  const aBytes = enc.encode(a);
+  const bBytes = enc.encode(b);
+  const maxLen = Math.max(aBytes.length, bBytes.length);
+  let diff = aBytes.length ^ bBytes.length;
+  for (let i = 0; i < maxLen; i++) {
+    diff |= (aBytes[i] ?? 0) ^ (bBytes[i] ?? 0);
+  }
+  return diff === 0;
+}
+
+/**
  * Validate admin password against the server-side configured password.
  */
 export function validatePassword(password: string): boolean {
   // Length guard: an unset ADMIN_PASSWORD ('') must never match empty input.
-  return ADMIN_PASSWORD.length > 0 && password === ADMIN_PASSWORD;
+  return ADMIN_PASSWORD.length > 0 && timingSafeStringEqual(password, ADMIN_PASSWORD);
 }
 
 /**

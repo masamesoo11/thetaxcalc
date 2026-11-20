@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { db } from '@/lib/db';
 
 
 
@@ -119,7 +120,10 @@ export async function PATCH(
       );
     }
 
-    const incrementBy = typeof increment === 'number' && increment > 0 ? increment : 1;
+    const incrementBy =
+      typeof increment === 'number' && Number.isFinite(increment) && increment > 0
+        ? Math.min(Math.floor(increment), 100)
+        : 1;
 
     const updated = await db.adSlot.update({
       where: { id },

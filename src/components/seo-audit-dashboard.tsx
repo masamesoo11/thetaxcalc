@@ -977,9 +977,14 @@ export default function SEOAuditDashboard() {
                             <p className="text-[11px] text-muted-foreground">{comp.domain}</p>
                           </td>
                           <td className="py-2.5 px-4 text-center">
-                            <span className={comp.domainAuth >= 70 ? 'text-red-600' : comp.domainAuth >= 40 ? 'text-amber-700' : 'text-emerald-600'}>
-                              {comp.domainAuth}
-                            </span>
+                            {(() => {
+                              const da = typeof comp.domainAuth === 'number' ? comp.domainAuth : parseInt(comp.domainAuth.replace(/[^0-9]/g, ''), 10) || 0;
+                              return (
+                                <span className={da >= 70 ? 'text-red-600' : da >= 40 ? 'text-amber-700' : 'text-emerald-600'}>
+                                  {comp.domainAuth}
+                                </span>
+                              );
+                            })()}
                           </td>
                           <td className="py-2.5 px-4 text-center text-muted-foreground">{comp.states}</td>
                           <td className="py-2.5 px-4 text-center text-muted-foreground">{comp.calculators}</td>

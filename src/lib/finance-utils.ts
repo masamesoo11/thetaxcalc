@@ -22,6 +22,8 @@ import {
   type StateBracket,
 } from './tax-config';
 
+export type { PayFrequency };
+
 // ─── Safe Rounding ───────────────────────────────────────────────────────────
 
 export function roundCurrency(value: number): number {

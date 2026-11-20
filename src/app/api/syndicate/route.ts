@@ -62,6 +62,18 @@ function getSitePosts(): SitePostInfo[] {
 
 type AuthKind = 'token' | 'admin' | null;
 
+function timingSafeEqual(a: string, b: string): boolean {
+  const enc = new TextEncoder();
+  const aBytes = enc.encode(a);
+  const bBytes = enc.encode(b);
+  const maxLen = Math.max(aBytes.length, bBytes.length);
+  let diff = aBytes.length ^ bBytes.length;
+  for (let i = 0; i < maxLen; i++) {
+    diff |= (aBytes[i] ?? 0) ^ (bBytes[i] ?? 0);
+  }
+  return diff === 0;
+}
+
 async function authorize(request: NextRequest): Promise<AuthKind> {
   // 1) Deploy-hook token
   const expected = process.env.SYNDICATION_TOKEN;
@@ -69,7 +81,7 @@ async function authorize(request: NextRequest): Promise<AuthKind> {
     const provided =
       request.nextUrl.searchParams.get('token') ??
       request.headers.get('x-syndication-token');
-    if (provided === expected) return 'token';
+    if (provided && timingSafeEqual(provided, expected)) return 'token';
   }
   // 2) Admin session cookie
   const cookie = request.cookies.get(getCookieName())?.value;

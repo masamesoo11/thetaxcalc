@@ -32,6 +32,18 @@ const inputClass =
 const inputNoPrefix =
   'w-full rounded-lg border border-border/50 bg-background/50 px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-emerald-500/50 focus:outline-none focus:ring-1 focus:ring-emerald-500/20';
 
+const DEFAULT_OBBBA_SCENARIO: OBBBAScenario = {
+  grossIncome: 75000,
+  filingStatus: 'single',
+  qualifyingChildren: 1,
+  saltPaid: 12000,
+  otherItemized: 0,
+  tipIncome: 0,
+  overtimePay: 0,
+  isSenior: 0,
+  federalWithholding: 8500,
+};
+
 export function OBBBACalculatorClient() {
   const [filingStatus, setFilingStatus] = useState<FilingStatus>('single');
   const [grossIncome, setGrossIncome] = useState<string>('75000');
@@ -69,21 +81,8 @@ export function OBBBACalculatorClient() {
     federalWithholding,
   ]);
 
-  // Auto-compute on first render so the user sees something
-  const firstResult = useMemo(() => {
-    const scenario: OBBBAScenario = {
-      grossIncome: parseNum(grossIncome) || 75000,
-      filingStatus,
-      qualifyingChildren: parseNum(qualifyingChildren) || 1,
-      saltPaid: parseNum(saltPaid) || 12000,
-      otherItemized: parseNum(otherItemized),
-      tipIncome: parseNum(tipIncome),
-      overtimePay: parseNum(overtimePay),
-      isSenior: Number(isSenior) || 0,
-      federalWithholding: parseNum(federalWithholding) || 8500,
-    };
-    return compareOBBBA(scenario);
-  }, []);
+  // Auto-compute default scenario on first render so the user sees something
+  const firstResult = useMemo(() => compareOBBBA(DEFAULT_OBBBA_SCENARIO), []);
 
   const display = result ?? firstResult;
 

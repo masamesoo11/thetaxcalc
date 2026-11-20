@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { getPublishedPostsMeta } from '@/lib/blog-index';
 
 
 
@@ -34,7 +35,7 @@ export async function GET() {
   result.configured = true; // "configured" in the sense that static mode is always available
   result.connected = true; // data is available via static files
   result.tableExists = true; // data exists via static files
-  result.postCount = 8; // number of published posts in blog-index.ts
+  result.postCount = getPublishedPostsMeta().length;
 
   return NextResponse.json(result);
 }

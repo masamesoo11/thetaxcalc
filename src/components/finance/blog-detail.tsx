@@ -745,7 +745,7 @@ export function BlogDetail({
                       </h4>
                       <span className="flex items-center gap-1 text-xs text-muted-foreground">
                         <Clock className="h-3 w-3" />
-                        {estimateReadTime(rp.excerpt)} min
+                        {estimateReadTime(rp.excerpt ?? '')} min
                       </span>
                     </CardContent>
                   </Card>

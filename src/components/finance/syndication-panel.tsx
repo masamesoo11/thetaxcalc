@@ -120,7 +120,7 @@ interface VerifyResponse {
 
 interface PublishResponse {
   ok: boolean;
-  result?: { slug: string; ok: boolean; url?: string; error?: string };
+  result?: { slug: string; ok: boolean; id?: string; url?: string; error?: string };
   attempted?: number;
   succeeded?: number;
   failed?: number;

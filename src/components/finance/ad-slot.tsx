@@ -40,7 +40,7 @@ export function AdSlot({ position = 'after-results', className = '' }: AdSlotPro
       fetch(`/api/ads/${ad.id}`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ incrementImpressions: true }),
+        body: JSON.stringify({ field: 'impressions', increment: 1 }),
       }).catch(() => {});
     }
   }, [ad]);

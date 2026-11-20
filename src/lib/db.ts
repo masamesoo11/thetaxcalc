@@ -268,12 +268,14 @@ function adSlotUpdate(opts: { where: Record<string, unknown>; data: Record<strin
 
   // Handle increment fields
   const updated: AdSlotRecord = { ...existing, updatedAt: new Date().toISOString() };
+  const updatedRecord = updated as unknown as Record<string, unknown>;
+  const existingRecord = existing as unknown as Record<string, unknown>;
   for (const [key, value] of Object.entries(opts.data)) {
     if (value && typeof value === 'object' && 'increment' in (value as Record<string, unknown>)) {
       const inc = (value as { increment: number }).increment;
-      (updated as Record<string, unknown>)[key] = ((existing as Record<string, unknown>)[key] as number || 0) + inc;
+      updatedRecord[key] = ((existingRecord[key] as number) || 0) + inc;
     } else if (key in updated) {
-      (updated as Record<string, unknown>)[key] = value;
+      updatedRecord[key] = value;
     }
   }
 
@@ -306,6 +308,16 @@ function siteSettingFindUnique(opts: { where: Record<string, unknown> }): SiteSe
     return siteSettingStore.get(id) || null;
   }
   return null;
+}
+
+function siteSettingCreate(data: Record<string, unknown>): SiteSettingRecord {
+  const id = (data.id as string) || uuid();
+  const key = (data.key as string) || '';
+  const value = (data.value as string) ?? '';
+  const record: SiteSettingRecord = { id, key, value };
+  siteSettingStore.set(id, record);
+  siteSettingByKey.set(key, id);
+  return record;
 }
 
 function siteSettingUpsert(opts: { where: Record<string, unknown>; update: Record<string, unknown>; create: Record<string, unknown> }): SiteSettingRecord {
@@ -426,9 +438,10 @@ function externalLinkUpdate(opts: { where: Record<string, unknown>; data: Record
   if (!existing) throw new Error('Record not found in external_links');
 
   const updated: ExternalLinkRecord = { ...existing, updatedAt: new Date().toISOString() };
+  const updatedRecord = updated as unknown as Record<string, unknown>;
   for (const [key, value] of Object.entries(opts.data)) {
     if (key in updated) {
-      (updated as Record<string, unknown>)[key] = value;
+      updatedRecord[key] = value;
     }
   }
 
@@ -514,9 +527,10 @@ function postUpdate(opts: { where: Record<string, unknown>; data: Record<string,
   if (!existing) throw new Error('Record not found in posts');
 
   const updated: PostRecord = { ...existing, updatedAt: new Date().toISOString() };
+  const updatedRecord = updated as unknown as Record<string, unknown>;
   for (const [key, value] of Object.entries(opts.data)) {
     if (key in updated) {
-      (updated as Record<string, unknown>)[key] = value;
+      updatedRecord[key] = value;
     }
   }
 
@@ -541,6 +555,7 @@ export const db = {
   siteSetting: {
     findMany: () => Promise.resolve(siteSettingFindMany()),
     findUnique: (opts: { where: Record<string, unknown> }) => Promise.resolve(siteSettingFindUnique(opts)),
+    create: (opts: { data: Record<string, unknown> }) => Promise.resolve(siteSettingCreate(opts.data)),
     upsert: (opts: { where: Record<string, unknown>; update: Record<string, unknown>; create: Record<string, unknown> }) => Promise.resolve(siteSettingUpsert(opts)),
   },
   calculatorUsage: {

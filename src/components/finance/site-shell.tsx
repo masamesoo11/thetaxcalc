@@ -1,9 +1,14 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useSyncExternalStore } from 'react';
 import { Header } from './header';
 import { Footer } from './footer';
 import { trackEmbedView } from '@/lib/analytics';
+
+const emptySubscribe = () => () => {};
+const getEmbedSnapshot = () =>
+  new URLSearchParams(window.location.search).get('embed') === '1';
+const getServerEmbedSnapshot = () => false;
 
 /**
  * Site shell that conditionally renders Header/Footer based on embed mode.
@@ -14,26 +19,25 @@ import { trackEmbedView } from '@/lib/analytics';
  * IMPORTANT: We intentionally avoid useSearchParams() here because it triggers
  * a React Suspense boundary that prevents ALL page content (including
  * server-rendered H1s and SEO content) from appearing in the initial HTML.
- * Instead, we detect embed mode via window.location.search in useEffect,
- * which runs only on the client after hydration — preserving SSR HTML for SEO.
+ * Instead, we read window.location.search via useSyncExternalStore with a
+ * false server snapshot, preserving SSR HTML for SEO without hydration drift.
  */
 function SiteShellInner({ children }: { children: React.ReactNode }) {
-  const [isEmbed, setIsEmbed] = useState(false);
+  const isEmbed = useSyncExternalStore(
+    emptySubscribe,
+    getEmbedSnapshot,
+    getServerEmbedSnapshot
+  );
   const embedTrackedRef = useRef(false);
 
   useEffect(() => {
-    // Detect embed mode from URL query string (client-only, no Suspense needed)
-    const params = new URLSearchParams(window.location.search);
-    const embed = params.get('embed') === '1';
-    setIsEmbed(embed);
-
     // Track embed views in GA4 (fire once per page load)
-    if (embed && !embedTrackedRef.current) {
+    if (isEmbed && !embedTrackedRef.current) {
       embedTrackedRef.current = true;
       const slug = window.location.pathname.replace(/^\//, '');
       trackEmbedView(slug || 'unknown');
     }
-  }, []);
+  }, [isEmbed]);
 
   if (isEmbed) {
     return (
