@@ -34,3 +34,11 @@ dev-alive.log
 *.tsbuildinfo
 public/*.bak-*
 src/*.bak-*
+
+# root dev/screenshot artifacts (removed from tracking 2026-11-19)
+/dev-home*.html
+/page.html
+/index.html
+/dev-sitemap.xml
+/*.png
+/screenshots/
