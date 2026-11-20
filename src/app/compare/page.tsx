@@ -36,6 +36,7 @@ export const metadata: Metadata = {
     title: 'State vs State Tax Comparison 2026',
     description:
       'Compare taxes between IL, TX, FL, CA, NY. See income tax, property tax, and take-home pay side by side.',
+    images: [`${SITE_URL}/opengraph-image.png`],
   },
 };
 

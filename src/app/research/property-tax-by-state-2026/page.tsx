@@ -4,20 +4,27 @@ import { SITE_URL } from '@/lib/site-config';
 import { ArrowRight, FileText, Home, Shield, TrendingDown } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Property Tax Disparities Across U.S. States: Effective Rates, Assessment Practices, and Burden Distribution in 2026',
-  description: `A 2026 statistical analysis of effective property tax rates across all 50 U.S. states, examining assessment practices and distributional impact.`,
+  title: { absolute: 'Property Tax by State 2026: 50-State Study | TheTaxCalc' },
+  description: `2026 statistical analysis of effective property tax rates across all 50 U.S. states, examining assessment practices and homeowner burden.`,
   keywords: ['property tax by state', 'effective property tax rate', 'property tax comparison', 'state property tax rankings', 'property tax burden'],
   authors: [{ name: 'TheTaxCalc Editorial Team' }],
   alternates: {
     canonical: `${SITE_URL}/research/property-tax-by-state-2026`,
   },
   openGraph: {
-    title: 'Property Tax Disparities Across U.S. States: Effective Rates, Assessment Practices, and Burden Distribution in 2026',
-    description: `A 2026 statistical analysis of effective property tax rates across all 50 U.S. states, examining assessment practices and distributional impact.`,
+    title: 'Property Tax by State 2026: 50-State Study',
+    description: `2026 statistical analysis of effective property tax rates across all 50 U.S. states, examining assessment practices and burden.`,
     url: `${SITE_URL}/research/property-tax-by-state-2026`,
     siteName: 'TheTaxCalc',
     type: 'article',
     locale: 'en_US',
+    images: [{ url: `${SITE_URL}/opengraph-image.png`, width: 1200, height: 630, alt: 'Property Tax by State 2026 — TheTaxCalc' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Property Tax by State 2026: 50-State Study',
+    description: '2026 analysis of effective property tax rates across all 50 U.S. states.',
+    images: [`${SITE_URL}/opengraph-image.png`],
   },
 };
 

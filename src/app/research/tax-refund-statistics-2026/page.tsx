@@ -4,20 +4,27 @@ import { SITE_URL } from '@/lib/site-config';
 import { ArrowRight, DollarSign, FileText, Users, Zap } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Tax Refund Statistics 2026: Demographics, Behavioral Patterns, and Trends',
-  description: `An analysis of IRS tax refund data for the 2025 filing season, examining refund amounts, timing, payment methods, and demographic patterns.`,
+  title: { absolute: 'Tax Refund Statistics 2026: Averages & Trends | TheTaxCalc' },
+  description: `Analysis of IRS tax refund data examining average refund amounts, filing timing, direct deposit share, and demographic trends for 2026.`,
   keywords: ['tax refund statistics', 'average tax refund', 'irs refund data', 'tax refund trends', 'refund timing', 'direct deposit refund'],
   authors: [{ name: 'TheTaxCalc Editorial Team' }],
   alternates: {
     canonical: `${SITE_URL}/research/tax-refund-statistics-2026`,
   },
   openGraph: {
-    title: 'Tax Refund Statistics 2026: Demographics, Behavioral Patterns, and Trends',
-    description: `An analysis of IRS tax refund data for the 2025 filing season, examining refund amounts, timing, payment methods, and demographic patterns.`,
+    title: 'Tax Refund Statistics 2026: Averages & Trends',
+    description: `Analysis of IRS tax refund data examining average refund amounts, filing timing, payment methods, and demographic patterns.`,
     url: `${SITE_URL}/research/tax-refund-statistics-2026`,
     siteName: 'TheTaxCalc',
     type: 'article',
     locale: 'en_US',
+    images: [{ url: `${SITE_URL}/opengraph-image.png`, width: 1200, height: 630, alt: 'Tax Refund Statistics 2026 — TheTaxCalc' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Tax Refund Statistics 2026: Averages & Trends',
+    description: 'IRS tax refund data analysis: average amounts, timing, and demographic trends.',
+    images: [`${SITE_URL}/opengraph-image.png`],
   },
 };
 

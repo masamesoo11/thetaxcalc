@@ -23,9 +23,9 @@ import { getCalculatorAuthor, authorToJsonLd } from '@/lib/authors';
 import { AuthorBioCard } from '@/components/finance/author-bio-card';
 
 export const metadata: Metadata = {
-  title: 'Free Tax Calculator Widgets — Embed on Your Site in 30 Seconds',
+  title: { absolute: 'Free Tax Calculator Widgets — Embed in 30 Seconds' },
   description:
-    'Add free tax calculator widgets to your website. Paycheck, mortgage, sales tax, and capital gains calculators. No signup, no cost — just copy & paste. Updated for 2026.',
+    'Add free 2026 tax calculator widgets to your website. Paycheck, mortgage, sales tax, and capital gains tools. No signup or cost — copy & paste.',
   keywords: [
     'tax calculator widget',
     'embed tax calculator',

@@ -28,10 +28,10 @@ export function generateStaticParams() {
 // ─── Per-Page Metadata (tier-differentiated titles & descriptions) ───────────
 
 const TIER_TITLE_SUFFIX: Record<ReturnType<typeof getRateTier>, string> = {
-  entry: 'Is It a Livable Wage?',
-  core: 'Full-Time & Part-Time Pay',
-  standard: 'Salary Equivalent & Net Pay',
-  professional: 'After-Tax Pay by State',
+  entry: 'Livable Wage?',
+  core: 'Full & Part-Time',
+  standard: 'Salary & Net Pay',
+  professional: 'After-Tax Pay',
 };
 
 export async function generateMetadata({
@@ -41,7 +41,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { rate: rateStr } = await params;
   const rate = slugToRate(rateStr);
-  if (!rate || !isValidHourlyRate(rate)) return { title: 'Rate Not Found' };
+  if (!rate || !isValidHourlyRate(rate)) notFound();
 
   const rateLabel = formatRate(rate);
   const baseUrl = SITE_URL;

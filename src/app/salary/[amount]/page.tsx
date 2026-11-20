@@ -35,7 +35,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { amount: amountStr } = await params;
   const salary = slugToSalary(amountStr);
-  if (!salary || !isValidSalaryAmount(salary)) return { title: 'Salary Not Found' };
+  if (!salary || !isValidSalaryAmount(salary)) notFound();
 
   const formatted = formatSalary(salary);
   const baseUrl = SITE_URL;

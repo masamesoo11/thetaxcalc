@@ -5,9 +5,9 @@ import { BarChart3, ArrowRight, FileText, TrendingDown } from 'lucide-react';
 import { CiteThisData } from '@/components/finance/cite-this-data';
 
 export const metadata: Metadata = {
-  title: '2026 State Tax Burden Analysis: All 50 States Ranked',
+  title: { absolute: '2026 State Tax Burden: All 50 States Ranked | TheTaxCalc' },
   description:
-    'Original 2026 cross-sectional study comparing effective state and local tax burdens across all 50 U.S. states. Findings, methodology, and interactive data for four household income profiles.',
+    '2026 cross-sectional study comparing effective state and local tax burdens across all 50 U.S. states for four household income profiles.',
   keywords: [
     'state tax burden 2026',
     'state tax comparison',
@@ -30,6 +30,13 @@ export const metadata: Metadata = {
     siteName: 'TheTaxCalc',
     type: 'article',
     locale: 'en_US',
+    images: [{ url: `${SITE_URL}/opengraph-image.png`, width: 1200, height: 630, alt: '2026 State Tax Burden Analysis — TheTaxCalc' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: '2026 State Tax Burden Analysis: All 50 States Ranked',
+    description: 'Original research ranking all 50 U.S. states by effective tax burden for 2026.',
+    images: [`${SITE_URL}/opengraph-image.png`],
   },
 };
 

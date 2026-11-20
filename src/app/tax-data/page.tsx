@@ -73,6 +73,7 @@ export const metadata: Metadata = {
     title: '2026 Tax Data & Statistics — All 50 States',
     description:
       'Free 2026 tax data for 50 states. Sales tax, brackets, FICA & no-tax states. CSV & charts.',
+    images: [`${SITE_URL}/opengraph-image.png`],
   },
 };
 

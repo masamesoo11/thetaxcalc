@@ -4,20 +4,27 @@ import { SITE_URL } from '@/lib/site-config';
 import { AlertCircle, ArrowRight, FileText, Laptop, TrendingDown } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'The State Tax Implications of Remote Work: Optimal U.S. States for Location-Independent Workers in 2026',
-  description: `This study develops a composite Remote Worker Tax Attractiveness Index (RWTAI) for all 50 U.S. states, ranking the best states for remote workers in 2026.`,
+  title: { absolute: 'Best States for Remote Workers 2026: Tax Study | TheTaxCalc' },
+  description: `Composite Remote Worker Tax Attractiveness Index (RWTAI) ranking all 50 U.S. states for location-independent workers in 2026.`,
   keywords: ['best states for remote workers', 'remote work tax', 'RWTAI', 'convenience of employer rule', 'digital nomad taxes'],
   authors: [{ name: 'TheTaxCalc Editorial Team' }],
   alternates: {
     canonical: `${SITE_URL}/research/best-states-for-remote-workers-2026`,
   },
   openGraph: {
-    title: 'The State Tax Implications of Remote Work: Optimal U.S. States for Location-Independent Workers in 2026',
-    description: `This study develops a composite Remote Worker Tax Attractiveness Index (RWTAI) for all 50 U.S. states, ranking the best states for remote workers in 2026.`,
+    title: 'Best States for Remote Workers 2026: Tax Study',
+    description: `Composite Remote Worker Tax Attractiveness Index (RWTAI) ranking all 50 U.S. states for remote workers in 2026.`,
     url: `${SITE_URL}/research/best-states-for-remote-workers-2026`,
     siteName: 'TheTaxCalc',
     type: 'article',
     locale: 'en_US',
+    images: [{ url: `${SITE_URL}/opengraph-image.png`, width: 1200, height: 630, alt: 'Best States for Remote Workers 2026 — TheTaxCalc' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Best States for Remote Workers 2026: Tax Study',
+    description: 'Composite RWTAI study ranking all 50 U.S. states for remote workers in 2026.',
+    images: [`${SITE_URL}/opengraph-image.png`],
   },
 };
 

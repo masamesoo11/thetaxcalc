@@ -6,9 +6,9 @@ import { ProtectedEmail } from '@/components/finance/protected-email';
 import { SITE_URL } from '@/lib/site-config';
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy — TheTaxCalc Tax Calculator Data Protection',
+  title: { absolute: 'Privacy Policy — Data Protection | TheTaxCalc' },
   description:
-    'TheTaxCalc Privacy Policy — TheTaxCalc Tax Calculator Data Protection — learn how we collect, use, and protect your personal information when using our free tax calculators.',
+    'Learn how TheTaxCalc protects your privacy. All tax calculations run in your browser with no account required and no personal financial data stored.',
   keywords: ['privacy policy', 'thetaxcalc privacy', 'tax calculator privacy', 'data protection', 'calculator data security', 'browser calculations'],
   alternates: {
     canonical: `${SITE_URL}/privacy`,

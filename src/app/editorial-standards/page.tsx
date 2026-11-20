@@ -15,9 +15,9 @@ import {
 import { ProtectedEmail } from '@/components/finance/protected-email';
 
 export const metadata: Metadata = {
-  title: 'Editorial Standards: Authorship, Updates & Corrections',
+  title: { absolute: 'Editorial Standards: Authorship & Updates | TheTaxCalc' },
   description:
-    'TheTaxCalc editorial standards: how we author and verify tax content without rented credentials, our 48-hour update policy, public correction log, and independence from lead-generation revenue.',
+    'How TheTaxCalc authors, verifies, and updates tax content: IRS primary sources, 48-hour update policy, public correction log, and full independence.',
   alternates: { canonical: `${SITE_URL}/editorial-standards` },
   openGraph: {
     title: 'Editorial Standards — Authorship, Updates & Corrections',

@@ -478,7 +478,7 @@ export function SalesTaxCalculator({ defaultState }: { defaultState?: string } =
                       setLocalRateOverride(0);
                     }}
                   >
-                    <SelectTrigger id="st-state" className="w-full">
+                    <SelectTrigger id="st-state" aria-label="Select state for sales tax" className="w-full">
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent className="max-h-64">
@@ -573,7 +573,7 @@ export function SalesTaxCalculator({ defaultState }: { defaultState?: string } =
                       Exempt Category
                     </Label>
                     <Select value={exemptCategory} onValueChange={setExemptCategory}>
-                      <SelectTrigger id="st-exempt-cat" className="w-full max-w-xs">
+                      <SelectTrigger id="st-exempt-cat" aria-label="Select tax-exempt category" className="w-full max-w-xs">
                         <SelectValue />
                       </SelectTrigger>
                       <SelectContent>
@@ -679,7 +679,7 @@ export function SalesTaxCalculator({ defaultState }: { defaultState?: string } =
                     value={reverseStateKey}
                     onValueChange={setReverseStateKey}
                   >
-                    <SelectTrigger id="st-reverse-state" className="w-full">
+                    <SelectTrigger id="st-reverse-state" aria-label="Select state for reverse sales tax" className="w-full">
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent className="max-h-64">

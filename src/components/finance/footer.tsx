@@ -377,12 +377,20 @@ export function Footer() {
         </div>
 
         {/* ─── All 50 State Tax Calculators Directory ───────────────────────── */}
-        <div className="mt-10 pt-8 border-t border-border/20">
-          <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-foreground flex items-center gap-2">
-            <MapPin className="h-4 w-4 text-emerald-600" />
-            All 50 State Tax Calculators
-          </h3>
-          <div className="grid grid-cols-2 gap-x-4 gap-y-1 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-6">
+        <details className="group mt-10 pt-8 border-t border-border/20">
+          <summary className="flex cursor-pointer list-none items-center justify-between text-sm font-semibold uppercase tracking-wider text-foreground">
+            <span className="flex items-center gap-2">
+              <MapPin className="h-4 w-4 text-emerald-600" />
+              All 50 State Tax Calculators
+            </span>
+            <span className="text-xs font-normal normal-case tracking-normal text-muted-foreground group-open:hidden">
+              Show all 50 states
+            </span>
+            <span className="hidden text-xs font-normal normal-case tracking-normal text-muted-foreground group-open:inline">
+              Hide states
+            </span>
+          </summary>
+          <div className="mt-4 grid grid-cols-2 gap-x-4 gap-y-1 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-6">
             {ALL_STATE_LINKS.map((link) => (
               <Link
                 key={link.href}
@@ -394,7 +402,7 @@ export function Footer() {
               </Link>
             ))}
           </div>
-        </div>
+        </details>
 
         {/* ─── Strategic Pages ────────────────────────────────────────────── */}
         <div className="mt-6 pt-6 border-t border-border/20">

@@ -6,9 +6,9 @@ import { ProtectedEmail } from '@/components/finance/protected-email';
 import { SITE_URL } from '@/lib/site-config';
 
 export const metadata: Metadata = {
-  title: 'Terms of Use — TheTaxCalc Free Tax Calculator Service',
+  title: { absolute: 'Terms of Use — Free Tax Calculators | TheTaxCalc' },
   description:
-    'TheTaxCalc Terms of Use — TheTaxCalc Free Tax Calculator Service — understand the terms and conditions for using our free tax calculators, website, and financial tools.',
+    'Read the terms and conditions for using TheTaxCalc free tax calculators, estimates, and financial planning tools. Informational estimates only.',
   keywords: ['terms of use', 'thetaxcalc terms', 'tax calculator terms', 'usage agreement', 'legal terms', 'disclaimer'],
   alternates: {
     canonical: `${SITE_URL}/terms`,

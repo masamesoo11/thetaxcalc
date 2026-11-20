@@ -10,9 +10,9 @@ import {
 import { CheckCircle2, XCircle, ShieldCheck, ExternalLink, BookOpen, Scale } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Accuracy Report: 25/25 Engine Checks Passed — Public Verification',
+  title: { absolute: 'Accuracy Report: 25/25 Tax Engine Checks | TheTaxCalc' },
   description:
-    'TheTaxCalc publishes its own verification math: 25 hand-derived test cases from IRS Rev. Proc. 2025-32, SSA 2026 data, and state revenue codes, run against our live calculator engine. Anyone can audit the results.',
+    '25 hand-derived test cases from IRS Rev. Proc. 2025-32, SSA 2026 data, and state tax codes, run live against our engine. Audit every calculation.',
   alternates: { canonical: `${SITE_URL}/accuracy-report` },
   openGraph: {
     title: 'Accuracy Report — Publicly Verifiable Tax Engine Checks',

@@ -220,7 +220,7 @@ export function SalesTaxHubClient() {
                   setForwardResult(null);
                 }}
               >
-                <SelectTrigger id="hub-state" className="w-full">
+                <SelectTrigger id="hub-state" aria-label="Select state for sales tax" className="w-full">
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent className="max-h-64">
@@ -319,7 +319,7 @@ export function SalesTaxHubClient() {
                   Exempt Category
                 </Label>
                 <Select value={exemptCategory} onValueChange={setExemptCategory}>
-                  <SelectTrigger id="hub-exempt-cat" className="w-full max-w-xs">
+                  <SelectTrigger id="hub-exempt-cat" aria-label="Select tax-exempt category" className="w-full max-w-xs">
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent>
@@ -468,7 +468,7 @@ export function SalesTaxHubClient() {
                   setReverseResult(null);
                 }}
               >
-                <SelectTrigger id="hub-reverse-state" className="w-full">
+                <SelectTrigger id="hub-reverse-state" aria-label="Select state for reverse sales tax" className="w-full">
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent className="max-h-64">
@@ -593,7 +593,7 @@ export function SalesTaxHubClient() {
                   setCarResult(null);
                 }}
               >
-                <SelectTrigger id="hub-car-state" className="w-full">
+                <SelectTrigger id="hub-car-state" aria-label="Select state for car sales tax" className="w-full">
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent className="max-h-64">

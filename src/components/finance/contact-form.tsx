@@ -162,7 +162,7 @@ export function ContactForm() {
               Topic <span className="text-red-500">*</span>
             </Label>
             <Select value={topic} onValueChange={setTopic}>
-              <SelectTrigger id="contact-topic" className="w-full">
+              <SelectTrigger id="contact-topic" aria-label="Message topic" className="w-full">
                 <SelectValue placeholder="Choose a topic" />
               </SelectTrigger>
               <SelectContent>

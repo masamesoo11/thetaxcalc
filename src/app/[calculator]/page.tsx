@@ -58,7 +58,7 @@ export async function generateMetadata({
   const config = SLUG_TO_CONFIG[calculator];
 
   if (!config) {
-    return { title: 'Calculator Not Found' };
+    notFound();
   }
 
   const baseUrl = SITE_URL;

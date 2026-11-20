@@ -18,7 +18,7 @@ const CONFIG = {
   description: 'Free home sale tax calculator for 2026. Calculate capital gains tax on the sale of your home, rental property, or second home. Includes $250K/$500K exclusion, cost basis, and depreciation recapture. No sign-up.',
   h1: 'Home Sale Tax Calculator — Capital Gains on Property 2026',
   metaTitle: 'Home Sale Tax Calculator 2026 | Capital Gains on Property',
-  metaDesc: 'Free home sale tax calculator for 2026. Calculate capital gains tax on your home, rental, or second home. $250K/$500K exclusion, cost basis, depreciation recapture. No sign-up.',
+  metaDesc: 'Free 2026 home sale tax calculator. Estimate capital gains on your home or rental with $250K/$500K exclusion, cost basis, and depreciation recapture.',
   keywords: [
     'capital gains tax calculator on sale of property',
     'home sale tax calculator',
@@ -69,8 +69,8 @@ const PAGE_CONTENT = {
     { label: 'Depreciation Recapture Rate', value: '25%' },
     { label: 'NIIT Rate', value: '3.8%' },
     { label: 'Residency Test', value: '2 of 5 years' },
-    { label: '0% Rate Threshold (Single)', value: '~$47,000 taxable income' },
-    { label: '0% Rate Threshold (MFJ)', value: '~$94,000 taxable income' },
+    { label: '0% Rate Threshold (Single)', value: '$49,450 taxable income' },
+    { label: '0% Rate Threshold (MFJ)', value: '$98,900 taxable income' },
   ],
   faqs: [
     {
@@ -115,7 +115,7 @@ const PAGE_CONTENT = {
     },
     {
       question: 'What are the capital gains tax rates for 2026?',
-      answer: 'For 2026, long-term capital gains (assets held over 1 year) are taxed at three rates: 0% for taxable income up to roughly $47,000 (single) or $94,000 (MFJ), 15% for income up to roughly $518,000 (single) or $583,000 (MFJ), and 20% for income above those thresholds. Short-term gains (assets held 1 year or less) are taxed at ordinary income rates. The 3.8% NIIT applies on top for high earners.',
+      answer: 'For 2026 (IRS Rev. Proc. 2025-32), long-term capital gains (assets held over 1 year) are taxed at three rates: 0% for taxable income up to $49,450 (single) or $98,900 (MFJ), 15% for income up to $545,500 (single) or $613,700 (MFJ), and 20% for income above those thresholds. Short-term gains (assets held 1 year or less) are taxed at ordinary income rates. The 3.8% NIIT applies on top for high earners.',
     },
     {
       question: 'Do I need to report the sale of my home to the IRS?',
@@ -436,18 +436,18 @@ export default async function HomeSaleTaxCalculatorPage() {
                 <tbody className="text-muted-foreground">
                   <tr className="border-b border-border/20">
                     <td className="py-2.5 px-3 font-semibold text-emerald-600">0%</td>
-                    <td className="py-2.5 px-3 text-center">Up to ~$47,000</td>
-                    <td className="py-2.5 px-3 text-center">Up to ~$94,000</td>
+                    <td className="py-2.5 px-3 text-center">Up to $49,450</td>
+                    <td className="py-2.5 px-3 text-center">Up to $98,900</td>
                   </tr>
                   <tr className="border-b border-border/20">
                     <td className="py-2.5 px-3 font-semibold text-sky-700">15%</td>
-                    <td className="py-2.5 px-3 text-center">~$47,000 to ~$518,000</td>
-                    <td className="py-2.5 px-3 text-center">~$94,000 to ~$583,000</td>
+                    <td className="py-2.5 px-3 text-center">$49,451 to $545,500</td>
+                    <td className="py-2.5 px-3 text-center">$98,901 to $613,700</td>
                   </tr>
                   <tr>
                     <td className="py-2.5 px-3 font-semibold text-amber-700">20%</td>
-                    <td className="py-2.5 px-3 text-center">Over ~$518,000</td>
-                    <td className="py-2.5 px-3 text-center">Over ~$583,000</td>
+                    <td className="py-2.5 px-3 text-center">Over $545,500</td>
+                    <td className="py-2.5 px-3 text-center">Over $613,700</td>
                   </tr>
                 </tbody>
               </table>

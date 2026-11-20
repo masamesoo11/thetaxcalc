@@ -16,7 +16,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { SITE_URL } from '@/lib/site-config';
 
 export const metadata: Metadata = {
-  title: 'Contact TheTaxCalc — Support, Corrections & Feedback',
+  title: { absolute: 'Contact TheTaxCalc — Support, Corrections & Feedback' },
   description:
     'Contact TheTaxCalc: report a calculation error, ask a tax calculator question, or send feedback. We reply to every message within 1-2 business days.',
   alternates: {

@@ -59,6 +59,7 @@ export const metadata: Metadata = {
     title: 'Salary After Tax Calculator 2026 — Take-Home Pay',
     description:
       'See your take-home pay for every salary from $30K to $500K. Compare after-tax income across IL, TX, FL, CA, NY.',
+    images: [`${SITE_URL}/opengraph-image.png`],
   },
 };
 
@@ -244,7 +245,7 @@ export default function SalaryLandingPage() {
 
           <p className="mt-4 text-lg text-muted-foreground max-w-3xl leading-relaxed">
             Want to know what you actually take home after taxes? Same. Pick your salary below
-            and we\'ll show you the real numbers across <strong className="text-foreground">Illinois</strong>, <strong className="text-foreground">Texas</strong>,
+            and we&apos;ll show you the real numbers across <strong className="text-foreground">Illinois</strong>, <strong className="text-foreground">Texas</strong>,
             <strong className="text-foreground"> Florida</strong>, <strong className="text-foreground">California</strong>, and
             <strong className="text-foreground"> New York</strong>. Spoiler: where you live makes a bigger difference than you think.
           </p>
@@ -269,9 +270,9 @@ export default function SalaryLandingPage() {
         {groups.map((group) => (
           <section key={group.label} className="mb-14">
             <div className="flex items-center gap-3 mb-6">
-              <h3 className="text-2xl font-bold text-foreground">
+              <h2 className="text-2xl font-bold text-foreground">
                 {group.label}
-              </h3>
+              </h2>
               <span className="text-xs font-medium text-muted-foreground bg-muted/20 rounded-full px-3 py-1">
                 {group.range}
               </span>
@@ -292,7 +293,7 @@ export default function SalaryLandingPage() {
               How We <span className="gradient-text">Calculate</span> Your Take-Home Pay
             </h2>
             <p className="mt-3 text-muted-foreground max-w-xl mx-auto">
-              We crunch the numbers so you don\'t have to. Federal tax, FICA, state tax — all broken down.
+              We crunch the numbers so you don&apos;t have to. Federal tax, FICA, state tax — all broken down.
             </p>
           </div>
 

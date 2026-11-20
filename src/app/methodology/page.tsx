@@ -3,9 +3,9 @@ import Link from 'next/link';
 import { SITE_URL } from '@/lib/site-config';
 
 export const metadata: Metadata = {
-  title: 'Methodology: How TheTaxCalc Computes Your Taxes',
+  title: { absolute: 'Methodology: How We Compute 2026 Taxes | TheTaxCalc' },
   description:
-    'Learn how TheTaxCalc computes federal, state, and FICA taxes for 2026. Every calculation is based on official IRS publications, SSA data, and state revenue department sources.',
+    'Learn how TheTaxCalc computes 2026 federal, state, and FICA taxes using official IRS publications, SSA wage data, and state revenue sources.',
   alternates: { canonical: `${SITE_URL}/methodology` },
   openGraph: {
     title: 'Methodology: How TheTaxCalc Computes Taxes',
@@ -14,6 +14,15 @@ export const metadata: Metadata = {
     url: `${SITE_URL}/methodology`,
     siteName: 'TheTaxCalc',
     type: 'website',
+    locale: 'en_US',
+    images: [{ url: `${SITE_URL}/opengraph-image.png`, width: 1200, height: 630, alt: 'TheTaxCalc Methodology & Data Sources' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Methodology: How TheTaxCalc Computes Taxes',
+    description:
+      'How we compute your 2026 federal, state, and FICA taxes using IRS, SSA, and state revenue sources.',
+    images: [`${SITE_URL}/opengraph-image.png`],
   },
 };
 

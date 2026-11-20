@@ -4,20 +4,27 @@ import { SITE_URL } from '@/lib/site-config';
 import { ArrowRight, DollarSign, FileText, Home, TrendingUp } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Salary Needed to Live Comfortably in All 50 U.S. States: 2026 Analysis',
-  description: `How much do you need to earn to live comfortably in each U.S. state? 2026 analysis using the 50/30/20 budgeting rule and state-specific cost-of-living data.`,
+  title: { absolute: 'Salary Needed to Live Comfortably 2026 (50 States)' },
+  description: `How much do you need to earn to live comfortably in each U.S. state? 2026 analysis using the 50/30/20 rule and state cost-of-living data.`,
   keywords: ['salary needed to live comfortably', 'comfortable living salary by state', 'how much to live comfortably', '50 30 20 rule salary', 'cost of living by state 2026', 'living wage by state'],
   authors: [{ name: 'TheTaxCalc Editorial Team' }],
   alternates: {
     canonical: `${SITE_URL}/research/salary-needed-to-live-comfortably-2026`,
   },
   openGraph: {
-    title: 'Salary Needed to Live Comfortably in All 50 U.S. States: 2026 Analysis',
-    description: `How much do you need to earn to live comfortably in each U.S. state? 2026 analysis using the 50/30/20 budgeting rule and state-specific cost-of-living data.`,
+    title: 'Salary Needed to Live Comfortably in All 50 U.S. States (2026)',
+    description: `How much do you need to earn to live comfortably in each U.S. state? 2026 analysis using the 50/30/20 budgeting rule.`,
     url: `${SITE_URL}/research/salary-needed-to-live-comfortably-2026`,
     siteName: 'TheTaxCalc',
     type: 'article',
     locale: 'en_US',
+    images: [{ url: `${SITE_URL}/opengraph-image.png`, width: 1200, height: 630, alt: 'Salary Needed to Live Comfortably 2026 — TheTaxCalc' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Salary Needed to Live Comfortably in All 50 U.S. States (2026)',
+    description: '2026 analysis of the income required to live comfortably in every U.S. state.',
+    images: [`${SITE_URL}/opengraph-image.png`],
   },
 };
 

@@ -86,17 +86,17 @@ export function HomeSaleTaxClient() {
     const taxableGain = Math.max(0, capitalGain - exclusionAmount);
 
     // Step 5: Determine capital gains rate
-    // Using 2026 approximate thresholds
+    // 2026 IRS Rev. Proc. 2025-32 long-term capital gains thresholds
     const isLongTerm = true; // Most home sales are long-term
     let cgRate = 0.15;
 
     if (filingStatus === 'single') {
-      if (income <= 47025) cgRate = 0;
-      else if (income <= 518900) cgRate = 0.15;
+      if (income <= 49450) cgRate = 0;
+      else if (income <= 545500) cgRate = 0.15;
       else cgRate = 0.20;
     } else {
-      if (income <= 94050) cgRate = 0;
-      else if (income <= 583750) cgRate = 0.15;
+      if (income <= 98900) cgRate = 0;
+      else if (income <= 613700) cgRate = 0.15;
       else cgRate = 0.20;
     }
 

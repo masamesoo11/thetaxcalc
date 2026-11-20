@@ -611,13 +611,10 @@ export function generateMetadata({ params }: { params: Promise<{ slug: string }>
     const { slug } = await params;
     const study = STUDIES.find((s) => s.slug === slug);
     if (!study) {
-      return {
-        title: 'Study Not Found',
-        description: 'The requested research study could not be found.',
-      };
+      notFound();
     }
     return {
-      title: study.metaTitle,
+      title: { absolute: study.metaTitle },
       description: study.metaDescription,
       alternates: { canonical: `${SITE_URL}/research/${study.slug}` },
       openGraph: {
@@ -626,8 +623,16 @@ export function generateMetadata({ params }: { params: Promise<{ slug: string }>
         url: `${SITE_URL}/research/${study.slug}`,
         siteName: 'TheTaxCalc',
         type: 'article',
+        locale: 'en_US',
         publishedTime: '2026-01-15T08:00:00.000Z',
-        authors: ['TheTaxCalc Research Team'],
+        authors: ['TheTaxCalc Editorial Team'],
+        images: [{ url: `${SITE_URL}/opengraph-image.png`, width: 1200, height: 630, alt: study.title }],
+      },
+      twitter: {
+        card: 'summary_large_image',
+        title: study.metaTitle,
+        description: study.metaDescription,
+        images: [`${SITE_URL}/opengraph-image.png`],
       },
     };
   })();

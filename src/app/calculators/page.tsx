@@ -25,8 +25,8 @@ import {
 // ─── Metadata ─────────────────────────────────────────────────────────────────
 
 export const metadata: Metadata = {
-  title: `All ${HUB_CALCULATOR_COUNT} Tax Calculators 2026 — Free & Instant`,
-  description: `Browse every free TheTaxCalc tool in one directory: paycheck, 50 state, mortgage, capital gains, 401(k) & sales tax calculators. Instant search — no sign-up.`,
+  title: { absolute: `All ${HUB_CALCULATOR_COUNT} Free Tax Calculators 2026 | TheTaxCalc` },
+  description: `Browse ${HUB_CALCULATOR_COUNT} free 2026 tax calculators: paycheck, 50 states, mortgage, capital gains, 401(k) & sales tax. Instant search, no sign-up.`,
   keywords: [
     'tax calculators',
     'all tax calculators',
@@ -45,10 +45,18 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: `All ${HUB_CALCULATOR_COUNT} Free Tax Calculators 2026 | TheTaxCalc`,
-    description: `Every free 2026 tax calculator in one place — paycheck, 50 states, mortgage, capital gains, 401(k) & more. Instant search, no sign-up.`,
+    description: `Browse ${HUB_CALCULATOR_COUNT} free 2026 tax calculators: paycheck, 50 states, mortgage, capital gains, 401(k) & sales tax. Instant search, no sign-up.`,
     url: `${SITE_URL}/calculators`,
     siteName: 'TheTaxCalc',
     type: 'website',
+    locale: 'en_US',
+    images: [{ url: `${SITE_URL}/opengraph-image.png`, width: 1200, height: 630, alt: `All ${HUB_CALCULATOR_COUNT} Free Tax Calculators 2026 — TheTaxCalc` }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: `All ${HUB_CALCULATOR_COUNT} Free Tax Calculators 2026 | TheTaxCalc`,
+    description: `Browse ${HUB_CALCULATOR_COUNT} free 2026 tax calculators: paycheck, 50 states, mortgage, capital gains, 401(k) & sales tax.`,
+    images: [`${SITE_URL}/opengraph-image.png`],
   },
 };
 

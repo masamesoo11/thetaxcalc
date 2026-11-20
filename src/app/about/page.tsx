@@ -24,7 +24,7 @@ import { getCalculatorAuthor, authorToJsonLd, AUTHORS } from '@/lib/authors';
 import { AuthorBioCard } from '@/components/finance/author-bio-card';
 
 export const metadata: Metadata = {
-    title: 'About TheTaxCalc — Free 2026 Tax Calculators & Verified Tax Data',
+    title: { absolute: 'About TheTaxCalc — Free 2026 Tax Calculators & Data' },
     description:
       'Learn about TheTaxCalc — our mission to provide free, accurate tax calculators. Understand your take-home pay after federal, FICA, and state taxes.',
     authors: [{ name: 'TheTaxCalc Editorial Team' }],

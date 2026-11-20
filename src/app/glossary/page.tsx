@@ -43,6 +43,7 @@ export const metadata: Metadata = {
     title: 'Tax Glossary — 2026 Tax Terms Explained',
     description:
       '25+ tax terms explained for 2026: FICA, standard deduction, marginal rate, AGI, and more.',
+    images: [`${SITE_URL}/opengraph-image.png`],
   },
 };
 

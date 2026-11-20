@@ -36,7 +36,7 @@ export async function generateMetadata({
   const config = getCompareConfig(states);
 
   if (!config) {
-    return { title: 'Comparison Not Found' };
+    notFound();
   }
 
   const baseUrl = SITE_URL;

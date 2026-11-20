@@ -55,12 +55,12 @@ const FILING_LABELS: Record<FilingStatus, string> = {
   head_of_household: 'Head of Household',
 };
 
-// ─── Capital Gains Brackets (2026) ──────────────────────────────────────────────
+// ─── Capital Gains Brackets (2026 — IRS Rev. Proc. 2025-32) ─────────────────────
 
 const LONG_TERM_BRACKETS: Record<FilingStatus, { zeroMax: number; fifteenMax: number }> = {
-  single: { zeroMax: 47025, fifteenMax: 518900 },
-  married: { zeroMax: 94050, fifteenMax: 583750 },
-  head_of_household: { zeroMax: 63000, fifteenMax: 551350 },
+  single: { zeroMax: 49450, fifteenMax: 545500 },
+  married: { zeroMax: 98900, fifteenMax: 613700 },
+  head_of_household: { zeroMax: 66200, fifteenMax: 579600 },
 };
 
 const NIIT_THRESHOLD: Record<FilingStatus, number> = {

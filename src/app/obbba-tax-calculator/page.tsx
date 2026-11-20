@@ -4,7 +4,7 @@ import { SITE_URL } from '@/lib/site-config';
 import { OBBBACalculatorClient } from './obbba-calculator-client';
 
 export const metadata: Metadata = {
-  title: 'OBBBA Tax Calculator 2026 | One Big Beautiful Bill Act',
+  title: { absolute: 'OBBBA Tax Calculator 2026 — Compare Tax Law Savings' },
   description:
     'Free OBBBA tax calculator 2026. Compare federal tax under the One Big Beautiful Bill Act vs prior law. See SALT cap, CTC, and tip deduction savings.',
   alternates: { canonical: `${SITE_URL}/obbba-tax-calculator` },

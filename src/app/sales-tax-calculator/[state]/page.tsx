@@ -44,7 +44,7 @@ export async function generateMetadata({
   const stateKey = salesTaxSlugToStateKey(slug);
 
   if (!stateKey) {
-    return { title: 'State Not Found' };
+    notFound();
   }
 
   const seo = getStateSEOMeta(stateKey);

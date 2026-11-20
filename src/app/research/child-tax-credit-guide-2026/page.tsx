@@ -4,20 +4,27 @@ import { SITE_URL } from '@/lib/site-config';
 import { ArrowRight, Baby, DollarSign, FileText, TrendingUp } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Child Tax Credit 2026: Complete Guide to Eligibility, Amounts, and OBBBA Changes',
-  description: `A comprehensive 2026 guide to the Child Tax Credit under OBBBA, including eligibility, credit amounts ($2,200), phaseout thresholds, and refundability rules.`,
+  title: { absolute: 'Child Tax Credit 2026: Amounts & OBBBA Rules | TheTaxCalc' },
+  description: `2026 guide to the Child Tax Credit under OBBBA: eligibility, $2,200 credit amount, phaseout thresholds, and refundability rules.`,
   keywords: ['child tax credit 2026', 'CTC 2026', 'OBBBA child tax credit', 'child tax credit eligibility', 'additional child tax credit', 'CTC phaseout'],
   authors: [{ name: 'TheTaxCalc Editorial Team' }],
   alternates: {
     canonical: `${SITE_URL}/research/child-tax-credit-guide-2026`,
   },
   openGraph: {
-    title: 'Child Tax Credit 2026: Complete Guide to Eligibility, Amounts, and OBBBA Changes',
-    description: `A comprehensive 2026 guide to the Child Tax Credit under OBBBA, including eligibility, credit amounts ($2,200), phaseout thresholds, and refundability rules.`,
+    title: 'Child Tax Credit 2026: Amounts & OBBBA Rules',
+    description: `2026 guide to the Child Tax Credit under OBBBA: eligibility, $2,200 credit amount, phaseout thresholds, and refundability rules.`,
     url: `${SITE_URL}/research/child-tax-credit-guide-2026`,
     siteName: 'TheTaxCalc',
     type: 'article',
     locale: 'en_US',
+    images: [{ url: `${SITE_URL}/opengraph-image.png`, width: 1200, height: 630, alt: 'Child Tax Credit 2026 Guide — TheTaxCalc' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Child Tax Credit 2026: Amounts & OBBBA Rules',
+    description: '2026 guide to the Child Tax Credit under OBBBA: eligibility, amounts, and phaseout rules.',
+    images: [`${SITE_URL}/opengraph-image.png`],
   },
 };
 

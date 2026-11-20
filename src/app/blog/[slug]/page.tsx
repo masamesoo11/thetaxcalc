@@ -57,13 +57,17 @@ export async function generateMetadata({
   const post = getStaticPost(slug);
 
   if (!post) {
-    return { title: 'Post Not Found' };
+    notFound();
   }
 
-  // Ensure title and H1 are different — add "| TheTaxCalc" suffix to metaTitle
-  // if it doesn't already end with it. This prevents duplicate H1/title warnings.
-  const baseMetaTitle = post.metaTitle || post.title;
-  const metaTitle = baseMetaTitle.endsWith('| TheTaxCalc') ? baseMetaTitle : `${baseMetaTitle} | TheTaxCalc`;
+  // Ensure title and H1 are different while keeping SERP title length <= 65 chars.
+  // Append "| TheTaxCalc" only when the combined length fits cleanly; otherwise
+  // keep the concise metaTitle so Google does not truncate the headline.
+  const baseMetaTitle = (post.metaTitle || post.title).trim();
+  const withBrand = baseMetaTitle.endsWith('| TheTaxCalc')
+    ? baseMetaTitle
+    : `${baseMetaTitle} | TheTaxCalc`;
+  const metaTitle = withBrand.length <= 65 ? withBrand : baseMetaTitle;
   const metaDesc = post.metaDesc || post.excerpt || `Read ${post.title} on TheTaxCalc — expert tax guides and financial tips.`;
 
   return {

@@ -69,6 +69,7 @@ export const metadata: Metadata = {
     title: '2026 Tax Brackets & Rates | Free Reference',
     description:
       'Free 2026 federal tax brackets, FICA rates, state income tax comparison, standard deductions, and 401(k) limits. Sourced from IRS publications.',
+    images: [`${SITE_URL}/opengraph-image.png`],
   },
 };
 

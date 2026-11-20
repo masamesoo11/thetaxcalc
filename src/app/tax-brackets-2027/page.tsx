@@ -44,9 +44,9 @@ import {
 // ─── Page Metadata ────────────────────────────────────────────────────────────
 
 export const metadata: Metadata = {
-  title: { absolute: '2027 Tax Brackets (Projected) — Estimated Federal Rates & Standard Deduction' },
+  title: { absolute: '2027 Federal Tax Brackets (Projected) & Standard Deduction' },
   description:
-    'Projected 2027 federal tax brackets for all four filing statuses, computed with the IRS\u2019s own chained-CPI methodology ahead of the official November 2026 release. Updated the day the IRS publishes.',
+    'Projected 2027 federal tax brackets for all four filing statuses using IRS chained-CPI methodology, plus estimated 2027 standard deductions.',
   keywords: [
     '2027 tax brackets',
     'projected 2027 tax brackets',
@@ -76,6 +76,7 @@ export const metadata: Metadata = {
     title: '2027 Tax Brackets (Projected) — Estimated Federal Rates',
     description:
       'Projected 2027 federal tax brackets and standard deduction, computed with the IRS\u2019s chained-CPI methodology.',
+    images: [`${SITE_URL}/opengraph-image.png`],
   },
 };
 
