@@ -247,7 +247,7 @@ export default async function FreefileIrsPage() {
           {CONFIG.snippetAnswer}
         </p>
         <p className="mt-2 text-xs text-muted-foreground">
-          Last reviewed: January 2026 · By {author.name}, {author.credentials} · Information verified against IRS.gov &amp; Free File Alliance
+          Last reviewed: November 2026 · By {author.name}{author.credentials ? `, ${author.credentials}` : ''} · Information verified against IRS.gov &amp; Free File Alliance
         </p>
       </div>
 

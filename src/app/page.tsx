@@ -69,9 +69,10 @@ const STATE_TABLE_ROWS: StateTaxRow[] = ALL_STATE_KEYS.map((key) => {
     name: sales.name,
     slug,
     incomeTaxRate,
-    salesTaxCombined: sales.noStateTax
-      ? '0%'
-      : `${(sales.combinedRate * 100).toFixed(2)}%`,
+    salesTaxCombined:
+      sales.combinedRate === 0
+        ? '0%'
+        : `${(sales.combinedRate * 100).toFixed(2)}%`,
     isNoIncomeTax: Boolean(tax?.isNoIncomeTax) || incomeTaxRate === '0%',
   };
 });
@@ -112,7 +113,6 @@ export const metadata: Metadata = {
       'application/rss+xml': `${SITE_URL}/feed.xml`,
     },
   },
-  keywords: ['tax calculator 2026', '2025 tax calculator', 'income tax calculator', 'tax calculator', 'paycheck calculator', 'take home pay calculator', 'tax liability', 'tax preparation', 'federal income tax', 'itemized deductions', 'gross income'],
   openGraph: {
     title: '2026 Tax Calculator — Paycheck & Take-Home Pay | 50 States',
     description:
@@ -142,7 +142,7 @@ export const metadata: Metadata = {
 
 const CALCULATOR_CARDS: HomeCardData[] = [
   { href: '/paycheck-calculator', title: 'Paycheck Calculator', desc: 'Federal, FICA & state take-home pay with 401(k) and HSA deductions', badge: 'Most Popular', category: 'paycheck', featured: true, icon: 'DollarSign' },
-  { href: '/illinois-tax-calculator', title: 'Illinois Tax Calculator', desc: '4.95% flat tax with $2,775 personal exemption — IL take-home pay', badge: 'IL', category: 'state', featured: true, icon: 'MapPin' },
+  { href: '/illinois-tax-calculator', title: 'Illinois Tax Calculator', desc: '4.95% flat tax with $2,925 personal exemption — IL take-home pay', badge: 'IL', category: 'state', featured: true, icon: 'MapPin' },
   { href: '/texas-tax-calculator', title: 'Texas Tax Calculator', desc: '0% state income tax — compute TX take-home pay with property tax analysis', badge: 'TX', category: 'state', featured: true, icon: 'MapPin' },
   { href: '/florida-tax-calculator', title: 'Florida Tax Calculator', desc: '0% income tax + homestead exemption — FL take-home pay & cost of living', badge: 'FL', category: 'state', featured: true, icon: 'MapPin' },
   { href: '/california-tax-calculator', title: 'California Tax Calculator', desc: '1%–13.3% progressive brackets — CA take-home pay with high tax burden', badge: 'CA', category: 'state', featured: true, icon: 'MapPin' },
@@ -192,6 +192,31 @@ const TRUST_POINTS = [
   '401(k) & HSA Pre-Tax Deductions',
 ];
 
+// ─── Homepage FAQs (shared by visible FAQ section and FAQPage JSON-LD) ────────
+
+const HOME_PAGE_FAQS: { q: string; a: string }[] = [
+  {
+    q: 'How do I calculate my take-home pay from my salary?',
+    a: 'Start with your gross salary, subtract federal income tax (using 2026 progressive brackets), FICA (7.65% for Social Security and Medicare), and state income tax. Pre-tax deductions like 401(k) and HSA lower your taxable income. Use TheTaxCalc paycheck calculator for instant results across all 50 states.',
+  },
+  {
+    q: 'What is FICA and how much does it take from my paycheck?',
+    a: 'FICA is the payroll tax funding Social Security (6.2%, capped at $184,500 for 2026) and Medicare (1.45%, no cap). That is 7.65% total from every paycheck up to the wage cap. An extra 0.9% Medicare surcharge applies on earnings over $200,000 ($250,000 married filing jointly).',
+  },
+  {
+    q: 'Which states have no income tax?',
+    a: 'Nine states have no personal income tax on wages: Alaska, Florida, Nevada, New Hampshire, South Dakota, Tennessee, Texas, Washington, and Wyoming. TheTaxCalc provides dedicated paycheck calculators for all 50 states, including property and sales tax context.',
+  },
+  {
+    q: 'How much is taken out of a $75,000 salary in taxes?',
+    a: 'A single filer making $75,000 in 2026 pays $7,670 in federal income tax (after the $16,100 standard deduction) and $5,737.50 in FICA, plus state income tax. In Texas or Florida (0% state tax), you keep $61,593. In California you keep about $58,536, in New York about $58,140, and in Illinois (4.95% flat) $58,025.',
+  },
+  {
+    q: 'Does contributing to a 401(k) reduce my taxes?',
+    a: 'Yes. Every dollar in a traditional 401(k) reduces your taxable income for federal and state income tax (though not FICA). Contributing $10,000 on a $75,000 salary saves $2,200 in federal tax at the 22% marginal bracket, plus state tax savings. The 2026 401(k) limit is $24,500.',
+  },
+];
+
 // ─── JSON-LD Structured Data ───────────────────────────────────────────────────
 
 const homeAuthor = getCalculatorAuthor();
@@ -208,7 +233,7 @@ const homeJsonLd = {
         `Free 2026 tax calculators — paycheck, mortgage, 401(k), capital gains, and self-employment. ${CALCULATOR_COUNT} tools & 50-state sales tax data.`,
       url: SITE_URL,
       inLanguage: 'en-US',
-      dateModified: '2026-10-26',
+      dateModified: '2026-11-20',
       author: { '@id': homeAuthorId },
       publisher: { '@id': `${SITE_URL}/#organization` },
       isPartOf: { '@id': `${SITE_URL}/#website` },
@@ -292,48 +317,14 @@ const homeJsonLd = {
     {
       '@id': `${SITE_URL}/#faq`,
       '@type': 'FAQPage',
-      mainEntity: [
-        {
-          '@type': 'Question',
-          name: 'How do I calculate my take-home pay from my salary?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: 'Start with your gross salary, subtract federal income tax (using progressive brackets), FICA (7.65% for Social Security and Medicare), and state income tax. Pre-tax deductions like 401(k) and HSA lower your taxable income. Use TheTaxCalc paycheck calculator for instant results.',
-          },
+      mainEntity: HOME_PAGE_FAQS.map((faq) => ({
+        '@type': 'Question',
+        name: faq.q,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: faq.a,
         },
-        {
-          '@type': 'Question',
-          name: 'What is FICA and how much does it take from my paycheck?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: 'FICA is the payroll tax funding Social Security (6.2%, capped at $184,500 for 2026) and Medicare (1.45%, no cap). That\'s 7.65% total from every paycheck. An extra 0.9% Medicare surcharge applies on earnings over $200,000.',
-          },
-        },
-        {
-          '@type': 'Question',
-          name: 'Which states have no income tax?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: 'Nine states have no personal income tax: Alaska, Florida, Nevada, New Hampshire, South Dakota, Tennessee, Texas, Washington, and Wyoming. TheTaxCalc supports TX and FL paycheck calculators with property tax and cost-of-living analysis.',
-          },
-        },
-        {
-          '@type': 'Question',
-          name: 'How much is taken out of a $75,000 salary in taxes?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: 'A single filer making $75K pays roughly $7,670 federal tax (after the $16,100 standard deduction), $5,738 FICA, plus state tax. In Texas or Florida (0% state tax), you keep around $61,600. In Illinois (4.95%), closer to $58,000.',
-          },
-        },
-        {
-          '@type': 'Question',
-          name: 'Does contributing to a 401(k) reduce my taxes?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: 'Yes. Every dollar in a traditional 401(k) drops your taxable income for federal and state tax (but not FICA). Contributing $10,000 on a $75K salary saves over $2,200 in federal tax at the 22% bracket. The 2026 limit is $24,500.',
-          },
-        },
-      ],
+      })),
     },
   ],
 };
@@ -399,7 +390,7 @@ export default function HomePage() {
                   </Link>
                   <Link
                     prefetch={false}
-                    href="/relocation-calculator"
+                    href="/compare"
                     className="inline-flex items-center justify-center gap-2 rounded-xl border border-[#e7e0d0] bg-white px-8 py-3.5 text-base font-semibold text-[#1c1917] transition-all hover:border-[#b08d3e]/50 hover:text-[#8a6a24]"
                   >
                     <ArrowRightLeft className="h-5 w-5" />
@@ -508,7 +499,7 @@ export default function HomePage() {
                   <p className="mt-1 text-sm text-[#57534e]">Tax: {item.rate}</p>
                   <p className="mt-2 text-lg font-semibold text-[#1c1917]">Net: {engineNet(item.key)}</p>
                   <p className={`mt-1 text-[11px] group-hover:underline ${item.tone === 'gold' ? 'text-[#8a6a24]' : 'text-red-600'}`}>
-                    View Calculator →
+                    Open {item.state} Calculator →
                   </p>
                 </Link>
               ))}
@@ -914,6 +905,34 @@ export default function HomePage() {
                 View All Articles
                 <ArrowRight className="h-4 w-4" />
               </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* ─── Frequently Asked Questions (visible — matches FAQPage JSON-LD) ── */}
+        <section className="border-t border-[#e7e0d0] bg-[#fafaf9] py-16 sm:py-20">
+          <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+            <div className="mb-10 text-center">
+              <h2 className="text-3xl font-bold tracking-tight text-[#1c1917] sm:text-4xl">
+                Frequently Asked <span className="text-[#8a6a24]">Tax Questions</span>
+              </h2>
+              <p className="mx-auto mt-3 max-w-xl text-[#57534e]">
+                Quick answers on 2026 federal brackets, FICA, state taxes, and pre-tax deductions.
+              </p>
+            </div>
+            <div className="space-y-3">
+              {HOME_PAGE_FAQS.map((faq) => (
+                <details
+                  key={faq.q}
+                  className="group rounded-2xl border border-[#e7e0d0] bg-white p-5 transition-colors hover:border-[#b08d3e]/40"
+                >
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-base font-semibold text-[#1c1917]">
+                    <span>{faq.q}</span>
+                    <ArrowRight className="h-4 w-4 shrink-0 text-[#8a6a24] transition-transform group-open:rotate-90" />
+                  </summary>
+                  <p className="mt-3 text-sm leading-relaxed text-[#57534e]">{faq.a}</p>
+                </details>
+              ))}
             </div>
           </div>
         </section>

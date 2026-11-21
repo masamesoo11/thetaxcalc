@@ -475,10 +475,12 @@ export default function SalesTaxHubPage() {
           >
             {author.name}
           </Link>
-          <span className="inline-flex items-center rounded-md bg-emerald-600/15 px-2 py-0.5 text-xs font-semibold text-emerald-600 ring-1 ring-emerald-500/25">
-            {author.credentials}
-          </span>
-          <span className="text-muted-foreground">| Reviewed January 2026</span>
+          {author.credentials ? (
+            <span className="inline-flex items-center rounded-md bg-emerald-600/15 px-2 py-0.5 text-xs font-semibold text-emerald-600 ring-1 ring-emerald-500/25">
+              {author.credentials}
+            </span>
+          ) : null}
+          <span className="text-muted-foreground">| Reviewed November 2026</span>
         </div>
 
         {/* ─── Quick Summary Box ─────────────────────────────────────────── */}

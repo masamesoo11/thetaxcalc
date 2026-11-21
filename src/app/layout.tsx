@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "TheTaxCalc — Free 2026 Tax, Paycheck & Mortgage Calculator",
     description:
-      "Free 2026 tax calculator. Compute take-home pay after federal, FICA & state taxes for IL, TX, FL, CA, NY. No sign-up.",
+      "Free 2026 tax calculator. Compute take-home pay after federal, FICA & state taxes across all 50 US states. No sign-up.",
     url: SITE_HOME_URL,
     siteName: "TheTaxCalc",
     type: "website",
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "TheTaxCalc — Free 2026 Paycheck & Mortgage Calculator",
     description:
-      "Compute your take-home pay after federal, FICA, and state taxes. Supports IL, TX, FL, CA, NY.",
+      "Compute your take-home pay after federal, FICA, and state taxes across all 50 US states. Free, no sign-up.",
     images: [`${SITE_URL}/opengraph-image.png`],
   },
   robots: {

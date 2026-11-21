@@ -209,7 +209,7 @@ export default async function MortgageCalculatorPage() {
           {CONFIG.description}
         </p>
         <p className="mt-2 text-xs text-muted-foreground">
-          Last reviewed: January 2026 · By {author.name}, {author.credentials} · Tax data verified against IRS Publication 15-T &amp; state revenue departments
+          Last reviewed: November 2026 · By {author.name}{author.credentials ? `, ${author.credentials}` : ''} · Tax data verified against IRS Publication 15-T &amp; state revenue departments
         </p>
       </div>
 

@@ -245,16 +245,15 @@ export default function FederalTaxBracketsPage() {
             Tax brackets apply to <strong>taxable income</strong>, which is your gross income minus the standard deduction (or itemized deductions). Only the income within each bracket is taxed at that rate.
           </p>
 
-          {/* 2027 projections callout */}
+          {/* 2027 official callout */}
           <div className="mt-6 premium-card p-5 flex items-start gap-3">
-            <TrendingUp className="h-5 w-5 text-amber-700 shrink-0 mt-0.5" />
+            <TrendingUp className="h-5 w-5 text-emerald-600 shrink-0 mt-0.5" />
             <div className="text-sm text-muted-foreground leading-relaxed">
-              <strong className="text-foreground">Planning ahead?</strong> We&apos;ve already projected the{' '}
+              <strong className="text-foreground">Planning ahead for 2027?</strong> See the official{' '}
               <Link href="/tax-brackets-2027" className="text-emerald-600 hover:text-emerald-500 underline font-medium transition-colors">
-                2027 tax brackets and standard deduction
+                2027 federal tax brackets and standard deduction
               </Link>{' '}
-              using the IRS&apos;s own inflation-adjustment methodology — updated the same day the official numbers
-              drop (expected early-to-mid November 2026).
+              published in IRS Rev. Proc. 2026-35 ($16,600 single / $33,200 joint standard deduction).
             </div>
           </div>
         </div>
@@ -675,7 +674,7 @@ export default function FederalTaxBracketsPage() {
                   { href: '/relocation-calculator', label: 'Relocation Calculator' },
                   { href: '/blog', label: 'All Blog Articles' },
                   { href: '/blog/federal-tax-brackets-2026-guide', label: '2026 Tax Brackets Guide' },
-                  { href: '/tax-brackets-2027', label: '2027 Tax Brackets (Projected)' },
+                  { href: '/tax-brackets-2027', label: '2027 Federal Tax Brackets (Official)' },
                 ].map((item) => (
                   <Link
                     key={item.href}

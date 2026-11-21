@@ -10,10 +10,10 @@ import {
   HelpCircle,
   CheckCircle2,
   Calculator,
-  AlertTriangle,
   Scale,
   PiggyBank,
   Clock,
+  ExternalLink,
 } from 'lucide-react';
 import { getCalculatorAuthor, authorToJsonLd } from '@/lib/authors';
 import { AuthorBioCard } from '@/components/finance/author-bio-card';
@@ -28,14 +28,12 @@ import {
 import { Badge } from '@/components/ui/badge';
 import { FEDERAL_TAX_2026 } from '@/lib/tax-config';
 import {
-  BRACKETS_2027_PROJECTED,
-  STANDARD_DEDUCTION_2027_PROJECTED,
-  PROJECTION_FACTOR,
-  SENSITIVITY_FACTOR,
-  CCPI_MONTHLY,
-  CCPI_WINDOW_NOTE,
-  OFFICIAL_RELEASE_EXPECTED,
-  PROJECTION_PUBLISHED,
+  BRACKETS_2027_OFFICIAL,
+  STANDARD_DEDUCTION_2027_OFFICIAL,
+  INFLATION_FACTOR_2027,
+  OFFICIAL_SOURCE_CITATION,
+  OFFICIAL_SOURCE_URL,
+  OFFICIAL_UPDATED_DATE,
   usd,
   bracketRangeLabel,
   cumulativeTaxAtBracketStart,
@@ -44,38 +42,28 @@ import {
 // ─── Page Metadata ────────────────────────────────────────────────────────────
 
 export const metadata: Metadata = {
-  title: { absolute: '2027 Federal Tax Brackets (Projected) & Standard Deduction' },
+  title: { absolute: '2027 Federal Tax Brackets & Standard Deduction (Official IRS)' },
   description:
-    'Projected 2027 federal tax brackets for all four filing statuses using IRS chained-CPI methodology, plus estimated 2027 standard deductions.',
-  keywords: [
-    '2027 tax brackets',
-    'projected 2027 tax brackets',
-    '2027 federal tax brackets',
-    '2027 tax brackets estimate',
-    '2027 standard deduction',
-    '2027 tax rates',
-    '2027 irs brackets prediction',
-    '2027 inflation adjustment tax',
-  ],
+    'Official 2027 federal income tax brackets and standard deductions per IRS Rev. Proc. 2026-35 for all filing statuses, compared side by side with 2026.',
   authors: [{ name: 'TheTaxCalc Editorial Team' }],
   alternates: {
     canonical: `${SITE_URL}/tax-brackets-2027`,
   },
   openGraph: {
-    title: '2027 Tax Brackets (Projected) — Estimated Federal Rates',
+    title: '2027 Federal Tax Brackets & Standard Deduction (Official IRS)',
     description:
-      'Projected 2027 federal tax brackets and standard deduction, computed with the IRS\u2019s chained-CPI methodology.',
+      'Official 2027 federal tax brackets and standard deduction per IRS Rev. Proc. 2026-35 for single, joint, head of household, and MFS filers.',
     url: `${SITE_URL}/tax-brackets-2027`,
     siteName: 'TheTaxCalc',
     type: 'website',
     locale: 'en_US',
-    images: [{ url: `${SITE_URL}/opengraph-image.png`, width: 1200, height: 630, alt: '2027 Projected Federal Tax Brackets' }],
+    images: [{ url: `${SITE_URL}/opengraph-image.png`, width: 1200, height: 630, alt: 'Official 2027 Federal Tax Brackets — IRS Rev. Proc. 2026-35' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: '2027 Tax Brackets (Projected) — Estimated Federal Rates',
+    title: '2027 Federal Tax Brackets & Standard Deduction (Official IRS)',
     description:
-      'Projected 2027 federal tax brackets and standard deduction, computed with the IRS\u2019s chained-CPI methodology.',
+      'Official 2027 federal tax brackets and standard deduction per IRS Rev. Proc. 2026-35 for all four filing statuses.',
     images: [`${SITE_URL}/opengraph-image.png`],
   },
 };
@@ -90,12 +78,12 @@ const STATUS_SECTIONS: {
   {
     key: 'single',
     title: 'Single',
-    note: 'Unmarried or legally separated filers.',
+    note: 'Unmarried individuals (other than surviving spouses and heads of households).',
   },
   {
     key: 'married',
     title: 'Married Filing Jointly',
-    note: 'Couples combining income on one return. The best deal for most households.',
+    note: 'Couples combining income on one return, plus qualifying surviving spouses.',
   },
   {
     key: 'headOfHousehold',
@@ -105,46 +93,51 @@ const STATUS_SECTIONS: {
   {
     key: 'marriedSeparate',
     title: 'Married Filing Separately',
-    note: 'Mirrors single brackets, except the 37% threshold is half the joint one.',
+    note: 'Mirrors single brackets through 35%; the 37% bracket starts at half the joint threshold ($396,825).',
   },
 ];
 
 const rateColor = (rate: number): string => {
-  if (rate <= 10) return 'bg-emerald-600/15 text-emerald-600 border-emerald-500/20';
-  if (rate <= 12) return 'bg-teal-500/15 text-teal-400 border-teal-500/20';
-  if (rate <= 22) return 'bg-amber-500/15 text-amber-700 border-amber-500/20';
-  if (rate <= 24) return 'bg-orange-500/15 text-orange-700 border-orange-500/20';
-  if (rate <= 32) return 'bg-rose-500/15 text-rose-700 border-rose-500/20';
-  if (rate <= 35) return 'bg-red-500/15 text-red-600 border-red-500/20';
+  if (rate <= 0.10) return 'bg-emerald-600/15 text-emerald-600 border-emerald-500/20';
+  if (rate <= 0.12) return 'bg-teal-500/15 text-teal-600 border-teal-500/20';
+  if (rate <= 0.22) return 'bg-amber-500/15 text-amber-700 border-amber-500/20';
+  if (rate <= 0.24) return 'bg-orange-500/15 text-orange-700 border-orange-500/20';
+  if (rate <= 0.32) return 'bg-rose-500/15 text-rose-700 border-rose-500/20';
+  if (rate <= 0.35) return 'bg-red-500/15 text-red-600 border-red-500/20';
   return 'bg-red-600/20 text-red-600 border-red-500/30';
 };
+
+const formatTaxAmount = (amount: number): string =>
+  amount % 1 === 0
+    ? `$${amount.toLocaleString('en-US')}`
+    : `$${amount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
 
 // ─── FAQs (visible section + JSON-LD share this array) ─────────────────────────
 
 const FAQS: { q: string; a: string }[] = [
   {
     q: 'Are these 2027 tax brackets official?',
-    a: 'No. The numbers on this page are projections published ahead of the IRS release. The official 2027 inflation adjustments arrive in an IRS revenue procedure, expected early-to-mid November 2026, and we will update every number on this page the same day they publish. Until then, treat these figures as planning estimates computed from published inflation data.',
+    a: 'Yes. Every threshold and standard deduction on this page comes directly from IRS Revenue Procedure 2026-35, published in November 2026. These are the official inflation-adjusted figures for tax year 2027.',
   },
   {
-    q: 'How accurate are the projections?',
-    a: 'They are built with the same math the IRS uses: the chained CPI-U 12-month averages ending August 2026 versus August 2025, applied to each official 2026 threshold, then rounded to the nearest $25 ($50 for the standard deduction). Because every input index value through August 2026 has already been published, the main uncertainty is only in how the IRS handles the missing October 2025 data point. Our sensitivity check (dropping that month entirely) moves thresholds by at most one $25 rounding step.',
+    q: 'How much did the 2027 tax brackets increase over 2026?',
+    a: 'Most 2027 bracket thresholds rose by roughly 3.2% compared with 2026. For single filers, the 10% bracket rises from $12,400 to $12,800, the 12% bracket tops out at $52,025 (up from $50,400), and the top 37% rate starts above $661,375 (up from $640,600).',
   },
   {
-    q: 'What is chained CPI, and why does the IRS use it?',
-    a: 'The chained CPI-U (C-CPI-U) measures inflation while accounting for the way consumers substitute cheaper goods when prices rise. Since the 2018 tax year, the IRS has indexed brackets and the standard deduction by the 12-month average of this index rather than headline CPI, which makes annual adjustments slightly smaller. The full monthly index values used for these projections are shown in the methodology table above.',
+    q: 'What is the official 2027 standard deduction?',
+    a: `Per IRS Rev. Proc. 2026-35, the 2027 standard deduction is ${usd(STANDARD_DEDUCTION_2027_OFFICIAL.single)} for single and married filing separately, ${usd(STANDARD_DEDUCTION_2027_OFFICIAL.married)} for married filing jointly, and ${usd(STANDARD_DEDUCTION_2027_OFFICIAL.headOfHousehold)} for head of household — up from $16,100, $32,200, and $24,150 in 2026. Taxpayers age 65 or older (or blind) receive an additional ${usd(STANDARD_DEDUCTION_2027_OFFICIAL.additionalAgedOrBlindSingle)} (single) or ${usd(STANDARD_DEDUCTION_2027_OFFICIAL.additionalAgedOrBlindMarried)} (married).`,
   },
   {
     q: 'When do the 2027 brackets take effect?',
-    a: 'January 1, 2027. The 2027 brackets apply to income earned during calendar year 2027, which is filed in spring 2028. They do not affect your 2026 return at all — but they do matter for year-end moves in December 2026, like deferring a bonus or invoice into January.',
+    a: 'January 1, 2027. The 2027 brackets apply to income earned during calendar year 2027, which is filed in spring 2028. They do not change your 2026 return (due Thursday, April 15, 2027), but they do guide December 2026 year-end tax planning.',
   },
   {
-    q: 'What is the projected 2027 standard deduction?',
-    a: `${usd(STANDARD_DEDUCTION_2027_PROJECTED.single)} for single and married filing separately, ${usd(STANDARD_DEDUCTION_2027_PROJECTED.married)} for married filing jointly, and ${usd(STANDARD_DEDUCTION_2027_PROJECTED.headOfHousehold)} for head of household — up from $16,100, $32,200, and $24,150 in 2026.`,
+    q: 'How does the IRS calculate annual bracket adjustments?',
+    a: 'Since the 2018 tax year, the IRS indexes brackets and the standard deduction using the 12-month average of the Chained Consumer Price Index for All Urban Consumers (C-CPI-U), then rounds bracket thresholds and deduction amounts per IRC Section 1(f).',
   },
   {
-    q: 'Why is there no October 2025 inflation number in the methodology table?',
-    a: 'The October 2025 CPI report was cancelled during the federal government shutdown, so the Bureau of Labor Statistics never published a C-CPI-U value for that month. We interpolate it as the midpoint of September and November 2025 (180.131) — the most neutral treatment available — and the sensitivity factor shows the alternative approach changes thresholds by at most about $25.',
+    q: 'Does moving into a higher 2027 tax bracket tax all my income at the higher rate?',
+    a: 'No. Federal income tax is progressive: only the dollars above each bracket threshold are taxed at the higher marginal rate. Income below each threshold stays taxed at the lower rates.',
   },
 ];
 
@@ -159,18 +152,18 @@ const jsonLd = {
       itemListElement: [
         { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
         { '@type': 'ListItem', position: 2, name: 'Federal Tax Brackets', item: `${SITE_URL}/federal-tax-brackets` },
-        { '@type': 'ListItem', position: 3, name: '2027 Tax Brackets (Projected)' },
+        { '@type': 'ListItem', position: 3, name: '2027 Federal Tax Brackets' },
       ],
     },
     {
       '@id': `${SITE_URL}/tax-brackets-2027#webpage`,
       '@type': 'WebPage',
-      name: '2027 Tax Brackets (Projected) — Estimated Federal Rates & Standard Deduction',
+      name: '2027 Federal Tax Brackets & Standard Deduction (Official IRS)',
       description:
-        'Projected 2027 federal tax brackets for all four filing statuses, computed with the IRS\u2019s own chained-CPI methodology ahead of the official November 2026 release.',
+        'Official 2027 federal income tax brackets and standard deductions per IRS Rev. Proc. 2026-35 for all four filing statuses.',
       url: `${SITE_URL}/tax-brackets-2027`,
       inLanguage: 'en-US',
-      dateModified: PROJECTION_PUBLISHED,
+      dateModified: OFFICIAL_UPDATED_DATE,
       author: { '@id': `${SITE_URL}/tax-brackets-2027#author` },
       reviewedBy: { '@id': `${SITE_URL}/tax-brackets-2027#author` },
       publisher: { '@id': `${SITE_URL}/#organization` },
@@ -194,9 +187,9 @@ const jsonLd = {
 export default function TaxBrackets2027Page() {
   const single2026 = FEDERAL_TAX_2026.bracketsByFiling.single;
   const mfj2026 = FEDERAL_TAX_2026.bracketsByFiling.married;
-  const single2027 = BRACKETS_2027_PROJECTED.single;
-  const mfj2027 = BRACKETS_2027_PROJECTED.married;
-  const pctUp = ((PROJECTION_FACTOR - 1) * 100).toFixed(2);
+  const single2027 = BRACKETS_2027_OFFICIAL.single;
+  const mfj2027 = BRACKETS_2027_OFFICIAL.married;
+  const pctUp = ((INFLATION_FACTOR_2027 - 1) * 100).toFixed(2);
 
   return (
     <>
@@ -213,49 +206,67 @@ export default function TaxBrackets2027Page() {
             <ChevronRight className="h-3.5 w-3.5 text-muted-foreground" />
             <Link href="/federal-tax-brackets" className="hover:text-foreground transition-colors">Federal Tax Brackets</Link>
             <ChevronRight className="h-3.5 w-3.5 text-muted-foreground" />
-            <span className="text-foreground font-medium">2027 (Projected)</span>
+            <span className="text-foreground font-medium">2027 Tax Brackets</span>
           </nav>
 
-          <div className="inline-flex items-center gap-2 rounded-full bg-amber-500/10 border border-amber-500/25 px-4 py-1.5 text-sm text-amber-700 mb-6">
-            <Clock className="h-3.5 w-3.5" />
-            Projections — official IRS numbers expected {OFFICIAL_RELEASE_EXPECTED}
+          <div className="inline-flex items-center gap-2 rounded-full bg-emerald-500/10 border border-emerald-500/25 px-4 py-1.5 text-sm text-emerald-700 mb-6">
+            <CheckCircle2 className="h-3.5 w-3.5" />
+            Official IRS Numbers — {OFFICIAL_SOURCE_CITATION} (Released November 2026)
           </div>
 
           <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
-            2027 <span className="gradient-text">Federal Tax Brackets</span> (Projected)
+            2027 <span className="gradient-text">Federal Tax Brackets</span>
           </h1>
 
           <p className="mt-4 max-w-3xl text-lg text-muted-foreground leading-relaxed">
-            The IRS won&apos;t publish the official 2027 brackets until November 2026 — but every
-            inflation input it needs is <strong className="text-foreground">already published</strong>.
-            We applied the IRS&apos;s own adjustment methodology to the official 2026 thresholds, so
-            you can plan year-end moves now instead of waiting. Thresholds are projected to rise{' '}
-            <strong className="text-foreground">{pctUp}%</strong>, and we&apos;ll swap in the
-            official numbers the day they land.
+            The IRS has published the official 2027 federal income tax brackets and standard
+            deductions in{' '}
+            <a
+              href={OFFICIAL_SOURCE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-emerald-600 hover:text-emerald-500 underline font-medium"
+            >
+              {OFFICIAL_SOURCE_CITATION}
+            </a>
+            . Thresholds increased roughly <strong className="text-foreground">{pctUp}%</strong>{' '}
+            for inflation over 2026, with the standard deduction rising to{' '}
+            <strong className="text-foreground">{usd(STANDARD_DEDUCTION_2027_OFFICIAL.single)}</strong>{' '}
+            (single) and{' '}
+            <strong className="text-foreground">{usd(STANDARD_DEDUCTION_2027_OFFICIAL.married)}</strong>{' '}
+            (married filing jointly).
           </p>
 
           <div className="mt-6 premium-card p-5 flex items-start gap-3 max-w-3xl">
-            <AlertTriangle className="h-5 w-5 text-amber-700 shrink-0 mt-0.5" />
+            <CheckCircle2 className="h-5 w-5 text-emerald-600 shrink-0 mt-0.5" />
             <p className="text-sm text-muted-foreground leading-relaxed">
-              <strong className="text-foreground">Read this first:</strong> these are estimates, not
-              IRS numbers. They&apos;re built for planning — December bonus timing, Roth conversion
-              headroom, withholding checks. Don&apos;t file anything with them. The official revenue
-              procedure is expected {OFFICIAL_RELEASE_EXPECTED}, and this page updates same-day.
+              <strong className="text-foreground">Verified against primary source:</strong> every
+              bracket threshold, cumulative base tax, and standard deduction below is transcribed
+              directly from{' '}
+              <a
+                href={OFFICIAL_SOURCE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-emerald-600 hover:text-emerald-500 underline"
+              >
+                IRS Revenue Procedure 2026-35 (PDF)
+              </a>
+              . These rates apply to income earned in calendar year 2027 (returns filed in spring 2028).
             </p>
           </div>
         </div>
       </section>
 
-      {/* ─── Projected 2027 Standard Deduction ─────────────────────────── */}
+      {/* ─── Official 2027 Standard Deduction ──────────────────────────── */}
       <section className="py-12 sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-8">
             <h2 className="text-2xl sm:text-3xl font-bold text-foreground">
-              Projected 2027 <span className="gradient-text">Standard Deduction</span>
+              Official 2027 <span className="gradient-text">Standard Deduction</span>
             </h2>
             <p className="mt-2 text-muted-foreground max-w-2xl">
-              Rounded to the nearest $50, the way the IRS does it. The 2026 official amounts are
-              shown for comparison.
+              Published in {OFFICIAL_SOURCE_CITATION}, Section 3.15. Official 2026 amounts are shown
+              for comparison.
             </p>
           </div>
 
@@ -263,32 +274,32 @@ export default function TaxBrackets2027Page() {
             {[
               {
                 status: 'Single / MFS',
-                proj: usd(STANDARD_DEDUCTION_2027_PROJECTED.single),
-                prev: usd(FEDERAL_TAX_2026.standardDeductionsByFiling.single),
+                curr: usd(STANDARD_DEDUCTION_2027_OFFICIAL.single),
+                prev: `2026: ${usd(FEDERAL_TAX_2026.standardDeductionsByFiling.single)} (+$500)`,
                 icon: PiggyBank,
                 color: 'from-emerald-600/20 to-teal-600/10',
                 accent: 'text-emerald-600',
               },
               {
                 status: 'Married Filing Jointly',
-                proj: usd(STANDARD_DEDUCTION_2027_PROJECTED.married),
-                prev: usd(FEDERAL_TAX_2026.standardDeductionsByFiling.married),
+                curr: usd(STANDARD_DEDUCTION_2027_OFFICIAL.married),
+                prev: `2026: ${usd(FEDERAL_TAX_2026.standardDeductionsByFiling.married)} (+$1,000)`,
                 icon: TrendingUp,
                 color: 'from-teal-600/20 to-emerald-600/10',
-                accent: 'text-teal-400',
+                accent: 'text-teal-600',
               },
               {
                 status: 'Head of Household',
-                proj: usd(STANDARD_DEDUCTION_2027_PROJECTED.headOfHousehold),
-                prev: usd(FEDERAL_TAX_2026.standardDeductionsByFiling.head_of_household),
+                curr: usd(STANDARD_DEDUCTION_2027_OFFICIAL.headOfHousehold),
+                prev: `2026: ${usd(FEDERAL_TAX_2026.standardDeductionsByFiling.head_of_household)} (+$775)`,
                 icon: Scale,
                 color: 'from-amber-600/20 to-yellow-600/10',
                 accent: 'text-amber-700',
               },
               {
-                status: 'Projected increase',
-                proj: `+${pctUp}%`,
-                prev: 'chained CPI-U',
+                status: 'Age 65+ / Blind Extra',
+                curr: `${usd(STANDARD_DEDUCTION_2027_OFFICIAL.additionalAgedOrBlindSingle)} / ${usd(STANDARD_DEDUCTION_2027_OFFICIAL.additionalAgedOrBlindMarried)}`,
+                prev: 'Single / Married (per spouse)',
                 icon: Zap,
                 color: 'from-rose-600/20 to-pink-600/10',
                 accent: 'text-rose-700',
@@ -303,8 +314,8 @@ export default function TaxBrackets2027Page() {
                   <p className="text-xs uppercase tracking-wider text-muted-foreground font-medium">
                     {item.status}
                   </p>
-                  <p className="mt-1 text-2xl font-bold text-foreground">{item.proj}</p>
-                  <p className="mt-1 text-sm text-muted-foreground">2026 official: {item.prev}</p>
+                  <p className="mt-1 text-2xl font-bold text-foreground">{item.curr}</p>
+                  <p className="mt-1 text-sm text-muted-foreground">{item.prev}</p>
                 </div>
               );
             })}
@@ -312,22 +323,22 @@ export default function TaxBrackets2027Page() {
         </div>
       </section>
 
-      {/* ─── Projected 2027 Bracket Tables ─────────────────────────────── */}
+      {/* ─── Official 2027 Bracket Tables ──────────────────────────────── */}
       <section className="py-12 sm:py-16 border-t border-border/20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-8">
             <h2 className="text-2xl sm:text-3xl font-bold text-foreground">
-              Projected 2027 Brackets by <span className="gradient-text">Filing Status</span>
+              Official 2027 Brackets by <span className="gradient-text">Filing Status</span>
             </h2>
             <p className="mt-2 text-muted-foreground max-w-2xl">
-              Seven brackets — 10% to 37% — for every filing status, thresholds rounded to the
-              nearest $25 per IRS convention. All four tables are fully visible; no clicking required.
+              Seven progressive brackets — 10% to 37% — from {OFFICIAL_SOURCE_CITATION}, Section 3.01.
+              All four filing-status tables are shown in full.
             </p>
           </div>
 
           <div className="grid gap-6 lg:grid-cols-2">
             {STATUS_SECTIONS.map((sec) => {
-              const brackets = BRACKETS_2027_PROJECTED[sec.key];
+              const brackets = BRACKETS_2027_OFFICIAL[sec.key];
               return (
                 <div key={sec.key} className="premium-card p-4 sm:p-6 min-w-0">
                   <h3 className="text-lg font-semibold text-foreground">{sec.title}</h3>
@@ -352,7 +363,7 @@ export default function TaxBrackets2027Page() {
                             </TableCell>
                             <TableCell className="font-medium text-foreground">{bracketRangeLabel(b)}</TableCell>
                             <TableCell className="text-right text-muted-foreground tabular-nums">
-                              {taxOnLower > 0 ? usd(taxOnLower) : '—'}
+                              {taxOnLower > 0 ? formatTaxAmount(taxOnLower) : '—'}
                             </TableCell>
                           </TableRow>
                         );
@@ -378,10 +389,11 @@ export default function TaxBrackets2027Page() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-8">
             <h2 className="text-2xl sm:text-3xl font-bold text-foreground">
-              2026 Official vs <span className="gradient-text">2027 Projected</span>
+              2026 vs <span className="gradient-text">2027 Official Brackets</span>
             </h2>
             <p className="mt-2 text-muted-foreground max-w-2xl">
-              Where each bracket starts and ends for single and joint filers, side by side.
+              Side-by-side comparison of official IRS Rev. Proc. 2025-32 (2026) and Rev. Proc.
+              2026-35 (2027) thresholds for single and joint filers.
             </p>
           </div>
 
@@ -390,10 +402,10 @@ export default function TaxBrackets2027Page() {
               <TableHeader>
                 <TableRow className="border-border/20 hover:bg-transparent">
                   <TableHead className="text-muted-foreground font-semibold">Rate</TableHead>
-                  <TableHead className="text-muted-foreground font-semibold">Single 2026 (official)</TableHead>
-                  <TableHead className="text-muted-foreground font-semibold">Single 2027 (projected)</TableHead>
-                  <TableHead className="text-muted-foreground font-semibold">Joint 2026 (official)</TableHead>
-                  <TableHead className="text-muted-foreground font-semibold">Joint 2027 (projected)</TableHead>
+                  <TableHead className="text-muted-foreground font-semibold">Single 2026</TableHead>
+                  <TableHead className="text-muted-foreground font-semibold">Single 2027 (official)</TableHead>
+                  <TableHead className="text-muted-foreground font-semibold">Joint 2026</TableHead>
+                  <TableHead className="text-muted-foreground font-semibold">Joint 2027 (official)</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
@@ -423,89 +435,43 @@ export default function TaxBrackets2027Page() {
         </div>
       </section>
 
-      {/* ─── Methodology ────────────────────────────────────────────────── */}
+      {/* ─── Primary Source & Verification ──────────────────────────────── */}
       <section className="py-12 sm:py-16 border-t border-border/20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-8">
             <h2 className="text-2xl sm:text-3xl font-bold text-foreground">
-              How We <span className="gradient-text">Projected</span> These Numbers
+              Official <span className="gradient-text">IRS Source &amp; Methodology</span>
             </h2>
             <p className="mt-2 text-muted-foreground max-w-2xl">
-              No guesswork — the same recipe the IRS uses for its annual revenue procedure, applied
-              to data that is already published.
+              How the IRS indexes annual brackets and where every number on this page is verified.
             </p>
           </div>
 
-          <div className="grid gap-8 lg:grid-cols-2 items-start">
-            <div className="premium-card p-6">
-              <ol className="space-y-4 list-decimal list-inside text-sm text-muted-foreground leading-relaxed">
-                <li>
-                  Take the <strong className="text-foreground">official 2026 thresholds</strong> from
-                  IRS Rev. Proc. 2025-32 (the same numbers that power our{' '}
-                  <Link href="/federal-tax-brackets" className="text-emerald-600 hover:text-emerald-500 underline">
-                    2026 brackets page
-                  </Link>
-                  ).
-                </li>
-                <li>
-                  Compute the 12-month average of the <strong className="text-foreground">chained
-                  CPI-U</strong> (BLS series SUUR0000SA0) for Sep 2024–Aug 2025 and for
-                  Sep 2025–Aug 2026.
-                </li>
-                <li>
-                  Divide: the ratio is{' '}
-                  <strong className="text-foreground">{PROJECTION_FACTOR.toFixed(6)}</strong> (a{' '}
-                  {pctUp}% increase). {CCPI_WINDOW_NOTE}.
-                </li>
-                <li>
-                  Multiply every 2026 threshold by that factor, then round: bracket thresholds to
-                  the <strong className="text-foreground">nearest $25</strong>, standard deduction
-                  to the <strong className="text-foreground">nearest $50</strong> — the IRS&apos;s
-                  documented rounding rules.
-                </li>
-              </ol>
-              <div className="mt-6 p-3 rounded-lg bg-amber-500/10 border border-amber-500/15">
-                <p className="text-sm text-muted-foreground">
-                  <strong className="text-amber-700">Sensitivity check:</strong> the October 2025
-                  index value was never published (shutdown-canceled CPI report). Interpolating it
-                  gives factor {PROJECTION_FACTOR.toFixed(6)}; dropping the month from both windows
-                  gives {SENSITIVITY_FACTOR.toFixed(6)} — a difference of roughly{' '}
-                  $25–$50 on any single threshold.
-                </p>
-              </div>
-            </div>
-
-            <div className="premium-card p-6">
-              <h3 className="text-base font-semibold text-foreground mb-1">
-                C-CPI-U monthly values used (all items, U.S. city average)
-              </h3>
-              <p className="text-xs text-muted-foreground mb-4">
-                BLS series SUUR0000SA0 · retrieved {PROJECTION_PUBLISHED} · unadjusted index
-              </p>
-              <div className="max-h-96 overflow-y-auto pr-2">
-                <Table>
-                  <TableHeader>
-                    <TableRow className="border-border/20 hover:bg-transparent">
-                      <TableHead className="text-muted-foreground font-semibold">Month</TableHead>
-                      <TableHead className="text-right text-muted-foreground font-semibold">Index</TableHead>
-                    </TableRow>
-                  </TableHeader>
-                  <TableBody>
-                    {CCPI_MONTHLY.map((m) => (
-                      <TableRow key={m.period} className={`border-border/10 ${m.note ? 'bg-amber-500/5' : ''}`}>
-                        <TableCell className="text-muted-foreground">
-                          {m.period}
-                          {m.note ? <span className="ml-2 text-[10px] uppercase tracking-wide text-amber-700">{m.note}</span> : null}
-                        </TableCell>
-                        <TableCell className="text-right text-foreground tabular-nums">
-                          {m.value?.toFixed(3) ?? '—'}
-                        </TableCell>
-                      </TableRow>
-                    ))}
-                  </TableBody>
-                </Table>
-              </div>
-            </div>
+          <div className="premium-card p-6 max-w-4xl space-y-4 text-sm text-muted-foreground leading-relaxed">
+            <p>
+              Every 2027 bracket threshold, cumulative base tax, and standard deduction on this page
+              is sourced from{' '}
+              <a
+                href={OFFICIAL_SOURCE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 text-emerald-600 hover:text-emerald-500 underline font-medium"
+              >
+                {OFFICIAL_SOURCE_CITATION}
+                <ExternalLink className="h-3.5 w-3.5" />
+              </a>{' '}
+              (Section 3.01 for tax rate tables; Section 3.15 for the standard deduction).
+            </p>
+            <p>
+              Under IRC Section 1(f) as amended by the TCJA and made permanent under the OBBBA, the
+              IRS adjusts thresholds using the 12-month average of the{' '}
+              <strong className="text-foreground">Chained CPI-U (C-CPI-U)</strong>, pushing 2027
+              thresholds up by roughly <strong className="text-foreground">{pctUp}%</strong> over{' '}
+              <Link href="/federal-tax-brackets" className="text-emerald-600 hover:text-emerald-500 underline">
+                official 2026 brackets (Rev. Proc. 2025-32)
+              </Link>
+              .
+            </p>
           </div>
         </div>
       </section>
@@ -518,7 +484,7 @@ export default function TaxBrackets2027Page() {
               What This Means for Your <span className="gradient-text">Year-End Planning</span>
             </h2>
             <p className="mt-2 text-muted-foreground max-w-2xl">
-              Four moves that make sense between now and January, using the projected 2027 room.
+              Four practical moves between now and January using the official 2027 bracket room.
             </p>
           </div>
 
@@ -526,22 +492,22 @@ export default function TaxBrackets2027Page() {
             {[
               {
                 title: 'Defer income into 2027',
-                body: `Every threshold moves up about ${pctUp}%. A single filer gets ${usd(single2027[1].min)} of income in the 10% bracket next year (vs ${usd(single2026[1].min)} in 2026) and the 22% bracket starts at ${usd(single2027[2].min)} (vs ${usd(single2026[2].min)}). If a bonus or a big invoice can slip from December into January, it lands in slightly wider brackets.`,
+                body: `Thresholds rose roughly ${pctUp}%. A single filer gets ${usd(single2027[1].min)} of income in the 10% bracket in 2027 (vs ${usd(single2026[1].min)} in 2026) and the 22% bracket starts above ${usd(single2027[2].min)} (vs ${usd(single2026[2].min)}). Deferring a December bonus or invoice into January puts it into slightly wider brackets.`,
                 icon: Clock,
               },
               {
                 title: 'Check Roth conversion headroom',
-                body: `Converting traditional IRA funds to a Roth fills your lowest brackets first. Filling a single filer's 10% and 12% brackets in 2027 means up to ${usd(single2027[2].min)} of taxable income before the 22% rate starts — about ${usd(single2027[2].min - single2026[2].min)} more room than 2026.`,
+                body: `Converting traditional IRA funds to a Roth fills your lowest brackets first. Filling a single filer's 10% and 12% brackets in 2027 covers up to ${usd(single2027[2].min)} of taxable income before the 22% rate begins — ${usd(single2027[2].min - single2026[2].min)} more room than 2026.`,
                 icon: PiggyBank,
               },
               {
-                title: 'Tune your withholding',
-                body: `The standard deduction rising to ${usd(STANDARD_DEDUCTION_2027_PROJECTED.single)} (single) means slightly less tax per paycheck in 2027 for the same salary. Run your numbers through our paycheck calculator in January to keep withholding accurate — or check it now against your current W-4.`,
+                title: 'Tune your 2027 withholding',
+                body: `The standard deduction rising to ${usd(STANDARD_DEDUCTION_2027_OFFICIAL.single)} (single) and ${usd(STANDARD_DEDUCTION_2027_OFFICIAL.married)} (joint) means slightly less federal tax withheld per paycheck in 2027 for the same salary. Check your W-4 in January so you neither over-withhold nor underpay.`,
                 icon: Calculator,
               },
               {
-                title: 'Bunch deductions while they count',
-                body: `Itemizers on the edge should compare: does the deduction land better in tax year 2026 or 2027? The brackets moved ~${pctUp}%, so a deduction delayed to January offsets income taxed in slightly higher-threshold brackets — worth checking if you're near a bracket boundary.`,
+                title: 'Time itemized deductions',
+                body: `If you are near the standard deduction threshold, compare taking deductible expenses in 2026 versus 2027. With the higher ${usd(STANDARD_DEDUCTION_2027_OFFICIAL.single)} / ${usd(STANDARD_DEDUCTION_2027_OFFICIAL.married)} deduction in 2027, bunching charitable gifts or state payments into one tax year can beat taking the standard deduction both years.`,
                 icon: CheckCircle2,
               },
             ].map((card) => {
@@ -570,7 +536,7 @@ export default function TaxBrackets2027Page() {
               2027 Bracket <span className="gradient-text">FAQ</span>
             </h2>
             <p className="mt-2 text-muted-foreground">
-              Common questions about the projected 2027 federal income tax brackets
+              Common questions about the official 2027 federal income tax brackets
             </p>
           </div>
 

@@ -76,7 +76,7 @@ export function getCalculatorContent(type: string): CalculatorContent {
         howItWorks: [
           'Look at your pay stub sometime. That number at the bottom — the one that actually hits your bank — is way smaller than the number at the top. This calculator tells you why, line by line. All withholding calculations follow <a href="https://www.irs.gov/publications/p15t" target="_blank" rel="noopener noreferrer">IRS Publication 15-T</a>.',
           'Here\'s what comes out of every paycheck. Federal tax uses progressive brackets from 10% up to 37%, with standard deductions of $16,100 (single) or $32,200 (married). Then <a href="/glossary">FICA</a>: 6.2% for Social Security on income up to $184,500, and 1.45% for Medicare on everything. Make over $200,000? Add another 0.9% Medicare surtax on the amount above that.',
-          'My buddy in Chicago and I compared stubs once. Same salary, same filing status. He walked away with about $3,800 less for the year because Illinois takes 4.95% and my state takes nothing. That\'s when it hit me — state tax is not a small factor. We cover five states here: Illinois at 4.95% flat, Texas at 0%, Florida at 0%, California at 1%–13.3% progressive, and New York at 3.9%–10.9% plus a potential NYC tax.',
+          'State income tax makes a major difference on the same gross salary. On a $75,000 single salary in 2026, an Illinois resident pays $3,568 in state income tax (4.95% flat after the $2,925 personal exemption), whereas a resident of Texas or Florida pays $0. We cover all 50 states here — from 0%-tax states (TX, FL, WA, NV, WY, SD, TN, AK, NH) to flat-tax states like Illinois (4.95%) and progressive states like California (1%–13.3%) and New York (3.9%–10.9% plus NYC local tax).',
           'A couple things that help soften the blow:\n- <a href="/401k-retirement-calculator">401(k) contributions</a> reduce taxable income at both federal and state level\n- HSA contributions do the same\n- These pre-tax deductions are basically a discount on your tax bill',
           'Bottom line — you\'ll see your net pay, effective tax rate, and marginal rate. Most people think their effective rate is higher than it actually is. Go ahead, see for yourself.',
         ],
@@ -115,24 +115,24 @@ export function getCalculatorContent(type: string): CalculatorContent {
     case 'illinois':
       return {
         howItWorks: [
-          '<a href="https://revenue.illinois.gov/" target="_blank" rel="noopener noreferrer">4.95%</a>. That\'s it. One flat rate for every Illinois resident, whether you pull in $30K or $300K. No brackets to figure out, no guessing which rate applies. Honestly, it\'s kinda nice not having to navigate a bracket system — even if 4.95% isn\'t exactly cheap compared to the zero-tax states. You get a $2,775 personal exemption for 2026 that comes off the top, so on a $75,000 salary you\'re taxed on $72,225, which comes out to $3,575.14 in state tax. The math is easy to check. My cousin moved from Chicago to Austin last year and he said the <a href="/relocation-calculator">state tax savings alone covered his moving costs</a> within about 8 months.',
+          '<a href="https://revenue.illinois.gov/" target="_blank" rel="noopener noreferrer">4.95%</a>. That\'s it. One flat rate for every Illinois resident, whether you pull in $30K or $300K. No brackets to figure out, no guessing which rate applies. You get a $2,925 personal exemption for 2026 that comes off the top, so on a $75,000 salary you\'re taxed on $72,075, which comes out to $3,567.71 in state tax. Compared with a 0%-income-tax state like Texas or Florida, that state tax difference alone is over $3,500 per year — see the full <a href="/relocation-calculator">relocation comparison</a>.',
           'On top of Illinois tax you\'ve got the federal progressive brackets with the standard deduction, plus FICA at 7.65% combined. <a href="/401k-retirement-calculator">401(k) contributions</a> are your friend here — they reduce taxable income at both the federal and state level, so every dollar you put in saves you money twice.',
           'One thing people don\'t expect: Illinois has no state standard deduction, just that personal exemption. But there\'s a real silver lining if you\'re anywhere near retirement. Illinois doesn\'t touch Social Security benefits, 401(k) distributions, IRA withdrawals, or pension income. The property taxes are brutal — no argument there — but for retirees specifically, the income tax picture is honestly pretty decent.',
         ],
         calculationMethod: {
           formula: 'IL State Tax = (Gross Income − Personal Exemption) × 4.95%',
           steps: [
-            'Subtract the $2,775 personal exemption from gross income',
+            'Subtract the $2,925 personal exemption from gross income',
             'Apply the flat 4.95% rate to get Illinois state tax',
             'Add federal tax (progressive brackets) and FICA (7.65%)',
             'Subtract pre-tax deductions (401(k) reduces both federal and state taxable income)',
             'Sum all deductions to calculate net take-home pay',
           ],
-          example: '$75,000 salary: ($75,000 − $2,775) × 4.95% = $3,575.14 IL tax. Federal tax ≈ $7,670. FICA = $5,738. Net ≈ $58,017/year.',
+          example: '$75,000 salary: ($75,000 − $2,925) × 4.95% = $3,567.71 IL tax. Federal tax = $7,670.00. FICA = $5,737.50. Net = $58,024.79/year.',
         },
         keyRates: [
           { label: 'Illinois Flat Tax Rate', value: '4.95%' },
-          { label: 'IL Personal Exemption', value: '$2,775' },
+          { label: 'IL Personal Exemption', value: '$2,925' },
           { label: 'IL Avg Property Tax Rate', value: '~1.78%' },
           { label: 'IL Avg Combined Sales Tax', value: '8.86%' },
           { label: 'Social Security Wage Cap', value: '$184,500' },

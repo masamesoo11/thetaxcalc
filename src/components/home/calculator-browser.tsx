@@ -69,7 +69,7 @@ export function CalculatorBrowser({
 
   const categories: Category[] = [
     { key: 'featured', label: 'Featured' },
-    { key: 'all', label: `All ${cards.length} Shown` },
+    { key: 'all', label: `Popular (${cards.length})` },
     { key: 'paycheck', label: 'Paychecks & Income' },
     { key: 'state', label: 'State Calculators' },
     { key: 'finance', label: 'Finance & Retirement' },
@@ -138,7 +138,7 @@ export function CalculatorBrowser({
               </div>
 
               <span className="mt-auto inline-flex items-center gap-1.5 text-sm font-semibold text-[#8a6a24] transition-all group-hover:gap-3">
-                Try Calculator
+                Open {card.title}
                 <ArrowRight className="h-4 w-4" />
               </span>
             </Link>

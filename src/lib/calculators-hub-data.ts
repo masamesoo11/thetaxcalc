@@ -384,11 +384,11 @@ const EXTRA_CALCULATORS: HubCalculator[] = [
   },
   {
     href: '/tax-brackets-2027',
-    label: '2027 Tax Brackets (Projected)',
-    desc: 'Estimated 2027 brackets ahead of the IRS',
+    label: '2027 Tax Brackets (Official)',
+    desc: 'Official 2027 IRS brackets (Rev. Proc. 2026-35)',
     category: 'law',
     icon: 'trending',
-    keywords: '2027 tax brackets projected 2027 standard deduction 2027 rates estimate next year inflation adjustment',
+    keywords: '2027 tax brackets official irs 2027 standard deduction 2027 rates rev proc 2026-35 inflation adjustment',
   },
 ];
 

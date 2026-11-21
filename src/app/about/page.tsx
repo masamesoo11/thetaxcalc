@@ -456,7 +456,7 @@ export default function AboutPage() {
           </p>
           <div className="flex items-center gap-2 text-sm text-emerald-600 mt-2">
             <CheckCircle2 className="h-4 w-4" />
-            <span>Last reviewed: October 2026</span>
+            <span>Last reviewed: November 2026</span>
           </div>
         </div>
       </section>
@@ -719,7 +719,7 @@ export default function AboutPage() {
             <strong className="text-foreground">Tax Calculator Pages:</strong> Every calculation
             engine is built from IRS Publication 15-T, the annual inflation adjustments, and each
             state&apos;s published bracket tables. Outputs are spot-checked against official
-            withholding tables. Last comprehensive data review: October 2026.
+            withholding tables. Last comprehensive data review: November 2026.
           </p>
           <p>
             <strong className="text-foreground">Guides &amp; Research:</strong> Articles cite their

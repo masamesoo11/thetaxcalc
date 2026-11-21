@@ -34,7 +34,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     slug: 'paycheck-calculator',
     title: 'Free 2026 Paycheck Calculator — Federal, FICA & State Tax',
     description:
-      'Free paycheck tax calculator for 2026. Calculate take-home pay after federal, FICA & state taxes. No sign-up required. Supports IL, TX, FL, CA, NY with 401(k) and HSA deductions.',
+      'Free paycheck tax calculator for 2026. Calculate take-home pay after federal, FICA & state taxes. No sign-up required. Supports all 50 US states with 401(k) and HSA deductions.',
     h1: 'Free Paycheck Calculator',
     metaTitle: 'Free Paycheck Calculator 2026 — Take-Home Pay by State',
     metaDesc:
@@ -50,9 +50,9 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     componentKey: 'home',
     category: 'paycheck',
     breadcrumbLabel: 'Paycheck Calculator',
-    ogTitle: 'Free Paycheck Calculator 2026 | After-Tax Take-Home Pay',
+    ogTitle: 'Free Paycheck Calculator 2026 — Take-Home Pay by State',
     ogDescription:
-      'Free paycheck tax calculator for 2026. Take-home pay after federal, FICA & state taxes. No sign-up. IL, TX, FL, CA, NY.',
+      'Free paycheck tax calculator for 2026. Take-home pay after federal, FICA & state taxes. No sign-up. All 50 states + 401(k) & HSA.',
     canonicalPath: '/paycheck-calculator',
     jsonLdType: 'home',
   },
@@ -60,7 +60,7 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     slug: 'illinois-tax-calculator',
     title: 'Free Illinois Tax Calculator 2026 — 4.95% Flat Tax',
     description:
-      'Free Illinois tax calculator for 2026. Calculate take-home pay after 4.95% flat state tax, $2,775 personal exemption, federal tax & FICA. No sign-up.',
+      'Free Illinois tax calculator for 2026. Calculate take-home pay after 4.95% flat state tax, $2,925 personal exemption, federal tax & FICA. No sign-up.',
     h1: 'Illinois Paycheck Calculator',
     metaTitle: 'Illinois Paycheck Calculator 2026 — 4.95% Flat Tax',
     metaDesc:
@@ -74,9 +74,9 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     componentKey: 'illinois',
     category: 'paycheck',
     breadcrumbLabel: 'Illinois',
-    ogTitle: 'Illinois Tax Calculator 2026 — 4.95% Flat, $75K = $57,880 Take-Home',
+    ogTitle: 'Illinois Tax Calculator 2026 — 4.95% Flat, $75K = $58,025 Take-Home',
     ogDescription:
-      'IL flat 4.95%. On $75K, take home ~$57,880. Calculate your exact Illinois after-tax pay. Free 2026 calculator.',
+      'IL flat 4.95%. On $75K, take home ~$58,025. Calculate your exact Illinois after-tax pay. Free 2026 calculator.',
     canonicalPath: '/illinois-tax-calculator',
     jsonLdType: 'illinois',
   },
@@ -146,9 +146,9 @@ export const CALCULATOR_ROUTES: CalculatorRouteConfig[] = [
     componentKey: 'california',
     category: 'paycheck',
     breadcrumbLabel: 'California',
-    ogTitle: 'California Tax Calculator 2026 — $75K = $54,849 Take-Home',
+    ogTitle: 'California Tax Calculator 2026 — $75K = $58,536 Take-Home',
     ogDescription:
-      'CA 13.3% max rate. On $75K, take home ~$54,849. Calculate your exact California after-tax pay. Free 2026 calculator.',
+      'CA 13.3% max rate. On $75K, take home ~$58,536. Calculate your exact California after-tax pay. Free 2026 calculator.',
     canonicalPath: '/california-tax-calculator',
     jsonLdType: 'california',
   },
@@ -1532,6 +1532,8 @@ export const STANDALONE_CALCULATOR_ROUTES: { path: string; label: string }[] = [
   { path: '/job-offer-comparison-calculator', label: 'Job Offer Comparison Calculator' },
   { path: '/paycheck-difference-calculator', label: 'Paycheck Difference Calculator' },
   { path: '/obbba-tax-calculator', label: 'OBBBA Tax Calculator' },
+  { path: '/federal-tax-brackets', label: 'Federal Tax Brackets 2026' },
+  { path: '/tax-brackets-2027', label: '2027 Tax Brackets (Official)' },
 ];
 
 export const TOTAL_CALCULATOR_COUNT =

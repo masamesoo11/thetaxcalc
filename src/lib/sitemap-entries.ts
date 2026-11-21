@@ -72,7 +72,7 @@ export function getSitemapEntries(): MetadataRoute.Sitemap {
   entries.push({ url: `${baseUrl}/federal-tax-brackets`, lastModified: taxYearUpdate, changeFrequency: 'monthly', priority: 0.95 });
   // 2027 projected brackets — published 2026-10-27 ahead of the IRS Rev. Proc.;
   // lastmod records the real publication/update date of this projection.
-  entries.push({ url: `${baseUrl}/tax-brackets-2027`, lastModified: '2026-10-27', changeFrequency: 'weekly', priority: 0.95 });
+  entries.push({ url: `${baseUrl}/tax-brackets-2027`, lastModified: '2026-11-20', changeFrequency: 'weekly', priority: 0.95 });
   entries.push({ url: `${baseUrl}/freefile-irs`, lastModified: taxYearUpdate, changeFrequency: 'monthly', priority: 0.95 });
   entries.push({ url: `${baseUrl}/home-sale-tax-calculator`, lastModified: taxYearUpdate, changeFrequency: 'monthly', priority: 0.95 });
   entries.push({ url: `${baseUrl}/about`, lastModified: siteUpdate, changeFrequency: 'monthly', priority: 0.7 });

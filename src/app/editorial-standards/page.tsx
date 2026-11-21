@@ -43,6 +43,14 @@ interface LogEntry {
 // change to rates, formulas, or content policy — including our own mistakes.
 const CORRECTION_LOG: LogEntry[] = [
   {
+    date: '2026-11-20',
+    type: 'update',
+    title: 'Updated 2027 federal tax brackets to official IRS Rev. Proc. 2026-35 figures',
+    detail:
+      'Replaced our earlier October 2026 C-CPI-U projections with the official 2027 bracket tables and standard deductions ($16,600 single / $33,200 MFJ / $24,925 HoH) published in IRS Revenue Procedure 2026-35. Also reconciled hardcoded FAQ and article examples ($75K state take-home pay, 2026 10% bracket threshold $12,400, and Thursday April 15, 2027 filing deadline) against our calculation engine.',
+    pages: '/tax-brackets-2027, /paycheck-calculator, /salary',
+  },
+  {
     date: '2026-10-31',
     type: 'process',
     title: 'Published the public Accuracy Report',

@@ -40,17 +40,17 @@ export const HOME_FAQS: FAQItem[] = [
   {
     question: 'When are 2026 taxes due?',
     answer:
-      "For the 2026 tax year (income earned January 1 – December 31, 2026), your federal tax return is due on Tuesday, April 15, 2027. If you file for an extension with Form 4868, you get until October 15, 2027 to file — but any taxes you owe are still due by April 15. Quarterly estimated tax payments for self-employed individuals are due April 15, June 15, September 15, 2026, and January 15, 2027. State income tax deadlines vary by state but typically align with the federal April 15 deadline.",
+      "For the 2026 tax year (income earned January 1 – December 31, 2026), your federal tax return is due on Thursday, April 15, 2027. If you file for an extension with Form 4868, you get until October 15, 2027 to file — but any taxes you owe are still due by April 15. Quarterly estimated tax payments for self-employed individuals are due April 15, June 15, September 15, 2026, and January 15, 2027. State income tax deadlines vary by state but typically align with the federal April 15 deadline.",
   },
   {
     question: 'How much is $75,000 a year after taxes in 2026?',
     answer:
-      "On a $75,000 salary in 2026, your take-home pay depends on your state. After federal income tax ($7,670 for single filers) and FICA ($5,738), you keep about $61,592 in no-income-tax states like Texas, Florida, Washington, Nevada, and Wyoming. In Illinois (4.95% flat), you keep about $58,017. In California (1%–13.3%), take-home drops to around $54,849. In New York (3.9%–10.9%), about $55,413. Use our paycheck calculator above to see exact numbers for your state and filing status.",
+      "On a $75,000 salary in 2026, your take-home pay depends on your state. After federal income tax ($7,670 for single filers) and FICA ($5,738), you keep about $61,593 in no-income-tax states like Texas, Florida, Washington, Nevada, and Wyoming. In Illinois (4.95% flat), you keep about $58,025. In California (1%–13.3%), take-home drops to around $58,536. In New York (3.9%–10.9%), about $58,140. Use our paycheck calculator above to see exact numbers for your state and filing status.",
   },
   {
     question: 'How to calculate federal income tax step by step?',
     answer:
-      "To calculate your 2026 federal income tax: (1) Start with your gross income (wages, salary, self-employment income). (2) Subtract pre-tax deductions like 401(k) contributions and HSA. (3) Subtract the standard deduction ($16,100 single / $32,200 married). (4) Apply the 2026 federal tax brackets progressively — 10% on the first $11,600, then 12%, 22%, 24%, 32%, 35%, and 37% as income increases. (5) Subtract any tax credits (Child Tax Credit $2,200, education credits). (6) Add FICA (7.65%). The result is your total tax liability. Our paycheck calculator does all of this instantly for all 50 states.",
+      "To calculate your 2026 federal income tax: (1) Start with your gross income (wages, salary, self-employment income). (2) Subtract pre-tax deductions like 401(k) contributions and HSA. (3) Subtract the standard deduction ($16,100 single / $32,200 married). (4) Apply the 2026 federal tax brackets progressively — 10% on the first $12,400, then 12%, 22%, 24%, 32%, 35%, and 37% as income increases. (5) Subtract any tax credits (Child Tax Credit $2,200, education credits). (6) Add FICA (7.65%). The result is your total tax liability. Our paycheck calculator does all of this instantly for all 50 states.",
   },
   {
     question: 'What is OASDI tax and how much is it?',
@@ -512,7 +512,7 @@ export const INCOME_TAX_FAQS: FAQItem[] = [
   {
     question: 'How does the federal income tax bracket system work?',
     answer:
-      "Your income is divided into chunks, and each chunk is taxed at a different rate. For 2026, brackets range from 10% on your first dollars earned up to 37% on income above $609,350 (single). Only the income within each bracket gets that rate — so a $75,000 earner pays 10% on the first $11,600, 12% on the next chunk, and 22% only on the amount above $47,150.",
+      "Your income is divided into chunks, and each chunk is taxed at a different rate. For 2026, brackets range from 10% on your first dollars earned up to 37% on income above $640,600 (single). Only the income within each bracket gets that rate — so a $75,000 earner pays 10% on the first $12,400, 12% on the next chunk, and 22% only on the amount above $50,400.",
   },
   {
     question: 'What is the standard deduction for 2026?',
@@ -1305,7 +1305,7 @@ export const GENERIC_STATE_FAQS: FAQItem[] = [
   {
     question: 'What is the difference between effective and marginal tax rate?',
     answer:
-      "Your marginal tax rate is the rate applied to your last dollar of income — essentially the highest bracket you fall into. Your effective tax rate is your total tax divided by your total income, which gives you an overall average. For example, a single filer making $75,000 has a marginal rate of 22%, but because the first $11,600 is taxed at 10%, the next chunk at 12%, and only the amount above $47,150 at 22%, their effective federal rate is closer to 11–12%. The effective rate is what actually matters for understanding your overall tax burden, while the marginal rate tells you how much tax you'd save with each dollar of deduction.",
+      "Your marginal tax rate is the rate applied to your last dollar of income — essentially the highest bracket you fall into. Your effective tax rate is your total tax divided by your total income, which gives you an overall average. For example, a single filer making $75,000 has a marginal rate of 22%, but because the first $12,400 is taxed at 10%, the next chunk at 12%, and only the amount above $50,400 at 22%, their effective federal rate is closer to 11–12%. The effective rate is what actually matters for understanding your overall tax burden, while the marginal rate tells you how much tax you'd save with each dollar of deduction.",
   },
   {
     question: 'How do state taxes affect my take-home pay?',

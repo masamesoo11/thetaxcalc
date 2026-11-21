@@ -34,8 +34,6 @@ const CALCULATOR_LINKS = [
   { href: '/job-offer-comparison-calculator', label: 'Job Offer Compare', icon: ArrowRightLeft },
   { href: '/paycheck-difference-calculator', label: 'Paycheck Difference', icon: ArrowRightLeft },
   { href: '/employee-cost-calculator', label: 'Employee Cost Calculator', icon: DollarSign },
-  { href: '/obbba-tax-calculator', label: 'OBBBA Tax Calculator', icon: Calculator },
-  { href: '/federal-tax-brackets', label: 'Federal Tax Brackets', icon: FileText },
 ];
 
 // All 50 state tax calculators — eliminates orphan pages & boosts internal link equity
@@ -238,7 +236,7 @@ export function Footer() {
               More Tools
             </h3>
             <ul className="space-y-2">
-              {CALCULATOR_LINKS.slice(7).map((link) => {
+              {CALCULATOR_LINKS.slice(8).map((link) => {
                 const Icon = link.icon;
                 return (
                   <li key={link.href}>

@@ -255,7 +255,7 @@ export default async function HomeSaleTaxCalculatorPage() {
           {CONFIG.snippetAnswer}
         </p>
         <p className="mt-2 text-xs text-muted-foreground">
-          Last reviewed: February 2026 &middot; By {author.name}, {author.credentials} &middot; Information verified against IRS.gov &amp; IRC Section 121
+          Last reviewed: November 2026 &middot; By {author.name}{author.credentials ? `, ${author.credentials}` : ''} &middot; Information verified against IRS.gov &amp; IRC Section 121
         </p>
       </div>
 

@@ -66,7 +66,6 @@ export async function generateMetadata({
   return {
     title: { absolute: config.metaTitle ?? config.title },
     description: config.metaDesc,
-    keywords: config.keywords,
     authors: [{ name: 'TheTaxCalc Editorial Team' }],
     // Spread instead of `robots: undefined` so indexable pages inherit the
     // layout's `index, follow` default rather than overriding it with nothing.
@@ -520,7 +519,7 @@ export default async function CalculatorPage({
         </p>
         {/* E-E-A-T: Last reviewed date */}
         <p className="mt-2 text-xs text-muted-foreground">
-          Last reviewed: January 2026 · Tax data verified against IRS Publication 15-T &amp; state revenue departments
+          Last reviewed: November 2026 · Tax data verified against IRS Publication 15-T &amp; state revenue departments
         </p>
       </div>
 

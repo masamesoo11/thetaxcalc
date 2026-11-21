@@ -58,7 +58,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Salary After Tax Calculator 2026 — Take-Home Pay',
     description:
-      'See your take-home pay for every salary from $30K to $500K. Compare after-tax income across IL, TX, FL, CA, NY.',
+      'See your take-home pay for every salary from $30K to $500K. Compare after-tax income across all 50 US states.',
     images: [`${SITE_URL}/opengraph-image.png`],
   },
 };
@@ -68,7 +68,7 @@ export const metadata: Metadata = {
 const SALARY_LANDING_FAQS = [
   {
     question: 'How much is my salary after taxes in 2026?',
-    answer: 'Your take-home pay depends on your salary, filing status, and state. For example, a single filer earning $75,000 in Texas (0% state tax) takes home about $61,592 after federal tax and FICA. The same salary in California (up to 13.3% state tax) leaves you with about $54,849. That\'s a difference of over $6,700 per year just from your state. Our salary pages show you exact take-home numbers for 26 salary levels across all 50 states.',
+    answer: 'Your take-home pay depends on your salary, filing status, and state. For example, a single filer earning $75,000 in Texas (0% state tax) takes home about $61,593 after federal tax ($7,670) and FICA ($5,738). The same salary in California leaves you with about $58,536, in New York about $58,140, and in Illinois about $58,025. That\'s a difference of over $3,000 per year just from your state. Our salary pages show exact take-home numbers for 26 salary levels across all 50 states.',
   },
   {
     question: 'Which state has the highest take-home pay?',

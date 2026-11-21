@@ -244,7 +244,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     definition:
       'A progressive tax system imposes higher tax rates on higher levels of income. The U.S. federal income tax is progressive — your first dollars are taxed at 10%, and only income above certain thresholds reaches the 37% bracket. This is different from a flat tax (like Illinois\'s 4.95%) or regressive tax.',
     example:
-      'A single filer with $50,000 taxable income pays 10% on the first ~$11,600, 12% on income up to ~$48,350, and 22% on only the remaining ~$1,650.',
+      'A single filer with $58,900 taxable income ($75,000 gross minus the $16,100 standard deduction) pays 10% on the first $12,400, 12% on income from $12,401 to $50,400, and 22% only on the remaining $8,500.',
     calculatorLink: '/paycheck-calculator',
     calculatorLabel: 'Paycheck Calculator',
   },
