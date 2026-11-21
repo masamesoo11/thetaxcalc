@@ -110,7 +110,7 @@ function getIllinoisJsonLd() {
       { '@type': 'WebApplication', name: 'Illinois Paycheck Calculator 2026', url: `${SITE_URL}/illinois-tax-calculator`, applicationCategory: 'FinanceApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: 0, priceCurrency: 'USD' }, author: authorToJsonLd(author) },
       { '@type': 'Dataset', name: '2026 Illinois Tax Rates', description: 'Key Illinois tax rates and federal brackets for 2026 paycheck calculations.', creator: { '@type': 'Organization', name: 'TheTaxCalc', url: SITE_URL }, license: 'https://creativecommons.org/licenses/by/4.0/', variableMeasured: [
         { '@type': 'PropertyValue', name: 'Illinois Flat Tax Rate', value: '4.95', unitText: 'percent' },
-        { '@type': 'PropertyValue', name: 'Illinois Personal Exemption', value: '2775', unitText: 'USD' },
+        { '@type': 'PropertyValue', name: 'Illinois Personal Exemption', value: '2925', unitText: 'USD' },
         { '@type': 'PropertyValue', name: 'Federal Standard Deduction (Single)', value: '16100', unitText: 'USD' },
         { '@type': 'PropertyValue', name: 'Social Security Wage Cap', value: '184500', unitText: 'USD' },
       ]},

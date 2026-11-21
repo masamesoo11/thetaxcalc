@@ -117,10 +117,10 @@ Illinois doesn't do brackets. We don't do progressive. We do flat. The 2026 indi
 
 Okay, it's not a *total* flat percentage on everything. You do get some exemptions knocked off your income first:
 
-- **Single**: $2,775
-- **Married filing jointly**: $5,550
-- **Head of household**: $2,775
-- **Each dependent**: another $2,775
+- **Single**: $2,925
+- **Married filing jointly**: $5,850
+- **Head of household**: $2,925
+- **Each dependent**: another $2,925
 
 These come off the top before the 4.95% rate kicks in. So it's not much, but hey — it's something.
 
@@ -132,9 +132,9 @@ Start with your federal AGI. Then you add back some deductions that the feds let
 
 Let me walk through a real example. Say you're single, making $80,000 in federal AGI:
 
-- Take the $80,000, subtract your $2,775 personal exemption
-- That gives you $77,225 in taxable income
-- $77,225 times 4.95% = **$3,822.64**
+- Take the $80,000, subtract your $2,925 personal exemption
+- That gives you $77,075 in taxable income
+- $77,075 times 4.95% = **$3,815.21**
 
 That's it. No bracket gymnastics, no guessing. Just... math. Simple, predictable math. Our [Illinois paycheck calculator](/illinois-tax-calculator) does this for you automatically. I'll give Illinois that much.
 

@@ -34,7 +34,7 @@ const COMPARISON_DATA = [
     abbreviation: 'IL',
     incomeTaxRate: '4.95%',
     incomeTaxType: 'Flat',
-    personalExemption: '$2,775',
+    personalExemption: '$2,925',
     avgPropertyTaxRate: '1.78%',
     avgAnnualPropertyTax: '$5,228',
     salesTaxRate: '8.86%',

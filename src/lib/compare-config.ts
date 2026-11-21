@@ -40,11 +40,11 @@ export const COMPARE_STATES: Record<string, CompareStateData> = {
     taxConfigKey: 'illinois',
     incomeTaxLabel: '4.95% flat',
     incomeTaxRate: 0.0495,
-    standardDeduction: 2775,
+    standardDeduction: 2925,
     propertyTaxRate: 0.0178,
     salesTaxRate: 0.0886,
     calculatorSlug: '/illinois-tax-calculator',
-    extraNotes: 'Personal exemption of $2,775; no standard deduction',
+    extraNotes: 'Personal exemption of $2,925; no standard deduction',
   },
   texas: {
     name: 'Texas',

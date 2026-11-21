@@ -110,7 +110,7 @@ export function IllinoisCalculator() {
           Illinois Paycheck Calculator
         </h2>
         <p className="mt-2 text-muted-foreground">
-          Illinois flat 4.95% income tax with $2,775 personal exemption — complete take-home breakdown
+          Illinois flat 4.95% income tax with $2,925 personal exemption — complete take-home breakdown
         </p>
       </div>
 
@@ -123,11 +123,11 @@ export function IllinoisCalculator() {
               <p>
                 Illinois uses a <strong className="text-emerald-600">flat tax rate of 4.95%</strong> on
                 all taxable income. Unlike most states, Illinois does not offer a standard deduction.
-                Instead, a <strong className="text-emerald-600">personal exemption of $2,775</strong> per
+                Instead, a <strong className="text-emerald-600">personal exemption of $2,925</strong> per
                 person is subtracted from gross income before the flat rate is applied.
               </p>
               <p>
-                For a $75,000 salary: Taxable income = $75,000 - $2,775 = $72,225. State tax = $72,225 × 4.95% = $3,575.14.
+                For a $75,000 salary: Taxable income = $75,000 - $2,925 = $72,075. State tax = $72,075 × 4.95% = $3,567.71.
               </p>
             </div>
           </div>
@@ -325,7 +325,7 @@ export function IllinoisCalculator() {
               </TableRow>
               <TableRow>
                 <TableCell>Personal Exemption</TableCell>
-                <TableCell className="font-medium">$2,775</TableCell>
+                <TableCell className="font-medium">$2,925</TableCell>
                 <TableCell>Subtracted from gross before tax computation</TableCell>
               </TableRow>
               <TableRow>
@@ -357,14 +357,14 @@ export function IllinoisCalculator() {
         <h2 className="text-xl font-bold text-foreground">Illinois $75,000 Salary Example (2026)</h2>
         <div className="mt-3 space-y-1 text-sm text-muted-foreground">
           <p>Gross Annual Salary: $75,000.00</p>
-          <p>Illinois Personal Exemption: -$2,775.00</p>
-          <p>Illinois Taxable Income: $72,225.00</p>
-          <p>Illinois State Tax (4.95%): $3,575.14</p>
+          <p>Illinois Personal Exemption: -$2,925.00</p>
+          <p>Illinois Taxable Income: $72,075.00</p>
+          <p>Illinois State Tax (4.95%): $3,567.71</p>
           <p>Federal Tax (after $16,100 std deduction): $7,670.00</p>
           <p>FICA Total (7.65%): $5,737.50</p>
-          <p>Total Deductions: $16,982.64</p>
-          <p>Net Annual Take-Home: $58,017.36</p>
-          <p>Monthly Take-Home: $4,834.78</p>
+          <p>Total Deductions: $16,975.21</p>
+          <p>Net Annual Take-Home: $58,024.79</p>
+          <p>Monthly Take-Home: $4,835.40</p>
         </div>
       </div>
 

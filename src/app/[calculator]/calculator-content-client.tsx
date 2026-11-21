@@ -61,7 +61,7 @@ function getCalculatorContent(type: string): CalculatorContent {
         ],
         keyRates: [
           { label: 'Illinois Flat Tax Rate', value: '4.95%' },
-          { label: 'IL Personal Exemption', value: '$2,775' },
+          { label: 'IL Personal Exemption', value: '$2,925' },
           { label: 'IL Avg Property Tax Rate', value: '~1.78%' },
           { label: 'IL Avg Combined Sales Tax', value: '8.86%' },
           { label: 'Social Security Wage Cap', value: '$184,500' },

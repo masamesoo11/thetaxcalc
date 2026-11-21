@@ -111,6 +111,10 @@ const sitewideJsonLd = {
         "@type": "Person",
         name: "Alfaytouri",
       },
+      sameAs: [
+        "https://dev.to/thetaxcalc",
+        "https://www.producthunt.com/products/thetaxcalc",
+      ],
       contactPoint: [
         {
           "@type": "ContactPoint",

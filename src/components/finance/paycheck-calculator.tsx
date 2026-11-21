@@ -520,19 +520,19 @@ export function PaycheckCalculator({ defaultState = 'illinois', onStateChange }:
         </h2>
         <p className="mt-2 text-sm text-muted-foreground">
           For a single filer earning $75,000 annually in Illinois with standard deduction of $16,100
-          and Illinois personal exemption of $2,775:
+          and Illinois personal exemption of $2,925:
         </p>
         <div className="mt-4 space-y-1 text-sm text-muted-foreground">
           <p>Gross Annual Salary: $75,000.00</p>
           <p>Federal Tax (after $16,100 standard deduction): $7,670.00</p>
           <p>FICA - Social Security (6.2%): $4,650.00</p>
           <p>FICA - Medicare (1.45%): $1,087.50</p>
-          <p>Illinois State Tax (4.95% on $75,000 - $2,775): $3,576.38</p>
-          <p>Total Deductions: $16,983.88</p>
-          <p>Net Annual Take-Home Pay: $58,016.12</p>
-          <p>Effective Tax Rate: 22.64%</p>
-          <p>Monthly Take-Home: $4,834.68</p>
-          <p>Bi-Weekly Take-Home: $2,231.39</p>
+          <p>Illinois State Tax (4.95% on $75,000 - $2,925): $3,567.71</p>
+          <p>Total Deductions: $16,975.21</p>
+          <p>Net Annual Take-Home Pay: $58,024.79</p>
+          <p>Effective Tax Rate: 22.63%</p>
+          <p>Monthly Take-Home: $4,835.40</p>
+          <p>Bi-Weekly Take-Home: $2,231.72</p>
         </div>
       </div>
 

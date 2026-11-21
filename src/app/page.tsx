@@ -233,22 +233,10 @@ const homeJsonLd = {
         `Free 2026 tax calculators — paycheck, mortgage, 401(k), capital gains, and self-employment. ${CALCULATOR_COUNT} tools & 50-state sales tax data.`,
       url: SITE_URL,
       inLanguage: 'en-US',
-      dateModified: '2026-11-20',
+      dateModified: '2026-11-21',
       author: { '@id': homeAuthorId },
       publisher: { '@id': `${SITE_URL}/#organization` },
       isPartOf: { '@id': `${SITE_URL}/#website` },
-      breadcrumb: { '@id': `${SITE_URL}/#breadcrumb` },
-      speakable: {
-        '@type': 'SpeakableSpecification',
-        cssSelector: ['h1', '.speakable-summary'],
-      },
-    },
-    {
-      '@id': `${SITE_URL}/#breadcrumb`,
-      '@type': 'BreadcrumbList',
-      itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
-      ],
     },
     {
       '@id': `${SITE_URL}/#software`,
@@ -263,41 +251,6 @@ const homeJsonLd = {
         availability: 'https://schema.org/InStock',
         url: `${SITE_URL}/paycheck-calculator`,
       },
-    },
-    {
-      '@id': `${SITE_URL}/#howto`,
-      '@type': 'HowTo',
-      name: 'How to Calculate Your Take-Home Pay After Taxes',
-      description:
-        'Step-by-step guide to calculating your net take-home pay after federal tax, FICA, and state income tax deductions.',
-      totalTime: 'PT2M',
-      step: [
-        {
-          '@type': 'HowToStep',
-          name: 'Enter Your Gross Salary',
-          text: 'Input your annual, monthly, bi-weekly, weekly, or hourly salary into the calculator.',
-        },
-        {
-          '@type': 'HowToStep',
-          name: 'Select Your State',
-          text: 'Choose your state — we cover all 50 states with dedicated income tax calculators, including IL (4.95%), TX (0%), FL (0%), CA (1%–13.3%), NY (3.9%–10.9%), and 46 more states.'
-        },
-        {
-          '@type': 'HowToStep',
-          name: 'Choose Filing Status',
-          text: 'Select Single, Married Filing Jointly, or Head of Household for accurate bracket calculations.',
-        },
-        {
-          '@type': 'HowToStep',
-          name: 'Add Pre-Tax Deductions',
-          text: 'Enter 401(k) contributions (up to $24,500) and HSA contributions to reduce your taxable income.',
-        },
-        {
-          '@type': 'HowToStep',
-          name: 'View Your Results',
-          text: 'See your net take-home pay broken down by federal tax, FICA, state tax, and pre-tax deductions with effective tax rate.',
-        },
-      ],
     },
     {
       '@id': `${SITE_URL}/#itemlist`,
@@ -368,7 +321,7 @@ export default function HomePage() {
                 </div>
 
                 <h1 className="text-4xl font-bold leading-[1.1] tracking-tight text-[#1c1917] sm:text-5xl lg:text-[3.4rem]">
-                  Free <span className="text-[#8a6a24]">Tax Calculators</span> for 2026
+                  Free 2026 <span className="text-[#8a6a24]">Paycheck &amp; Take-Home Pay</span> Calculator
                 </h1>
 
                 <p className="speakable-summary max-w-xl text-lg leading-relaxed text-[#57534e]">
@@ -637,7 +590,7 @@ export default function HomePage() {
                     Every calculation uses the latest 2026 federal brackets, FICA rates, and state-specific
                     tax laws — pulled straight from{' '}
                     <a href="https://www.irs.gov/filing/federal-income-tax-rates-and-brackets" target="_blank" rel="noopener noreferrer" className="font-medium text-[#8a6a24] underline underline-offset-2 hover:text-[#6f551d]">IRS publications</a> and{' '}
-                    <a href="https://taxfoundation.org/" target="_blank" rel="noopener noreferrer" className="font-medium text-[#8a6a24] underline underline-offset-2 hover:text-[#6f551d]">state revenue departments</a>, not some third-party blog post.
+                    <Link prefetch={false} href="/methodology#state-sources" className="font-medium text-[#8a6a24] underline underline-offset-2 hover:text-[#6f551d]">official state revenue department sources</Link>, not some third-party blog post.
                   </p>
                   <p>
                     W-2 employee or self-employed, you get the full breakdown: federal income tax, Social

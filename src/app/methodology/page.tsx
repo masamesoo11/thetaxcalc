@@ -128,7 +128,7 @@ export default function MethodologyPage() {
       </section>
 
       {/* ─── State Income Tax ───────────────────────────────────────── */}
-      <section className="mb-10">
+      <section id="state-sources" className="mb-10 scroll-mt-24">
         <h2 className="text-2xl font-bold text-foreground mb-4">
           State Income Tax
         </h2>

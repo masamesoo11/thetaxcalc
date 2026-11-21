@@ -113,7 +113,7 @@ const STATE_TAX_DATA = [
     abbr: 'IL',
     rate: '4.95%',
     type: 'Flat',
-    deduction: '$2,775',
+    deduction: '$2,925',
     calculator: '/illinois-tax-calculator',
   },
   {

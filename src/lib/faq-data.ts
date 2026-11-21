@@ -73,12 +73,12 @@ export const ILLINOIS_FAQS: FAQItem[] = [
   {
     question: 'What is the Illinois personal exemption for 2026?',
     answer:
-      "Illinois gives you a $2,775 personal exemption, which just gets subtracted from your gross income before applying the 4.95% rate. So on a $75K salary, you're taxed on $72,225 — works out to about $3,575 in state tax. It's not a huge break, honestly. Married filers and dependents can claim additional exemptions.",
+      "Illinois gives you a $2,925 personal exemption, which just gets subtracted from your gross income before applying the 4.95% rate. So on a $75K salary, you're taxed on $72,075 — works out to about $3,568 in state tax. It's not a huge break, honestly. Married filers and dependents can claim additional exemptions.",
   },
   {
     question: 'Does Illinois have a standard deduction?',
     answer:
-      "Nope. Illinois doesn't do the standard deduction thing. Instead you get that $2,775 personal exemption per person, which is way less generous than the federal $16,100 standard deduction. They're completely separate — the federal deduction only applies to your federal return.",
+      "Nope. Illinois doesn't do the standard deduction thing. Instead you get that $2,925 personal exemption per person, which is way less generous than the federal $16,100 standard deduction. They're completely separate — the federal deduction only applies to your federal return.",
   },
   {
     question: 'Is Illinois a good state for high-income earners?',
@@ -918,7 +918,7 @@ export const MICHIGAN_FAQS: FAQItem[] = [
   {
     question: 'What is the Michigan personal exemption for 2026?',
     answer:
-      "$5,500 per person for single filers and head of household, $11,000 for married filing jointly (that's $5,500 per spouse). This gets subtracted from your gross income before applying the 4.25% rate. So on a $75K salary as a single filer, you're taxed on $69,500 — works out to about $2,954 in state tax. It's more generous than Illinois's $2,775 exemption but doesn't come close to a standard deduction.",
+      "$5,500 per person for single filers and head of household, $11,000 for married filing jointly (that's $5,500 per spouse). This gets subtracted from your gross income before applying the 4.25% rate. So on a $75K salary as a single filer, you're taxed on $69,500 — works out to about $2,954 in state tax. It's more generous than Illinois's $2,925 exemption but doesn't come close to a standard deduction.",
   },
   {
     question: 'Does Michigan have a standard deduction?',
@@ -956,7 +956,7 @@ export const NORTHCAROLINA_FAQS: FAQItem[] = [
   {
     question: 'Does North Carolina have a personal exemption?',
     answer:
-      "Nope. North Carolina eliminated personal exemptions a while back. Your only deduction before the flat rate is the standard deduction. But honestly, with a $12,750 standard deduction for single filers, you're already getting a bigger break than states like Illinois ($2,775 personal exemption, no standard deduction) or Michigan ($5,500 personal exemption, no standard deduction).",
+      "Nope. North Carolina eliminated personal exemptions a while back. Your only deduction before the flat rate is the standard deduction. But honestly, with a $12,750 standard deduction for single filers, you're already getting a bigger break than states like Illinois ($2,925 personal exemption, no standard deduction) or Michigan ($5,500 personal exemption, no standard deduction).",
   },
   {
     question: 'Does North Carolina tax Social Security benefits?',
